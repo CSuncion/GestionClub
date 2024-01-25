@@ -1,0 +1,15 @@
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\Comun.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\obj\Debug\GestionClubController.csproj.AssemblyReference.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\obj\Debug\GestionClubController.csproj.CoreCompileInputs.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\obj\Debug\GestionClubController.csproj.CopyComplete
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubController.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubController.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubModel.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubRepository.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubConnection.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubModel.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubModel.dll.config
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubRepository.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\bin\Debug\GestionClubConnection.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\obj\Debug\GestionClubController.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubController\obj\Debug\GestionClubController.pdb

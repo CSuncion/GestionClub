@@ -1,0 +1,12 @@
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsRepository.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsRepository.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsConnection.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsModel.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsConnection.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsModel.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\bin\Release\CreditsModel.dll.config
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Release\GestionClubRepository.csproj.AssemblyReference.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Release\GestionClubRepository.csproj.CoreCompileInputs.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Release\GestionClubRepository.csproj.CopyComplete
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Release\CreditsRepository.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Release\CreditsRepository.pdb
