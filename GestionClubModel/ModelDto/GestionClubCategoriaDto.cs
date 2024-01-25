@@ -8,6 +8,16 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubCategoriaDto
     {
+        public const string _idCategoria = "idCategoria";
+        public const string _idEmpresa = "idEmpresa";
+        public const string _codCategoria = "codCategoria";
+        public const string _desCategoria = "desCategoria";
+        public const string _estadoCategoria = "estadoCategoria";
+        public const string _usuarioAgrega = "usuarioAgrega";
+        public const string _fechaAgrega = "fechaAgrega";
+        public const string _usuarioModifica = "usuarioModifica";
+        public const string _fechaModifica = "fechaModifica";
+
         public int idCategoria { get; set; }
         public int idEmpresa { get; set; }
         public string codCategoria { get; set; }

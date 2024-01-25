@@ -16,6 +16,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmAmbientes : Form
     {
+        public string eTitulo = "Registro Ambientes";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubAmbientesDto> eLisAmbiente = new List<GestionClubAmbientesDto>();
         public GestionClubAmbienteController oOpe = new GestionClubAmbienteController();

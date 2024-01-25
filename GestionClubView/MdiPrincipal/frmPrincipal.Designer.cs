@@ -67,6 +67,7 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -197,7 +198,8 @@
             this.tsmMozosUsuarios,
             this.tsmAperturaCaja,
             this.tsmCierreCaja,
-            this.tsmAmbientes});
+            this.tsmAmbientes,
+            this.tsmCategorias});
             resources.ApplyResources(this.maestrosToolStripMenuItem, "maestrosToolStripMenuItem");
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
             // 
@@ -346,6 +348,12 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
+            // tsmCategorias
+            // 
+            resources.ApplyResources(this.tsmCategorias, "tsmCategorias");
+            this.tsmCategorias.Name = "tsmCategorias";
+            this.tsmCategorias.Click += new System.EventHandler(this.tsmCategorias_Click);
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -415,5 +423,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmAmbientes;
         internal System.Windows.Forms.ToolStripMenuItem tsmComanda;
         internal System.Windows.Forms.ToolStripButton tsbComanda;
+        internal System.Windows.Forms.ToolStripMenuItem tsmCategorias;
     }
 }

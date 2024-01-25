@@ -47,6 +47,7 @@
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.DgvRefiAmp = new System.Windows.Forms.DataGridView();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
@@ -60,6 +61,7 @@
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAdicionar,
+            this.tsbEditar,
             this.tsbEliminar,
             this.tsbVisualizar,
             this.tsbSalir});
@@ -230,6 +232,15 @@
             this.DgvRefiAmp.Size = new System.Drawing.Size(800, 357);
             this.DgvRefiAmp.TabIndex = 111;
             // 
+            // tsbEditar
+            // 
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +288,6 @@
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
         private System.Windows.Forms.DataGridView DgvRefiAmp;
+        private System.Windows.Forms.ToolStripButton tsbEditar;
     }
 }

@@ -47,11 +47,11 @@
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DgvRefiAmp = new System.Windows.Forms.DataGridView();
+            this.DgvMesas = new System.Windows.Forms.DataGridView();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvMesas)).BeginInit();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -230,17 +230,17 @@
             this.tssEstado.Size = new System.Drawing.Size(10, 17);
             this.tssEstado.Text = ".";
             // 
-            // DgvRefiAmp
+            // DgvMesas
             // 
-            this.DgvRefiAmp.BackgroundColor = System.Drawing.Color.White;
-            this.DgvRefiAmp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DgvRefiAmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvRefiAmp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvRefiAmp.GridColor = System.Drawing.Color.Silver;
-            this.DgvRefiAmp.Location = new System.Drawing.Point(0, 71);
-            this.DgvRefiAmp.Name = "DgvRefiAmp";
-            this.DgvRefiAmp.Size = new System.Drawing.Size(800, 357);
-            this.DgvRefiAmp.TabIndex = 112;
+            this.DgvMesas.BackgroundColor = System.Drawing.Color.White;
+            this.DgvMesas.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvMesas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvMesas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvMesas.GridColor = System.Drawing.Color.Silver;
+            this.DgvMesas.Location = new System.Drawing.Point(0, 71);
+            this.DgvMesas.Name = "DgvMesas";
+            this.DgvMesas.Size = new System.Drawing.Size(800, 357);
+            this.DgvMesas.TabIndex = 112;
             // 
             // frmMesas
             // 
@@ -248,7 +248,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.DgvRefiAmp);
+            this.Controls.Add(this.DgvMesas);
             this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
             this.Controls.Add(this.tsPrincipal);
@@ -263,7 +263,7 @@
             this.tsSecundario.PerformLayout();
             this.sst1.ResumeLayout(false);
             this.sst1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvMesas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +288,7 @@
         private System.Windows.Forms.ToolStripButton tsbImprimir;
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
-        private System.Windows.Forms.DataGridView DgvRefiAmp;
+        private System.Windows.Forms.DataGridView DgvMesas;
         private System.Windows.Forms.ToolStripButton tsbAdicionar;
     }
 }

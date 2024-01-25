@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\GestionClubAccessController.cs" />
+    <Compile Include="Controller\GestionClubCierreCajaController.cs" />
+    <Compile Include="Controller\GestionClubAperturaCajaController.cs" />
+    <Compile Include="Controller\GestionClubCategoriaController.cs" />
+    <Compile Include="Controller\GestionClubMesaController.cs" />
     <Compile Include="Controller\GestionClubAmbienteController.cs" />
     <Compile Include="Controller\GestionClubGeneralController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

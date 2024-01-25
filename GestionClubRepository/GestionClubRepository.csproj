@@ -46,9 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository\IGestionClubAccessRepository.cs" />
+    <Compile Include="IRepository\IGestionClubCierreCajaRepository.cs" />
+    <Compile Include="IRepository\IGestionClubAperturaCajaRepository.cs" />
+    <Compile Include="IRepository\IGestionClubCategoriaRepository.cs" />
+    <Compile Include="IRepository\IGestionClubMesaRepository.cs" />
     <Compile Include="IRepository\IGestionClubGeneralRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GestionClubAccessRepository.cs" />
+    <Compile Include="Repository\GestionClubCierreCajaRepository.cs" />
+    <Compile Include="Repository\GestionClubAperturaCajaRepository.cs" />
+    <Compile Include="Repository\GestionClubCategoriaRepository.cs" />
+    <Compile Include="Repository\GestionClubMesaRepository.cs" />
     <Compile Include="Repository\GestionClubAmbienteRepository.cs" />
     <Compile Include="Repository\GestionClubGeneralRepository.cs" />
     <Compile Include="IRepository\IGestionClubAmbienteRepository.cs" />
