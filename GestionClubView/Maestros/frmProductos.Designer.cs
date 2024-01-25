@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -46,12 +47,11 @@
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DgvRefiAmp = new System.Windows.Forms.DataGridView();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.DgvProductos = new System.Windows.Forms.DataGridView();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -81,6 +81,15 @@
             this.tsbAdicionar.Size = new System.Drawing.Size(63, 43);
             this.tsbAdicionar.Text = "Adicionar";
             this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbEliminar
             // 
@@ -220,26 +229,17 @@
             this.tssEstado.Size = new System.Drawing.Size(10, 17);
             this.tssEstado.Text = ".";
             // 
-            // DgvRefiAmp
+            // DgvProductos
             // 
-            this.DgvRefiAmp.BackgroundColor = System.Drawing.Color.White;
-            this.DgvRefiAmp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DgvRefiAmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvRefiAmp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvRefiAmp.GridColor = System.Drawing.Color.Silver;
-            this.DgvRefiAmp.Location = new System.Drawing.Point(0, 71);
-            this.DgvRefiAmp.Name = "DgvRefiAmp";
-            this.DgvRefiAmp.Size = new System.Drawing.Size(800, 357);
-            this.DgvRefiAmp.TabIndex = 111;
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.DgvProductos.BackgroundColor = System.Drawing.Color.White;
+            this.DgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvProductos.GridColor = System.Drawing.Color.Silver;
+            this.DgvProductos.Location = new System.Drawing.Point(0, 71);
+            this.DgvProductos.Name = "DgvProductos";
+            this.DgvProductos.Size = new System.Drawing.Size(800, 357);
+            this.DgvProductos.TabIndex = 111;
             // 
             // frmProductos
             // 
@@ -247,7 +247,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.DgvRefiAmp);
+            this.Controls.Add(this.DgvProductos);
             this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
             this.Controls.Add(this.tsPrincipal);
@@ -262,7 +262,7 @@
             this.tsSecundario.PerformLayout();
             this.sst1.ResumeLayout(false);
             this.sst1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +287,7 @@
         private System.Windows.Forms.ToolStripButton tsbImprimir;
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
-        private System.Windows.Forms.DataGridView DgvRefiAmp;
+        private System.Windows.Forms.DataGridView DgvProductos;
         private System.Windows.Forms.ToolStripButton tsbEditar;
     }
 }
