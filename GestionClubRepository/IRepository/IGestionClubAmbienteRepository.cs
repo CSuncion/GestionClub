@@ -11,5 +11,6 @@ namespace GestionClubRepository.IRepository
         GestionClubAmbientesDto ListarAmbientesPorId(GestionClubAmbientesDto pObj);
         void ModificarAmbiente(GestionClubAmbientesDto pObj);
         void EliminarAmbiente(GestionClubAmbientesDto pObj);
+        List<GestionClubAmbientesDto> ListarAmbientesActivos();
     }
 }

@@ -146,7 +146,7 @@ namespace GestionClubView.Maestros
         public void AccionModificar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubAmbientesDto iPerEN = this.EsActoModificarPersonal();
+            GestionClubAmbientesDto iPerEN = this.EsActoModificarAmbiente();
             if (iPerEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
@@ -157,11 +157,11 @@ namespace GestionClubView.Maestros
             TabCtrl.InsertarVentana(this, win);
             win.VentanaModificar(iPerEN);
         }
-        public GestionClubAmbientesDto EsActoModificarPersonal()
+        public GestionClubAmbientesDto EsActoModificarAmbiente()
         {
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
             this.AsignarPersonal(iPerEN);
-            iPerEN = GestionClubAmbienteController.EsActoModificarPersonal(iPerEN);
+            iPerEN = GestionClubAmbienteController.EsActoModificarAmbiente(iPerEN);
             if (iPerEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iPerEN.Adicionales.Mensaje, eTitulo);

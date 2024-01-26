@@ -77,6 +77,10 @@ namespace GestionClubRepository.Repository
         {
             return this.ListarObjetos("isp_ListarAmbientes");
         }
+        public List<GestionClubAmbientesDto> ListarAmbientesActivos()
+        {
+            return this.ListarObjetos("isp_ListarAmbientesActivos");
+        }
         public GestionClubAmbientesDto ListarAmbientesPorCodigoPorEmpresa(GestionClubAmbientesDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()

@@ -11,8 +11,8 @@ namespace GestionClubModel.ModelDto
         public const string _claveObjeto = "ClaveObjeto";
         public const string _idMesa = "idMesa";
         public const string _idEmpresa = "idEmpresa";
-        public const string _codMesa = "codMesa";
-        public const string _desMesa = "desMesa";
+        public const string _codMesa = "codMesas";
+        public const string _desMesa = "desMesas";
         public const string _desAmbiente = "desAmbiente";
         public const string _idAmbiente = "idAmbiente";
         public const string _estadoMesa = "estadoMesa";
@@ -25,10 +25,11 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idMesa { get; set; }
         public int idEmpresa { get; set; }
-        public string codMesa { get; set; }
-        public string desMesa { get; set; }
+        public string codMesas { get; set; } = string.Empty;
+        public string desMesas { get; set; }
+        public string desAmbiente { get; set; }
         public int idAmbiente { get; set; }
-        public string estadoMesa { get; set; }
+        public string estadoMesa { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

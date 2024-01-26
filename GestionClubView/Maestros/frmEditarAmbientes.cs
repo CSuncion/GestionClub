@@ -101,13 +101,13 @@ namespace GestionClubView.Maestros
             Mensaje.OperacionSatisfactoria("El Ambiente se adiciono correctamente", this.wAmb.eTitulo);
 
             //actualizar al propietario
-            //this.wAmb.eClaveDgvAmbiente = this.ObtenerClavePersonal();
+            this.wAmb.eClaveDgvAmbiente = this.ObtenerIdAmbiente();
             this.wAmb.ActualizarVentana();
 
             //limpiar controles
             this.MostrarAmbiente(GestionClubAmbienteController.EnBlanco());
             eMas.AccionPasarTextoPrincipal();
-            this.txtAmbiente.Focus();
+            this.txtCodigo.Focus();
         }
         public void Modificar()
         {
@@ -115,7 +115,7 @@ namespace GestionClubView.Maestros
             if (eMas.CamposObligatorios() == false) { return; }
 
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
-            if (this.wAmb.EsActoModificarPersonal().Adicionales.EsVerdad == false) { return; }
+            if (this.wAmb.EsActoModificarAmbiente().Adicionales.EsVerdad == false) { return; }
 
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wAmb.eTitulo) == false) { return; }
@@ -146,7 +146,7 @@ namespace GestionClubView.Maestros
             this.EliminarAmbiente();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El Personal se elimino correctamente", this.wAmb.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Ambiente se elimino correctamente", this.wAmb.eTitulo);
 
             //actualizar al propietario           
             this.wAmb.ActualizarVentana();

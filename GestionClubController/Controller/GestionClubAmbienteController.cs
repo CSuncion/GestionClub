@@ -22,6 +22,11 @@ namespace GestionClubController.Controller
             GestionClubAmbienteRepository oRepo = new GestionClubAmbienteRepository();
             return oRepo.ListarAmbientes();
         }
+        public List<GestionClubAmbientesDto> ListarAmbientesActivos()
+        {
+            GestionClubAmbienteRepository oRepo = new GestionClubAmbienteRepository();
+            return oRepo.ListarAmbientesActivos();
+        }
         public List<GestionClubAmbientesDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubAmbientesDto> pListaOperations)
         {
             //lista resultado
@@ -154,7 +159,7 @@ namespace GestionClubController.Controller
             GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
             objAmbiente.AgregarAmbiente(pObj);
         }
-        public static GestionClubAmbientesDto EsActoModificarPersonal(GestionClubAmbientesDto pObj)
+        public static GestionClubAmbientesDto EsActoModificarAmbiente(GestionClubAmbientesDto pObj)
         {
             //objeto resultado
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();

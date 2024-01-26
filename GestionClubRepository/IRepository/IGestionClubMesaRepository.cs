@@ -6,5 +6,10 @@ namespace GestionClubRepository.IRepository
     public interface IGestionClubMesaRepository
     {
         List<GestionClubMesaDto> ListarMesas();
+        GestionClubMesaDto ListarMesaPorId(GestionClubMesaDto pObj);
+        GestionClubMesaDto ListarMesasPorCodigoPorEmpresa(GestionClubMesaDto pObj);
+        void AgregarMesa(GestionClubMesaDto pObj);
+        void ModificarMesa(GestionClubMesaDto pObj);
+        void EliminarMesa(GestionClubMesaDto pObj);
     }
 }

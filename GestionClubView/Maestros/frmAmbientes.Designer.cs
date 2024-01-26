@@ -44,7 +44,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.DgvAmbientes = new System.Windows.Forms.DataGridView();
@@ -134,8 +133,7 @@
             this.tsbActualizarTabla,
             this.toolStripSeparator1,
             this.tstBuscar,
-            this.toolStripLabel1,
-            this.tsbImprimir});
+            this.toolStripLabel1});
             this.tsSecundario.Location = new System.Drawing.Point(0, 46);
             this.tsSecundario.Name = "tsSecundario";
             this.tsSecundario.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -212,15 +210,6 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
             // 
-            // tsbImprimir
-            // 
-            this.tsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbImprimir.Image")));
-            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbImprimir.Name = "tsbImprimir";
-            this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
-            this.tsbImprimir.Text = "Imprimir";
-            // 
             // sst1
             // 
             this.sst1.BackColor = System.Drawing.SystemColors.Control;
@@ -295,7 +284,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox tstBuscar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton tsbImprimir;
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
         private System.Windows.Forms.DataGridView DgvAmbientes;
