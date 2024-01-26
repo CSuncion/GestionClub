@@ -24,10 +24,17 @@ namespace GestionClubModel.ModelDto
         public int idEmpresa { get; set; }
         public DateTime fecCierreCaja { get; set; }
         public decimal montoCierreCaja { get; set; }
-        public int estadoCierreCaja { get; set; }
+        public string estadoCierreCaja { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
 }

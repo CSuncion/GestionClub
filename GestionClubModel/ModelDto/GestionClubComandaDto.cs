@@ -22,11 +22,18 @@ namespace GestionClubModel.ModelDto
         public int idComprobante { get; set; }
         public string nroAtencion { get; set; }
         public string obsComprobante { get; set; }
-        public int estadoComanda { get; set; }
+        public string estadoComanda { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
     public class GestionClubDetalleComandaDto
     {
@@ -43,7 +50,7 @@ namespace GestionClubModel.ModelDto
         public decimal preTotal { get; set; }
         public string nroAtencion { get; set; }
         public string obsComprobante { get; set; }
-        public int estadoComanda { get; set; }
+        public string estadoComanda { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

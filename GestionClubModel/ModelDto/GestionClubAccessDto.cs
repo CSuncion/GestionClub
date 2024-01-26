@@ -8,7 +8,7 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubAccessDto
     {
-        private Additional _Additionals = new Additional();
+        private Adicional _Additionals = new Adicional();
         //campos nombres
         public const string IdAcc = "idAcceso";
         public const string codAcc = "codAcceso";
@@ -66,10 +66,11 @@ namespace GestionClubModel.ModelDto
         public Nullable<int> pnp { get; set; }
         public string cargoAcceso { get; set; } = string.Empty;
 
-        public Additional Additionals
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
         {
-            get { return this._Additionals; }
-            set { this._Additionals = value; }
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
         }
     }
 }

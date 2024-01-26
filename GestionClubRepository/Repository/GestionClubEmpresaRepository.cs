@@ -11,25 +11,31 @@ using System.Threading.Tasks;
 
 namespace GestionClubRepository.Repository
 {
-    public class GestionClubCategoriaRepository : IGestionClubCategoriaRepository
+    public class GestionClubEmpresaRepository : IGestionClubEmpresaRepository
     {
         private GestionClubCn xObjCn = new GestionClubCn();
-        private GestionClubCategoriaDto xObj = new GestionClubCategoriaDto();
-        private List<GestionClubCategoriaDto> xLista = new List<GestionClubCategoriaDto>();
-        private GestionClubCategoriaDto Objeto(IDataReader iDr)
+        private GestionClubEmpresaDto xObj = new GestionClubEmpresaDto();
+        private List<GestionClubEmpresaDto> xLista = new List<GestionClubEmpresaDto>();
+        private GestionClubEmpresaDto Objeto(IDataReader iDr)
         {
-            GestionClubCategoriaDto xObjEnc = new GestionClubCategoriaDto();
-            xObjEnc.idCategoria = Convert.ToInt32(iDr["idCategoria"]);
-            xObjEnc.codCategoria = iDr["codCategoria"].ToString();
-            xObjEnc.desCategoria = iDr["desCategoria"].ToString();
-            xObjEnc.estadoCategoria = Convert.ToString(iDr["estadoCategoria"]);
+            GestionClubEmpresaDto xObjEnc = new GestionClubEmpresaDto();
+            xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
+            xObjEnc.codEmpresa = Convert.ToString(iDr["codEmpresa"]);
+            xObjEnc.codSucursalEmpresa = Convert.ToInt32(iDr["codSucursalEmpresa"]);
+            xObjEnc.desEmpresa = iDr["desEmpresa"].ToString();
+            xObjEnc.rucEmpresa= Convert.ToString(iDr["rucEmpresa"]);
+            xObjEnc.eMail = Convert.ToString(iDr["eMail"]);
+            xObjEnc.direccionEmpresa = Convert.ToString(iDr["direccionEmpresa"]);
+            xObjEnc.tlfFijoEmpresa = Convert.ToString(iDr["tlfFijoEmpresa"]);
+            xObjEnc.tlfCelularEmpresa = Convert.ToString(iDr["tlfCelularEmpresa"]);
+            xObjEnc.estadoEmpresa = Convert.ToString(iDr["estadoEmpresa"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
             return xObjEnc;
         }
-        private GestionClubCategoriaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
+        private GestionClubEmpresaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
         {
             xObjCn.Connection();
             xObjCn.AssignParameters(lParameter);
@@ -43,7 +49,7 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xObj;
         }
-        private List<GestionClubCategoriaDto> ListarObjetos(string pScript)
+        private List<GestionClubEmpresaDto> ListarObjetos(string pScript)
         {
             xObjCn.Connection();
             //xObjCn.AssignParameters(lParameter);
@@ -56,10 +62,6 @@ namespace GestionClubRepository.Repository
             }
             xObjCn.Disconnect();
             return xLista;
-        }
-        public List<GestionClubCategoriaDto> ListarCategorias()
-        {
-            return this.ListarObjetos("isp_ListarCategorias");
         }
     }
 }

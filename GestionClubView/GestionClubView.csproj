@@ -134,11 +134,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsCredits.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Listas\frmListaMorososSolicitante.cs">
+    <Compile Include="Listas\frmListarEmpresas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listas\frmListaMorososSolicitante.Designer.cs">
-      <DependentUpon>frmListaMorososSolicitante.cs</DependentUpon>
+    <Compile Include="Listas\frmListarEmpresas.Designer.cs">
+      <DependentUpon>frmListarEmpresas.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -274,8 +274,8 @@
     <EmbeddedResource Include="Comanda\frmListadoPedidos.resx">
       <DependentUpon>frmListadoPedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listas\frmListaMorososSolicitante.resx">
-      <DependentUpon>frmListaMorososSolicitante.cs</DependentUpon>
+    <EmbeddedResource Include="Listas\frmListarEmpresas.resx">
+      <DependentUpon>frmListarEmpresas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

@@ -34,11 +34,18 @@ namespace GestionClubModel.ModelDto
         public decimal impNetComprobante { get; set; }
         public decimal impDtrComprobante { get; set; }
         public int idCliente { get; set; }
-        public int estadoComprobante { get; set; }
+        public string estadoComprobante { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
     public class GestionClubDetalleComprobanteDto
     {
@@ -49,7 +56,7 @@ namespace GestionClubModel.ModelDto
         public decimal preVenta { get; set; }
         public int cantidad { get; set; }
         public decimal preTotal { get; set; }
-        public int estadoDetalleComprobante { get; set; }
+        public string estadoDetalleComprobante { get; set; }
         public string obsDetalleComprobante { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }

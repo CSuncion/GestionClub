@@ -21,13 +21,20 @@ namespace GestionClubModel.ModelDto
 
         public int idAmbiente { get; set; }
         public int idEmpresa { get; set; }
-        public string codAmbiente { get; set; }
+        public string codAmbiente { get; set; } = string.Empty;
         public string desAmbiente { get; set; }
-        public int estadoAmbiente { get; set; }
+        public string estadoAmbiente { get; set; } = "1";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
 
     }
 }

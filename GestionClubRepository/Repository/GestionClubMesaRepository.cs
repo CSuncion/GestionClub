@@ -26,7 +26,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.codMesa = iDr["codMesa"].ToString();
             xObjEnc.desMesa = iDr["desMesa"].ToString();
             xObjEnc.GestionClubAmbientesDto.desAmbiente = iDr["desAmbiente"].ToString();
-            xObjEnc.estadoMesa = Convert.ToInt32(iDr["estadoMesa"]);
+            xObjEnc.estadoMesa = Convert.ToString(iDr["estadoMesa"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);

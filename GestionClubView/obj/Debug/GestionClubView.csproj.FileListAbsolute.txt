@@ -179,7 +179,6 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmCobrar.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmComanda.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmListadoPedidos.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListaMorososSolicitante.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Login.frmLogin.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmAmbientes.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmEditarAmbientes.resources
@@ -205,3 +204,4 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.exe
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmCategorias.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarEmpresas.resources

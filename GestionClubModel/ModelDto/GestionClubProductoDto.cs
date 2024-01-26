@@ -49,11 +49,18 @@ namespace GestionClubModel.ModelDto
         public decimal impOtrProducto { get; set; }
         public string obsProducto { get; set; }
         public int idCategoria { get; set; }
-        public int estadoProducto { get; set; }
+        public string estadoProducto { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
         public GestionClubCategoriaDto GestionClubCategoriaDto { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
 }

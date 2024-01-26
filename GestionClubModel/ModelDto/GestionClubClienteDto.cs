@@ -38,11 +38,18 @@ namespace GestionClubModel.ModelDto
         public string emailCliente { get; set; }
         public string nroCelularCliente { get; set; }
         public string representanteCliente { get; set; }
-        public int estadoCliente { get; set; }
+        public string estadoCliente { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
 
     }
 }

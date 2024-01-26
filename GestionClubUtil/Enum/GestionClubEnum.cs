@@ -19,5 +19,9 @@ namespace GestionClubUtil.Enum
             DirrehumCombustible = 3,
             Fonbiepol = 8,
         }
+        public enum Sistema
+        {
+            Estado = 11
+        }
     }
 }

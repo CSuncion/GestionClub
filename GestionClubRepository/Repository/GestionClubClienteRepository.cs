@@ -30,7 +30,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.emailCliente = Convert.ToString(iDr["emailCliente"]);
             xObjEnc.nroCelularCliente = Convert.ToString(iDr["nroCelularCliente"]);
             xObjEnc.representanteCliente = Convert.ToString(iDr["representanteCliente"]);
-            xObjEnc.estadoCliente = Convert.ToInt32(iDr["estadoCliente"]);
+            xObjEnc.estadoCliente = Convert.ToString(iDr["estadoCliente"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);

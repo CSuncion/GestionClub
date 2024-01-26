@@ -92,6 +92,18 @@ namespace GestionClubView.Maestros
             this.tstBuscar.ToolTipText = "Ingrese " + this.eEncabezadoColumnaDgvAmbiente;
             this.tstBuscar.Focus();
         }
+        public void AccionAdicionar()
+        {
+            //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
+            //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
+
+            frmEditarAmbientes win = new frmEditarAmbientes();
+            win.wAmb = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvAmbiente= Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
+        }
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
@@ -106,6 +118,11 @@ namespace GestionClubView.Maestros
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbAdicionar_Click(object sender, EventArgs e)
+        {
+            this.AccionAdicionar();
         }
     }
 }

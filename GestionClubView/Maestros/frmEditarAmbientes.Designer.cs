@@ -36,6 +36,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmbiente = new System.Windows.Forms.TextBox();
@@ -70,6 +72,7 @@
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
             this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
             // tsBtnLimpiar
             // 
@@ -115,6 +118,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodigo);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboEstado);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtAmbiente);
@@ -122,15 +127,33 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 82);
+            this.groupBox1.Size = new System.Drawing.Size(330, 112);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(116, 20);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 22);
+            this.txtCodigo.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 14);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Código:";
             // 
             // cboEstado
             // 
             this.cboEstado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(115, 42);
+            this.cboEstado.Location = new System.Drawing.Point(116, 76);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(161, 22);
             this.cboEstado.TabIndex = 5;
@@ -139,7 +162,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(62, 45);
+            this.label4.Location = new System.Drawing.Point(63, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 14);
             this.label4.TabIndex = 4;
@@ -148,7 +171,7 @@
             // txtAmbiente
             // 
             this.txtAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmbiente.Location = new System.Drawing.Point(115, 14);
+            this.txtAmbiente.Location = new System.Drawing.Point(116, 48);
             this.txtAmbiente.Name = "txtAmbiente";
             this.txtAmbiente.Size = new System.Drawing.Size(100, 22);
             this.txtAmbiente.TabIndex = 3;
@@ -157,7 +180,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 17);
+            this.label2.Location = new System.Drawing.Point(41, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 14);
             this.label2.TabIndex = 2;
@@ -167,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 172);
+            this.ClientSize = new System.Drawing.Size(354, 205);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -175,6 +198,7 @@
             this.Name = "frmEditarAmbientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Ambientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditarAmbientes_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -198,5 +222,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtAmbiente;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label1;
     }
 }

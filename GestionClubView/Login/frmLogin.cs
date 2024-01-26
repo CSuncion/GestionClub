@@ -14,6 +14,7 @@ using GestionClubModel.ModelDto;
 using GestionClubController.Controller;
 using WinControles.ControlesWindows;
 using GestionClubUtil.Util;
+using GestionClubView.Listas;
 
 namespace GestionClubView.Login
 {
@@ -39,15 +40,15 @@ namespace GestionClubView.Login
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.txtNoFoco(this.txtNameUsr, this.txtCodUsr, "f");
+            xCtrl.txtNoFoco(this.txtNameUsr, this.txtDniUsuario, "f");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.txtNoFoco(this.txtProfile, this.txtCodUsr, "f");
+            xCtrl.txtNoFoco(this.txtProfile, this.txtDniUsuario, "f");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodUsr, true, "Usuario", "f");
+            xCtrl.TxtTodo(this.txtDniUsuario, true, "Usuario", "f");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -79,11 +80,14 @@ namespace GestionClubView.Login
         public void MostrarPersistencia()
         {
             this.txtNameUsr.Text = Properties.Settings.Default.GuardarNombreUsuario;
-            this.txtCodUsr.Text = Properties.Settings.Default.GuardarCodigoUsuario;
+            this.txtDniUsuario.Text = Properties.Settings.Default.GuardarCodigoUsuario;
             this.txtProfile.Text = Properties.Settings.Default.GuardarNombrePerfil;
             this.txtPwd.Text = Properties.Settings.Default.GuardarClaveUsuario;
+            this.txtCodEmp.Text = Properties.Settings.Default.GuardarCodigoEmpresa;
+            this.txtNomEmp.Text = Properties.Settings.Default.GuardarNombreEmpresa;
             this.ckbUsr.Checked = Conversion.CadenaABoolean(Properties.Settings.Default.GuardarCheckUsuario, false);
             this.ckbPwd.Checked = Conversion.CadenaABoolean(Properties.Settings.Default.GuardarCheckClave, false);
+            this.ckbEmp.Checked = Conversion.CadenaABoolean(Properties.Settings.Default.GuardarCheckEmpresa, false);
         }
         public void AccessSystem()
         {
@@ -121,20 +125,21 @@ namespace GestionClubView.Login
             GestionClubAccessDto iUsuEN = new GestionClubAccessDto();
             this.AsignarUsuario(iUsuEN);
             iUsuEN = this.GestionClubAccessController.EsUsuarioValido(iUsuEN);
-            if (iUsuEN.Additionals.EsVerdad == false)
+            if (iUsuEN.Adicionales.EsVerdad == false)
             {
-                Mensaje.OperacionDenegada(iUsuEN.Additionals.Mensaje, "Usuario");
-                this.txtCodUsr.Focus();
+                Mensaje.OperacionDenegada(iUsuEN.Adicionales.Mensaje, "Usuario");
+                this.txtDniUsuario.Focus();
             }
-            this.txtCodUsr.Text = iUsuEN.dniAcceso;
+            this.txtDniUsuario.Text = iUsuEN.dniAcceso;
             this.txtNameUsr.Text = iUsuEN.nombresAcceso.Trim() + ' ' + iUsuEN.paternoAcceso.Trim() + ' ' + iUsuEN.maternoAcceso.Trim();
             this.txtProfile.Text = iUsuEN.cargoAcceso;
             this.txtIdAcceso.Text = iUsuEN.idAcceso.ToString();
-            return iUsuEN.Additionals.EsVerdad;
+            this.txtCodUsuario.Text = iUsuEN.codAcceso.ToString();
+            return iUsuEN.Adicionales.EsVerdad;
         }
         public void AsignarUsuario(GestionClubAccessDto pUsu)
         {
-            pUsu.dniAcceso = this.txtCodUsr.Text.Trim();
+            pUsu.dniAcceso = this.txtDniUsuario.Text.Trim();
             pUsu.nombresAcceso = this.txtNameUsr.Text.Trim();
             pUsu.passAcceso = utilGestionClub.Encripta(this.txtPwd.Text.Trim());
         }
@@ -144,21 +149,22 @@ namespace GestionClubView.Login
             GestionClubAccessDto iUsuEN = new GestionClubAccessDto();
             this.AsignarUsuario(iUsuEN);
             iUsuEN = this.GestionClubAccessController.EsContrasenaDeUsuario(iUsuEN);
-            if (iUsuEN.Additionals.EsVerdad == false)
+            if (iUsuEN.Adicionales.EsVerdad == false)
             {
-                Mensaje.OperacionDenegada(iUsuEN.Additionals.Mensaje, "Clave");
+                Mensaje.OperacionDenegada(iUsuEN.Adicionales.Mensaje, "Clave");
                 this.txtPwd.Clear();
                 this.txtPwd.Focus();
             }
-            return iUsuEN.Additionals.EsVerdad;
+            return iUsuEN.Adicionales.EsVerdad;
         }
 
         public void GuardarValoresUniversales()
         {
-            Universal.gCodigoUsuario = this.txtCodUsr.Text.Trim();
+            Universal.gCodigoUsuario = this.txtDniUsuario.Text.Trim();
             Universal.gNombreUsuario = this.txtNameUsr.Text.Trim();
             Universal.gNombrePerfil = this.txtProfile.Text.Trim();
             Universal.gIdAcceso = Convert.ToInt32(this.txtIdAcceso.Text);
+            Universal.gIdEmpresa = Convert.ToInt32(this.txtIdEmpresa.Text);
         }
 
         public void GrabarPersistencia()
@@ -166,14 +172,21 @@ namespace GestionClubView.Login
             //guardando datos usuario
             Properties.Settings.Default.GuardarCheckUsuario = this.ckbUsr.Checked.ToString().ToLower();
             bool iValor = this.ckbUsr.Checked;
-            Properties.Settings.Default.GuardarCodigoUsuario = Cadena.ObtenerValor(iValor, this.txtCodUsr.Text);
+            Properties.Settings.Default.GuardarCodigoUsuario = Cadena.ObtenerValor(iValor, this.txtDniUsuario.Text);
             Properties.Settings.Default.GuardarNombreUsuario = Cadena.ObtenerValor(iValor, this.txtNameUsr.Text);
+            Properties.Settings.Default.GuardarCodigoPerfil = Cadena.ObtenerValor(iValor, this.txtCodPerfil.Text);
             Properties.Settings.Default.GuardarNombrePerfil = Cadena.ObtenerValor(iValor, this.txtProfile.Text);
 
             //guardando datos clave
             Properties.Settings.Default.GuardarCheckClave = this.ckbPwd.Checked.ToString().ToLower();
             iValor = this.ckbPwd.Checked;
             Properties.Settings.Default.GuardarClaveUsuario = Cadena.ObtenerValor(iValor, this.txtPwd.Text);
+
+            //guardando datos empresa
+            Properties.Settings.Default.GuardarCheckEmpresa = this.ckbEmp.Checked.ToString().ToLower();
+            iValor = this.ckbEmp.Checked;
+            Properties.Settings.Default.GuardarCodigoEmpresa = Cadena.ObtenerValor(iValor, this.txtCodEmp.Text);
+            Properties.Settings.Default.GuardarNombreEmpresa = Cadena.ObtenerValor(iValor, this.txtNomEmp.Text);
 
             //guardar todos los datos
             Properties.Settings.Default.Save();
@@ -196,6 +209,36 @@ namespace GestionClubView.Login
                 this.Close();
             }
         }
+        public bool EsEmpresaDeUsuario()
+        {
+            //preguntamos si la empresa que se digita es del usuario seleccionado
+            GestionClubPermisoEmpresaDto iPermEmpresa = new GestionClubPermisoEmpresaDto();
+            iPermEmpresa.codAcceso = this.txtCodUsuario.Text.Trim();
+            iPermEmpresa.codEmpresa = this.txtCodEmp.Text.Trim();
+            iPermEmpresa.codPermisoEmpresa = GestionClubPermisoEmpresaController.ObtenerClavePermisoEmpresa(iPermEmpresa);
+            iPermEmpresa = GestionClubPermisoEmpresaController.EsEmpresaDeUsuario(iPermEmpresa);
+            if (iPermEmpresa.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iPermEmpresa.Adicionales.Mensaje, "Empresa");
+                this.txtCodEmp.Focus();
+            }
+            this.txtIdEmpresa.Text = iPermEmpresa.idEmpresa.ToString();
+            this.txtCodEmp.Text = iPermEmpresa.gestionClubEmpresaDto.codEmpresa;
+            this.txtNomEmp.Text = iPermEmpresa.gestionClubEmpresaDto.desEmpresa;
+            return iPermEmpresa.Adicionales.EsVerdad;
+        }
+        public void ListarEmpresasDeUsuario()
+        {
+            frmListarEmpresas win = new frmListarEmpresas();
+            win.eVentana = this;
+            win.eTituloVentana = "Empresas autorizadas";
+            win.eCtrlValor = this.txtCodEmp;
+            win.eCtrlFoco = this.btnGetInto;
+            //condicion
+            win.ePerm.codAcceso = this.txtCodUsuario.Text.Trim();
+            win.eCondicionLista = frmListarEmpresas.Condicion.EmpresasAutorizadasDeUsuario;
+            win.NuevaVentana();
+        }
         #endregion
 
         #region Eventos
@@ -213,6 +256,21 @@ namespace GestionClubView.Login
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Cancelar();
+        }
+
+        private void txtCodEmp_Validating(object sender, CancelEventArgs e)
+        {
+            this.EsEmpresaDeUsuario();
+        }
+
+        private void txtCodEmp_DoubleClick(object sender, EventArgs e)
+        {
+            this.ListarEmpresasDeUsuario();
+        }
+
+        private void txtCodEmp_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1) { this.ListarEmpresasDeUsuario(); }
         }
     }
 }

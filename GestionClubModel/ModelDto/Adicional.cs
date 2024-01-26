@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionClubModel.ModelDto
 {
-    public class Additional
+    public class Adicional
     {
         private string _CampoOrden;
         private string _Mensaje = string.Empty;

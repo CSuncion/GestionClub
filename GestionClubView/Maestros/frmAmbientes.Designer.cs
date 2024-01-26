@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAmbientes));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -47,7 +48,6 @@
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.DgvAmbientes = new System.Windows.Forms.DataGridView();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
@@ -81,6 +81,16 @@
             this.tsbAdicionar.Size = new System.Drawing.Size(63, 43);
             this.tsbAdicionar.Text = "Adicionar";
             this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbEliminar
             // 
@@ -231,15 +241,6 @@
             this.DgvAmbientes.Name = "DgvAmbientes";
             this.DgvAmbientes.Size = new System.Drawing.Size(800, 357);
             this.DgvAmbientes.TabIndex = 113;
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // frmAmbientes
             // 

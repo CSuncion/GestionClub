@@ -25,8 +25,8 @@ namespace GestionClubController.Controller
             //si no hay codigousuario entonces es true
             if (pObj.dniAcceso == string.Empty)
             {
-                iUsuEN.Additionals.EsVerdad = true;
-                iUsuEN.Additionals.Mensaje = "";
+                iUsuEN.Adicionales.EsVerdad = true;
+                iUsuEN.Adicionales.Mensaje = "";
                 return iUsuEN;
             }
 
@@ -34,8 +34,8 @@ namespace GestionClubController.Controller
             iUsuEN = this._iCreditAccessRepository.BuscarUsuarioXCodigo(pObj);
             if (iUsuEN.dniAcceso == string.Empty)
             {
-                iUsuEN.Additionals.EsVerdad = false;
-                iUsuEN.Additionals.Mensaje = "No existe usuario con este codigo : " + Cadena.Espacios(1) + pObj.dniAcceso;
+                iUsuEN.Adicionales.EsVerdad = false;
+                iUsuEN.Adicionales.Mensaje = "No existe usuario con este codigo : " + Cadena.Espacios(1) + pObj.dniAcceso;
                 return iUsuEN;
             }
             else
@@ -43,12 +43,12 @@ namespace GestionClubController.Controller
                 if (iUsuEN.sitAcceso == 0) //desactivado
                 {
                     iUsuEN = GestionClubAccessController.EnBlanco();
-                    iUsuEN.Additionals.EsVerdad = false;
-                    iUsuEN.Additionals.Mensaje = "El usuario" + Cadena.Espacios(1) + pObj.dniAcceso + Cadena.Espacios(1) + "esta desactivado";
+                    iUsuEN.Adicionales.EsVerdad = false;
+                    iUsuEN.Adicionales.Mensaje = "El usuario" + Cadena.Espacios(1) + pObj.dniAcceso + Cadena.Espacios(1) + "esta desactivado";
                     return iUsuEN;
                 }
             }
-            iUsuEN.Additionals.EsVerdad = true;
+            iUsuEN.Adicionales.EsVerdad = true;
             return iUsuEN;
         }
         public GestionClubAccessDto EsContrasenaDeUsuario(GestionClubAccessDto pObj)
@@ -58,8 +58,8 @@ namespace GestionClubController.Controller
             //si no se digito contraseña entonces es true
             if (pObj.passAcceso == string.Empty)
             {
-                iUsuEN.Additionals.EsVerdad = true;
-                iUsuEN.Additionals.Mensaje = string.Empty;
+                iUsuEN.Adicionales.EsVerdad = true;
+                iUsuEN.Adicionales.Mensaje = string.Empty;
                 return iUsuEN;
             }
 
@@ -68,14 +68,14 @@ namespace GestionClubController.Controller
             iUsuEN = this._iCreditAccessRepository.BuscarUsuarioXCodigo(pObj);
             if (iUsuEN.passAcceso.Trim() == xClave)
             {
-                iUsuEN.Additionals.EsVerdad = true;
-                iUsuEN.Additionals.Mensaje = string.Empty;
+                iUsuEN.Adicionales.EsVerdad = true;
+                iUsuEN.Adicionales.Mensaje = string.Empty;
                 return iUsuEN;
             }
             else
             {
-                iUsuEN.Additionals.EsVerdad = false;
-                iUsuEN.Additionals.Mensaje = "La clave es Incorrecta";
+                iUsuEN.Adicionales.EsVerdad = false;
+                iUsuEN.Adicionales.Mensaje = "La clave es Incorrecta";
                 return iUsuEN;
             }
 

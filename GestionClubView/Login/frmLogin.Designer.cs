@@ -38,12 +38,18 @@
             this.ckbUsr = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCodUsr = new System.Windows.Forms.TextBox();
+            this.txtDniUsuario = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnGetInto = new System.Windows.Forms.Button();
             this.txtIdAcceso = new System.Windows.Forms.TextBox();
             this.txtCodPerfil = new System.Windows.Forms.TextBox();
+            this.txtNomEmp = new System.Windows.Forms.TextBox();
+            this.txtCodEmp = new System.Windows.Forms.TextBox();
+            this.ckbEmp = new System.Windows.Forms.CheckBox();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.txtIdEmpresa = new System.Windows.Forms.TextBox();
+            this.txtCodUsuario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,7 +109,7 @@
             this.ckbPwd.AutoSize = true;
             this.ckbPwd.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbPwd.ForeColor = System.Drawing.Color.Black;
-            this.ckbPwd.Location = new System.Drawing.Point(87, 276);
+            this.ckbPwd.Location = new System.Drawing.Point(87, 304);
             this.ckbPwd.Name = "ckbPwd";
             this.ckbPwd.Size = new System.Drawing.Size(135, 18);
             this.ckbPwd.TabIndex = 206;
@@ -115,7 +121,7 @@
             this.ckbUsr.AutoSize = true;
             this.ckbUsr.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckbUsr.ForeColor = System.Drawing.Color.Black;
-            this.ckbUsr.Location = new System.Drawing.Point(87, 259);
+            this.ckbUsr.Location = new System.Drawing.Point(87, 287);
             this.ckbUsr.Name = "ckbUsr";
             this.ckbUsr.Size = new System.Drawing.Size(116, 18);
             this.ckbUsr.TabIndex = 205;
@@ -144,23 +150,23 @@
             this.label5.TabIndex = 203;
             this.label5.Text = "Usuario :";
             // 
-            // txtCodUsr
+            // txtDniUsuario
             // 
-            this.txtCodUsr.BackColor = System.Drawing.Color.White;
-            this.txtCodUsr.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodUsr.Location = new System.Drawing.Point(87, 178);
-            this.txtCodUsr.MaxLength = 100;
-            this.txtCodUsr.Name = "txtCodUsr";
-            this.txtCodUsr.Size = new System.Drawing.Size(236, 22);
-            this.txtCodUsr.TabIndex = 198;
-            this.txtCodUsr.Tag = "Usuario";
-            this.txtCodUsr.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodUsr_Validating);
+            this.txtDniUsuario.BackColor = System.Drawing.Color.White;
+            this.txtDniUsuario.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDniUsuario.Location = new System.Drawing.Point(87, 178);
+            this.txtDniUsuario.MaxLength = 100;
+            this.txtDniUsuario.Name = "txtDniUsuario";
+            this.txtDniUsuario.Size = new System.Drawing.Size(236, 22);
+            this.txtDniUsuario.TabIndex = 198;
+            this.txtDniUsuario.Tag = "Usuario";
+            this.txtDniUsuario.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodUsr_Validating);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(207, 230);
+            this.btnCancel.Location = new System.Drawing.Point(207, 258);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(115, 23);
             this.btnCancel.TabIndex = 201;
@@ -184,7 +190,7 @@
             // 
             this.btnGetInto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGetInto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGetInto.Location = new System.Drawing.Point(87, 230);
+            this.btnGetInto.Location = new System.Drawing.Point(87, 258);
             this.btnGetInto.Name = "btnGetInto";
             this.btnGetInto.Size = new System.Drawing.Size(115, 23);
             this.btnGetInto.TabIndex = 200;
@@ -213,13 +219,86 @@
             this.txtCodPerfil.TabIndex = 214;
             this.txtCodPerfil.Visible = false;
             // 
+            // txtNomEmp
+            // 
+            this.txtNomEmp.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomEmp.Location = new System.Drawing.Point(121, 232);
+            this.txtNomEmp.MaxLength = 100;
+            this.txtNomEmp.Name = "txtNomEmp";
+            this.txtNomEmp.ReadOnly = true;
+            this.txtNomEmp.Size = new System.Drawing.Size(201, 22);
+            this.txtNomEmp.TabIndex = 216;
+            // 
+            // txtCodEmp
+            // 
+            this.txtCodEmp.BackColor = System.Drawing.Color.White;
+            this.txtCodEmp.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodEmp.Location = new System.Drawing.Point(87, 232);
+            this.txtCodEmp.MaxLength = 100;
+            this.txtCodEmp.Name = "txtCodEmp";
+            this.txtCodEmp.Size = new System.Drawing.Size(33, 22);
+            this.txtCodEmp.TabIndex = 215;
+            this.txtCodEmp.Tag = "Empresa";
+            this.txtCodEmp.DoubleClick += new System.EventHandler(this.txtCodEmp_DoubleClick);
+            this.txtCodEmp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodEmp_KeyDown);
+            this.txtCodEmp.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodEmp_Validating);
+            // 
+            // ckbEmp
+            // 
+            this.ckbEmp.AutoSize = true;
+            this.ckbEmp.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbEmp.ForeColor = System.Drawing.Color.Black;
+            this.ckbEmp.Location = new System.Drawing.Point(87, 322);
+            this.ckbEmp.Name = "ckbEmp";
+            this.ckbEmp.Size = new System.Drawing.Size(120, 18);
+            this.ckbEmp.TabIndex = 217;
+            this.ckbEmp.Text = "Persistir Empresa";
+            this.ckbEmp.UseVisualStyleBackColor = true;
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label3.ForeColor = System.Drawing.Color.Black;
+            this.Label3.Location = new System.Drawing.Point(24, 235);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(57, 14);
+            this.Label3.TabIndex = 218;
+            this.Label3.Text = "Empresa:";
+            // 
+            // txtIdEmpresa
+            // 
+            this.txtIdEmpresa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdEmpresa.Location = new System.Drawing.Point(325, 232);
+            this.txtIdEmpresa.Name = "txtIdEmpresa";
+            this.txtIdEmpresa.ReadOnly = true;
+            this.txtIdEmpresa.Size = new System.Drawing.Size(18, 22);
+            this.txtIdEmpresa.TabIndex = 219;
+            this.txtIdEmpresa.Visible = false;
+            // 
+            // txtCodUsuario
+            // 
+            this.txtCodUsuario.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodUsuario.Location = new System.Drawing.Point(343, 178);
+            this.txtCodUsuario.Name = "txtCodUsuario";
+            this.txtCodUsuario.ReadOnly = true;
+            this.txtCodUsuario.Size = new System.Drawing.Size(18, 22);
+            this.txtCodUsuario.TabIndex = 220;
+            this.txtCodUsuario.Visible = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(359, 316);
+            this.ClientSize = new System.Drawing.Size(362, 347);
             this.ControlBox = false;
+            this.Controls.Add(this.txtCodUsuario);
+            this.Controls.Add(this.txtIdEmpresa);
+            this.Controls.Add(this.Label3);
+            this.Controls.Add(this.ckbEmp);
+            this.Controls.Add(this.txtNomEmp);
+            this.Controls.Add(this.txtCodEmp);
             this.Controls.Add(this.txtCodPerfil);
             this.Controls.Add(this.txtIdAcceso);
             this.Controls.Add(this.label4);
@@ -228,7 +307,7 @@
             this.Controls.Add(this.ckbUsr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtCodUsr);
+            this.Controls.Add(this.txtDniUsuario);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.btnGetInto);
@@ -258,11 +337,17 @@
         private System.Windows.Forms.CheckBox ckbUsr;
         internal System.Windows.Forms.Label label2;
         internal System.Windows.Forms.Label label5;
-        internal System.Windows.Forms.TextBox txtCodUsr;
+        internal System.Windows.Forms.TextBox txtDniUsuario;
         internal System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.TextBox txtPwd;
         internal System.Windows.Forms.Button btnGetInto;
         private System.Windows.Forms.TextBox txtIdAcceso;
         private System.Windows.Forms.TextBox txtCodPerfil;
+        internal System.Windows.Forms.TextBox txtNomEmp;
+        internal System.Windows.Forms.TextBox txtCodEmp;
+        private System.Windows.Forms.CheckBox ckbEmp;
+        internal System.Windows.Forms.Label Label3;
+        private System.Windows.Forms.TextBox txtIdEmpresa;
+        private System.Windows.Forms.TextBox txtCodUsuario;
     }
 }

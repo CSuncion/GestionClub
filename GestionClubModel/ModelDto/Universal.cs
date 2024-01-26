@@ -17,6 +17,7 @@ namespace GestionClubModel.ModelDto
         public static string gNombrePerfil = string.Empty;
         public static string gStrPermisosAlmacen = string.Empty;
         public static int gIdAcceso = 0;
+        public static int gIdEmpresa = 0;
 
         //enumeraciones 
 

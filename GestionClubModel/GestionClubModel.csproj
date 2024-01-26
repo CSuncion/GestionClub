@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelDto\Additional.cs" />
+    <Compile Include="ModelDto\Adicional.cs" />
     <Compile Include="ModelDto\GestionClubAccessDto.cs" />
     <Compile Include="ModelDto\GestionClubAmbientesDto.cs" />
     <Compile Include="ModelDto\GestionClubAperturaCajaDto.cs" />
@@ -59,9 +59,11 @@
     <Compile Include="ModelDto\GestionClubClienteDto.cs" />
     <Compile Include="ModelDto\GestionClubComandaDto.cs" />
     <Compile Include="ModelDto\GestionClubComprobanteDto.cs" />
+    <Compile Include="ModelDto\GestionClubPermisoEmpresaDto.cs" />
     <Compile Include="ModelDto\GestionClubEmpresaDto.cs" />
     <Compile Include="ModelDto\GestionClubMesaDto.cs" />
     <Compile Include="ModelDto\GestionClubProductoDto.cs" />
+    <Compile Include="ModelDto\GestionClubSistemaDetalleDto.cs" />
     <Compile Include="ModelDto\Universal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

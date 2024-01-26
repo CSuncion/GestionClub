@@ -26,11 +26,18 @@ namespace GestionClubModel.ModelDto
         public string codMesa { get; set; }
         public string desMesa { get; set; }
         public int idAmbiente { get; set; }
-        public int estadoMesa { get; set; }
+        public string estadoMesa { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
         public GestionClubAmbientesDto GestionClubAmbientesDto { get; set; }
+
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
 }

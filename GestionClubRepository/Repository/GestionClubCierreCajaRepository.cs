@@ -23,7 +23,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
             xObjEnc.fecCierreCaja = Convert.ToDateTime(iDr["fecCierreCaja"]);
             xObjEnc.montoCierreCaja = Convert.ToDecimal(iDr["montoCierreCaja"]);
-            xObjEnc.estadoCierreCaja = Convert.ToInt32(iDr["estadoCierreCaja"]);
+            xObjEnc.estadoCierreCaja = Convert.ToString(iDr["estadoCierreCaja"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);

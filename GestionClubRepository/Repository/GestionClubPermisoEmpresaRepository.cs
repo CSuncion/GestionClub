@@ -11,26 +11,33 @@ using System.Threading.Tasks;
 
 namespace GestionClubRepository.Repository
 {
-    public class GestionClubAmbienteRepository : IGestionClubAmbienteRepository
+    public class GestionClubPermisoEmpresaRepository : IGestionClubPermisoEmpresaRepository
     {
         private GestionClubCn xObjCn = new GestionClubCn();
-        private GestionClubAmbientesDto xObj = new GestionClubAmbientesDto();
-        private List<GestionClubAmbientesDto> xLista = new List<GestionClubAmbientesDto>();
-        private GestionClubAmbientesDto Objeto(IDataReader iDr)
+        private GestionClubPermisoEmpresaDto xObj = new GestionClubPermisoEmpresaDto();
+        private List<GestionClubPermisoEmpresaDto> xLista = new List<GestionClubPermisoEmpresaDto>();
+        private GestionClubPermisoEmpresaDto Objeto(IDataReader iDr)
         {
-            GestionClubAmbientesDto xObjEnc = new GestionClubAmbientesDto();
-            xObjEnc.idAmbiente = Convert.ToInt32(iDr["idAmbiente"]);
+            GestionClubPermisoEmpresaDto xObjEnc = new GestionClubPermisoEmpresaDto();
+            xObjEnc.gestionClubEmpresaDto = new GestionClubEmpresaDto();
+            xObjEnc.gestionClubAccesoDto = new GestionClubAccessDto();
+            xObjEnc.idPermisoEmpresa = Convert.ToInt32(iDr["idPermisoEmpresa"]);
+            xObjEnc.codPermisoEmpresa = Convert.ToString(iDr["codPermisoEmpresa"]);
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
-            xObjEnc.codAmbiente = iDr["codAmbiente"].ToString();
-            xObjEnc.desAmbiente = iDr["desAmbiente"].ToString();
-            xObjEnc.estadoAmbiente = Convert.ToString(iDr["estadoAmbiente"]);
+            xObjEnc.gestionClubEmpresaDto.codEmpresa = Convert.ToString(iDr["codEmpresa"]);
+            xObjEnc.gestionClubEmpresaDto.desEmpresa = Convert.ToString(iDr["desEmpresa"]);
+            xObjEnc.gestionClubEmpresaDto.estadoEmpresa = Convert.ToString(iDr["estadoEmpresa"]);
+            xObjEnc.idAcceso = Convert.ToInt32(iDr["idAcceso"].ToString());
+            xObjEnc.gestionClubAccesoDto.codAcceso = Convert.ToString(iDr["codAcceso"]);
+            xObjEnc.gestionClubAccesoDto.nombresAcceso = Convert.ToString(iDr["nombresAcceso"]);
+            xObjEnc.cPermitir = Convert.ToInt32(iDr["cPermitir"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
             return xObjEnc;
         }
-        private GestionClubAmbientesDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
+        private GestionClubPermisoEmpresaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
         {
             xObjCn.Connection();
             xObjCn.AssignParameters(lParameter);
@@ -44,7 +51,7 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xObj;
         }
-        private List<GestionClubAmbientesDto> ListarObjetos(string pScript)
+        private List<GestionClubPermisoEmpresaDto> ListarObjetos(string pScript)
         {
             xObjCn.Connection();
             //xObjCn.AssignParameters(lParameter);
@@ -58,7 +65,7 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
-        private List<GestionClubAmbientesDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        private List<GestionClubPermisoEmpresaDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
         {
             xObjCn.Connection();
             xObjCn.AssignParameters(lParameter);
@@ -72,35 +79,24 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
-        public List<GestionClubAmbientesDto> ListarAmbientes()
-        {
-            return this.ListarObjetos("isp_ListarAmbientes");
-        }
-        public GestionClubAmbientesDto ListarAmbientesPorCodigo(GestionClubAmbientesDto pObj)
+
+        public GestionClubPermisoEmpresaDto ListarPermisoEmpresaPorCodigo(GestionClubPermisoEmpresaDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                new SqlParameter("@codigo", pObj.codAmbiente),
-                new SqlParameter("@empresa", pObj.idEmpresa)
+                new SqlParameter("@codigo", pObj.codPermisoEmpresa)
                 };
-            return this.BuscarObjeto("isp_ListarAmbientesPorCodigo", lParameter);
+            return this.BuscarObjeto("isp_ListarPermisoEmpresaPorCodigo", lParameter);
         }
-        public void AgregarAmbiente(GestionClubAmbientesDto pObj)
+        public List<GestionClubPermisoEmpresaDto> ListarPermisosEmpresaActivasXUsuarioYAutorizadas(GestionClubPermisoEmpresaDto pObj)
         {
-            xObjCn.Connection();
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
-                        new SqlParameter("@codAmbiente",pObj.codAmbiente),
-                        new SqlParameter("@desAmbiente",pObj.desAmbiente),
-                        new SqlParameter("@estadoAmbiente",pObj.estadoAmbiente),
-                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
-                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                    new SqlParameter("@codigo", pObj.codAcceso),
+                    new SqlParameter("@estado", "1")
                 };
-            xObjCn.AssignParameters(lParameter);
-            xObjCn.CommandStoreProcedure("isp_AgregarAmbiente");
-            xObjCn.ExecuteNotResult();
-            xObjCn.Disconnect();
+            return this.BuscarObjetoPorParametro("isp_ListarPermisosEmpresaActivasXUsuarioYAutorizadas", lParameter);
         }
+
     }
 }
