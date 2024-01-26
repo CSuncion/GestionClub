@@ -79,10 +79,12 @@ namespace GestionClubView.Login
 
         public void MostrarPersistencia()
         {
+            this.txtIdAcceso.Text = Properties.Settings.Default.GuardarIdAcceso;
             this.txtNameUsr.Text = Properties.Settings.Default.GuardarNombreUsuario;
             this.txtDniUsuario.Text = Properties.Settings.Default.GuardarCodigoUsuario;
             this.txtProfile.Text = Properties.Settings.Default.GuardarNombrePerfil;
             this.txtPwd.Text = Properties.Settings.Default.GuardarClaveUsuario;
+            this.txtIdEmpresa.Text = Properties.Settings.Default.GuardarIdEmpresa;
             this.txtCodEmp.Text = Properties.Settings.Default.GuardarCodigoEmpresa;
             this.txtNomEmp.Text = Properties.Settings.Default.GuardarNombreEmpresa;
             this.ckbUsr.Checked = Conversion.CadenaABoolean(Properties.Settings.Default.GuardarCheckUsuario, false);
@@ -187,6 +189,8 @@ namespace GestionClubView.Login
             iValor = this.ckbEmp.Checked;
             Properties.Settings.Default.GuardarCodigoEmpresa = Cadena.ObtenerValor(iValor, this.txtCodEmp.Text);
             Properties.Settings.Default.GuardarNombreEmpresa = Cadena.ObtenerValor(iValor, this.txtNomEmp.Text);
+            Properties.Settings.Default.GuardarIdEmpresa = Cadena.ObtenerValor(iValor, this.txtIdEmpresa.Text);
+            Properties.Settings.Default.GuardarIdAcceso = Cadena.ObtenerValor(iValor, this.txtIdAcceso.Text);
 
             //guardar todos los datos
             Properties.Settings.Default.Save();

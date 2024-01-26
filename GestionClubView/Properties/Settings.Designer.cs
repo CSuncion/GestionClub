@@ -231,6 +231,37 @@ namespace GestionClubView.Properties {
             }
         }
 
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GuardarIdEmpresa
+        {
+            get
+            {
+                return ((string)(this["GuardarIdEmpresa"]));
+            }
+            set
+            {
+                this["GuardarIdEmpresa"] = value;
+            }
+        }
+
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string GuardarIdAcceso
+        {
+            get
+            {
+                return ((string)(this["GuardarIdAcceso"]));
+            }
+            set
+            {
+                this["GuardarIdAcceso"] = value;
+            }
+        }
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]

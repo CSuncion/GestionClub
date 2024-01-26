@@ -35,7 +35,7 @@ namespace GestionClubView.Maestros
             this.MostrarAmbiente(GestionClubAmbienteController.EnBlanco());
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
-            this.txtAmbiente.Focus();
+            this.txtCodigo.Focus();
         }
         public void InicializaVentana()
         {
@@ -59,6 +59,9 @@ namespace GestionClubView.Maestros
             List<ControlEditar> xLis = new List<ControlEditar>();
             ControlEditar xCtrl;
 
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vvff", 150);
+            xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtAmbiente, true, "Nombre Ambiente", "vvff", 150);
@@ -75,8 +78,8 @@ namespace GestionClubView.Maestros
             switch (this.eOperacion)
             {
                 case Universal.Opera.Adicionar: { this.Adicionar(); break; }
-                //case Universal.Opera.Modificar: { this.Modificar(); break; }
-                //case Universal.Opera.Eliminar: { this.Eliminar(); break; }
+                case Universal.Opera.Modificar: { this.Modificar(); break; }
+                case Universal.Opera.Eliminar: { this.Eliminar(); break; }
                 default: break;
             }
         }
@@ -106,6 +109,66 @@ namespace GestionClubView.Maestros
             eMas.AccionPasarTextoPrincipal();
             this.txtAmbiente.Focus();
         }
+        public void Modificar()
+        {
+            //validar los campos obligatorios
+            if (eMas.CamposObligatorios() == false) { return; }
+
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wAmb.EsActoModificarPersonal().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wAmb.eTitulo) == false) { return; }
+
+            //modificar el registro    
+            this.ModificarAmbiente();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Ambiente se modifico correctamente", this.wAmb.eTitulo);
+
+            //actualizar al wUsu
+            this.wAmb.eClaveDgvAmbiente = this.ObtenerIdAmbiente();
+            this.wAmb.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+
+        }
+        public void Eliminar()
+        {
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wAmb.EsActoEliminarAmbiente().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wAmb.eTitulo) == false) { return; }
+
+            //eliminar el registro
+            this.EliminarAmbiente();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Personal se elimino correctamente", this.wAmb.eTitulo);
+
+            //actualizar al propietario           
+            this.wAmb.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+        }
+        public void EliminarAmbiente()
+        {
+            GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
+            this.AsignarAmbiente(iPerEN);
+            GestionClubAmbienteController.EliminarAmbiente(iPerEN);
+        }
+        public string ObtenerIdAmbiente()
+        {
+            //asignar parametros
+            GestionClubAmbientesDto iAmbEN = new GestionClubAmbientesDto();
+            this.AsignarAmbiente(iAmbEN);
+
+            //devolver
+            return iAmbEN.idAmbiente.ToString();
+        }
         public void AdicionarAmbiente()
         {
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
@@ -131,13 +194,15 @@ namespace GestionClubView.Maestros
 
         public void MostrarAmbiente(GestionClubAmbientesDto pObj)
         {
+            this.txtCodigo.Text = pObj.codAmbiente;
             this.txtAmbiente.Text = pObj.desAmbiente;
             this.cboEstado.SelectedValue = pObj.estadoAmbiente;
+            this.txtIdAmbiente.Text = pObj.idAmbiente.ToString();
         }
 
         public void CargarEstados()
         {
-            Cmb.Cargar(this.cboEstado, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.Estado).ToString()), GestionClubSistemaDetalleDto._idTabSistemaDetalle, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboEstado, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.Estado).ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
 
         public void AsignarAmbiente(GestionClubAmbientesDto pObj)
@@ -146,17 +211,45 @@ namespace GestionClubView.Maestros
             pObj.codAmbiente = this.txtCodigo.Text.Trim();
             pObj.desAmbiente = this.txtAmbiente.Text.Trim();
             pObj.estadoAmbiente = Cmb.ObtenerValor(this.cboEstado, string.Empty);
-            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            pObj.idAmbiente = Convert.ToInt32(this.txtIdAmbiente.Text);
+        }
+        public void VentanaModificar(GestionClubAmbientesDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarAmbiente(pObj);
+            eMas.AccionHabilitarControles(1);
+            eMas.AccionPasarTextoPrincipal();
+            this.txtCodigo.Focus();
+        }
+
+
+        public void ModificarAmbiente()
+        {
+            GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
+            this.AsignarAmbiente(iPerEN);
+            iPerEN = GestionClubAmbienteController.BuscarAmbienteXId(iPerEN);
+            this.AsignarAmbiente(iPerEN);
+            GestionClubAmbienteController.ModificarAmbiente(iPerEN);
+        }
+        public void VentanaEliminar(GestionClubAmbientesDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarAmbiente(pObj);
+            eMas.AccionHabilitarControles(2);
+        }
+
+        public void VentanaVisualizar(GestionClubAmbientesDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarAmbiente(pObj);
+            eMas.AccionHabilitarControles(3);
+            this.tsBtnGrabar.Enabled = false;
         }
         private void tsBtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void tsBtnLimpiar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tsBtnGrabar_Click(object sender, EventArgs e)
         {

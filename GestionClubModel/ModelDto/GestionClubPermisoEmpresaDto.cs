@@ -8,7 +8,7 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubPermisoEmpresaDto
     {
-
+        public const string _claveObjeto = "ClaveObjeto";
         public const string _idPermisoEmpresa = "idPermisoEmpresa";
         public const string _codPermisoEmpresa = "codPermisoEmpresa";
         public const string _idEmpresa = "idEmpresa";
@@ -23,11 +23,13 @@ namespace GestionClubModel.ModelDto
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
 
+
+        public string claveObjeto { get; set; }
         public int idPermisoEmpresa { get; set; }
         public string codPermisoEmpresa { get; set; }
         public int idEmpresa { get; set; }
         public int idAcceso { get; set; }
-        public string codEmpresa { get; set; } 
+        public string codEmpresa { get; set; }
         public string codAcceso { get; set; }
         public int cPermitir { get; set; }
         public int usuarioAgrega { get; set; }

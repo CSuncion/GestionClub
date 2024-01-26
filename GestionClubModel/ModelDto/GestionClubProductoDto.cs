@@ -8,6 +8,7 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubProductoDto
     {
+        public const string _claveObjeto = "ClaveObjeto";
         public const string _idProducto = "idProducto";
         public const string _idEmpresa = "idEmpresa";
         public const string _codProducto = "codProducto";
@@ -32,7 +33,7 @@ namespace GestionClubModel.ModelDto
         public const string _fechaModifica = "fechaModifica";
 
 
-
+        public string claveObjeto { get; set; }
         public int idProducto { get; set; }
         public int idEmpresa { get; set; }
         public string codProducto { get; set; }

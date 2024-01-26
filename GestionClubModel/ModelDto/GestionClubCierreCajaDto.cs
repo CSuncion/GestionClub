@@ -8,7 +8,7 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubCierreCajaDto
     {
-
+        public const string _claveObjeto = "ClaveObjeto";
         public const string _idCierreCaja = "idCierreCaja";
         public const string _idEmpresa = "idEmpresa";
         public const string _fecCierreCaja = "fecCierreCaja";
@@ -20,6 +20,7 @@ namespace GestionClubModel.ModelDto
         public const string _fechaModifica = "fechaModifica";
 
 
+        public string claveObjeto { get; set; }
         public int idCierreCaja { get; set; }
         public int idEmpresa { get; set; }
         public DateTime fecCierreCaja { get; set; }

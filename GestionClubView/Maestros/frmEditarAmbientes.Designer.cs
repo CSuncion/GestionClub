@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarAmbientes));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnGrabar = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnLimpiar = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmbiente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtIdAmbiente = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -54,7 +54,6 @@
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnGrabar,
-            this.tsBtnLimpiar,
             this.tsBtnSalir});
             this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -73,17 +72,6 @@
             this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
-            // 
-            // tsBtnLimpiar
-            // 
-            this.tsBtnLimpiar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnLimpiar.Image")));
-            this.tsBtnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnLimpiar.Name = "tsBtnLimpiar";
-            this.tsBtnLimpiar.Size = new System.Drawing.Size(52, 39);
-            this.tsBtnLimpiar.Text = "Limpiar";
-            this.tsBtnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnLimpiar.Click += new System.EventHandler(this.tsBtnLimpiar_Click);
             // 
             // tsBtnSalir
             // 
@@ -118,6 +106,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdAmbiente);
             this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboEstado);
@@ -151,6 +140,7 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Location = new System.Drawing.Point(116, 76);
@@ -186,6 +176,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ambientes:";
             // 
+            // txtIdAmbiente
+            // 
+            this.txtIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAmbiente.Location = new System.Drawing.Point(222, 20);
+            this.txtIdAmbiente.Name = "txtIdAmbiente";
+            this.txtIdAmbiente.ReadOnly = true;
+            this.txtIdAmbiente.Size = new System.Drawing.Size(18, 22);
+            this.txtIdAmbiente.TabIndex = 215;
+            this.txtIdAmbiente.Visible = false;
+            // 
             // frmEditarAmbientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,7 +214,6 @@
         private System.Windows.Forms.ToolStrip tsPrincipal;
         private System.Windows.Forms.ToolStripButton tsBtnGrabar;
         private System.Windows.Forms.ToolStripButton tsBtnSalir;
-        private System.Windows.Forms.ToolStripButton tsBtnLimpiar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -224,5 +223,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdAmbiente;
     }
 }

@@ -17,9 +17,10 @@ namespace GestionClubController.Controller
         {
             this._iGestionClubAmbienteRepository = new GestionClubAmbienteRepository();
         }
-        public List<GestionClubAmbientesDto> ListarAmbientes()
+        public static List<GestionClubAmbientesDto> ListarAmbientes()
         {
-            return this._iGestionClubAmbienteRepository.ListarAmbientes();
+            GestionClubAmbienteRepository oRepo = new GestionClubAmbienteRepository();
+            return oRepo.ListarAmbientes();
         }
         public List<GestionClubAmbientesDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubAmbientesDto> pListaOperations)
         {
@@ -72,6 +73,7 @@ namespace GestionClubController.Controller
                 case GestionClubAmbientesDto._codAmbiente: return pObj.codAmbiente.ToString();
                 case GestionClubAmbientesDto._desAmbiente: return pObj.desAmbiente;
                 case GestionClubAmbientesDto._estadoAmbiente: return pObj.estadoAmbiente.ToString();
+                case GestionClubAmbientesDto._idAmbiente: return pObj.idAmbiente.ToString();
             }
 
             //retorna
@@ -125,7 +127,12 @@ namespace GestionClubController.Controller
         public static GestionClubAmbientesDto BuscarAmbienteXClave(GestionClubAmbientesDto pObj)
         {
             GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
-            return objAmbiente.ListarAmbientesPorCodigo(pObj);
+            return objAmbiente.ListarAmbientesPorCodigoPorEmpresa(pObj);
+        }
+        public static GestionClubAmbientesDto BuscarAmbienteXId(GestionClubAmbientesDto pObj)
+        {
+            GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
+            return objAmbiente.ListarAmbientesPorId(pObj);
         }
         public static GestionClubAmbientesDto EsCodigoAmbienteDisponible(GestionClubAmbientesDto pObj)
         {
@@ -146,6 +153,58 @@ namespace GestionClubController.Controller
         {
             GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
             objAmbiente.AgregarAmbiente(pObj);
+        }
+        public static GestionClubAmbientesDto EsActoModificarPersonal(GestionClubAmbientesDto pObj)
+        {
+            //objeto resultado
+            GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
+
+            //validar si existe
+            iPerEN = GestionClubAmbienteController.EsAmbienteExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static GestionClubAmbientesDto EsAmbienteExistente(GestionClubAmbientesDto pObj)
+        {
+            //objeto resultado
+            GestionClubAmbientesDto iAmbEN = new GestionClubAmbientesDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iAmbEN = GestionClubAmbienteController.BuscarAmbienteXId(pObj);
+            if (iAmbEN.codAmbiente == string.Empty)
+            {
+                iAmbEN.Adicionales.EsVerdad = false;
+                iAmbEN.Adicionales.Mensaje = "El ambiente " + pObj.codAmbiente + " no existe";
+                return iAmbEN;
+            }
+
+            //ok         
+            return iAmbEN;
+        }
+        public static void ModificarAmbiente(GestionClubAmbientesDto pObj)
+        {
+            GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
+            objAmbiente.ModificarAmbiente(pObj);
+        }
+        public static GestionClubAmbientesDto EsActoEliminarAmbiente(GestionClubAmbientesDto pObj)
+        {
+            //objeto resultado
+            GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
+
+            //validar si existe
+            iPerEN = GestionClubAmbienteController.EsAmbienteExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static void EliminarAmbiente(GestionClubAmbientesDto pObj)
+        {
+            GestionClubAmbienteRepository objAmbiente = new GestionClubAmbienteRepository();
+            objAmbiente.EliminarAmbiente(pObj);
         }
     }
 }

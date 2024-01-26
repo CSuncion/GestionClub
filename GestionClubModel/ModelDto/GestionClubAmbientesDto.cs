@@ -8,7 +8,7 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubAmbientesDto
     {
-
+        public const string _claveObjeto = "ClaveObjeto";
         public const string _idAmbiente = "idAmbiente";
         public const string _idEmpresa = "idEmpresa";
         public const string _codAmbiente = "codAmbiente";
@@ -19,11 +19,12 @@ namespace GestionClubModel.ModelDto
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
 
+        public string claveObjeto { get; set; }
         public int idAmbiente { get; set; }
         public int idEmpresa { get; set; }
         public string codAmbiente { get; set; } = string.Empty;
         public string desAmbiente { get; set; }
-        public string estadoAmbiente { get; set; } = "1";
+        public string estadoAmbiente { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

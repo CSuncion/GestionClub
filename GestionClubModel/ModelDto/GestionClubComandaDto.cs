@@ -9,6 +9,9 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubComandaDto
     {
+        public const string _claveObjeto = "ClaveObjeto";
+
+        public string claveObjeto { get; set; }
         public int idComanda { get; set; }
         public int idEmpresa { get; set; }
         public string tipoDocumentoComanda { get; set; }

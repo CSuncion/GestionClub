@@ -8,6 +8,9 @@ namespace GestionClubModel.ModelDto
 {
     public class GestionClubComprobanteDto
     {
+        public const string _claveObjeto = "ClaveObjeto";
+
+        public string claveObjeto { get; set; }
         public int idComprobante { get; set; }
         public int idEmpresa { get; set; }
         public string tipComprobante { get; set; }

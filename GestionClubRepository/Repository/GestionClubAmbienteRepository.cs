@@ -28,6 +28,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
+            xObjEnc.claveObjeto = xObjEnc.idAmbiente.ToString();
             return xObjEnc;
         }
         private GestionClubAmbientesDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -76,14 +77,14 @@ namespace GestionClubRepository.Repository
         {
             return this.ListarObjetos("isp_ListarAmbientes");
         }
-        public GestionClubAmbientesDto ListarAmbientesPorCodigo(GestionClubAmbientesDto pObj)
+        public GestionClubAmbientesDto ListarAmbientesPorCodigoPorEmpresa(GestionClubAmbientesDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@codigo", pObj.codAmbiente),
                 new SqlParameter("@empresa", pObj.idEmpresa)
                 };
-            return this.BuscarObjeto("isp_ListarAmbientesPorCodigo", lParameter);
+            return this.BuscarObjeto("isp_ListarAmbientesPorCodigoPorEmpresa", lParameter);
         }
         public void AgregarAmbiente(GestionClubAmbientesDto pObj)
         {
@@ -99,6 +100,44 @@ namespace GestionClubRepository.Repository
                 };
             xObjCn.AssignParameters(lParameter);
             xObjCn.CommandStoreProcedure("isp_AgregarAmbiente");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public GestionClubAmbientesDto ListarAmbientesPorId(GestionClubAmbientesDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idAmbiente", pObj.idAmbiente)
+                };
+            return this.BuscarObjeto("isp_ListarAmbientesPorId", lParameter);
+        }
+        public void ModificarAmbiente(GestionClubAmbientesDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idAmbiente", pObj.idAmbiente),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                        new SqlParameter("@codAmbiente", pObj.codAmbiente),
+                        new SqlParameter("@desAmbiente", pObj.desAmbiente),
+                        new SqlParameter("@estadoAmbiente", pObj.estadoAmbiente),
+                        new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarAmbiente");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarAmbiente(GestionClubAmbientesDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idAmbiente", pObj.idAmbiente),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarAmbiente");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
