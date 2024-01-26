@@ -205,3 +205,4 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmCategorias.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarEmpresas.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmEditarCategorias.resources

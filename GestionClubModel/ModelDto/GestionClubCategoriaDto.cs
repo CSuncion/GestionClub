@@ -22,9 +22,9 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idCategoria { get; set; }
         public int idEmpresa { get; set; }
-        public string codCategoria { get; set; }
+        public string codCategoria { get; set; } = string.Empty;
         public string desCategoria { get; set; }
-        public string estadoCategoria { get; set; }
+        public string estadoCategoria { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

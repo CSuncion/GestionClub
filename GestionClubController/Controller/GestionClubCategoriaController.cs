@@ -17,9 +17,10 @@ namespace GestionClubController.Controller
         {
             this._iCreditCategoriaRepository = new GestionClubCategoriaRepository();
         }
-        public List<GestionClubCategoriaDto> ListarCategorias()
+        public static List<GestionClubCategoriaDto> ListarCategorias()
         {
-            return this._iCreditCategoriaRepository.ListarCategorias();
+            GestionClubCategoriaRepository oRepo = new GestionClubCategoriaRepository();
+            return oRepo.ListarCategorias();
         }
         public List<GestionClubCategoriaDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubCategoriaDto> pListaOperations)
         {
@@ -67,10 +68,116 @@ namespace GestionClubController.Controller
                 case GestionClubCategoriaDto._codCategoria: return pObj.codCategoria.ToString();
                 case GestionClubCategoriaDto._desCategoria: return pObj.desCategoria;
                 case GestionClubCategoriaDto._estadoCategoria: return pObj.estadoCategoria.ToString();
+                case GestionClubCategoriaDto._idCategoria: return pObj.idCategoria.ToString();
             }
 
             //retorna
             return iValor;
+        }
+        public static GestionClubCategoriaDto EsActoModificarCategoria(GestionClubCategoriaDto pObj)
+        {
+            //objeto resultado
+            GestionClubCategoriaDto iPerEN = new GestionClubCategoriaDto();
+
+            //validar si existe
+            iPerEN = GestionClubCategoriaController.EsCategoriaExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static GestionClubCategoriaDto EsCategoriaExistente(GestionClubCategoriaDto pObj)
+        {
+            //objeto resultado
+            GestionClubCategoriaDto iAmbEN = new GestionClubCategoriaDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iAmbEN = GestionClubCategoriaController.BuscarCategoriaXId(pObj);
+            if (iAmbEN.codCategoria == string.Empty)
+            {
+                iAmbEN.Adicionales.EsVerdad = false;
+                iAmbEN.Adicionales.Mensaje = "La categoria " + pObj.codCategoria + " no existe";
+                return iAmbEN;
+            }
+
+            //ok         
+            return iAmbEN;
+        }
+        public static GestionClubCategoriaDto BuscarCategoriaXId(GestionClubCategoriaDto pObj)
+        {
+            GestionClubCategoriaRepository objRepo = new GestionClubCategoriaRepository();
+            return objRepo.ListarCategoriaPorId(pObj);
+        }
+        public static GestionClubCategoriaDto EsActoEliminarCategoria(GestionClubCategoriaDto pObj)
+        {
+            //objeto resultado
+            GestionClubCategoriaDto iObjEN = new GestionClubCategoriaDto();
+
+            //validar si existe
+            iObjEN = GestionClubCategoriaController.EsCategoriaExistente(pObj);
+            if (iObjEN.Adicionales.EsVerdad == false) { return iObjEN; }
+
+            //ok            
+            return iObjEN;
+        }
+        public static GestionClubCategoriaDto EnBlanco()
+        {
+            GestionClubCategoriaDto iPerEN = new GestionClubCategoriaDto();
+            return iPerEN;
+        }
+        public static GestionClubCategoriaDto EsCodigoCategoriaDisponible(GestionClubCategoriaDto pObj)
+        {
+            //objeto resultado
+            GestionClubCategoriaDto iAmbEN = new GestionClubCategoriaDto();
+
+            //valida cuando el codigo esta vacio
+            if (pObj.codCategoria == string.Empty) { return iAmbEN; }
+
+            //valida cuando existe el codigo
+            iAmbEN = GestionClubCategoriaController.ValidaCuandoCodigoYaExiste(pObj);
+            if (iAmbEN.Adicionales.EsVerdad == false) { return iAmbEN; }
+
+            //ok          
+            return iAmbEN;
+        }
+        public static GestionClubCategoriaDto ValidaCuandoCodigoYaExiste(GestionClubCategoriaDto pObj)
+        {
+            //objeto resultado
+            GestionClubCategoriaDto iAmbiente = new GestionClubCategoriaDto();
+
+            //validar    
+            iAmbiente = GestionClubCategoriaController.BuscarCategoriaXClave(pObj);
+            if (iAmbiente.codCategoria != string.Empty)
+            {
+                iAmbiente.Adicionales.EsVerdad = false;
+                iAmbiente.Adicionales.Mensaje = "El codigo " + pObj.codCategoria + " ya existe";
+                return iAmbiente;
+            }
+
+            //ok
+            iAmbiente.Adicionales.EsVerdad = true;
+            return iAmbiente;
+        }
+        public static GestionClubCategoriaDto BuscarCategoriaXClave(GestionClubCategoriaDto pObj)
+        {
+            GestionClubCategoriaRepository obj = new GestionClubCategoriaRepository();
+            return obj.ListarCategoriaPorCodigoPorEmpresa(pObj);
+        }
+        public static void EliminarCategoria(GestionClubCategoriaDto pObj)
+        {
+            GestionClubCategoriaRepository obj = new GestionClubCategoriaRepository();
+            obj.EliminarCategoria(pObj);
+        }
+        public static void ModificarCategoria(GestionClubCategoriaDto pObj)
+        {
+            GestionClubCategoriaRepository obj = new GestionClubCategoriaRepository();
+            obj.ModificarCategoria(pObj);
+        }
+        public static void AdicionarCategoria(GestionClubCategoriaDto pObj)
+        {
+            GestionClubCategoriaRepository obj = new GestionClubCategoriaRepository();
+            obj.AgregarCategoria(pObj);
         }
     }
 }

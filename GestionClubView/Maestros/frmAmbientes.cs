@@ -160,7 +160,7 @@ namespace GestionClubView.Maestros
         public GestionClubAmbientesDto EsActoModificarAmbiente()
         {
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
-            this.AsignarPersonal(iPerEN);
+            this.AsignarAmbiente(iPerEN);
             iPerEN = GestionClubAmbienteController.EsActoModificarAmbiente(iPerEN);
             if (iPerEN.Adicionales.EsVerdad == false)
             {
@@ -168,7 +168,7 @@ namespace GestionClubView.Maestros
             }
             return iPerEN;
         }
-        public void AsignarPersonal(GestionClubAmbientesDto pObj)
+        public void AsignarAmbiente(GestionClubAmbientesDto pObj)
         {
             pObj.idAmbiente = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvAmbientes, GestionClubAmbientesDto._idAmbiente));
         }
@@ -206,7 +206,7 @@ namespace GestionClubView.Maestros
         public GestionClubAmbientesDto EsActoEliminarAmbiente()
         {
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
-            this.AsignarPersonal(iPerEN);
+            this.AsignarAmbiente(iPerEN);
             iPerEN = GestionClubAmbienteController.EsActoEliminarAmbiente(iPerEN);
             if (iPerEN.Adicionales.EsVerdad == false)
             {
@@ -230,7 +230,7 @@ namespace GestionClubView.Maestros
         public GestionClubAmbientesDto EsAmbienteExistente()
         {
             GestionClubAmbientesDto iPerEN = new GestionClubAmbientesDto();
-            this.AsignarPersonal(iPerEN);
+            this.AsignarAmbiente(iPerEN);
             iPerEN = GestionClubAmbienteController.EsAmbienteExistente(iPerEN);
             if (iPerEN.Adicionales.EsVerdad == false)
             {

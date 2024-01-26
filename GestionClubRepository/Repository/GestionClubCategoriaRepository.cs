@@ -27,6 +27,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
+            xObjEnc.claveObjeto = xObjEnc.idCategoria.ToString();
             return xObjEnc;
         }
         private GestionClubCategoriaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -60,6 +61,70 @@ namespace GestionClubRepository.Repository
         public List<GestionClubCategoriaDto> ListarCategorias()
         {
             return this.ListarObjetos("isp_ListarCategorias");
+        }
+        public GestionClubCategoriaDto ListarCategoriaPorId(GestionClubCategoriaDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idCategoria", pObj.idCategoria)
+                };
+            return this.BuscarObjeto("isp_ListarCategoriaPorId", lParameter);
+        }
+        public GestionClubCategoriaDto ListarCategoriaPorCodigoPorEmpresa(GestionClubCategoriaDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@codigo", pObj.codCategoria),
+                new SqlParameter("@empresa", pObj.idEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarCategoriaPorCodigoPorEmpresa", lParameter);
+        }
+        public void AgregarCategoria(GestionClubCategoriaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                        new SqlParameter("@codCategoria",pObj.codCategoria),
+                        new SqlParameter("@desCategoria",pObj.desCategoria),
+                        new SqlParameter("@estadoCategoria",pObj.estadoCategoria),
+                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AgregarCategoria");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void ModificarCategoria(GestionClubCategoriaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idCategoria", pObj.idCategoria),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                        new SqlParameter("@codCategoria", pObj.codCategoria),
+                        new SqlParameter("@desCategoria", pObj.desCategoria),
+                        new SqlParameter("@estadoCategoria", pObj.estadoCategoria),
+                        new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarCategoria");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarCategoria(GestionClubCategoriaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idCategoria", pObj.idCategoria),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarCategoria");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
         }
     }
 }

@@ -158,6 +158,12 @@
     <Compile Include="Maestros\frmAmbientes.Designer.cs">
       <DependentUpon>frmAmbientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\frmEditarCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmEditarCategorias.Designer.cs">
+      <DependentUpon>frmEditarCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maestros\frmEditarAmbientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmAmbientes.resx">
       <DependentUpon>frmAmbientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmEditarCategorias.resx">
+      <DependentUpon>frmEditarCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmEditarAmbientes.resx">
       <DependentUpon>frmEditarAmbientes.cs</DependentUpon>
