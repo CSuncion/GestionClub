@@ -13,7 +13,7 @@ using GestionClubView.Informatica;
 using GestionClubView.AcercaDe;
 using GestionClubUtil.Enum;
 using WinControles;
-using GestionClubView.Comanda;
+using GestionClubView.Pedidos;
 using GestionClubView.Maestros;
 
 namespace GestionClubView.MdiPrincipal

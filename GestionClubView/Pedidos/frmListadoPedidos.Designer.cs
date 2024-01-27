@@ -1,4 +1,4 @@
-﻿namespace GestionClubView.Comanda
+﻿namespace GestionClubView.Pedidos
 {
     partial class frmListadoPedidos
     {

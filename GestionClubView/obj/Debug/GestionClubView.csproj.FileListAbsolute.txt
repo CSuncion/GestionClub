@@ -176,9 +176,6 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\bin\Debug\zh-CH
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.AssemblyReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.ResolveComReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.AcercaDe.frmAcercaDe.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmCobrar.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmComanda.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Comanda.frmListadoPedidos.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Login.frmLogin.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmAmbientes.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmEditarAmbientes.resources
@@ -206,3 +203,6 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmCategorias.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarEmpresas.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmEditarCategorias.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmCobrar.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmComanda.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmListadoPedidos.resources

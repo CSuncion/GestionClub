@@ -1,4 +1,4 @@
-﻿namespace GestionClubView.Comanda
+﻿namespace GestionClubView.Pedidos
 {
     partial class frmComanda
     {
@@ -41,7 +41,7 @@
             this.lvProductos = new System.Windows.Forms.ListView();
             this.imgProductos = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbAmbientes = new System.Windows.Forms.ComboBox();
+            this.cboAmbiente = new System.Windows.Forms.ComboBox();
             this.gbProductosSeleccionados = new System.Windows.Forms.GroupBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,11 +51,11 @@
             this.btnQuitar = new System.Windows.Forms.Button();
             this.lvProductosSeleccionados = new System.Windows.Forms.ListView();
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
+            this.tsbRealizarPedido = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lvCategorias = new System.Windows.Forms.ListView();
             this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
-            this.tsbRealizarPedido = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -171,7 +171,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cbAmbientes);
+            this.groupBox3.Controls.Add(this.cboAmbiente);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(12, 45);
             this.groupBox3.Name = "groupBox3";
@@ -180,13 +180,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "AMBIENTES";
             // 
-            // cbAmbientes
+            // cboAmbiente
             // 
-            this.cbAmbientes.FormattingEnabled = true;
-            this.cbAmbientes.Location = new System.Drawing.Point(7, 20);
-            this.cbAmbientes.Name = "cbAmbientes";
-            this.cbAmbientes.Size = new System.Drawing.Size(301, 22);
-            this.cbAmbientes.TabIndex = 0;
+            this.cboAmbiente.FormattingEnabled = true;
+            this.cboAmbiente.Location = new System.Drawing.Point(7, 20);
+            this.cboAmbiente.Name = "cboAmbiente";
+            this.cboAmbiente.Size = new System.Drawing.Size(301, 22);
+            this.cboAmbiente.TabIndex = 0;
             // 
             // gbProductosSeleccionados
             // 
@@ -294,6 +294,17 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 449;
             // 
+            // tsbRealizarPedido
+            // 
+            this.tsbRealizarPedido.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbRealizarPedido.Image = ((System.Drawing.Image)(resources.GetObject("tsbRealizarPedido.Image")));
+            this.tsbRealizarPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRealizarPedido.Name = "tsbRealizarPedido";
+            this.tsbRealizarPedido.Size = new System.Drawing.Size(97, 39);
+            this.tsbRealizarPedido.Text = "Realizar Pedido";
+            this.tsbRealizarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbRealizarPedido.Click += new System.EventHandler(this.tsbRealizarPedido_Click);
+            // 
             // tsbSalir
             // 
             this.tsbSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -334,17 +345,6 @@
             this.imgCategorias.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imgCategorias.ImageSize = new System.Drawing.Size(16, 16);
             this.imgCategorias.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // tsbRealizarPedido
-            // 
-            this.tsbRealizarPedido.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbRealizarPedido.Image = ((System.Drawing.Image)(resources.GetObject("tsbRealizarPedido.Image")));
-            this.tsbRealizarPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbRealizarPedido.Name = "tsbRealizarPedido";
-            this.tsbRealizarPedido.Size = new System.Drawing.Size(97, 39);
-            this.tsbRealizarPedido.Text = "Realizar Pedido";
-            this.tsbRealizarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbRealizarPedido.Click += new System.EventHandler(this.tsbRealizarPedido_Click);
             // 
             // frmComanda
             // 
@@ -390,7 +390,7 @@
         private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbAmbientes;
+        private System.Windows.Forms.ComboBox cboAmbiente;
         private System.Windows.Forms.GroupBox gbProductosSeleccionados;
         private System.Windows.Forms.ListView lvProductosSeleccionados;
         private System.Windows.Forms.NumericUpDown nudCantidadProducto;

@@ -1,4 +1,5 @@
-﻿using GestionClubModel.ModelDto;
+﻿using GestionClubController.Controller;
+using GestionClubModel.ModelDto;
 using GestionClubView.MdiPrincipal;
 using System;
 using System.Collections.Generic;
@@ -12,23 +13,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinControles.ControlesWindows;
 
-namespace GestionClubView.Comanda
+namespace GestionClubView.Pedidos
 {
     public partial class frmComanda : Form
     {
         public string eTitulo = "Registro Comanda";
+        public GestionClubAmbienteController oOpeAmbiente = new GestionClubAmbienteController();
         public frmComanda()
         {
             InitializeComponent();
-        }
-
-        private void frmComanda_Load(object sender, EventArgs e)
-        {
-
-            this.cargarMesas();
-            this.cargarProductos();
-            this.cargarProductosSeleccionados();
-            this.cargarCategorias();
         }
 
         public void NewWindow()
@@ -39,7 +32,10 @@ namespace GestionClubView.Comanda
             //this.tsTxtAnio.Text = DateTime.Now.Year.ToString();
             this.Show();
         }
-
+        public void CargarAmbientes()
+        {
+            Cmb.Cargar(this.cboAmbiente, oOpeAmbiente.ListarAmbientesActivos(), GestionClubAmbientesDto._idAmbiente, GestionClubAmbientesDto._desAmbiente);
+        }
         private void cargarMesas()
         {
             lvMesas.View = View.LargeIcon;
@@ -175,7 +171,14 @@ namespace GestionClubView.Comanda
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
             wMen.CerrarVentanaHijo(this, wMen.tsmComanda, wMen.tsbComanda);
         }
-
+        private void frmComanda_Load(object sender, EventArgs e)
+        {
+            this.CargarAmbientes();
+            this.cargarMesas();
+            this.cargarProductos();
+            this.cargarProductosSeleccionados();
+            this.cargarCategorias();
+        }
         private void lvMesas_MouseClick(object sender, MouseEventArgs e)
         {
             String selected = lvMesas.SelectedItems[0].SubItems[0].Text;

@@ -1,6 +1,6 @@
 ﻿using Comun;
 using GestionClubModel.ModelDto;
-using GestionClubView.Comanda;
+using GestionClubView.Pedidos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinControles;
 
-namespace GestionClubView.Comanda
+namespace GestionClubView.Pedidos
 {
     public partial class frmCobrar : Form
     {

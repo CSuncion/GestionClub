@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GestionClubView.Comanda
+namespace GestionClubView.Pedidos
 {
     public partial class frmListadoPedidos : Form
     {

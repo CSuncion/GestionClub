@@ -2,7 +2,7 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
-using GestionClubView.Comanda;
+using GestionClubView.Pedidos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
