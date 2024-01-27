@@ -126,5 +126,9 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
+        public List<GestionClubCategoriaDto> ListarCategoriasActivos()
+        {
+            return this.ListarObjetos("isp_ListarCategoriasActivos");
+        }
     }
 }

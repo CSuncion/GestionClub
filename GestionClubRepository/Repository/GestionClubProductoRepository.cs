@@ -42,7 +42,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubProductoDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubProductoDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubProductoDto._fechaModifica]);
-
+            xObjEnc.claveObjeto = xObjEnc.idProducto.ToString();
             return xObjEnc;
         }
         private GestionClubProductoDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -76,6 +76,94 @@ namespace GestionClubRepository.Repository
         public List<GestionClubProductoDto> ListarProductos()
         {
             return this.ListarObjetos("isp_ListarProductos");
+        }
+        public GestionClubProductoDto ListarProductoPorId(GestionClubProductoDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idProducto", pObj.idProducto)
+                };
+            return this.BuscarObjeto("isp_ListarProductoPorId", lParameter);
+        }
+        public GestionClubProductoDto ListarProductoPorCodigoPorEmpresa(GestionClubProductoDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@codigo", pObj.codProducto),
+                new SqlParameter("@empresa", pObj.idEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarProductoPorCodigoPorEmpresa", lParameter);
+        }
+        public void AgregarProducto(GestionClubProductoDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@codProducto",pObj.codProducto),
+                    new SqlParameter("@desProducto",pObj.desProducto),
+                    new SqlParameter("@uniMedProducto",pObj.uniMedProducto),
+                    new SqlParameter("@codMoneda",pObj.codMoneda),
+                    new SqlParameter("@preCosProducto",pObj.preCosProducto),
+                    new SqlParameter("@preVtsProducto",pObj.preVtsProducto),
+                    new SqlParameter("@preVnsProducto",pObj.preVnsProducto),
+                    new SqlParameter("@afeIgvProducto",pObj.afeIgvProducto),
+                    new SqlParameter("@afeDtraProducto",pObj.afeDtraProducto),
+                    new SqlParameter("@porDtraProducto",pObj.porDtraProducto),
+                    new SqlParameter("@impDolProducto",pObj.impDolProducto),
+                    new SqlParameter("@impOtrProducto",pObj.impOtrProducto),
+                    new SqlParameter("@obsProducto",pObj.obsProducto),
+                    new SqlParameter("@idCategoria",pObj.idCategoria),
+                    new SqlParameter("@estadoProducto",pObj.estadoProducto),
+                    new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AgregarProducto");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void ModificarProducto(GestionClubProductoDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idProducto",pObj.idProducto),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@codProducto",pObj.codProducto),
+                    new SqlParameter("@desProducto",pObj.desProducto),
+                    new SqlParameter("@uniMedProducto",pObj.uniMedProducto),
+                    new SqlParameter("@codMoneda",pObj.codMoneda),
+                    new SqlParameter("@preCosProducto",pObj.preCosProducto),
+                    new SqlParameter("@preVtsProducto",pObj.preVtsProducto),
+                    new SqlParameter("@preVnsProducto",pObj.preVnsProducto),
+                    new SqlParameter("@afeIgvProducto",pObj.afeIgvProducto),
+                    new SqlParameter("@afeDtraProducto",pObj.afeDtraProducto),
+                    new SqlParameter("@porDtraProducto",pObj.porDtraProducto),
+                    new SqlParameter("@impDolProducto",pObj.impDolProducto),
+                    new SqlParameter("@impOtrProducto",pObj.impOtrProducto),
+                    new SqlParameter("@obsProducto",pObj.obsProducto),
+                    new SqlParameter("@idCategoria",pObj.idCategoria),
+                    new SqlParameter("@estadoProducto",pObj.estadoProducto),
+                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarProducto");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarProducto(GestionClubProductoDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idProducto", pObj.idProducto),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarProducto");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
         }
     }
 }

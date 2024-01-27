@@ -21,7 +21,9 @@ namespace GestionClubUtil.Enum
         }
         public enum Sistema
         {
-            Estado = 11
+            Estado = 11,
+            Moneda = 8,
+            UndMedida = 12
         }
     }
 }

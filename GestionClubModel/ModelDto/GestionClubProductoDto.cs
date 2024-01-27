@@ -36,10 +36,10 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idProducto { get; set; }
         public int idEmpresa { get; set; }
-        public string codProducto { get; set; }
+        public string codProducto { get; set; } = string.Empty;
         public string desProducto { get; set; }
-        public string uniMedProducto { get; set; }
-        public string codMoneda { get; set; }
+        public string uniMedProducto { get; set; } = "01";
+        public string codMoneda { get; set; } = "01";
         public decimal preCosProducto { get; set; }
         public decimal preVtsProducto { get; set; }
         public decimal preVnsProducto { get; set; }
@@ -50,7 +50,7 @@ namespace GestionClubModel.ModelDto
         public decimal impOtrProducto { get; set; }
         public string obsProducto { get; set; }
         public int idCategoria { get; set; }
-        public string estadoProducto { get; set; }
+        public string estadoProducto { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

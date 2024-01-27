@@ -11,6 +11,7 @@ namespace GestionClubRepository.IRepository
         void ModificarCategoria(GestionClubCategoriaDto pObj);
         void EliminarCategoria(GestionClubCategoriaDto pObj);
         void AgregarCategoria(GestionClubCategoriaDto pObj);
+        List<GestionClubCategoriaDto> ListarCategoriasActivos();
 
     }
 }
