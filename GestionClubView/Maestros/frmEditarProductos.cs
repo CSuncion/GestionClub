@@ -68,11 +68,11 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.cboMoneda, true, "Moneda", "vvff", 150);
+            xCtrl.TxtTodo(this.txtDescripcion, true, "Descripción", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtDescripcion, true, "Descripción", "vvff", 150);
+            xCtrl.TxtTodo(this.cboMoneda, true, "Moneda", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -265,25 +265,26 @@ namespace GestionClubView.Maestros
         }
         public void CargarEstados()
         {
-            Cmb.Cargar(this.cboEstado, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.Estado).ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboEstado, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.Estado.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarCategorias()
         {
-            Cmb.Cargar(this.cboCategoria, oOpeCate.ListarCategoriasActivos(), GestionClubCategoriaDto._idCategoria, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboCategoria, oOpeCate.ListarCategoriasActivos(), GestionClubCategoriaDto._idCategoria, GestionClubCategoriaDto._desCategoria);
         }
         public void CargarMoneda()
         {
-            Cmb.Cargar(this.cboMoneda, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.Moneda).ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboMoneda, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.Moneda.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarUndMedida()
         {
-            Cmb.Cargar(this.cboUniMed, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.UndMedida).ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboUniMed, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.UndMedida.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
 
         public void AsignarProducto(GestionClubProductoDto pObj)
         {
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.codProducto = this.txtCodigo.Text.Trim();
+            pObj.idCategoria = Convert.ToInt32(Cmb.ObtenerValor(this.cboCategoria, string.Empty));
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
             pObj.desProducto = this.txtDescripcion.Text.Trim();
             pObj.uniMedProducto = Cmb.ObtenerValor(this.cboUniMed, string.Empty);
@@ -343,6 +344,38 @@ namespace GestionClubView.Maestros
         private void frmEditarProductos_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.wFrm.Enabled = true;
+        }
+
+        private void chkAfeDtraSi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAfeDtraSi.Checked)
+                chkAfeDtraNo.Checked = false;
+            else
+                chkAfeDtraNo.Checked = true;
+        }
+
+        private void chkAfeDtraNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAfeDtraNo.Checked)
+                chkAfeDtraSi.Checked = false;
+            else
+                chkAfeDtraSi.Checked = true;
+        }
+
+        private void chkAfeIgvSi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAfeIgvSi.Checked)
+                chkAfeIgvNo.Checked = false;
+            else
+                chkAfeIgvNo.Checked = true;
+        }
+
+        private void chkAfeIgvNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAfeIgvNo.Checked)
+                chkAfeIgvSi.Checked = false;
+            else
+                chkAfeIgvSi.Checked = true;
         }
     }
 }

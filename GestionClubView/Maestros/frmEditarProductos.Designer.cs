@@ -231,6 +231,7 @@
             this.chkAfeDtraNo.TabIndex = 27;
             this.chkAfeDtraNo.Text = "NO";
             this.chkAfeDtraNo.UseVisualStyleBackColor = true;
+            this.chkAfeDtraNo.CheckedChanged += new System.EventHandler(this.chkAfeDtraNo_CheckedChanged);
             // 
             // chkAfeDtraSi
             // 
@@ -241,6 +242,7 @@
             this.chkAfeDtraSi.TabIndex = 26;
             this.chkAfeDtraSi.Text = "SI";
             this.chkAfeDtraSi.UseVisualStyleBackColor = true;
+            this.chkAfeDtraSi.CheckedChanged += new System.EventHandler(this.chkAfeDtraSi_CheckedChanged);
             // 
             // label14
             // 
@@ -261,6 +263,7 @@
             this.chkAfeIgvNo.TabIndex = 24;
             this.chkAfeIgvNo.Text = "NO";
             this.chkAfeIgvNo.UseVisualStyleBackColor = true;
+            this.chkAfeIgvNo.CheckedChanged += new System.EventHandler(this.chkAfeIgvNo_CheckedChanged);
             // 
             // chkAfeIgvSi
             // 
@@ -271,6 +274,7 @@
             this.chkAfeIgvSi.TabIndex = 23;
             this.chkAfeIgvSi.Text = "SI";
             this.chkAfeIgvSi.UseVisualStyleBackColor = true;
+            this.chkAfeIgvSi.CheckedChanged += new System.EventHandler(this.chkAfeIgvSi_CheckedChanged);
             // 
             // label13
             // 
@@ -320,6 +324,7 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Location = new System.Drawing.Point(127, 209);
@@ -375,6 +380,7 @@
             // 
             // cboMoneda
             // 
+            this.cboMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMoneda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMoneda.FormattingEnabled = true;
             this.cboMoneda.Location = new System.Drawing.Point(127, 74);
@@ -412,6 +418,7 @@
             // 
             // cboUniMed
             // 
+            this.cboUniMed.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUniMed.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboUniMed.FormattingEnabled = true;
             this.cboUniMed.Location = new System.Drawing.Point(416, 74);
@@ -451,6 +458,7 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(416, 18);

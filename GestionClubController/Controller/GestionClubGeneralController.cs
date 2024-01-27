@@ -20,9 +20,10 @@ namespace GestionClubController.Controller
         {
             this._iGestionClubGeneralRepository.CrearBackupDbFbPol();
         }
-        public List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTabla(string tabla)
+        public static List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTabla(string tabla)
         {
-            return this._iGestionClubGeneralRepository.ListarSistemaDetallePorTabla(tabla);
+            GestionClubGeneralRepository objRepo = new GestionClubGeneralRepository();
+            return objRepo.ListarSistemaDetallePorTabla(tabla);
         }
     }
 }

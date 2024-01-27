@@ -10,3 +10,15 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubModel\obj\Release
 D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubModel\obj\Release\GestionClubModel.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubModel\obj\Release\CreditsModel.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubModel\obj\Release\CreditsModel.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\GestionClubModel.dll.config
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\GestionClubModel.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\GestionClubModel.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\EntityFramework.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\EntityFramework.SqlServer.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\EntityFramework.xml
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\bin\Release\EntityFramework.SqlServer.xml
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\obj\Release\GestionClubModel.csproj.AssemblyReference.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\obj\Release\GestionClubModel.csproj.CoreCompileInputs.cache
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\obj\Release\GestionClubModel.csproj.CopyComplete
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\obj\Release\GestionClubModel.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubModel\obj\Release\GestionClubModel.pdb

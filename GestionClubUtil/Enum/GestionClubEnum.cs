@@ -19,11 +19,11 @@ namespace GestionClubUtil.Enum
             DirrehumCombustible = 3,
             Fonbiepol = 8,
         }
-        public enum Sistema
+        public static class Sistema
         {
-            Estado = 11,
-            Moneda = 8,
-            UndMedida = 12
+            public static string Estado = "11";
+            public static string Moneda = "08";
+            public static string UndMedida = "12";
         }
     }
 }

@@ -48,7 +48,7 @@ namespace GestionClubModel.ModelDto
         public decimal porDtraProducto { get; set; }
         public decimal impDolProducto { get; set; }
         public decimal impOtrProducto { get; set; }
-        public string obsProducto { get; set; }
+        public string obsProducto { get; set; } = string.Empty;
         public int idCategoria { get; set; }
         public string estadoProducto { get; set; } = "01";
         public int usuarioAgrega { get; set; }

@@ -202,7 +202,7 @@ namespace GestionClubView.Maestros
 
         public void CargarEstados()
         {
-            Cmb.Cargar(this.cboEstado, oOpeGral.ListarSistemaDetallePorTabla(((int)GestionClubEnum.Sistema.Estado).ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboEstado, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.Estado.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
 
         public void AsignarCategoria(GestionClubCategoriaDto pObj)
