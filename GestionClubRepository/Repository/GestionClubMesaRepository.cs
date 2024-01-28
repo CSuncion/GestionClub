@@ -62,14 +62,33 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
+        private List<GestionClubMesaDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
         public List<GestionClubMesaDto> ListarMesas()
         {
-            return this.ListarObjetos("isp_ListarMesas");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarMesas", lParameter);
         }
         public GestionClubMesaDto ListarMesaPorId(GestionClubMesaDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                 new SqlParameter("@idMesa", pObj.idMesa)
                 };
             return this.BuscarObjeto("isp_ListarMesaPorId", lParameter);
@@ -131,6 +150,15 @@ namespace GestionClubRepository.Repository
             xObjCn.CommandStoreProcedure("isp_EliminarMesa");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
+        }
+        public List<GestionClubMesaDto> ListarMesasPorAmbientePorEmpresa(GestionClubMesaDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@empresa", Universal.gIdEmpresa),
+                    new SqlParameter("@idAmbiente", pObj.idAmbiente),
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarMesasPorAmbientePorEmpresa", lParameter);
         }
     }
 }

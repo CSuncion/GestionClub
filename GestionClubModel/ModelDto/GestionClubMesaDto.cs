@@ -28,7 +28,7 @@ namespace GestionClubModel.ModelDto
         public string codMesas { get; set; } = string.Empty;
         public string desMesas { get; set; }
         public string desAmbiente { get; set; }
-        public int idAmbiente { get; set; }
+        public int idAmbiente { get; set; } = 1;
         public string estadoMesa { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }

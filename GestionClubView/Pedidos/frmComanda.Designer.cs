@@ -187,6 +187,7 @@
             this.cboAmbiente.Name = "cboAmbiente";
             this.cboAmbiente.Size = new System.Drawing.Size(301, 22);
             this.cboAmbiente.TabIndex = 0;
+            this.cboAmbiente.SelectionChangeCommitted += new System.EventHandler(this.cboAmbiente_SelectionChangeCommitted);
             // 
             // gbProductosSeleccionados
             // 
@@ -364,7 +365,6 @@
             this.Text = "Comanda";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComanda_FormClosing);
-            this.Load += new System.EventHandler(this.frmComanda_Load);
             this.groupBox1.ResumeLayout(false);
             this.gbProductos.ResumeLayout(false);
             this.gbProductos.PerformLayout();

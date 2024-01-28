@@ -129,9 +129,10 @@
             // dtpFecAperturaCaja
             // 
             this.dtpFecAperturaCaja.CustomFormat = "dd/MM/yyyy";
+            this.dtpFecAperturaCaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecAperturaCaja.Location = new System.Drawing.Point(95, 19);
             this.dtpFecAperturaCaja.Name = "dtpFecAperturaCaja";
-            this.dtpFecAperturaCaja.Size = new System.Drawing.Size(200, 21);
+            this.dtpFecAperturaCaja.Size = new System.Drawing.Size(100, 21);
             this.dtpFecAperturaCaja.TabIndex = 6;
             this.dtpFecAperturaCaja.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
             // 

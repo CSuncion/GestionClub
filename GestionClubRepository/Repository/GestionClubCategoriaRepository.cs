@@ -22,6 +22,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idCategoria = Convert.ToInt32(iDr["idCategoria"]);
             xObjEnc.codCategoria = iDr["codCategoria"].ToString();
             xObjEnc.desCategoria = iDr["desCategoria"].ToString();
+            xObjEnc.archivoCategoria = iDr["archivoCategoria"].ToString();
             xObjEnc.estadoCategoria = Convert.ToString(iDr["estadoCategoria"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
@@ -58,15 +59,34 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
+        private List<GestionClubCategoriaDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
         public List<GestionClubCategoriaDto> ListarCategorias()
         {
-            return this.ListarObjetos("isp_ListarCategorias");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarCategorias", lParameter);
         }
         public GestionClubCategoriaDto ListarCategoriaPorId(GestionClubCategoriaDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                new SqlParameter("@idCategoria", pObj.idCategoria)
+                    new SqlParameter("@idCategoria", pObj.idCategoria),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarCategoriaPorId", lParameter);
         }
@@ -75,7 +95,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@codigo", pObj.codCategoria),
-                new SqlParameter("@empresa", pObj.idEmpresa)
+                new SqlParameter("@empresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarCategoriaPorCodigoPorEmpresa", lParameter);
         }
@@ -87,6 +107,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                         new SqlParameter("@codCategoria",pObj.codCategoria),
                         new SqlParameter("@desCategoria",pObj.desCategoria),
+                        new SqlParameter("@archivoCategoria",pObj.archivoCategoria),
                         new SqlParameter("@estadoCategoria",pObj.estadoCategoria),
                         new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                         new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
@@ -105,6 +126,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                         new SqlParameter("@codCategoria", pObj.codCategoria),
                         new SqlParameter("@desCategoria", pObj.desCategoria),
+                        new SqlParameter("@archivoCategoria",pObj.archivoCategoria),
                         new SqlParameter("@estadoCategoria", pObj.estadoCategoria),
                         new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                 };
@@ -128,7 +150,11 @@ namespace GestionClubRepository.Repository
         }
         public List<GestionClubCategoriaDto> ListarCategoriasActivos()
         {
-            return this.ListarObjetos("isp_ListarCategoriasActivos");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarCategoriasActivos", lParameter);
         }
     }
 }

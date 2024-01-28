@@ -23,7 +23,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
             xObjEnc.codCliente = iDr["codCliente"].ToString();
             xObjEnc.tipSocioCliente = iDr["tipSocioCliente"].ToString();
-            xObjEnc.tipCliente= Convert.ToString(iDr["tipCliente"]);
+            xObjEnc.tipCliente = Convert.ToString(iDr["tipCliente"]);
             xObjEnc.nroIdentificacionCliente = Convert.ToString(iDr["nroIdentificacionCliente"]);
             xObjEnc.nombreRazSocialCliente = Convert.ToString(iDr["nombreRazSocialCliente"]);
             xObjEnc.razComercialCliente = Convert.ToString(iDr["razComercialCliente"]);
@@ -65,9 +65,28 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
+        private List<GestionClubClienteDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
+
         public List<GestionClubClienteDto> ListarClientes()
         {
-            return this.ListarObjetos("isp_ListarClientes");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarClientes", lParameter);
         }
     }
 }

@@ -11,5 +11,6 @@ namespace GestionClubRepository.IRepository
         void AgregarMesa(GestionClubMesaDto pObj);
         void ModificarMesa(GestionClubMesaDto pObj);
         void EliminarMesa(GestionClubMesaDto pObj);
+        List<GestionClubMesaDto> ListarMesasPorAmbientePorEmpresa(GestionClubMesaDto pObj);
     }
 }

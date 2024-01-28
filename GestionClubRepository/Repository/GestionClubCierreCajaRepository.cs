@@ -58,9 +58,27 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
+        private List<GestionClubCierreCajaDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
         public List<GestionClubCierreCajaDto> ListarCierreCajas()
         {
-            return this.ListarObjetos("isp_ListarCierreCajas");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarCierreCajas", lParameter);
         }
     }
 }

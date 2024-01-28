@@ -129,9 +129,10 @@
             // dtpFecCierreCaja
             // 
             this.dtpFecCierreCaja.CustomFormat = "dd/MM/yyyy";
+            this.dtpFecCierreCaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecCierreCaja.Location = new System.Drawing.Point(94, 19);
             this.dtpFecCierreCaja.Name = "dtpFecCierreCaja";
-            this.dtpFecCierreCaja.Size = new System.Drawing.Size(200, 21);
+            this.dtpFecCierreCaja.Size = new System.Drawing.Size(100, 21);
             this.dtpFecCierreCaja.TabIndex = 6;
             this.dtpFecCierreCaja.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
             // 

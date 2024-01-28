@@ -269,7 +269,7 @@ namespace GestionClubView.Maestros
         }
         public void CargarCategorias()
         {
-            Cmb.Cargar(this.cboCategoria, oOpeCate.ListarCategoriasActivos(), GestionClubCategoriaDto._idCategoria, GestionClubCategoriaDto._desCategoria);
+            Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._idCategoria, GestionClubCategoriaDto._desCategoria);
         }
         public void CargarMoneda()
         {

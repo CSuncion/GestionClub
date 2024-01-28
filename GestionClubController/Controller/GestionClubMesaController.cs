@@ -180,5 +180,10 @@ namespace GestionClubController.Controller
             //ok            
             return iObjEN;
         }
+        public static List<GestionClubMesaDto> ListarMesasPorAmbientePorEmpresa(GestionClubMesaDto pObj)
+        {
+            GestionClubMesaRepository objClave = new GestionClubMesaRepository();
+            return objClave.ListarMesasPorAmbientePorEmpresa(pObj);
+        }
     }
 }

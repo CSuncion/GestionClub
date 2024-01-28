@@ -179,7 +179,7 @@ namespace GestionClubController.Controller
             GestionClubCategoriaRepository obj = new GestionClubCategoriaRepository();
             obj.AgregarCategoria(pObj);
         }
-        public List<GestionClubCategoriaDto> ListarCategoriasActivos()
+        public static List<GestionClubCategoriaDto> ListarCategoriasActivos()
         {
             GestionClubCategoriaRepository oRepo = new GestionClubCategoriaRepository();
             return oRepo.ListarCategoriasActivos();

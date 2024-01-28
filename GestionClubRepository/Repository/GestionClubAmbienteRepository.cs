@@ -75,11 +75,19 @@ namespace GestionClubRepository.Repository
         }
         public List<GestionClubAmbientesDto> ListarAmbientes()
         {
-            return this.ListarObjetos("isp_ListarAmbientes");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarAmbientes", lParameter);
         }
         public List<GestionClubAmbientesDto> ListarAmbientesActivos()
         {
-            return this.ListarObjetos("isp_ListarAmbientesActivos");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarAmbientesActivos", lParameter);
         }
         public GestionClubAmbientesDto ListarAmbientesPorCodigoPorEmpresa(GestionClubAmbientesDto pObj)
         {
@@ -111,7 +119,8 @@ namespace GestionClubRepository.Repository
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                new SqlParameter("@idAmbiente", pObj.idAmbiente)
+                    new SqlParameter("@idAmbiente", pObj.idAmbiente),
+                    new SqlParameter("@idEmpresa", pObj.idEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarAmbientesPorId", lParameter);
         }

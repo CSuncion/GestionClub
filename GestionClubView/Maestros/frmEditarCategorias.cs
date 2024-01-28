@@ -68,6 +68,10 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtArchivo, true, "Archivo Categoria", "vvff", 150);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.cboEstado, true, "Estado", "vvff", 150);
             xLis.Add(xCtrl);
 
@@ -196,6 +200,7 @@ namespace GestionClubView.Maestros
         {
             this.txtCodigo.Text = pObj.codCategoria;
             this.txtCategoria.Text = pObj.desCategoria;
+            this.txtArchivo.Text = pObj.archivoCategoria;
             this.cboEstado.SelectedValue = pObj.estadoCategoria;
             this.txtId.Text = pObj.idCategoria.ToString();
         }
@@ -210,6 +215,7 @@ namespace GestionClubView.Maestros
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.codCategoria = this.txtCodigo.Text.Trim();
             pObj.desCategoria = this.txtCategoria.Text.Trim();
+            pObj.archivoCategoria = this.txtArchivo.Text.Trim();
             pObj.estadoCategoria = Cmb.ObtenerValor(this.cboEstado, string.Empty);
             pObj.idCategoria = Convert.ToInt32(this.txtId.Text);
         }

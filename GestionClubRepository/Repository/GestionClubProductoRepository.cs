@@ -73,15 +73,34 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xLista;
         }
+        private List<GestionClubProductoDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
         public List<GestionClubProductoDto> ListarProductos()
         {
-            return this.ListarObjetos("isp_ListarProductos");
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarProductos", lParameter);
         }
         public GestionClubProductoDto ListarProductoPorId(GestionClubProductoDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                new SqlParameter("@idProducto", pObj.idProducto)
+                    new SqlParameter("@idProducto", pObj.idProducto),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarProductoPorId", lParameter);
         }
