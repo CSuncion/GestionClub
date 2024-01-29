@@ -30,7 +30,7 @@ namespace GestionClubView.Pedidos
         public List<GestionClubProductoDto> lObjProductosParcial = new List<GestionClubProductoDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
         public int eVaBDProducto = 1;
-        public int seleccionaMesa = 0;
+        public int seleccionaMesa = 0, seleccionaProducto = 0, seleccionaProductoSeleccionados = 0;
 
         public frmComanda()
         {
@@ -261,30 +261,58 @@ namespace GestionClubView.Pedidos
             clickCategoria = 1;
             obj.idCategoria = Convert.ToInt32(lvCategorias.SelectedItems[0].ImageKey);
         }
+
+        public void AgregarProductoSeleccionados()
+        {
+            if (this.nudCantidadProducto.Value == 0) { Mensaje.OperacionDenegada("Ingrese una cantidad.", this.eTitulo); return; }
+            if (this.seleccionaProducto == 0) { Mensaje.OperacionDenegada("Seleccione Producto.", eTitulo); return; }
+            if (this.lvProductosSeleccionados.Items.Count > 0)
+                for (int i = 0; i < this.lvProductosSeleccionados.Items.Count; i++)
+                {
+                    if (this.lvProductosSeleccionados.Items[i].ImageKey == lvProductos.SelectedItems[0].ImageKey.ToString())
+                        this.lvProductosSeleccionados.Items[i].Remove();
+                }
+
+            this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { lvProductos.SelectedItems[0].SubItems[0].Text, nudCantidadProducto.Value.ToString(), lvProductos.SelectedItems[0].SubItems[1].Text }, lvProductos.SelectedItems[0].ImageKey.ToString()));
+            this.nudCantidadProducto.Value = 0;
+        }
+        public void QuitarProductoSeleccionado()
+        {
+            if (this.seleccionaProductoSeleccionados == 0) { Mensaje.OperacionDenegada("Seleccione Producto que desea quitar.", eTitulo); return; }
+            this.lvProductosSeleccionados.SelectedItems[0].Remove();
+
+            this.seleccionaProductoSeleccionados = 0;
+        }
         public bool ValidarQueSeleccioneMesa()
         {
             bool result = false;
 
             if (this.seleccionaMesa == 0)
             {
-                Mensaje.OperacionSatisfactoria("Seleccione Mesa", eTitulo);
+                Mensaje.OperacionDenegada("Seleccione Mesa.", eTitulo);
                 result = true;
             }
             return result;
 
         }
+        public bool ValidaLaListaProductoSeleccionados()
+        {
+            bool result = true;
+            if (this.lvProductosSeleccionados.Items.Count > 0)
+            {
+                result = Mensaje.DeseasRealizarOperacion("Hay productos pendientes para realizar pedido.", this.eTitulo);
+                this.lvProductosSeleccionados.SelectedItems[0].Focused = true;
+            }
+            return result;
+        }
+
         private void lvMesas_MouseClick(object sender, MouseEventArgs e)
         {
             this.seleccionaMesa = 1;
             if (!this.ValidarQueSeleccioneMesa())
-                this.MostrarProductoPorMesaSeleccionada();
+                if (this.ValidaLaListaProductoSeleccionados())
+                    this.MostrarProductoPorMesaSeleccionada();
         }
-
-        public void AgregarProductoSeleccionados()
-        {
-
-        }
-
         private void btnCobrar_Click(object sender, EventArgs e)
         {
             btnCobrar.Enabled = !btnCobrar.Enabled;
@@ -311,9 +339,25 @@ namespace GestionClubView.Pedidos
             this.ActualizarVentanaAlBuscarValorProducto(e);
         }
 
+        private void lvProductos_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.seleccionaProducto = 1;
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            this.QuitarProductoSeleccionado();
+        }
+
+        private void lvProductosSeleccionados_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.seleccionaProductoSeleccionados = 1;
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.ValidarQueSeleccioneMesa();
+            if (!this.ValidarQueSeleccioneMesa())
+                this.AgregarProductoSeleccionados();
         }
 
         private void tsbRealizarPedido_Click(object sender, EventArgs e)
