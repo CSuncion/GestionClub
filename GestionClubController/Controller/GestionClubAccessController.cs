@@ -89,5 +89,9 @@ namespace GestionClubController.Controller
         {
             return this._iCreditAccessRepository.ListarSubPrivilegiosAcceso(idAcceso);
         }
+        public List<GestionClubAccessDto> ListarUsuarioMeserosActivos(GestionClubAccessDto obj)
+        {
+            return this._iCreditAccessRepository.ListarUsuarioMeserosActivos(obj);
+        }
     }
 }

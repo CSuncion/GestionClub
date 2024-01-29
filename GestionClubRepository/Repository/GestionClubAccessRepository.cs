@@ -2,6 +2,7 @@
 using GestionClubModel.ModelDto;
 using GestionClubRepository.IRepository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,6 +13,7 @@ namespace GestionClubRepository.Repository
     {
         private GestionClubCn xObjCn = new GestionClubCn();
         private GestionClubAccessDto xObj = new GestionClubAccessDto();
+        private List<GestionClubAccessDto> xLista = new List<GestionClubAccessDto>();
         private GestionClubAccessDto Objeto(IDataReader iDr)
         {
             GestionClubAccessDto xObjEnc = new GestionClubAccessDto();
@@ -58,6 +60,34 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return xObj;
         }
+        private List<GestionClubAccessDto> ListarObjetos(string pScript)
+        {
+            xObjCn.Connection();
+            //xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
+        private List<GestionClubAccessDto> BuscarObjetoPorParametro(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xLista.Add(this.Objeto(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xLista;
+        }
         public GestionClubAccessDto BuscarUsuarioXCodigo(GestionClubAccessDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
@@ -86,6 +116,14 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return menu;
         }
+        public List<GestionClubAccessDto> ListarUsuarioMeserosActivos(GestionClubAccessDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@gradoAcceso", pObj.gradoAcceso)
+                };
 
+            return this.BuscarObjetoPorParametro("isp_ListarUsuarioMeserosActivos", lParameter);
+        }
     }
 }

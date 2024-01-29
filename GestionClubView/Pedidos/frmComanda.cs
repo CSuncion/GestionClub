@@ -2,6 +2,7 @@
 using GestionClubModel.ModelDto;
 using GestionClubView.MdiPrincipal;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -24,13 +25,15 @@ namespace GestionClubView.Pedidos
         public string eTitulo = "Registro Comanda";
         public GestionClubAmbienteController oOpeAmbiente = new GestionClubAmbienteController();
         public GestionClubMesaController oOpeMesa = new GestionClubMesaController();
+        GestionClubAccessController oOpeAcc = new GestionClubAccessController();
         public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
         public List<GestionClubCategoriaDto> lObjCategoria = new List<GestionClubCategoriaDto>();
         public List<GestionClubProductoDto> lObjProductos = new List<GestionClubProductoDto>();
         public List<GestionClubProductoDto> lObjProductosParcial = new List<GestionClubProductoDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
-        public int eVaBDProducto = 1;
+        public int eVaBDProducto = 1, eVaBDMesa = 1;
         public int seleccionaMesa = 0, seleccionaProducto = 0, seleccionaProductoSeleccionados = 0;
+        public string keyMesa = string.Empty;
 
         public frmComanda()
         {
@@ -41,6 +44,7 @@ namespace GestionClubView.Pedidos
         {
             this.CargarRutas();
             this.CargarAmbientes();
+            this.CargarMeseros();
             this.cargarMesas();
             this.CargarCategorias();
             this.CargarProductosSeleccionados();
@@ -53,6 +57,12 @@ namespace GestionClubView.Pedidos
             rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
         }
+        public void CargarMeseros()
+        {
+            GestionClubAccessDto objEn = new GestionClubAccessDto();
+            objEn.gradoAcceso = 4;
+            Cmb.Cargar(this.cboMesero, oOpeAcc.ListarUsuarioMeserosActivos(objEn), GestionClubAccessDto.IdAcc, GestionClubAccessDto.nombresAcc);
+        }
         public void CargarAmbientes()
         {
             Cmb.Cargar(this.cboAmbiente, oOpeAmbiente.ListarAmbientesActivos(), GestionClubAmbientesDto._idAmbiente, GestionClubAmbientesDto._desAmbiente);
@@ -60,23 +70,23 @@ namespace GestionClubView.Pedidos
         public void cargarMesas()
         {
             this.seleccionaMesa = 0;
-            this.lvProductos.Clear();
-            this.lvMesas.Clear();
+            this.lvProductos.Items.Clear();
+            this.lvMesas.Items.Clear();
             this.CargarMesasPorAmbienteDesdeBaseDeDatos();
 
-            if (this.lObjMesas.Count == 0) { this.lvMesas.Clear(); return; }
+            if (this.lObjMesas.Count == 0) { this.lvMesas.Items.Clear(); return; }
 
-            lvMesas.View = View.LargeIcon;
-            lvMesas.Columns.Add("MESAS", 250);
+            this.lvMesas.View = View.LargeIcon;
+            this.lvMesas.Columns.Add("MESAS", 250);
 
-            imgMesas.ImageSize = new Size(40, 40);
+            this.imgMesas.ImageSize = new Size(40, 40);
 
             try
             {
                 foreach (GestionClubMesaDto oObjEn in lObjMesas)
                 {
                     string file = this.rutaMesa + "Mesa.png";
-                    imgMesas.Images.Add(oObjEn.idMesa.ToString(), Image.FromFile(file));
+                    this.imgMesas.Images.Add(oObjEn.idMesa.ToString(), Image.FromFile(file));
                 }
             }
             catch (Exception)
@@ -84,11 +94,11 @@ namespace GestionClubView.Pedidos
                 throw;
             }
 
-            lvMesas.SmallImageList = imgMesas;
+            this.lvMesas.SmallImageList = this.imgMesas;
 
             foreach (GestionClubMesaDto oObjEn in lObjMesas)
             {
-                lvMesas.Items.Add(new ListViewItem(new[] { oObjEn.desMesas.ToString() }, oObjEn.idMesa.ToString()));
+                this.lvMesas.Items.Add(new ListViewItem(new[] { oObjEn.desMesas.ToString() }, oObjEn.idMesa.ToString()));
             }
         }
 
@@ -101,7 +111,7 @@ namespace GestionClubView.Pedidos
 
         public void CargarCategorias()
         {
-            this.lvCategorias.Clear();
+            this.lvCategorias.Items.Clear();
 
             this.CargarCategoriaDesdeBaseDeDatos();
 
@@ -136,8 +146,11 @@ namespace GestionClubView.Pedidos
         }
         public void CargarProductos(int hizoClickCategoria, GestionClubProductoDto obj)
         {
-            this.lvProductos.Clear();
-            this.txtProducto.Text = string.Empty;
+            this.lvProductosSeleccionados.Items.Clear();
+            this.lvProductos.Items.Clear();
+            this.lvProductos.Columns.Clear();
+            //this.txtProducto.Text = string.Empty;
+
             obj = new GestionClubProductoDto();
             if (hizoClickCategoria == 1)
                 this.MostrarProductoPorCategoriaSeleccionada(hizoClickCategoria, obj);
@@ -190,7 +203,7 @@ namespace GestionClubView.Pedidos
         }
         public void ActualizarVentanaAlBuscarValorProducto(KeyEventArgs pE)
         {
-            if (this.lObjProductos.Count == 0) { return; }
+            if (this.lObjProductosParcial.Count == 0) { return; }
             //verificar que tecla pulso el usuario
             switch (pE.KeyCode)
             {
@@ -198,7 +211,6 @@ namespace GestionClubView.Pedidos
                 case Keys.Down:
                 case Keys.Left:
                 case Keys.Right:
-                case Keys.Enter:
                     { break; }
                 default:
                     {
@@ -248,11 +260,12 @@ namespace GestionClubView.Pedidos
         {
             this.seleccionaMesa = 1;
             String selected = lvMesas.SelectedItems[0].SubItems[0].Text;
-            gbProductos.Text = "PRODUCTOS";
-            gbProductos.Text = gbProductos.Text + ": " + selected;
+            this.gbProductos.Text = "PRODUCTOS";
+            this.gbProductos.Text = gbProductos.Text + ": " + selected;
 
-            gbProductosSeleccionados.Text = "PRODUCTO SELECCIONADOS";
-            gbProductosSeleccionados.Text = gbProductosSeleccionados.Text + ": " + selected;
+            this.gbProductosSeleccionados.Text = "PRODUCTO SELECCIONADOS";
+            this.gbProductosSeleccionados.Text = gbProductosSeleccionados.Text + ": " + selected;
+            this.keyMesa = this.lvMesas.SelectedItems[0].ImageKey;
             this.CargarProductos(0, null);
         }
 
@@ -265,13 +278,17 @@ namespace GestionClubView.Pedidos
         public void AgregarProductoSeleccionados()
         {
             if (this.nudCantidadProducto.Value == 0) { Mensaje.OperacionDenegada("Ingrese una cantidad.", this.eTitulo); return; }
-            if (this.seleccionaProducto == 0) { Mensaje.OperacionDenegada("Seleccione Producto.", eTitulo); return; }
+
+            if (this.seleccionaProducto == 0) { Mensaje.OperacionDenegada("Seleccione Producto.", this.eTitulo); return; }
+
             if (this.lvProductosSeleccionados.Items.Count > 0)
+            {
                 for (int i = 0; i < this.lvProductosSeleccionados.Items.Count; i++)
                 {
                     if (this.lvProductosSeleccionados.Items[i].ImageKey == lvProductos.SelectedItems[0].ImageKey.ToString())
                         this.lvProductosSeleccionados.Items[i].Remove();
                 }
+            }
 
             this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { lvProductos.SelectedItems[0].SubItems[0].Text, nudCantidadProducto.Value.ToString(), lvProductos.SelectedItems[0].SubItems[1].Text }, lvProductos.SelectedItems[0].ImageKey.ToString()));
             this.nudCantidadProducto.Value = 0;
@@ -295,23 +312,62 @@ namespace GestionClubView.Pedidos
             return result;
 
         }
+        public bool ValidarQueHayProductoSeleccionados()
+        {
+            bool result = false;
+
+            if (this.lvProductosSeleccionados.Items.Count == 0)
+            {
+                Mensaje.OperacionDenegada("Seleccione Productos.", eTitulo);
+                result = true;
+            }
+            return result;
+
+        }
         public bool ValidaLaListaProductoSeleccionados()
         {
             bool result = true;
             if (this.lvProductosSeleccionados.Items.Count > 0)
             {
                 result = Mensaje.DeseasRealizarOperacion("Hay productos pendientes para realizar pedido.", this.eTitulo);
-                this.lvProductosSeleccionados.SelectedItems[0].Focused = true;
+                if (!result)
+                    this.ResetearFocusSeleccionadoMesa();
+
             }
             return result;
         }
+        public void ResetearFocusSeleccionadoMesa()
+        {
+            for (int i = 0; i < this.lvMesas.Items.Count; i++)
+            {
+                this.lvMesas.Items[i].Selected = false;
+            }
+            for (int i = 0; i < this.lvMesas.Items.Count; i++)
+            {
+                if (this.lvMesas.Items[i].ImageKey == keyMesa)
+                {
+                    this.lvMesas.Items[i].Selected = true;
+                }
+            }
+        }
+        public void BloquearMesa()
+        {
+            Image newImage = Image.FromFile(this.rutaMesa + "Mesa4.png");
+            Image previousImage = this.imgMesas.Images[this.imgMesas.Images.Keys.IndexOf(keyMesa)];
 
+            this.imgMesas.Images.RemoveByKey(keyMesa);
+            // add a new image
+            this.imgMesas.Images.Add(keyMesa, newImage);
+            previousImage.Dispose();
+        }
         private void lvMesas_MouseClick(object sender, MouseEventArgs e)
         {
             this.seleccionaMesa = 1;
             if (!this.ValidarQueSeleccioneMesa())
                 if (this.ValidaLaListaProductoSeleccionados())
+                {
                     this.MostrarProductoPorMesaSeleccionada();
+                }
         }
         private void btnCobrar_Click(object sender, EventArgs e)
         {
@@ -362,8 +418,14 @@ namespace GestionClubView.Pedidos
 
         private void tsbRealizarPedido_Click(object sender, EventArgs e)
         {
-            tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
-            btnCobrar.Enabled = !btnCobrar.Enabled;
+            if (!this.ValidarQueHayProductoSeleccionados())
+            {
+                this.eVaBDMesa = 0;
+                tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
+                btnCobrar.Enabled = !btnCobrar.Enabled;
+                this.BloquearMesa();
+            }
+
         }
 
         private void cboAmbiente_SelectionChangeCommitted(object sender, EventArgs e)
