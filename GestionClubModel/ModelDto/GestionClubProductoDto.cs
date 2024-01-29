@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GestionClubModel.ModelDto
 {
@@ -26,6 +22,8 @@ namespace GestionClubModel.ModelDto
         public const string _obsProducto = "obsProducto";
         public const string _idCategoria = "idCategoria";
         public const string _desCategoria = "desCategoria";
+        public const string _stockProducto = "stockProducto";
+        public const string _archivoProducto = "archivoProducto";
         public const string _estadoProducto = "estadoProducto";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -48,9 +46,11 @@ namespace GestionClubModel.ModelDto
         public decimal porDtraProducto { get; set; }
         public decimal impDolProducto { get; set; }
         public decimal impOtrProducto { get; set; }
+        public int stockProducto { get; set; }
         public string obsProducto { get; set; } = string.Empty;
         public int idCategoria { get; set; }
         public string estadoProducto { get; set; } = "01";
+        public string archivoProducto { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

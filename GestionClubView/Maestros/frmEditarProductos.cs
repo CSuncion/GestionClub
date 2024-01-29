@@ -260,6 +260,8 @@ namespace GestionClubView.Maestros
             this.txtPorDtra.Text = pObj.porDtraProducto.ToString();
             this.txtImpDol.Text = pObj.impDolProducto.ToString();
             this.txtOtrImp.Text = pObj.impOtrProducto.ToString();
+            this.txtStock.Text = pObj.stockProducto.ToString();
+            this.txtArchivo.Text = pObj.archivoProducto;
             this.cboEstado.SelectedValue = pObj.estadoProducto;
             this.txtId.Text = pObj.idProducto.ToString();
         }
@@ -297,6 +299,8 @@ namespace GestionClubView.Maestros
             pObj.impDolProducto = Convert.ToDecimal(this.txtImpDol.Text);
             pObj.impOtrProducto = Convert.ToDecimal(this.txtOtrImp.Text);
             pObj.estadoProducto = Cmb.ObtenerValor(this.cboEstado, string.Empty);
+            pObj.stockProducto = Convert.ToInt32(this.txtStock.Text);
+            pObj.archivoProducto = this.txtArchivo.Text;
             pObj.idProducto = Convert.ToInt32(this.txtId.Text);
         }
         public void VentanaModificar(GestionClubProductoDto pObj)

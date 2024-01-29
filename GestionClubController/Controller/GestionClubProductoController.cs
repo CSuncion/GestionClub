@@ -23,6 +23,16 @@ namespace GestionClubController.Controller
             GestionClubProductoRepository obj = new GestionClubProductoRepository();
             return obj.ListarProductos();
         }
+        public static List<GestionClubProductoDto> ListarProductosActivos()
+        {
+            GestionClubProductoRepository obj = new GestionClubProductoRepository();
+            return obj.ListarProductosActivos();
+        }
+        public static List<GestionClubProductoDto> ListarProductosActivosPorCategoria(GestionClubProductoDto pObj)
+        {
+            GestionClubProductoRepository obj = new GestionClubProductoRepository();
+            return obj.ListarProductosActivosPorCategoria(pObj);
+        }
         public List<GestionClubProductoDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubProductoDto> pListaOperations)
         {
             //lista resultado

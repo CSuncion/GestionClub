@@ -11,5 +11,7 @@ namespace GestionClubRepository.IRepository
         void AgregarProducto(GestionClubProductoDto pObj);
         void ModificarProducto(GestionClubProductoDto pObj);
         void EliminarProducto(GestionClubProductoDto pObj);
+        List<GestionClubProductoDto> ListarProductosActivos();
+        List<GestionClubProductoDto> ListarProductosActivosPorCategoria(GestionClubProductoDto pObj);
     }
 }

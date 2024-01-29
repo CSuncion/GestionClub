@@ -38,6 +38,8 @@ namespace GestionClubRepository.Repository
             xObjEnc.idCategoria = Convert.ToInt32(iDr[GestionClubProductoDto._idCategoria]);
             xObjEnc.GestionClubCategoriaDto.desCategoria = Convert.ToString(iDr[GestionClubProductoDto._desCategoria]);
             xObjEnc.estadoProducto = Convert.ToString(iDr[GestionClubProductoDto._estadoProducto]);
+            xObjEnc.stockProducto = Convert.ToInt32(iDr[GestionClubProductoDto._stockProducto]);
+            xObjEnc.archivoProducto = Convert.ToString(iDr[GestionClubProductoDto._archivoProducto]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubProductoDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubProductoDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubProductoDto._usuarioModifica]);
@@ -95,6 +97,23 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametro("isp_ListarProductos", lParameter);
         }
+        public List<GestionClubProductoDto> ListarProductosActivos()
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarProductosActivos", lParameter);
+        }
+        public List<GestionClubProductoDto> ListarProductosActivosPorCategoria(GestionClubProductoDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@idCategoria",pObj.idCategoria)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarProductosActivosPorCategoria", lParameter);
+        }
         public GestionClubProductoDto ListarProductoPorId(GestionClubProductoDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
@@ -131,6 +150,8 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@porDtraProducto",pObj.porDtraProducto),
                     new SqlParameter("@impDolProducto",pObj.impDolProducto),
                     new SqlParameter("@impOtrProducto",pObj.impOtrProducto),
+                    new SqlParameter("@stockProducto",pObj.stockProducto),
+                    new SqlParameter("@archivoProducto",pObj.archivoProducto),
                     new SqlParameter("@obsProducto",pObj.obsProducto),
                     new SqlParameter("@idCategoria",pObj.idCategoria),
                     new SqlParameter("@estadoProducto",pObj.estadoProducto),
@@ -161,6 +182,8 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@porDtraProducto",pObj.porDtraProducto),
                     new SqlParameter("@impDolProducto",pObj.impDolProducto),
                     new SqlParameter("@impOtrProducto",pObj.impOtrProducto),
+                    new SqlParameter("@stockProducto", pObj.stockProducto),
+                    new SqlParameter("@archivoProducto", pObj.archivoProducto),
                     new SqlParameter("@obsProducto",pObj.obsProducto),
                     new SqlParameter("@idCategoria",pObj.idCategoria),
                     new SqlParameter("@estadoProducto",pObj.estadoProducto),

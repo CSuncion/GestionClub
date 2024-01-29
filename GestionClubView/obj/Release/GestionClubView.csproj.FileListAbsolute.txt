@@ -176,9 +176,9 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\bin\Release\zh-
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.csproj.AssemblyReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.csproj.ResolveComReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.AcercaDe.frmAcercaDe.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Comanda.frmCobrar.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Comanda.frmComanda.resources
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Comanda.frmListadoPedidos.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Pedidos.frmCobrar.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Pedidos.frmComanda.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Pedidos.frmListadoPedidos.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Listas.frmListarEmpresas.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Login.frmLogin.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Release\GestionClubView.Maestros.frmCategorias.resources

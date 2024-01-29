@@ -120,6 +120,7 @@
             this.btnAgregar.Size = new System.Drawing.Size(37, 32);
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // nudCantidadProducto
             // 
@@ -140,6 +141,7 @@
             this.txtProducto.Size = new System.Drawing.Size(272, 22);
             this.txtProducto.TabIndex = 3;
             this.txtProducto.Tag = "";
+            this.txtProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProducto_KeyUp);
             // 
             // label1
             // 
@@ -340,6 +342,7 @@
             this.lvCategorias.SmallImageList = this.imgCategorias;
             this.lvCategorias.TabIndex = 2;
             this.lvCategorias.UseCompatibleStateImageBehavior = false;
+            this.lvCategorias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvCategorias_MouseClick);
             // 
             // imgCategorias
             // 
