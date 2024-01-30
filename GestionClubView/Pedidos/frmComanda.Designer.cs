@@ -216,7 +216,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(317, 456);
+            this.lblCantidad.Location = new System.Drawing.Point(269, 456);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 11;
@@ -243,7 +243,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(383, 456);
+            this.lblTotal.Location = new System.Drawing.Point(336, 456);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 8;
@@ -253,7 +253,7 @@
             // 
             this.btnCobrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCobrar.Enabled = false;
-            this.btnCobrar.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCobrar.Image")));
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCobrar.Location = new System.Drawing.Point(6, 447);

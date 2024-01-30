@@ -277,6 +277,8 @@ namespace GestionClubView.Pedidos
 
         public void AgregarProductoSeleccionados()
         {
+            this.lblCantidad.Text = "0";
+            this.lblTotal.Text = "0";
             lvProductosSeleccionados.View = View.Details;
             this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
@@ -296,9 +298,9 @@ namespace GestionClubView.Pedidos
 
             this.imgProductosSel.Images.Add(this.lvProductos.SelectedItems[0].ImageKey.ToString(), this.imgProductos.Images[this.lvProductos.SelectedItems[0].ImageKey]);
 
-
-
             this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { lvProductos.SelectedItems[0].SubItems[0].Text, nudCantidadProducto.Value.ToString(), lvProductos.SelectedItems[0].SubItems[1].Text }, lvProductos.SelectedItems[0].ImageKey.ToString()));
+            this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(nudCantidadProducto.Value)).ToString();
+            this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(nudCantidadProducto.Value) * Convert.ToDecimal(this.lvProductos.SelectedItems[0].SubItems[1].Text)).ToString();
             this.nudCantidadProducto.Value = 0;
         }
         public void MostrarProductosPedidosEnComandaBD()
@@ -311,7 +313,8 @@ namespace GestionClubView.Pedidos
 
             this.lObjDetalle = GestionClubComandaController.ListarDetalleComandaPorMesaYPendienteCobrar(objEn);
 
-
+            this.lblCantidad.Text = "0";
+            this.lblTotal.Text = "0";
 
             foreach (GestionClubDetalleComandaDto detalle in this.lObjDetalle)
             {
@@ -321,6 +324,8 @@ namespace GestionClubView.Pedidos
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
                 this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { detalle.desProducto.ToString(), detalle.cantidad.ToString(), detalle.preVenta.ToString() }, detalle.idProducto.ToString()));
+                this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(detalle.cantidad.ToString())).ToString();
+                this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(detalle.cantidad.ToString()) * Convert.ToDecimal(detalle.preVenta)).ToString();
             }
         }
         public void QuitarProductoSeleccionado()
