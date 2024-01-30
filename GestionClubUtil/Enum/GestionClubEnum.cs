@@ -24,6 +24,8 @@ namespace GestionClubUtil.Enum
             public static string Estado = "11";
             public static string Moneda = "08";
             public static string UndMedida = "12";
+            public static string TipoSocio = "14";
+            public static string TipoCliente = "09";
         }
     }
 }

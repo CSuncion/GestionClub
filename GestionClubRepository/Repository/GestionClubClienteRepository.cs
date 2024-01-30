@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,6 +36,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
+            xObjEnc.claveObjeto = xObjEnc.idCliente.ToString();
             return xObjEnc;
         }
         private GestionClubClienteDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -87,6 +89,94 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjetoPorParametro("isp_ListarClientes", lParameter);
+        }
+        public List<GestionClubClienteDto> ListarClientesActivos()
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarClientesActivos", lParameter);
+        }
+
+        public GestionClubClienteDto ListarClientePorId(GestionClubClienteDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idCliente", pObj.idCliente),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarClientePorId", lParameter);
+        }
+        public GestionClubClienteDto ListarClientePorCodigoPorEmpresa(GestionClubClienteDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@codigo", pObj.codCliente),
+                new SqlParameter("@empresa", pObj.idEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarClientePorCodigoPorEmpresa", lParameter);
+        }
+        public void AgregarCliente(GestionClubClienteDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@codCliente",pObj.codCliente),
+                    new SqlParameter("@tipSocioCliente",pObj.tipSocioCliente),
+                    new SqlParameter("@tipCliente",pObj.tipCliente),
+                    new SqlParameter("@nroIdentificacionCliente",pObj.nroIdentificacionCliente),
+                    new SqlParameter("@nombreRazSocialCliente",pObj.nombreRazSocialCliente),
+                    new SqlParameter("@razComercialCliente",pObj.razComercialCliente),
+                    new SqlParameter("@emailCliente",pObj.emailCliente),
+                    new SqlParameter("@nroCelularCliente",pObj.nroCelularCliente),
+                    new SqlParameter("@representanteCliente",pObj.representanteCliente),
+                    new SqlParameter("@estadoCliente",pObj.estadoCliente),
+                    new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AgregarCliente");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void ModificarCliente(GestionClubClienteDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idCliente",pObj.idCliente),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@codCliente",pObj.codCliente),
+                    new SqlParameter("@tipSocioCliente",pObj.tipSocioCliente),
+                    new SqlParameter("@tipCliente",pObj.tipCliente),
+                    new SqlParameter("@nroIdentificacionCliente",pObj.nroIdentificacionCliente),
+                    new SqlParameter("@nombreRazSocialCliente",pObj.nombreRazSocialCliente),
+                    new SqlParameter("@razComercialCliente",pObj.razComercialCliente),
+                    new SqlParameter("@emailCliente",pObj.emailCliente),
+                    new SqlParameter("@nroCelularCliente",pObj.nroCelularCliente),
+                    new SqlParameter("@representanteCliente",pObj.representanteCliente),
+                    new SqlParameter("@estadoCliente",pObj.estadoCliente),
+                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarCliente");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarCliente(GestionClubClienteDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idCliente", pObj.idCliente),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarCliente");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
         }
     }
 }

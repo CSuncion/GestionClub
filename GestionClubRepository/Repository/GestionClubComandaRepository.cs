@@ -50,9 +50,11 @@ namespace GestionClubRepository.Repository
             xObjEnc.idComanda = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idComanda]);
             xObjEnc.idEmpresa = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idEmpresa]);
             xObjEnc.idAmbiente = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idAmbiente]);
+            xObjEnc.desAmbiente = Convert.ToString(iDr[GestionClubDetalleComandaDto._desAmbiente]);
             xObjEnc.idMesa = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idMesa]);
+            xObjEnc.desMesas = Convert.ToString(iDr[GestionClubDetalleComandaDto._desMesas]);
             xObjEnc.idMozo = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idMozo]);
-            xObjEnc.fecDetalleComanda = Convert.ToDateTime(Fecha.ObtenerDiaMesAno(iDr[GestionClubDetalleComandaDto._fecDetalleComanda]));
+            xObjEnc.fecDetalleComanda = Convert.ToDateTime(iDr[GestionClubDetalleComandaDto._fecDetalleComanda]);
             xObjEnc.idProducto = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idProducto]);
             xObjEnc.desProducto = Convert.ToString(iDr[GestionClubDetalleComandaDto._desProducto]);
             xObjEnc.archivoProducto = Convert.ToString(iDr[GestionClubDetalleComandaDto._archivoProducto]);

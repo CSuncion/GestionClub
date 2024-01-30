@@ -237,15 +237,15 @@ namespace GestionClubView.Pedidos
 
         public void AccionCobrar()
         {
-            //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
+            GestionClubComandaDto iComObj = new GestionClubComandaDto();//this.EsActoAdicionarRegistroCompra();
             //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
-
+            this.AsignarComanda(iComObj);
             frmCobrar win = new frmCobrar();
             win.wCom = this;
             win.eOperacion = Universal.Opera.Cobrar;
             //this.eFranjaDgvRefAmp = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
-            win.VentanaAdicionar();
+            win.VentanaCobrar(iComObj);
         }
         public void MostrarComanda(GestionClubMesaDto pObj)
         {

@@ -64,7 +64,9 @@ namespace GestionClubModel.ModelDto
         public const string _idComanda = "idComanda";
         public const string _idEmpresa = "idEmpresa";
         public const string _idAmbiente = "idAmbiente";
+        public const string _desAmbiente = "desAmbiente";
         public const string _idMesa = "idMesa";
+        public const string _desMesas = "desMesas";
         public const string _idMozo = "idMozo";
         public const string _fecDetalleComanda = "fecDetalleComanda";
         public const string _idProducto = "idProducto";
@@ -86,7 +88,9 @@ namespace GestionClubModel.ModelDto
         public int idComanda { get; set; }
         public int idEmpresa { get; set; }
         public int idAmbiente { get; set; }
+        public string desAmbiente { get; set; }
         public int idMesa { get; set; }
+        public string desMesas { get; set; }
         public int idMozo { get; set; }
         public DateTime fecDetalleComanda { get; set; }
         public int idProducto { get; set; }

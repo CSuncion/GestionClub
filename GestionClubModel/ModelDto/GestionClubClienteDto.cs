@@ -31,16 +31,16 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idCliente { get; set; }
         public int idEmpresa { get; set; }
-        public string codCliente { get; set; }
-        public string tipSocioCliente { get; set; }
-        public string tipCliente { get; set; }
+        public string codCliente { get; set; } = string.Empty;
+        public string tipSocioCliente { get; set; } = "01";
+        public string tipCliente { get; set; } = "01";
         public string nroIdentificacionCliente { get; set; }
         public string nombreRazSocialCliente { get; set; }
         public string razComercialCliente { get; set; }
         public string emailCliente { get; set; }
         public string nroCelularCliente { get; set; }
         public string representanteCliente { get; set; }
-        public string estadoCliente { get; set; }
+        public string estadoCliente { get; set; } = "01";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
