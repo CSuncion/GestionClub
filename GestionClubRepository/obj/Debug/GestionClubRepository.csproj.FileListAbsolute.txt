@@ -22,3 +22,5 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\Comun.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\ScriptBD.dll

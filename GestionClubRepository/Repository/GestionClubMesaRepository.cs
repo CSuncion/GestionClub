@@ -26,6 +26,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.codMesas = iDr["codMesas"].ToString();
             xObjEnc.desMesas = iDr["desMesas"].ToString();
             xObjEnc.desAmbiente = iDr["desAmbiente"].ToString();
+            xObjEnc.sitMesa = Convert.ToString(iDr["sitMesa"]);
             xObjEnc.estadoMesa = Convert.ToString(iDr["estadoMesa"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
@@ -111,6 +112,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                     new SqlParameter("@codMesas",pObj.codMesas),
                     new SqlParameter("@desMesas",pObj.desMesas),
+                    new SqlParameter("@sitMesa", pObj.sitMesa),
                     new SqlParameter("@estadoMesa",pObj.estadoMesa),
                     new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                     new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
@@ -130,6 +132,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@codMesas", pObj.codMesas),
                     new SqlParameter("@desMesas", pObj.desMesas),
+                    new SqlParameter("@sitMesa", pObj.sitMesa),
                     new SqlParameter("@estadoMesa", pObj.estadoMesa),
                     new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                 };

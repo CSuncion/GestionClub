@@ -58,6 +58,7 @@
             this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cboMesero = new System.Windows.Forms.ComboBox();
+            this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -280,11 +281,11 @@
             this.lvProductosSeleccionados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lvProductosSeleccionados.HideSelection = false;
-            this.lvProductosSeleccionados.LargeImageList = this.imgProductos;
+            this.lvProductosSeleccionados.LargeImageList = this.imgProductosSel;
             this.lvProductosSeleccionados.Location = new System.Drawing.Point(6, 19);
             this.lvProductosSeleccionados.Name = "lvProductosSeleccionados";
             this.lvProductosSeleccionados.Size = new System.Drawing.Size(389, 422);
-            this.lvProductosSeleccionados.SmallImageList = this.imgProductos;
+            this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
             this.lvProductosSeleccionados.TabIndex = 0;
             this.lvProductosSeleccionados.UseCompatibleStateImageBehavior = false;
             this.lvProductosSeleccionados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvProductosSeleccionados_MouseClick);
@@ -375,6 +376,12 @@
             this.cboMesero.Size = new System.Drawing.Size(331, 22);
             this.cboMesero.TabIndex = 0;
             // 
+            // imgProductosSel
+            // 
+            this.imgProductosSel.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgProductosSel.ImageSize = new System.Drawing.Size(16, 16);
+            this.imgProductosSel.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // frmComanda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,5 +446,6 @@
         internal System.Windows.Forms.Button btnCobrar;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox cboMesero;
+        private System.Windows.Forms.ImageList imgProductosSel;
     }
 }
