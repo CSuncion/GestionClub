@@ -7,8 +7,11 @@ namespace GestionClubRepository.IRepository
     {
         int AgregarComanda(GestionClubComandaDto pObj);
         void AgregarDetalleComanda(GestionClubDetalleComandaDto pObj);
-        void ModificarProducto(GestionClubProductoDto pObj);
-        void EliminarProducto(GestionClubProductoDto pObj);
         List<GestionClubDetalleComandaDto> ListarDetalleComandaPorMesaYPendienteCobrar(GestionClubDetalleComandaDto pObj);
+        void ModificarComanda(GestionClubComandaDto pObj);
+        void ModificarDetalleComanda(GestionClubDetalleComandaDto pObj);
+        void EliminarComanda(GestionClubComandaDto pObj);
+        void EliminarProducto(GestionClubDetalleComandaDto pObj);
+
     }
 }

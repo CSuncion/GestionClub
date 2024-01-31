@@ -209,47 +209,83 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-        public void ModificarProducto(GestionClubProductoDto pObj)
+        public void ModificarComanda(GestionClubComandaDto pObj)
         {
             xObjCn.Connection();
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                    new SqlParameter("@idProducto",pObj.idProducto),
-                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
-                    new SqlParameter("@codProducto",pObj.codProducto),
-                    new SqlParameter("@desProducto",pObj.desProducto),
-                    new SqlParameter("@uniMedProducto",pObj.uniMedProducto),
-                    new SqlParameter("@codMoneda",pObj.codMoneda),
-                    new SqlParameter("@preCosProducto",pObj.preCosProducto),
-                    new SqlParameter("@preVtsProducto",pObj.preVtsProducto),
-                    new SqlParameter("@preVnsProducto",pObj.preVnsProducto),
-                    new SqlParameter("@afeIgvProducto",pObj.afeIgvProducto),
-                    new SqlParameter("@afeDtraProducto",pObj.afeDtraProducto),
-                    new SqlParameter("@porDtraProducto",pObj.porDtraProducto),
-                    new SqlParameter("@impDolProducto",pObj.impDolProducto),
-                    new SqlParameter("@impOtrProducto",pObj.impOtrProducto),
-                    new SqlParameter("@stockProducto", pObj.stockProducto),
-                    new SqlParameter("@archivoProducto", pObj.archivoProducto),
-                    new SqlParameter("@obsProducto",pObj.obsProducto),
-                    new SqlParameter("@idCategoria",pObj.idCategoria),
-                    new SqlParameter("@estadoProducto",pObj.estadoProducto),
-                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
+                new SqlParameter("@idComanda",pObj.idComanda),
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@tipDocumentoComanda",pObj.tipDocumentoComanda),
+                new SqlParameter("@nroComanda",pObj.nroComanda),
+                new SqlParameter("@idAmbiente",pObj.idAmbiente),
+                new SqlParameter("@idMesa",pObj.idMesa),
+                new SqlParameter("@fecComanda",pObj.fecComanda),
+                new SqlParameter("@idMozo",pObj.idMozo),
+                new SqlParameter("@turnoCaja",pObj.turnoCaja),
+                new SqlParameter("@idCliente",pObj.idCliente),
+                new SqlParameter("@idComprobante",pObj.idComprobante),
+                new SqlParameter("@nroAtencion",pObj.nroAtencion),
+                new SqlParameter("@obsComprobante",pObj.obsComprobante),
+                new SqlParameter("@estadoComanda",pObj.estadoComanda),
+                new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
                 };
             xObjCn.AssignParameters(lParameter);
-            xObjCn.CommandStoreProcedure("isp_ModificarProducto");
+            xObjCn.CommandStoreProcedure("isp_ModificarComanda");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-        public void EliminarProducto(GestionClubProductoDto pObj)
+        public void ModificarDetalleComanda(GestionClubDetalleComandaDto pObj)
         {
             xObjCn.Connection();
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                        new SqlParameter("@idProducto", pObj.idProducto),
+                new SqlParameter("@idDetalleComanda",pObj.idDetalleComanda),
+                new SqlParameter("@idComanda",pObj.idComanda),
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@idAmbiente",pObj.idAmbiente),
+                new SqlParameter("@idMesa",pObj.idMesa),
+                new SqlParameter("@idMozo",pObj.idMozo),
+                new SqlParameter("@fecDetalleComanda",pObj.fecDetalleComanda),
+                new SqlParameter("@idProducto",pObj.idProducto),
+                new SqlParameter("@preVenta",pObj.preVenta),
+                new SqlParameter("@cantidad",pObj.cantidad),
+                new SqlParameter("@preTotal",pObj.preTotal),
+                new SqlParameter("@nroAtencion",pObj.nroAtencion),
+                new SqlParameter("@obsComprobante",pObj.obsComprobante),
+                new SqlParameter("@estadoComanda",pObj.estadoComanda),
+                new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarDetalleComanda");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarComanda(GestionClubComandaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idComanda", pObj.idComanda),
                         new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                 };
             xObjCn.AssignParameters(lParameter);
-            xObjCn.CommandStoreProcedure("isp_EliminarProducto");
+            xObjCn.CommandStoreProcedure("isp_EliminarComanda");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarProducto(GestionClubDetalleComandaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idDetalleComanda", pObj.idDetalleComanda),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarDetalleComanda");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }

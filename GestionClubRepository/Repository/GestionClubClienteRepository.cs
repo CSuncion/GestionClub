@@ -113,7 +113,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@codigo", pObj.codCliente),
-                new SqlParameter("@empresa", pObj.idEmpresa)
+                new SqlParameter("@empresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarClientePorCodigoPorEmpresa", lParameter);
         }
@@ -177,6 +177,15 @@ namespace GestionClubRepository.Repository
             xObjCn.CommandStoreProcedure("isp_EliminarCliente");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
+        }
+        public GestionClubClienteDto ListarClientePorNroDocumentoPorEmpresa(GestionClubClienteDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@empresa", Universal.gIdEmpresa),
+                new SqlParameter("@nroIdentificacionCliente", pObj.nroIdentificacionCliente),                
+                };
+            return this.BuscarObjeto("isp_ListarClientePorNroDocumentoPorEmpresa", lParameter);
         }
     }
 }

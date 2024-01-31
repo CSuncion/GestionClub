@@ -104,7 +104,7 @@ namespace GestionClubController.Controller
             if (iAmbEN.codCliente == string.Empty)
             {
                 iAmbEN.Adicionales.EsVerdad = false;
-                iAmbEN.Adicionales.Mensaje = "La Cliente " + pObj.codCliente + " no existe";
+                iAmbEN.Adicionales.Mensaje = "El Cliente " + pObj.codCliente + " no existe";
                 return iAmbEN;
             }
 
@@ -186,5 +186,67 @@ namespace GestionClubController.Controller
             GestionClubClienteRepository obj = new GestionClubClienteRepository();
             obj.AgregarCliente(pObj);
         }
+
+        public static GestionClubClienteDto EsClienteActivoValido(GestionClubClienteDto pObj)
+        {
+            //objeto resultado
+            GestionClubClienteDto iCliEN = new GestionClubClienteDto();
+
+            //valida cuando el codigo esta vacio
+            if (pObj.nroIdentificacionCliente == string.Empty) { return iCliEN; }
+
+            //valida cuando el codigo no existe
+            iCliEN = GestionClubClienteController.EsClienteExistentePorNroDocumento(pObj);
+            if (iCliEN.Adicionales.EsVerdad == false) { return iCliEN; }
+
+
+            //valida cuando esta desactivado
+            GestionClubClienteDto iCliDesEN = GestionClubClienteController.ValidaCuandoClienteEstaDesactivado(iCliEN);
+            if (iCliDesEN.Adicionales.EsVerdad == false) { return iCliDesEN; }
+
+            //ok
+            return iCliEN;
+        }
+        public static GestionClubClienteDto ValidaCuandoClienteEstaDesactivado(GestionClubClienteDto pObj)
+        {
+            //objeto resultado
+            GestionClubClienteDto iCliEN = new GestionClubClienteDto();
+
+            //validar                 
+            if (pObj.estadoCliente == "02")//desactivado
+            {
+                iCliEN.Adicionales.EsVerdad = false;
+                iCliEN.Adicionales.Mensaje = "El cliente " + pObj.nroIdentificacionCliente + " esta desactivado";
+                return iCliEN;
+            }
+
+            //ok
+            iCliEN.Adicionales.EsVerdad = true;
+            return iCliEN;
+        }
+        public static GestionClubClienteDto EsClienteExistentePorNroDocumento(GestionClubClienteDto pObj)
+        {
+            //objeto resultado
+            GestionClubClienteDto iAmbEN = new GestionClubClienteDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iAmbEN = GestionClubClienteController.BuscarClienteXNroDocumento(pObj);
+            if (iAmbEN.nroIdentificacionCliente == string.Empty)
+            {
+                iAmbEN.Adicionales.EsVerdad = false;
+                iAmbEN.Adicionales.Mensaje = "El Cliente " + pObj.nroIdentificacionCliente + " no existe";
+                return iAmbEN;
+            }
+
+            //ok         
+            return iAmbEN;
+        }
+        public static GestionClubClienteDto BuscarClienteXNroDocumento(GestionClubClienteDto pObj)
+        {
+            GestionClubClienteRepository objRepo = new GestionClubClienteRepository();
+            return objRepo.ListarClientePorNroDocumentoPorEmpresa(pObj);
+        }
+
     }
 }

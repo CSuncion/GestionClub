@@ -22,3 +22,5 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Relea
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Release\GestionClubRepository.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Release\GestionClubRepository.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Release\GestionClubRepository.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Release\Comun.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Release\ScriptBD.dll

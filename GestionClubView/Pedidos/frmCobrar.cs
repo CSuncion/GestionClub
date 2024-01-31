@@ -1,6 +1,7 @@
 ﻿using Comun;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubView.Listas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinControles;
+using WinControles.ControlesWindows;
 
 namespace GestionClubView.Pedidos
 {
@@ -131,6 +133,57 @@ namespace GestionClubView.Pedidos
         {
             this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtTarjeta.Text) + Convert.ToDecimal(this.txtYape.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
         }
+        public bool EsClienteValido()
+        {
+            //si es de lectura , entonces no lista
+            if (this.txtDocId.ReadOnly == true) { return true; }
+
+            //validar el numerocontrato del lote
+            GestionClubClienteDto iCliEN = new GestionClubClienteDto();
+            iCliEN.nroIdentificacionCliente = this.txtDocId.Text.Trim();
+            iCliEN = GestionClubClienteController.EsClienteActivoValido(iCliEN);
+            if (iCliEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iCliEN.Adicionales.Mensaje, this.wCom.eTitulo);
+                this.txtDocId.Focus();
+            }
+
+            //mostrar datos
+            this.txtDocId.Text = iCliEN.nroIdentificacionCliente;
+            this.txtApeNom.Text = iCliEN.nombreRazSocialCliente;
+
+            //devolver
+            return iCliEN.Adicionales.EsVerdad;
+        }
+        public void ListarClientes()
+        {
+            //si es de lectura , entonces no lista
+            if (this.txtDocId.ReadOnly == true) { return; }
+
+            //instanciar
+            frmListarClientes win = new frmListarClientes();
+            win.eVentana = this;
+            win.eTituloVentana = "Clientes";
+            win.eCtrlValor = this.txtDocId;
+            win.eCtrlFoco = this.txtApeNom;
+            win.eCondicionLista = frmListarClientes.Condicion.Clientes;
+            TabCtrl.InsertarVentana(this, win);
+            win.NuevaVentana();
+        }
+
+        public void Cobrar()
+        {
+
+        }
+        public void AsignarComprobante()
+        {
+
+        }
+
+        public void AsignarDetalleComprobante()
+        {
+
+        }
 
         private void tsbSalir_Click(object sender, EventArgs e)
         {
@@ -155,15 +208,10 @@ namespace GestionClubView.Pedidos
 
         private void tsBtnCobrar_Click(object sender, EventArgs e)
         {
-
+            this.Cobrar();
         }
 
         private void tsBtnTicket_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
         {
 
         }
@@ -190,19 +238,18 @@ namespace GestionClubView.Pedidos
 
         private void txtDocId_DoubleClick(object sender, EventArgs e)
         {
-
+            this.ListarClientes();
         }
 
         private void txtDocId_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.F1) { this.ListarClientes(); }
         }
 
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
-
+            this.EsClienteValido();
         }
-
         private void chTarjeta_CheckedChanged(object sender, EventArgs e)
         {
             this.txtTarjeta.Enabled = !this.txtTarjeta.Enabled;

@@ -12,5 +12,6 @@ namespace GestionClubRepository.IRepository
         void ModificarCliente(GestionClubClienteDto pObj);
         void EliminarCliente(GestionClubClienteDto pObj);
         List<GestionClubClienteDto> ListarClientesActivos();
+        GestionClubClienteDto ListarClientePorNroDocumentoPorEmpresa(GestionClubClienteDto pObj);
     }
 }
