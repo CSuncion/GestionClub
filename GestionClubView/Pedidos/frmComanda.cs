@@ -67,6 +67,8 @@ namespace GestionClubView.Pedidos
             this.seleccionaMesa = 0;
             this.lvProductos.Items.Clear();
             this.lvMesas.Items.Clear();
+            this.lvMesas.Clear();
+            this.imgMesas.Images.Clear();
             this.CargarMesasPorAmbienteDesdeBaseDeDatos();
 
             if (this.lObjMesas.Count == 0) { this.lvMesas.Items.Clear(); return; }
@@ -100,6 +102,7 @@ namespace GestionClubView.Pedidos
             {
                 this.lvMesas.Items.Add(new ListViewItem(new[] { oObjEn.desMesas.ToString() }, oObjEn.idMesa.ToString()));
             }
+            this.lvMesas.Refresh();
         }
 
         public void CargarMesasPorAmbienteDesdeBaseDeDatos()
@@ -324,6 +327,7 @@ namespace GestionClubView.Pedidos
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
                 this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { detalle.desProducto.ToString(), detalle.cantidad.ToString(), detalle.preVenta.ToString() }, detalle.idProducto.ToString()));
+
                 this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(detalle.cantidad.ToString())).ToString();
                 this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(detalle.cantidad.ToString()) * Convert.ToDecimal(detalle.preVenta)).ToString();
             }
@@ -494,6 +498,10 @@ namespace GestionClubView.Pedidos
                     this.CambiarDeEstadoBotonesPorMesas();
                 }
 
+        }
+        public void LimpiarLvSeleccionados()
+        {
+            this.lvProductosSeleccionados.Items.Clear();
         }
         private void btnCobrar_Click(object sender, EventArgs e)
         {

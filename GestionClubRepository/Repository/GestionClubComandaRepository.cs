@@ -276,7 +276,7 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-        public void EliminarProducto(GestionClubDetalleComandaDto pObj)
+        public void EliminarDetalleComanda(GestionClubDetalleComandaDto pObj)
         {
             xObjCn.Connection();
             List<SqlParameter> lParameter = new List<SqlParameter>()
@@ -298,7 +298,19 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarDetalleComandaPorMesaYPendienteCobrar", lParameter);
         }
-
-
+        public void ModificarSituacionComanda(GestionClubComandaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idComanda", pObj.idComanda),
+                        new SqlParameter("@situacion", pObj.estadoComanda),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarSituacionComanda");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
     }
 }

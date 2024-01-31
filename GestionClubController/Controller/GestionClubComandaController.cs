@@ -19,15 +19,15 @@ namespace GestionClubController.Controller
             this._iCreditComandaRepository = new GestionClubComandaRepository();
         }
 
-        public static void EliminarProducto(GestionClubProductoDto pObj)
+        public static void EliminarComanda(GestionClubComandaDto pObj)
         {
-            GestionClubProductoRepository obj = new GestionClubProductoRepository();
-            obj.EliminarProducto(pObj);
+            GestionClubComandaRepository obj = new GestionClubComandaRepository();
+            obj.EliminarComanda(pObj);
         }
-        public static void ModificarProducto(GestionClubProductoDto pObj)
+        public static void ModificarComanda(GestionClubComandaDto pObj)
         {
-            GestionClubProductoRepository obj = new GestionClubProductoRepository();
-            obj.ModificarProducto(pObj);
+            GestionClubComandaRepository obj = new GestionClubComandaRepository();
+            obj.ModificarComanda(pObj);
         }
         public static int AgregarComanda(GestionClubComandaDto pObj)
         {
@@ -43,6 +43,11 @@ namespace GestionClubController.Controller
         {
             GestionClubComandaRepository objCom = new GestionClubComandaRepository();
             return objCom.ListarDetalleComandaPorMesaYPendienteCobrar(pObj);
+        }
+        public static void ModificarSituacionComanda(GestionClubComandaDto pObj)
+        {
+            GestionClubComandaRepository obj = new GestionClubComandaRepository();
+            obj.ModificarSituacionComanda(pObj);
         }
     }
 }

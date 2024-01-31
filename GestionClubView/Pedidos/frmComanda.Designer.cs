@@ -50,6 +50,7 @@
             this.btnCobrar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.lvProductosSeleccionados = new System.Windows.Forms.ListView();
+            this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbRealizarPedido = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -58,7 +59,6 @@
             this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cboMesero = new System.Windows.Forms.ComboBox();
-            this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -290,9 +290,16 @@
             this.lvProductosSeleccionados.UseCompatibleStateImageBehavior = false;
             this.lvProductosSeleccionados.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvProductosSeleccionados_MouseClick);
             // 
+            // imgProductosSel
+            // 
+            this.imgProductosSel.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgProductosSel.ImageSize = new System.Drawing.Size(16, 16);
+            this.imgProductosSel.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // tsPrincipal
             // 
             this.tsPrincipal.AutoSize = false;
+            this.tsPrincipal.BackColor = System.Drawing.SystemColors.Control;
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbRealizarPedido,
@@ -375,12 +382,6 @@
             this.cboMesero.Name = "cboMesero";
             this.cboMesero.Size = new System.Drawing.Size(331, 22);
             this.cboMesero.TabIndex = 0;
-            // 
-            // imgProductosSel
-            // 
-            this.imgProductosSel.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imgProductosSel.ImageSize = new System.Drawing.Size(16, 16);
-            this.imgProductosSel.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // frmComanda
             // 

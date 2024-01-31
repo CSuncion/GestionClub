@@ -11,7 +11,8 @@ namespace GestionClubRepository.IRepository
         void ModificarComanda(GestionClubComandaDto pObj);
         void ModificarDetalleComanda(GestionClubDetalleComandaDto pObj);
         void EliminarComanda(GestionClubComandaDto pObj);
-        void EliminarProducto(GestionClubDetalleComandaDto pObj);
+        void EliminarDetalleComanda(GestionClubDetalleComandaDto pObj); 
+        void ModificarSituacionComanda(GestionClubComandaDto pObj);
 
     }
 }

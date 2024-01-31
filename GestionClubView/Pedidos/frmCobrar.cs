@@ -1,6 +1,7 @@
 ﻿using Comun;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubUtil.Enum;
 using GestionClubView.Listas;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +26,8 @@ namespace GestionClubView.Pedidos
         public Universal.Opera eOperacion;
         public List<GestionClubDetalleComandaDto> lObjDetalle = new List<GestionClubDetalleComandaDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
+        public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
+        public string eTitulo = "Cobrar Comanda";
         public frmCobrar()
         {
             InitializeComponent();
@@ -46,7 +50,10 @@ namespace GestionClubView.Pedidos
             //eventos de controles
             eMas.lisCtrls = this.ListaCtrls();
             eMas.EjecutarTodosLosEventos();
-            //this.ActualizarVentana();
+
+            this.CargarTipoDocumentos();
+            this.CargarMoneda();
+
             // Deshabilitar al propietario
             this.wCom.Enabled = false;
 
@@ -60,6 +67,31 @@ namespace GestionClubView.Pedidos
 
             xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtDocId, true, "Doc, Identificación", "vvff", 150);
+            xLis.Add(xCtrl);
+
+
+            xCtrl = new ControlEditar();
+            xCtrl.txtNoFoco(this.txtApeNom, this.txtNroDoc, "ffff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Cmb(this.cboTipDoc, "vvff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
+            xLis.Add(xCtrl);
+            
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Dtp(this.dtpFecDoc, "vvff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Cmb(this.cboMoneda, "vvff");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -94,6 +126,14 @@ namespace GestionClubView.Pedidos
             rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
         }
+        public void CargarTipoDocumentos()
+        {
+            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.DocFac.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+        }
+        public void CargarMoneda()
+        {
+            Cmb.Cargar(this.cboMoneda, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.Moneda.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+        }
         public void MostrarProductosPedidosEnComandaBD(GestionClubComandaDto objCom)
         {
             lvProductosSeleccionados.View = View.Details;
@@ -106,7 +146,12 @@ namespace GestionClubView.Pedidos
 
             this.lblFecha.Text = this.lObjDetalle.FirstOrDefault().fecDetalleComanda.ToString();
             this.lblAmbiente.Text = this.lObjDetalle.FirstOrDefault().desAmbiente;
+            this.lblIdAmbiente.Text = this.lObjDetalle.FirstOrDefault().idAmbiente.ToString();
+            this.lblIdMesa.Text = this.lObjDetalle.FirstOrDefault().idMesa.ToString();
             this.lblNroMesa.Text = this.lObjDetalle.FirstOrDefault().desMesas;
+            this.lblIdMozo.Text = this.lObjDetalle.FirstOrDefault().idMozo.ToString();
+            this.lblIdNroComanda.Text = this.lObjDetalle.FirstOrDefault().idComanda.ToString();
+
 
             this.txtEfectivo.Text = "0";
             this.txtYape.Text = "0";
@@ -149,6 +194,7 @@ namespace GestionClubView.Pedidos
             }
 
             //mostrar datos
+            this.txtIdCliente.Text = iCliEN.idCliente.ToString();
             this.txtDocId.Text = iCliEN.nroIdentificacionCliente;
             this.txtApeNom.Text = iCliEN.nombreRazSocialCliente;
 
@@ -173,18 +219,114 @@ namespace GestionClubView.Pedidos
 
         public void Cobrar()
         {
+            //validar los campos obligatorios
+            if (eMas.CamposObligatorios() == false) { return; }
 
+            //el codigo de usuario ya existe?
+            //if (this.EsCodigoAmbienteDisponible() == false) { return; };
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
+
+            this.AdicionarComprobante();
+            this.ModificarSituacionMesa();
+            this.ModificarSituacionComanda();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
+
+            this.wCom.cargarMesas();
+            this.wCom.LimpiarLvSeleccionados();
+            //salir de la ventana
+            this.Close();
         }
-        public void AsignarComprobante()
+        public void AdicionarComprobante()
         {
+            GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
+            this.AsignarComprobante(iComEN);
+            int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
+
+
+            GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
+            this.AsignarDetalleComprobante(iDetObjEN, identity);
 
         }
-
-        public void AsignarDetalleComprobante()
+        public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
+            pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
+            pObj.tipComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            pObj.serComprobante = this.txtSerDoc.Text.Trim();
+            pObj.nroComprobante = this.txtNroDoc.Text.Trim();
+            pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToString());
+            pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
+            pObj.impCambio = 0;
+            pObj.serGuiaComprobante = string.Empty;
+            pObj.nroGuiaComprobante = string.Empty;
+            pObj.fecGuiaComprobante = DateTime.Now;
+            pObj.idNroComanda = Convert.ToInt32(this.lblIdNroComanda.Text);
+            pObj.idAmbiente = Convert.ToInt32(this.lblIdAmbiente.Text);
+            pObj.idMesa = Convert.ToInt32(this.lblIdMesa.Text);
+            pObj.idMozo = Convert.ToInt32(this.lblIdMozo.Text);
+            pObj.turnoCaja = "01";
+            pObj.modPagoComprobante = this.modoPago();
+            pObj.tipMovComprobante = "01";
+            pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
+            pObj.impDepComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
+            pObj.impTarComprobante = Convert.ToDecimal(this.txtYape.Text) + Convert.ToDecimal(this.txtTarjeta.Text);
+            pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
+            pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
+            pObj.impNetComprobante = Convert.ToDecimal(this.lblTotal.Text);
+            pObj.impDtrComprobante = 0;
+            pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
+            pObj.obsComprobante = string.Empty;
+            pObj.estadoComprobante = "01";
+        }
+
+        public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
+        {
+            pObj.idComprobante = identity;
+            pObj.estadoDetalleComprobante = "01";
+            pObj.obsDetalleComprobante = string.Empty;
+            foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
+            {
+                pObj.idProducto = Convert.ToInt32(item.ImageKey);
+                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
+                pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
+                pObj.preTotal = (pObj.preVenta * pObj.cantidad);
+                GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
+            }
 
         }
 
+        public string modoPago()
+        {
+            string modoPago = string.Empty;
+            int cantidadCheck = 0;
+
+            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "01"; }
+            if (this.chYape.Checked) { cantidadCheck++; modoPago = "02"; }
+            if (this.chTarjeta.Checked) { cantidadCheck++; modoPago = "03"; }
+            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "04"; }
+            if (cantidadCheck > 1) modoPago = "05";
+
+            return modoPago;
+        }
+
+        public void ModificarSituacionMesa()
+        {
+            GestionClubMesaDto obj = new GestionClubMesaDto();
+            obj.idMesa = Convert.ToInt32(this.lblIdMesa.Text);
+            obj = GestionClubMesaController.BuscarMesaXId(obj);
+            obj.sitMesa = "01";
+            GestionClubMesaController.ModificarMesa(obj);
+        }
+        public void ModificarSituacionComanda()
+        {
+            GestionClubComandaDto objCab = new GestionClubComandaDto();
+            objCab.idComanda = Convert.ToInt32(this.lblIdNroComanda.Text);
+            objCab.estadoComanda = "04";
+            GestionClubComandaController.ModificarSituacionComanda(objCab);
+        }
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
