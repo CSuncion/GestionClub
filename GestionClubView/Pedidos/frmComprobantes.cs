@@ -223,8 +223,8 @@ namespace GestionClubView.Pedidos
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iPerEN = this.EsProductoExistente();
-            if (iPerEN.Adicionales.EsVerdad == false) { return; }
+            GestionClubComprobanteDto iComEN = this.EsProductoExistente();
+            if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
             frmEditarComprobante win = new frmEditarComprobante();
@@ -237,7 +237,7 @@ namespace GestionClubView.Pedidos
         {
             GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
             this.AsignarProducto(iObjEN);
-            //iObjEN = GestionClubProductoController.EsProductoExistente(iObjEN);
+            //iObjEN = GestionClubComprobanteController.EsProductoExistente(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);

@@ -210,3 +210,4 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.exe
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Interop.PrinterAPI.dll
