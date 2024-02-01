@@ -15,32 +15,32 @@ using static GestionClubView.Listas.frmListarEmpresas;
 
 namespace GestionClubView.Listas
 {
-    public partial class frmListarClientes : Form
+    public partial class frmListarProducto : Form
     {
 
         public enum Condicion
         {
-            Clientes,
+            Productos,
         }
         public Form eVentana = new Form();
-        public GestionClubClienteDto eCli = new GestionClubClienteDto();
-        public List<GestionClubClienteDto> eLisCli = new List<GestionClubClienteDto>();
+        public GestionClubProductoDto eCli = new GestionClubProductoDto();
+        public List<GestionClubProductoDto> eLisCli = new List<GestionClubProductoDto>();
         public string eTituloVentana;
         public Condicion eCondicionLista;
         public string eCampoBusqueda;
         public TextBox eCtrlValor;
         public Control eCtrlFoco;
-        GestionClubClienteController oCli = new GestionClubClienteController();
-        public frmListarClientes()
+        GestionClubProductoController oPro = new GestionClubProductoController();
+        public frmListarProducto()
         {
             InitializeComponent();
         }
         public void InicializaVentana()
         {
             this.eVentana.Enabled = false;
-            eCli.Adicionales.CampoOrden = GestionClubClienteDto._nombreRazSocialCliente;
+            eCli.Adicionales.CampoOrden = GestionClubProductoDto._desProducto;
             this.Text = "Listado de" + Cadena.Espacios(1) + this.eTituloVentana;
-            this.eCampoBusqueda = "N° Identificación";
+            this.eCampoBusqueda = "Código";
             this.ActualizaVentana();
         }
 
@@ -67,8 +67,8 @@ namespace GestionClubView.Listas
             iDgv.RefrescarDatosGrilla(this.ObtenerDatosParaGrilla());
 
             //asignando columnas
-            iDgv.AsignarColumnaTextCadena(GestionClubClienteDto._nroIdentificacionCliente, "Doc.Identificación", 120);
-            iDgv.AsignarColumnaTextCadena(GestionClubClienteDto._nombreRazSocialCliente, "Nombre/Raz. Social", 260);
+            iDgv.AsignarColumnaTextCadena(GestionClubProductoDto._codProducto, "Código", 120);
+            iDgv.AsignarColumnaTextCadena(GestionClubProductoDto._desProducto, "Descripción", 260);
         }
 
         public void ActualizarListaAuxiliarsDeBaseDatos()
@@ -79,20 +79,20 @@ namespace GestionClubView.Listas
             //ejecutar segun condicion
             switch (eCondicionLista)
             {
-                case Condicion.Clientes: { this.eLisCli = oCli.ListarClientes(); break; }
+                case Condicion.Productos: { this.eLisCli = GestionClubProductoController.ListarProductos(); break; }
 
             }
         }
 
-        public List<GestionClubClienteDto> ObtenerDatosParaGrilla()
+        public List<GestionClubProductoDto> ObtenerDatosParaGrilla()
         {
             //asignar parametros
             string iValorBusqueda = txtBus.Text.Trim();
             string iCampoBusqueda = eCli.Adicionales.CampoOrden;
-            List<GestionClubClienteDto> iListaAuxiliars = this.eLisCli;
+            List<GestionClubProductoDto> iListaAuxiliars = this.eLisCli;
 
             //ejecutar y retornar
-            return oCli.ListarDatosParaGrillaPrincipal(iValorBusqueda, iCampoBusqueda, iListaAuxiliars);
+            return oPro.ListarDatosParaGrillaPrincipal(iValorBusqueda, iCampoBusqueda, iListaAuxiliars);
         }
 
         public void DevolverDato()
@@ -103,7 +103,7 @@ namespace GestionClubView.Listas
             }
             else
             {
-                this.eCtrlValor.Text = Dgv.ObtenerValorCelda(this.DgvLista, GestionClubClienteDto._nroIdentificacionCliente);
+                this.eCtrlValor.Text = Dgv.ObtenerValorCelda(this.DgvLista, GestionClubProductoDto._codProducto);
                 this.Close();
                 this.eCtrlValor.Focus();
                 this.eCtrlFoco.Focus();
@@ -173,7 +173,7 @@ namespace GestionClubView.Listas
             this.DevolverDato();
         }
 
-        private void frmListarClientes_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmListarProducto_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.eVentana.Enabled = true;
         }

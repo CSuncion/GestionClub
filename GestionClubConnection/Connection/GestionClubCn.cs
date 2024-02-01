@@ -82,14 +82,9 @@ namespace GestionClubConnection.Connection
         public int GetInt()
         {
             int xValor;
-            if (this.sqlCmd.ExecuteScalar() == null)
-            {
-                xValor = 0;
-            }
-            else
-            {
-                xValor = Convert.ToInt32(this.sqlCmd.ExecuteScalar());
-            }
+
+            xValor = Convert.ToInt32(this.sqlCmd.ExecuteScalar());
+
             return xValor;
         }
 

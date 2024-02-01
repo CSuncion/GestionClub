@@ -27,7 +27,7 @@ namespace GestionClubView.Pedidos
         public List<GestionClubDetalleComandaDto> lObjDetalle = new List<GestionClubDetalleComandaDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
         public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
-        public string eTitulo = "Cobrar Comanda";
+        public string eTitulo = "Grabar Comanda";
         public frmCobrar()
         {
             InitializeComponent();
@@ -279,13 +279,13 @@ namespace GestionClubView.Pedidos
             pObj.impDtrComprobante = 0;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.obsComprobante = string.Empty;
-            pObj.estadoComprobante = "01";
+            pObj.estadoComprobante = "04";
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
         {
             pObj.idComprobante = identity;
-            pObj.estadoDetalleComprobante = "01";
+            pObj.estadoDetalleComprobante = "04";
             pObj.obsDetalleComprobante = string.Empty;
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
             {

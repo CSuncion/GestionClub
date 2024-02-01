@@ -39,5 +39,79 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             obj.AgregarDetalleComprobante(pObj);
         }
+        public static List<GestionClubDetalleComprobanteDto> RefrescarListaComprobanteDeta(List<GestionClubDetalleComprobanteDto> pLis)
+        {
+            List<GestionClubDetalleComprobanteDto> iLisRes = new List<GestionClubDetalleComprobanteDto>();
+            foreach (GestionClubDetalleComprobanteDto xComDet in pLis)
+            {
+                iLisRes.Add(xComDet);
+            }
+            return iLisRes;
+        }
+        public static List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantes(objEn);
+        }
+        public List<GestionClubComprobanteDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubComprobanteDto> pListaOperations)
+        {
+            //lista resultado
+            List<GestionClubComprobanteDto> iLisRes = new List<GestionClubComprobanteDto>();
+
+            //si el valor filtro esta vacio entonces devuelve toda la lista del parametro
+            if (pValorBusqueda == string.Empty) { return pListaOperations; }
+
+            //filtar la lista
+            iLisRes = GestionClubComprobanteController.FiltrarOperationsXTextoEnCualquierPosicion(pListaOperations, pCampoBusqueda, pValorBusqueda);
+
+            //retornar
+            return iLisRes;
+        }
+        public static List<GestionClubComprobanteDto> FiltrarOperationsXTextoEnCualquierPosicion(List<GestionClubComprobanteDto> pLista, string pCampoBusqueda, string pValorBusqueda)
+        {
+            //lista resultado
+            List<GestionClubComprobanteDto> iLisRes = new List<GestionClubComprobanteDto>();
+
+            //valor busqueda en mayuscula
+            string iValor = pValorBusqueda.ToUpper();
+
+            //recorrer cada objeto
+            foreach (GestionClubComprobanteDto xOperations in pLista)
+            {
+                string iTexto = GestionClubComprobanteController.ObtenerValorDeCampo(xOperations, pCampoBusqueda).ToUpper();
+                if (iTexto.IndexOf(iValor) != -1)
+                {
+                    iLisRes.Add(xOperations);
+                }
+            }
+
+            //devolver
+            return iLisRes;
+        }
+
+        public static string ObtenerValorDeCampo(GestionClubComprobanteDto pObj, string pNombreCampo)
+        {
+            //valor resultado
+            string iValor = string.Empty;
+
+            //segun nombre campo
+            switch (pNombreCampo)
+            {
+                case GestionClubComprobanteDto._serNroComprobante: return pObj.serNroComprobante;
+                case GestionClubComprobanteDto._desTipComprobante: return pObj.desTipComprobante;
+                case GestionClubComprobanteDto._fecComprobante: return pObj.fecComprobante.ToString();
+                case GestionClubComprobanteDto._desMoneda: return pObj.desMoneda;
+                case GestionClubComprobanteDto._nroIdentificacionCliente: return pObj.nroIdentificacionCliente;
+                case GestionClubComprobanteDto._nombreRazSocialCliente: return pObj.nombreRazSocialCliente;
+                case GestionClubComprobanteDto._desPagoComprobante: return pObj.desPagoComprobante;
+                case GestionClubComprobanteDto._impNetComprobante: return pObj.impNetComprobante.ToString();
+                case GestionClubComprobanteDto._estadoComprobante: return pObj.estadoComprobante;
+                case GestionClubComprobanteDto._idComprobante: return pObj.idComprobante.ToString();
+                case GestionClubComprobanteDto._claveObjeto: return pObj.claveObjeto;
+            }
+
+            //retorna
+            return iValor;
+        }
     }
 }

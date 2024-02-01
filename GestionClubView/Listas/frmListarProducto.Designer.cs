@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Listas
 {
-    partial class frmListarClientes
+    partial class frmListarProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarClientes));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListarProducto));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
@@ -109,7 +109,7 @@
             this.txtBus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBus_KeyPress);
             this.txtBus.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBus_KeyUp);
             // 
-            // frmListarClientes
+            // frmListarProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,10 +118,10 @@
             this.Controls.Add(this.DgvLista);
             this.Controls.Add(this.gbBus);
             this.Controls.Add(this.tsPrincipal);
-            this.Name = "frmListarClientes";
+            this.Name = "frmListarProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Lista Clientes";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListarClientes_FormClosing);
+            this.Text = "Lista Productos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListarProducto_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).EndInit();

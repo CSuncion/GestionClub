@@ -11,6 +11,7 @@ namespace GestionClubRepository.IRepository
         void ModificarDetalleComprobante(GestionClubDetalleComprobanteDto pObj);
         void EliminarComprobante(GestionClubComprobanteDto pObj);
         void EliminarDetalleComprobante(GestionClubDetalleComprobanteDto pObj);
+        List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn);
 
     }
 }

@@ -293,6 +293,13 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmCategorias, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarComprobante()
+        {
+            frmComprobantes win = new frmComprobantes();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmComprobante, null, 0, 0);
+            win.NewWindow();
+        }
+        
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -444,6 +451,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmCategorias_Click(object sender, EventArgs e)
         {
             this.InstanciarCategorias();
+        }
+
+        private void tsmComprobante_Click(object sender, EventArgs e)
+        {
+            this.InstanciarComprobante();
         }
 
         public void ShowOptionsGestionClub()

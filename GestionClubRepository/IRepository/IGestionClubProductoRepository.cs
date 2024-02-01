@@ -13,5 +13,6 @@ namespace GestionClubRepository.IRepository
         void EliminarProducto(GestionClubProductoDto pObj);
         List<GestionClubProductoDto> ListarProductosActivos();
         List<GestionClubProductoDto> ListarProductosActivosPorCategoria(GestionClubProductoDto pObj);
+        GestionClubProductoDto ListarProductoPorNroDocumentoPorEmpresa(GestionClubProductoDto pObj);
     }
 }

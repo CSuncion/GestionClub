@@ -108,6 +108,12 @@
     <Compile Include="AcercaDe\frmAcercaDe.Designer.cs">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Listas\frmListarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listas\frmListarProducto.Designer.cs">
+      <DependentUpon>frmListarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listas\frmListarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +132,11 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedidos\frmComprobante.cs">
+    <Compile Include="Pedidos\frmEditarComprobante.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedidos\frmComprobante.Designer.cs">
-      <DependentUpon>frmComprobante.cs</DependentUpon>
+    <Compile Include="Pedidos\frmEditarComprobante.Designer.cs">
+      <DependentUpon>frmEditarComprobante.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedidos\frmListadoPedidos.cs">
       <SubType>Form</SubType>
@@ -266,6 +272,12 @@
     <Compile Include="MdiPrincipal\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pedidos\frmComprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\frmComprobantes.Designer.cs">
+      <DependentUpon>frmComprobantes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -283,6 +295,9 @@
     <EmbeddedResource Include="AcercaDe\frmAcercaDe.resx">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listas\frmListarProducto.resx">
+      <DependentUpon>frmListarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarClientes.resx">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -291,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmEditarComprobante.resx">
+      <DependentUpon>frmEditarComprobante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmListadoPedidos.resx">
       <DependentUpon>frmListadoPedidos.cs</DependentUpon>
@@ -354,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MdiPrincipal\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\frmComprobantes.resx">
+      <DependentUpon>frmComprobantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

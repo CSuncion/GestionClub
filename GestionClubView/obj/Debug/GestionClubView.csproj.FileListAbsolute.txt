@@ -176,8 +176,11 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\bin\Debug\zh-CH
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.AssemblyReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.ResolveComReference.cache
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.AcercaDe.frmAcercaDe.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarProducto.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarClientes.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmCobrar.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmComanda.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmEditarComprobante.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmListadoPedidos.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarEmpresas.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Login.frmLogin.resources
@@ -199,6 +202,7 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmProveedores.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Maestros.frmProductos.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.MdiPrincipal.frmPrincipal.resources
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Pedidos.frmComprobantes.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Properties.Resources.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Informatica.frmRespaldoBackup.resources
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.GenerateResource.cache
@@ -206,4 +210,3 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\Gesti
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.exe
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.pdb
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\obj\Debug\GestionClubView.Listas.frmListarClientes.resources

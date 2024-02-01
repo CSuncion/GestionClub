@@ -25,10 +25,13 @@ namespace GestionClubRepository.Repository
             xObjEnc.idComprobante = Convert.ToInt32(iDr[GestionClubComprobanteDto._idComprobante]);
             xObjEnc.idEmpresa = Convert.ToInt32(iDr[GestionClubComprobanteDto._idEmpresa]);
             xObjEnc.tipComprobante = iDr[GestionClubComprobanteDto._tipComprobante].ToString();
+            xObjEnc.desTipComprobante = iDr[GestionClubComprobanteDto._desTipComprobante].ToString();
+            xObjEnc.serNroComprobante = iDr[GestionClubComprobanteDto._serNroComprobante].ToString();
             xObjEnc.serComprobante = iDr[GestionClubComprobanteDto._serComprobante].ToString();
             xObjEnc.nroComprobante = iDr[GestionClubComprobanteDto._nroComprobante].ToString();
             xObjEnc.fecComprobante = Convert.ToDateTime(iDr[GestionClubComprobanteDto._fecComprobante]);
             xObjEnc.codMoneda = iDr[GestionClubComprobanteDto._codMoneda].ToString();
+            xObjEnc.desMoneda = iDr[GestionClubComprobanteDto._desMoneda].ToString();
             xObjEnc.impCambio = Convert.ToDecimal(iDr[GestionClubComprobanteDto._impCambio]);
             xObjEnc.serGuiaComprobante = iDr[GestionClubComprobanteDto._serGuiaComprobante].ToString();
             xObjEnc.nroGuiaComprobante = iDr[GestionClubComprobanteDto._nroGuiaComprobante].ToString();
@@ -38,10 +41,14 @@ namespace GestionClubRepository.Repository
             xObjEnc.idMozo = Convert.ToInt32(iDr[GestionClubComprobanteDto._idMozo]);
             xObjEnc.turnoCaja = Convert.ToString(iDr[GestionClubComprobanteDto._turnoCaja]);
             xObjEnc.modPagoComprobante = iDr[GestionClubComprobanteDto._modPagoComprobante].ToString();
+            xObjEnc.desPagoComprobante = iDr[GestionClubComprobanteDto._desPagoComprobante].ToString();
             xObjEnc.tipMovComprobante = iDr[GestionClubComprobanteDto._tipMovComprobante].ToString();
             xObjEnc.idCliente = Convert.ToInt32(iDr[GestionClubComprobanteDto._idCliente]);
+            xObjEnc.nroIdentificacionCliente = Convert.ToString(iDr[GestionClubComprobanteDto._nroIdentificacionCliente]);
+            xObjEnc.nombreRazSocialCliente = Convert.ToString(iDr[GestionClubComprobanteDto._nombreRazSocialCliente]);
             xObjEnc.obsComprobante = Convert.ToString(iDr[GestionClubComprobanteDto._obsComprobante]);
             xObjEnc.estadoComprobante = Convert.ToString(iDr[GestionClubComprobanteDto._estadoComprobante]);
+            xObjEnc.desEstado = Convert.ToString(iDr[GestionClubComprobanteDto._desEstado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubComprobanteDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteDto._usuarioModifica]);
@@ -207,7 +214,7 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@preTotal", pObj.preTotal),
                 new SqlParameter("@estadoDetalleComprobante", pObj.estadoDetalleComprobante),
                 new SqlParameter("@obsDetalleComprobante", pObj.obsDetalleComprobante),
-                new SqlParameter("@usuarioAgrega", pObj.usuarioAgrega),
+                new SqlParameter("@usuarioAgrega",  Universal.gIdAcceso),
                 new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                 };
             xObjCn.AssignParameters(lParameter);
@@ -270,7 +277,7 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@preTotal", pObj.preTotal),
                 new SqlParameter("@estadoDetalleComprobante", pObj.estadoDetalleComprobante),
                 new SqlParameter("@obsDetalleComprobante", pObj.obsDetalleComprobante),
-                new SqlParameter("@usuarioAgrega", pObj.usuarioAgrega),
+                new SqlParameter("@usuarioAgrega",  Universal.gIdAcceso),
                 new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                 };
             xObjCn.AssignParameters(lParameter);
@@ -304,6 +311,14 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-
+        public List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@idNroComanda",objEn.idNroComanda)
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantes", lParameter);
+        }
     }
 }

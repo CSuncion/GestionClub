@@ -201,5 +201,65 @@ namespace GestionClubController.Controller
             GestionClubProductoRepository obj = new GestionClubProductoRepository();
             obj.AgregarProducto(pObj);
         }
+        public static GestionClubProductoDto EsProductoActivoValido(GestionClubProductoDto pObj)
+        {
+            //objeto resultado
+            GestionClubProductoDto iCliEN = new GestionClubProductoDto();
+
+            //valida cuando el codigo esta vacio
+            if (pObj.codProducto == string.Empty) { return iCliEN; }
+
+            //valida cuando el codigo no existe
+            iCliEN = GestionClubProductoController.EsProductoExistentePorNroDocumento(pObj);
+            if (iCliEN.Adicionales.EsVerdad == false) { return iCliEN; }
+
+
+            //valida cuando esta desactivado
+            GestionClubProductoDto iCliDesEN = GestionClubProductoController.ValidaCuandoProductoEstaDesactivado(iCliEN);
+            if (iCliDesEN.Adicionales.EsVerdad == false) { return iCliDesEN; }
+
+            //ok
+            return iCliEN;
+        }
+        public static GestionClubProductoDto ValidaCuandoProductoEstaDesactivado(GestionClubProductoDto pObj)
+        {
+            //objeto resultado
+            GestionClubProductoDto iProdEN = new GestionClubProductoDto();
+
+            //validar                 
+            if (pObj.estadoProducto == "02")//desactivado
+            {
+                iProdEN.Adicionales.EsVerdad = false;
+                iProdEN.Adicionales.Mensaje = "El producto " + pObj.codProducto + " esta desactivado";
+                return iProdEN;
+            }
+
+            //ok
+            iProdEN.Adicionales.EsVerdad = true;
+            return iProdEN;
+        }
+        public static GestionClubProductoDto EsProductoExistentePorNroDocumento(GestionClubProductoDto pObj)
+        {
+            //objeto resultado
+            GestionClubProductoDto iObjEN = new GestionClubProductoDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iObjEN = GestionClubProductoController.BuscarProductoXNroDocumento(pObj);
+            if (iObjEN.codProducto == string.Empty)
+            {
+                iObjEN.Adicionales.EsVerdad = false;
+                iObjEN.Adicionales.Mensaje = "El Producto " + pObj.codProducto + " no existe";
+                return iObjEN;
+            }
+
+            //ok         
+            return iObjEN;
+        }
+        public static GestionClubProductoDto BuscarProductoXNroDocumento(GestionClubProductoDto pObj)
+        {
+            GestionClubProductoRepository objRepo = new GestionClubProductoRepository();
+            return objRepo.ListarProductoPorNroDocumentoPorEmpresa(pObj);
+        }
     }
 }

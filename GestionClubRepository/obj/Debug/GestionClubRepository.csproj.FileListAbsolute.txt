@@ -12,8 +12,10 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\De
 D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubRepository.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubRepository.pdb
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\Comun.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubConnection.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubModel.dll
+D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\ScriptBD.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubConnection.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubModel.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\GestionClubModel.dll.config
@@ -22,5 +24,3 @@ D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.csproj.CopyComplete
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\obj\Debug\GestionClubRepository.pdb
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\Comun.dll
-D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubRepository\bin\Debug\ScriptBD.dll

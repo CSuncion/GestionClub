@@ -53,6 +53,7 @@
             this.tsmAperturaCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAmbientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,7 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -256,10 +257,17 @@
             this.tsmAmbientes.Name = "tsmAmbientes";
             this.tsmAmbientes.Click += new System.EventHandler(this.tsmAmbientes_Click);
             // 
+            // tsmCategorias
+            // 
+            resources.ApplyResources(this.tsmCategorias, "tsmCategorias");
+            this.tsmCategorias.Name = "tsmCategorias";
+            this.tsmCategorias.Click += new System.EventHandler(this.tsmCategorias_Click);
+            // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmComanda,
+            this.tsmComprobante,
             this.tsmListadoPedidos,
             this.tsmEdicionComprobante});
             resources.ApplyResources(this.pedidosToolStripMenuItem, "pedidosToolStripMenuItem");
@@ -348,11 +356,11 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // tsmCategorias
+            // tsmComprobante
             // 
-            resources.ApplyResources(this.tsmCategorias, "tsmCategorias");
-            this.tsmCategorias.Name = "tsmCategorias";
-            this.tsmCategorias.Click += new System.EventHandler(this.tsmCategorias_Click);
+            resources.ApplyResources(this.tsmComprobante, "tsmComprobante");
+            this.tsmComprobante.Name = "tsmComprobante";
+            this.tsmComprobante.Click += new System.EventHandler(this.tsmComprobante_Click);
             // 
             // frmPrincipal
             // 
@@ -424,5 +432,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmComanda;
         internal System.Windows.Forms.ToolStripButton tsbComanda;
         internal System.Windows.Forms.ToolStripMenuItem tsmCategorias;
+        internal System.Windows.Forms.ToolStripMenuItem tsmComprobante;
     }
 }

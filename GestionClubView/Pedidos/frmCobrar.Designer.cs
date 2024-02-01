@@ -31,9 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCobrar));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
+            this.tsBtnCobrar = new System.Windows.Forms.ToolStripButton();
+            this.tsBtnTicket = new System.Windows.Forms.ToolStripButton();
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtApeNom = new System.Windows.Forms.TextBox();
             this.txtDocId = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -46,6 +50,10 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lvProductosSeleccionados = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblIdNroComanda = new System.Windows.Forms.Label();
+            this.lblIdMozo = new System.Windows.Forms.Label();
+            this.lblIdAmbiente = new System.Windows.Forms.Label();
+            this.lblIdMesa = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblPendiente = new System.Windows.Forms.Label();
             this.txtTransferencia = new System.Windows.Forms.TextBox();
@@ -63,27 +71,19 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
-            this.tsBtnCobrar = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnTicket = new System.Windows.Forms.ToolStripButton();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.lblIdMesa = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cboMoneda = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtNroDoc = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtpFecDoc = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboTipDoc = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dtpFecDoc = new System.Windows.Forms.DateTimePicker();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtNroDoc = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cboMoneda = new System.Windows.Forms.ComboBox();
-            this.lblIdAmbiente = new System.Windows.Forms.Label();
-            this.lblIdMozo = new System.Windows.Forms.Label();
-            this.lblIdNroComanda = new System.Windows.Forms.Label();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -110,6 +110,39 @@
             this.tsPrincipal.Size = new System.Drawing.Size(684, 45);
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 449;
+            // 
+            // tsBtnCobrar
+            // 
+            this.tsBtnCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsBtnCobrar.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnCobrar.Image")));
+            this.tsBtnCobrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnCobrar.Name = "tsBtnCobrar";
+            this.tsBtnCobrar.Size = new System.Drawing.Size(46, 42);
+            this.tsBtnCobrar.Text = "Cobrar";
+            this.tsBtnCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBtnCobrar.Click += new System.EventHandler(this.tsBtnCobrar_Click);
+            // 
+            // tsBtnTicket
+            // 
+            this.tsBtnTicket.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsBtnTicket.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnTicket.Image")));
+            this.tsBtnTicket.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnTicket.Name = "tsBtnTicket";
+            this.tsBtnTicket.Size = new System.Drawing.Size(43, 42);
+            this.tsBtnTicket.Text = "Ticket";
+            this.tsBtnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBtnTicket.Click += new System.EventHandler(this.tsBtnTicket_Click);
+            // 
+            // tsbSalir
+            // 
+            this.tsbSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
+            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Size = new System.Drawing.Size(36, 42);
+            this.tsbSalir.Text = "Salir";
+            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
             // label3
             // 
@@ -143,6 +176,16 @@
             this.groupBox1.Size = new System.Drawing.Size(660, 49);
             this.groupBox1.TabIndex = 452;
             this.groupBox1.TabStop = false;
+            // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCliente.Location = new System.Drawing.Point(636, 15);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.ReadOnly = true;
+            this.txtIdCliente.Size = new System.Drawing.Size(18, 22);
+            this.txtIdCliente.TabIndex = 450;
+            this.txtIdCliente.Visible = false;
             // 
             // txtApeNom
             // 
@@ -286,6 +329,50 @@
             this.groupBox3.Size = new System.Drawing.Size(244, 239);
             this.groupBox3.TabIndex = 455;
             this.groupBox3.TabStop = false;
+            // 
+            // lblIdNroComanda
+            // 
+            this.lblIdNroComanda.AutoSize = true;
+            this.lblIdNroComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdNroComanda.Location = new System.Drawing.Point(6, 222);
+            this.lblIdNroComanda.Name = "lblIdNroComanda";
+            this.lblIdNroComanda.Size = new System.Drawing.Size(13, 14);
+            this.lblIdNroComanda.TabIndex = 464;
+            this.lblIdNroComanda.Text = "0";
+            this.lblIdNroComanda.Visible = false;
+            // 
+            // lblIdMozo
+            // 
+            this.lblIdMozo.AutoSize = true;
+            this.lblIdMozo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdMozo.Location = new System.Drawing.Point(25, 222);
+            this.lblIdMozo.Name = "lblIdMozo";
+            this.lblIdMozo.Size = new System.Drawing.Size(13, 14);
+            this.lblIdMozo.TabIndex = 463;
+            this.lblIdMozo.Text = "0";
+            this.lblIdMozo.Visible = false;
+            // 
+            // lblIdAmbiente
+            // 
+            this.lblIdAmbiente.AutoSize = true;
+            this.lblIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdAmbiente.Location = new System.Drawing.Point(152, 47);
+            this.lblIdAmbiente.Name = "lblIdAmbiente";
+            this.lblIdAmbiente.Size = new System.Drawing.Size(13, 14);
+            this.lblIdAmbiente.TabIndex = 462;
+            this.lblIdAmbiente.Text = "0";
+            this.lblIdAmbiente.Visible = false;
+            // 
+            // lblIdMesa
+            // 
+            this.lblIdMesa.AutoSize = true;
+            this.lblIdMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdMesa.Location = new System.Drawing.Point(134, 61);
+            this.lblIdMesa.Name = "lblIdMesa";
+            this.lblIdMesa.Size = new System.Drawing.Size(13, 14);
+            this.lblIdMesa.TabIndex = 461;
+            this.lblIdMesa.Text = "0";
+            this.lblIdMesa.Visible = false;
             // 
             // label15
             // 
@@ -457,50 +544,6 @@
             this.imgProductosSel.ImageSize = new System.Drawing.Size(16, 16);
             this.imgProductosSel.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // tsBtnCobrar
-            // 
-            this.tsBtnCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnCobrar.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnCobrar.Image")));
-            this.tsBtnCobrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnCobrar.Name = "tsBtnCobrar";
-            this.tsBtnCobrar.Size = new System.Drawing.Size(46, 42);
-            this.tsBtnCobrar.Text = "Cobrar";
-            this.tsBtnCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnCobrar.Click += new System.EventHandler(this.tsBtnCobrar_Click);
-            // 
-            // tsBtnTicket
-            // 
-            this.tsBtnTicket.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnTicket.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnTicket.Image")));
-            this.tsBtnTicket.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnTicket.Name = "tsBtnTicket";
-            this.tsBtnTicket.Size = new System.Drawing.Size(43, 42);
-            this.tsBtnTicket.Text = "Ticket";
-            this.tsBtnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnTicket.Click += new System.EventHandler(this.tsBtnTicket_Click);
-            // 
-            // tsbSalir
-            // 
-            this.tsbSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
-            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Size = new System.Drawing.Size(36, 42);
-            this.tsbSalir.Text = "Salir";
-            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
-            // 
-            // lblIdMesa
-            // 
-            this.lblIdMesa.AutoSize = true;
-            this.lblIdMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdMesa.Location = new System.Drawing.Point(134, 61);
-            this.lblIdMesa.Name = "lblIdMesa";
-            this.lblIdMesa.Size = new System.Drawing.Size(13, 14);
-            this.lblIdMesa.TabIndex = 461;
-            this.lblIdMesa.Text = "0";
-            this.lblIdMesa.Visible = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
@@ -540,6 +583,80 @@
             this.groupBox4.TabIndex = 457;
             this.groupBox4.TabStop = false;
             // 
+            // cboMoneda
+            // 
+            this.cboMoneda.FormattingEnabled = true;
+            this.cboMoneda.Location = new System.Drawing.Point(506, 20);
+            this.cboMoneda.Name = "cboMoneda";
+            this.cboMoneda.Size = new System.Drawing.Size(135, 21);
+            this.cboMoneda.TabIndex = 457;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(444, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 14);
+            this.label14.TabIndex = 456;
+            this.label14.Text = "Moneda:";
+            // 
+            // txtNroDoc
+            // 
+            this.txtNroDoc.Location = new System.Drawing.Point(293, 47);
+            this.txtNroDoc.MaxLength = 8;
+            this.txtNroDoc.Name = "txtNroDoc";
+            this.txtNroDoc.Size = new System.Drawing.Size(135, 21);
+            this.txtNroDoc.TabIndex = 455;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(236, 49);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 14);
+            this.label12.TabIndex = 454;
+            this.label12.Text = "N°. Doc.:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(232, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 14);
+            this.label10.TabIndex = 453;
+            this.label10.Text = "Ser. Doc.:";
+            // 
+            // dtpFecDoc
+            // 
+            this.dtpFecDoc.CustomFormat = "dd/MM/yyyy";
+            this.dtpFecDoc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecDoc.Location = new System.Drawing.Point(72, 47);
+            this.dtpFecDoc.Name = "dtpFecDoc";
+            this.dtpFecDoc.Size = new System.Drawing.Size(135, 21);
+            this.dtpFecDoc.TabIndex = 452;
+            this.dtpFecDoc.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 14);
+            this.label9.TabIndex = 451;
+            this.label9.Text = "Tip. Doc.:";
+            // 
+            // cboTipDoc
+            // 
+            this.cboTipDoc.FormattingEnabled = true;
+            this.cboTipDoc.Location = new System.Drawing.Point(72, 20);
+            this.cboTipDoc.Name = "cboTipDoc";
+            this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
+            this.cboTipDoc.TabIndex = 450;
+            // 
             // txtSerDoc
             // 
             this.txtSerDoc.Location = new System.Drawing.Point(293, 20);
@@ -558,123 +675,6 @@
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
             // 
-            // cboTipDoc
-            // 
-            this.cboTipDoc.FormattingEnabled = true;
-            this.cboTipDoc.Location = new System.Drawing.Point(72, 20);
-            this.cboTipDoc.Name = "cboTipDoc";
-            this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
-            this.cboTipDoc.TabIndex = 450;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 14);
-            this.label9.TabIndex = 451;
-            this.label9.Text = "Tip. Doc.:";
-            // 
-            // dtpFecDoc
-            // 
-            this.dtpFecDoc.CustomFormat = "dd/MM/yyyy";
-            this.dtpFecDoc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecDoc.Location = new System.Drawing.Point(72, 47);
-            this.dtpFecDoc.Name = "dtpFecDoc";
-            this.dtpFecDoc.Size = new System.Drawing.Size(135, 21);
-            this.dtpFecDoc.TabIndex = 452;
-            this.dtpFecDoc.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(232, 22);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 14);
-            this.label10.TabIndex = 453;
-            this.label10.Text = "Ser. Doc.:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(236, 49);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 14);
-            this.label12.TabIndex = 454;
-            this.label12.Text = "N°. Doc.:";
-            // 
-            // txtNroDoc
-            // 
-            this.txtNroDoc.Location = new System.Drawing.Point(293, 47);
-            this.txtNroDoc.MaxLength = 8;
-            this.txtNroDoc.Name = "txtNroDoc";
-            this.txtNroDoc.Size = new System.Drawing.Size(135, 21);
-            this.txtNroDoc.TabIndex = 455;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(444, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 14);
-            this.label14.TabIndex = 456;
-            this.label14.Text = "Moneda:";
-            // 
-            // cboMoneda
-            // 
-            this.cboMoneda.FormattingEnabled = true;
-            this.cboMoneda.Location = new System.Drawing.Point(506, 20);
-            this.cboMoneda.Name = "cboMoneda";
-            this.cboMoneda.Size = new System.Drawing.Size(135, 21);
-            this.cboMoneda.TabIndex = 457;
-            // 
-            // lblIdAmbiente
-            // 
-            this.lblIdAmbiente.AutoSize = true;
-            this.lblIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdAmbiente.Location = new System.Drawing.Point(152, 47);
-            this.lblIdAmbiente.Name = "lblIdAmbiente";
-            this.lblIdAmbiente.Size = new System.Drawing.Size(13, 14);
-            this.lblIdAmbiente.TabIndex = 462;
-            this.lblIdAmbiente.Text = "0";
-            this.lblIdAmbiente.Visible = false;
-            // 
-            // lblIdMozo
-            // 
-            this.lblIdMozo.AutoSize = true;
-            this.lblIdMozo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdMozo.Location = new System.Drawing.Point(25, 222);
-            this.lblIdMozo.Name = "lblIdMozo";
-            this.lblIdMozo.Size = new System.Drawing.Size(13, 14);
-            this.lblIdMozo.TabIndex = 463;
-            this.lblIdMozo.Text = "0";
-            this.lblIdMozo.Visible = false;
-            // 
-            // lblIdNroComanda
-            // 
-            this.lblIdNroComanda.AutoSize = true;
-            this.lblIdNroComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdNroComanda.Location = new System.Drawing.Point(6, 222);
-            this.lblIdNroComanda.Name = "lblIdNroComanda";
-            this.lblIdNroComanda.Size = new System.Drawing.Size(13, 14);
-            this.lblIdNroComanda.TabIndex = 464;
-            this.lblIdNroComanda.Text = "0";
-            this.lblIdNroComanda.Visible = false;
-            // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(636, 15);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.ReadOnly = true;
-            this.txtIdCliente.Size = new System.Drawing.Size(18, 22);
-            this.txtIdCliente.TabIndex = 450;
-            this.txtIdCliente.Visible = false;
-            // 
             // frmCobrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -692,7 +692,7 @@
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmCobrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cobrar";
+            this.Text = "Grabar";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCobrar_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
