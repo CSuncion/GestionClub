@@ -58,10 +58,8 @@
             this.lblPendiente = new System.Windows.Forms.Label();
             this.txtTransferencia = new System.Windows.Forms.TextBox();
             this.chTransferencia = new System.Windows.Forms.CheckBox();
-            this.txtTarjeta = new System.Windows.Forms.TextBox();
-            this.chTarjeta = new System.Windows.Forms.CheckBox();
-            this.txtYape = new System.Windows.Forms.TextBox();
-            this.chYape = new System.Windows.Forms.CheckBox();
+            this.txtDeposito = new System.Windows.Forms.TextBox();
+            this.chDeposito = new System.Windows.Forms.CheckBox();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.chEfectivo = new System.Windows.Forms.CheckBox();
             this.lblNroMesa = new System.Windows.Forms.Label();
@@ -311,10 +309,8 @@
             this.groupBox3.Controls.Add(this.lblPendiente);
             this.groupBox3.Controls.Add(this.txtTransferencia);
             this.groupBox3.Controls.Add(this.chTransferencia);
-            this.groupBox3.Controls.Add(this.txtTarjeta);
-            this.groupBox3.Controls.Add(this.chTarjeta);
-            this.groupBox3.Controls.Add(this.txtYape);
-            this.groupBox3.Controls.Add(this.chYape);
+            this.groupBox3.Controls.Add(this.txtDeposito);
+            this.groupBox3.Controls.Add(this.chDeposito);
             this.groupBox3.Controls.Add(this.txtEfectivo);
             this.groupBox3.Controls.Add(this.chEfectivo);
             this.groupBox3.Controls.Add(this.lblNroMesa);
@@ -378,7 +374,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(24, 188);
+            this.label15.Location = new System.Drawing.Point(24, 156);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 14);
             this.label15.TabIndex = 460;
@@ -388,7 +384,7 @@
             // 
             this.lblPendiente.AutoSize = true;
             this.lblPendiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendiente.Location = new System.Drawing.Point(115, 189);
+            this.lblPendiente.Location = new System.Drawing.Point(115, 156);
             this.lblPendiente.Name = "lblPendiente";
             this.lblPendiente.Size = new System.Drawing.Size(13, 14);
             this.lblPendiente.TabIndex = 459;
@@ -397,7 +393,7 @@
             // txtTransferencia
             // 
             this.txtTransferencia.Enabled = false;
-            this.txtTransferencia.Location = new System.Drawing.Point(115, 159);
+            this.txtTransferencia.Location = new System.Drawing.Point(115, 132);
             this.txtTransferencia.Name = "txtTransferencia";
             this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
             this.txtTransferencia.TabIndex = 458;
@@ -407,7 +403,7 @@
             // 
             this.chTransferencia.AutoSize = true;
             this.chTransferencia.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTransferencia.Location = new System.Drawing.Point(6, 160);
+            this.chTransferencia.Location = new System.Drawing.Point(6, 133);
             this.chTransferencia.Name = "chTransferencia";
             this.chTransferencia.Size = new System.Drawing.Size(103, 18);
             this.chTransferencia.TabIndex = 457;
@@ -415,47 +411,26 @@
             this.chTransferencia.UseVisualStyleBackColor = true;
             this.chTransferencia.CheckedChanged += new System.EventHandler(this.chTransferencia_CheckedChanged);
             // 
-            // txtTarjeta
+            // txtDeposito
             // 
-            this.txtTarjeta.Enabled = false;
-            this.txtTarjeta.Location = new System.Drawing.Point(115, 132);
-            this.txtTarjeta.Name = "txtTarjeta";
-            this.txtTarjeta.Size = new System.Drawing.Size(79, 21);
-            this.txtTarjeta.TabIndex = 456;
-            this.txtTarjeta.Validated += new System.EventHandler(this.txtTarjeta_Validated);
+            this.txtDeposito.Enabled = false;
+            this.txtDeposito.Location = new System.Drawing.Point(115, 105);
+            this.txtDeposito.Name = "txtDeposito";
+            this.txtDeposito.Size = new System.Drawing.Size(79, 21);
+            this.txtDeposito.TabIndex = 456;
+            this.txtDeposito.Validated += new System.EventHandler(this.txtDeposito_Validated);
             // 
-            // chTarjeta
+            // chDeposito
             // 
-            this.chTarjeta.AutoSize = true;
-            this.chTarjeta.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTarjeta.Location = new System.Drawing.Point(43, 133);
-            this.chTarjeta.Name = "chTarjeta";
-            this.chTarjeta.Size = new System.Drawing.Size(66, 18);
-            this.chTarjeta.TabIndex = 455;
-            this.chTarjeta.Text = "Tarjeta:";
-            this.chTarjeta.UseVisualStyleBackColor = true;
-            this.chTarjeta.CheckedChanged += new System.EventHandler(this.chTarjeta_CheckedChanged);
-            // 
-            // txtYape
-            // 
-            this.txtYape.Enabled = false;
-            this.txtYape.Location = new System.Drawing.Point(115, 105);
-            this.txtYape.Name = "txtYape";
-            this.txtYape.Size = new System.Drawing.Size(79, 21);
-            this.txtYape.TabIndex = 454;
-            this.txtYape.Validated += new System.EventHandler(this.txtYape_Validated);
-            // 
-            // chYape
-            // 
-            this.chYape.AutoSize = true;
-            this.chYape.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chYape.Location = new System.Drawing.Point(54, 106);
-            this.chYape.Name = "chYape";
-            this.chYape.Size = new System.Drawing.Size(55, 18);
-            this.chYape.TabIndex = 453;
-            this.chYape.Text = "Yape:";
-            this.chYape.UseVisualStyleBackColor = true;
-            this.chYape.CheckedChanged += new System.EventHandler(this.chYape_CheckedChanged);
+            this.chDeposito.AutoSize = true;
+            this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chDeposito.Location = new System.Drawing.Point(30, 106);
+            this.chDeposito.Name = "chDeposito";
+            this.chDeposito.Size = new System.Drawing.Size(79, 18);
+            this.chDeposito.TabIndex = 455;
+            this.chDeposito.Text = "Deposito:";
+            this.chDeposito.UseVisualStyleBackColor = true;
+            this.chDeposito.CheckedChanged += new System.EventHandler(this.chDeposito_CheckedChanged);
             // 
             // txtEfectivo
             // 
@@ -743,10 +718,8 @@
         private System.Windows.Forms.CheckBox chEfectivo;
         private System.Windows.Forms.TextBox txtTransferencia;
         private System.Windows.Forms.CheckBox chTransferencia;
-        private System.Windows.Forms.TextBox txtTarjeta;
-        private System.Windows.Forms.CheckBox chTarjeta;
-        private System.Windows.Forms.TextBox txtYape;
-        private System.Windows.Forms.CheckBox chYape;
+        private System.Windows.Forms.TextBox txtDeposito;
+        private System.Windows.Forms.CheckBox chDeposito;
         private System.Windows.Forms.ImageList imgProductosSel;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label label5;

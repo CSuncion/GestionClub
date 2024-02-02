@@ -556,8 +556,8 @@ namespace GestionClubView.Pedidos
             if (!this.ValidarQueHayProductoSeleccionados())
             {
                 this.eVaBDMesa = 0;
-                tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
-                btnCobrar.Enabled = !btnCobrar.Enabled;
+                //tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
+                this.btnCobrar.Enabled = !this.btnCobrar.Enabled;
                 this.BloquearMesa();
                 this.Adicionar();
                 this.realizoPedido = 1;

@@ -1,6 +1,11 @@
 ﻿using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
-
+using System.Drawing.Printing;
+using System.Drawing;
+using System;
+using System.Configuration;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GestionClubUtil.Util
 {
@@ -18,5 +23,6 @@ namespace GestionClubUtil.Util
             }
             return str;
         }
+
     }
 }

@@ -94,7 +94,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@codigo", pObj.codAmbiente),
-                new SqlParameter("@empresa", pObj.idEmpresa)
+                new SqlParameter("@empresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarAmbientesPorCodigoPorEmpresa", lParameter);
         }
@@ -120,7 +120,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                     new SqlParameter("@idAmbiente", pObj.idAmbiente),
-                    new SqlParameter("@idEmpresa", pObj.idEmpresa)
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarAmbientesPorId", lParameter);
         }

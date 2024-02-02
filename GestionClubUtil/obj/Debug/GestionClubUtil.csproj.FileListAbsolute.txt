@@ -1,9 +1,3 @@
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\obj\Debug\GestionClubUtil.csproj.AssemblyReference.cache
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\obj\Debug\GestionClubUtil.csproj.CoreCompileInputs.cache
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\bin\Debug\GestionClubUtil.dll
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\bin\Debug\GestionClubUtil.pdb
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\obj\Debug\GestionClubUtil.dll
-D:\Perú Ticcs\Victor Noriega\Cosfup\MVCGestionClub\GestionClubUtil\obj\Debug\GestionClubUtil.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubUtil\bin\Debug\GestionClubUtil.dll
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubUtil\bin\Debug\GestionClubUtil.pdb
 D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubUtil\obj\Debug\GestionClubUtil.csproj.AssemblyReference.cache

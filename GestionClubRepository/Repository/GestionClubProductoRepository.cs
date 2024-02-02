@@ -128,7 +128,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@codigo", pObj.codProducto),
-                new SqlParameter("@empresa", pObj.idEmpresa)
+                new SqlParameter("@empresa", Universal.gIdEmpresa)
                 };
             return this.BuscarObjeto("isp_ListarProductoPorCodigoPorEmpresa", lParameter);
         }

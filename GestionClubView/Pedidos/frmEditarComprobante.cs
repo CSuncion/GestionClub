@@ -429,19 +429,7 @@ namespace GestionClubView.Pedidos
         public void ImprimirComprobante()
         {
       
-            PrinterAPI.clsPrinter oTicket = new PrinterAPI.clsPrinter();
-            oTicket.PrintNewPage();
-            oTicket.PrinterOnLine();
-            oTicket.PrintDataLn(("CIRCULO DE OFICIALES DE LA FF.PP.").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("R.U.C.N° 20136926455").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("Calle Lopez DE AYALA NRO. 1684").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("Lima - Lima - San Borja").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("Tel.(01)475-8384").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("E-mail: cosfup@gmail.com").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("-", 40).ToString());
-            oTicket.PrintDataLn(("BOLETA ELECTRONICA").PadLeft(40).PadRight(40));
-            oTicket.PrintDataLn(("B001-0004420").PadLeft(40).PadRight(40));
-            oTicket.PrintEndDoc();
+
         }
         public bool ValidaPagoPendiente()
         {

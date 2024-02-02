@@ -3,12 +3,14 @@ using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
 using GestionClubView.Listas;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -28,6 +30,8 @@ namespace GestionClubView.Pedidos
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
         public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
         public string eTitulo = "Grabar Comanda";
+        public bool presionTicket = false;
+        public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public frmCobrar()
         {
             InitializeComponent();
@@ -37,6 +41,7 @@ namespace GestionClubView.Pedidos
             this.InicializaVentana();
             this.CargarProductosSeleccionados();
             this.CargarRutas();
+            this.CargarDatosEmpresa();
             this.MostrarProductosPedidosEnComandaBD(objCom);
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
@@ -81,7 +86,7 @@ namespace GestionClubView.Pedidos
             xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
             xLis.Add(xCtrl);
-            
+
             xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
             xLis.Add(xCtrl);
@@ -99,11 +104,7 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtYape, true, "Yape", "vvff", 2);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtTarjeta, true, "Tarjeta", "vvff", 2);
+            xCtrl.TxtNumeroPositivoConDecimales(this.txtDeposito, true, "Tarjeta", "vvff", 2);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -125,6 +126,15 @@ namespace GestionClubView.Pedidos
             rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
             rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
+        }
+        public void CargarDatosEmpresa()
+        {
+            NombreEmpresa = ConfigurationManager.AppSettings["NombreEmpresa"].ToString();
+            NroRuc = ConfigurationManager.AppSettings["NroRuc"].ToString();
+            DireccionEmpresa = ConfigurationManager.AppSettings["DireccionEmpresa"].ToString();
+            Ubigeo = ConfigurationManager.AppSettings["Ubigeo"].ToString();
+            Tlf = ConfigurationManager.AppSettings["Tlf"].ToString();
+            Email = ConfigurationManager.AppSettings["Email"].ToString();
         }
         public void CargarTipoDocumentos()
         {
@@ -154,9 +164,8 @@ namespace GestionClubView.Pedidos
 
 
             this.txtEfectivo.Text = "0";
-            this.txtYape.Text = "0";
             this.txtTransferencia.Text = "0";
-            this.txtTarjeta.Text = "0";
+            this.txtDeposito.Text = "0";
 
             this.lblCantidad.Text = "0";
             this.lblTotal.Text = "0";
@@ -176,7 +185,7 @@ namespace GestionClubView.Pedidos
         }
         public void CalcularPendientePagar()
         {
-            this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtTarjeta.Text) + Convert.ToDecimal(this.txtYape.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
+            this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
         }
         public bool EsClienteValido()
         {
@@ -268,16 +277,18 @@ namespace GestionClubView.Pedidos
             pObj.idMesa = Convert.ToInt32(this.lblIdMesa.Text);
             pObj.idMozo = Convert.ToInt32(this.lblIdMozo.Text);
             pObj.turnoCaja = "01";
-            pObj.modPagoComprobante = this.modoPago();
+            pObj.modPagoComprobante = this.modoCodigoPago();
             pObj.tipMovComprobante = "01";
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
-            pObj.impDepComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
-            pObj.impTarComprobante = Convert.ToDecimal(this.txtYape.Text) + Convert.ToDecimal(this.txtTarjeta.Text);
+            pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
+            pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
             pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
             pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
             pObj.impNetComprobante = Convert.ToDecimal(this.lblTotal.Text);
             pObj.impDtrComprobante = 0;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
+            pObj.nombreRazSocialCliente = this.txtApeNom.Text;
+            pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
             pObj.estadoComprobante = "04";
         }
@@ -293,21 +304,34 @@ namespace GestionClubView.Pedidos
                 pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
                 pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
                 pObj.preTotal = (pObj.preVenta * pObj.cantidad);
-                GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
+                if (this.presionTicket)
+                    GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
             }
 
         }
 
-        public string modoPago()
+        public string modoCodigoPago()
         {
             string modoPago = string.Empty;
             int cantidadCheck = 0;
 
             if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "01"; }
-            if (this.chYape.Checked) { cantidadCheck++; modoPago = "02"; }
-            if (this.chTarjeta.Checked) { cantidadCheck++; modoPago = "03"; }
-            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "04"; }
-            if (cantidadCheck > 1) modoPago = "05";
+            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "02"; }
+            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "03"; }
+            if (cantidadCheck > 1) modoPago = "04";
+
+            return modoPago;
+        }
+
+        public string modoDescriPago()
+        {
+            string modoPago = string.Empty;
+            int cantidadCheck = 0;
+
+            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
+            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
+            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
+            if (cantidadCheck > 1) modoPago = "MIXTO";
 
             return modoPago;
         }
@@ -327,6 +351,93 @@ namespace GestionClubView.Pedidos
             objCab.estadoComanda = "04";
             GestionClubComandaController.ModificarSituacionComanda(objCab);
         }
+
+        public void ImprimirComprobante()
+        {
+            PrintDocument printDocument = new PrintDocument();
+            PaperSize ps = new PaperSize("", 420, 540);
+            printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPage);
+
+            printDocument.PrintController = new StandardPrintController();
+            printDocument.DefaultPageSettings.Margins.Left = 0;
+            printDocument.DefaultPageSettings.Margins.Right = 0;
+            printDocument.DefaultPageSettings.Margins.Top = 0;
+            printDocument.DefaultPageSettings.Margins.Bottom = 0;
+            printDocument.DefaultPageSettings.PaperSize = ps;
+            printDocument.Print();
+        }
+        void pd_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
+            this.AsignarComprobante(iComEN);
+
+            Graphics g = e.Graphics;
+            //g.DrawRectangle(Pens.Black, 5, 5, 410, 530);
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            g.DrawImage(Image.FromFile(title), 100, 7);
+            Font fBody = new Font("Calibri", 8, FontStyle.Bold);
+            Font fHead = new Font("Calibri", 9, FontStyle.Bold);
+            Font fBodyNoBold = new Font("Calibri", 8, FontStyle.Regular);
+            Font fBodySerNro = new Font("Calibri", 9, FontStyle.Regular);
+            Font fBodyTitle = new Font("Calibri", 10, FontStyle.Bold);
+            SolidBrush sb = new SolidBrush(System.Drawing.Color.Black);
+            g.DrawString(this.NombreEmpresa, fBodyTitle, sb, 30, 100);
+            g.DrawString("R.U.C. N° " + this.NroRuc, fHead, sb, 65, 120);
+            g.DrawString(this.DireccionEmpresa, fHead, sb, 45, 140);
+            g.DrawString(this.Ubigeo, fHead, sb, 70, 155);
+            g.DrawString("Tel." + this.Tlf, fHead, sb, 85, 170);
+            g.DrawString("E-mail: " + this.Email, fHead, sb, 70, 185);
+            g.DrawString("______________________________________________", fBody, sb, 10, 190);
+            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
+            g.DrawString(iComEN.serComprobante + " - " + iComEN.nroComprobante, fBodySerNro, sb, 95, 220);
+            g.DrawString("______________________________________________", fBody, sb, 10, 225);
+            int SPACE = 240;
+            g.DrawString("Fecha Emisión:", fBody, sb, 10, SPACE);
+            g.DrawString(iComEN.fecComprobante.ToShortDateString(), fBodyNoBold, sb, 90, SPACE);
+            g.DrawString("Cliente:", fBody, sb, 10, SPACE + 15);
+            g.DrawString(iComEN.nombreRazSocialCliente, fBodyNoBold, sb, 90, SPACE + 15);
+            g.DrawString("R.U.C./N°Doc.:", fBody, sb, 10, SPACE + 30);
+            g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+            g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
+            g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
+
+            g.DrawString("Cajero:", fBody, sb, 10, SPACE + 60);
+            g.DrawString(Universal.gNombreUsuario, fBodyNoBold, sb, 90, SPACE + 60);
+
+            g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
+            g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
+            g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
+            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("Descripción", fBody, sb, 95, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("Total", fBody, sb, 230, SPACE + 115);
+            g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
+
+            int saltoLinea = 120;
+
+            foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
+            {
+                saltoLinea = saltoLinea + 15;
+                g.DrawString(item.SubItems[1].Text, fBodyNoBold, sb, 180, SPACE + (saltoLinea));
+                g.DrawString(item.SubItems[0].Text, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
+                g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
+                g.DrawString((Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text)).ToString(), fBodyNoBold, sb, 230, SPACE + (saltoLinea));
+            }
+
+            saltoLinea = saltoLinea + 5;
+            g.DrawString("______________________________________________", fBody, sb, 10, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 15;
+            g.DrawString("Total Gravado:", fBody, sb, 105, SPACE + saltoLinea);
+            g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
+            g.DrawString("25.42", fBody, sb, 230, SPACE + saltoLinea);
+
+            g.Dispose();
+        }
+        public void ImprimirPreTicket()
+        {
+            this.ImprimirComprobante();
+        }
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -343,11 +454,6 @@ namespace GestionClubView.Pedidos
             this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
         }
 
-        private void chYape_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtYape.Enabled = !this.txtYape.Enabled;
-        }
-
         private void tsBtnCobrar_Click(object sender, EventArgs e)
         {
             this.Cobrar();
@@ -355,20 +461,11 @@ namespace GestionClubView.Pedidos
 
         private void tsBtnTicket_Click(object sender, EventArgs e)
         {
-
+            this.presionTicket = true;
+            this.ImprimirPreTicket();
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void txtYape_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void txtTarjeta_Validated(object sender, EventArgs e)
         {
             this.CalcularPendientePagar();
         }
@@ -392,9 +489,15 @@ namespace GestionClubView.Pedidos
         {
             this.EsClienteValido();
         }
-        private void chTarjeta_CheckedChanged(object sender, EventArgs e)
+
+        private void txtDeposito_Validated(object sender, EventArgs e)
         {
-            this.txtTarjeta.Enabled = !this.txtTarjeta.Enabled;
+            this.CalcularPendientePagar();
+        }
+
+        private void chDeposito_CheckedChanged(object sender, EventArgs e)
+        {
+            this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
         }
 
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)

@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>fbpico.ico</ApplicationIcon>
+    <ApplicationIcon>cosfupico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Comun">
@@ -410,6 +410,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cosfupico.ico" />
     <Content Include="fbpico.ico" />
     <Content Include="Resources\estudiar-carrera-contabilidad-financiera-aau-1280x720.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -451,15 +452,6 @@
       <VersionMinor>9</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="PrinterAPI">
-      <Guid>{01FAE2BC-6C7B-409D-8199-DB40C979A23E}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>2</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
