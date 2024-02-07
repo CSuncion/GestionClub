@@ -21,6 +21,7 @@ namespace GestionClubView.MdiPrincipal
     public partial class frmPrincipal : Form
     {
         GestionClubAccessController oCredAccCtrl = new GestionClubAccessController();
+        public string eTitulo = "Gestión Club";
         public frmPrincipal()
         {
             InitializeComponent();
@@ -37,6 +38,8 @@ namespace GestionClubView.MdiPrincipal
         {
             this.NewWindowAccess();
             this.AccesoPorPerfiles();
+            if (!this.ValidaAperturaCaja()) { this.InstanciarAperturaCaja(); }
+
         }
         private void btnReports_Click(object sender, EventArgs e)
         {
@@ -154,6 +157,19 @@ namespace GestionClubView.MdiPrincipal
         #endregion
 
         #region Methods
+        public bool ValidaAperturaCaja()
+        {
+            bool result = true;
+            GestionClubAperturaCajaController gestionClubAperturaCajaController = new GestionClubAperturaCajaController();
+            GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
+            gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
+            gestionClubAperturaCajaDto = gestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
+
+            if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
+
+            return result;
+        }
+
         public void AccesoPorPerfiles()
         {
             List<int> listMenu = new List<int>();
@@ -299,7 +315,7 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmComprobante, null, 0, 0);
             win.NewWindow();
         }
-        
+
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();

@@ -20,7 +20,7 @@ namespace GestionClubModel.ModelDto
         public const string _fechaModifica = "fechaModifica";
 
         public string claveObjeto { get; set; }
-        public int idAperturaCaja { get; set; }
+        public int idAperturaCaja { get; set; } = 0;
         public int idEmpresa { get; set; }
         public DateTime fecAperturaCaja { get; set; }
         public decimal montoAperturaCaja { get; set; }

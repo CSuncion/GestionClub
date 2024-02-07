@@ -19,7 +19,12 @@ namespace GestionClubController.Controller
         }
         public List<GestionClubAperturaCajaDto> ListarAperturaCajas()
         {
-            return this._iGestionClubAperturaCajaRepository.ListarAperturaCajas();
+            GestionClubAperturaCajaRepository obj = new GestionClubAperturaCajaRepository();
+            return obj.ListarAperturaCajas();
+        }
+        public GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
+        {
+            return this._iGestionClubAperturaCajaRepository.ListarAperturaCajasPorFecha(obj);
         }
         public List<GestionClubAperturaCajaDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubAperturaCajaDto> pListaOperations)
         {

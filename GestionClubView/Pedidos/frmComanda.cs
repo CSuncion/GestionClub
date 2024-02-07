@@ -41,6 +41,8 @@ namespace GestionClubView.Pedidos
 
         public void NewWindow()
         {
+            if (!this.ValidaAperturaCaja()) { this.Cerrar(); return; }
+
             this.CargarRutas();
             this.CargarAmbientes();
             this.CargarMeseros();
@@ -51,9 +53,17 @@ namespace GestionClubView.Pedidos
             this.MostrarComanda(GestionClubMesaController.EnBlanco());
             this.Show();
         }
-        public void ValidaAperturaCaja()
+        public bool ValidaAperturaCaja()
         {
+            bool result = true;
+            GestionClubAperturaCajaController gestionClubAperturaCajaController = new GestionClubAperturaCajaController();
+            GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
+            gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
+            gestionClubAperturaCajaDto = gestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
 
+            if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
+
+            return result;
         }
         public void CargarRutas()
         {

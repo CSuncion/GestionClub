@@ -6,5 +6,6 @@ namespace GestionClubRepository.IRepository
     public interface IGestionClubAperturaCajaRepository
     {
         List<GestionClubAperturaCajaDto> ListarAperturaCajas();
+        GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj);
     }
 }

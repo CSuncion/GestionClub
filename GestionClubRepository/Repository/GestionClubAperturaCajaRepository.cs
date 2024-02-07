@@ -80,14 +80,14 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametro("isp_ListarAperturaCajas", lParameter);
         }
-        public List<GestionClubAperturaCajaDto> ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
+        public GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@fecAperturaCaja", obj.fecAperturaCaja)
                 };
-            return this.BuscarObjetoPorParametro("isp_ListarAperturaCajasPorFecha", lParameter);
+            return this.BuscarObjeto("isp_ListarAperturaCajasPorFecha", lParameter);
         }
     }
 }
