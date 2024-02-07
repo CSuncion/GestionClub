@@ -24,9 +24,9 @@ namespace GestionClubRepository.Repository
             xObjEnc.idPermisoEmpresa = Convert.ToInt32(iDr["idPermisoEmpresa"]);
             xObjEnc.codPermisoEmpresa = Convert.ToString(iDr["codPermisoEmpresa"]);
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
-            xObjEnc.gestionClubEmpresaDto.codEmpresa = Convert.ToString(iDr["codEmpresa"]);
-            xObjEnc.gestionClubEmpresaDto.desEmpresa = Convert.ToString(iDr["desEmpresa"]);
-            xObjEnc.gestionClubEmpresaDto.estadoEmpresa = Convert.ToString(iDr["estadoEmpresa"]);
+            xObjEnc.codEmpresa = Convert.ToString(iDr["codEmpresa"]);
+            xObjEnc.desEmpresa = Convert.ToString(iDr["desEmpresa"]);
+            xObjEnc.estadoEmpresa = Convert.ToString(iDr["estadoEmpresa"]);
             xObjEnc.idAcceso = Convert.ToInt32(iDr["idAcceso"].ToString());
             xObjEnc.gestionClubAccesoDto.codAcceso = Convert.ToString(iDr["codAcceso"]);
             xObjEnc.gestionClubAccesoDto.nombresAcceso = Convert.ToString(iDr["nombresAcceso"]);

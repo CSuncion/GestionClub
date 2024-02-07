@@ -228,7 +228,6 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@nroAtencion",pObj.nroAtencion),
                 new SqlParameter("@obsComprobante",pObj.obsComprobante),
                 new SqlParameter("@estadoComanda",pObj.estadoComanda),
-                new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                 new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
                 };
             xObjCn.AssignParameters(lParameter);
@@ -255,7 +254,6 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@nroAtencion",pObj.nroAtencion),
                 new SqlParameter("@obsComprobante",pObj.obsComprobante),
                 new SqlParameter("@estadoComanda",pObj.estadoComanda),
-                new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                 new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
                 };
             xObjCn.AssignParameters(lParameter);

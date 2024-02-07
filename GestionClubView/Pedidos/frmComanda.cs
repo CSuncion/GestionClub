@@ -7,7 +7,10 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 using WinControles;
 using WinControles.ControlesWindows;
 
@@ -24,7 +27,8 @@ namespace GestionClubView.Pedidos
         public List<GestionClubCategoriaDto> lObjCategoria = new List<GestionClubCategoriaDto>();
         public List<GestionClubProductoDto> lObjProductos = new List<GestionClubProductoDto>();
         public List<GestionClubProductoDto> lObjProductosParcial = new List<GestionClubProductoDto>();
-        public List<GestionClubDetalleComandaDto> lObjDetalle = new List<GestionClubDetalleComandaDto>();
+        public List<GestionClubDetalleComandaDto> lObjDetalleComanda = new List<GestionClubDetalleComandaDto>();
+        public List<GestionClubDetalleComandaDto> lObjDetalleComandaParcial = new List<GestionClubDetalleComandaDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
         public int eVaBDProducto = 1, eVaBDMesa = 1;
         public int seleccionaMesa = 0, seleccionaProducto = 0, seleccionaProductoSeleccionados = 0, realizoPedido = 0;
@@ -42,9 +46,14 @@ namespace GestionClubView.Pedidos
             this.CargarMeseros();
             this.cargarMesas();
             this.CargarCategorias();
+            this.CargarProductoDesdeBD();
             this.CargarProductosSeleccionados();
             this.MostrarComanda(GestionClubMesaController.EnBlanco());
             this.Show();
+        }
+        public void ValidaAperturaCaja()
+        {
+
         }
         public void CargarRutas()
         {
@@ -76,7 +85,7 @@ namespace GestionClubView.Pedidos
             this.lvMesas.View = View.LargeIcon;
             this.lvMesas.Columns.Add("MESAS", 250);
 
-            this.imgMesas.ImageSize = new Size(40, 40);
+            this.imgMesas.ImageSize = new System.Drawing.Size(40, 40);
 
             try
             {
@@ -121,14 +130,14 @@ namespace GestionClubView.Pedidos
             lvCategorias.View = View.LargeIcon;
 
             lvCategorias.Columns.Add("CATEGORIAS", 250);
-            imgCategorias.ImageSize = new Size(40, 40);
+            imgCategorias.ImageSize = new System.Drawing.Size(40, 40);
 
             try
             {
                 foreach (GestionClubCategoriaDto oObjEn in lObjCategoria)
                 {
-                    string path = this.rutaCategoria + oObjEn.archivoCategoria;
-                    imgCategorias.Images.Add(oObjEn.idCategoria.ToString(), Image.FromFile(path));
+                    string path = this.rutaCategoria + (oObjEn.archivoCategoria == string.Empty ? "no-foto.png" : oObjEn.archivoCategoria);
+                    imgCategorias.Images.Add(oObjEn.codCategoria.ToString(), Image.FromFile(path));
                 }
             }
             catch (Exception)
@@ -140,17 +149,23 @@ namespace GestionClubView.Pedidos
 
             foreach (GestionClubCategoriaDto oObjEn in lObjCategoria)
             {
-                lvCategorias.Items.Add(new ListViewItem(new[] { oObjEn.desCategoria.ToString() }, oObjEn.idCategoria.ToString()));
+                lvCategorias.Items.Add(new ListViewItem(new[] { oObjEn.desCategoria.ToString() }, oObjEn.codCategoria.ToString()));
             }
         }
         public void CargarCategoriaDesdeBaseDeDatos()
         {
             this.lObjCategoria = GestionClubCategoriaController.ListarCategoriasActivos();
         }
-        public void CargarProductos(int hizoClickCategoria, GestionClubProductoDto obj)
+        public void CargarProductoDesdeBD()
+        {
+            this.lObjProductos = GestionClubProductoController.ListarProductosActivos();
+            this.lObjProductosParcial = this.lObjProductos;
+        }
+        public void CargarProductosSegunBusqueda(int hizoClickCategoria, GestionClubProductoDto obj)
         {
             //this.lvProductosSeleccionados.Items.Clear();
             this.lvProductos.Items.Clear();
+            this.lvProductos.Clear();
             this.lvProductos.Columns.Clear();
             //this.txtProducto.Text = string.Empty;
 
@@ -159,22 +174,22 @@ namespace GestionClubView.Pedidos
                 this.MostrarProductoPorCategoriaSeleccionada(hizoClickCategoria, obj);
 
             //validar si es acto ir a la bd
-            if (this.txtProducto.Text.Trim() == string.Empty && eVaBDProducto != 0)
-                this.CargarProductoDesdeBaseDeDatos(hizoClickCategoria, obj);
+            if ((this.txtProducto.Text.Trim() != string.Empty && eVaBDProducto == 0) || hizoClickCategoria == 1)
+                this.CargarProductoDesdeBaseFiltro(hizoClickCategoria, obj);
 
             lvProductos.View = View.Details;
 
             lvProductos.Columns.Add("PRODUCTOS", 220);
             lvProductos.Columns.Add("PRECIO", 80);
 
-            imgProductos.ImageSize = new Size(50, 50);
+            imgProductos.ImageSize = new System.Drawing.Size(50, 50);
 
             try
             {
                 foreach (GestionClubProductoDto oObjEn in this.lObjProductos)
                 {
-                    string path = this.rutaProducto + oObjEn.archivoProducto;
-                    imgProductos.Images.Add(oObjEn.idProducto.ToString(), Image.FromFile(path));
+                    string path = this.rutaProducto + (oObjEn.archivoProducto == string.Empty ? "no-foto.png" : oObjEn.archivoProducto);
+                    this.imgProductos.Images.Add(oObjEn.idProducto.ToString(), Image.FromFile(path));
                 }
             }
             catch (Exception)
@@ -186,27 +201,28 @@ namespace GestionClubView.Pedidos
 
             foreach (GestionClubProductoDto oObjEn in this.lObjProductos)
             {
-                lvProductos.Items.Add(new ListViewItem(new[] { oObjEn.desProducto.ToString(), oObjEn.preCosProducto.ToString() }, oObjEn.idProducto.ToString()));
+                this.lvProductos.Items.Add(new ListViewItem(new[] { oObjEn.desProducto.ToString(), oObjEn.preCosProducto.ToString() }, oObjEn.idProducto.ToString()));
             }
         }
-        public void CargarProductoDesdeBaseDeDatos(int clickCategoria, GestionClubProductoDto obj)
+        public void CargarProductoDesdeBaseFiltro(int clickCategoria, GestionClubProductoDto obj)
         {
             if (clickCategoria == 0)
             {
-                this.lObjProductos = GestionClubProductoController.ListarProductosActivos();
-                this.lObjProductosParcial = this.lObjProductos;
+                this.lObjProductos = this.lObjProductosParcial.Where(x => x.desProducto.ToUpper().Contains(this.txtProducto.Text.ToUpper())).ToList();
             }
             else
             {
-                this.lObjProductos = GestionClubProductoController.ListarProductosActivosPorCategoria(obj);
-                this.lObjProductosParcial = this.lObjProductos;
+                //this.lObjProductos = GestionClubProductoController.ListarProductosActivosPorCategoria(obj);
+                //this.lObjProductosParcial = this.lObjProductos;
+                //this.lObjProductos = this.lObjProductosParcial.Where(x => x.idCategoria == obj.idCategoria).ToList();
+                this.lObjProductos = this.lObjProductosParcial.Where(x => x.idCategoria == obj.idCategoria && x.desProducto.ToUpper().Contains(this.txtProducto.Text.ToUpper())).ToList();
             }
 
             clickCategoria = 0;
         }
         public void ActualizarVentanaAlBuscarValorProducto(KeyEventArgs pE)
         {
-            if (this.lObjProductosParcial.Count == 0) { return; }
+            //if (this.lObjProductosParcial.Count == 0) { return; }
             //verificar que tecla pulso el usuario
             switch (pE.KeyCode)
             {
@@ -217,7 +233,7 @@ namespace GestionClubView.Pedidos
                     { break; }
                 default:
                     {
-                        if (this.txtProducto.Text != string.Empty) { eVaBDProducto = 0; }
+                        if (this.txtProducto.Text != string.Empty && this.txtProducto.Text.Length > 3) { eVaBDProducto = 0; }
                         this.ActualizarLvProducto();
                         eVaBDProducto = 1;
                         break;
@@ -226,16 +242,23 @@ namespace GestionClubView.Pedidos
         }
         public void ActualizarLvProducto()
         {
-            this.lObjProductos = this.lObjProductosParcial.Where(x => x.desProducto.ToUpper().Contains(this.txtProducto.Text.ToUpper())).ToList();
-            this.CargarProductos(0, null);
+            this.CargarProductosSegunBusqueda(0, null);
+            //this.lObjProductos = this.lObjProductosParcial.Where(x => x.desProducto.ToUpper().Contains(this.txtProducto.Text.ToUpper())).ToList();            
         }
         public void CargarProductosSeleccionados()
         {
+            this.lvProductosSeleccionados.Items.Clear();
+            this.lvProductosSeleccionados.Clear();
+            this.lvProductosSeleccionados.Columns.Clear();
+            this.lvProductosSeleccionados.Clear();
+
             lvProductosSeleccionados.View = View.LargeIcon;
 
             lvProductosSeleccionados.Columns.Add("PRODUCTOS", 220);
             lvProductosSeleccionados.Columns.Add("CANTIDAD", 80);
             lvProductosSeleccionados.Columns.Add("IMPORTE", 100);
+            lvProductosSeleccionados.Columns.Add("IdDetalleComanda", 100);
+            lvProductosSeleccionados.Columns[3].Width = 0;
         }
 
         public void AccionCobrar()
@@ -269,19 +292,18 @@ namespace GestionClubView.Pedidos
             this.gbProductosSeleccionados.Text = "PRODUCTO SELECCIONADOS";
             this.gbProductosSeleccionados.Text = gbProductosSeleccionados.Text + ": " + selected;
             this.keyMesa = this.lvMesas.SelectedItems[0].ImageKey;
-            this.CargarProductos(0, null);
+            //this.CargarProductosSegunBusqueda(0, null);
         }
 
         public void MostrarProductoPorCategoriaSeleccionada(int clickCategoria, GestionClubProductoDto obj)
         {
             clickCategoria = 1;
-            obj.idCategoria = Convert.ToInt32(lvCategorias.SelectedItems[0].ImageKey);
+            obj.idCategoria = Convert.ToString(lvCategorias.SelectedItems[0].ImageKey);
         }
 
         public void AgregarProductoSeleccionados()
         {
-            this.lblCantidad.Text = "0";
-            this.lblTotal.Text = "0";
+
             lvProductosSeleccionados.View = View.Details;
             this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
@@ -297,13 +319,30 @@ namespace GestionClubView.Pedidos
                         this.lvProductosSeleccionados.Items[i].Remove();
                 }
             }
-            this.imgProductosSel.ImageSize = new Size(50, 50);
+            else
+            {
+                this.lblCantidad.Text = "0";
+                this.lblTotal.Text = "0";
+            }
+            this.imgProductosSel.ImageSize = new System.Drawing.Size(50, 50);
 
             this.imgProductosSel.Images.Add(this.lvProductos.SelectedItems[0].ImageKey.ToString(), this.imgProductos.Images[this.lvProductos.SelectedItems[0].ImageKey]);
 
-            this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { lvProductos.SelectedItems[0].SubItems[0].Text, nudCantidadProducto.Value.ToString(), lvProductos.SelectedItems[0].SubItems[1].Text }, lvProductos.SelectedItems[0].ImageKey.ToString()));
+            int idDetalleComanda = 0;
+            if (this.lObjDetalleComanda.Count > 0)
+                if (this.lObjDetalleComanda.Exists(x => x.idProducto.ToString() == lvProductos.SelectedItems[0].ImageKey.ToString()))
+                    idDetalleComanda = this.lObjDetalleComanda.Find(x => x.idProducto.ToString() == lvProductos.SelectedItems[0].ImageKey.ToString()).idDetalleComanda;
+                else
+                    idDetalleComanda = 0;
+            else
+                idDetalleComanda = 0;
+
+
+            this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { lvProductos.SelectedItems[0].SubItems[0].Text, nudCantidadProducto.Value.ToString(), lvProductos.SelectedItems[0].SubItems[1].Text, idDetalleComanda.ToString() }, lvProductos.SelectedItems[0].ImageKey.ToString()));
+
             this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(nudCantidadProducto.Value)).ToString();
             this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(nudCantidadProducto.Value) * Convert.ToDecimal(this.lvProductos.SelectedItems[0].SubItems[1].Text)).ToString();
+
             this.nudCantidadProducto.Value = 0;
         }
         public void MostrarProductosPedidosEnComandaBD()
@@ -314,19 +353,21 @@ namespace GestionClubView.Pedidos
             objEn.idMesa = Convert.ToInt32(this.lvMesas.SelectedItems[0].ImageKey);
             this.lvProductosSeleccionados.Items.Clear();
 
-            this.lObjDetalle = GestionClubComandaController.ListarDetalleComandaPorMesaYPendienteCobrar(objEn);
+            this.lObjDetalleComanda = GestionClubComandaController.ListarDetalleComandaPorMesaYPendienteCobrar(objEn);
+            this.lObjDetalleComandaParcial.AddRange(this.lObjDetalleComanda);
 
             this.lblCantidad.Text = "0";
             this.lblTotal.Text = "0";
 
-            foreach (GestionClubDetalleComandaDto detalle in this.lObjDetalle)
+            foreach (GestionClubDetalleComandaDto detalle in this.lObjDetalleComanda)
             {
-                this.imgProductosSel.ImageSize = new Size(50, 50);
-                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(this.rutaProducto + detalle.archivoProducto));
+                this.lblIdComanda.Text = this.lObjDetalleComanda.FirstOrDefault().idComanda.ToString();
+                this.imgProductosSel.ImageSize = new System.Drawing.Size(50, 50);
+                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(this.rutaProducto + (detalle.archivoProducto == string.Empty ? "no-foto.png" : detalle.archivoProducto)));
                 this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
-                this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { detalle.desProducto.ToString(), detalle.cantidad.ToString(), detalle.preVenta.ToString() }, detalle.idProducto.ToString()));
+                this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { detalle.desProducto.ToString(), detalle.cantidad.ToString(), detalle.preVenta.ToString(), detalle.idDetalleComanda.ToString() }, detalle.idProducto.ToString()));
 
                 this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(detalle.cantidad.ToString())).ToString();
                 this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(detalle.cantidad.ToString()) * Convert.ToDecimal(detalle.preVenta)).ToString();
@@ -335,9 +376,25 @@ namespace GestionClubView.Pedidos
         public void QuitarProductoSeleccionado()
         {
             if (this.seleccionaProductoSeleccionados == 0) { Mensaje.OperacionDenegada("Seleccione Producto que desea quitar.", eTitulo); return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
+
+            this.EliminarDetalleComanda();
+
             this.lvProductosSeleccionados.SelectedItems[0].Remove();
 
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El pedido se elimino correctamente", this.eTitulo);
+
             this.seleccionaProductoSeleccionados = 0;
+        }
+
+        public void EliminarDetalleComanda()
+        {
+            GestionClubDetalleComandaDto obj = new GestionClubDetalleComandaDto();
+            obj.idDetalleComanda = Convert.ToInt32(this.lvProductosSeleccionados.SelectedItems[0].SubItems[3].Text);
+            GestionClubComandaController.EliminarDetalleComanda(obj);
         }
         public bool ValidarQueSeleccioneMesa()
         {
@@ -351,6 +408,7 @@ namespace GestionClubView.Pedidos
             return result;
 
         }
+
         public bool ValidarQueHayProductoSeleccionados()
         {
             bool result = false;
@@ -423,8 +481,44 @@ namespace GestionClubView.Pedidos
             this.AsignarComanda(iObjEN);
             int identity = GestionClubComandaController.AgregarComanda(iObjEN);
 
+
+
             GestionClubDetalleComandaDto iDetObjEN = new GestionClubDetalleComandaDto();
             this.AsignarDetalleComanda(iDetObjEN, identity);
+            foreach (GestionClubDetalleComandaDto item in this.lObjDetalleComanda)
+            {
+                GestionClubComandaController.AgregarDetalleComanda(item);
+            }
+        }
+        public void Modificar()
+        {
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
+
+            this.ModificarComanda();
+            this.ModificarSituacionMesa();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("La Comanda se modifico correctamente", this.eTitulo);
+
+        }
+        public void ModificarComanda()
+        {
+            GestionClubComandaDto iObjEN = new GestionClubComandaDto();
+            this.AsignarComanda(iObjEN);
+            GestionClubComandaController.ModificarComanda(iObjEN);
+
+            GestionClubDetalleComandaDto iDetObjEN = new GestionClubDetalleComandaDto();
+            this.AsignarDetalleComanda(iDetObjEN, Convert.ToInt32(this.lblIdComanda.Text));
+
+            foreach (GestionClubDetalleComandaDto obj in this.lObjDetalleComanda)
+            {
+                if (this.lObjDetalleComandaParcial.Exists(x => x.idProducto == obj.idProducto))
+                    GestionClubComandaController.ModificarDetalleComanda(obj);
+                else
+                    GestionClubComandaController.AgregarDetalleComanda(obj);
+            }
+
         }
 
         public void AsignarComanda(GestionClubComandaDto pObj)
@@ -441,27 +535,31 @@ namespace GestionClubView.Pedidos
             pObj.nroAtencion = "01";
             pObj.obsComprobante = string.Empty;
             pObj.estadoComanda = "01";
+            pObj.idComanda = Convert.ToInt32(this.lblIdComanda.Text);
         }
 
         public void AsignarDetalleComanda(GestionClubDetalleComandaDto pObj, int identity)
         {
-            decimal total = 0;
-            pObj.idComanda = identity;
-            pObj.idAmbiente = Convert.ToInt32(Cmb.ObtenerValor(this.cboAmbiente, string.Empty));
-            pObj.idMesa = Convert.ToInt32(this.lvMesas.SelectedItems[0].ImageKey);
-            pObj.fecDetalleComanda = DateTime.Now;
-            pObj.idMozo = Convert.ToInt32(Cmb.ObtenerValor(this.cboMesero, string.Empty));
-            pObj.preTotal = total;
-            pObj.nroAtencion = "01";
-            pObj.obsComprobante = string.Empty;
-            pObj.estadoComanda = "01";
+            this.lObjDetalleComanda.Clear();
+
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
             {
+                pObj = new GestionClubDetalleComandaDto();
+                pObj.idComanda = identity;
+                pObj.idAmbiente = Convert.ToInt32(Cmb.ObtenerValor(this.cboAmbiente, string.Empty));
+                pObj.idMesa = Convert.ToInt32(this.lvMesas.SelectedItems[0].ImageKey);
+                pObj.fecDetalleComanda = DateTime.Now;
+                pObj.idMozo = Convert.ToInt32(Cmb.ObtenerValor(this.cboMesero, string.Empty));
                 pObj.idProducto = Convert.ToInt32(item.ImageKey);
-                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
+                pObj.idDetalleComanda = Convert.ToInt32(item.SubItems[3].Text);
                 pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
+                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
                 pObj.preTotal = (pObj.preVenta * pObj.cantidad);
-                GestionClubComandaController.AgregarDetalleComanda(pObj);
+                pObj.nroAtencion = "01";
+                pObj.obsComprobante = string.Empty;
+                pObj.estadoComanda = "01";
+
+                this.lObjDetalleComanda.Add(pObj);
             }
         }
         public void ModificarSituacionMesa()
@@ -474,23 +572,49 @@ namespace GestionClubView.Pedidos
 
         public void CambiarDeEstadoBotonesPorMesas()
         {
-            if (this.lObjDetalle.Count > 0)
+            if (this.lObjDetalleComanda.Count > 0)
             {
-                this.tsbRealizarPedido.Enabled = false;
                 this.btnCobrar.Enabled = true;
             }
             else
             {
-                this.tsbRealizarPedido.Enabled = true;
                 this.btnCobrar.Enabled = false;
             }
         }
-        private void lvMesas_MouseClick(object sender, MouseEventArgs e)
+        public void LimpiarLvSeleccionados()
+        {
+            this.lvProductosSeleccionados.Items.Clear();
+        }
+
+        public void Aceptar()
+        {
+            if (!this.ValidarQueHayProductoSeleccionados())
+            {
+                this.eVaBDMesa = 0;
+                //tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
+                this.btnCobrar.Enabled = !this.btnCobrar.Enabled;
+                this.BloquearMesa();
+                if (this.lblIdComanda.Text == "0")
+                    this.Adicionar();
+                else
+                    this.Modificar();
+
+                this.realizoPedido = 1;
+            }
+        }
+        public void SeleccionarMesa()
         {
             this.seleccionaProducto = 0;
             this.seleccionaMesa = 1;
+            this.lObjDetalleComanda.Clear();
             this.MostrarProductosPedidosEnComandaBD();
-            if (this.lObjDetalle.Count > 0) { this.MostrarProductoPorMesaSeleccionada(); this.CambiarDeEstadoBotonesPorMesas(); return; }
+            if (this.lObjDetalleComanda.Count > 0)
+            {
+                this.MostrarProductoPorMesaSeleccionada();
+                this.CambiarDeEstadoBotonesPorMesas();
+                return;
+            }
+
             if (!this.ValidarQueSeleccioneMesa())
                 if (this.ValidaLaListaProductoSeleccionados())
                 {
@@ -499,10 +623,11 @@ namespace GestionClubView.Pedidos
                 }
 
         }
-        public void LimpiarLvSeleccionados()
+        private void lvMesas_MouseClick(object sender, MouseEventArgs e)
         {
-            this.lvProductosSeleccionados.Items.Clear();
+            this.SeleccionarMesa();
         }
+
         private void btnCobrar_Click(object sender, EventArgs e)
         {
             btnCobrar.Enabled = !btnCobrar.Enabled;
@@ -521,8 +646,8 @@ namespace GestionClubView.Pedidos
 
         private void lvCategorias_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!this.ValidarQueSeleccioneMesa())
-                this.CargarProductos(1, null);
+            //if (!this.ValidarQueSeleccioneMesa())
+            this.CargarProductosSegunBusqueda(1, null);
         }
 
         private void txtProducto_KeyUp(object sender, KeyEventArgs e)
@@ -553,21 +678,14 @@ namespace GestionClubView.Pedidos
 
         private void tsbRealizarPedido_Click(object sender, EventArgs e)
         {
-            if (!this.ValidarQueHayProductoSeleccionados())
-            {
-                this.eVaBDMesa = 0;
-                //tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
-                this.btnCobrar.Enabled = !this.btnCobrar.Enabled;
-                this.BloquearMesa();
-                this.Adicionar();
-                this.realizoPedido = 1;
-            }
+            this.Aceptar();
 
         }
 
         private void cboAmbiente_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.cargarMesas();
+            this.CargarProductosSeleccionados();
         }
     }
 }

@@ -227,8 +227,8 @@ namespace GestionClubView.Login
                 this.txtCodEmp.Focus();
             }
             this.txtIdEmpresa.Text = iPermEmpresa.idEmpresa.ToString();
-            this.txtCodEmp.Text = iPermEmpresa.gestionClubEmpresaDto.codEmpresa;
-            this.txtNomEmp.Text = iPermEmpresa.gestionClubEmpresaDto.desEmpresa;
+            this.txtCodEmp.Text = iPermEmpresa.codEmpresa;
+            this.txtNomEmp.Text = iPermEmpresa.desEmpresa;
             return iPermEmpresa.Adicionales.EsVerdad;
         }
         public void ListarEmpresasDeUsuario()

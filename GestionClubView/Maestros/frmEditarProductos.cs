@@ -84,31 +84,23 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtPrecioSocio, true, "Precio", "vvff", 2, 15);
+            xCtrl.TxtNumeroConDecimales(this.txtPrecioSocio, false, "Precio Socio", "vvff", 2, 15);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtPrecioSocio, true, "Precio Socio", "vvff", 2, 15);
+            xCtrl.TxtNumeroConDecimales(this.txtPrecioNoSocio, false, "Precio No Socio", "vvff", 2, 15);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtPrecioNoSocio, true, "Precio No Socio", "vvff", 2, 15);
+            xCtrl.TxtNumeroConDecimales(this.txtPorDtra, false, "Porcentaje Detracción", "vvff", 2, 15);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtPrecioNoSocio, true, "Precio No Socio", "vvff", 2, 15);
+            xCtrl.TxtNumeroConDecimales(this.txtImpDol, false, "Importe Dolares", "vvff", 2, 15);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtPorDtra, true, "Porcentaje Detracción", "vvff", 2, 15);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtImpDol, true, "Importe Dolares", "vvff", 2, 15);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroConDecimales(this.txtOtrImp, true, "Otro Importe", "vvff", 2, 15);
+            xCtrl.TxtNumeroConDecimales(this.txtOtrImp, false, "Otro Importe", "vvff", 2, 15);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -286,7 +278,7 @@ namespace GestionClubView.Maestros
         {
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.codProducto = this.txtCodigo.Text.Trim();
-            pObj.idCategoria = Convert.ToInt32(Cmb.ObtenerValor(this.cboCategoria, string.Empty));
+            pObj.idCategoria = Convert.ToString(Cmb.ObtenerValor(this.cboCategoria, string.Empty));
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
             pObj.desProducto = this.txtDescripcion.Text.Trim();
             pObj.uniMedProducto = Cmb.ObtenerValor(this.cboUniMed, string.Empty);

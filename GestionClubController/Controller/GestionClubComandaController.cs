@@ -39,6 +39,16 @@ namespace GestionClubController.Controller
             GestionClubComandaRepository obj = new GestionClubComandaRepository();
             obj.AgregarDetalleComanda(pObj);
         }
+        public static void ModificarDetalleComanda(GestionClubDetalleComandaDto pObj)
+        {
+            GestionClubComandaRepository obj = new GestionClubComandaRepository();
+            obj.ModificarDetalleComanda(pObj);
+        }
+        public static void EliminarDetalleComanda(GestionClubDetalleComandaDto pObj)
+        {
+            GestionClubComandaRepository obj = new GestionClubComandaRepository();
+            obj.EliminarDetalleComanda(pObj);
+        }
         public static List<GestionClubDetalleComandaDto> ListarDetalleComandaPorMesaYPendienteCobrar(GestionClubDetalleComandaDto pObj)
         {
             GestionClubComandaRepository objCom = new GestionClubComandaRepository();

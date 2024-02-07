@@ -59,6 +59,7 @@
             this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cboMesero = new System.Windows.Forms.ComboBox();
+            this.lblIdComanda = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -198,6 +199,7 @@
             // 
             // gbProductosSeleccionados
             // 
+            this.gbProductosSeleccionados.Controls.Add(this.lblIdComanda);
             this.gbProductosSeleccionados.Controls.Add(this.lblCantidad);
             this.gbProductosSeleccionados.Controls.Add(this.label5);
             this.gbProductosSeleccionados.Controls.Add(this.label4);
@@ -383,6 +385,17 @@
             this.cboMesero.Size = new System.Drawing.Size(331, 22);
             this.cboMesero.TabIndex = 0;
             // 
+            // lblIdComanda
+            // 
+            this.lblIdComanda.AutoSize = true;
+            this.lblIdComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdComanda.Location = new System.Drawing.Point(137, 456);
+            this.lblIdComanda.Name = "lblIdComanda";
+            this.lblIdComanda.Size = new System.Drawing.Size(13, 14);
+            this.lblIdComanda.TabIndex = 465;
+            this.lblIdComanda.Text = "0";
+            this.lblIdComanda.Visible = false;
+            // 
             // frmComanda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,5 +461,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox cboMesero;
         private System.Windows.Forms.ImageList imgProductosSel;
+        private System.Windows.Forms.Label lblIdComanda;
     }
 }

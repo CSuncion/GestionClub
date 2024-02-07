@@ -69,12 +69,12 @@ namespace GestionClubController.Controller
                 case GestionClubClienteDto._tipSocioCliente: return pObj.tipSocioCliente;
                 case GestionClubClienteDto._tipCliente: return pObj.tipCliente.ToString();
                 case GestionClubClienteDto._nroIdentificacionCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._nombreRazSocialCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._razComercialCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._emailCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._nroCelularCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._representanteCliente: return pObj.nroIdentificacionCliente.ToString();
-                case GestionClubClienteDto._estadoCliente: return pObj.nroIdentificacionCliente.ToString();
+                case GestionClubClienteDto._nombreRazSocialCliente: return pObj.nombreRazSocialCliente.ToString();
+                case GestionClubClienteDto._razComercialCliente: return pObj.razComercialCliente.ToString();
+                case GestionClubClienteDto._emailCliente: return pObj.emailCliente.ToString();
+                case GestionClubClienteDto._nroCelularCliente: return pObj.nroCelularCliente.ToString();
+                case GestionClubClienteDto._representanteCliente: return pObj.representanteCliente.ToString();
+                case GestionClubClienteDto._estadoCliente: return pObj.estadoCliente.ToString();
                 case GestionClubClienteDto._idCliente: return pObj.idCliente.ToString();
             }
 

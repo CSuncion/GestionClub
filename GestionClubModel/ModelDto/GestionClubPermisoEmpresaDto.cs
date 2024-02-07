@@ -14,6 +14,7 @@ namespace GestionClubModel.ModelDto
         public const string _idEmpresa = "idEmpresa";
         public const string _codEmpresa = "codEmpresa";
         public const string _desEmpresa = "desEmpresa";
+        public const string _estadoEmpresa = "estadoEmpresa";
         public const string _idAcceso = "idAcceso";
         public const string _codAcceso = "codAcceso";
         public const string _nombresAcceso = "nombresAcceso";
@@ -30,6 +31,8 @@ namespace GestionClubModel.ModelDto
         public int idEmpresa { get; set; }
         public int idAcceso { get; set; }
         public string codEmpresa { get; set; }
+        public string desEmpresa { get; set; }
+        public string estadoEmpresa { get; set; }
         public string codAcceso { get; set; }
         public int cPermitir { get; set; }
         public int usuarioAgrega { get; set; }

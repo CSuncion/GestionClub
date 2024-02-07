@@ -4,18 +4,22 @@ using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
 using GestionClubView.Listas;
 using Microsoft.Reporting.WinForms;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 using WinControles;
 using WinControles.ControlesWindows;
 
@@ -27,7 +31,7 @@ namespace GestionClubView.Pedidos
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public List<GestionClubDetalleComandaDto> lObjDetalle = new List<GestionClubDetalleComandaDto>();
-        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty;
+        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
         public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
         public string eTitulo = "Grabar Comanda";
         public bool presionTicket = false;
@@ -126,6 +130,7 @@ namespace GestionClubView.Pedidos
             rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
             rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            RutaQR = ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void CargarDatosEmpresa()
         {
@@ -244,6 +249,7 @@ namespace GestionClubView.Pedidos
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
 
+            this.ImprimirPreTicket();
             this.wCom.cargarMesas();
             this.wCom.LimpiarLvSeleccionados();
             //salir de la ventana
@@ -286,7 +292,7 @@ namespace GestionClubView.Pedidos
             pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
             pObj.impNetComprobante = Convert.ToDecimal(this.lblTotal.Text);
             pObj.impDtrComprobante = 0;
-            pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
+            pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
@@ -304,7 +310,7 @@ namespace GestionClubView.Pedidos
                 pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
                 pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
                 pObj.preTotal = (pObj.preVenta * pObj.cantidad);
-                if (this.presionTicket)
+                if (!this.presionTicket)
                     GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
             }
 
@@ -355,7 +361,7 @@ namespace GestionClubView.Pedidos
         public void ImprimirComprobante()
         {
             PrintDocument printDocument = new PrintDocument();
-            PaperSize ps = new PaperSize("", 420, 540);
+            PaperSize ps = new PaperSize("", 420, 840);
             printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPage);
 
             printDocument.PrintController = new StandardPrintController();
@@ -365,6 +371,8 @@ namespace GestionClubView.Pedidos
             printDocument.DefaultPageSettings.Margins.Bottom = 0;
             printDocument.DefaultPageSettings.PaperSize = ps;
             printDocument.Print();
+
+            this.presionTicket = false;
         }
         void pd_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -372,15 +380,18 @@ namespace GestionClubView.Pedidos
             this.AsignarComprobante(iComEN);
 
             Graphics g = e.Graphics;
-            //g.DrawRectangle(Pens.Black, 5, 5, 410, 530);
+            //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
             string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
+
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
             Font fHead = new Font("Calibri", 9, FontStyle.Bold);
+            Font fBodyNoBoldFood = new Font("Calibri", 7, FontStyle.Regular);
             Font fBodyNoBold = new Font("Calibri", 8, FontStyle.Regular);
             Font fBodySerNro = new Font("Calibri", 9, FontStyle.Regular);
             Font fBodyTitle = new Font("Calibri", 10, FontStyle.Bold);
             SolidBrush sb = new SolidBrush(System.Drawing.Color.Black);
+
             g.DrawString(this.NombreEmpresa, fBodyTitle, sb, 30, 100);
             g.DrawString("R.U.C. N° " + this.NroRuc, fHead, sb, 65, 120);
             g.DrawString(this.DireccionEmpresa, fHead, sb, 45, 140);
@@ -388,18 +399,38 @@ namespace GestionClubView.Pedidos
             g.DrawString("Tel." + this.Tlf, fHead, sb, 85, 170);
             g.DrawString("E-mail: " + this.Email, fHead, sb, 70, 185);
             g.DrawString("______________________________________________", fBody, sb, 10, 190);
-            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
-            g.DrawString(iComEN.serComprobante + " - " + iComEN.nroComprobante, fBodySerNro, sb, 95, 220);
-            g.DrawString("______________________________________________", fBody, sb, 10, 225);
+
             int SPACE = 240;
-            g.DrawString("Fecha Emisión:", fBody, sb, 10, SPACE);
-            g.DrawString(iComEN.fecComprobante.ToShortDateString(), fBodyNoBold, sb, 90, SPACE);
-            g.DrawString("Cliente:", fBody, sb, 10, SPACE + 15);
-            g.DrawString(iComEN.nombreRazSocialCliente, fBodyNoBold, sb, 90, SPACE + 15);
-            g.DrawString("R.U.C./N°Doc.:", fBody, sb, 10, SPACE + 30);
-            g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
-            g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
-            g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
+
+            if (!this.presionTicket)
+            {
+                g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
+                g.DrawString(iComEN.serComprobante + " - " + iComEN.nroComprobante, fBodySerNro, sb, 95, 220);
+                g.DrawString("______________________________________________", fBody, sb, 10, 225);
+
+                g.DrawString("Fecha Emisión:", fBody, sb, 10, SPACE);
+                g.DrawString(iComEN.fecComprobante.ToShortDateString(), fBodyNoBold, sb, 90, SPACE);
+                g.DrawString("Cliente:", fBody, sb, 10, SPACE + 15);
+                g.DrawString(iComEN.nombreRazSocialCliente, fBodyNoBold, sb, 90, SPACE + 15);
+                g.DrawString("R.U.C./N°Doc.:", fBody, sb, 10, SPACE + 30);
+                g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+                g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
+                g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
+            }
+            else
+            {
+                g.DrawString("PRECUENTA", fHead, sb, 80, 205);
+                g.DrawString("NO ES COMPROBANTE DE PAGO", fBodySerNro, sb, 45, 220);
+                g.DrawString("______________________________________________", fBody, sb, 10, 225);
+                g.DrawString("Fecha Emisión:", fBody, sb, 10, SPACE);
+                g.DrawString(DateTime.Now.ToShortDateString(), fBodyNoBold, sb, 90, SPACE);
+                g.DrawString("Ambiente:", fBody, sb, 10, SPACE + 15);
+                g.DrawString(this.lblAmbiente.Text, fBodyNoBold, sb, 90, SPACE + 15);
+                g.DrawString("Mesa:", fBody, sb, 10, SPACE + 30);
+                g.DrawString(this.lblNroMesa.Text, fBodyNoBold, sb, 90, SPACE + 30);
+                g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
+                g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
+            }
 
             g.DrawString("Cajero:", fBody, sb, 10, SPACE + 60);
             g.DrawString(Universal.gNombreUsuario, fBodyNoBold, sb, 90, SPACE + 60);
@@ -408,13 +439,14 @@ namespace GestionClubView.Pedidos
             g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
             g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
-            g.DrawString("Descripción", fBody, sb, 95, SPACE + 115);
+            g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
             g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
             int saltoLinea = 120;
-
+            decimal total = 0;
+            string subtotal = string.Empty, igv = string.Empty;
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
             {
                 saltoLinea = saltoLinea + 15;
@@ -422,18 +454,82 @@ namespace GestionClubView.Pedidos
                 g.DrawString(item.SubItems[0].Text, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
                 g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
                 g.DrawString((Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text)).ToString(), fBodyNoBold, sb, 230, SPACE + (saltoLinea));
+                total += Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text);
             }
 
             saltoLinea = saltoLinea + 5;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
-            g.DrawString("Total Gravado:", fBody, sb, 105, SPACE + saltoLinea);
+            g.DrawString("Total Gravado:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            g.DrawString("25.42", fBody, sb, 230, SPACE + saltoLinea);
+            subtotal = Formato.NumeroDecimal(Convert.ToDecimal(total) - (Convert.ToDecimal(total) * Convert.ToDecimal(0.18)), 2);
+            g.DrawString(subtotal.ToString(), fBody, sb, 230, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 15;
+            g.DrawString("Total No Gravado:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
+            g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
+
+
+            saltoLinea = saltoLinea + 15;
+            g.DrawString("IGV 18%:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
+            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * Convert.ToDecimal(0.18), 2);
+            g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 15;
+            g.DrawString("Descuento:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
+            g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 15;
+            g.DrawString("Importe Total:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
+            g.DrawString(Formato.NumeroDecimal(total.ToString(), 2), fBody, sb, 230, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 30;
+            g.DrawString(Formato.MontoComprobanteEnLetras(total, Cmb.ObtenerTexto(this.cboMoneda).ToUpper()), fBodyNoBold, sb, 10, SPACE + saltoLinea);
+
+            saltoLinea = saltoLinea + 5;
+            g.DrawString("______________________________________________", fBody, sb, 10, SPACE + saltoLinea);
+
+            if (!this.presionTicket)
+            {
+
+                string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper();
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+                string fileName = Path.Combine(RutaQR, DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_QRCode.png");
+                qrCodeImage.Save(fileName, ImageFormat.Png);
+
+                saltoLinea = saltoLinea + 15;
+                g.DrawString("Representación impresa de la " + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + " ELECTRONICA", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
+
+                saltoLinea = saltoLinea + 15;
+                g.DrawString("Representación impresa del comprobante electronico puede ser", fBodyNoBoldFood, sb, 10, SPACE + saltoLinea);
+
+                saltoLinea = saltoLinea + 15;
+                g.DrawString("consultado en https://www.nubefact.com/buscar", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
+
+                saltoLinea = saltoLinea + 15;
+                g.DrawString("Autorizado mediante resolución de intenencia", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
+
+
+                saltoLinea = saltoLinea + 15;
+                g.DrawImage(Image.FromFile(fileName), 100, SPACE + saltoLinea, 100, 100);
+            }
+
+            saltoLinea = saltoLinea + 30;
+            g.DrawString(string.Empty, fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
+
 
             g.Dispose();
         }
+
         public void ImprimirPreTicket()
         {
             this.ImprimirComprobante();

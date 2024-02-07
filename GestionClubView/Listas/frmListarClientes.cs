@@ -40,7 +40,7 @@ namespace GestionClubView.Listas
             this.eVentana.Enabled = false;
             eCli.Adicionales.CampoOrden = GestionClubClienteDto._nombreRazSocialCliente;
             this.Text = "Listado de" + Cadena.Espacios(1) + this.eTituloVentana;
-            this.eCampoBusqueda = "N° Identificación";
+            this.eCampoBusqueda = "Nombre/Raz. Social";
             this.ActualizaVentana();
         }
 

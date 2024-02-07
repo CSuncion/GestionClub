@@ -307,5 +307,10 @@ namespace GestionClubView.Maestros
         {
             this.ActualizarVentanaAlBuscarValor(e);
         }
+
+        private void DgvProductos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
+        }
     }
 }
