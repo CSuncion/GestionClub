@@ -89,5 +89,62 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjeto("isp_ListarAperturaCajasPorFecha", lParameter);
         }
+        public void AgregarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                        new SqlParameter("@fecAperturaCaja",pObj.fecAperturaCaja),
+                        new SqlParameter("@montoAperturaCaja",pObj.montoAperturaCaja),
+                        new SqlParameter("@estadoAperturaCaja",pObj.estadoAperturaCaja),
+                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AgregarAperturaCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public GestionClubAperturaCajaDto ListarAperturaCajaPorId(GestionClubAperturaCajaDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idAperturaCaja", pObj.idAperturaCaja),
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarAperturaCajaPorId", lParameter);
+        }
+        public void ModificarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idAperturaCaja",pObj.idAperturaCaja),
+                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                        new SqlParameter("@fecAperturaCaja",pObj.fecAperturaCaja),
+                        new SqlParameter("@montoAperturaCaja",pObj.montoAperturaCaja),
+                        new SqlParameter("@estadoAperturaCaja",pObj.estadoAperturaCaja),
+                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarAperturaCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idAperturaCaja", pObj.idAperturaCaja),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarAperturaCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
     }
 }

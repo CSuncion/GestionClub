@@ -22,9 +22,10 @@ namespace GestionClubController.Controller
             GestionClubAperturaCajaRepository obj = new GestionClubAperturaCajaRepository();
             return obj.ListarAperturaCajas();
         }
-        public GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
+        public static GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
         {
-            return this._iGestionClubAperturaCajaRepository.ListarAperturaCajasPorFecha(obj);
+            GestionClubAperturaCajaRepository xObj = new GestionClubAperturaCajaRepository();
+            return xObj.ListarAperturaCajasPorFecha(obj);
         }
         public List<GestionClubAperturaCajaDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubAperturaCajaDto> pListaOperations)
         {
@@ -61,6 +62,11 @@ namespace GestionClubController.Controller
             //devolver
             return iLisRes;
         }
+        public static GestionClubAperturaCajaDto EnBlanco()
+        {
+            GestionClubAperturaCajaDto iPerEN = new GestionClubAperturaCajaDto();
+            return iPerEN;
+        }
         public static string ObtenerValorDeCampo(GestionClubAperturaCajaDto pObj, string pNombreCampo)
         {
             //valor resultado
@@ -76,6 +82,101 @@ namespace GestionClubController.Controller
 
             //retorna
             return iValor;
+        }
+        public static GestionClubAperturaCajaDto ValidaCuandoFechaYaExiste(GestionClubAperturaCajaDto pObj)
+        {
+            //objeto resultado
+            GestionClubAperturaCajaDto iAperCaja = new GestionClubAperturaCajaDto();
+
+            //validar    
+            iAperCaja = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(pObj);
+            if (iAperCaja.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
+            {
+                iAperCaja.Adicionales.EsVerdad = false;
+                iAperCaja.Adicionales.Mensaje = "La fecha " + pObj.fecAperturaCaja + " ya existe";
+                return iAperCaja;
+            }
+
+            //ok
+            iAperCaja.Adicionales.EsVerdad = true;
+            return iAperCaja;
+        }
+        public static GestionClubAperturaCajaDto BuscarAperturaCajaXId(GestionClubAperturaCajaDto pObj)
+        {
+            GestionClubAperturaCajaRepository objAperturaCaja = new GestionClubAperturaCajaRepository();
+            return objAperturaCaja.ListarAperturaCajaPorId(pObj);
+        }
+        public static GestionClubAperturaCajaDto EsCodigoAperturaCajaDisponible(GestionClubAperturaCajaDto pObj)
+        {
+            //objeto resultado
+            GestionClubAperturaCajaDto iAmbEN = new GestionClubAperturaCajaDto();
+
+            //valida cuando el codigo esta vacio
+            if (pObj.fecAperturaCaja.ToShortDateString() == DateTime.Now.ToShortDateString()) { return iAmbEN; }
+
+            //valida cuando existe el codigo
+            iAmbEN = GestionClubAperturaCajaController.ValidaCuandoFechaYaExiste(pObj);
+            if (iAmbEN.Adicionales.EsVerdad == false) { return iAmbEN; }
+
+            //ok          
+            return iAmbEN;
+        }
+        public static void AdicionarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            GestionClubAperturaCajaRepository objAperturaCaja = new GestionClubAperturaCajaRepository();
+            objAperturaCaja.AgregarAperturaCaja(pObj);
+        }
+        public static GestionClubAperturaCajaDto EsActoModificarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            //objeto resultado
+            GestionClubAperturaCajaDto iPerEN = new GestionClubAperturaCajaDto();
+
+            //validar si existe
+            iPerEN = GestionClubAperturaCajaController.EsAperturaCajaExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static GestionClubAperturaCajaDto EsAperturaCajaExistente(GestionClubAperturaCajaDto pObj)
+        {
+            //objeto resultado
+            GestionClubAperturaCajaDto iAmbEN = new GestionClubAperturaCajaDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAperturaCajaController.ObtenerClavePersonal(pObj);
+            iAmbEN = GestionClubAperturaCajaController.(pObj);
+            if (iAmbEN.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
+            {
+                iAmbEN.Adicionales.EsVerdad = false;
+                iAmbEN.Adicionales.Mensaje = "El AperturaCaja " + pObj.fecAperturaCaja + " no existe";
+                return iAmbEN;
+            }
+
+            //ok         
+            return iAmbEN;
+        }
+        public static void ModificarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            GestionClubAperturaCajaRepository objAperturaCaja = new GestionClubAperturaCajaRepository();
+            objAperturaCaja.ModificarAperturaCaja(pObj);
+        }
+        public static GestionClubAperturaCajaDto EsActoEliminarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            //objeto resultado
+            GestionClubAperturaCajaDto iPerEN = new GestionClubAperturaCajaDto();
+
+            //validar si existe
+            iPerEN = GestionClubAperturaCajaController.EsAperturaCajaExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static void EliminarAperturaCaja(GestionClubAperturaCajaDto pObj)
+        {
+            GestionClubAperturaCajaRepository objAperturaCaja = new GestionClubAperturaCajaRepository();
+            objAperturaCaja.EliminarAperturaCaja(pObj);
         }
     }
 }

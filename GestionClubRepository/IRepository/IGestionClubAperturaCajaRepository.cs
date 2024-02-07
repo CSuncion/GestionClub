@@ -7,5 +7,10 @@ namespace GestionClubRepository.IRepository
     {
         List<GestionClubAperturaCajaDto> ListarAperturaCajas();
         GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj);
+        void AgregarAperturaCaja(GestionClubAperturaCajaDto pObj);
+        void ModificarAperturaCaja(GestionClubAperturaCajaDto pObj);
+        void EliminarAperturaCaja(GestionClubAperturaCajaDto pObj);
+        GestionClubAperturaCajaDto ListarAperturaCajaPorId(GestionClubAperturaCajaDto pObj);
+
     }
 }

@@ -96,6 +96,12 @@ namespace GestionClubView.Maestros
             this.tstBuscar.ToolTipText = "Ingrese " + this.eEncabezadoColumnaDgvAmbiente;
             this.tstBuscar.Focus();
         }
+
+        public void Cerrar()
+        {
+            frmPrincipal wMen = (frmPrincipal)this.ParentForm;
+            wMen.CerrarVentanaHijo(this, wMen.tsmAmbientes, null);
+        }
         public void AccionAdicionar()
         {
             //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
@@ -108,11 +114,7 @@ namespace GestionClubView.Maestros
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }
-        public void Cerrar()
-        {
-            frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmAmbientes, null);
-        }
+
         public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
         {
             //verificar que tecla pulso el usuario

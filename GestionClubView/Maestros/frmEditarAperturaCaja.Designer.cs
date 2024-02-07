@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarAperturaCaja));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnGrabar = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnLimpiar = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpFecAperturaCaja = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -52,7 +52,6 @@
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnGrabar,
-            this.tsBtnLimpiar,
             this.tsBtnSalir});
             this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -70,17 +69,7 @@
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
             this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsBtnLimpiar
-            // 
-            this.tsBtnLimpiar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnLimpiar.Image")));
-            this.tsBtnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnLimpiar.Name = "tsBtnLimpiar";
-            this.tsBtnLimpiar.Size = new System.Drawing.Size(52, 39);
-            this.tsBtnLimpiar.Text = "Limpiar";
-            this.tsBtnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnLimpiar.Click += new System.EventHandler(this.tsBtnLimpiar_Click);
+            this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
             // tsBtnSalir
             // 
@@ -115,8 +104,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.dtpFecAperturaCaja);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMonto);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,13 +126,13 @@
             this.dtpFecAperturaCaja.TabIndex = 6;
             this.dtpFecAperturaCaja.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
             // 
-            // textBox1
+            // txtMonto
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(95, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtMonto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMonto.Location = new System.Drawing.Point(95, 46);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(100, 22);
+            this.txtMonto.TabIndex = 3;
             // 
             // label2
             // 
@@ -164,6 +154,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha:";
             // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(201, 19);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(18, 22);
+            this.txtId.TabIndex = 216;
+            this.txtId.Visible = false;
+            // 
             // frmEditarAperturaCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +177,7 @@
             this.Name = "frmEditarAperturaCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Apertura Caja";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditarAperturaCaja_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -192,13 +193,13 @@
         private System.Windows.Forms.ToolStrip tsPrincipal;
         private System.Windows.Forms.ToolStripButton tsBtnGrabar;
         private System.Windows.Forms.ToolStripButton tsBtnSalir;
-        private System.Windows.Forms.ToolStripButton tsBtnLimpiar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpFecAperturaCaja;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
