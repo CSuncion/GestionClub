@@ -78,6 +78,8 @@ namespace GestionClubController.Controller
                 case GestionClubAperturaCajaDto._fecAperturaCaja: return pObj.fecAperturaCaja.ToString();
                 case GestionClubAperturaCajaDto._montoAperturaCaja: return pObj.montoAperturaCaja.ToString();
                 case GestionClubAperturaCajaDto._estadoAperturaCaja: return pObj.estadoAperturaCaja.ToString();
+                case GestionClubAperturaCajaDto._claveObjeto: return pObj.claveObjeto.ToString();
+                case GestionClubAperturaCajaDto._idAperturaCaja: return pObj.idAperturaCaja.ToString();
             }
 
             //retorna
@@ -90,7 +92,7 @@ namespace GestionClubController.Controller
 
             //validar    
             iAperCaja = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(pObj);
-            if (iAperCaja.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
+            if (iAperCaja.idAperturaCaja.ToString() != "0")
             {
                 iAperCaja.Adicionales.EsVerdad = false;
                 iAperCaja.Adicionales.Mensaje = "La fecha " + pObj.fecAperturaCaja + " ya existe";
@@ -106,13 +108,13 @@ namespace GestionClubController.Controller
             GestionClubAperturaCajaRepository objAperturaCaja = new GestionClubAperturaCajaRepository();
             return objAperturaCaja.ListarAperturaCajaPorId(pObj);
         }
-        public static GestionClubAperturaCajaDto EsCodigoAperturaCajaDisponible(GestionClubAperturaCajaDto pObj)
+        public static GestionClubAperturaCajaDto EsFechaAperturaCajaDisponible(GestionClubAperturaCajaDto pObj)
         {
             //objeto resultado
             GestionClubAperturaCajaDto iAmbEN = new GestionClubAperturaCajaDto();
 
             //valida cuando el codigo esta vacio
-            if (pObj.fecAperturaCaja.ToShortDateString() == DateTime.Now.ToShortDateString()) { return iAmbEN; }
+            //if (pObj.fecAperturaCaja.ToShortDateString() == string.Empty) { return iAmbEN; }
 
             //valida cuando existe el codigo
             iAmbEN = GestionClubAperturaCajaController.ValidaCuandoFechaYaExiste(pObj);
@@ -145,7 +147,7 @@ namespace GestionClubController.Controller
 
             //validar
             //pObj.ClavePersonal = GestionClubAperturaCajaController.ObtenerClavePersonal(pObj);
-            iAmbEN = GestionClubAperturaCajaController.(pObj);
+            iAmbEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(pObj);
             if (iAmbEN.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
             {
                 iAmbEN.Adicionales.EsVerdad = false;

@@ -60,7 +60,7 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtMonto, true, "Monto", "vvff", 150);
+            xCtrl.TxtNumeroPositivoConDecimales(this.txtMonto, true, "Monto", "vvff", 2);
             xLis.Add(xCtrl);
 
 
@@ -175,7 +175,7 @@ namespace GestionClubView.Maestros
 
             GestionClubAperturaCajaDto iAperturaCaja = new GestionClubAperturaCajaDto();
             this.AsignarAperturaCaja(iAperturaCaja);
-            iAperturaCaja = GestionClubAperturaCajaController.EsCodigoAperturaCajaDisponible(iAperturaCaja);
+            iAperturaCaja = GestionClubAperturaCajaController.EsFechaAperturaCajaDisponible(iAperturaCaja);
             if (iAperturaCaja.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iAperturaCaja.Adicionales.Mensaje, this.wFrm.eTitulo);
@@ -213,7 +213,7 @@ namespace GestionClubView.Maestros
         {
             GestionClubAperturaCajaDto iPerEN = new GestionClubAperturaCajaDto();
             this.AsignarAperturaCaja(iPerEN);
-            iPerEN = GestionClubAperturaCajaController.BuscarAperturaCajaXId(iPerEN);
+            iPerEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(iPerEN);
             this.AsignarAperturaCaja(iPerEN);
             GestionClubAperturaCajaController.ModificarAperturaCaja(iPerEN);
         }

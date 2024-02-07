@@ -160,10 +160,9 @@ namespace GestionClubView.MdiPrincipal
         public bool ValidaAperturaCaja()
         {
             bool result = true;
-            GestionClubAperturaCajaController gestionClubAperturaCajaController = new GestionClubAperturaCajaController();
             GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
             gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
-            gestionClubAperturaCajaDto = gestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
+            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
 
             if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
 

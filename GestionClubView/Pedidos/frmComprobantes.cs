@@ -32,9 +32,21 @@ namespace GestionClubView.Pedidos
         }
         public void NewWindow()
         {
+            if (!this.ValidaAperturaCaja()) { this.Cerrar(); return; }
             this.Dock = DockStyle.Fill;
             this.Show();
             this.ActualizarVentana();
+        }
+        public bool ValidaAperturaCaja()
+        {
+            bool result = true;
+            GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
+            gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
+            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
+
+            if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
+
+            return result;
         }
         public void ActualizarVentana()
         {

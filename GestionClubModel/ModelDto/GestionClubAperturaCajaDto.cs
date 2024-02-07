@@ -22,7 +22,7 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idAperturaCaja { get; set; } = 0;
         public int idEmpresa { get; set; }
-        public DateTime fecAperturaCaja { get; set; }
+        public DateTime fecAperturaCaja { get; set; } = DateTime.Now;
         public decimal montoAperturaCaja { get; set; }
         public string estadoAperturaCaja { get; set; }
         public int usuarioAgrega { get; set; }

@@ -28,6 +28,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
+            xObjEnc.claveObjeto = xObjEnc.idAperturaCaja.ToString();
             return xObjEnc;
         }
         private GestionClubAperturaCajaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -85,7 +86,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
-                    new SqlParameter("@fecAperturaCaja", obj.fecAperturaCaja)
+                    new SqlParameter("@fecAperturaCaja", obj.fecAperturaCaja.ToShortDateString())
                 };
             return this.BuscarObjeto("isp_ListarAperturaCajasPorFecha", lParameter);
         }

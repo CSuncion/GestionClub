@@ -83,6 +83,8 @@ namespace GestionClubView.Maestros
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._fecAperturaCaja, "Fecha", 80));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._montoAperturaCaja, "Monto", 80));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._estadoAperturaCaja, "Estado", 150));
+            iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._idAperturaCaja, "idAperturaCaja", 150, false));
+            iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._claveObjeto, "claveObjeto", 150, false));
 
             //devolver
             return iLisAperturaCaja;
