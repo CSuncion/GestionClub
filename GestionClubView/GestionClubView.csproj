@@ -407,7 +407,6 @@
       <DependentUpon>DsCredits.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Plantilla\Plantilla_Decomicro.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -502,6 +501,9 @@
       <Project>{d4a04c84-74e9-4d9b-b3f5-d6c4ad03c0b7}</Project>
       <Name>GestionClubUtil</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plantilla\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,10 +46,19 @@ namespace GestionClubView.Pedidos
             this.CargarProductosSeleccionados();
             this.CargarRutas();
             this.CargarDatosEmpresa();
+            this.GenerarCorrelativo();
             this.MostrarProductosPedidosEnComandaBD(objCom);
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
+        }
+        public void GenerarCorrelativo()
+        {
+            GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
+            this.txtSerDoc.Text = gestionClubCorrelativoComprobanteDto.serCorrelativo;
+            this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void InicializaVentana()
         {
@@ -88,11 +97,11 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -121,9 +130,12 @@ namespace GestionClubView.Pedidos
         {
             lvProductosSeleccionados.View = View.LargeIcon;
 
-            lvProductosSeleccionados.Columns.Add("PRODUCTOS", 220);
-            lvProductosSeleccionados.Columns.Add("CANTIDAD", 80);
-            lvProductosSeleccionados.Columns.Add("IMPORTE", 100);
+            lvProductosSeleccionados.Columns.Add("PRODUCTOS", 230);
+            lvProductosSeleccionados.Columns.Add("CANTIDAD", 70);
+            lvProductosSeleccionados.Columns.Add("IMPORTE", 70);
+
+            lvProductosSeleccionados.Columns[1].TextAlign = HorizontalAlignment.Center;
+            lvProductosSeleccionados.Columns[2].TextAlign = HorizontalAlignment.Right;
         }
         public void CargarRutas()
         {
@@ -151,11 +163,13 @@ namespace GestionClubView.Pedidos
         }
         public void MostrarProductosPedidosEnComandaBD(GestionClubComandaDto objCom)
         {
-            lvProductosSeleccionados.View = View.Details;
+            this.lvProductosSeleccionados.Items.Clear();
+            //this.lvProductosSeleccionados.Columns.Clear();
+            //this.lvProductosSeleccionados.Clear();
+            this.lvProductosSeleccionados.View = View.Details;
 
             GestionClubDetalleComandaDto objEn = new GestionClubDetalleComandaDto();
             objEn.idMesa = objCom.idMesa;
-            this.lvProductosSeleccionados.Items.Clear();
 
             this.lObjDetalle = GestionClubComandaController.ListarDetalleComandaPorMesaYPendienteCobrar(objEn);
 
@@ -183,6 +197,7 @@ namespace GestionClubView.Pedidos
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
                 this.lvProductosSeleccionados.Items.Add(new ListViewItem(new[] { detalle.desProducto.ToString(), detalle.cantidad.ToString(), detalle.preVenta.ToString() }, detalle.idProducto.ToString()));
+
                 this.lblCantidad.Text = (Convert.ToInt32(this.lblCantidad.Text) + Convert.ToInt32(detalle.cantidad.ToString())).ToString();
                 this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) + Convert.ToInt32(detalle.cantidad.ToString()) * Convert.ToDecimal(detalle.preVenta)).ToString();
             }
@@ -447,13 +462,24 @@ namespace GestionClubView.Pedidos
             int saltoLinea = 120;
             decimal total = 0;
             string subtotal = string.Empty, igv = string.Empty;
+
+            StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
+            //format.LineAlignment = StringAlignment.;
+
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
             {
                 saltoLinea = saltoLinea + 15;
-                g.DrawString(item.SubItems[1].Text, fBodyNoBold, sb, 180, SPACE + (saltoLinea));
+                g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 180, SPACE + (saltoLinea));
                 g.DrawString(item.SubItems[0].Text, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
-                g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
-                g.DrawString((Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text)).ToString(), fBodyNoBold, sb, 230, SPACE + (saltoLinea));
+                g.DrawString(item.SubItems[1].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
+
+
+                string precioPorCantidad = ((Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text))).ToString();
+                SizeF stringSize = new SizeF();
+                stringSize = e.Graphics.MeasureString(precioPorCantidad, fBodyNoBold, 230);
+
+                g.DrawString(precioPorCantidad, fBodyNoBold, sb, 230, SPACE + (saltoLinea));
+
                 total += Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text);
             }
 

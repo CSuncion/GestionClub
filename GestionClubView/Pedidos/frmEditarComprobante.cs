@@ -83,11 +83,11 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();

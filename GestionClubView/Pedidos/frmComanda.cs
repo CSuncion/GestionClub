@@ -264,11 +264,14 @@ namespace GestionClubView.Pedidos
 
             lvProductosSeleccionados.View = View.LargeIcon;
 
-            lvProductosSeleccionados.Columns.Add("PRODUCTOS", 220);
-            lvProductosSeleccionados.Columns.Add("CANTIDAD", 80);
-            lvProductosSeleccionados.Columns.Add("IMPORTE", 100);
+            lvProductosSeleccionados.Columns.Add("PRODUCTOS", 230);
+            lvProductosSeleccionados.Columns.Add("CANTIDAD", 70);
+            lvProductosSeleccionados.Columns.Add("IMPORTE", 70);
             lvProductosSeleccionados.Columns.Add("IdDetalleComanda", 100);
             lvProductosSeleccionados.Columns[3].Width = 0;
+
+            lvProductosSeleccionados.Columns[1].TextAlign = HorizontalAlignment.Center;
+            lvProductosSeleccionados.Columns[2].TextAlign = HorizontalAlignment.Right;
         }
 
         public void AccionCobrar()

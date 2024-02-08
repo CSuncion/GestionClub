@@ -49,27 +49,32 @@
             this.tsmMasterClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmParametrosVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMesas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAperturaCaja = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAmbientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEdicionComprobante = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmFactura = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmBoleta = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformatica = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRespaldoBackup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSeleccionarCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.tsAccDir = new System.Windows.Forms.ToolStrip();
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsmSeleccionarCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAperturaCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdicionComprobante = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmFactura = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmBoleta = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -185,6 +190,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maestrosToolStripMenuItem,
             this.pedidosToolStripMenuItem,
+            this.ventasToolStripMenuItem,
+            this.facturaElectronicaToolStripMenuItem,
+            this.stockElectronicaToolStripMenuItem,
+            this.consultasToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.tsmInformatica,
             this.tsmAcercaDe});
             this.menuStrip1.Name = "menuStrip1";
@@ -197,9 +207,6 @@
             this.tsmMasterClientes,
             this.tsmParametrosVentas,
             this.tsmMesas,
-            this.tsmMozosUsuarios,
-            this.tsmAperturaCaja,
-            this.tsmCierreCaja,
             this.tsmAmbientes,
             this.tsmCategorias});
             resources.ApplyResources(this.maestrosToolStripMenuItem, "maestrosToolStripMenuItem");
@@ -234,24 +241,6 @@
             this.tsmMesas.Name = "tsmMesas";
             this.tsmMesas.Click += new System.EventHandler(this.tsmMesas_Click);
             // 
-            // tsmMozosUsuarios
-            // 
-            resources.ApplyResources(this.tsmMozosUsuarios, "tsmMozosUsuarios");
-            this.tsmMozosUsuarios.Name = "tsmMozosUsuarios";
-            this.tsmMozosUsuarios.Click += new System.EventHandler(this.tsmMozosUsuarios_Click);
-            // 
-            // tsmAperturaCaja
-            // 
-            resources.ApplyResources(this.tsmAperturaCaja, "tsmAperturaCaja");
-            this.tsmAperturaCaja.Name = "tsmAperturaCaja";
-            this.tsmAperturaCaja.Click += new System.EventHandler(this.tsmAperturaCaja_Click);
-            // 
-            // tsmCierreCaja
-            // 
-            resources.ApplyResources(this.tsmCierreCaja, "tsmCierreCaja");
-            this.tsmCierreCaja.Name = "tsmCierreCaja";
-            this.tsmCierreCaja.Click += new System.EventHandler(this.tsmCierreCaja_Click);
-            // 
             // tsmAmbientes
             // 
             resources.ApplyResources(this.tsmAmbientes, "tsmAmbientes");
@@ -269,8 +258,7 @@
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmComanda,
             this.tsmComprobante,
-            this.tsmListadoPedidos,
-            this.tsmEdicionComprobante});
+            this.tsmListadoPedidos});
             resources.ApplyResources(this.pedidosToolStripMenuItem, "pedidosToolStripMenuItem");
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             // 
@@ -292,34 +280,11 @@
             this.tsmListadoPedidos.Name = "tsmListadoPedidos";
             this.tsmListadoPedidos.Click += new System.EventHandler(this.tsmListadoPedidos_Click);
             // 
-            // tsmEdicionComprobante
-            // 
-            this.tsmEdicionComprobante.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmFactura,
-            this.tsmBoleta,
-            this.tsmNotaCredito});
-            resources.ApplyResources(this.tsmEdicionComprobante, "tsmEdicionComprobante");
-            this.tsmEdicionComprobante.Name = "tsmEdicionComprobante";
-            // 
-            // tsmFactura
-            // 
-            resources.ApplyResources(this.tsmFactura, "tsmFactura");
-            this.tsmFactura.Name = "tsmFactura";
-            // 
-            // tsmBoleta
-            // 
-            resources.ApplyResources(this.tsmBoleta, "tsmBoleta");
-            this.tsmBoleta.Name = "tsmBoleta";
-            // 
-            // tsmNotaCredito
-            // 
-            resources.ApplyResources(this.tsmNotaCredito, "tsmNotaCredito");
-            this.tsmNotaCredito.Name = "tsmNotaCredito";
-            // 
             // tsmInformatica
             // 
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmRespaldoBackup,
+            this.tsmMozosUsuarios,
             this.tsmSeleccionarCaja});
             resources.ApplyResources(this.tsmInformatica, "tsmInformatica");
             this.tsmInformatica.Name = "tsmInformatica";
@@ -329,6 +294,11 @@
             resources.ApplyResources(this.tsmRespaldoBackup, "tsmRespaldoBackup");
             this.tsmRespaldoBackup.Name = "tsmRespaldoBackup";
             this.tsmRespaldoBackup.Click += new System.EventHandler(this.tsmRespaldoBackup_Click);
+            // 
+            // tsmSeleccionarCaja
+            // 
+            resources.ApplyResources(this.tsmSeleccionarCaja, "tsmSeleccionarCaja");
+            this.tsmSeleccionarCaja.Name = "tsmSeleccionarCaja";
             // 
             // tsmAcercaDe
             // 
@@ -364,10 +334,75 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // tsmSeleccionarCaja
+            // ventasToolStripMenuItem
             // 
-            resources.ApplyResources(this.tsmSeleccionarCaja, "tsmSeleccionarCaja");
-            this.tsmSeleccionarCaja.Name = "tsmSeleccionarCaja";
+            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAperturaCaja,
+            this.tsmCierreCaja,
+            this.tsmEdicionComprobante});
+            resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            // 
+            // facturaElectronicaToolStripMenuItem
+            // 
+            resources.ApplyResources(this.facturaElectronicaToolStripMenuItem, "facturaElectronicaToolStripMenuItem");
+            this.facturaElectronicaToolStripMenuItem.Name = "facturaElectronicaToolStripMenuItem";
+            // 
+            // stockElectronicaToolStripMenuItem
+            // 
+            resources.ApplyResources(this.stockElectronicaToolStripMenuItem, "stockElectronicaToolStripMenuItem");
+            this.stockElectronicaToolStripMenuItem.Name = "stockElectronicaToolStripMenuItem";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            // 
+            // consultasToolStripMenuItem
+            // 
+            resources.ApplyResources(this.consultasToolStripMenuItem, "consultasToolStripMenuItem");
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            // 
+            // tsmAperturaCaja
+            // 
+            resources.ApplyResources(this.tsmAperturaCaja, "tsmAperturaCaja");
+            this.tsmAperturaCaja.Name = "tsmAperturaCaja";
+            this.tsmAperturaCaja.Click += new System.EventHandler(this.tsmAperturaCaja_Click);
+            // 
+            // tsmEdicionComprobante
+            // 
+            this.tsmEdicionComprobante.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmFactura,
+            this.tsmBoleta,
+            this.tsmNotaCredito});
+            resources.ApplyResources(this.tsmEdicionComprobante, "tsmEdicionComprobante");
+            this.tsmEdicionComprobante.Name = "tsmEdicionComprobante";
+            // 
+            // tsmFactura
+            // 
+            resources.ApplyResources(this.tsmFactura, "tsmFactura");
+            this.tsmFactura.Name = "tsmFactura";
+            // 
+            // tsmBoleta
+            // 
+            resources.ApplyResources(this.tsmBoleta, "tsmBoleta");
+            this.tsmBoleta.Name = "tsmBoleta";
+            // 
+            // tsmNotaCredito
+            // 
+            resources.ApplyResources(this.tsmNotaCredito, "tsmNotaCredito");
+            this.tsmNotaCredito.Name = "tsmNotaCredito";
+            // 
+            // tsmCierreCaja
+            // 
+            resources.ApplyResources(this.tsmCierreCaja, "tsmCierreCaja");
+            this.tsmCierreCaja.Name = "tsmCierreCaja";
+            this.tsmCierreCaja.Click += new System.EventHandler(this.tsmCierreCaja_Click);
+            // 
+            // tsmMozosUsuarios
+            // 
+            resources.ApplyResources(this.tsmMozosUsuarios, "tsmMozosUsuarios");
+            this.tsmMozosUsuarios.Name = "tsmMozosUsuarios";
             // 
             // frmPrincipal
             // 
@@ -421,18 +456,11 @@
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maestrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmParametrosVentas;
-        private System.Windows.Forms.ToolStripMenuItem tsmEdicionComprobante;
-        private System.Windows.Forms.ToolStripMenuItem tsmFactura;
-        private System.Windows.Forms.ToolStripMenuItem tsmBoleta;
-        private System.Windows.Forms.ToolStripMenuItem tsmNotaCredito;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProveedores;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterClientes;
-        internal System.Windows.Forms.ToolStripMenuItem tsmAperturaCaja;
-        internal System.Windows.Forms.ToolStripMenuItem tsmCierreCaja;
         internal System.Windows.Forms.ToolStripMenuItem tsmListadoPedidos;
         internal System.Windows.Forms.ToolStripMenuItem tsmMesas;
-        internal System.Windows.Forms.ToolStripMenuItem tsmMozosUsuarios;
         internal System.Windows.Forms.ToolStripMenuItem tsmAmbientes;
         internal System.Windows.Forms.ToolStripMenuItem tsmComanda;
         internal System.Windows.Forms.ToolStripButton tsbComanda;
@@ -441,5 +469,17 @@
         internal System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStripMenuItem tsmSeleccionarCaja;
         internal System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripMenuItem tsmAperturaCaja;
+        private System.Windows.Forms.ToolStripMenuItem facturaElectronicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockElectronicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripMenuItem tsmCierreCaja;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdicionComprobante;
+        private System.Windows.Forms.ToolStripMenuItem tsmFactura;
+        private System.Windows.Forms.ToolStripMenuItem tsmBoleta;
+        private System.Windows.Forms.ToolStripMenuItem tsmNotaCredito;
+        internal System.Windows.Forms.ToolStripMenuItem tsmMozosUsuarios;
     }
 }

@@ -45,13 +45,10 @@ namespace GestionClubView.MdiPrincipal
         {
             this.ShowOptionsReport();
         }
-        private void tsSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Mensaje.DeseasRealizarOperacion("¿Desea salir del sistema?", "Sistema Gestión Club COSFUP"))
+                this.Close();
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
