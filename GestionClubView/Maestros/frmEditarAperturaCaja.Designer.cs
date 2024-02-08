@@ -35,11 +35,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.dtpFecAperturaCaja = new System.Windows.Forms.DateTimePicker();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -112,15 +112,25 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 81);
+            this.groupBox1.Size = new System.Drawing.Size(330, 86);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(218, 20);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(18, 22);
+            this.txtId.TabIndex = 216;
+            this.txtId.Visible = false;
             // 
             // dtpFecAperturaCaja
             // 
             this.dtpFecAperturaCaja.CustomFormat = "dd/MM/yyyy";
             this.dtpFecAperturaCaja.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecAperturaCaja.Location = new System.Drawing.Point(95, 19);
+            this.dtpFecAperturaCaja.Location = new System.Drawing.Point(112, 20);
             this.dtpFecAperturaCaja.Name = "dtpFecAperturaCaja";
             this.dtpFecAperturaCaja.Size = new System.Drawing.Size(100, 21);
             this.dtpFecAperturaCaja.TabIndex = 6;
@@ -129,7 +139,7 @@
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(95, 46);
+            this.txtMonto.Location = new System.Drawing.Point(112, 47);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 22);
             this.txtMonto.TabIndex = 3;
@@ -138,7 +148,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 49);
+            this.label2.Location = new System.Drawing.Point(61, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 14);
             this.label2.TabIndex = 2;
@@ -148,28 +158,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 24);
+            this.label1.Location = new System.Drawing.Point(64, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha:";
-            // 
-            // txtId
-            // 
-            this.txtId.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(201, 19);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(18, 22);
-            this.txtId.TabIndex = 216;
-            this.txtId.Visible = false;
             // 
             // frmEditarAperturaCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(354, 172);
+            this.ClientSize = new System.Drawing.Size(354, 176);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);

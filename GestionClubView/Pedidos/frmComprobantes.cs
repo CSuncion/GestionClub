@@ -42,7 +42,8 @@ namespace GestionClubView.Pedidos
             bool result = true;
             GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
             gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
-            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
+            gestionClubAperturaCajaDto.caja = Universal.caja;
+            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(gestionClubAperturaCajaDto);
 
             if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
 

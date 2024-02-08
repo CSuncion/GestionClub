@@ -194,10 +194,12 @@ namespace GestionClubView.Maestros
         public void AsignarAperturaCaja(GestionClubAperturaCajaDto pObj)
         {
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
+            pObj.caja = Universal.caja;
             pObj.fecAperturaCaja = Convert.ToDateTime(this.dtpFecAperturaCaja.Text);
             pObj.montoAperturaCaja = Convert.ToDecimal(this.txtMonto.Text);
             pObj.estadoAperturaCaja = "01";
             pObj.idAperturaCaja = Convert.ToInt32(this.txtId.Text);
+            //Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);  
         }
         public void VentanaModificar(GestionClubAperturaCajaDto pObj)
         {
@@ -213,7 +215,7 @@ namespace GestionClubView.Maestros
         {
             GestionClubAperturaCajaDto iPerEN = new GestionClubAperturaCajaDto();
             this.AsignarAperturaCaja(iPerEN);
-            iPerEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(iPerEN);
+            iPerEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(iPerEN);
             this.AsignarAperturaCaja(iPerEN);
             GestionClubAperturaCajaController.ModificarAperturaCaja(iPerEN);
         }

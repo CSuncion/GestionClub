@@ -13,6 +13,7 @@ namespace GestionClubModel.ModelDto
         public const string _idEmpresa = "idEmpresa";
         public const string _fecAperturaCaja = "fecAperturaCaja";
         public const string _montoAperturaCaja = "montoAperturaCaja";
+        public const string _caja = "caja";
         public const string _estadoAperturaCaja = "estadoAperturaCaja";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -24,6 +25,7 @@ namespace GestionClubModel.ModelDto
         public int idEmpresa { get; set; }
         public DateTime fecAperturaCaja { get; set; } = DateTime.Now;
         public decimal montoAperturaCaja { get; set; }
+        public string caja { get; set; }
         public string estadoAperturaCaja { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }

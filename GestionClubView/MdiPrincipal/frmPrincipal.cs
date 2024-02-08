@@ -38,7 +38,7 @@ namespace GestionClubView.MdiPrincipal
         {
             this.NewWindowAccess();
             this.AccesoPorPerfiles();
-            if (!this.ValidaAperturaCaja()) { this.InstanciarAperturaCaja(); }
+            this.InstanciarSeleccionarCaja();
 
         }
         private void btnReports_Click(object sender, EventArgs e)
@@ -162,7 +162,8 @@ namespace GestionClubView.MdiPrincipal
             bool result = true;
             GestionClubAperturaCajaDto gestionClubAperturaCajaDto = new GestionClubAperturaCajaDto();
             gestionClubAperturaCajaDto.fecAperturaCaja = DateTime.Now;
-            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(gestionClubAperturaCajaDto);
+            //gestionClubAperturaCajaDto.caja = 
+            gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(gestionClubAperturaCajaDto);
 
             if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
 
@@ -281,7 +282,6 @@ namespace GestionClubView.MdiPrincipal
             this.BackColor = Color.White;
             TabCtrl.InsertarVentanaConTabPage(this.tbcContainer, pWin, PAncVen, pAltVen);
         }
-
         public void InstanciarRespaldoBackup()
         {
             frmRespaldoBackup win = new frmRespaldoBackup();
@@ -357,6 +357,13 @@ namespace GestionClubView.MdiPrincipal
             frmAperturaCaja win = new frmAperturaCaja();
             this.FormatoVentanaHijoPrincipal(win, this.tsmAperturaCaja, null, 0, 0);
             win.NewWindow();
+        }
+        public void InstanciarSeleccionarCaja()
+        {
+            frmSeleccionarCaja win = new frmSeleccionarCaja();
+            win.wFrm = this;
+            this.FormatoVentanaHijoPrincipal(win, this.tsmSeleccionarCaja, null, 0, 0);
+            win.VentanaSeleccionar();
         }
         public void InstanciarCierreCaja()
         {

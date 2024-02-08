@@ -239,6 +239,7 @@
             this.DgvAperturaCaja.Name = "DgvAperturaCaja";
             this.DgvAperturaCaja.Size = new System.Drawing.Size(800, 357);
             this.DgvAperturaCaja.TabIndex = 112;
+            this.DgvAperturaCaja.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAperturaCaja_CellMouseDoubleClick);
             // 
             // frmAperturaCaja
             // 

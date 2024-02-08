@@ -123,6 +123,12 @@
     <Compile Include="Listas\frmListarClientes.Designer.cs">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="MdiPrincipal\frmSeleccionarCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiPrincipal\frmSeleccionarCaja.Designer.cs">
+      <DependentUpon>frmSeleccionarCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pedidos\frmCobrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarClientes.resx">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiPrincipal\frmSeleccionarCaja.resx">
+      <DependentUpon>frmSeleccionarCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmCobrar.resx">
       <DependentUpon>frmCobrar.cs</DependentUpon>

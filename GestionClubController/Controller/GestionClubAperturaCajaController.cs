@@ -22,10 +22,10 @@ namespace GestionClubController.Controller
             GestionClubAperturaCajaRepository obj = new GestionClubAperturaCajaRepository();
             return obj.ListarAperturaCajas();
         }
-        public static GestionClubAperturaCajaDto ListarAperturaCajasPorFecha(GestionClubAperturaCajaDto obj)
+        public static GestionClubAperturaCajaDto ListarAperturaCajasPorFechaPorCaja(GestionClubAperturaCajaDto obj)
         {
             GestionClubAperturaCajaRepository xObj = new GestionClubAperturaCajaRepository();
-            return xObj.ListarAperturaCajasPorFecha(obj);
+            return xObj.ListarAperturaCajasPorFechaPorCaja(obj);
         }
         public List<GestionClubAperturaCajaDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubAperturaCajaDto> pListaOperations)
         {
@@ -91,7 +91,7 @@ namespace GestionClubController.Controller
             GestionClubAperturaCajaDto iAperCaja = new GestionClubAperturaCajaDto();
 
             //validar    
-            iAperCaja = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(pObj);
+            iAperCaja = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(pObj);
             if (iAperCaja.idAperturaCaja.ToString() != "0")
             {
                 iAperCaja.Adicionales.EsVerdad = false;
@@ -147,7 +147,7 @@ namespace GestionClubController.Controller
 
             //validar
             //pObj.ClavePersonal = GestionClubAperturaCajaController.ObtenerClavePersonal(pObj);
-            iAmbEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFecha(pObj);
+            iAmbEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(pObj);
             if (iAmbEN.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
             {
                 iAmbEN.Adicionales.EsVerdad = false;

@@ -27,6 +27,7 @@ namespace GestionClubUtil.Enum
             public static string TipoSocio = "14";
             public static string TipoCliente = "09";
             public static string DocFac = "01";
+            public static string Caja = "17";
         }
     }
 }

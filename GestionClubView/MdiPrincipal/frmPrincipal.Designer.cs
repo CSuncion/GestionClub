@@ -56,6 +56,7 @@
             this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmEdicionComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmFactura = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +69,7 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmSeleccionarCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -279,6 +280,12 @@
             this.tsmComanda.Name = "tsmComanda";
             this.tsmComanda.Click += new System.EventHandler(this.tsmComanda_Click);
             // 
+            // tsmComprobante
+            // 
+            resources.ApplyResources(this.tsmComprobante, "tsmComprobante");
+            this.tsmComprobante.Name = "tsmComprobante";
+            this.tsmComprobante.Click += new System.EventHandler(this.tsmComprobante_Click);
+            // 
             // tsmListadoPedidos
             // 
             resources.ApplyResources(this.tsmListadoPedidos, "tsmListadoPedidos");
@@ -312,7 +319,8 @@
             // tsmInformatica
             // 
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmRespaldoBackup});
+            this.tsmRespaldoBackup,
+            this.tsmSeleccionarCaja});
             resources.ApplyResources(this.tsmInformatica, "tsmInformatica");
             this.tsmInformatica.Name = "tsmInformatica";
             // 
@@ -356,11 +364,10 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // tsmComprobante
+            // tsmSeleccionarCaja
             // 
-            resources.ApplyResources(this.tsmComprobante, "tsmComprobante");
-            this.tsmComprobante.Name = "tsmComprobante";
-            this.tsmComprobante.Click += new System.EventHandler(this.tsmComprobante_Click);
+            resources.ApplyResources(this.tsmSeleccionarCaja, "tsmSeleccionarCaja");
+            this.tsmSeleccionarCaja.Name = "tsmSeleccionarCaja";
             // 
             // frmPrincipal
             // 
@@ -406,12 +413,10 @@
         private System.Windows.Forms.Button btnRestaurar;
         private System.Windows.Forms.Timer tmOcultarMenu;
         private System.Windows.Forms.Timer tmMostrarMenu;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmInformatica;
         internal System.Windows.Forms.ToolStripMenuItem tsmRespaldoBackup;
         private System.Windows.Forms.ToolStrip tsAccDir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maestrosToolStripMenuItem;
@@ -433,5 +438,8 @@
         internal System.Windows.Forms.ToolStripButton tsbComanda;
         internal System.Windows.Forms.ToolStripMenuItem tsmCategorias;
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobante;
+        internal System.Windows.Forms.ToolStripButton tsbSalir;
+        internal System.Windows.Forms.ToolStripMenuItem tsmSeleccionarCaja;
+        internal System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

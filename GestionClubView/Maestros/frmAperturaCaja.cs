@@ -82,6 +82,7 @@ namespace GestionClubView.Maestros
             //agregando las columnas
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._fecAperturaCaja, "Fecha", 80));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._montoAperturaCaja, "Monto", 80));
+            iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._caja, "Caja", 80));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._estadoAperturaCaja, "Estado", 150));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._idAperturaCaja, "idAperturaCaja", 150, false));
             iLisAperturaCaja.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._claveObjeto, "claveObjeto", 150, false));
@@ -171,6 +172,7 @@ namespace GestionClubView.Maestros
         public void AsignarAperturaCaja(GestionClubAperturaCajaDto pObj)
         {
             pObj.idAperturaCaja = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvAperturaCaja, GestionClubAperturaCajaDto._idAperturaCaja));
+            pObj.caja = Convert.ToString(Dgv.ObtenerValorCelda(this.DgvAperturaCaja, GestionClubAperturaCajaDto._caja));
         }
         public void AccionModificarAlHacerDobleClick(int pColumna, int pFila)
         {
@@ -298,6 +300,11 @@ namespace GestionClubView.Maestros
         private void tstBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             this.ActualizarVentanaAlBuscarValor(e);
+        }
+
+        private void DgvAperturaCaja_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
     }
 }
