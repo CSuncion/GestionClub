@@ -25,5 +25,10 @@ namespace GestionClubController.Controller
             GestionClubGeneralRepository objRepo = new GestionClubGeneralRepository();
             return objRepo.ListarSistemaDetallePorTabla(tabla);
         }
+        public static List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTablaPorObs(string tabla, string obs)
+        {
+            GestionClubGeneralRepository objRepo = new GestionClubGeneralRepository();
+            return objRepo.ListarSistemaDetallePorTablaPorObs(tabla, obs);
+        }
     }
 }

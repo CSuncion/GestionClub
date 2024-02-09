@@ -58,7 +58,7 @@ namespace GestionClubView.Pedidos
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
             gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
-            this.txtSerDoc.Text = gestionClubCorrelativoComprobanteDto.serCorrelativo;
+            this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0,1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
             this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void InicializaVentana()
@@ -156,7 +156,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.DocFac.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos"), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -272,10 +272,20 @@ namespace GestionClubView.Pedidos
             //salir de la ventana
             this.Close();
         }
+        public void ActualizarCorrelativoComprobante()
+        {
+            this.GenerarCorrelativo();
+            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
+            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.serCorrelativo = this.txtSerDoc.Text;
+            obj.nroCorrelativo = this.txtNroDoc.Text;
+            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
         public void AdicionarComprobante()
         {
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
+            this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
 
@@ -601,6 +611,11 @@ namespace GestionClubView.Pedidos
         {
             this.presionTicket = true;
             this.ImprimirPreTicket();
+        }
+
+        private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.GenerarCorrelativo();
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)

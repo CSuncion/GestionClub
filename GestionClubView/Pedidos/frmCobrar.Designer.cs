@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtApeNom = new System.Windows.Forms.TextBox();
             this.txtDocId = new System.Windows.Forms.TextBox();
@@ -82,7 +83,6 @@
             this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -176,6 +176,16 @@
             this.groupBox1.Size = new System.Drawing.Size(660, 49);
             this.groupBox1.TabIndex = 452;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTipoDoc
+            // 
+            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoDoc.Location = new System.Drawing.Point(615, 15);
+            this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.ReadOnly = true;
+            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
+            this.txtTipoDoc.TabIndex = 452;
+            this.txtTipoDoc.Visible = false;
             // 
             // txtIdCliente
             // 
@@ -633,6 +643,7 @@
             this.cboTipDoc.Name = "cboTipDoc";
             this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
             this.cboTipDoc.TabIndex = 450;
+            this.cboTipDoc.SelectionChangeCommitted += new System.EventHandler(this.cboTipDoc_SelectionChangeCommitted);
             // 
             // txtSerDoc
             // 
@@ -651,16 +662,6 @@
             this.label7.Size = new System.Drawing.Size(31, 14);
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
-            // 
-            // txtTipoDoc
-            // 
-            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoDoc.Location = new System.Drawing.Point(615, 15);
-            this.txtTipoDoc.Name = "txtTipoDoc";
-            this.txtTipoDoc.ReadOnly = true;
-            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
-            this.txtTipoDoc.TabIndex = 452;
-            this.txtTipoDoc.Visible = false;
             // 
             // frmCobrar
             // 

@@ -24,6 +24,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idTabSistemaDetalle = Convert.ToInt32(iDr["idTabSistemaDetalle"]);
             xObjEnc.idTabSistema = Convert.ToInt32(iDr["idTabSistema"]);
             xObjEnc.gestionClubSistemaDto.titSistema = Convert.ToString(iDr["titSistema"]);
+            xObjEnc.gestionClubSistemaDto.nroSistema = Convert.ToString(iDr["nroSistema"]);
             xObjEnc.codigo = iDr["codigo"].ToString();
             xObjEnc.descri = iDr["descri"].ToString();
             xObjEnc.desbrv = iDr["desbrv"].ToString();
@@ -97,6 +98,14 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametro("isp_ListarSistemaDetallePorTabla", lParameter);
         }
-
+        public List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTablaPorObs(string tabla, string obs)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@tabla", tabla),
+                new SqlParameter("@obs", obs)
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarSistemaDetallePorTablaPorObs", lParameter);
+        }
     }
 }

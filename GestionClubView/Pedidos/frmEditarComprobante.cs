@@ -133,7 +133,7 @@ namespace GestionClubView.Pedidos
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
             gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
-            this.txtSerDoc.Text = gestionClubCorrelativoComprobanteDto.serCorrelativo;
+            this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0, 1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
             this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void CargarRutas()
@@ -223,7 +223,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.DocFac.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos"), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -291,6 +291,7 @@ namespace GestionClubView.Pedidos
         {
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
+            this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
 
@@ -657,7 +658,15 @@ namespace GestionClubView.Pedidos
             }
             return result;
         }
-
+        public void ActualizarCorrelativoComprobante()
+        {
+            this.GenerarCorrelativo();
+            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
+            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.serCorrelativo = this.txtSerDoc.Text;
+            obj.nroCorrelativo = this.txtNroDoc.Text;
+            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
             this.EsClienteValido();
@@ -706,6 +715,11 @@ namespace GestionClubView.Pedidos
         private void chDeposito_CheckedChanged(object sender, EventArgs e)
         {
             this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
+        }
+
+        private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.GenerarCorrelativo();
         }
 
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)

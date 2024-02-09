@@ -11,5 +11,6 @@ namespace GestionClubRepository.IRepository
     {
         void CrearBackupDbFbPol();
         List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTabla(string tabla);
+        List<GestionClubSistemaDetalleDto> ListarSistemaDetallePorTablaPorObs(string tabla, string obs);
     }
 }

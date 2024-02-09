@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtApeNom = new System.Windows.Forms.TextBox();
             this.txtDocId = new System.Windows.Forms.TextBox();
@@ -66,19 +67,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblPendiente = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
             this.txtTransferencia = new System.Windows.Forms.TextBox();
             this.chTransferencia = new System.Windows.Forms.CheckBox();
             this.txtDeposito = new System.Windows.Forms.TextBox();
             this.chDeposito = new System.Windows.Forms.CheckBox();
             this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.chEfectivo = new System.Windows.Forms.CheckBox();
-            this.txtTipoDoc = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblPendiente = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -162,6 +162,16 @@
             this.groupBox1.Size = new System.Drawing.Size(706, 49);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtTipoDoc
+            // 
+            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoDoc.Location = new System.Drawing.Point(648, 20);
+            this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.ReadOnly = true;
+            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
+            this.txtTipoDoc.TabIndex = 451;
+            this.txtTipoDoc.Visible = false;
             // 
             // txtIdCliente
             // 
@@ -314,6 +324,7 @@
             this.cboTipDoc.Name = "cboTipDoc";
             this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
             this.cboTipDoc.TabIndex = 450;
+            this.cboTipDoc.SelectionChangeCommitted += new System.EventHandler(this.cboTipDoc_SelectionChangeCommitted);
             // 
             // txtSerDoc
             // 
@@ -496,66 +507,6 @@
             this.groupBox5.TabIndex = 464;
             this.groupBox5.TabStop = false;
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(21, 108);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 14);
-            this.label15.TabIndex = 460;
-            this.label15.Text = "(S/) Pendiente";
-            // 
-            // lblPendiente
-            // 
-            this.lblPendiente.AutoSize = true;
-            this.lblPendiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendiente.Location = new System.Drawing.Point(112, 109);
-            this.lblPendiente.Name = "lblPendiente";
-            this.lblPendiente.Size = new System.Drawing.Size(13, 14);
-            this.lblPendiente.TabIndex = 459;
-            this.lblPendiente.Text = "0";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(351, 487);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(13, 14);
-            this.lblCantidad.TabIndex = 468;
-            this.lblCantidad.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(351, 470);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 14);
-            this.label5.TabIndex = 467;
-            this.label5.Text = "CANTIDAD";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(418, 470);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 14);
-            this.label6.TabIndex = 466;
-            this.label6.Text = "(S/) TOTAL";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(418, 487);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(13, 14);
-            this.lblTotal.TabIndex = 465;
-            this.lblTotal.Text = "0";
-            // 
             // txtTransferencia
             // 
             this.txtTransferencia.Enabled = false;
@@ -616,15 +567,65 @@
             this.chEfectivo.UseVisualStyleBackColor = true;
             this.chEfectivo.CheckedChanged += new System.EventHandler(this.chEfectivo_CheckedChanged);
             // 
-            // txtTipoDoc
+            // label15
             // 
-            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoDoc.Location = new System.Drawing.Point(648, 20);
-            this.txtTipoDoc.Name = "txtTipoDoc";
-            this.txtTipoDoc.ReadOnly = true;
-            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
-            this.txtTipoDoc.TabIndex = 451;
-            this.txtTipoDoc.Visible = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(21, 108);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(85, 14);
+            this.label15.TabIndex = 460;
+            this.label15.Text = "(S/) Pendiente";
+            // 
+            // lblPendiente
+            // 
+            this.lblPendiente.AutoSize = true;
+            this.lblPendiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendiente.Location = new System.Drawing.Point(112, 109);
+            this.lblPendiente.Name = "lblPendiente";
+            this.lblPendiente.Size = new System.Drawing.Size(13, 14);
+            this.lblPendiente.TabIndex = 459;
+            this.lblPendiente.Text = "0";
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidad.Location = new System.Drawing.Point(351, 487);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(13, 14);
+            this.lblCantidad.TabIndex = 468;
+            this.lblCantidad.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(351, 470);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 14);
+            this.label5.TabIndex = 467;
+            this.label5.Text = "CANTIDAD";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(418, 470);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 14);
+            this.label6.TabIndex = 466;
+            this.label6.Text = "(S/) TOTAL";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(418, 487);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(13, 14);
+            this.lblTotal.TabIndex = 465;
+            this.lblTotal.Text = "0";
             // 
             // frmEditarComprobante
             // 
