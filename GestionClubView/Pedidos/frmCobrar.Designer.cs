@@ -82,6 +82,7 @@
             this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -164,6 +165,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTipoDoc);
             this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.txtApeNom);
             this.groupBox1.Controls.Add(this.txtDocId);
@@ -178,7 +180,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(636, 15);
+            this.txtIdCliente.Location = new System.Drawing.Point(591, 15);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
             this.txtIdCliente.Size = new System.Drawing.Size(18, 22);
@@ -190,7 +192,7 @@
             this.txtApeNom.Location = new System.Drawing.Point(213, 15);
             this.txtApeNom.Name = "txtApeNom";
             this.txtApeNom.ReadOnly = true;
-            this.txtApeNom.Size = new System.Drawing.Size(417, 21);
+            this.txtApeNom.Size = new System.Drawing.Size(372, 21);
             this.txtApeNom.TabIndex = 449;
             // 
             // txtDocId
@@ -650,6 +652,16 @@
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
             // 
+            // txtTipoDoc
+            // 
+            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoDoc.Location = new System.Drawing.Point(615, 15);
+            this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.ReadOnly = true;
+            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
+            this.txtTipoDoc.TabIndex = 452;
+            this.txtTipoDoc.Visible = false;
+            // 
             // frmCobrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -743,5 +755,6 @@
         private System.Windows.Forms.Label lblIdMozo;
         private System.Windows.Forms.Label lblIdAmbiente;
         private System.Windows.Forms.TextBox txtIdCliente;
+        private System.Windows.Forms.TextBox txtTipoDoc;
     }
 }

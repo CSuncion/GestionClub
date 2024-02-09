@@ -22,6 +22,7 @@ using System.Windows.Forms;
 using System.Windows.Markup;
 using WinControles;
 using WinControles.ControlesWindows;
+using static WinControles.ValidarControl;
 
 namespace GestionClubView.Pedidos
 {
@@ -226,6 +227,7 @@ namespace GestionClubView.Pedidos
             this.txtIdCliente.Text = iCliEN.idCliente.ToString();
             this.txtDocId.Text = iCliEN.nroIdentificacionCliente;
             this.txtApeNom.Text = iCliEN.nombreRazSocialCliente;
+            this.txtTipoDoc.Text = iCliEN.tipCliente;
 
             //devolver
             return iCliEN.Adicionales.EsVerdad;
@@ -463,7 +465,9 @@ namespace GestionClubView.Pedidos
             decimal total = 0;
             string subtotal = string.Empty, igv = string.Empty;
 
-            StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
+            StringFormat formato = new StringFormat();
+            formato.Alignment = StringAlignment.Far;
+            formato.LineAlignment = StringAlignment.Far;
             //format.LineAlignment = StringAlignment.;
 
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
@@ -475,10 +479,8 @@ namespace GestionClubView.Pedidos
 
 
                 string precioPorCantidad = ((Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text))).ToString();
-                SizeF stringSize = new SizeF();
-                stringSize = e.Graphics.MeasureString(precioPorCantidad, fBodyNoBold, 230);
 
-                g.DrawString(precioPorCantidad, fBodyNoBold, sb, 230, SPACE + (saltoLinea));
+                e.Graphics.DrawString(precioPorCantidad, fBodyNoBold, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
 
                 total += Convert.ToDecimal(item.SubItems[2].Text) * Convert.ToInt32(item.SubItems[1].Text);
             }
@@ -490,29 +492,37 @@ namespace GestionClubView.Pedidos
             g.DrawString("Total Gravado:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
             subtotal = Formato.NumeroDecimal(Convert.ToDecimal(total) - (Convert.ToDecimal(total) * Convert.ToDecimal(0.18)), 2);
-            g.DrawString(subtotal.ToString(), fBody, sb, 230, SPACE + saltoLinea);
+
+            e.Graphics.DrawString(subtotal.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            //g.DrawString(subtotal.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("Total No Gravado:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
+
+            e.Graphics.DrawString("0.00", fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            //g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
 
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("IGV 18%:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
             igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * Convert.ToDecimal(0.18), 2);
-            g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
+            e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("Descuento:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
+            e.Graphics.DrawString("0.00", fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            //g.DrawString("0.00", fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("Importe Total:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            g.DrawString(Formato.NumeroDecimal(total.ToString(), 2), fBody, sb, 230, SPACE + saltoLinea);
+            e.Graphics.DrawString(Formato.NumeroDecimal(total.ToString(), 2), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+
+            //g.DrawString(Formato.NumeroDecimal(total.ToString(), 2), fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 30;
             g.DrawString(Formato.MontoComprobanteEnLetras(total, Cmb.ObtenerTexto(this.cboMoneda).ToUpper()), fBodyNoBold, sb, 10, SPACE + saltoLinea);
@@ -523,7 +533,9 @@ namespace GestionClubView.Pedidos
             if (!this.presionTicket)
             {
 
-                string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper();
+                string tipoDoc = this.txtTipoDoc.Text == "01" ? "DNI" : "RUC";
+
+                string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + "|" + tipoDoc + "|" + iComEN.nroIdentificacionCliente + "|" + iComEN.serComprobante + "|" + iComEN.nroComprobante + "|" + iComEN.fecComprobante.ToShortDateString() + "|" + total.ToString();
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
                 QRCode qrCode = new QRCode(qrCodeData);
@@ -547,11 +559,15 @@ namespace GestionClubView.Pedidos
 
                 saltoLinea = saltoLinea + 15;
                 g.DrawImage(Image.FromFile(fileName), 100, SPACE + saltoLinea, 100, 100);
+
+                saltoLinea = saltoLinea + 100;
+                g.DrawString(".", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
             }
-
-            saltoLinea = saltoLinea + 30;
-            g.DrawString(string.Empty, fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
-
+            else
+            {
+                saltoLinea = saltoLinea + 30;
+                g.DrawString(".", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
+            }
 
             g.Dispose();
         }

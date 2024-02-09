@@ -207,14 +207,14 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-        public GestionClubProductoDto ListarProductoPorNroDocumentoPorEmpresa(GestionClubProductoDto pObj)
+        public GestionClubProductoDto ListarProductoPorCodProductoPorEmpresa(GestionClubProductoDto pObj)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@empresa", Universal.gIdEmpresa),
                 new SqlParameter("@codProducto", pObj.codProducto),
                 };
-            return this.BuscarObjeto("isp_ListarProductoPorNroDocumentoPorEmpresa", lParameter);
+            return this.BuscarObjeto("isp_ListarProductoPorCodProductoPorEmpresa", lParameter);
         }
     }
 }

@@ -68,18 +68,17 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.lblPendiente = new System.Windows.Forms.Label();
-            this.txtTransferencia = new System.Windows.Forms.TextBox();
-            this.chTransferencia = new System.Windows.Forms.CheckBox();
-            this.txtTarjeta = new System.Windows.Forms.TextBox();
-            this.chTarjeta = new System.Windows.Forms.CheckBox();
-            this.txtYape = new System.Windows.Forms.TextBox();
-            this.chYape = new System.Windows.Forms.CheckBox();
-            this.txtEfectivo = new System.Windows.Forms.TextBox();
-            this.chEfectivo = new System.Windows.Forms.CheckBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTransferencia = new System.Windows.Forms.TextBox();
+            this.chTransferencia = new System.Windows.Forms.CheckBox();
+            this.txtDeposito = new System.Windows.Forms.TextBox();
+            this.chDeposito = new System.Windows.Forms.CheckBox();
+            this.txtEfectivo = new System.Windows.Forms.TextBox();
+            this.chEfectivo = new System.Windows.Forms.CheckBox();
+            this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -152,6 +151,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTipoDoc);
             this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.txtApeNom);
             this.groupBox1.Controls.Add(this.txtDocId);
@@ -166,7 +166,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(682, 20);
+            this.txtIdCliente.Location = new System.Drawing.Point(624, 19);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
             this.txtIdCliente.Size = new System.Drawing.Size(18, 22);
@@ -175,10 +175,10 @@
             // 
             // txtApeNom
             // 
-            this.txtApeNom.Location = new System.Drawing.Point(213, 20);
+            this.txtApeNom.Location = new System.Drawing.Point(205, 20);
             this.txtApeNom.Name = "txtApeNom";
             this.txtApeNom.ReadOnly = true;
-            this.txtApeNom.Size = new System.Drawing.Size(463, 21);
+            this.txtApeNom.Size = new System.Drawing.Size(413, 21);
             this.txtApeNom.TabIndex = 449;
             // 
             // txtDocId
@@ -481,16 +481,14 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.lblPendiente);
             this.groupBox5.Controls.Add(this.txtTransferencia);
             this.groupBox5.Controls.Add(this.chTransferencia);
-            this.groupBox5.Controls.Add(this.txtTarjeta);
-            this.groupBox5.Controls.Add(this.chTarjeta);
-            this.groupBox5.Controls.Add(this.txtYape);
-            this.groupBox5.Controls.Add(this.chYape);
+            this.groupBox5.Controls.Add(this.txtDeposito);
+            this.groupBox5.Controls.Add(this.chDeposito);
             this.groupBox5.Controls.Add(this.txtEfectivo);
             this.groupBox5.Controls.Add(this.chEfectivo);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.lblPendiente);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(484, 332);
             this.groupBox5.Name = "groupBox5";
@@ -517,90 +515,6 @@
             this.lblPendiente.Size = new System.Drawing.Size(13, 14);
             this.lblPendiente.TabIndex = 459;
             this.lblPendiente.Text = "0";
-            // 
-            // txtTransferencia
-            // 
-            this.txtTransferencia.Enabled = false;
-            this.txtTransferencia.Location = new System.Drawing.Point(115, 85);
-            this.txtTransferencia.Name = "txtTransferencia";
-            this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
-            this.txtTransferencia.TabIndex = 458;
-            this.txtTransferencia.Validated += new System.EventHandler(this.txtTransferencia_Validated);
-            // 
-            // chTransferencia
-            // 
-            this.chTransferencia.AutoSize = true;
-            this.chTransferencia.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTransferencia.Location = new System.Drawing.Point(6, 86);
-            this.chTransferencia.Name = "chTransferencia";
-            this.chTransferencia.Size = new System.Drawing.Size(103, 18);
-            this.chTransferencia.TabIndex = 457;
-            this.chTransferencia.Text = "Transferencia:";
-            this.chTransferencia.UseVisualStyleBackColor = true;
-            this.chTransferencia.CheckedChanged += new System.EventHandler(this.chTransferencia_CheckedChanged);
-            // 
-            // txtTarjeta
-            // 
-            this.txtTarjeta.Enabled = false;
-            this.txtTarjeta.Location = new System.Drawing.Point(115, 61);
-            this.txtTarjeta.Name = "txtTarjeta";
-            this.txtTarjeta.Size = new System.Drawing.Size(79, 21);
-            this.txtTarjeta.TabIndex = 456;
-            this.txtTarjeta.Validated += new System.EventHandler(this.txtTarjeta_Validated);
-            // 
-            // chTarjeta
-            // 
-            this.chTarjeta.AutoSize = true;
-            this.chTarjeta.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTarjeta.Location = new System.Drawing.Point(43, 62);
-            this.chTarjeta.Name = "chTarjeta";
-            this.chTarjeta.Size = new System.Drawing.Size(66, 18);
-            this.chTarjeta.TabIndex = 455;
-            this.chTarjeta.Text = "Tarjeta:";
-            this.chTarjeta.UseVisualStyleBackColor = true;
-            this.chTarjeta.CheckedChanged += new System.EventHandler(this.chTarjeta_CheckedChanged);
-            // 
-            // txtYape
-            // 
-            this.txtYape.Enabled = false;
-            this.txtYape.Location = new System.Drawing.Point(115, 37);
-            this.txtYape.Name = "txtYape";
-            this.txtYape.Size = new System.Drawing.Size(79, 21);
-            this.txtYape.TabIndex = 454;
-            this.txtYape.Validated += new System.EventHandler(this.txtYape_Validated);
-            // 
-            // chYape
-            // 
-            this.chYape.AutoSize = true;
-            this.chYape.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chYape.Location = new System.Drawing.Point(54, 38);
-            this.chYape.Name = "chYape";
-            this.chYape.Size = new System.Drawing.Size(55, 18);
-            this.chYape.TabIndex = 453;
-            this.chYape.Text = "Yape:";
-            this.chYape.UseVisualStyleBackColor = true;
-            this.chYape.CheckedChanged += new System.EventHandler(this.chYape_CheckedChanged);
-            // 
-            // txtEfectivo
-            // 
-            this.txtEfectivo.Enabled = false;
-            this.txtEfectivo.Location = new System.Drawing.Point(115, 14);
-            this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
-            this.txtEfectivo.TabIndex = 452;
-            this.txtEfectivo.Validated += new System.EventHandler(this.txtEfectivo_Validated);
-            // 
-            // chEfectivo
-            // 
-            this.chEfectivo.AutoSize = true;
-            this.chEfectivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chEfectivo.Location = new System.Drawing.Point(39, 15);
-            this.chEfectivo.Name = "chEfectivo";
-            this.chEfectivo.Size = new System.Drawing.Size(70, 18);
-            this.chEfectivo.TabIndex = 451;
-            this.chEfectivo.Text = "Efectivo:";
-            this.chEfectivo.UseVisualStyleBackColor = true;
-            this.chEfectivo.CheckedChanged += new System.EventHandler(this.chEfectivo_CheckedChanged);
             // 
             // lblCantidad
             // 
@@ -641,6 +555,76 @@
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
+            // 
+            // txtTransferencia
+            // 
+            this.txtTransferencia.Enabled = false;
+            this.txtTransferencia.Location = new System.Drawing.Point(115, 74);
+            this.txtTransferencia.Name = "txtTransferencia";
+            this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
+            this.txtTransferencia.TabIndex = 466;
+            // 
+            // chTransferencia
+            // 
+            this.chTransferencia.AutoSize = true;
+            this.chTransferencia.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chTransferencia.Location = new System.Drawing.Point(6, 75);
+            this.chTransferencia.Name = "chTransferencia";
+            this.chTransferencia.Size = new System.Drawing.Size(103, 18);
+            this.chTransferencia.TabIndex = 465;
+            this.chTransferencia.Text = "Transferencia:";
+            this.chTransferencia.UseVisualStyleBackColor = true;
+            this.chTransferencia.CheckedChanged += new System.EventHandler(this.chTransferencia_CheckedChanged);
+            // 
+            // txtDeposito
+            // 
+            this.txtDeposito.Enabled = false;
+            this.txtDeposito.Location = new System.Drawing.Point(115, 47);
+            this.txtDeposito.Name = "txtDeposito";
+            this.txtDeposito.Size = new System.Drawing.Size(79, 21);
+            this.txtDeposito.TabIndex = 464;
+            // 
+            // chDeposito
+            // 
+            this.chDeposito.AutoSize = true;
+            this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chDeposito.Location = new System.Drawing.Point(30, 48);
+            this.chDeposito.Name = "chDeposito";
+            this.chDeposito.Size = new System.Drawing.Size(79, 18);
+            this.chDeposito.TabIndex = 463;
+            this.chDeposito.Text = "Deposito:";
+            this.chDeposito.UseVisualStyleBackColor = true;
+            this.chDeposito.CheckedChanged += new System.EventHandler(this.chDeposito_CheckedChanged);
+            // 
+            // txtEfectivo
+            // 
+            this.txtEfectivo.Enabled = false;
+            this.txtEfectivo.Location = new System.Drawing.Point(115, 20);
+            this.txtEfectivo.Name = "txtEfectivo";
+            this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
+            this.txtEfectivo.TabIndex = 462;
+            // 
+            // chEfectivo
+            // 
+            this.chEfectivo.AutoSize = true;
+            this.chEfectivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chEfectivo.Location = new System.Drawing.Point(39, 21);
+            this.chEfectivo.Name = "chEfectivo";
+            this.chEfectivo.Size = new System.Drawing.Size(70, 18);
+            this.chEfectivo.TabIndex = 461;
+            this.chEfectivo.Text = "Efectivo:";
+            this.chEfectivo.UseVisualStyleBackColor = true;
+            this.chEfectivo.CheckedChanged += new System.EventHandler(this.chEfectivo_CheckedChanged);
+            // 
+            // txtTipoDoc
+            // 
+            this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoDoc.Location = new System.Drawing.Point(648, 20);
+            this.txtTipoDoc.Name = "txtTipoDoc";
+            this.txtTipoDoc.ReadOnly = true;
+            this.txtTipoDoc.Size = new System.Drawing.Size(18, 22);
+            this.txtTipoDoc.TabIndex = 451;
+            this.txtTipoDoc.Visible = false;
             // 
             // frmEditarComprobante
             // 
@@ -730,17 +714,16 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblPendiente;
-        private System.Windows.Forms.TextBox txtTransferencia;
-        private System.Windows.Forms.CheckBox chTransferencia;
-        private System.Windows.Forms.TextBox txtTarjeta;
-        private System.Windows.Forms.CheckBox chTarjeta;
-        private System.Windows.Forms.TextBox txtYape;
-        private System.Windows.Forms.CheckBox chYape;
-        private System.Windows.Forms.TextBox txtEfectivo;
-        private System.Windows.Forms.CheckBox chEfectivo;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TextBox txtTransferencia;
+        private System.Windows.Forms.CheckBox chTransferencia;
+        private System.Windows.Forms.TextBox txtDeposito;
+        private System.Windows.Forms.CheckBox chDeposito;
+        private System.Windows.Forms.TextBox txtEfectivo;
+        private System.Windows.Forms.CheckBox chEfectivo;
+        private System.Windows.Forms.TextBox txtTipoDoc;
     }
 }

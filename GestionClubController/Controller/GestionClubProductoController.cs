@@ -245,7 +245,7 @@ namespace GestionClubController.Controller
 
             //validar
             //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
-            iObjEN = GestionClubProductoController.BuscarProductoXNroDocumento(pObj);
+            iObjEN = GestionClubProductoController.ListarProductoPorCodProductoPorEmpresa(pObj);
             if (iObjEN.codProducto == string.Empty)
             {
                 iObjEN.Adicionales.EsVerdad = false;
@@ -256,10 +256,10 @@ namespace GestionClubController.Controller
             //ok         
             return iObjEN;
         }
-        public static GestionClubProductoDto BuscarProductoXNroDocumento(GestionClubProductoDto pObj)
+        public static GestionClubProductoDto ListarProductoPorCodProductoPorEmpresa(GestionClubProductoDto pObj)
         {
             GestionClubProductoRepository objRepo = new GestionClubProductoRepository();
-            return objRepo.ListarProductoPorNroDocumentoPorEmpresa(pObj);
+            return objRepo.ListarProductoPorCodProductoPorEmpresa(pObj);
         }
     }
 }
