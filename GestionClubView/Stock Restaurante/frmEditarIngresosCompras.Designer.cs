@@ -67,15 +67,6 @@
             this.txtCodProd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtTransferencia = new System.Windows.Forms.TextBox();
-            this.chTransferencia = new System.Windows.Forms.CheckBox();
-            this.txtDeposito = new System.Windows.Forms.TextBox();
-            this.chDeposito = new System.Windows.Forms.CheckBox();
-            this.txtEfectivo = new System.Windows.Forms.TextBox();
-            this.chEfectivo = new System.Windows.Forms.CheckBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblPendiente = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -90,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvComprobanteDeta)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -381,7 +371,7 @@
             this.groupBox2.Controls.Add(this.DgvComprobanteDeta);
             this.groupBox2.Location = new System.Drawing.Point(10, 332);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(465, 135);
+            this.groupBox2.Size = new System.Drawing.Size(618, 135);
             this.groupBox2.TabIndex = 460;
             this.groupBox2.TabStop = false;
             // 
@@ -393,7 +383,7 @@
             this.DgvComprobanteDeta.GridColor = System.Drawing.Color.Silver;
             this.DgvComprobanteDeta.Location = new System.Drawing.Point(6, 19);
             this.DgvComprobanteDeta.Name = "DgvComprobanteDeta";
-            this.DgvComprobanteDeta.Size = new System.Drawing.Size(453, 104);
+            this.DgvComprobanteDeta.Size = new System.Drawing.Size(588, 104);
             this.DgvComprobanteDeta.TabIndex = 461;
             // 
             // groupBox3
@@ -408,7 +398,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(12, 273);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(700, 53);
+            this.groupBox3.Size = new System.Drawing.Size(706, 53);
             this.groupBox3.TabIndex = 461;
             this.groupBox3.TabStop = false;
             // 
@@ -492,7 +482,7 @@
             this.btnQuitar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(10, 473);
+            this.btnQuitar.Location = new System.Drawing.Point(634, 351);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(84, 34);
             this.btnQuitar.TabIndex = 463;
@@ -502,111 +492,11 @@
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txtTransferencia);
-            this.groupBox5.Controls.Add(this.chTransferencia);
-            this.groupBox5.Controls.Add(this.txtDeposito);
-            this.groupBox5.Controls.Add(this.chDeposito);
-            this.groupBox5.Controls.Add(this.txtEfectivo);
-            this.groupBox5.Controls.Add(this.chEfectivo);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.lblPendiente);
-            this.groupBox5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(484, 332);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(234, 135);
-            this.groupBox5.TabIndex = 464;
-            this.groupBox5.TabStop = false;
-            // 
-            // txtTransferencia
-            // 
-            this.txtTransferencia.Enabled = false;
-            this.txtTransferencia.Location = new System.Drawing.Point(115, 74);
-            this.txtTransferencia.Name = "txtTransferencia";
-            this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
-            this.txtTransferencia.TabIndex = 466;
-            this.txtTransferencia.Validated += new System.EventHandler(this.txtTransferencia_Validated);
-            // 
-            // chTransferencia
-            // 
-            this.chTransferencia.AutoSize = true;
-            this.chTransferencia.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTransferencia.Location = new System.Drawing.Point(6, 75);
-            this.chTransferencia.Name = "chTransferencia";
-            this.chTransferencia.Size = new System.Drawing.Size(103, 18);
-            this.chTransferencia.TabIndex = 465;
-            this.chTransferencia.Text = "Transferencia:";
-            this.chTransferencia.UseVisualStyleBackColor = true;
-            this.chTransferencia.CheckedChanged += new System.EventHandler(this.chTransferencia_CheckedChanged);
-            // 
-            // txtDeposito
-            // 
-            this.txtDeposito.Enabled = false;
-            this.txtDeposito.Location = new System.Drawing.Point(115, 47);
-            this.txtDeposito.Name = "txtDeposito";
-            this.txtDeposito.Size = new System.Drawing.Size(79, 21);
-            this.txtDeposito.TabIndex = 464;
-            this.txtDeposito.Validated += new System.EventHandler(this.txtDeposito_Validated);
-            // 
-            // chDeposito
-            // 
-            this.chDeposito.AutoSize = true;
-            this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDeposito.Location = new System.Drawing.Point(30, 48);
-            this.chDeposito.Name = "chDeposito";
-            this.chDeposito.Size = new System.Drawing.Size(79, 18);
-            this.chDeposito.TabIndex = 463;
-            this.chDeposito.Text = "Deposito:";
-            this.chDeposito.UseVisualStyleBackColor = true;
-            this.chDeposito.CheckedChanged += new System.EventHandler(this.chDeposito_CheckedChanged);
-            // 
-            // txtEfectivo
-            // 
-            this.txtEfectivo.Enabled = false;
-            this.txtEfectivo.Location = new System.Drawing.Point(115, 20);
-            this.txtEfectivo.Name = "txtEfectivo";
-            this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
-            this.txtEfectivo.TabIndex = 462;
-            this.txtEfectivo.Validated += new System.EventHandler(this.txtEfectivo_Validated);
-            // 
-            // chEfectivo
-            // 
-            this.chEfectivo.AutoSize = true;
-            this.chEfectivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chEfectivo.Location = new System.Drawing.Point(39, 21);
-            this.chEfectivo.Name = "chEfectivo";
-            this.chEfectivo.Size = new System.Drawing.Size(70, 18);
-            this.chEfectivo.TabIndex = 461;
-            this.chEfectivo.Text = "Efectivo:";
-            this.chEfectivo.UseVisualStyleBackColor = true;
-            this.chEfectivo.CheckedChanged += new System.EventHandler(this.chEfectivo_CheckedChanged);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(21, 108);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 14);
-            this.label15.TabIndex = 460;
-            this.label15.Text = "(S/) Pendiente";
-            // 
-            // lblPendiente
-            // 
-            this.lblPendiente.AutoSize = true;
-            this.lblPendiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendiente.Location = new System.Drawing.Point(112, 109);
-            this.lblPendiente.Name = "lblPendiente";
-            this.lblPendiente.Size = new System.Drawing.Size(13, 14);
-            this.lblPendiente.TabIndex = 459;
-            this.lblPendiente.Text = "0";
-            // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(351, 487);
+            this.lblCantidad.Location = new System.Drawing.Point(477, 487);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 468;
@@ -616,7 +506,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(351, 470);
+            this.label5.Location = new System.Drawing.Point(477, 470);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 14);
             this.label5.TabIndex = 467;
@@ -626,7 +516,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(418, 470);
+            this.label6.Location = new System.Drawing.Point(544, 470);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 14);
             this.label6.TabIndex = 466;
@@ -636,13 +526,13 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(418, 487);
+            this.lblTotal.Location = new System.Drawing.Point(544, 487);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
-            // frmEditarComprobante
+            // frmEditarIngresosCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -652,7 +542,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -662,7 +551,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
-            this.Name = "frmEditarComprobante";
+            this.Name = "frmEditarIngresosCompras";
             this.Text = "Comprobante";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComprobante_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
@@ -682,8 +571,6 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).EndInit();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,19 +614,10 @@
         internal System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lblPendiente;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox txtTransferencia;
-        private System.Windows.Forms.CheckBox chTransferencia;
-        private System.Windows.Forms.TextBox txtDeposito;
-        private System.Windows.Forms.CheckBox chDeposito;
-        private System.Windows.Forms.TextBox txtEfectivo;
-        private System.Windows.Forms.CheckBox chEfectivo;
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtIdComprobante;
     }

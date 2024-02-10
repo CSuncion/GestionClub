@@ -47,14 +47,14 @@ namespace GestionClubModel.ModelDto
         public string tipoMovimiento { get; set; }
         public string nroDocumento { get; set; }
         public DateTime fecAlmacen { get; set; }
-        public string tipCliente { get; set; }
+        public string tipCliente { get; set; } = "01";
         public string nroRuc { get; set; }
         public string razSocial { get; set; }
-        public string tipFactura { get; set; }
+        public string tipFactura { get; set; } = "01";
         public string serNroFactura { get; set; }
         public string serFactura { get; set; }
         public string nroFactura { get; set; }
-        public DateTime fecFactura { get; set; }
+        public DateTime fecFactura { get; set; } = DateTime.Now;
         public string guiaRe { get; set; }
         public DateTime fecGui { get; set; }
         public decimal totVta { get; set; }

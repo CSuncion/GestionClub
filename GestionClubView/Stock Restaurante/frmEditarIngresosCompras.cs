@@ -32,7 +32,7 @@ namespace GestionClubView.Pedidos
         public Universal.Opera eOperacion;
         public GestionClubComprobanteAlmacenController oOpe = new GestionClubComprobanteAlmacenController();
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
-        public string eTitulo = "Registro Comprobante";
+        public string eTitulo = "Ingresos (Compras)";
         public List<GestionClubComprobanteDetalleAlmacenDto> lObjDetalle = new List<GestionClubComprobanteDetalleAlmacenDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
@@ -69,7 +69,7 @@ namespace GestionClubView.Pedidos
             this.CargarRutas();
             this.CargarTipoDocumentos();
             this.CargarMoneda();
-            this.SetearConCeroModoPago();
+            //this.SetearConCeroModoPago();
             // Deshabilitar al propietario
             //this.wCom.Enabled = false;
 
@@ -108,19 +108,6 @@ namespace GestionClubView.Pedidos
             xCtrl = new ControlEditar();
             xCtrl.Cmb(this.cboMoneda, "vvff");
             xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtEfectivo, true, "Efectivo", "vvff", 2);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtDeposito, true, "Tarjeta", "vvff", 2);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtTransferencia, true, "Transferencia", "vvff", 2);
-            xLis.Add(xCtrl);
-
 
             //xCtrl = new ControlEditar();
             //xCtrl.txtNoFoco(this.txtCodProd, this.nudCantidadProducto, "ffff");
@@ -267,7 +254,7 @@ namespace GestionClubView.Pedidos
             this.MostrarComprobanteDeta();
             this.LimpiarCamposDetalleComprobante();
             this.CalcularTotalYCantidad();
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
 
         }
         public void CalcularTotalYCantidad()
@@ -290,7 +277,7 @@ namespace GestionClubView.Pedidos
             }
             this.MostrarComprobanteDeta();
             this.CalcularTotalYCantidad();
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
         public void AdicionarComprobante()
         {
@@ -423,22 +410,22 @@ namespace GestionClubView.Pedidos
             this.nudCantidadProducto.Value = 0;
             this.txtIdProd.Text = "0";
         }
-        public string modoPago()
-        {
-            string modoPago = string.Empty;
-            int cantidadCheck = 0;
+        //public string modoPago()
+        //{
+        //    string modoPago = string.Empty;
+        //    int cantidadCheck = 0;
 
-            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "01"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "02"; }
-            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "03"; }
-            if (cantidadCheck > 1) modoPago = "04";
+        //    if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "01"; }
+        //    if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "02"; }
+        //    if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "03"; }
+        //    if (cantidadCheck > 1) modoPago = "04";
 
-            return modoPago;
-        }
-        public void CalcularPendientePagar()
-        {
-            this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
-        }
+        //    return modoPago;
+        //}
+        //public void CalcularPendientePagar()
+        //{
+        //    this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
+        //}
         public bool ValidaCantidadMayorCero()
         {
             bool result = true;
@@ -459,12 +446,12 @@ namespace GestionClubView.Pedidos
             }
             return result;
         }
-        public void SetearConCeroModoPago()
-        {
-            this.txtEfectivo.Text = "0";
-            this.txtDeposito.Text = "0";
-            this.txtTransferencia.Text = "0";
-        }
+        //public void SetearConCeroModoPago()
+        //{
+        //    this.txtEfectivo.Text = "0";
+        //    this.txtDeposito.Text = "0";
+        //    this.txtTransferencia.Text = "0";
+        //}
         public void Aceptar()
         {
             switch (this.eOperacion)
@@ -480,7 +467,7 @@ namespace GestionClubView.Pedidos
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
 
-            if (this.ValidaPagoPendiente() == false) { return; };
+            //if (this.ValidaPagoPendiente() == false) { return; };
 
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
@@ -498,16 +485,16 @@ namespace GestionClubView.Pedidos
             eMas.AccionPasarTextoPrincipal();
             this.Close();
         }
-        public bool ValidaMontoSeanMayoresACero()
-        {
-            this.CalcularPendientePagar();
-            bool result = false;
-            if (this.lblPendiente.Text != "0.00") result = true;
+        //public bool ValidaMontoSeanMayoresACero()
+        //{
+        //    this.CalcularPendientePagar();
+        //    bool result = false;
+        //    if (this.lblPendiente.Text != "0.00") result = true;
 
-            if (result) Mensaje.OperacionDenegada("No a ingresado monto en los pagos", this.eTitulo);
+        //    if (result) Mensaje.OperacionDenegada("No a ingresado monto en los pagos", this.eTitulo);
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public void Modificar()
         {
@@ -586,18 +573,18 @@ namespace GestionClubView.Pedidos
             Tlf = ConfigurationManager.AppSettings["Tlf"].ToString();
             Email = ConfigurationManager.AppSettings["Email"].ToString();
         }
-        public string modoDescriPago()
-        {
-            string modoPago = string.Empty;
-            int cantidadCheck = 0;
+        //public string modoDescriPago()
+        //{
+        //    string modoPago = string.Empty;
+        //    int cantidadCheck = 0;
 
-            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
-            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
-            if (cantidadCheck > 1) modoPago = "MIXTO";
+        //    if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
+        //    if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
+        //    if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
+        //    if (cantidadCheck > 1) modoPago = "MIXTO";
 
-            return modoPago;
-        }
+        //    return modoPago;
+        //}
 
         public void ImprimirComprobante()
         {
@@ -659,8 +646,8 @@ namespace GestionClubView.Pedidos
             g.DrawString("Cajero:", fBody, sb, 10, SPACE + 60);
             g.DrawString(Universal.gNombreUsuario, fBodyNoBold, sb, 90, SPACE + 60);
 
-            g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
-            g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
+            //g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
+            //g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
             g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
@@ -775,17 +762,17 @@ namespace GestionClubView.Pedidos
         {
             this.ImprimirComprobante();
         }
-        public bool ValidaPagoPendiente()
-        {
-            this.CalcularPendientePagar();
-            bool result = true;
-            if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
-            {
-                Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
-                result = false;
-            }
-            return result;
-        }
+        //public bool ValidaPagoPendiente()
+        //{
+        //    this.CalcularPendientePagar();
+        //    bool result = true;
+        //    if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
+        //    {
+        //        Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
+        //        result = false;
+        //    }
+        //    return result;
+        //}
         public void ActualizarCorrelativoComprobante()
         {
             this.GenerarCorrelativo();
@@ -852,12 +839,12 @@ namespace GestionClubView.Pedidos
 
         private void chEfectivo_CheckedChanged(object sender, EventArgs e)
         {
-            this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
+            //this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
         }
 
         private void chDeposito_CheckedChanged(object sender, EventArgs e)
         {
-            this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
+            //this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
         }
 
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
@@ -867,22 +854,22 @@ namespace GestionClubView.Pedidos
 
         private void txtDeposito_Validated(object sender, EventArgs e)
         {
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
 
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)
         {
-            this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
+            //this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)
         {
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
 
         private void txtTransferencia_Validated(object sender, EventArgs e)
         {
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
 
         private void tsbGrabar_Click(object sender, EventArgs e)
