@@ -482,6 +482,7 @@ namespace GestionClubView.Pedidos
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
             this.AdicionarComanda();
+            this.ActualizarCorrelativoComprobante();
             this.ModificarSituacionMesa();
 
             //mensaje satisfactorio
@@ -533,11 +534,26 @@ namespace GestionClubView.Pedidos
             }
 
         }
-
+        public string GenerarCorrelativo()
+        {
+            GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = "CO";
+            gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
+            return gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+        }
+        public void ActualizarCorrelativoComprobante()
+        {
+            ;
+            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
+            obj.tipoDocumento = "CO";
+            obj.serCorrelativo = "";
+            obj.nroCorrelativo = this.GenerarCorrelativo();
+            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
         public void AsignarComanda(GestionClubComandaDto pObj)
         {
             pObj.tipDocumentoComanda = "CO";
-            pObj.nroComanda = "001";
+            pObj.nroComanda = this.GenerarCorrelativo();
             pObj.idAmbiente = Convert.ToInt32(Cmb.ObtenerValor(this.cboAmbiente, string.Empty));
             pObj.idMesa = Convert.ToInt32(this.lvMesas.SelectedItems[0].ImageKey);
             pObj.fecComanda = DateTime.Now;
@@ -694,7 +710,6 @@ namespace GestionClubView.Pedidos
             this.Aceptar();
 
         }
-
         private void cboAmbiente_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.cargarMesas();

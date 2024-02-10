@@ -41,6 +41,7 @@ namespace GestionClubModel.ModelDto
         public const string _idCliente = "idCliente";
         public const string _nroIdentificacionCliente = "nroIdentificacionCliente";
         public const string _nombreRazSocialCliente = "nombreRazSocialCliente";
+        public const string _tipCliente = "tipCliente";
         public const string _obsComprobante = "obsComprobante";
         public const string _estadoComprobante = "estadoComprobante";
         public const string _desEstado = "desEstado";
@@ -52,13 +53,13 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idComprobante { get; set; }
         public int idEmpresa { get; set; }
-        public string tipComprobante { get; set; }
+        public string tipComprobante { get; set; } = "02";
         public string serNroComprobante { get; set; }
         public string desTipComprobante { get; set; }
         public string serComprobante { get; set; }
         public string nroComprobante { get; set; }
-        public DateTime fecComprobante { get; set; }
-        public string codMoneda { get; set; }
+        public DateTime fecComprobante { get; set; } = DateTime.Now;
+        public string codMoneda { get; set; } = "01";
         public string desMoneda { get; set; }
         public decimal impCambio { get; set; }
         public string serGuiaComprobante { get; set; }
@@ -72,16 +73,17 @@ namespace GestionClubModel.ModelDto
         public string modPagoComprobante { get; set; }
         public string desPagoComprobante { get; set; }
         public string tipMovComprobante { get; set; }
-        public decimal impEfeComprobante { get; set; }
-        public decimal impDepComprobante { get; set; }
-        public decimal impTarComprobante { get; set; }
-        public decimal impBruComprobante { get; set; }
-        public decimal impIgvComprobante { get; set; }
-        public decimal impNetComprobante { get; set; }
+        public decimal impEfeComprobante { get; set; } = 0;
+        public decimal impDepComprobante { get; set; } = 0;
+        public decimal impTarComprobante { get; set; } = 0;
+        public decimal impBruComprobante { get; set; } = 0;
+        public decimal impIgvComprobante { get; set; } = 0;
+        public decimal impNetComprobante { get; set; } = 0;
         public decimal impDtrComprobante { get; set; }
         public int idCliente { get; set; }
         public string nroIdentificacionCliente { get; set; }
         public string nombreRazSocialCliente { get; set; }
+        public string tipCliente { get; set; } = "01";
         public string obsComprobante { get; set; }
         public string estadoComprobante { get; set; }
         public string desEstado { get; set; }
@@ -124,7 +126,7 @@ namespace GestionClubModel.ModelDto
         public int idProducto { get; set; }
         public string codProducto { get; set; }
         public string desProducto { get; set; }
-        public decimal preVenta { get; set; }
+        public decimal preVenta { get; set; } = 0;
         public int cantidad { get; set; }
         public decimal preTotal { get; set; }
         public string estadoDetalleComprobante { get; set; }
@@ -133,5 +135,11 @@ namespace GestionClubModel.ModelDto
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+        private Adicional _Adicionales = new Adicional();
+        public Adicional Adicionales
+        {
+            get { return this._Adicionales; }
+            set { this._Adicionales = value; }
+        }
     }
 }

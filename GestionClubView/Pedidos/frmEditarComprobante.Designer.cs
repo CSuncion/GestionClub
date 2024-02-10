@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdComprobante = new System.Windows.Forms.TextBox();
             this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.txtApeNom = new System.Windows.Forms.TextBox();
@@ -151,6 +152,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdComprobante);
             this.groupBox1.Controls.Add(this.txtTipoDoc);
             this.groupBox1.Controls.Add(this.txtIdCliente);
             this.groupBox1.Controls.Add(this.txtApeNom);
@@ -162,6 +164,16 @@
             this.groupBox1.Size = new System.Drawing.Size(706, 49);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtIdComprobante
+            // 
+            this.txtIdComprobante.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdComprobante.Location = new System.Drawing.Point(672, 22);
+            this.txtIdComprobante.Name = "txtIdComprobante";
+            this.txtIdComprobante.ReadOnly = true;
+            this.txtIdComprobante.Size = new System.Drawing.Size(18, 22);
+            this.txtIdComprobante.TabIndex = 452;
+            this.txtIdComprobante.Visible = false;
             // 
             // txtTipoDoc
             // 
@@ -423,7 +435,7 @@
             // txtIdProd
             // 
             this.txtIdProd.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdProd.Location = new System.Drawing.Point(563, 20);
+            this.txtIdProd.Location = new System.Drawing.Point(598, 20);
             this.txtIdProd.Name = "txtIdProd";
             this.txtIdProd.ReadOnly = true;
             this.txtIdProd.Size = new System.Drawing.Size(18, 22);
@@ -444,7 +456,7 @@
             this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(587, 20);
+            this.btnAgregar.Location = new System.Drawing.Point(563, 19);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(29, 22);
             this.btnAgregar.TabIndex = 462;
@@ -514,6 +526,7 @@
             this.txtTransferencia.Name = "txtTransferencia";
             this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
             this.txtTransferencia.TabIndex = 466;
+            this.txtTransferencia.Validated += new System.EventHandler(this.txtTransferencia_Validated);
             // 
             // chTransferencia
             // 
@@ -534,6 +547,7 @@
             this.txtDeposito.Name = "txtDeposito";
             this.txtDeposito.Size = new System.Drawing.Size(79, 21);
             this.txtDeposito.TabIndex = 464;
+            this.txtDeposito.Validated += new System.EventHandler(this.txtDeposito_Validated);
             // 
             // chDeposito
             // 
@@ -554,6 +568,7 @@
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
             this.txtEfectivo.TabIndex = 462;
+            this.txtEfectivo.Validated += new System.EventHandler(this.txtEfectivo_Validated);
             // 
             // chEfectivo
             // 
@@ -726,5 +741,6 @@
         private System.Windows.Forms.TextBox txtEfectivo;
         private System.Windows.Forms.CheckBox chEfectivo;
         private System.Windows.Forms.TextBox txtTipoDoc;
+        private System.Windows.Forms.TextBox txtIdComprobante;
     }
 }

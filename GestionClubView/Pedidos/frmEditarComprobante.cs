@@ -16,6 +16,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,7 +50,7 @@ namespace GestionClubView.Pedidos
         public void VentanaAdicionar()
         {
             this.InicializaVentana();
-            //this.MostrarAmbiente(GestionClubAmbienteController.EnBlanco());
+            this.MostrarComprobante(GestionClubComprobanteController.EnBlanco());
             this.GenerarCorrelativo();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
@@ -101,7 +102,7 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.Dtp(this.dtpFecDoc, "vvff");
+            xCtrl.Dtp(this.dtpFecDoc, "ffff");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -130,6 +131,8 @@ namespace GestionClubView.Pedidos
         }
         public void GenerarCorrelativo()
         {
+            this.txtSerDoc.Text = string.Empty;
+            this.txtNroDoc.Text = string.Empty;
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
             gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
@@ -223,7 +226,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos"), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -237,6 +240,7 @@ namespace GestionClubView.Pedidos
 
             GestionClubDetalleComprobanteDto obj = new GestionClubDetalleComprobanteDto();
             obj.idComprobante = 0;
+            obj.idDetalleComprobante = 0;
             obj.estadoDetalleComprobante = "01";
             obj.obsDetalleComprobante = string.Empty;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
@@ -268,7 +272,7 @@ namespace GestionClubView.Pedidos
         public void CalcularTotalYCantidad()
         {
             this.lblCantidad.Text = Convert.ToInt32(this.lObjDetalle.Sum(x => x.cantidad)).ToString();
-            this.lblTotal.Text = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)).ToString();
+            this.lblTotal.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)), 2);
         }
         public void QuitarDetalleComprobante()
         {
@@ -305,7 +309,7 @@ namespace GestionClubView.Pedidos
             pObj.tipComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serComprobante = this.txtSerDoc.Text.Trim();
             pObj.nroComprobante = this.txtNroDoc.Text.Trim();
-            pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToString());
+            pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
             pObj.impCambio = 0;
             pObj.serGuiaComprobante = string.Empty;
@@ -330,6 +334,7 @@ namespace GestionClubView.Pedidos
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
             pObj.estadoComprobante = "04";
+            pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
@@ -339,11 +344,17 @@ namespace GestionClubView.Pedidos
             pObj.obsDetalleComprobante = string.Empty;
             foreach (GestionClubDetalleComprobanteDto obj in this.lObjDetalle)
             {
+                pObj.idDetalleComprobante = obj.idDetalleComprobante;
                 pObj.idProducto = obj.idProducto;
                 pObj.preVenta = obj.preVenta;
                 pObj.cantidad = obj.cantidad;
                 pObj.preTotal = obj.preTotal;
-                GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
+
+                if (pObj.idDetalleComprobante == 0)
+                    GestionClubComprobanteController.AgregarDetalleComprobante(pObj);
+                else
+                    GestionClubComprobanteController.ModificarDetalleComprobante(pObj);
+
             }
         }
         public void MostrarComprobanteDeta()
@@ -358,6 +369,41 @@ namespace GestionClubView.Pedidos
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iListaColumnas);
         }
+        public void LLenarComprobanteDetaDeBaseDatos(GestionClubComprobanteDto pObj)
+        {
+            GestionClubDetalleComprobanteDto iComDetEN = new GestionClubDetalleComprobanteDto();
+            iComDetEN.idComprobante = pObj.idComprobante;
+            iComDetEN.Adicionales.CampoOrden = GestionClubDetalleComprobanteDto._idDetalleComprobante;
+            this.lObjDetalle = GestionClubComprobanteController.ListarDetallesComprobantesPorComprobante(iComDetEN);
+        }
+        public void MostrarComprobante(GestionClubComprobanteDto pObj)
+        {
+            this.txtIdComprobante.Text = pObj.idComprobante.ToString();
+            this.cboMoneda.SelectedValue = pObj.codMoneda;
+            this.txtDocId.Text = pObj.nroIdentificacionCliente;
+            this.txtApeNom.Text = pObj.nombreRazSocialCliente;
+            this.txtIdCliente.Text = pObj.idCliente.ToString();
+            this.txtTipoDoc.Text = pObj.tipCliente.ToString();
+            this.cboTipDoc.SelectedValue = pObj.tipComprobante;
+            this.dtpFecDoc.Text = pObj.fecComprobante.ToShortDateString();
+            this.txtSerDoc.Text = pObj.serComprobante;
+            this.txtNroDoc.Text = pObj.nroComprobante;
+
+            this.txtEfectivo.Text = pObj.impEfeComprobante.ToString();
+            if (pObj.impEfeComprobante > 0)
+                this.chEfectivo.Checked = true;
+
+            this.txtDeposito.Text = pObj.impDepComprobante.ToString();
+            if (pObj.impDepComprobante > 0)
+                this.chDeposito.Checked = true;
+
+            this.txtTransferencia.Text = pObj.impTarComprobante.ToString();
+            if (pObj.impTarComprobante > 0)
+                this.chTransferencia.Checked = true;
+
+
+        }
+
         public List<DataGridViewColumn> ListarColumnasDgvCom()
         {
             //lista resultado
@@ -366,10 +412,11 @@ namespace GestionClubView.Pedidos
             //agregando las columnas
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._codProducto, "Código", 80));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._desProducto, "Producto", 150));
-            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._preVenta, "Precio", 80));
+            iLisRes.Add(Dgv.NuevaColumnaTextNumerico(GestionClubDetalleComprobanteDto._preVenta, "Precio", 80, 2));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._cantidad, "Cantidad", 80));
-            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._preTotal, "Total", 80));
+            iLisRes.Add(Dgv.NuevaColumnaTextNumerico(GestionClubDetalleComprobanteDto._preTotal, "Total", 80, 2));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._idProducto, "idProducto", 50, false));
+            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._idDetalleComprobante, "idDetalleComprobante", 50, false));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubDetalleComprobanteDto._claveObjeto, "Clave", 50, false));
 
             //devolver
@@ -425,12 +472,20 @@ namespace GestionClubView.Pedidos
             this.txtDeposito.Text = "0";
             this.txtTransferencia.Text = "0";
         }
-        public void Grabar()
+        public void Aceptar()
+        {
+            switch (this.eOperacion)
+            {
+                case Universal.Opera.Adicionar: { this.Adicionar(); break; }
+                case Universal.Opera.Modificar: { this.Modificar(); break; }
+                case Universal.Opera.Eliminar: { this.Eliminar(); break; }
+                default: break;
+            }
+        }
+        public void Adicionar()
         {
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
-
-            this.CalcularPendientePagar();
 
             if (this.ValidaPagoPendiente() == false) { return; };
 
@@ -444,12 +499,91 @@ namespace GestionClubView.Pedidos
 
             this.ImprimirComprobante();
 
-            //this.wFrm.eClaveDgvComprobante = this.ObtenerIdAmbiente();
+            this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();
 
             eMas.AccionPasarTextoPrincipal();
             this.Close();
         }
+        public bool ValidaMontoSeanMayoresACero()
+        {
+            this.CalcularPendientePagar();
+            bool result = false;
+            if (this.lblPendiente.Text != "0.00") result = true;
+
+            if (result) Mensaje.OperacionDenegada("No a ingresado monto en los pagos", this.eTitulo);
+
+            return result;
+        }
+
+        public void Modificar()
+        {
+            //validar los campos obligatorios
+            if (eMas.CamposObligatorios() == false) { return; }
+
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wFrm.EsActoModificarComprobante().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+
+            //modificar el registro    
+            this.ModificarComprobante();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Comprobante se modifico correctamente", this.wFrm.eTitulo);
+
+            this.ImprimirComprobante();
+
+            //actualizar al wUsu
+            this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
+            this.wFrm.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+
+        }
+        public string ObtenerIdComprobante()
+        {
+            //asignar parametros
+            GestionClubComprobanteDto iAmbEN = new GestionClubComprobanteDto();
+            this.AsignarComprobante(iAmbEN);
+
+            //devolver
+            return iAmbEN.idAmbiente.ToString();
+        }
+        public void ModificarComprobante()
+        {
+            GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
+            this.AsignarComprobante(iComEN);
+            iComEN = GestionClubComprobanteController.BuscarComprobanteXId(iComEN);
+            this.AsignarComprobante(iComEN);
+            GestionClubComprobanteController.ModificarComprobante(iComEN);
+
+            GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
+            this.AsignarDetalleComprobante(iDetObjEN, Convert.ToInt32(this.txtIdComprobante.Text));
+        }
+        public void Eliminar()
+        {
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wFrm.EsActoEliminarComprobante().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+
+            //eliminar el registro
+            //this.EliminarAmbiente();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Comprobante se elimino correctamente", this.wFrm.eTitulo);
+
+            //actualizar al propietario           
+            this.wFrm.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+        }
+
         public void CargarDatosEmpresa()
         {
             NombreEmpresa = ConfigurationManager.AppSettings["NombreEmpresa"].ToString();
@@ -650,6 +784,7 @@ namespace GestionClubView.Pedidos
         }
         public bool ValidaPagoPendiente()
         {
+            this.CalcularPendientePagar();
             bool result = true;
             if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
             {
@@ -663,9 +798,24 @@ namespace GestionClubView.Pedidos
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
             obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text;
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1, this.txtSerDoc.Text.Length - 1);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
+        public void VentanaModificar(GestionClubComprobanteDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            this.CalcularTotalYCantidad();
+            eMas.AccionHabilitarControles(1);
+            eMas.AccionPasarTextoPrincipal();
+            this.txtDocId.Focus();
+        }
+        public void FiltrarClienteSegunTipoComprobante()
+        {
+
         }
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
@@ -722,22 +872,17 @@ namespace GestionClubView.Pedidos
             this.GenerarCorrelativo();
         }
 
+        private void txtDeposito_Validated(object sender, EventArgs e)
+        {
+            this.CalcularPendientePagar();
+        }
+
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)
         {
             this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void txtYape_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void txtTarjeta_Validated(object sender, EventArgs e)
         {
             this.CalcularPendientePagar();
         }
@@ -749,7 +894,7 @@ namespace GestionClubView.Pedidos
 
         private void tsbGrabar_Click(object sender, EventArgs e)
         {
-            this.Grabar();
+            this.Aceptar();
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)

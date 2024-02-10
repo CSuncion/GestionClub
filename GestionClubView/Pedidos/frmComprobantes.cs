@@ -63,6 +63,7 @@ namespace GestionClubView.Pedidos
             if (tstBuscar.Text.Trim() != string.Empty && eVaBD == 0) { return; }
 
             //ir a la bd
+            //Lista comprobantes que no han sido creado por comandas
             GestionClubComprobanteDto iOpEN = new GestionClubComprobanteDto();
             iOpEN.idNroComanda = 0;
             this.eLisComp = GestionClubComprobanteController.ListarComprobantes(iOpEN);
@@ -158,43 +159,43 @@ namespace GestionClubView.Pedidos
 
             //preguntar si este usuario tiene acceso a la accion modificar
             //basta con ver si el boton modificar esta habilitado o no
-            if (tsbEditar.Enabled == false)
-            {
-                Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
-            }
-            else
-            {
-                //this.AccionModificar();
-            }
+            //if (tsbEditar.Enabled == false)
+            //{
+            //    Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
+            //}
+            //else
+            //{
+            //    this.AccionModificar();
+            //}
         }
-        //public void AccionModificar()
-        //{
-        //    //preguntar si el registro seleccionado existe
-        //    GestionClubComprobanteDto iObjEN = this.EsActoModificarProducto();
-        //    if (iObjEN.Adicionales.EsVerdad == false) { return; }
-
-        //    //si existe
-        //    frmEditarComprobante win = new frmEditarComprobante();
-        //    win.wFrm = this;
-        //    win.eOperacion = Universal.Opera.Modificar;
-        //    this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
-        //    TabCtrl.InsertarVentana(this, win);
-        //    win.VentanaModificar(iObjEN);
-        //}
-        //public GestionClubComprobanteDto EsActoModificarProducto()
-        //{
-        //    GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-        //    this.AsignarProducto(iObjEN);
-        //    iObjEN = GestionClubComprobanteController.EsActoModificarProducto(iObjEN);
-        //    if (iObjEN.Adicionales.EsVerdad == false)
-        //    {
-        //        Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
-        //    }
-        //    return iObjEN;
-        //}
-        public void AsignarProducto(GestionClubComprobanteDto pObj)
+        public void AccionModificar()
         {
-            //pObj.idProducto = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvComprobantes, GestionClubComprobanteDto._idProducto));
+            //preguntar si el registro seleccionado existe
+            GestionClubComprobanteDto iObjEN = this.EsActoModificarComprobante();
+            if (iObjEN.Adicionales.EsVerdad == false) { return; }
+
+            //si existe
+            frmEditarComprobante win = new frmEditarComprobante();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Modificar;
+            this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaModificar(iObjEN);
+        }
+        public GestionClubComprobanteDto EsActoModificarComprobante()
+        {
+            GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
+            this.AsignarComprobante(iObjEN);
+            iObjEN = GestionClubComprobanteController.EsActoModificarComprobante(iObjEN);
+            if (iObjEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
+            }
+            return iObjEN;
+        }
+        public void AsignarComprobante(GestionClubComprobanteDto pObj)
+        {
+            pObj.idComprobante = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvComprobantes, GestionClubComprobanteDto._idComprobante));
         }
         public void AccionAdicionar()
         {
@@ -211,7 +212,7 @@ namespace GestionClubView.Pedidos
         public void AccionEliminar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iObjEN = this.EsActoEliminarProducto();
+            GestionClubComprobanteDto iObjEN = this.EsActoEliminarComprobante();
             if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
@@ -222,11 +223,11 @@ namespace GestionClubView.Pedidos
             TabCtrl.InsertarVentana(this, win);
             //win.VentanaEliminar(iObjEN);
         }
-        public GestionClubComprobanteDto EsActoEliminarProducto()
+        public GestionClubComprobanteDto EsActoEliminarComprobante()
         {
             GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-            this.AsignarProducto(iObjEN);
-            //iObjEN = GestionClubProductoController.EsActoEliminarProducto(iObjEN);
+            this.AsignarComprobante(iObjEN);
+            //iObjEN = GestionClubProductoController.EsActoEliminarComprobante(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
@@ -249,7 +250,7 @@ namespace GestionClubView.Pedidos
         public GestionClubComprobanteDto EsProductoExistente()
         {
             GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-            this.AsignarProducto(iObjEN);
+            this.AsignarComprobante(iObjEN);
             //iObjEN = GestionClubComprobanteController.EsProductoExistente(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
@@ -274,7 +275,7 @@ namespace GestionClubView.Pedidos
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            //this.AccionModificar();
+            this.AccionModificar();
         }
 
         private void tsbEliminar_Click(object sender, EventArgs e)
@@ -316,6 +317,11 @@ namespace GestionClubView.Pedidos
         private void tstBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             this.ActualizarVentanaAlBuscarValor(e);
+        }
+
+        private void DgvComprobantes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
     }
 }

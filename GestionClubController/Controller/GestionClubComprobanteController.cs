@@ -29,6 +29,11 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             obj.ModificarComprobante(pObj);
         }
+        public static void ModificarDetalleComprobante(GestionClubDetalleComprobanteDto pObj)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            obj.ModificarDetalleComprobante(pObj);
+        }
         public static int AgregarComprobante(GestionClubComprobanteDto pObj)
         {
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
@@ -52,6 +57,16 @@ namespace GestionClubController.Controller
         {
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarComprobantes(objEn);
+        }
+        public static GestionClubComprobanteDto ListarComprobantesPorId(GestionClubComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantesPorId(objEn);
+        }
+        public static List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantesPorComprobante(GestionClubDetalleComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarDetallesComprobantesPorComprobante(objEn);
         }
         public List<GestionClubComprobanteDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubComprobanteDto> pListaOperations)
         {
@@ -112,6 +127,51 @@ namespace GestionClubController.Controller
 
             //retorna
             return iValor;
+        }
+        public static GestionClubComprobanteDto EsActoModificarComprobante(GestionClubComprobanteDto pObj)
+        {
+            //objeto resultado
+            GestionClubComprobanteDto iPerEN = new GestionClubComprobanteDto();
+
+            //validar si existe
+            iPerEN = GestionClubComprobanteController.EsComprobanteExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static GestionClubComprobanteDto EsComprobanteExistente(GestionClubComprobanteDto pObj)
+        {
+            //objeto resultado
+            GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iObjEN = GestionClubComprobanteController.BuscarComprobanteXId(pObj);
+            if (iObjEN.serComprobante + iObjEN.nroComprobante == string.Empty)
+            {
+                iObjEN.Adicionales.EsVerdad = false;
+                iObjEN.Adicionales.Mensaje = "El comprobante " + iObjEN.serComprobante + "-" + iObjEN.nroComprobante + " no existe";
+                return iObjEN;
+            }
+
+            //ok         
+            return iObjEN;
+        }
+        public static GestionClubComprobanteDto BuscarComprobanteXId(GestionClubComprobanteDto pObj)
+        {
+            GestionClubComprobanteRepository objRepo = new GestionClubComprobanteRepository();
+            return objRepo.ListarComprobantesPorId(pObj);
+        }
+        public static GestionClubComprobanteDto EnBlanco()
+        {
+            GestionClubComprobanteDto iPerEN = new GestionClubComprobanteDto();
+            return iPerEN;
+        }
+        public static GestionClubDetalleComprobanteDto EnBlancoDetalle()
+        {
+            GestionClubDetalleComprobanteDto iPerEN = new GestionClubDetalleComprobanteDto();
+            return iPerEN;
         }
     }
 }
