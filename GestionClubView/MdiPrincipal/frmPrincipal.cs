@@ -311,6 +311,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmComprobante, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarIngresosCompras()
+        {
+            frmIngresosCompras win = new frmIngresosCompras();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmIngresosCompras, null, 0, 0);
+            win.NewWindow();
+        }
 
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
@@ -475,6 +481,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmComprobante_Click(object sender, EventArgs e)
         {
             this.InstanciarComprobante();
+        }
+
+        private void tsmIngresosCompras_Click(object sender, EventArgs e)
+        {
+            this.InstanciarIngresosCompras();
         }
 
         public void ShowOptionsGestionClub()

@@ -16,17 +16,17 @@ using WinControles.ControlesWindows;
 
 namespace GestionClubView.Pedidos
 {
-    public partial class frmComprobantes : Form
+    public partial class frmIngresosCompras : Form
     {
-        public string eTitulo = "Registro Comprobante";
+        public string eTitulo = "Registro Ingresos";
         int eVaBD = 1;//0 : no , 1 : si
-        public List<GestionClubComprobanteDto> eLisComp = new List<GestionClubComprobanteDto>();
-        public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
-        Dgv.Franja eFranjaDgvComprobante = Dgv.Franja.PorIndice;
-        public string eClaveDgvComprobante = string.Empty;
-        string eNombreColumnaDgvComprobante = "nombreRazSocialCliente";
-        string eEncabezadoColumnaDgvComprobante = "nombreRazSocialCliente";
-        public frmComprobantes()
+        public List<GestionClubComprobanteAlmacenDto> eLisComp = new List<GestionClubComprobanteAlmacenDto>();
+        public GestionClubComprobanteAlmacenController oOpe = new GestionClubComprobanteAlmacenController();
+        Dgv.Franja eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorIndice;
+        public string eClaveDgvComprobanteAlmacen = string.Empty;
+        string eNombreColumnaDgvComprobanteAlmacen = "nombreRazSocialCliente";
+        string eEncabezadoColumnaDgvComprobanteAlmacen = "nombreRazSocialCliente";
+        public frmIngresosCompras()
         {
             InitializeComponent();
         }
@@ -51,44 +51,43 @@ namespace GestionClubView.Pedidos
         }
         public void ActualizarVentana()
         {
-            this.ActualizarListaComprobanteDeBaseDatos();
-            this.ActualizarDgvComprobante();
-            Dgv.HabilitarDesplazadores(this.DgvComprobantes, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
-            Dgv.ActualizarBarraEstado(this.DgvComprobantes, this.sst1);
+            this.ActualizarListaComprobanteAlmacenDeBaseDatos();
+            this.ActualizarDgvComprobanteAlmacen();
+            Dgv.HabilitarDesplazadores(this.DgvIngresos, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
+            Dgv.ActualizarBarraEstado(this.DgvIngresos, this.sst1);
             this.AccionBuscar();
         }
-        public void ActualizarListaComprobanteDeBaseDatos()
+        public void ActualizarListaComprobanteAlmacenDeBaseDatos()
         {
             //validar si es acto ir a la bd
             if (tstBuscar.Text.Trim() != string.Empty && eVaBD == 0) { return; }
 
             //ir a la bd
-            //Lista comprobantes que no han sido creado por comandas
-            GestionClubComprobanteDto iOpEN = new GestionClubComprobanteDto();
-            iOpEN.idNroComanda = 0;
-            this.eLisComp = GestionClubComprobanteController.ListarComprobantes(iOpEN);
+            //Lista ComprobanteAlmacens que no han sido creado por comandas
+            GestionClubComprobanteAlmacenDto iOpEN = new GestionClubComprobanteAlmacenDto();
+            this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN);
         }
-        public void ActualizarDgvComprobante()
+        public void ActualizarDgvComprobanteAlmacen()
         {
             //asignar parametros
-            DataGridView iGrilla = this.DgvComprobantes;
-            List<GestionClubComprobanteDto> iFuenteDatos = this.ObtenerDatosParaGrilla();
-            Dgv.Franja iCondicionFranja = eFranjaDgvComprobante;
-            string iClaveBusqueda = eClaveDgvComprobante;
-            string iColumnaPintura = eNombreColumnaDgvComprobante;
+            DataGridView iGrilla = this.DgvIngresos;
+            List<GestionClubComprobanteAlmacenDto> iFuenteDatos = this.ObtenerDatosParaGrilla();
+            Dgv.Franja iCondicionFranja = eFranjaDgvComprobanteAlmacen;
+            string iClaveBusqueda = eClaveDgvComprobanteAlmacen;
+            string iColumnaPintura = eNombreColumnaDgvComprobanteAlmacen;
             List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvProducto();
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iColumnaPintura, iListaColumnas);
         }
-        public List<GestionClubComprobanteDto> ObtenerDatosParaGrilla()
+        public List<GestionClubComprobanteAlmacenDto> ObtenerDatosParaGrilla()
         {
             //asignar parametros
             string iValorBusqueda = tstBuscar.Text.Trim();
-            string iCampoBusqueda = eNombreColumnaDgvComprobante;
-            List<GestionClubComprobanteDto> iListaComprobante = eLisComp;
+            string iCampoBusqueda = eNombreColumnaDgvComprobanteAlmacen;
+            List<GestionClubComprobanteAlmacenDto> iListaComprobanteAlmacen = eLisComp;
 
             //ejecutar y retornar
-            return oOpe.ListarDatosParaGrillaPrincipal(iValorBusqueda, iCampoBusqueda, iListaComprobante);
+            return oOpe.ListarDatosParaGrillaPrincipal(iValorBusqueda, iCampoBusqueda, iListaComprobanteAlmacen);
         }
         public List<DataGridViewColumn> ListarColumnasDgvProducto()
         {
@@ -96,17 +95,16 @@ namespace GestionClubView.Pedidos
             List<DataGridViewColumn> iLisDgv = new List<DataGridViewColumn>();
 
             //agregando las columnas
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._serNroComprobante, "Comprobante", 90));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._desTipComprobante, "T.Comp.", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._fecComprobante, "Fecha", 100));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._desMoneda, "Moneda", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._nroIdentificacionCliente, "N° Id.", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._nombreRazSocialCliente, "Cliente", 150));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._desPagoComprobante, "M. Pago", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteDto._impNetComprobante, "Total", 80, 2));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._desEstado, "Estado", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._idComprobante, "idComprobante", 80, false));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDto._claveObjeto, "claveObjeto", 80, false));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._nroDocumento, "N° Documento", 90));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._serNroFactura, "Documento", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._fecFactura, "Fecha", 100));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._tipoMovimiento, "T. Mov.", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._tipFactura, "T. Fac.", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._razSocial, "Raz. Social", 150));
+            iLisDgv.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteAlmacenDto._totBru, "Total", 80, 2));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._estAlmacen, "Estado", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._idComprobanteAlmacen, "idComprobanteAlmacen", 80, false));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._claveObjeto, "claveObjeto", 80, false));
 
             //devolver
             return iLisDgv;
@@ -114,13 +112,13 @@ namespace GestionClubView.Pedidos
         public void AccionBuscar()
         {
             //this.tstBuscar.Clear();
-            this.tstBuscar.ToolTipText = "Ingrese " + this.eEncabezadoColumnaDgvComprobante;
+            this.tstBuscar.ToolTipText = "Ingrese " + this.eEncabezadoColumnaDgvComprobanteAlmacen;
             this.tstBuscar.Focus();
         }
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmComprobante, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmIngresosCompras, null);
         }
         public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
         {
@@ -130,12 +128,12 @@ namespace GestionClubView.Pedidos
 
                 case Keys.Up:
                     {
-                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, WinControles.ControlesWindows.Dgv.Desplazar.Anterior);
+                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, WinControles.ControlesWindows.Dgv.Desplazar.Anterior);
                         Txt.CursorAlUltimo(this.tstBuscar); break;
                     }
                 case Keys.Down:
                     {
-                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, WinControles.ControlesWindows.Dgv.Desplazar.Siguiente);
+                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, WinControles.ControlesWindows.Dgv.Desplazar.Siguiente);
                         Txt.CursorAlUltimo(this.tstBuscar); break;
                     }
                 case Keys.Left:
@@ -171,63 +169,63 @@ namespace GestionClubView.Pedidos
         public void AccionModificar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iObjEN = this.EsActoModificarComprobante();
+            GestionClubComprobanteAlmacenDto iObjEN = this.EsActoModificarComprobanteAlmacen();
             if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Modificar;
-            this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
+            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaModificar(iObjEN);
         }
-        public GestionClubComprobanteDto EsActoModificarComprobante()
+        public GestionClubComprobanteAlmacenDto EsActoModificarComprobanteAlmacen()
         {
-            GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-            this.AsignarComprobante(iObjEN);
-            iObjEN = GestionClubComprobanteController.EsActoModificarComprobante(iObjEN);
+            GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
+            this.AsignarComprobanteAlmacen(iObjEN);
+            iObjEN = GestionClubComprobanteAlmacenController.EsActoModificarComprobanteAlmacen(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
             }
             return iObjEN;
         }
-        public void AsignarComprobante(GestionClubComprobanteDto pObj)
+        public void AsignarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
         {
-            pObj.idComprobante = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvComprobantes, GestionClubComprobanteDto._idComprobante));
+            pObj.idComprobanteAlmacen = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvIngresos, GestionClubComprobanteAlmacenDto._idComprobanteAlmacen));
         }
         public void AccionAdicionar()
         {
             //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
             //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
 
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Adicionar;
-            this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
+            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }
         public void AccionEliminar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iObjEN = this.EsActoEliminarComprobante();
+            GestionClubComprobanteAlmacenDto iObjEN = this.EsActoEliminarComprobanteAlmacen();
             if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
             //win.wFrm = this;
             //win.eOperacion = Universal.Opera.Eliminar;
-            this.eFranjaDgvComprobante = Dgv.Franja.PorIndice;
+            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorIndice;
             TabCtrl.InsertarVentana(this, win);
             //win.VentanaEliminar(iObjEN);
         }
-        public GestionClubComprobanteDto EsActoEliminarComprobante()
+        public GestionClubComprobanteAlmacenDto EsActoEliminarComprobanteAlmacen()
         {
-            GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-            this.AsignarComprobante(iObjEN);
-            //iObjEN = GestionClubProductoController.EsActoEliminarComprobante(iObjEN);
+            GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
+            this.AsignarComprobanteAlmacen(iObjEN);
+            //iObjEN = GestionClubProductoController.EsActoEliminarComprobanteAlmacen(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
@@ -237,21 +235,21 @@ namespace GestionClubView.Pedidos
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iComEN = this.EsProductoExistente();
+            GestionClubComprobanteAlmacenDto iComEN = this.EsProductoExistente();
             if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);
             //win.VentanaVisualizar(iPerEN);
         }
-        public GestionClubComprobanteDto EsProductoExistente()
+        public GestionClubComprobanteAlmacenDto EsProductoExistente()
         {
-            GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
-            this.AsignarComprobante(iObjEN);
-            //iObjEN = GestionClubComprobanteController.EsProductoExistente(iObjEN);
+            GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
+            this.AsignarComprobanteAlmacen(iObjEN);
+            //iObjEN = GestionClubComprobanteAlmacenController.EsProductoExistente(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
@@ -263,7 +261,7 @@ namespace GestionClubView.Pedidos
             this.Close();
         }
 
-        private void frmComprobantes_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmIngresosCompras_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Cerrar();
         }
@@ -290,27 +288,27 @@ namespace GestionClubView.Pedidos
 
         private void tsbPrimero_Click(object sender, EventArgs e)
         {
-            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, Dgv.Desplazar.Primero);
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, Dgv.Desplazar.Primero);
         }
 
         private void tsbAnterior_Click(object sender, EventArgs e)
         {
-            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, Dgv.Desplazar.Anterior);
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, Dgv.Desplazar.Anterior);
         }
 
         private void tsbSiguiente_Click(object sender, EventArgs e)
         {
-            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, Dgv.Desplazar.Siguiente);
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, Dgv.Desplazar.Siguiente);
         }
 
         private void tsbUltimo_Click(object sender, EventArgs e)
         {
-            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, Dgv.Desplazar.Ultimo);
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvIngresos, Dgv.Desplazar.Ultimo);
         }
 
         private void tsbActualizarTabla_Click(object sender, EventArgs e)
         {
-            this.eFranjaDgvComprobante = Dgv.Franja.PorIndice;
+            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorIndice;
             this.ActualizarVentana();
         }
 
@@ -319,7 +317,7 @@ namespace GestionClubView.Pedidos
             this.ActualizarVentanaAlBuscarValor(e);
         }
 
-        private void DgvComprobantes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DgvIngresos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }

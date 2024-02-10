@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\GestionClubAccessController.cs" />
+    <Compile Include="Controller\GestionClubComprobanteAlmacenController.cs" />
     <Compile Include="Controller\GestionClubComprobanteController.cs" />
     <Compile Include="Controller\GestionClubCorrelativoComprobanteController.cs" />
     <Compile Include="Controller\GestionClubPermisoEmpresaController.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Pedidos
 {
-    partial class frmEditarComprobante
+    partial class frmEditarIngresosCompras
     {
         /// <summary>
         /// Required designer variable.

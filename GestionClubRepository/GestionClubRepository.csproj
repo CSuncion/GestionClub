@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRepository\IGestionClubAccessRepository.cs" />
+    <Compile Include="IRepository\IGestionClubComprobanteAlmacenRepository.cs" />
     <Compile Include="IRepository\IGestionClubComprobanteRepository.cs" />
     <Compile Include="IRepository\IGestionClubCorrelativoComprobanteRepository.cs" />
     <Compile Include="IRepository\IGestionClubPermisoEmpresaRepository.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="IRepository\IGestionClubGeneralRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GestionClubAccessRepository.cs" />
+    <Compile Include="Repository\GestionClubComprobanteAlmacenRepository.cs" />
     <Compile Include="Repository\GestionClubComprobanteRepository.cs" />
     <Compile Include="Repository\GestionClubCorrelativoComprobanteRepository.cs" />
     <Compile Include="Repository\GestionClubPermisoEmpresaRepository.cs" />

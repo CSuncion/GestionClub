@@ -58,6 +58,7 @@
     <Compile Include="ModelDto\GestionClubCierreCajaDto.cs" />
     <Compile Include="ModelDto\GestionClubClienteDto.cs" />
     <Compile Include="ModelDto\GestionClubComandaDto.cs" />
+    <Compile Include="ModelDto\GestionClubComprobanteAlmacenDto.cs" />
     <Compile Include="ModelDto\GestionClubComprobanteDto.cs" />
     <Compile Include="ModelDto\GestionClubCorrelativoComprobanteDto.cs" />
     <Compile Include="ModelDto\GestionClubPermisoEmpresaDto.cs" />
