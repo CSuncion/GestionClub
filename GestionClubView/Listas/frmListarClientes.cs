@@ -31,6 +31,7 @@ namespace GestionClubView.Listas
         public TextBox eCtrlValor;
         public Control eCtrlFoco;
         GestionClubClienteController oCli = new GestionClubClienteController();
+        public string tipCliente = string.Empty;
         public frmListarClientes()
         {
             InitializeComponent();
@@ -79,7 +80,7 @@ namespace GestionClubView.Listas
             //ejecutar segun condicion
             switch (eCondicionLista)
             {
-                case Condicion.Clientes: { this.eLisCli = oCli.ListarClientes(); break; }
+                case Condicion.Clientes: { this.eLisCli = oCli.ListarClientes().Where(x => x.tipCliente == this.tipCliente).ToList(); break; }
 
             }
         }

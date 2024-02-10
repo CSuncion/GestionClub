@@ -245,6 +245,7 @@ namespace GestionClubView.Pedidos
             win.eTituloVentana = "Clientes";
             win.eCtrlValor = this.txtDocId;
             win.eCtrlFoco = this.txtApeNom;
+            win.tipCliente = Cmb.ObtenerTexto(this.cboTipDoc).ToLower() == "factura" ? "02" : "01";
             win.eCondicionLista = frmListarClientes.Condicion.Clientes;
             TabCtrl.InsertarVentana(this, win);
             win.NuevaVentana();
