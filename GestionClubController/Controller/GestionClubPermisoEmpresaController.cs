@@ -57,7 +57,7 @@ namespace GestionClubController.Controller
 
             //si CodigoEmpresa no esta vacio y hay usuario
             iPermEmpresa = GestionClubPermisoEmpresaController.ListarPermisoEmpresaPorCodigo(pObj);
-            if (iPermEmpresa.gestionClubEmpresaDto.codEmpresa == string.Empty)
+            if (iPermEmpresa.codEmpresa == string.Empty)
             {
                 iPermEmpresa.Adicionales.EsVerdad = false;
                 iPermEmpresa.Adicionales.Mensaje = "La empresa" + Cadena.Espacios(1) + pObj.codEmpresa + Cadena.Espacios(1) + "no existe";
@@ -75,13 +75,13 @@ namespace GestionClubController.Controller
                 }
                 //if (iPermEmpresa.CodigoPerfil != "01")
                 //{
-                    if (iPermEmpresa.cPermitir == 0) //no tiene permiso
-                    {
-                        iPermEmpresa = GestionClubPermisoEmpresaController.EnBlanco();
-                        iPermEmpresa.Adicionales.EsVerdad = false;
-                        iPermEmpresa.Adicionales.Mensaje = "La empresa" + Cadena.Espacios(1) + pObj.codEmpresa + Cadena.Espacios(1) + "no esta autorizada para este usuario";
-                        return iPermEmpresa;
-                    }
+                if (iPermEmpresa.cPermitir == 0) //no tiene permiso
+                {
+                    iPermEmpresa = GestionClubPermisoEmpresaController.EnBlanco();
+                    iPermEmpresa.Adicionales.EsVerdad = false;
+                    iPermEmpresa.Adicionales.Mensaje = "La empresa" + Cadena.Espacios(1) + pObj.codEmpresa + Cadena.Espacios(1) + "no esta autorizada para este usuario";
+                    return iPermEmpresa;
+                }
                 //}
             }
             //si llega hasta aqui entonces si tiene permiso

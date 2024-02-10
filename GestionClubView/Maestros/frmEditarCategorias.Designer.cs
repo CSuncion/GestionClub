@@ -35,6 +35,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtArchivo = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,8 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtArchivo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,7 +71,7 @@
             this.tsBtnGrabar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnGrabar.Name = "tsBtnGrabar";
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
-            this.tsBtnGrabar.Text = "Adicionar";
+            this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
@@ -123,6 +123,24 @@
             this.groupBox1.Size = new System.Drawing.Size(330, 135);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtArchivo
+            // 
+            this.txtArchivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArchivo.Location = new System.Drawing.Point(116, 76);
+            this.txtArchivo.Name = "txtArchivo";
+            this.txtArchivo.Size = new System.Drawing.Size(161, 22);
+            this.txtArchivo.TabIndex = 217;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(61, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 14);
+            this.label5.TabIndex = 216;
+            this.label5.Text = "Archivo:";
             // 
             // txtId
             // 
@@ -189,24 +207,6 @@
             this.label2.Size = new System.Drawing.Size(62, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "Categoria:";
-            // 
-            // txtArchivo
-            // 
-            this.txtArchivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtArchivo.Location = new System.Drawing.Point(116, 76);
-            this.txtArchivo.Name = "txtArchivo";
-            this.txtArchivo.Size = new System.Drawing.Size(161, 22);
-            this.txtArchivo.TabIndex = 217;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(61, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 14);
-            this.label5.TabIndex = 216;
-            this.label5.Text = "Archivo:";
             // 
             // frmEditarCategorias
             // 

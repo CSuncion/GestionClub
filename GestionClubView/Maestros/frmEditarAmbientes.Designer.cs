@@ -35,13 +35,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdAmbiente = new System.Windows.Forms.TextBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtAmbiente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtIdAmbiente = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -69,7 +69,7 @@
             this.tsBtnGrabar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnGrabar.Name = "tsBtnGrabar";
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
-            this.tsBtnGrabar.Text = "Adicionar";
+            this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
@@ -119,6 +119,16 @@
             this.groupBox1.Size = new System.Drawing.Size(330, 112);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtIdAmbiente
+            // 
+            this.txtIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAmbiente.Location = new System.Drawing.Point(222, 20);
+            this.txtIdAmbiente.Name = "txtIdAmbiente";
+            this.txtIdAmbiente.ReadOnly = true;
+            this.txtIdAmbiente.Size = new System.Drawing.Size(18, 22);
+            this.txtIdAmbiente.TabIndex = 215;
+            this.txtIdAmbiente.Visible = false;
             // 
             // txtCodigo
             // 
@@ -175,16 +185,6 @@
             this.label2.Size = new System.Drawing.Size(69, 14);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ambientes:";
-            // 
-            // txtIdAmbiente
-            // 
-            this.txtIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdAmbiente.Location = new System.Drawing.Point(222, 20);
-            this.txtIdAmbiente.Name = "txtIdAmbiente";
-            this.txtIdAmbiente.ReadOnly = true;
-            this.txtIdAmbiente.Size = new System.Drawing.Size(18, 22);
-            this.txtIdAmbiente.TabIndex = 215;
-            this.txtIdAmbiente.Visible = false;
             // 
             // frmEditarAmbientes
             // 

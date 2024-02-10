@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarCierreCaja));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnGrabar = new System.Windows.Forms.ToolStripButton();
-            this.tsBtnLimpiar = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsBtnGrabar,
-            this.tsBtnLimpiar,
             this.tsBtnSalir});
             this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -68,19 +66,8 @@
             this.tsBtnGrabar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnGrabar.Name = "tsBtnGrabar";
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
-            this.tsBtnGrabar.Text = "Adicionar";
+            this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsBtnLimpiar
-            // 
-            this.tsBtnLimpiar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnLimpiar.Image")));
-            this.tsBtnLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnLimpiar.Name = "tsBtnLimpiar";
-            this.tsBtnLimpiar.Size = new System.Drawing.Size(52, 39);
-            this.tsBtnLimpiar.Text = "Limpiar";
-            this.tsBtnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnLimpiar.Click += new System.EventHandler(this.tsBtnLimpiar_Click);
             // 
             // tsBtnSalir
             // 
@@ -192,7 +179,6 @@
         private System.Windows.Forms.ToolStrip tsPrincipal;
         private System.Windows.Forms.ToolStripButton tsBtnGrabar;
         private System.Windows.Forms.ToolStripButton tsBtnSalir;
-        private System.Windows.Forms.ToolStripButton tsBtnLimpiar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;

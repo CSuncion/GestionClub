@@ -17,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmCategorias : Form
     {
-        public string eTitulo = "Registro Categorias";
+        public string eTitulo = "Categorias";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubCategoriaDto> eLisCategoria = new List<GestionClubCategoriaDto>();
         public GestionClubCategoriaController oOpe = new GestionClubCategoriaController();

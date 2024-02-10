@@ -35,15 +35,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdMesa = new System.Windows.Forms.TextBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtMesa = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cboAmbiente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIdMesa = new System.Windows.Forms.TextBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,7 +71,7 @@
             this.tsBtnGrabar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnGrabar.Name = "tsBtnGrabar";
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
-            this.tsBtnGrabar.Text = "Adicionar";
+            this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
@@ -124,6 +124,16 @@
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
             // 
+            // txtIdMesa
+            // 
+            this.txtIdMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdMesa.Location = new System.Drawing.Point(218, 48);
+            this.txtIdMesa.Name = "txtIdMesa";
+            this.txtIdMesa.ReadOnly = true;
+            this.txtIdMesa.Size = new System.Drawing.Size(18, 22);
+            this.txtIdMesa.TabIndex = 218;
+            this.txtIdMesa.Visible = false;
+            // 
             // cboEstado
             // 
             this.cboEstado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +153,14 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Estado:";
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(112, 48);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 22);
+            this.txtCodigo.TabIndex = 217;
+            // 
             // txtMesa
             // 
             this.txtMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,6 +168,16 @@
             this.txtMesa.Name = "txtMesa";
             this.txtMesa.Size = new System.Drawing.Size(100, 22);
             this.txtMesa.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(59, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 14);
+            this.label5.TabIndex = 216;
+            this.label5.Text = "Código:";
             // 
             // label2
             // 
@@ -179,34 +207,6 @@
             this.label1.Size = new System.Drawing.Size(63, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ambiente:";
-            // 
-            // txtIdMesa
-            // 
-            this.txtIdMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdMesa.Location = new System.Drawing.Point(218, 48);
-            this.txtIdMesa.Name = "txtIdMesa";
-            this.txtIdMesa.ReadOnly = true;
-            this.txtIdMesa.Size = new System.Drawing.Size(18, 22);
-            this.txtIdMesa.TabIndex = 218;
-            this.txtIdMesa.Visible = false;
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(112, 48);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 22);
-            this.txtCodigo.TabIndex = 217;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(59, 51);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 14);
-            this.label5.TabIndex = 216;
-            this.label5.Text = "Código:";
             // 
             // frmEditarMesas
             // 

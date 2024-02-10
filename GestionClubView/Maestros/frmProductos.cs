@@ -17,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmProductos : Form
     {
-        public string eTitulo = "Registro Productos";
+        public string eTitulo = "Productos";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubProductoDto> eLisProducto = new List<GestionClubProductoDto>();
         public GestionClubProductoController oOpe = new GestionClubProductoController();

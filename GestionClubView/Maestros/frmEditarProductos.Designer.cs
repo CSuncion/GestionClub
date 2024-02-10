@@ -35,6 +35,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtArchivo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtStock = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -66,10 +70,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboUniMed = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtArchivo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.tsBtnGrabar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnGrabar.Name = "tsBtnGrabar";
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
-            this.tsBtnGrabar.Text = "Adicionar";
+            this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
@@ -175,6 +175,42 @@
             this.groupBox1.Size = new System.Drawing.Size(627, 274);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtArchivo
+            // 
+            this.txtArchivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArchivo.Location = new System.Drawing.Point(416, 209);
+            this.txtArchivo.Name = "txtArchivo";
+            this.txtArchivo.Size = new System.Drawing.Size(161, 22);
+            this.txtArchivo.TabIndex = 222;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(361, 212);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 14);
+            this.label9.TabIndex = 221;
+            this.label9.Text = "Archivo:";
+            // 
+            // txtStock
+            // 
+            this.txtStock.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(127, 209);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(161, 22);
+            this.txtStock.TabIndex = 220;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(83, 212);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(38, 14);
+            this.label8.TabIndex = 219;
+            this.label8.Text = "Stock:";
             // 
             // label7
             // 
@@ -473,42 +509,6 @@
             this.label1.Size = new System.Drawing.Size(83, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cod. Producto:";
-            // 
-            // txtStock
-            // 
-            this.txtStock.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStock.Location = new System.Drawing.Point(127, 209);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(161, 22);
-            this.txtStock.TabIndex = 220;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(83, 212);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 14);
-            this.label8.TabIndex = 219;
-            this.label8.Text = "Stock:";
-            // 
-            // txtArchivo
-            // 
-            this.txtArchivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtArchivo.Location = new System.Drawing.Point(416, 209);
-            this.txtArchivo.Name = "txtArchivo";
-            this.txtArchivo.Size = new System.Drawing.Size(161, 22);
-            this.txtArchivo.TabIndex = 222;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(361, 212);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 14);
-            this.label9.TabIndex = 221;
-            this.label9.Text = "Archivo:";
             // 
             // frmEditarProductos
             // 

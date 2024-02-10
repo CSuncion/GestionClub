@@ -27,7 +27,7 @@ namespace GestionClubModel.ModelDto
 
         public string claveObjeto { get; set; }
         public int idEmpresa { get; set; }
-        public string codEmpresa { get; set; }
+        public string codEmpresa { get; set; } = "";
         public int codSucursalEmpresa { get; set; }
         public string desEmpresa { get; set; }
         public string rucEmpresa { get; set; }

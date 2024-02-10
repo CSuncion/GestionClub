@@ -17,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmAperturaCaja : Form
     {
-        public string eTitulo = "Registro Apertura Caja";
+        public string eTitulo = "Apertura Caja";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubAperturaCajaDto> eLisAperturaCaja = new List<GestionClubAperturaCajaDto>();
         public GestionClubAperturaCajaController oOpe = new GestionClubAperturaCajaController();

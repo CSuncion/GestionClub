@@ -17,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmClientes : Form
     {
-        public string eTitulo = "Registro Clientes";
+        public string eTitulo = "Clientes";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubClienteDto> eLisCliente = new List<GestionClubClienteDto>();
         public GestionClubClienteController oOpe = new GestionClubClienteController();

@@ -56,6 +56,10 @@ namespace GestionClubView.Login
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtCodEmp, true, "Empresa", "f");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.Btn(this.btnGetInto, "f");
             xLis.Add(xCtrl);
 

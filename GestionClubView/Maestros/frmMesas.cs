@@ -17,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmMesas : Form
     {
-        public string eTitulo = "Registro Mesas";
+        public string eTitulo = "Mesas";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubMesaDto> eLisMesas = new List<GestionClubMesaDto>();
         public GestionClubMesaController oOpe = new GestionClubMesaController();

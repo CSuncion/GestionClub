@@ -30,7 +30,7 @@ namespace GestionClubModel.ModelDto
         public string codPermisoEmpresa { get; set; }
         public int idEmpresa { get; set; }
         public int idAcceso { get; set; }
-        public string codEmpresa { get; set; }
+        public string codEmpresa { get; set; } = string.Empty;
         public string desEmpresa { get; set; }
         public string estadoEmpresa { get; set; }
         public string codAcceso { get; set; }

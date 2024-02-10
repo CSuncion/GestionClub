@@ -16,7 +16,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmCierreCaja : Form
     {
-        public string eTitulo = "Registro Cierre Caja";
+        public string eTitulo = "Cierre Caja";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubCierreCajaDto> eLisCierreCaja = new List<GestionClubCierreCajaDto>();
         public GestionClubCierreCajaController oOpe = new GestionClubCierreCajaController();

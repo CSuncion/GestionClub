@@ -257,7 +257,7 @@ namespace GestionClubView.Pedidos
             if (eMas.CamposObligatorios() == false) { return; }
 
             //el codigo de usuario ya existe?
-            if (this.ValidaMontoSeanMayoresACero()) { return; };
+            if (this.ValidaMontoSeanMayoresACero() == false) { return; };
 
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
@@ -278,11 +278,12 @@ namespace GestionClubView.Pedidos
         public bool ValidaMontoSeanMayoresACero()
         {
             this.CalcularPendientePagar();
-            bool result = false;
-            if (Convert.ToDecimal(this.lblPendiente.Text) == 0) result = true;
-
-            if (result) Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
-
+            bool result = true;
+            if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
+            {
+                Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
+                result = false;
+            }
             return result;
         }
         public void ActualizarCorrelativoComprobante()
@@ -619,7 +620,6 @@ namespace GestionClubView.Pedidos
         {
             this.Cobrar();
         }
-
         private void tsBtnTicket_Click(object sender, EventArgs e)
         {
             this.presionTicket = true;
