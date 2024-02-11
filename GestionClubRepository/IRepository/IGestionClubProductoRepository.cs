@@ -14,5 +14,6 @@ namespace GestionClubRepository.IRepository
         List<GestionClubProductoDto> ListarProductosActivos();
         List<GestionClubProductoDto> ListarProductosActivosPorCategoria(GestionClubProductoDto pObj);
         GestionClubProductoDto ListarProductoPorCodProductoPorEmpresa(GestionClubProductoDto pObj);
+        void ActualizarStockProducto(GestionClubProductoDto pObj);
     }
 }

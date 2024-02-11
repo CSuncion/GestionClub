@@ -24,6 +24,11 @@ namespace GestionClubController.Controller
             GestionClubComprobanteAlmacenRepository obj = new GestionClubComprobanteAlmacenRepository();
             obj.EliminarComprobanteAlmacen(pObj);
         }
+        public static void EliminarComprobanteDetalleAlmacen(GestionClubComprobanteDetalleAlmacenDto pObj)
+        {
+            GestionClubComprobanteAlmacenRepository obj = new GestionClubComprobanteAlmacenRepository();
+            obj.EliminarComprobanteDetalleAlmacen(pObj);
+        }
         public static void ModificarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
         {
             GestionClubComprobanteAlmacenRepository obj = new GestionClubComprobanteAlmacenRepository();
@@ -128,6 +133,18 @@ namespace GestionClubController.Controller
             return iValor;
         }
         public static GestionClubComprobanteAlmacenDto EsActoModificarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
+        {
+            //objeto resultado
+            GestionClubComprobanteAlmacenDto iPerEN = new GestionClubComprobanteAlmacenDto();
+
+            //validar si existe
+            iPerEN = GestionClubComprobanteAlmacenController.EsComprobanteExistente(pObj);
+            if (iPerEN.Adicionales.EsVerdad == false) { return iPerEN; }
+
+            //ok            
+            return iPerEN;
+        }
+        public static GestionClubComprobanteAlmacenDto EsActoEliminarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
         {
             //objeto resultado
             GestionClubComprobanteAlmacenDto iPerEN = new GestionClubComprobanteAlmacenDto();

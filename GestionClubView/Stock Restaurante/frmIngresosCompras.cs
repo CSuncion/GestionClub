@@ -215,17 +215,17 @@ namespace GestionClubView.Pedidos
 
             //si existe
             frmEditarIngresosCompras win = new frmEditarIngresosCompras();
-            //win.wFrm = this;
-            //win.eOperacion = Universal.Opera.Eliminar;
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Eliminar;
             this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorIndice;
             TabCtrl.InsertarVentana(this, win);
-            //win.VentanaEliminar(iObjEN);
+            win.VentanaEliminar(iObjEN);
         }
         public GestionClubComprobanteAlmacenDto EsActoEliminarComprobanteAlmacen()
         {
             GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
             this.AsignarComprobanteAlmacen(iObjEN);
-            //iObjEN = GestionClubProductoController.EsActoEliminarComprobanteAlmacen(iObjEN);
+            iObjEN = GestionClubComprobanteAlmacenController.EsActoEliminarComprobanteAlmacen(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);

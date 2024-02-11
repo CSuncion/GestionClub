@@ -216,5 +216,20 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjeto("isp_ListarProductoPorCodProductoPorEmpresa", lParameter);
         }
+        public void ActualizarStockProducto(GestionClubProductoDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idProducto",pObj.idProducto),
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@stock", pObj.stockProducto),
+                    new SqlParameter("@usuarioModifica",Universal.gIdAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ActualizarStockProducto");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
     }
 }

@@ -261,5 +261,10 @@ namespace GestionClubController.Controller
             GestionClubProductoRepository objRepo = new GestionClubProductoRepository();
             return objRepo.ListarProductoPorCodProductoPorEmpresa(pObj);
         }
+        public static void ActualizarStockProducto(GestionClubProductoDto pObj)
+        {
+            GestionClubProductoRepository obj = new GestionClubProductoRepository();
+            obj.ActualizarStockProducto(pObj);
+        }
     }
 }

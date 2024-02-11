@@ -34,6 +34,7 @@ namespace GestionClubView.Pedidos
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
         public string eTitulo = "Ingresos (Compras)";
         public List<GestionClubComprobanteDetalleAlmacenDto> lObjDetalle = new List<GestionClubComprobanteDetalleAlmacenDto>();
+        public List<GestionClubComprobanteDetalleAlmacenDto> lObjDetalleParcial = new List<GestionClubComprobanteDetalleAlmacenDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
@@ -57,10 +58,32 @@ namespace GestionClubView.Pedidos
             eMas.AccionPasarTextoPrincipal();
             this.txtNroDoc.Focus();
         }
+        public void VentanaModificar(GestionClubComprobanteAlmacenDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            this.CalcularTotalYCantidad();
+            eMas.AccionHabilitarControles(1);
+            eMas.AccionPasarTextoPrincipal();
+            this.txtDocId.Focus();
+        }
+        public void VentanaEliminar(GestionClubComprobanteAlmacenDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            this.CalcularTotalYCantidad();
+            eMas.AccionHabilitarControles(2);
+            eMas.AccionPasarTextoPrincipal();
+            this.txtDocId.Focus();
+        }
         public void InicializaVentana()
         {
             //titulo ventana
-            this.Text = "Registrar" + Cadena.Espacios(1) + this.eTitulo;
+            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.eTitulo;
 
             //eventos de controles
             eMas.lisCtrls = this.ListaCtrls();
@@ -234,7 +257,7 @@ namespace GestionClubView.Pedidos
 
             GestionClubComprobanteDetalleAlmacenDto obj = new GestionClubComprobanteDetalleAlmacenDto();
             obj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
-            obj.idComprobanteDetalleAlmacen = 0;
+            obj.idComprobanteDetalleAlmacen = this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idComprobanteAlmacen == Convert.ToInt32(this.txtIdComprobante.Text) && x.idProducto == Convert.ToInt32(this.txtIdProd.Text)).idComprobanteDetalleAlmacen;
             obj.estAlmacen = "01";
             obj.obsOperacion = string.Empty;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
@@ -267,7 +290,7 @@ namespace GestionClubView.Pedidos
         public void CalcularTotalYCantidad()
         {
             this.lblCantidad.Text = Convert.ToInt32(this.lObjDetalle.Sum(x => x.cantidad)).ToString();
-            this.lblTotal.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.precioCosto)), 2);
+            this.lblTotal.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)), 2);
         }
         public void QuitarDetalleComprobante()
         {
@@ -342,8 +365,6 @@ namespace GestionClubView.Pedidos
             pObj.fecFactura = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             foreach (GestionClubComprobanteDetalleAlmacenDto obj in this.lObjDetalle)
             {
-                this.ActualizarCorrelativoComprobanteDetalle();
-                pObj.nroDocCorrelativo = this.correlativoAlmacenDet;
                 pObj.idComprobanteDetalleAlmacen = obj.idComprobanteDetalleAlmacen;
                 pObj.idProducto = obj.idProducto;
                 pObj.desProducto = obj.desProducto;
@@ -352,9 +373,16 @@ namespace GestionClubView.Pedidos
                 pObj.cantidad = obj.cantidad;
                 pObj.totCosto = obj.totCosto;
                 if (pObj.idComprobanteDetalleAlmacen == 0)
+                {
+                    this.ActualizarCorrelativoComprobanteDetalle();
+                    pObj.nroDocCorrelativo = this.correlativoAlmacenDet;
                     GestionClubComprobanteAlmacenController.AgregarComprobanteDetalleAlmacen(pObj);
+                }
                 else
+                {
+                    pObj.nroDocCorrelativo = this.lObjDetalleParcial.Count == 0 ? this.correlativoAlmacenDet : this.lObjDetalleParcial.Find(x => x.idComprobanteDetalleAlmacen == obj.idComprobanteDetalleAlmacen).nroDocCorrelativo;
                     GestionClubComprobanteAlmacenController.ModificarDetalleComprobanteAlmacen(pObj);
+                }
 
             }
         }
@@ -376,6 +404,7 @@ namespace GestionClubView.Pedidos
             iComDetEN.idComprobanteAlmacen = pObj.idComprobanteAlmacen;
             iComDetEN.Adicionales.CampoOrden = GestionClubComprobanteDetalleAlmacenDto._idComprobanteDetalleAlmacen;
             this.lObjDetalle = GestionClubComprobanteAlmacenController.ListarComprobanteDetalleAlmacenPorComprobanteAlmacen(iComDetEN);
+            this.lObjDetalleParcial.AddRange(lObjDetalle);
         }
         public void MostrarComprobante(GestionClubComprobanteAlmacenDto pObj)
         {
@@ -390,17 +419,7 @@ namespace GestionClubView.Pedidos
             this.txtSerDoc.Text = pObj.serFactura;
             this.txtNroDoc.Text = pObj.nroFactura;
 
-            //this.txtEfectivo.Text = pObj.impEfeComprobante.ToString();
-            //if (pObj.impEfeComprobante > 0)
-            //    this.chEfectivo.Checked = true;
-
-            //this.txtDeposito.Text = pObj.impDepComprobante.ToString();
-            //if (pObj.impDepComprobante > 0)
-            //    this.chDeposito.Checked = true;
-
-            //this.txtTransferencia.Text = pObj.impTarComprobante.ToString();
-            //if (pObj.impTarComprobante > 0)
-            //    this.chTransferencia.Checked = true;
+            this.correlativoAlmacen = pObj.nroDocumento;
 
 
         }
@@ -411,7 +430,7 @@ namespace GestionClubView.Pedidos
             List<DataGridViewColumn> iLisRes = new List<DataGridViewColumn>();
 
             //agregando las columnas
-            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._idProducto, "Código", 80));
+            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._codProducto, "Código", 80));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._desProducto, "Producto", 150));
             iLisRes.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteDetalleAlmacenDto._precioCosto, "Precio", 80, 2));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._cantidad, "Cantidad", 80));
@@ -495,6 +514,7 @@ namespace GestionClubView.Pedidos
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
             this.AdicionarComprobante();
+            this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
@@ -507,16 +527,25 @@ namespace GestionClubView.Pedidos
             eMas.AccionPasarTextoPrincipal();
             this.Close();
         }
-        //public bool ValidaMontoSeanMayoresACero()
-        //{
-        //    this.CalcularPendientePagar();
-        //    bool result = false;
-        //    if (this.lblPendiente.Text != "0.00") result = true;
+        public void ActualizarStockProducto()
+        {
+            GestionClubProductoDto xProducto;
+            foreach (GestionClubComprobanteDetalleAlmacenDto producto in this.lObjDetalle)
+            {
+                xProducto = new GestionClubProductoDto();
+                xProducto.idProducto = producto.idProducto;
 
-        //    if (result) Mensaje.OperacionDenegada("No a ingresado monto en los pagos", this.eTitulo);
+                switch (this.eOperacion)
+                {
+                    case Universal.Opera.Adicionar: { xProducto.stockProducto += producto.cantidad; break; }
+                    case Universal.Opera.Modificar: { xProducto.stockProducto += producto.cantidad - this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idProducto == producto.idProducto).cantidad; break; }
+                    case Universal.Opera.Eliminar: { xProducto.stockProducto -= producto.cantidad; break; }
+                    default: break;
+                }
 
-        //    return result;
-        //}
+                GestionClubProductoController.ActualizarStockProducto(xProducto);
+            }
+        }
         public void ActualizarCorrelativoComprobante()
         {
             this.GenerarCorrelativo();
@@ -548,6 +577,7 @@ namespace GestionClubView.Pedidos
 
             //modificar el registro    
             this.ModificarComprobante();
+            this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Comprobante se modifico correctamente", this.wFrm.eTitulo);
@@ -591,7 +621,8 @@ namespace GestionClubView.Pedidos
             if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
 
             //eliminar el registro
-            //this.EliminarAmbiente();
+            this.EliminarComprobanteAlmacen();
+            this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Comprobante se elimino correctamente", this.wFrm.eTitulo);
@@ -801,27 +832,17 @@ namespace GestionClubView.Pedidos
         {
             this.ImprimirComprobante();
         }
-        //public bool ValidaPagoPendiente()
-        //{
-        //    this.CalcularPendientePagar();
-        //    bool result = true;
-        //    if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
-        //    {
-        //        Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
-        //        result = false;
-        //    }
-        //    return result;
-        public void VentanaModificar(GestionClubComprobanteAlmacenDto pObj)
+        public void EliminarComprobanteAlmacen()
         {
-            this.InicializaVentana();
-            this.MostrarComprobante(pObj);
-            this.LLenarComprobanteDetaDeBaseDatos(pObj);
-            this.MostrarComprobanteDeta();
-            this.CalcularTotalYCantidad();
-            eMas.AccionHabilitarControles(1);
-            eMas.AccionPasarTextoPrincipal();
-            this.txtDocId.Focus();
+            GestionClubComprobanteDetalleAlmacenDto gestionClubComprobanteDetalleAlmacenDto = new GestionClubComprobanteDetalleAlmacenDto();
+            this.AsignarDetalleComprobante(gestionClubComprobanteDetalleAlmacenDto, Convert.ToInt32(this.txtIdComprobante.Text));
+            GestionClubComprobanteAlmacenController.EliminarComprobanteDetalleAlmacen(gestionClubComprobanteDetalleAlmacenDto);
+
+            GestionClubComprobanteAlmacenDto iPerEN = new GestionClubComprobanteAlmacenDto();
+            this.AsignarComprobanteAlmacen(iPerEN);
+            GestionClubComprobanteAlmacenController.EliminarComprobanteAlmacen(iPerEN);
         }
+
         public void FiltrarClienteSegunTipoComprobante()
         {
 

@@ -237,6 +237,7 @@ namespace GestionClubView.Pedidos
         public void AgregarDetalleComprobante()
         {
             if (!this.ValidaProductoAgrega()) return;
+
             if (!this.ValidaCantidadMayorCero()) return;
 
             GestionClubDetalleComprobanteDto obj = new GestionClubDetalleComprobanteDto();
@@ -268,7 +269,6 @@ namespace GestionClubView.Pedidos
             this.LimpiarCamposDetalleComprobante();
             this.CalcularTotalYCantidad();
             this.CalcularPendientePagar();
-
         }
         public void CalcularTotalYCantidad()
         {
@@ -497,6 +497,7 @@ namespace GestionClubView.Pedidos
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
             this.AdicionarComprobante();
+            this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
@@ -508,6 +509,18 @@ namespace GestionClubView.Pedidos
 
             eMas.AccionPasarTextoPrincipal();
             this.Close();
+        }
+
+        public void ActualizarStockProducto()
+        {
+            GestionClubProductoDto xProducto;
+            foreach (GestionClubDetalleComprobanteDto producto in this.lObjDetalle)
+            {
+                xProducto = new GestionClubProductoDto();
+                xProducto.idProducto = producto.idProducto;
+                xProducto.stockProducto -= producto.cantidad;
+                GestionClubProductoController.ActualizarStockProducto(xProducto);
+            }
         }
         public bool ValidaMontoSeanMayoresACero()
         {
@@ -533,6 +546,7 @@ namespace GestionClubView.Pedidos
 
             //modificar el registro    
             this.ModificarComprobante();
+            //this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Comprobante se modifico correctamente", this.wFrm.eTitulo);

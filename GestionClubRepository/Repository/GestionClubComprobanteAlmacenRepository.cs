@@ -71,6 +71,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.serFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._serFactura].ToString();
             xObjEnc.nroFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._nroFactura].ToString();
             xObjEnc.fecFactura = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fecFactura]);
+            xObjEnc.codProducto = Convert.ToString(iDr[GestionClubComprobanteDetalleAlmacenDto._codProducto]);
             xObjEnc.idProducto = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._idProducto]);
             xObjEnc.desProducto = iDr[GestionClubComprobanteDetalleAlmacenDto._desProducto].ToString();
             xObjEnc.uniMedida = iDr[GestionClubComprobanteDetalleAlmacenDto._uniMedida].ToString();
@@ -268,7 +269,6 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@totBru",pObj.totBru),
                     new SqlParameter("@estAlmacen",pObj.estAlmacen),
                     new SqlParameter("@Obsope",pObj.Obsope),
-                    new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                     new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
                 };
             xObjCn.AssignParameters(lParameter);
@@ -283,7 +283,7 @@ namespace GestionClubRepository.Repository
                 {
                     new SqlParameter("@idComprobanteDetalleAlmacen", pObj.idComprobanteDetalleAlmacen),
                     new SqlParameter("@idComprobanteAlmacen", pObj.idComprobanteAlmacen),
-                    new SqlParameter("@idEmpresa", pObj.idEmpresa),
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@codAlmacen", pObj.codAlmacen),
                     new SqlParameter("@anoProceso", pObj.anoProceso),
                     new SqlParameter("@mesProceso", pObj.mesProceso),
@@ -303,11 +303,10 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@totCosto", pObj.totCosto),
                     new SqlParameter("@estAlmacen", pObj.estAlmacen),
                     new SqlParameter("@obsOperacion", pObj.obsOperacion),
-                    new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                     new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                 };
             xObjCn.AssignParameters(lParameter);
-            xObjCn.CommandStoreProcedure("isp_ModificarDetalleComprobanteAlmacen");
+            xObjCn.CommandStoreProcedure("isp_ModificarComprobanteDetalleAlmacen");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
@@ -329,7 +328,7 @@ namespace GestionClubRepository.Repository
             xObjCn.Connection();
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
-                        new SqlParameter("@idComprobanteDetalleAlmacen", pObj.idComprobanteDetalleAlmacen),
+                        new SqlParameter("@idComprobanteAlmacen", pObj.idComprobanteAlmacen),
                         new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                 };
             xObjCn.AssignParameters(lParameter);
@@ -359,7 +358,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
-                new SqlParameter("@idComprobante",objEn.idComprobanteAlmacen)
+                new SqlParameter("@idComprobanteAlmacen",objEn.idComprobanteAlmacen)
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarComprobanteDetalleAlmacenPorComprobanteAlmacen", lParameter);
         }
