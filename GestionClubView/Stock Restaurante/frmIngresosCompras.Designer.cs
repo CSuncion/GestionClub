@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresosCompras));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsSecundario = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
-            this.sst1 = new System.Windows.Forms.StatusStrip();
-            this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DgvIngresos = new System.Windows.Forms.DataGridView();
-            this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
-            this.tsbAnterior = new System.Windows.Forms.ToolStripButton();
-            this.tsbSiguiente = new System.Windows.Forms.ToolStripButton();
-            this.tsbUltimo = new System.Windows.Forms.ToolStripButton();
-            this.tsbActualizarTabla = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.tsSecundario = new System.Windows.Forms.ToolStrip();
+            this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
+            this.tsbAnterior = new System.Windows.Forms.ToolStripButton();
+            this.tsbSiguiente = new System.Windows.Forms.ToolStripButton();
+            this.tsbUltimo = new System.Windows.Forms.ToolStripButton();
+            this.tsbActualizarTabla = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.sst1 = new System.Windows.Forms.StatusStrip();
+            this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DgvIngresos = new System.Windows.Forms.DataGridView();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
@@ -72,6 +72,56 @@
             this.tsPrincipal.TabIndex = 108;
             this.tsPrincipal.Text = "toolStrip1";
             // 
+            // tsbAdicionar
+            // 
+            this.tsbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdicionar.Image")));
+            this.tsbAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdicionar.Name = "tsbAdicionar";
+            this.tsbAdicionar.Size = new System.Drawing.Size(63, 43);
+            this.tsbAdicionar.Text = "Adicionar";
+            this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
+            this.tsbEditar.Text = "Editar";
+            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
+            // 
+            // tsbEliminar
+            // 
+            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
+            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEliminar.Name = "tsbEliminar";
+            this.tsbEliminar.Size = new System.Drawing.Size(57, 43);
+            this.tsbEliminar.Text = "Eliminar";
+            this.tsbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
+            // 
+            // tsbVisualizar
+            // 
+            this.tsbVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbVisualizar.Image")));
+            this.tsbVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVisualizar.Name = "tsbVisualizar";
+            this.tsbVisualizar.Size = new System.Drawing.Size(66, 43);
+            this.tsbVisualizar.Text = "Visualizar";
+            this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbVisualizar.Click += new System.EventHandler(this.tsbVisualizar_Click);
+            // 
+            // tsbSalir
+            // 
+            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
+            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Size = new System.Drawing.Size(36, 43);
+            this.tsbSalir.Text = "Salir";
+            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
             // tsSecundario
             // 
             this.tsSecundario.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -90,51 +140,6 @@
             this.tsSecundario.Size = new System.Drawing.Size(800, 25);
             this.tsSecundario.TabIndex = 109;
             this.tsSecundario.Text = "ToolStrip2";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tstBuscar
-            // 
-            this.tstBuscar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tstBuscar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tstBuscar.Name = "tstBuscar";
-            this.tstBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tstBuscar.Size = new System.Drawing.Size(180, 25);
-            this.tstBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyUp);
-            // 
-            // sst1
-            // 
-            this.sst1.BackColor = System.Drawing.SystemColors.Control;
-            this.sst1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssEstado});
-            this.sst1.Location = new System.Drawing.Point(0, 428);
-            this.sst1.Name = "sst1";
-            this.sst1.Size = new System.Drawing.Size(800, 22);
-            this.sst1.TabIndex = 110;
-            this.sst1.Text = "statusStrip1";
-            // 
-            // tssEstado
-            // 
-            this.tssEstado.BackColor = System.Drawing.SystemColors.Control;
-            this.tssEstado.Name = "tssEstado";
-            this.tssEstado.Size = new System.Drawing.Size(10, 17);
-            this.tssEstado.Text = ".";
-            // 
-            // DgvIngresos
-            // 
-            this.DgvIngresos.BackgroundColor = System.Drawing.Color.White;
-            this.DgvIngresos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DgvIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvIngresos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvIngresos.GridColor = System.Drawing.Color.Silver;
-            this.DgvIngresos.Location = new System.Drawing.Point(0, 71);
-            this.DgvIngresos.Name = "DgvIngresos";
-            this.DgvIngresos.Size = new System.Drawing.Size(800, 357);
-            this.DgvIngresos.TabIndex = 111;
-            this.DgvIngresos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIngresos_CellMouseDoubleClick);
             // 
             // tsbPrimero
             // 
@@ -182,6 +187,20 @@
             this.tsbActualizarTabla.Text = "Actualiza Grilla";
             this.tsbActualizarTabla.Click += new System.EventHandler(this.tsbActualizarTabla_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tstBuscar
+            // 
+            this.tstBuscar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tstBuscar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tstBuscar.Name = "tstBuscar";
+            this.tstBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tstBuscar.Size = new System.Drawing.Size(180, 25);
+            this.tstBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyUp);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -191,53 +210,36 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
             // 
-            // tsbAdicionar
+            // sst1
             // 
-            this.tsbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdicionar.Image")));
-            this.tsbAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdicionar.Name = "tsbAdicionar";
-            this.tsbAdicionar.Size = new System.Drawing.Size(63, 43);
-            this.tsbAdicionar.Text = "Adicionar";
-            this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
+            this.sst1.BackColor = System.Drawing.SystemColors.Control;
+            this.sst1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssEstado});
+            this.sst1.Location = new System.Drawing.Point(0, 428);
+            this.sst1.Name = "sst1";
+            this.sst1.Size = new System.Drawing.Size(800, 22);
+            this.sst1.TabIndex = 110;
+            this.sst1.Text = "statusStrip1";
             // 
-            // tsbEditar
+            // tssEstado
             // 
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(43, 43);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tssEstado.BackColor = System.Drawing.SystemColors.Control;
+            this.tssEstado.Name = "tssEstado";
+            this.tssEstado.Size = new System.Drawing.Size(10, 17);
+            this.tssEstado.Text = ".";
             // 
-            // tsbEliminar
+            // DgvIngresos
             // 
-            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(57, 43);
-            this.tsbEliminar.Text = "Eliminar";
-            this.tsbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // tsbVisualizar
-            // 
-            this.tsbVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbVisualizar.Image")));
-            this.tsbVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbVisualizar.Name = "tsbVisualizar";
-            this.tsbVisualizar.Size = new System.Drawing.Size(66, 43);
-            this.tsbVisualizar.Text = "Visualizar";
-            this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbVisualizar.Click += new System.EventHandler(this.tsbVisualizar_Click);
-            // 
-            // tsbSalir
-            // 
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
-            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Size = new System.Drawing.Size(36, 43);
-            this.tsbSalir.Text = "Salir";
-            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            this.DgvIngresos.BackgroundColor = System.Drawing.Color.White;
+            this.DgvIngresos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvIngresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvIngresos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvIngresos.GridColor = System.Drawing.Color.Silver;
+            this.DgvIngresos.Location = new System.Drawing.Point(0, 71);
+            this.DgvIngresos.Name = "DgvIngresos";
+            this.DgvIngresos.Size = new System.Drawing.Size(800, 357);
+            this.DgvIngresos.TabIndex = 111;
+            this.DgvIngresos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIngresos_CellMouseDoubleClick);
             // 
             // frmIngresosCompras
             // 

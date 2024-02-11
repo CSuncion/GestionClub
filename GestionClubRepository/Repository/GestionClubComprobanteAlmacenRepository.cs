@@ -50,7 +50,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaModifica]);
-            xObjEnc.claveObjeto = iDr[GestionClubComprobanteAlmacenDto._idComprobanteAlmacen].ToString();
+            xObjEnc.claveObjeto = xObjEnc.idComprobanteAlmacen.ToString();
             return xObjEnc;
         }
         private GestionClubComprobanteDetalleAlmacenDto ObjetoDetalle(IDataReader iDr)
@@ -83,7 +83,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaModifica]);
-            xObjEnc.claveObjeto = iDr[GestionClubComprobanteDetalleAlmacenDto._idComprobanteDetalleAlmacen].ToString();
+            xObjEnc.claveObjeto = xObjEnc.idComprobanteDetalleAlmacen.ToString();
 
             return xObjEnc;
         }
@@ -213,7 +213,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                     new SqlParameter("@idComprobanteAlmacen", pObj.idComprobanteAlmacen),
-                    new SqlParameter("@idEmpresa", pObj.idEmpresa),
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@codAlmacen", pObj.codAlmacen),
                     new SqlParameter("@anoProceso", pObj.anoProceso),
                     new SqlParameter("@mesProceso", pObj.mesProceso),

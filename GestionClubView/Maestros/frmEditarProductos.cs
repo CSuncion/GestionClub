@@ -232,6 +232,7 @@ namespace GestionClubView.Maestros
         {
             this.txtId.Text = pObj.idProducto.ToString();
             this.cboMoneda.SelectedValue = pObj.codMoneda;
+            this.cboCategoria.SelectedValue = pObj.idCategoria;
             this.txtCodigo.Text = pObj.codProducto;
             this.txtDescripcion.Text = pObj.desProducto;
             this.cboUniMed.SelectedValue = pObj.uniMedProducto.ToString();
@@ -263,7 +264,7 @@ namespace GestionClubView.Maestros
         }
         public void CargarCategorias()
         {
-            Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._idCategoria, GestionClubCategoriaDto._desCategoria);
+            Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._codCategoria, GestionClubCategoriaDto._desCategoria);
         }
         public void CargarMoneda()
         {

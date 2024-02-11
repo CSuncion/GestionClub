@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresosCompras));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoPedidos));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsbEnPreparacion = new System.Windows.Forms.ToolStripButton();
-            this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
             this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario = new System.Windows.Forms.ToolStrip();
@@ -59,8 +57,6 @@
             this.tsPrincipal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbEnPreparacion,
-            this.tsbAdicionar,
             this.tsbVisualizar,
             this.tsbSalir});
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
@@ -70,25 +66,6 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 111;
             this.tsPrincipal.Text = "toolStrip1";
-            // 
-            // tsbEnPreparacion
-            // 
-            this.tsbEnPreparacion.Image = ((System.Drawing.Image)(resources.GetObject("tsbEnPreparacion.Image")));
-            this.tsbEnPreparacion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEnPreparacion.Name = "tsbEnPreparacion";
-            this.tsbEnPreparacion.Size = new System.Drawing.Size(92, 43);
-            this.tsbEnPreparacion.Text = "En Preparación";
-            this.tsbEnPreparacion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbEnPreparacion.Click += new System.EventHandler(this.tsbEnPreparacion_Click);
-            // 
-            // tsbAdicionar
-            // 
-            this.tsbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdicionar.Image")));
-            this.tsbAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdicionar.Name = "tsbAdicionar";
-            this.tsbAdicionar.Size = new System.Drawing.Size(66, 43);
-            this.tsbAdicionar.Text = "Entregado";
-            this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbVisualizar
             // 
@@ -261,8 +238,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip tsPrincipal;
-        private System.Windows.Forms.ToolStripButton tsbAdicionar;
-        private System.Windows.Forms.ToolStripButton tsbEnPreparacion;
         private System.Windows.Forms.ToolStripButton tsbVisualizar;
         private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStrip tsSecundario;

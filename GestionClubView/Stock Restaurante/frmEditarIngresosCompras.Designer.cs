@@ -71,6 +71,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.txtUniMedida = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,10 +188,10 @@
             // 
             // txtApeNom
             // 
-            this.txtApeNom.Location = new System.Drawing.Point(205, 20);
+            this.txtApeNom.Location = new System.Drawing.Point(213, 20);
             this.txtApeNom.Name = "txtApeNom";
             this.txtApeNom.ReadOnly = true;
-            this.txtApeNom.Size = new System.Drawing.Size(413, 21);
+            this.txtApeNom.Size = new System.Drawing.Size(405, 21);
             this.txtApeNom.TabIndex = 449;
             // 
             // txtDocId
@@ -388,6 +389,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtUniMedida);
             this.groupBox3.Controls.Add(this.txtPrecio);
             this.groupBox3.Controls.Add(this.nudCantidadProducto);
             this.groupBox3.Controls.Add(this.txtIdProd);
@@ -532,6 +534,16 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
+            // txtUniMedida
+            // 
+            this.txtUniMedida.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUniMedida.Location = new System.Drawing.Point(622, 22);
+            this.txtUniMedida.Name = "txtUniMedida";
+            this.txtUniMedida.ReadOnly = true;
+            this.txtUniMedida.Size = new System.Drawing.Size(18, 22);
+            this.txtUniMedida.TabIndex = 463;
+            this.txtUniMedida.Visible = false;
+            // 
             // frmEditarIngresosCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,7 +564,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.Name = "frmEditarIngresosCompras";
-            this.Text = "Comprobante";
+            this.Text = "Ingresos (Compras)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComprobante_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
@@ -620,5 +632,6 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtIdComprobante;
+        private System.Windows.Forms.TextBox txtUniMedida;
     }
 }

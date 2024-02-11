@@ -46,7 +46,7 @@ namespace GestionClubModel.ModelDto
         public string mesProceso { get; set; }
         public string tipoMovimiento { get; set; }
         public string nroDocumento { get; set; }
-        public DateTime fecAlmacen { get; set; }
+        public DateTime fecAlmacen { get; set; } = DateTime.Now;
         public string tipCliente { get; set; } = "01";
         public string nroRuc { get; set; }
         public string razSocial { get; set; }
@@ -56,16 +56,16 @@ namespace GestionClubModel.ModelDto
         public string nroFactura { get; set; }
         public DateTime fecFactura { get; set; } = DateTime.Now;
         public string guiaRe { get; set; }
-        public DateTime fecGui { get; set; }
+        public DateTime fecGui { get; set; } = DateTime.Now;
         public decimal totVta { get; set; }
         public decimal totIgv { get; set; }
         public decimal totBru { get; set; }
         public string estAlmacen { get; set; }
         public string Obsope { get; set; }
         public int usuarioAgrega { get; set; }
-        public DateTime fechaAgrega { get; set; }
+        public DateTime fechaAgrega { get; set; } = DateTime.Now;
         public int usuarioModifica { get; set; }
-        public DateTime fechaModifica { get; set; }
+        public DateTime fechaModifica { get; set; } = DateTime.Now;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales
@@ -115,11 +115,11 @@ namespace GestionClubModel.ModelDto
         public string tipoMovimiento { get; set; }
         public string nroDocumento { get; set; }
         public string nroDocCorrelativo { get; set; }
-        public DateTime fechaAlmacen { get; set; }
+        public DateTime fechaAlmacen { get; set; } = DateTime.Now;
         public string tipoFactura { get; set; }
         public string serFactura { get; set; }
         public string nroFactura { get; set; }
-        public DateTime fecFactura { get; set; }
+        public DateTime fecFactura { get; set; } = DateTime.Now;
         public int idProducto { get; set; }
         public string codProducto { get; set; }
         public string desProducto { get; set; }
@@ -130,9 +130,9 @@ namespace GestionClubModel.ModelDto
         public string estAlmacen { get; set; }
         public string obsOperacion { get; set; }
         public int usuarioAgrega { get; set; }
-        public DateTime fechaAgrega { get; set; }
+        public DateTime fechaAgrega { get; set; } = DateTime.Now;
         public int usuarioModifica { get; set; }
-        public DateTime fechaModifica { get; set; }
+        public DateTime fechaModifica { get; set; } = DateTime.Now;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

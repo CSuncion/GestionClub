@@ -38,6 +38,7 @@ namespace GestionClubView.Pedidos
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
+        public string correlativoAlmacen = string.Empty, correlativoAlmacenDet = string.Empty;
         public frmEditarIngresosCompras()
         {
             InitializeComponent();
@@ -94,11 +95,11 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
+            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "ffff", 11);
+            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -118,13 +119,17 @@ namespace GestionClubView.Pedidos
         }
         public void GenerarCorrelativo()
         {
-            this.txtSerDoc.Text = string.Empty;
-            this.txtNroDoc.Text = string.Empty;
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
-            gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = "AL";
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
-            this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0, 1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
-            this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+            this.correlativoAlmacen = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+        }
+        public void GenerarCorrelativoDetalle()
+        {
+            GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = "ALDT";
+            gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
+            this.correlativoAlmacenDet = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void CargarRutas()
         {
@@ -208,6 +213,7 @@ namespace GestionClubView.Pedidos
             this.txtDesProd.Text = iProEN.desProducto;
             this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
+            this.txtUniMedida.Text = iProEN.uniMedProducto.ToString();
 
             //devolver
             return iProEN.Adicionales.EsVerdad;
@@ -227,13 +233,14 @@ namespace GestionClubView.Pedidos
             if (!this.ValidaCantidadMayorCero()) return;
 
             GestionClubComprobanteDetalleAlmacenDto obj = new GestionClubComprobanteDetalleAlmacenDto();
-            obj.idComprobanteAlmacen = 0;
+            obj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
             obj.idComprobanteDetalleAlmacen = 0;
             obj.estAlmacen = "01";
             obj.obsOperacion = string.Empty;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
             obj.desProducto = this.txtDesProd.Text;
+            obj.uniMedida = this.txtUniMedida.Text;
             obj.precioCosto = Convert.ToDecimal(this.txtPrecio.Text);
             obj.cantidad = Convert.ToInt32(this.nudCantidadProducto.Value);
             obj.totCosto = Convert.ToDecimal(this.txtPrecio.Text) * Convert.ToInt32(this.nudCantidadProducto.Value);
@@ -298,9 +305,11 @@ namespace GestionClubView.Pedidos
             pObj.serFactura = this.txtSerDoc.Text.Trim();
             pObj.nroFactura = this.txtNroDoc.Text.Trim();
             pObj.fecFactura = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
-            //pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
-            //pObj.impCambio = 0;
+            pObj.anoProceso = DateTime.Now.Year.ToString();
+            pObj.mesProceso = DateTime.Now.Month.ToString("00");
+            pObj.nroDocumento = this.correlativoAlmacen;
             pObj.guiaRe = string.Empty;
+            pObj.codAlmacen = this.correlativoAlmacen;
             //pObj.nro = string.Empty;
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
@@ -322,14 +331,26 @@ namespace GestionClubView.Pedidos
             pObj.idComprobanteAlmacen = identity;
             pObj.estAlmacen = "04";
             pObj.obsOperacion = string.Empty;
+            pObj.codAlmacen = this.correlativoAlmacen;
+            pObj.anoProceso = DateTime.Now.Year.ToString();
+            pObj.mesProceso = DateTime.Now.Month.ToString("00");
+            pObj.tipoMovimiento = "01";
+            pObj.nroDocumento = this.correlativoAlmacen;
+            pObj.tipoFactura = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            pObj.serFactura = this.txtSerDoc.Text.Trim();
+            pObj.nroFactura = this.txtNroDoc.Text.Trim();
+            pObj.fecFactura = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             foreach (GestionClubComprobanteDetalleAlmacenDto obj in this.lObjDetalle)
             {
+                this.ActualizarCorrelativoComprobanteDetalle();
+                pObj.nroDocCorrelativo = this.correlativoAlmacenDet;
                 pObj.idComprobanteDetalleAlmacen = obj.idComprobanteDetalleAlmacen;
                 pObj.idProducto = obj.idProducto;
+                pObj.desProducto = obj.desProducto;
+                pObj.uniMedida = obj.uniMedida;
                 pObj.precioCosto = obj.precioCosto;
                 pObj.cantidad = obj.cantidad;
                 pObj.totCosto = obj.totCosto;
-
                 if (pObj.idComprobanteDetalleAlmacen == 0)
                     GestionClubComprobanteAlmacenController.AgregarComprobanteDetalleAlmacen(pObj);
                 else
@@ -395,6 +416,7 @@ namespace GestionClubView.Pedidos
             iLisRes.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteDetalleAlmacenDto._precioCosto, "Precio", 80, 2));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._cantidad, "Cantidad", 80));
             iLisRes.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteDetalleAlmacenDto._totCosto, "Total", 80, 2));
+            iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._uniMedida, "uniMedida", 50, false));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._idProducto, "idProducto", 50, false));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._idComprobanteDetalleAlmacen, "idComprobanteDetalleAlmacen", 50, false));
             iLisRes.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteDetalleAlmacenDto._claveObjeto, "Clave", 50, false));
@@ -495,7 +517,24 @@ namespace GestionClubView.Pedidos
 
         //    return result;
         //}
-
+        public void ActualizarCorrelativoComprobante()
+        {
+            this.GenerarCorrelativo();
+            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
+            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.serCorrelativo = "";
+            obj.nroCorrelativo = this.correlativoAlmacen;
+            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
+        public void ActualizarCorrelativoComprobanteDetalle()
+        {
+            this.GenerarCorrelativoDetalle();
+            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
+            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.serCorrelativo = "";
+            obj.nroCorrelativo = this.correlativoAlmacenDet;
+            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
         public void Modificar()
         {
             //validar los campos obligatorios
@@ -772,16 +811,6 @@ namespace GestionClubView.Pedidos
         //        result = false;
         //    }
         //    return result;
-        //}
-        public void ActualizarCorrelativoComprobante()
-        {
-            this.GenerarCorrelativo();
-            GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
-            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1, this.txtSerDoc.Text.Length - 1);
-            obj.nroCorrelativo = this.txtNroDoc.Text;
-            GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
-        }
         public void VentanaModificar(GestionClubComprobanteAlmacenDto pObj)
         {
             this.InicializaVentana();

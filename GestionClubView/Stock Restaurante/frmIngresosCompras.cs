@@ -24,8 +24,8 @@ namespace GestionClubView.Pedidos
         public GestionClubComprobanteAlmacenController oOpe = new GestionClubComprobanteAlmacenController();
         Dgv.Franja eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorIndice;
         public string eClaveDgvComprobanteAlmacen = string.Empty;
-        string eNombreColumnaDgvComprobanteAlmacen = "nombreRazSocialCliente";
-        string eEncabezadoColumnaDgvComprobanteAlmacen = "nombreRazSocialCliente";
+        string eNombreColumnaDgvComprobanteAlmacen = GestionClubComprobanteAlmacenDto._razSocial;
+        string eEncabezadoColumnaDgvComprobanteAlmacen = GestionClubComprobanteAlmacenDto._razSocial;
         public frmIngresosCompras()
         {
             InitializeComponent();
@@ -321,5 +321,6 @@ namespace GestionClubView.Pedidos
         {
             this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
+
     }
 }

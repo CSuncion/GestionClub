@@ -32,7 +32,7 @@ namespace GestionClubView.Pedidos
         public Universal.Opera eOperacion;
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
-        public string eTitulo = "Registro Comprobante";
+        public string eTitulo = "Comprobante";
         public List<GestionClubDetalleComprobanteDto> lObjDetalle = new List<GestionClubDetalleComprobanteDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
@@ -445,7 +445,10 @@ namespace GestionClubView.Pedidos
         }
         public void CalcularPendientePagar()
         {
-            this.lblPendiente.Text = (Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text))).ToString();
+            this.txtEfectivo.Text = Formato.NumeroDecimal(this.txtEfectivo.Text, 2);
+            this.txtDeposito.Text = Formato.NumeroDecimal(this.txtDeposito.Text, 2);
+            this.txtTransferencia.Text = Formato.NumeroDecimal(this.txtTransferencia.Text, 2);
+            this.lblPendiente.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text)), 2);
         }
         public bool ValidaCantidadMayorCero()
         {
@@ -814,10 +817,6 @@ namespace GestionClubView.Pedidos
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
         }
-        public void FiltrarClienteSegunTipoComprobante()
-        {
-
-        }
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
             this.EsClienteValido();
@@ -835,6 +834,7 @@ namespace GestionClubView.Pedidos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            this.CalcularPendientePagar();
             this.AgregarDetalleComprobante();
         }
 

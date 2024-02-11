@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarIngresosCompras));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarComprobante));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbGrabar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -197,10 +197,10 @@
             // 
             // txtApeNom
             // 
-            this.txtApeNom.Location = new System.Drawing.Point(205, 20);
+            this.txtApeNom.Location = new System.Drawing.Point(213, 20);
             this.txtApeNom.Name = "txtApeNom";
             this.txtApeNom.ReadOnly = true;
-            this.txtApeNom.Size = new System.Drawing.Size(413, 21);
+            this.txtApeNom.Size = new System.Drawing.Size(405, 21);
             this.txtApeNom.TabIndex = 449;
             // 
             // txtDocId
