@@ -95,7 +95,7 @@ namespace GestionClubController.Controller
             if (iAperCaja.idAperturaCaja.ToString() != "0")
             {
                 iAperCaja.Adicionales.EsVerdad = false;
-                iAperCaja.Adicionales.Mensaje = "La fecha " + pObj.fecAperturaCaja + " ya existe";
+                iAperCaja.Adicionales.Mensaje = "La fecha " + pObj.fecAperturaCaja.ToShortDateString() + " ya existe";
                 return iAperCaja;
             }
 

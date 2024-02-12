@@ -36,9 +36,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtpFecCierreCaja = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,6 +69,7 @@
             this.tsBtnGrabar.Size = new System.Drawing.Size(48, 39);
             this.tsBtnGrabar.Text = "Grabar";
             this.tsBtnGrabar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBtnGrabar.Click += new System.EventHandler(this.tsBtnGrabar_Click);
             // 
             // tsBtnSalir
             // 
@@ -102,8 +104,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.dtpFecCierreCaja);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtMonto);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,13 +126,13 @@
             this.dtpFecCierreCaja.TabIndex = 6;
             this.dtpFecCierreCaja.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
             // 
-            // textBox1
+            // txtMonto
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(94, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtMonto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMonto.Location = new System.Drawing.Point(94, 46);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(100, 22);
+            this.txtMonto.TabIndex = 3;
             // 
             // label2
             // 
@@ -151,6 +154,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha:";
             // 
+            // txtId
+            // 
+            this.txtId.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(200, 19);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(18, 22);
+            this.txtId.TabIndex = 217;
+            this.txtId.Visible = false;
+            // 
             // frmEditarCierreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +177,7 @@
             this.Name = "frmEditarCierreCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Cierre Caja";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditarCierreCaja_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -183,8 +197,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dtpFecCierreCaja;
+        private System.Windows.Forms.TextBox txtId;
     }
 }

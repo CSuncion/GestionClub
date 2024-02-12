@@ -1,4 +1,5 @@
 ﻿using Comun;
+using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubView.Pedidos;
 using System;
@@ -16,7 +17,7 @@ namespace GestionClubView.Maestros
 {
     public partial class frmEditarCierreCaja : Form
     {
-        public frmMesas wMes;
+        public frmCierreCaja wFrm;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public frmEditarCierreCaja()
@@ -27,6 +28,7 @@ namespace GestionClubView.Maestros
         public void VentanaAdicionar()
         {
             this.InicializaVentana();
+            this.MostrarCierreCaja(GestionClubCierreCajaController.EnBlanco());
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.dtpFecCierreCaja.Focus();
@@ -34,27 +36,217 @@ namespace GestionClubView.Maestros
         public void InicializaVentana()
         {
             //titulo ventana
-            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.wMes.eTitulo;
+            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.wFrm.eTitulo;
 
             //eventos de controles
-            //eMas.lisCtrls = this.ListaCtrls();
+            eMas.lisCtrls = this.ListaCtrls();
             eMas.EjecutarTodosLosEventos();
+
             //this.ActualizarVentana();
             // Deshabilitar al propietario
-            this.wMes.Enabled = false;
+            this.wFrm.Enabled = false;
 
             // Mostrar ventana
             this.Show();
         }
+        List<ControlEditar> ListaCtrls()
+        {
+            List<ControlEditar> xLis = new List<ControlEditar>();
+            ControlEditar xCtrl;
+
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.dtpFecCierreCaja, true, "Fecha Cierre", "vvff", 150);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.TxtNumeroPositivoConDecimales(this.txtMonto, true, "Monto", "vvff", 2);
+            xLis.Add(xCtrl);
+
+
+            return xLis;
+        }
+        public void Aceptar()
+        {
+            switch (this.eOperacion)
+            {
+                case Universal.Opera.Adicionar: { this.Adicionar(); break; }
+                case Universal.Opera.Modificar: { this.Modificar(); break; }
+                case Universal.Opera.Eliminar: { this.Eliminar(); break; }
+                default: break;
+            }
+        }
+        public void Adicionar()
+        {
+            //validar los campos obligatorios
+            if (eMas.CamposObligatorios() == false) { return; }
+
+            //el codigo de usuario ya existe?
+            if (this.EsCodigoCierreCajaDisponible() == false) { return; };
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+
+            //adicionando el registro
+            this.AdicionarCierreCaja();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Cierre Caja se adiciono correctamente", this.wFrm.eTitulo);
+
+            //actualizar al propietario
+            this.wFrm.eClaveDgvCierreCaja = this.ObtenerIdCierreCaja();
+            this.wFrm.ActualizarVentana();
+
+            //limpiar controles
+            this.MostrarCierreCaja(GestionClubCierreCajaController.EnBlanco());
+            eMas.AccionPasarTextoPrincipal();
+            this.dtpFecCierreCaja.Focus();
+        }
+        public void Modificar()
+        {
+            //validar los campos obligatorios
+            if (eMas.CamposObligatorios() == false) { return; }
+
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wFrm.EsActoModificarCierreCaja().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+
+            //modificar el registro    
+            this.ModificarCierreCaja();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Cierre Caja se modifico correctamente", this.wFrm.eTitulo);
+
+            //actualizar al wUsu
+            this.wFrm.eClaveDgvCierreCaja = this.ObtenerIdCierreCaja();
+            this.wFrm.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+
+        }
+        public void Eliminar()
+        {
+            //preguntar si este objeto fue eliminado mientras estaba activa la ventana
+            if (this.wFrm.EsActoEliminarCierreCaja().Adicionales.EsVerdad == false) { return; }
+
+            //desea realizar la operacion?
+            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+
+            //eliminar el registro
+            this.EliminarCierreCaja();
+
+            //mensaje satisfactorio
+            Mensaje.OperacionSatisfactoria("El Cierre Caja se elimino correctamente", this.wFrm.eTitulo);
+
+            //actualizar al propietario           
+            this.wFrm.ActualizarVentana();
+
+            //salir de la ventana
+            this.Close();
+        }
+        public void EliminarCierreCaja()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            GestionClubCierreCajaController.EliminarCierreCaja(iPerEN);
+        }
+        public string ObtenerIdCierreCaja()
+        {
+            //asignar parametros
+            GestionClubCierreCajaDto iAmbEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iAmbEN);
+
+            //devolver
+            return iAmbEN.idCierreCaja.ToString();
+        }
+        public void AdicionarCierreCaja()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            GestionClubCierreCajaController.AdicionarCierreCaja(iPerEN);
+        }
+        public bool EsCodigoCierreCajaDisponible()
+        {
+            //cuando la operacion es diferente del adicionar entonces retorna verdadero
+            if (this.eOperacion != Universal.Opera.Adicionar) { return true; }
+
+            GestionClubCierreCajaDto iCierreCaja = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iCierreCaja);
+            iCierreCaja = GestionClubCierreCajaController.EsFechaCierreCajaDisponible(iCierreCaja);
+            if (iCierreCaja.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iCierreCaja.Adicionales.Mensaje, this.wFrm.eTitulo);
+                this.dtpFecCierreCaja.Focus();
+            }
+            return iCierreCaja.Adicionales.EsVerdad;
+        }
+
+        public void MostrarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            this.dtpFecCierreCaja.Text = pObj.fecCierreCaja.ToString();
+            this.txtMonto.Text = pObj.montoCierreCaja.ToString();
+            this.txtId.Text = pObj.idCierreCaja.ToString();
+        }
+
+        public void AsignarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
+            pObj.caja = Universal.caja;
+            pObj.fecCierreCaja = Convert.ToDateTime(this.dtpFecCierreCaja.Text);
+            pObj.montoCierreCaja = Convert.ToDecimal(this.txtMonto.Text);
+            pObj.estadoCierreCaja = "01";
+            pObj.idCierreCaja = Convert.ToInt32(this.txtId.Text);
+            //Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);  
+        }
+        public void VentanaModificar(GestionClubCierreCajaDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarCierreCaja(pObj);
+            eMas.AccionHabilitarControles(1);
+            eMas.AccionPasarTextoPrincipal();
+            this.dtpFecCierreCaja.Focus();
+        }
+
+
+        public void ModificarCierreCaja()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            iPerEN = GestionClubCierreCajaController.ListarCierreCajasPorFechaPorCaja(iPerEN);
+            this.AsignarCierreCaja(iPerEN);
+            GestionClubCierreCajaController.ModificarCierreCaja(iPerEN);
+        }
+        public void VentanaEliminar(GestionClubCierreCajaDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarCierreCaja(pObj);
+            eMas.AccionHabilitarControles(2);
+        }
+
+        public void VentanaVisualizar(GestionClubCierreCajaDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarCierreCaja(pObj);
+            eMas.AccionHabilitarControles(3);
+            this.tsBtnGrabar.Enabled = false;
+        }
+
 
         private void tsBtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void tsBtnLimpiar_Click(object sender, EventArgs e)
+        private void tsBtnGrabar_Click(object sender, EventArgs e)
         {
+            this.Aceptar();
+        }
 
+        private void frmEditarCierreCaja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.wFrm.Enabled = true;
         }
     }
 }

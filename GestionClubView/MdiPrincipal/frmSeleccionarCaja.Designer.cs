@@ -130,7 +130,7 @@
             this.Name = "frmSeleccionarCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seleccionar Caja";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditarAperturaCaja_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSeleccionarCaja_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             this.panel1.ResumeLayout(false);

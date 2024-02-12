@@ -92,7 +92,7 @@ namespace GestionClubView.MdiPrincipal
             this.Close();
         }
 
-        private void frmEditarAperturaCaja_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmSeleccionarCaja_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.wFrm.Enabled = true;
             this.wFrm.menuStrip1.Enabled = true;

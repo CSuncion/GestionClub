@@ -80,6 +80,7 @@
             this.tsbAdicionar.Size = new System.Drawing.Size(63, 43);
             this.tsbAdicionar.Text = "Adicionar";
             this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
             // 
             // tsbEditar
             // 
@@ -89,6 +90,7 @@
             this.tsbEditar.Size = new System.Drawing.Size(43, 43);
             this.tsbEditar.Text = "Editar";
             this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
             // 
             // tsbEliminar
             // 
@@ -98,6 +100,7 @@
             this.tsbEliminar.Size = new System.Drawing.Size(57, 43);
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
             // tsbVisualizar
             // 
@@ -107,6 +110,7 @@
             this.tsbVisualizar.Size = new System.Drawing.Size(66, 43);
             this.tsbVisualizar.Text = "Visualizar";
             this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbVisualizar.Click += new System.EventHandler(this.tsbVisualizar_Click);
             // 
             // tsbSalir
             // 
@@ -144,6 +148,7 @@
             this.tsbPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrimero.Name = "tsbPrimero";
             this.tsbPrimero.Size = new System.Drawing.Size(23, 22);
+            this.tsbPrimero.Click += new System.EventHandler(this.tsbPrimero_Click);
             // 
             // tsbAnterior
             // 
@@ -152,6 +157,7 @@
             this.tsbAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAnterior.Name = "tsbAnterior";
             this.tsbAnterior.Size = new System.Drawing.Size(23, 22);
+            this.tsbAnterior.Click += new System.EventHandler(this.tsbAnterior_Click);
             // 
             // tsbSiguiente
             // 
@@ -160,6 +166,7 @@
             this.tsbSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSiguiente.Name = "tsbSiguiente";
             this.tsbSiguiente.Size = new System.Drawing.Size(23, 22);
+            this.tsbSiguiente.Click += new System.EventHandler(this.tsbSiguiente_Click);
             // 
             // tsbUltimo
             // 
@@ -168,6 +175,7 @@
             this.tsbUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUltimo.Name = "tsbUltimo";
             this.tsbUltimo.Size = new System.Drawing.Size(23, 22);
+            this.tsbUltimo.Click += new System.EventHandler(this.tsbUltimo_Click);
             // 
             // tsbActualizarTabla
             // 
@@ -177,6 +185,7 @@
             this.tsbActualizarTabla.Name = "tsbActualizarTabla";
             this.tsbActualizarTabla.Size = new System.Drawing.Size(23, 22);
             this.tsbActualizarTabla.Text = "Actualiza Grilla";
+            this.tsbActualizarTabla.Click += new System.EventHandler(this.tsbActualizarTabla_Click);
             // 
             // toolStripSeparator1
             // 
@@ -229,6 +238,7 @@
             this.DgvCierreCaja.Name = "DgvCierreCaja";
             this.DgvCierreCaja.Size = new System.Drawing.Size(800, 357);
             this.DgvCierreCaja.TabIndex = 113;
+            this.DgvCierreCaja.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCierreCaja_CellMouseDoubleClick);
             // 
             // frmCierreCaja
             // 

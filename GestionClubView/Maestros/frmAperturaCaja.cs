@@ -304,7 +304,7 @@ namespace GestionClubView.Maestros
 
         private void DgvAperturaCaja_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); 
         }
     }
 }

@@ -57,6 +57,8 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAperturaCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIngresosCompras = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +73,6 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -293,6 +293,17 @@
             this.tsmCierreCaja.Name = "tsmCierreCaja";
             this.tsmCierreCaja.Click += new System.EventHandler(this.tsmCierreCaja_Click);
             // 
+            // tsmComprobante
+            // 
+            resources.ApplyResources(this.tsmComprobante, "tsmComprobante");
+            this.tsmComprobante.Name = "tsmComprobante";
+            this.tsmComprobante.Click += new System.EventHandler(this.tsmComprobante_Click);
+            // 
+            // tsmNotaCredito
+            // 
+            resources.ApplyResources(this.tsmNotaCredito, "tsmNotaCredito");
+            this.tsmNotaCredito.Name = "tsmNotaCredito";
+            // 
             // facturaElectronicaToolStripMenuItem
             // 
             resources.ApplyResources(this.facturaElectronicaToolStripMenuItem, "facturaElectronicaToolStripMenuItem");
@@ -380,17 +391,6 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // tsmComprobante
-            // 
-            resources.ApplyResources(this.tsmComprobante, "tsmComprobante");
-            this.tsmComprobante.Name = "tsmComprobante";
-            this.tsmComprobante.Click += new System.EventHandler(this.tsmComprobante_Click);
-            // 
-            // tsmNotaCredito
-            // 
-            resources.ApplyResources(this.tsmNotaCredito, "tsmNotaCredito");
-            this.tsmNotaCredito.Name = "tsmNotaCredito";
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -456,12 +456,12 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmSeleccionarCaja;
         internal System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem tsmAperturaCaja;
+        internal System.Windows.Forms.ToolStripMenuItem tsmCierreCaja;
         private System.Windows.Forms.ToolStripMenuItem facturaElectronicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stockElectronicaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripMenuItem tsmCierreCaja;
+        internal System.Windows.Forms.ToolStripMenuItem tsmAperturaCaja;
         internal System.Windows.Forms.ToolStripMenuItem tsmMozosUsuarios;
         internal System.Windows.Forms.ToolStripMenuItem tsmIngresosCompras;
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobante;

@@ -13,6 +13,7 @@ namespace GestionClubModel.ModelDto
         public const string _idEmpresa = "idEmpresa";
         public const string _fecCierreCaja = "fecCierreCaja";
         public const string _montoCierreCaja = "montoCierreCaja";
+        public const string _caja = "caja";
         public const string _estadoCierreCaja = "estadoCierreCaja";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -23,13 +24,14 @@ namespace GestionClubModel.ModelDto
         public string claveObjeto { get; set; }
         public int idCierreCaja { get; set; }
         public int idEmpresa { get; set; }
-        public DateTime fecCierreCaja { get; set; }
+        public DateTime fecCierreCaja { get; set; } = DateTime.Now;
         public decimal montoCierreCaja { get; set; }
-        public string estadoCierreCaja { get; set; }
+        public string caja { get; set; }
+        public string estadoCierreCaja { get; set; } = "01";
         public int usuarioAgrega { get; set; }
-        public DateTime fechaAgrega { get; set; }
+        public DateTime fechaAgrega { get; set; } = DateTime.Now;
         public int usuarioModifica { get; set; }
-        public DateTime fechaModifica { get; set; }
+        public DateTime fechaModifica { get; set; } = DateTime.Now;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

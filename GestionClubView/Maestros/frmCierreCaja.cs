@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinControles;
 using WinControles.ControlesWindows;
 
 namespace GestionClubView.Maestros
@@ -76,15 +77,18 @@ namespace GestionClubView.Maestros
         public List<DataGridViewColumn> ListarColumnasDgvAmbiente()
         {
             //lista resultado
-            List<DataGridViewColumn> iLisAmbiente = new List<DataGridViewColumn>();
+            List<DataGridViewColumn> iLisCierre = new List<DataGridViewColumn>();
 
             //agregando las columnas
-            iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._fecCierreCaja, "Fecha", 80));
-            iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._montoCierreCaja, "Monto", 80));
-            iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._estadoCierreCaja, "Estado", 150));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._fecCierreCaja, "Fecha", 80));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._montoCierreCaja, "Monto", 80));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._caja, "Caja", 80));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._estadoCierreCaja, "Estado", 150));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._idCierreCaja, "idCierreCaja", 150, false));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._claveObjeto, "claveObjeto", 150, false));
 
             //devolver
-            return iLisAmbiente;
+            return iLisCierre;
         }
         public void AccionBuscar()
         {
@@ -97,6 +101,145 @@ namespace GestionClubView.Maestros
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
             wMen.CerrarVentanaHijo(this, wMen.tsmCierreCaja, null);
         }
+        public void AccionAdicionar()
+        {
+            //GestionClubCierreCajaDto iCierreDto = this.EsActoModificarCierreCaja();
+            //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
+
+            frmEditarCierreCaja win = new frmEditarCierreCaja();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvCierreCaja = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
+        }
+
+        public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
+        {
+            //verificar que tecla pulso el usuario
+            switch (pE.KeyCode)
+            {
+
+                case Keys.Up:
+                    {
+                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, WinControles.ControlesWindows.Dgv.Desplazar.Anterior);
+                        Txt.CursorAlUltimo(this.tstBuscar); break;
+                    }
+                case Keys.Down:
+                    {
+                        Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, WinControles.ControlesWindows.Dgv.Desplazar.Siguiente);
+                        Txt.CursorAlUltimo(this.tstBuscar); break;
+                    }
+                case Keys.Left:
+                case Keys.Right:
+                    {
+                        break;
+                    }
+                default:
+                    {
+                        if (this.tstBuscar.Text != string.Empty) { eVaBD = 0; }
+                        this.ActualizarVentana();
+                        eVaBD = 1;
+                        break;
+                    }
+            }
+        }
+        public void AccionModificar()
+        {
+            //preguntar si el registro seleccionado existe
+            GestionClubCierreCajaDto iPerEN = this.EsActoModificarCierreCaja();
+            if (iPerEN.Adicionales.EsVerdad == false) { return; }
+
+            //si existe
+            frmEditarCierreCaja win = new frmEditarCierreCaja();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Modificar;
+            this.eFranjaDgvCierreCaja = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaModificar(iPerEN);
+        }
+        public GestionClubCierreCajaDto EsActoModificarCierreCaja()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            iPerEN = GestionClubCierreCajaController.EsActoModificarCierreCaja(iPerEN);
+            if (iPerEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iPerEN.Adicionales.Mensaje, eTitulo);
+            }
+            return iPerEN;
+        }
+        public void AsignarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            pObj.idCierreCaja = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvCierreCaja, GestionClubCierreCajaDto._idCierreCaja));
+            pObj.caja = Convert.ToString(Dgv.ObtenerValorCelda(this.DgvCierreCaja, GestionClubCierreCajaDto._caja));
+        }
+        public void AccionModificarAlHacerDobleClick(int pColumna, int pFila)
+        {
+            //no debe pasar cuando la fila o columna sea -1
+            if (pColumna == -1 || pFila == -1) { return; }
+
+            //preguntar si este usuario tiene acceso a la accion modificar
+            //basta con ver si el boton modificar esta habilitado o no
+            if (tsbEditar.Enabled == false)
+            {
+                Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
+            }
+            else
+            {
+                this.AccionModificar();
+            }
+        }
+
+        public void AccionEliminar()
+        {
+            //preguntar si el registro seleccionado existe
+            GestionClubCierreCajaDto iPerEN = this.EsActoEliminarCierreCaja();
+            if (iPerEN.Adicionales.EsVerdad == false) { return; }
+
+            //si existe
+            frmEditarCierreCaja win = new frmEditarCierreCaja();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Eliminar;
+            this.eFranjaDgvCierreCaja = Dgv.Franja.PorIndice;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaEliminar(iPerEN);
+        }
+        public GestionClubCierreCajaDto EsActoEliminarCierreCaja()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            iPerEN = GestionClubCierreCajaController.EsActoEliminarCierreCaja(iPerEN);
+            if (iPerEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iPerEN.Adicionales.Mensaje, eTitulo);
+            }
+            return iPerEN;
+        }
+        public void AccionVisualizar()
+        {
+            //preguntar si el registro seleccionado existe
+            GestionClubCierreCajaDto iPerEN = this.EsCierreCajaExistente();
+            if (iPerEN.Adicionales.EsVerdad == false) { return; }
+
+            //si existe
+            frmEditarCierreCaja win = new frmEditarCierreCaja();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Visualizar;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaVisualizar(iPerEN);
+        }
+        public GestionClubCierreCajaDto EsCierreCajaExistente()
+        {
+            GestionClubCierreCajaDto iPerEN = new GestionClubCierreCajaDto();
+            this.AsignarCierreCaja(iPerEN);
+            iPerEN = GestionClubCierreCajaController.EsCierreCajaExistente(iPerEN);
+            if (iPerEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iPerEN.Adicionales.Mensaje, eTitulo);
+            }
+            return iPerEN;
+        }
         private void frmCierreCaja_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Cerrar();
@@ -106,6 +249,57 @@ namespace GestionClubView.Maestros
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tsbAdicionar_Click(object sender, EventArgs e)
+        {
+            this.AccionAdicionar();
+        }
+
+        private void tsbEditar_Click(object sender, EventArgs e)
+        {
+            this.AccionModificar();
+        }
+
+        private void tsbEliminar_Click(object sender, EventArgs e)
+        {
+            this.AccionEliminar();
+        }
+
+        private void tsbVisualizar_Click(object sender, EventArgs e)
+        {
+            this.AccionVisualizar();
+        }
+
+        private void tsbPrimero_Click(object sender, EventArgs e)
+        {
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, Dgv.Desplazar.Primero);
+        }
+
+        private void tsbAnterior_Click(object sender, EventArgs e)
+        {
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, Dgv.Desplazar.Anterior);
+        }
+
+        private void tsbSiguiente_Click(object sender, EventArgs e)
+        {
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, Dgv.Desplazar.Siguiente);
+        }
+
+        private void tsbUltimo_Click(object sender, EventArgs e)
+        {
+            Dgv.SeleccionarRegistroXDesplazamiento(this.DgvCierreCaja, Dgv.Desplazar.Ultimo);
+        }
+
+        private void tsbActualizarTabla_Click(object sender, EventArgs e)
+        {
+            this.eFranjaDgvCierreCaja = Dgv.Franja.PorIndice;
+            this.ActualizarVentana();
+        }
+
+        private void DgvCierreCaja_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex);
         }
     }
 }

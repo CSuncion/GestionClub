@@ -23,11 +23,13 @@ namespace GestionClubRepository.Repository
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
             xObjEnc.fecCierreCaja = Convert.ToDateTime(iDr["fecCierreCaja"]);
             xObjEnc.montoCierreCaja = Convert.ToDecimal(iDr["montoCierreCaja"]);
+            xObjEnc.caja = Convert.ToString(iDr["caja"]);
             xObjEnc.estadoCierreCaja = Convert.ToString(iDr["estadoCierreCaja"]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr["fechaModifica"]);
+            xObjEnc.claveObjeto = xObjEnc.idCierreCaja.ToString();
             return xObjEnc;
         }
         private GestionClubCierreCajaDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -80,5 +82,75 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametro("isp_ListarCierreCajas", lParameter);
         }
+        public GestionClubCierreCajaDto ListarCierreCajaPorFechaPorCaja(GestionClubCierreCajaDto obj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                    new SqlParameter("@fecCierreCaja", obj.fecCierreCaja.ToShortDateString()),
+                    new SqlParameter("@caja", obj.caja)
+                };
+            return this.BuscarObjeto("isp_ListarCierreCajaPorFechaPorCaja", lParameter);
+        }
+        public void AgregarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                        new SqlParameter("@fecCierreCaja",pObj.fecCierreCaja),
+                        new SqlParameter("@montoCierreCaja",pObj.montoCierreCaja),
+                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@estadoCierreCaja",pObj.estadoCierreCaja),
+                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AgregarCierreCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public GestionClubCierreCajaDto ListarCierreCajaPorId(GestionClubCierreCajaDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idCierreCaja", pObj.idCierreCaja),
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
+                };
+            return this.BuscarObjeto("isp_ListarCierreCajaPorId", lParameter);
+        }
+        public void ModificarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idCierreCaja",pObj.idCierreCaja),
+                        new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                        new SqlParameter("@fecCierreCaja",pObj.fecCierreCaja),
+                        new SqlParameter("@montoCierreCaja",pObj.montoCierreCaja),
+                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@estadoCierreCaja",pObj.estadoCierreCaja),
+                        new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
+                        new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarCierreCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarCierreCaja(GestionClubCierreCajaDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                        new SqlParameter("@idCierreCaja", pObj.idCierreCaja),
+                        new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarCierreCaja");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+
     }
 }
