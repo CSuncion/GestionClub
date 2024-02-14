@@ -178,5 +178,11 @@ namespace GestionClubController.Controller
             GestionClubDetalleComprobanteDto iPerEN = new GestionClubDetalleComprobanteDto();
             return iPerEN;
         }
+
+        public static GestionClubComprobanteDto ListaComprobantePorNroComprobante(GestionClubComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListaComprobantePorNroComprobante(objEn);
+        }
     }
 }

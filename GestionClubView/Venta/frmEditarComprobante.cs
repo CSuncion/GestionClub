@@ -56,10 +56,18 @@ namespace GestionClubView.Venta
             eMas.AccionPasarTextoPrincipal();
             this.txtNroDoc.Focus();
         }
+        public void VentanaVisualizar(GestionClubComprobanteDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            eMas.AccionHabilitarControles(3);
+        }
         public void InicializaVentana()
         {
             //titulo ventana
-            this.Text = "Registrar" + Cadena.Espacios(1) + this.eTitulo;
+            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.eTitulo;
 
             //eventos de controles
             eMas.lisCtrls = this.ListaCtrls();
@@ -71,7 +79,7 @@ namespace GestionClubView.Venta
             this.CargarMoneda();
             this.SetearConCeroModoPago();
             // Deshabilitar al propietario
-            //this.wCom.Enabled = false;
+            this.wFrm.Enabled = false;
 
             // Mostrar ventana
             this.Show();

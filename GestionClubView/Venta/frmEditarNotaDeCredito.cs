@@ -50,16 +50,26 @@ namespace GestionClubView.Venta
         public void VentanaAdicionar()
         {
             this.InicializaVentana();
+            this.MostrarNotaCredito(GestionClubComprobanteController.EnBlanco());
             this.MostrarComprobante(GestionClubComprobanteController.EnBlanco());
             this.GenerarCorrelativo();
+            this.MostrarInicialTipoComprobante();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.txtNroDoc.Focus();
         }
+        public void VentanaVisualizar(GestionClubComprobanteDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarNotaCredito(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            eMas.AccionHabilitarControles(3);
+        }
         public void InicializaVentana()
         {
             //titulo ventana
-            this.Text = "Registrar" + Cadena.Espacios(1) + this.eTitulo;
+            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.eTitulo;
 
             //eventos de controles
             eMas.lisCtrls = this.ListaCtrls();
@@ -67,11 +77,14 @@ namespace GestionClubView.Venta
 
             this.CargarDatosEmpresa();
             this.CargarRutas();
+            this.CargarTipoDocumentosComprobante();
             this.CargarTipoDocumentos();
             this.CargarMoneda();
+
             //this.SetearConCeroModoPago();
+
             // Deshabilitar al propietario
-            //this.wCom.Enabled = false;
+            this.wFrm.Enabled = false;
 
             // Mostrar ventana
             this.Show();
@@ -81,17 +94,21 @@ namespace GestionClubView.Venta
             List<ControlEditar> xLis = new List<ControlEditar>();
             ControlEditar xCtrl;
 
+            //xCtrl = new ControlEditar();
+            //xCtrl.Cmb(this.cboTipoDocCmp, "vvff");
+            //xLis.Add(xCtrl);
+
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodComprobante, true, "N°. Comprobante", "vvff");
+            xCtrl.TxtTodo(this.txtSerComprobante, true, "Ser. Comprobante", "vvff");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.Cmb(this.cboTipoDocCmp, "fffff");
+            xCtrl.TxtTodo(this.txtNroComprobante, true, "N°. Comprobante", "vvff");
             xLis.Add(xCtrl);
 
-            xCtrl = new ControlEditar();
-            xCtrl.Dtp(this.dtpFecCmp, "ffff");
-            xLis.Add(xCtrl);
+            //xCtrl = new ControlEditar();
+            //xCtrl.TxtTodo(this.dtpFecCmp, true,"Fecha Comprobante", "ffff");
+            //xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
             xCtrl.Cmb(this.cboMoneda, "ffff");
@@ -105,13 +122,13 @@ namespace GestionClubView.Venta
             xCtrl.txtNoFoco(this.txtApeNom, this.txtSerDoc, "ffff");
             xLis.Add(xCtrl);
 
-            xCtrl = new ControlEditar();
-            xCtrl.Cmb(this.cboTipDoc, "ffff");
-            xLis.Add(xCtrl);
+            //xCtrl = new ControlEditar();
+            //xCtrl.Cmb(this.cboTipDoc, "ffff");
+            //xLis.Add(xCtrl);
 
-            xCtrl = new ControlEditar();
-            xCtrl.Dtp(this.dtpFecDoc, "ffff");
-            xLis.Add(xCtrl);
+            //xCtrl = new ControlEditar();
+            //xCtrl.Dtp(this.dtpFecDoc, "ffff");
+            //xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
@@ -183,7 +200,7 @@ namespace GestionClubView.Venta
         public void ListarProducto()
         {
             //si es de lectura , entonces no lista
-            if (this.txtDocId.ReadOnly == true) { return; }
+            if (this.txtCodProd.ReadOnly == true) { return; }
 
             //instanciar
             frmListarProducto win = new frmListarProducto();
@@ -207,21 +224,26 @@ namespace GestionClubView.Venta
             if (iProEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iProEN.Adicionales.Mensaje, this.eTitulo);
-                this.txtDocId.Focus();
+                this.txtCodProd.Focus();
             }
 
             //mostrar datos
             this.txtCodProd.Text = iProEN.codProducto.ToString();
             this.txtDesProd.Text = iProEN.desProducto;
-            //this.txtPrecio.Text = iProEN.preCosProducto.ToString();
+            this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
 
             //devolver
             return iProEN.Adicionales.EsVerdad;
         }
+
         public void CargarTipoDocumentos()
         {
             Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "nota credito").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+        }
+        public void CargarTipoDocumentosComprobante()
+        {
+            Cmb.Cargar(this.cboTipoDocCmp, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -307,16 +329,16 @@ namespace GestionClubView.Venta
             pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
             pObj.impCambio = 0;
-            pObj.serGuiaComprobante = string.Empty;
-            pObj.nroGuiaComprobante = string.Empty;
-            pObj.fecGuiaComprobante = DateTime.Now;
+            pObj.serGuiaComprobante = this.txtSerComprobante.Text;
+            pObj.nroGuiaComprobante = this.txtNroComprobante.Text;
+            pObj.fecGuiaComprobante = Convert.ToDateTime(this.dtpFecCmp.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.idNroComanda = 0;
             pObj.idAmbiente = 0;
             pObj.idMesa = 0;
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
             pObj.modPagoComprobante = "";
-            pObj.tipMovComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            pObj.tipMovComprobante = Cmb.ObtenerValor(this.cboTipoDocCmp, string.Empty);
             pObj.impEfeComprobante = 0;
             pObj.impDepComprobante = 0;
             pObj.impTarComprobante = 0;
@@ -329,7 +351,7 @@ namespace GestionClubView.Venta
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
             pObj.estadoComprobante = "04";
-            pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
+            pObj.idComprobante = Convert.ToInt32(this.txtIdNC.Text);
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
@@ -379,14 +401,27 @@ namespace GestionClubView.Venta
             this.txtApeNom.Text = pObj.nombreRazSocialCliente;
             this.txtIdCliente.Text = pObj.idCliente.ToString();
             this.txtTipoDoc.Text = pObj.tipCliente.ToString();
+            this.dtpFecCmp.Value = pObj.fecComprobante;
+            this.cboTipoDocCmp.SelectedValue = "02";
+        }
+
+        public void MostrarNotaCredito(GestionClubComprobanteDto pObj)
+        {
+            this.txtIdNC.Text = pObj.idComprobante.ToString();
+            this.cboMoneda.SelectedValue = pObj.codMoneda;
+            this.txtDocId.Text = pObj.nroIdentificacionCliente;
+            this.txtApeNom.Text = pObj.nombreRazSocialCliente;
+            this.txtIdCliente.Text = pObj.idCliente.ToString();
+            this.txtTipoDoc.Text = pObj.tipCliente.ToString();
             this.cboTipDoc.SelectedValue = pObj.tipComprobante;
-            this.dtpFecDoc.Text = pObj.fecComprobante.ToShortDateString();
+            this.dtpFecDoc.Value = pObj.fecComprobante;
             this.txtSerDoc.Text = pObj.serComprobante;
             this.txtNroDoc.Text = pObj.nroComprobante;
             this.cboTipDoc.SelectedValue = "04";
-
-
-
+            this.cboTipoDocCmp.SelectedValue = pObj.tipMovComprobante;
+            this.txtSerComprobante.Text = pObj.serGuiaComprobante;
+            this.txtNroComprobante.Text = pObj.nroGuiaComprobante;
+            this.dtpFecCmp.Value = pObj.fecGuiaComprobante;
         }
 
         public List<DataGridViewColumn> ListarColumnasDgvCom()
@@ -478,7 +513,7 @@ namespace GestionClubView.Venta
             {
                 xProducto = new GestionClubProductoDto();
                 xProducto.idProducto = producto.idProducto;
-                xProducto.stockProducto -= producto.cantidad;
+                xProducto.stockProducto += producto.cantidad;
                 GestionClubProductoController.ActualizarStockProducto(xProducto);
             }
         }
@@ -770,6 +805,22 @@ namespace GestionClubView.Venta
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
         }
+        public void BuscarComprobante()
+        {
+            GestionClubComprobanteDto gestionClubComprobanteDto = new GestionClubComprobanteDto();
+            gestionClubComprobanteDto.tipComprobante = Cmb.ObtenerValor(this.cboTipoDocCmp, string.Empty);
+            gestionClubComprobanteDto.serComprobante = this.txtSerComprobante.Text;
+            gestionClubComprobanteDto.nroComprobante = this.txtNroComprobante.Text;
+            gestionClubComprobanteDto = GestionClubComprobanteController.ListaComprobantePorNroComprobante(gestionClubComprobanteDto);
+            this.MostrarComprobante(gestionClubComprobanteDto);
+            this.LLenarComprobanteDetaDeBaseDatos(gestionClubComprobanteDto);
+            this.MostrarComprobanteDeta();
+            this.CalcularTotalYCantidad();
+        }
+        public void MostrarInicialTipoComprobante()
+        {
+            this.txtSerComprobante.Text = Cmb.ObtenerTexto(this.cboTipoDocCmp).Substring(0, 1);
+        }
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
             this.EsClienteValido();
@@ -789,6 +840,16 @@ namespace GestionClubView.Venta
         {
             //this.CalcularPendientePagar();
             this.AgregarDetalleComprobante();
+        }
+
+        private void txtNroComprobante_Validating(object sender, CancelEventArgs e)
+        {
+            this.BuscarComprobante();
+        }
+
+        private void cboTipoDocCmp_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.MostrarInicialTipoComprobante();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)

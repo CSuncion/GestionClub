@@ -355,5 +355,16 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarDetallesComprobantesPorComprobante", lParameter);
         }
+
+        public GestionClubComprobanteDto ListaComprobantePorNroComprobante(GestionClubComprobanteDto objEn)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@tipComprobante",objEn.tipComprobante),
+                new SqlParameter("@comprobante",objEn.serComprobante + "-" + objEn.nroComprobante)
+                };
+            return this.BuscarObjetoCabecera("isp_ListaComprobantePorNroComprobante", lParameter);
+        }
     }
 }

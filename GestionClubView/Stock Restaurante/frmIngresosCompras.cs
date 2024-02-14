@@ -249,7 +249,7 @@ namespace GestionClubView.Stock_Restaurante
         {
             GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
             this.AsignarComprobanteAlmacen(iObjEN);
-            //iObjEN = GestionClubComprobanteAlmacenController.EsProductoExistente(iObjEN);
+            //iObjEN = GestionClubComprobanteAlmacenController.EsComprobanteExistente(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);

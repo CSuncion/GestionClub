@@ -71,7 +71,7 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCodComprobante = new System.Windows.Forms.TextBox();
+            this.txtNroComprobante = new System.Windows.Forms.TextBox();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpFecCmp = new System.Windows.Forms.DateTimePicker();
@@ -80,6 +80,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.txtSerComprobante = new System.Windows.Forms.TextBox();
+            this.txtIdNC = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -146,7 +148,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(6, 1);
+            this.label3.Location = new System.Drawing.Point(6, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(135, 19);
             this.label3.TabIndex = 449;
@@ -154,6 +156,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtIdNC);
             this.groupBox1.Controls.Add(this.txtIdComprobante);
             this.groupBox1.Controls.Add(this.txtTipoDoc);
             this.groupBox1.Controls.Add(this.txtIdCliente);
@@ -170,7 +173,7 @@
             // txtIdComprobante
             // 
             this.txtIdComprobante.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdComprobante.Location = new System.Drawing.Point(601, 14);
+            this.txtIdComprobante.Location = new System.Drawing.Point(598, 14);
             this.txtIdComprobante.Name = "txtIdComprobante";
             this.txtIdComprobante.ReadOnly = true;
             this.txtIdComprobante.Size = new System.Drawing.Size(10, 22);
@@ -180,7 +183,7 @@
             // txtTipoDoc
             // 
             this.txtTipoDoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoDoc.Location = new System.Drawing.Point(590, 14);
+            this.txtTipoDoc.Location = new System.Drawing.Point(588, 14);
             this.txtTipoDoc.Name = "txtTipoDoc";
             this.txtTipoDoc.ReadOnly = true;
             this.txtTipoDoc.Size = new System.Drawing.Size(10, 22);
@@ -190,7 +193,7 @@
             // txtIdCliente
             // 
             this.txtIdCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCliente.Location = new System.Drawing.Point(580, 14);
+            this.txtIdCliente.Location = new System.Drawing.Point(579, 14);
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.ReadOnly = true;
             this.txtIdCliente.Size = new System.Drawing.Size(10, 22);
@@ -241,7 +244,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Khaki;
-            this.label1.Location = new System.Drawing.Point(8, 2);
+            this.label1.Location = new System.Drawing.Point(8, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 19);
             this.label1.TabIndex = 449;
@@ -300,7 +303,7 @@
             this.dtpFecDoc.Name = "dtpFecDoc";
             this.dtpFecDoc.Size = new System.Drawing.Size(135, 21);
             this.dtpFecDoc.TabIndex = 452;
-            this.dtpFecDoc.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
+            this.dtpFecDoc.Value = new System.DateTime(2024, 2, 14, 0, 0, 0, 0);
             // 
             // label9
             // 
@@ -314,7 +317,6 @@
             // 
             // cboTipDoc
             // 
-            this.cboTipDoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipDoc.FormattingEnabled = true;
             this.cboTipDoc.Location = new System.Drawing.Point(6, 30);
             this.cboTipDoc.Name = "cboTipDoc";
@@ -528,14 +530,15 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtSerComprobante);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.txtCodComprobante);
+            this.groupBox5.Controls.Add(this.txtNroComprobante);
             this.groupBox5.Controls.Add(this.cboMoneda);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.dtpFecCmp);
             this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.cboTipoDocCmp);
             this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.cboTipoDocCmp);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(12, 64);
             this.groupBox5.Name = "groupBox5";
@@ -547,19 +550,20 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 13);
+            this.label11.Location = new System.Drawing.Point(144, 13);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 14);
             this.label11.TabIndex = 459;
             this.label11.Text = "Comprobante:";
             // 
-            // txtCodComprobante
+            // txtNroComprobante
             // 
-            this.txtCodComprobante.Location = new System.Drawing.Point(18, 30);
-            this.txtCodComprobante.MaxLength = 8;
-            this.txtCodComprobante.Name = "txtCodComprobante";
-            this.txtCodComprobante.Size = new System.Drawing.Size(135, 21);
-            this.txtCodComprobante.TabIndex = 458;
+            this.txtNroComprobante.Location = new System.Drawing.Point(198, 30);
+            this.txtNroComprobante.MaxLength = 8;
+            this.txtNroComprobante.Name = "txtNroComprobante";
+            this.txtNroComprobante.Size = new System.Drawing.Size(96, 21);
+            this.txtNroComprobante.TabIndex = 458;
+            this.txtNroComprobante.Validating += new System.ComponentModel.CancelEventHandler(this.txtNroComprobante_Validating);
             // 
             // cboMoneda
             // 
@@ -587,26 +591,26 @@
             this.dtpFecCmp.Name = "dtpFecCmp";
             this.dtpFecCmp.Size = new System.Drawing.Size(135, 21);
             this.dtpFecCmp.TabIndex = 452;
-            this.dtpFecCmp.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
+            this.dtpFecCmp.Value = new System.DateTime(2024, 2, 14, 0, 0, 0, 0);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(159, 13);
+            this.label18.Location = new System.Drawing.Point(6, 13);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 14);
+            this.label18.Size = new System.Drawing.Size(59, 14);
             this.label18.TabIndex = 451;
-            this.label18.Text = "Tip. Doc.:";
+            this.label18.Text = "Tip. Cmp.:";
             // 
             // cboTipoDocCmp
             // 
-            this.cboTipoDocCmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoDocCmp.FormattingEnabled = true;
-            this.cboTipoDocCmp.Location = new System.Drawing.Point(159, 30);
+            this.cboTipoDocCmp.Location = new System.Drawing.Point(6, 30);
             this.cboTipoDocCmp.Name = "cboTipoDocCmp";
             this.cboTipoDocCmp.Size = new System.Drawing.Size(135, 21);
             this.cboTipoDocCmp.TabIndex = 450;
+            this.cboTipoDocCmp.SelectionChangeCommitted += new System.EventHandler(this.cboTipoDocCmp_SelectionChangeCommitted);
             // 
             // label19
             // 
@@ -638,6 +642,24 @@
             this.label20.Size = new System.Drawing.Size(189, 19);
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE COMPROBANTE";
+            // 
+            // txtSerComprobante
+            // 
+            this.txtSerComprobante.Location = new System.Drawing.Point(147, 30);
+            this.txtSerComprobante.MaxLength = 8;
+            this.txtSerComprobante.Name = "txtSerComprobante";
+            this.txtSerComprobante.Size = new System.Drawing.Size(49, 21);
+            this.txtSerComprobante.TabIndex = 460;
+            // 
+            // txtIdNC
+            // 
+            this.txtIdNC.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdNC.Location = new System.Drawing.Point(608, 14);
+            this.txtIdNC.Name = "txtIdNC";
+            this.txtIdNC.ReadOnly = true;
+            this.txtIdNC.Size = new System.Drawing.Size(10, 22);
+            this.txtIdNC.TabIndex = 453;
+            this.txtIdNC.Visible = false;
             // 
             // frmEditarNotaDeCredito
             // 
@@ -734,14 +756,16 @@
         internal System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label11;
-        internal System.Windows.Forms.TextBox txtCodComprobante;
+        internal System.Windows.Forms.TextBox txtNroComprobante;
         private System.Windows.Forms.ComboBox cboMoneda;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.DateTimePicker dtpFecCmp;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cboTipoDocCmp;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label20;
+        internal System.Windows.Forms.TextBox txtSerComprobante;
+        internal System.Windows.Forms.DateTimePicker dtpFecCmp;
+        private System.Windows.Forms.TextBox txtIdNC;
     }
 }

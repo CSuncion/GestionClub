@@ -237,7 +237,7 @@ namespace GestionClubView.Venta
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteDto iComEN = this.EsProductoExistente();
+            GestionClubComprobanteDto iComEN = this.EsComprobanteExistente();
             if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
@@ -245,13 +245,13 @@ namespace GestionClubView.Venta
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);
-            //win.VentanaVisualizar(iPerEN);
+            win.VentanaVisualizar(iComEN);
         }
-        public GestionClubComprobanteDto EsProductoExistente()
+        public GestionClubComprobanteDto EsComprobanteExistente()
         {
             GestionClubComprobanteDto iObjEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iObjEN);
-            //iObjEN = GestionClubComprobanteController.EsProductoExistente(iObjEN);
+            iObjEN = GestionClubComprobanteController.EsComprobanteExistente(iObjEN);
             if (iObjEN.Adicionales.EsVerdad == false)
             {
                 Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
