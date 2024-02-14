@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAcercaDe));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +61,7 @@
             // tsBtnSalir
             // 
             this.tsBtnSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsBtnSalir.Image = global::GestionClubView.Properties.Resources.door_out;
+            this.tsBtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSalir.Image")));
             this.tsBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnSalir.Name = "tsBtnSalir";
             this.tsBtnSalir.Size = new System.Drawing.Size(49, 22);
@@ -156,7 +157,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Lavender;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 19);
             this.panel1.Name = "panel1";
@@ -166,8 +167,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.CadetBlue;
+            this.label1.ForeColor = System.Drawing.Color.Khaki;
             this.label1.Location = new System.Drawing.Point(87, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 23);

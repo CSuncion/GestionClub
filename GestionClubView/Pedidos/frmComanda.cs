@@ -18,7 +18,7 @@ namespace GestionClubView.Pedidos
 {
     public partial class frmComanda : Form
     {
-        public string eTitulo = "Registro Comanda";
+        public string eTitulo = "Comanda";
         public GestionClubAmbienteController oOpeAmbiente = new GestionClubAmbienteController();
         public GestionClubMesaController oOpeMesa = new GestionClubMesaController();
         GestionClubAccessController oOpeAcc = new GestionClubAccessController();
@@ -33,6 +33,7 @@ namespace GestionClubView.Pedidos
         public int eVaBDProducto = 1, eVaBDMesa = 1;
         public int seleccionaMesa = 0, seleccionaProducto = 0, seleccionaProductoSeleccionados = 0, realizoPedido = 0;
         public string keyMesa = string.Empty;
+        public frmPrincipal wFrm;
 
         public frmComanda()
         {
@@ -41,7 +42,12 @@ namespace GestionClubView.Pedidos
 
         public void NewWindow()
         {
-            if (!this.ValidaAperturaCaja()) { this.Cerrar(); return; }
+            if (!this.ValidaAperturaCaja())
+            {
+                this.Cerrar();
+                this.wFrm.InstanciarAperturaCaja();
+                return;
+            }
 
             this.CargarRutas();
             this.CargarAmbientes();
@@ -61,7 +67,11 @@ namespace GestionClubView.Pedidos
             gestionClubAperturaCajaDto.caja = Universal.caja;
             gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(gestionClubAperturaCajaDto);
 
-            if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
+            if (gestionClubAperturaCajaDto.idAperturaCaja == 0)
+            {
+                Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo);
+                result = false;
+            }
 
             return result;
         }

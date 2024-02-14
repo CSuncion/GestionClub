@@ -67,7 +67,10 @@ namespace GestionClubView.MdiPrincipal
         public void SeleccionarCaja()
         {
             Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);
-            if (!this.ValidaAperturaCaja()) { this.wFrm.InstanciarAperturaCaja(); }
+            if (!this.ValidaAperturaCaja())
+            {
+                this.wFrm.InstanciarAperturaCaja();
+            }
             this.Close();
         }
         public bool ValidaAperturaCaja()

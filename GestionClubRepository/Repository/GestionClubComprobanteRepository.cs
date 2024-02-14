@@ -326,7 +326,16 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                 new SqlParameter("@idNroComanda",objEn.idNroComanda)
                 };
-            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantes", lParameter);
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoleta", lParameter);
+        }
+        public List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@idNroComanda",objEn.idNroComanda)
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesNotaDeCredito", lParameter);
         }
         public GestionClubComprobanteDto ListarComprobantesPorId(GestionClubComprobanteDto objEn)
         {

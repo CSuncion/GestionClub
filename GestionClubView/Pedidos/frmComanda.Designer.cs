@@ -37,12 +37,12 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.nudCantidadProducto = new System.Windows.Forms.NumericUpDown();
             this.txtProducto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lvProductos = new System.Windows.Forms.ListView();
             this.imgProductos = new System.Windows.Forms.ImageList(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cboAmbiente = new System.Windows.Forms.ComboBox();
             this.gbProductosSeleccionados = new System.Windows.Forms.GroupBox();
+            this.lblIdComanda = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,7 +59,6 @@
             this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cboMesero = new System.Windows.Forms.ComboBox();
-            this.lblIdComanda = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -78,7 +77,7 @@
             this.lvMesas.LargeImageList = this.imgMesas;
             this.lvMesas.Location = new System.Drawing.Point(6, 19);
             this.lvMesas.Name = "lvMesas";
-            this.lvMesas.Size = new System.Drawing.Size(302, 195);
+            this.lvMesas.Size = new System.Drawing.Size(302, 183);
             this.lvMesas.SmallImageList = this.imgMesas;
             this.lvMesas.TabIndex = 0;
             this.lvMesas.UseCompatibleStateImageBehavior = false;
@@ -94,9 +93,9 @@
             // 
             this.groupBox1.Controls.Add(this.lvMesas);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 106);
+            this.groupBox1.Location = new System.Drawing.Point(12, 101);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 220);
+            this.groupBox1.Size = new System.Drawing.Size(314, 208);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MESAS";
@@ -106,21 +105,20 @@
             this.gbProductos.Controls.Add(this.btnAgregar);
             this.gbProductos.Controls.Add(this.nudCantidadProducto);
             this.gbProductos.Controls.Add(this.txtProducto);
-            this.gbProductos.Controls.Add(this.label1);
             this.gbProductos.Controls.Add(this.lvProductos);
             this.gbProductos.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbProductos.Location = new System.Drawing.Point(332, 106);
+            this.gbProductos.Location = new System.Drawing.Point(332, 101);
             this.gbProductos.Name = "gbProductos";
-            this.gbProductos.Size = new System.Drawing.Size(344, 424);
+            this.gbProductos.Size = new System.Drawing.Size(344, 408);
             this.gbProductos.TabIndex = 2;
             this.gbProductos.TabStop = false;
-            this.gbProductos.Text = "PRODUCTOS";
+            this.gbProductos.Text = "BUSCAR PRODUCTOS";
             // 
             // btnAgregar
             // 
             this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
             this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAgregar.Location = new System.Drawing.Point(310, 36);
+            this.btnAgregar.Location = new System.Drawing.Point(310, 20);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(28, 23);
             this.btnAgregar.TabIndex = 5;
@@ -129,7 +127,7 @@
             // 
             // nudCantidadProducto
             // 
-            this.nudCantidadProducto.Location = new System.Drawing.Point(263, 36);
+            this.nudCantidadProducto.Location = new System.Drawing.Point(263, 21);
             this.nudCantidadProducto.Maximum = new decimal(new int[] {
             200,
             0,
@@ -141,21 +139,12 @@
             // 
             // txtProducto
             // 
-            this.txtProducto.Location = new System.Drawing.Point(6, 35);
+            this.txtProducto.Location = new System.Drawing.Point(6, 21);
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(251, 22);
             this.txtProducto.TabIndex = 3;
             this.txtProducto.Tag = "";
             this.txtProducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtProducto_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 14);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "BUSCAR";
             // 
             // lvProductos
             // 
@@ -163,9 +152,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lvProductos.HideSelection = false;
             this.lvProductos.LargeImageList = this.imgProductos;
-            this.lvProductos.Location = new System.Drawing.Point(6, 64);
+            this.lvProductos.Location = new System.Drawing.Point(7, 65);
             this.lvProductos.Name = "lvProductos";
-            this.lvProductos.Size = new System.Drawing.Size(332, 354);
+            this.lvProductos.Size = new System.Drawing.Size(332, 337);
             this.lvProductos.SmallImageList = this.imgProductos;
             this.lvProductos.TabIndex = 1;
             this.lvProductos.UseCompatibleStateImageBehavior = false;
@@ -210,15 +199,26 @@
             this.gbProductosSeleccionados.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbProductosSeleccionados.Location = new System.Drawing.Point(682, 45);
             this.gbProductosSeleccionados.Name = "gbProductosSeleccionados";
-            this.gbProductosSeleccionados.Size = new System.Drawing.Size(401, 485);
+            this.gbProductosSeleccionados.Size = new System.Drawing.Size(401, 464);
             this.gbProductosSeleccionados.TabIndex = 4;
             this.gbProductosSeleccionados.TabStop = false;
             this.gbProductosSeleccionados.Text = "PRODUCTO SELECCIONADOS";
             // 
+            // lblIdComanda
+            // 
+            this.lblIdComanda.AutoSize = true;
+            this.lblIdComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdComanda.Location = new System.Drawing.Point(137, 444);
+            this.lblIdComanda.Name = "lblIdComanda";
+            this.lblIdComanda.Size = new System.Drawing.Size(13, 14);
+            this.lblIdComanda.TabIndex = 465;
+            this.lblIdComanda.Text = "0";
+            this.lblIdComanda.Visible = false;
+            // 
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(269, 456);
+            this.lblCantidad.Location = new System.Drawing.Point(308, 437);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 11;
@@ -227,7 +227,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(269, 442);
+            this.label5.Location = new System.Drawing.Point(260, 423);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 14);
             this.label5.TabIndex = 10;
@@ -236,7 +236,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(336, 442);
+            this.label4.Location = new System.Drawing.Point(335, 423);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 14);
             this.label4.TabIndex = 9;
@@ -245,7 +245,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(336, 456);
+            this.lblTotal.Location = new System.Drawing.Point(382, 437);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 8;
@@ -258,7 +258,7 @@
             this.btnCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCobrar.Image")));
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(6, 447);
+            this.btnCobrar.Location = new System.Drawing.Point(6, 426);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(82, 32);
             this.btnCobrar.TabIndex = 7;
@@ -271,7 +271,7 @@
             // 
             this.btnQuitar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuitar.BackgroundImage")));
             this.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQuitar.Location = new System.Drawing.Point(94, 447);
+            this.btnQuitar.Location = new System.Drawing.Point(94, 426);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(37, 32);
             this.btnQuitar.TabIndex = 6;
@@ -286,7 +286,7 @@
             this.lvProductosSeleccionados.LargeImageList = this.imgProductosSel;
             this.lvProductosSeleccionados.Location = new System.Drawing.Point(6, 19);
             this.lvProductosSeleccionados.Name = "lvProductosSeleccionados";
-            this.lvProductosSeleccionados.Size = new System.Drawing.Size(389, 422);
+            this.lvProductosSeleccionados.Size = new System.Drawing.Size(389, 401);
             this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
             this.lvProductosSeleccionados.TabIndex = 0;
             this.lvProductosSeleccionados.UseCompatibleStateImageBehavior = false;
@@ -339,7 +339,7 @@
             // 
             this.groupBox2.Controls.Add(this.lvCategorias);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 332);
+            this.groupBox2.Location = new System.Drawing.Point(12, 311);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(314, 198);
             this.groupBox2.TabIndex = 450;
@@ -385,22 +385,11 @@
             this.cboMesero.Size = new System.Drawing.Size(331, 22);
             this.cboMesero.TabIndex = 0;
             // 
-            // lblIdComanda
-            // 
-            this.lblIdComanda.AutoSize = true;
-            this.lblIdComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdComanda.Location = new System.Drawing.Point(137, 456);
-            this.lblIdComanda.Name = "lblIdComanda";
-            this.lblIdComanda.Size = new System.Drawing.Size(13, 14);
-            this.lblIdComanda.TabIndex = 465;
-            this.lblIdComanda.Text = "0";
-            this.lblIdComanda.Visible = false;
-            // 
             // frmComanda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 552);
+            this.ClientSize = new System.Drawing.Size(1095, 535);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -439,7 +428,6 @@
         private System.Windows.Forms.ListView lvProductos;
         private System.Windows.Forms.ImageList imgProductos;
         private System.Windows.Forms.TextBox txtProducto;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cboAmbiente;
         private System.Windows.Forms.GroupBox gbProductosSeleccionados;

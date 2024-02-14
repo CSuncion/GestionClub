@@ -146,10 +146,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 6);
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Khaki;
+            this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 19);
+            this.label3.Size = new System.Drawing.Size(158, 19);
             this.label3.TabIndex = 449;
             this.label3.Text = "DATOS DE COMENSAL";
             // 
@@ -160,7 +161,7 @@
             this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 48);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 32);
+            this.panel1.Size = new System.Drawing.Size(684, 22);
             this.panel1.TabIndex = 451;
             // 
             // groupBox1
@@ -171,7 +172,7 @@
             this.groupBox1.Controls.Add(this.txtDocId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 87);
+            this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(660, 49);
             this.groupBox1.TabIndex = 452;
@@ -231,18 +232,19 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(1, 270);
+            this.panel2.Location = new System.Drawing.Point(1, 225);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(683, 32);
+            this.panel2.Size = new System.Drawing.Size(683, 24);
             this.panel2.TabIndex = 453;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Khaki;
+            this.label1.Location = new System.Drawing.Point(9, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 19);
+            this.label1.Size = new System.Drawing.Size(133, 19);
             this.label1.TabIndex = 449;
             this.label1.Text = "DATOS DE PEDIDO";
             // 
@@ -254,7 +256,7 @@
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.lvProductosSeleccionados);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(262, 308);
+            this.groupBox2.Location = new System.Drawing.Point(262, 251);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(410, 239);
             this.groupBox2.TabIndex = 454;
@@ -332,7 +334,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.lblFecha);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 308);
+            this.groupBox3.Location = new System.Drawing.Point(12, 251);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(244, 239);
             this.groupBox3.TabIndex = 455;
@@ -536,18 +538,19 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1, 142);
+            this.panel3.Location = new System.Drawing.Point(1, 121);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(683, 32);
+            this.panel3.Size = new System.Drawing.Size(683, 23);
             this.panel3.TabIndex = 456;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 6);
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Khaki;
+            this.label2.Location = new System.Drawing.Point(2, 2);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 19);
+            this.label2.Size = new System.Drawing.Size(189, 19);
             this.label2.TabIndex = 449;
             this.label2.Text = "DATOS DE COMPROBANTE";
             // 
@@ -564,16 +567,16 @@
             this.groupBox4.Controls.Add(this.txtSerDoc);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 180);
+            this.groupBox4.Location = new System.Drawing.Point(12, 150);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(660, 84);
+            this.groupBox4.Size = new System.Drawing.Size(660, 73);
             this.groupBox4.TabIndex = 457;
             this.groupBox4.TabStop = false;
             // 
             // cboMoneda
             // 
             this.cboMoneda.FormattingEnabled = true;
-            this.cboMoneda.Location = new System.Drawing.Point(506, 20);
+            this.cboMoneda.Location = new System.Drawing.Point(506, 15);
             this.cboMoneda.Name = "cboMoneda";
             this.cboMoneda.Size = new System.Drawing.Size(135, 21);
             this.cboMoneda.TabIndex = 457;
@@ -582,7 +585,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(444, 22);
+            this.label14.Location = new System.Drawing.Point(444, 17);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 14);
             this.label14.TabIndex = 456;
@@ -590,7 +593,7 @@
             // 
             // txtNroDoc
             // 
-            this.txtNroDoc.Location = new System.Drawing.Point(293, 47);
+            this.txtNroDoc.Location = new System.Drawing.Point(293, 42);
             this.txtNroDoc.MaxLength = 8;
             this.txtNroDoc.Name = "txtNroDoc";
             this.txtNroDoc.Size = new System.Drawing.Size(135, 21);
@@ -600,7 +603,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(236, 49);
+            this.label12.Location = new System.Drawing.Point(236, 44);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(51, 14);
             this.label12.TabIndex = 454;
@@ -610,7 +613,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(232, 22);
+            this.label10.Location = new System.Drawing.Point(232, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 14);
             this.label10.TabIndex = 453;
@@ -620,7 +623,7 @@
             // 
             this.dtpFecDoc.CustomFormat = "dd/MM/yyyy";
             this.dtpFecDoc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecDoc.Location = new System.Drawing.Point(72, 47);
+            this.dtpFecDoc.Location = new System.Drawing.Point(72, 42);
             this.dtpFecDoc.Name = "dtpFecDoc";
             this.dtpFecDoc.Size = new System.Drawing.Size(135, 21);
             this.dtpFecDoc.TabIndex = 452;
@@ -630,7 +633,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 22);
+            this.label9.Location = new System.Drawing.Point(10, 17);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 14);
             this.label9.TabIndex = 451;
@@ -639,7 +642,7 @@
             // cboTipDoc
             // 
             this.cboTipDoc.FormattingEnabled = true;
-            this.cboTipDoc.Location = new System.Drawing.Point(72, 20);
+            this.cboTipDoc.Location = new System.Drawing.Point(72, 15);
             this.cboTipDoc.Name = "cboTipDoc";
             this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
             this.cboTipDoc.TabIndex = 450;
@@ -647,7 +650,7 @@
             // 
             // txtSerDoc
             // 
-            this.txtSerDoc.Location = new System.Drawing.Point(293, 20);
+            this.txtSerDoc.Location = new System.Drawing.Point(293, 15);
             this.txtSerDoc.MaxLength = 8;
             this.txtSerDoc.Name = "txtSerDoc";
             this.txtSerDoc.Size = new System.Drawing.Size(135, 21);
@@ -657,7 +660,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(35, 52);
+            this.label7.Location = new System.Drawing.Point(35, 47);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 14);
             this.label7.TabIndex = 446;
@@ -667,7 +670,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 559);
+            this.ClientSize = new System.Drawing.Size(684, 496);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panel3);

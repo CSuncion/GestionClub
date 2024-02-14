@@ -79,10 +79,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Khaki;
             this.label3.Location = new System.Drawing.Point(97, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 23);
+            this.label3.Size = new System.Drawing.Size(152, 23);
             this.label3.TabIndex = 449;
             this.label3.Text = "SELECCIONA CAJA";
             // 
@@ -128,7 +129,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.Name = "frmSeleccionarCaja";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Seleccionar Caja";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSeleccionarCaja_FormClosing);
             this.tsPrincipal.ResumeLayout(false);

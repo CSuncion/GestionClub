@@ -23,22 +23,22 @@ using System.Windows.Forms;
 using WinControles;
 using WinControles.ControlesWindows;
 
-namespace GestionClubView.Pedidos
+namespace GestionClubView.Venta
 {
-    public partial class frmEditarComprobante : Form
+    public partial class frmEditarNotaDeCredito : Form
     {
-        public frmComprobantes wFrm;
+        public frmNotaDeCredito wFrm;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
-        public string eTitulo = "Comprobante";
+        public string eTitulo = "Nota Credito";
         public List<GestionClubDetalleComprobanteDto> lObjDetalle = new List<GestionClubDetalleComprobanteDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
-        public frmEditarComprobante()
+        public frmEditarNotaDeCredito()
         {
             InitializeComponent();
         }
@@ -69,7 +69,7 @@ namespace GestionClubView.Pedidos
             this.CargarRutas();
             this.CargarTipoDocumentos();
             this.CargarMoneda();
-            this.SetearConCeroModoPago();
+            //this.SetearConCeroModoPago();
             // Deshabilitar al propietario
             //this.wCom.Enabled = false;
 
@@ -82,7 +82,23 @@ namespace GestionClubView.Pedidos
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtDocId, true, "Doc, Identificación", "vvff", 150);
+            xCtrl.TxtTodo(this.txtCodComprobante, true, "N°. Comprobante", "vvff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Cmb(this.cboTipoDocCmp, "fffff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Dtp(this.dtpFecCmp, "ffff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Cmb(this.cboMoneda, "ffff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtDocId, true, "Doc, Identificación", "ffff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -90,7 +106,11 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.Cmb(this.cboTipDoc, "vvff");
+            xCtrl.Cmb(this.cboTipDoc, "ffff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.Dtp(this.dtpFecDoc, "ffff");
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -101,32 +121,6 @@ namespace GestionClubView.Pedidos
             xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
-            xCtrl = new ControlEditar();
-            xCtrl.Dtp(this.dtpFecDoc, "ffff");
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.Cmb(this.cboMoneda, "vvff");
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtEfectivo, true, "Efectivo", "vvff", 2);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtDeposito, true, "Tarjeta", "vvff", 2);
-            xLis.Add(xCtrl);
-
-            xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtTransferencia, true, "Transferencia", "vvff", 2);
-            xLis.Add(xCtrl);
-
-
-            //xCtrl = new ControlEditar();
-            //xCtrl.txtNoFoco(this.txtCodProd, this.nudCantidadProducto, "ffff");
-            //xLis.Add(xCtrl);
-
-
             return xLis;
         }
         public void GenerarCorrelativo()
@@ -136,7 +130,7 @@ namespace GestionClubView.Pedidos
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
             gestionClubCorrelativoComprobanteDto.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
-            this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0, 1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
+            this.txtSerDoc.Text = "NC" + gestionClubCorrelativoComprobanteDto.serCorrelativo;
             this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void CargarRutas()
@@ -219,7 +213,7 @@ namespace GestionClubView.Pedidos
             //mostrar datos
             this.txtCodProd.Text = iProEN.codProducto.ToString();
             this.txtDesProd.Text = iProEN.desProducto;
-            this.txtPrecio.Text = iProEN.preCosProducto.ToString();
+            //this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
 
             //devolver
@@ -227,7 +221,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "nota credito").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -268,7 +262,7 @@ namespace GestionClubView.Pedidos
             this.MostrarComprobanteDeta();
             this.LimpiarCamposDetalleComprobante();
             this.CalcularTotalYCantidad();
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
         public void CalcularTotalYCantidad()
         {
@@ -290,7 +284,7 @@ namespace GestionClubView.Pedidos
             }
             this.MostrarComprobanteDeta();
             this.CalcularTotalYCantidad();
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
         }
         public void AdicionarComprobante()
         {
@@ -321,11 +315,11 @@ namespace GestionClubView.Pedidos
             pObj.idMesa = 0;
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
-            pObj.modPagoComprobante = this.modoPago();
-            pObj.tipMovComprobante = "01";
-            pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
-            pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
-            pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
+            pObj.modPagoComprobante = "";
+            pObj.tipMovComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            pObj.impEfeComprobante = 0;
+            pObj.impDepComprobante = 0;
+            pObj.impTarComprobante = 0;
             pObj.impBruComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
             pObj.impIgvComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
@@ -389,18 +383,8 @@ namespace GestionClubView.Pedidos
             this.dtpFecDoc.Text = pObj.fecComprobante.ToShortDateString();
             this.txtSerDoc.Text = pObj.serComprobante;
             this.txtNroDoc.Text = pObj.nroComprobante;
+            this.cboTipDoc.SelectedValue = "04";
 
-            this.txtEfectivo.Text = pObj.impEfeComprobante.ToString();
-            if (pObj.impEfeComprobante > 0)
-                this.chEfectivo.Checked = true;
-
-            this.txtDeposito.Text = pObj.impDepComprobante.ToString();
-            if (pObj.impDepComprobante > 0)
-                this.chDeposito.Checked = true;
-
-            this.txtTransferencia.Text = pObj.impTarComprobante.ToString();
-            if (pObj.impTarComprobante > 0)
-                this.chTransferencia.Checked = true;
 
 
         }
@@ -431,25 +415,7 @@ namespace GestionClubView.Pedidos
             this.nudCantidadProducto.Value = 0;
             this.txtIdProd.Text = "0";
         }
-        public string modoPago()
-        {
-            string modoPago = string.Empty;
-            int cantidadCheck = 0;
 
-            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "01"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "02"; }
-            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "03"; }
-            if (cantidadCheck > 1) modoPago = "04";
-
-            return modoPago;
-        }
-        public void CalcularPendientePagar()
-        {
-            this.txtEfectivo.Text = Formato.NumeroDecimal(this.txtEfectivo.Text, 2);
-            this.txtDeposito.Text = Formato.NumeroDecimal(this.txtDeposito.Text, 2);
-            this.txtTransferencia.Text = Formato.NumeroDecimal(this.txtTransferencia.Text, 2);
-            this.lblPendiente.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text)), 2);
-        }
         public bool ValidaCantidadMayorCero()
         {
             bool result = true;
@@ -469,12 +435,6 @@ namespace GestionClubView.Pedidos
                 result = false;
             }
             return result;
-        }
-        public void SetearConCeroModoPago()
-        {
-            this.txtEfectivo.Text = "0";
-            this.txtDeposito.Text = "0";
-            this.txtTransferencia.Text = "0";
         }
         public void Aceptar()
         {
@@ -521,16 +481,6 @@ namespace GestionClubView.Pedidos
                 xProducto.stockProducto -= producto.cantidad;
                 GestionClubProductoController.ActualizarStockProducto(xProducto);
             }
-        }
-        public bool ValidaMontoSeanMayoresACero()
-        {
-            this.CalcularPendientePagar();
-            bool result = false;
-            if (this.lblPendiente.Text != "0.00") result = true;
-
-            if (result) Mensaje.OperacionDenegada("No a ingresado monto en los pagos", this.eTitulo);
-
-            return result;
         }
 
         public void Modificar()
@@ -611,18 +561,7 @@ namespace GestionClubView.Pedidos
             Tlf = ConfigurationManager.AppSettings["Tlf"].ToString();
             Email = ConfigurationManager.AppSettings["Email"].ToString();
         }
-        public string modoDescriPago()
-        {
-            string modoPago = string.Empty;
-            int cantidadCheck = 0;
 
-            if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
-            if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
-            if (cantidadCheck > 1) modoPago = "MIXTO";
-
-            return modoPago;
-        }
 
         public void ImprimirComprobante()
         {
@@ -685,7 +624,7 @@ namespace GestionClubView.Pedidos
             g.DrawString(Universal.gNombreUsuario, fBodyNoBold, sb, 90, SPACE + 60);
 
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
-            g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
+            g.DrawString("", fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
             g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
@@ -802,13 +741,13 @@ namespace GestionClubView.Pedidos
         }
         public bool ValidaPagoPendiente()
         {
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
             bool result = true;
-            if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
-            {
-                Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
-                result = false;
-            }
+            //if (Convert.ToDecimal(this.lblPendiente.Text) != 0)
+            //{
+            //    Mensaje.OperacionDenegada("Corroborar que se haya pagado correctamente.", this.eTitulo);
+            //    result = false;
+            //}
             return result;
         }
         public void ActualizarCorrelativoComprobante()
@@ -848,7 +787,7 @@ namespace GestionClubView.Pedidos
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            this.CalcularPendientePagar();
+            //this.CalcularPendientePagar();
             this.AgregarDetalleComprobante();
         }
 
@@ -872,40 +811,12 @@ namespace GestionClubView.Pedidos
             this.ListarProducto();
         }
 
-        private void chEfectivo_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
-        }
-
-        private void chDeposito_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
-        }
 
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.GenerarCorrelativo();
         }
 
-        private void txtDeposito_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void chTransferencia_CheckedChanged(object sender, EventArgs e)
-        {
-            this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
-        }
-
-        private void txtEfectivo_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
-
-        private void txtTransferencia_Validated(object sender, EventArgs e)
-        {
-            this.CalcularPendientePagar();
-        }
 
         private void tsbGrabar_Click(object sender, EventArgs e)
         {

@@ -14,5 +14,6 @@ namespace GestionClubRepository.IRepository
         List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn);
         GestionClubComprobanteDto ListarComprobantesPorId(GestionClubComprobanteDto objEn);
         List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantesPorComprobante(GestionClubDetalleComprobanteDto objEn);
+        List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn);
     }
 }

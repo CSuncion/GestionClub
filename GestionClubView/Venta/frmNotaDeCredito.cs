@@ -14,11 +14,11 @@ using System.Windows.Forms;
 using WinControles;
 using WinControles.ControlesWindows;
 
-namespace GestionClubView.Pedidos
+namespace GestionClubView.Venta
 {
-    public partial class frmComprobantes : Form
+    public partial class frmNotaDeCredito : Form
     {
-        public string eTitulo = "Registro Comprobante";
+        public string eTitulo = "Nota de Credito";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubComprobanteDto> eLisComp = new List<GestionClubComprobanteDto>();
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
@@ -26,7 +26,7 @@ namespace GestionClubView.Pedidos
         public string eClaveDgvComprobante = string.Empty;
         string eNombreColumnaDgvComprobante = "nombreRazSocialCliente";
         string eEncabezadoColumnaDgvComprobante = "nombreRazSocialCliente";
-        public frmComprobantes()
+        public frmNotaDeCredito()
         {
             InitializeComponent();
         }
@@ -66,7 +66,7 @@ namespace GestionClubView.Pedidos
             //Lista comprobantes que no han sido creado por comandas
             GestionClubComprobanteDto iOpEN = new GestionClubComprobanteDto();
             iOpEN.idNroComanda = 0;
-            this.eLisComp = GestionClubComprobanteController.ListarComprobantes(iOpEN);
+            this.eLisComp = GestionClubComprobanteController.ListarComprobantesNotaDeCredito(iOpEN);
         }
         public void ActualizarDgvComprobante()
         {
@@ -175,7 +175,7 @@ namespace GestionClubView.Pedidos
             if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarNotaDeCredito win = new frmEditarNotaDeCredito();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Modificar;
             this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
@@ -202,7 +202,7 @@ namespace GestionClubView.Pedidos
             //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
             //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
 
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarNotaDeCredito win = new frmEditarNotaDeCredito();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Adicionar;
             this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
@@ -216,7 +216,7 @@ namespace GestionClubView.Pedidos
             if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarNotaDeCredito win = new frmEditarNotaDeCredito();
             //win.wFrm = this;
             //win.eOperacion = Universal.Opera.Eliminar;
             this.eFranjaDgvComprobante = Dgv.Franja.PorIndice;
@@ -241,7 +241,7 @@ namespace GestionClubView.Pedidos
             if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
-            frmEditarComprobante win = new frmEditarComprobante();
+            frmEditarNotaDeCredito win = new frmEditarNotaDeCredito();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);

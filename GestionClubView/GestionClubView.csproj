@@ -141,10 +141,22 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedidos\frmEditarComprobante.cs">
+    <Compile Include="Venta\frmEditarNotaDeCredito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedidos\frmEditarComprobante.Designer.cs">
+    <Compile Include="Venta\frmEditarNotaDeCredito.Designer.cs">
+      <DependentUpon>frmEditarNotaDeCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta\frmNotaDeCredito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta\frmNotaDeCredito.Designer.cs">
+      <DependentUpon>frmNotaDeCredito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Venta\frmEditarComprobante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Venta\frmEditarComprobante.Designer.cs">
       <DependentUpon>frmEditarComprobante.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedidos\frmListadoPedidos.cs">
@@ -281,10 +293,10 @@
     <Compile Include="MdiPrincipal\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedidos\frmComprobantes.cs">
+    <Compile Include="Venta\frmComprobantes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedidos\frmComprobantes.Designer.cs">
+    <Compile Include="Venta\frmComprobantes.Designer.cs">
       <DependentUpon>frmComprobantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -331,7 +343,13 @@
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pedidos\frmEditarComprobante.resx">
+    <EmbeddedResource Include="Venta\frmEditarNotaDeCredito.resx">
+      <DependentUpon>frmEditarNotaDeCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta\frmNotaDeCredito.resx">
+      <DependentUpon>frmNotaDeCredito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Venta\frmEditarComprobante.resx">
       <DependentUpon>frmEditarComprobante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmListadoPedidos.resx">
@@ -397,7 +415,7 @@
     <EmbeddedResource Include="MdiPrincipal\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pedidos\frmComprobantes.resx">
+    <EmbeddedResource Include="Venta\frmComprobantes.resx">
       <DependentUpon>frmComprobantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -521,7 +539,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Consultas\" />
     <Folder Include="Plantilla\" />
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

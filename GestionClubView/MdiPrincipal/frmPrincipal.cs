@@ -15,6 +15,8 @@ using GestionClubUtil.Enum;
 using WinControles;
 using GestionClubView.Pedidos;
 using GestionClubView.Maestros;
+using GestionClubView.Venta;
+using GestionClubView.Stock_Restaurante;
 
 namespace GestionClubView.MdiPrincipal
 {
@@ -317,7 +319,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmIngresosCompras, null, 0, 0);
             win.NewWindow();
         }
-
+        public void InstanciarNotaDeCredito()
+        {
+            frmNotaDeCredito win = new frmNotaDeCredito();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmNotaCredito, null, 0, 0);
+            win.NewWindow();
+        }
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -438,7 +445,7 @@ namespace GestionClubView.MdiPrincipal
             this.InstanciarMasterClientes();
         }
 
-        private void tsmAperturaCaja_Click(object sender, EventArgs e)
+        public void tsmAperturaCaja_Click(object sender, EventArgs e)
         {
             this.InstanciarAperturaCaja();
         }
@@ -488,21 +495,11 @@ namespace GestionClubView.MdiPrincipal
             this.InstanciarIngresosCompras();
         }
 
-        public void ShowOptionsGestionClub()
+        private void tsmNotaCredito_Click(object sender, EventArgs e)
         {
-            //if (this.pnlBtnInformatica.Visible)
-            //{
-            //    this.pnlBtnInformatica.Visible = false;
-            //this.btnGestionClub.Location = new Point(3, 170);
-            //this.pnlGestionClub.Location = new Point(3, 170);
-            //}
-            //else
-            //{
-            //    this.pnlBtnInformatica.Visible = true;
-            //this.btnGestionClub.Location = new Point(3, 400);
-            //this.pnlGestionClub.Location = new Point(3, 400);
-            //}
+            this.InstanciarNotaDeCredito();
         }
+
 
         public void CerrarVentanaHijo(Form pWin, ToolStripMenuItem pItem, ToolStripButton pAccDir)
         {

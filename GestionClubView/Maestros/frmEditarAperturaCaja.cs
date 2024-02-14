@@ -81,6 +81,8 @@ namespace GestionClubView.Maestros
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
 
+            if (this.ValidarMontoMayorCero()) { return; }
+
             //el codigo de usuario ya existe?
             if (this.EsCodigoAperturaCajaDisponible() == false) { return; };
 
@@ -106,6 +108,8 @@ namespace GestionClubView.Maestros
         {
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
+            
+            if (this.ValidarMontoMayorCero()) { return; }
 
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
             if (this.wFrm.EsActoModificarAperturaCaja().Adicionales.EsVerdad == false) { return; }
@@ -233,7 +237,16 @@ namespace GestionClubView.Maestros
             eMas.AccionHabilitarControles(3);
             this.tsBtnGrabar.Enabled = false;
         }
-
+        public bool ValidarMontoMayorCero()
+        {
+            bool result = false;
+            if (Convert.ToInt32(this.txtMonto.Text) <= 0)
+            {
+                Mensaje.OperacionDenegada("Ingrese un monto correcto.", this.wFrm.eTitulo);
+                result = true;
+            }
+            return result;
+        }
         private void tsBtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();

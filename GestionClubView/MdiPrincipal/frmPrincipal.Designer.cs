@@ -73,6 +73,7 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -108,6 +109,7 @@
             // tbcContainer
             // 
             resources.ApplyResources(this.tbcContainer, "tbcContainer");
+            this.tbcContainer.HotTrack = true;
             this.tbcContainer.Name = "tbcContainer";
             this.tbcContainer.SelectedIndex = 0;
             this.tbcContainer.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -115,6 +117,7 @@
             // pnlBarTit
             // 
             this.pnlBarTit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
+            this.pnlBarTit.Controls.Add(this.label1);
             this.pnlBarTit.Controls.Add(this.btnRestaurar);
             this.pnlBarTit.Controls.Add(this.btnMinimizar);
             this.pnlBarTit.Controls.Add(this.btnMaximizar);
@@ -303,6 +306,7 @@
             // 
             resources.ApplyResources(this.tsmNotaCredito, "tsmNotaCredito");
             this.tsmNotaCredito.Name = "tsmNotaCredito";
+            this.tsmNotaCredito.Click += new System.EventHandler(this.tsmNotaCredito_Click);
             // 
             // facturaElectronicaToolStripMenuItem
             // 
@@ -391,6 +395,12 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.Khaki;
+            this.label1.Name = "label1";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -413,6 +423,7 @@
             this.ssStatusBar.ResumeLayout(false);
             this.ssStatusBar.PerformLayout();
             this.pnlBarTit.ResumeLayout(false);
+            this.pnlBarTit.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tsAccDir.ResumeLayout(false);
@@ -465,6 +476,7 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmMozosUsuarios;
         internal System.Windows.Forms.ToolStripMenuItem tsmIngresosCompras;
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobante;
-        private System.Windows.Forms.ToolStripMenuItem tsmNotaCredito;
+        internal System.Windows.Forms.ToolStripMenuItem tsmNotaCredito;
+        private System.Windows.Forms.Label label1;
     }
 }

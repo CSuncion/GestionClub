@@ -58,6 +58,11 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarComprobantes(objEn);
         }
+        public static List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantesNotaDeCredito(objEn);
+        }
         public static GestionClubComprobanteDto ListarComprobantesPorId(GestionClubComprobanteDto objEn)
         {
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();

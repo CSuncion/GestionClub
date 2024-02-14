@@ -1,4 +1,4 @@
-﻿namespace GestionClubView.Pedidos
+﻿namespace GestionClubView.Stock_Restaurante
 {
     partial class frmIngresosCompras
     {

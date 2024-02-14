@@ -95,10 +95,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Khaki;
             this.label3.Location = new System.Drawing.Point(120, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 23);
+            this.label3.Size = new System.Drawing.Size(140, 23);
             this.label3.TabIndex = 449;
             this.label3.Text = "APERTURA CAJA";
             // 
