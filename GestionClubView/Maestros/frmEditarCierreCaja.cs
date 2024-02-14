@@ -1,6 +1,8 @@
 ﻿using Comun;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubView.Consultas;
+using GestionClubView.Listas;
 using GestionClubView.Pedidos;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinControles;
+using WinControles.ControlesWindows;
 
 namespace GestionClubView.Maestros
 {
@@ -233,6 +236,21 @@ namespace GestionClubView.Maestros
             this.tsBtnGrabar.Enabled = false;
         }
 
+        public void ListarComprobante()
+        {
+            //si es de lectura , entonces no lista
+            //if (this.txtDocId.ReadOnly == true) { return; }
+
+            //instanciar
+            frmListarProducto win = new frmListarProducto();
+            win.eVentana = this;
+            win.eTituloVentana = "Listado Comprobante";
+            //win.eCtrlValor = this.txtCodProd;
+            //win.eCtrlFoco = this.txtDesProd;
+            win.eCondicionLista = frmListarProducto.Condicion.Productos;
+            TabCtrl.InsertarVentana(this, win);
+            win.NuevaVentana();
+        }
 
         private void tsBtnSalir_Click(object sender, EventArgs e)
         {
