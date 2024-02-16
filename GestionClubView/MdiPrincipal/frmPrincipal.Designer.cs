@@ -36,6 +36,7 @@
             this.tssStatusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.tbcContainer = new System.Windows.Forms.TabControl();
             this.pnlBarTit = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnMaximizar = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmStockRestaurante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIngresosCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,22 @@
             this.tsbComanda = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tsmListaPrecios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmRegistroVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmListaVentaFechas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmListaTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmListaClienteProveedores = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEstadistica = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVentaAnualesMes = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVentaAnualesMesesPorTipo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVentasPorCategoriasProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmResumenDeVentasAnual = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTopProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmClientesProveedores = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmVentasDiarias = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -85,6 +101,8 @@
             // 
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlMenu.Controls.Add(this.label3);
+            this.pnlMenu.Controls.Add(this.label2);
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Name = "pnlMenu";
             // 
@@ -126,6 +144,12 @@
             this.pnlBarTit.Name = "pnlBarTit";
             this.pnlBarTit.DoubleClick += new System.EventHandler(this.pnlBarTit_DoubleClick);
             this.pnlBarTit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlBarTit_MouseMove);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.ForeColor = System.Drawing.Color.Khaki;
+            this.label1.Name = "label1";
             // 
             // btnRestaurar
             // 
@@ -193,7 +217,7 @@
             this.pedidosToolStripMenuItem,
             this.ventasToolStripMenuItem,
             this.facturaElectronicaToolStripMenuItem,
-            this.stockElectronicaToolStripMenuItem,
+            this.tsmStockRestaurante,
             this.consultasToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.tsmInformatica,
@@ -313,12 +337,12 @@
             resources.ApplyResources(this.facturaElectronicaToolStripMenuItem, "facturaElectronicaToolStripMenuItem");
             this.facturaElectronicaToolStripMenuItem.Name = "facturaElectronicaToolStripMenuItem";
             // 
-            // stockElectronicaToolStripMenuItem
+            // tsmStockRestaurante
             // 
-            this.stockElectronicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmStockRestaurante.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmIngresosCompras});
-            resources.ApplyResources(this.stockElectronicaToolStripMenuItem, "stockElectronicaToolStripMenuItem");
-            this.stockElectronicaToolStripMenuItem.Name = "stockElectronicaToolStripMenuItem";
+            resources.ApplyResources(this.tsmStockRestaurante, "tsmStockRestaurante");
+            this.tsmStockRestaurante.Name = "tsmStockRestaurante";
             // 
             // tsmIngresosCompras
             // 
@@ -328,11 +352,23 @@
             // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmTablaSistema,
+            this.tsmClientesProveedores,
+            this.tsmVentasDiarias});
             resources.ApplyResources(this.consultasToolStripMenuItem, "consultasToolStripMenuItem");
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmListaPrecios,
+            this.tsmRegistroVentas,
+            this.tsmListaVentaFechas,
+            this.tsmListaTablaSistema,
+            this.tsmListaClienteProveedores,
+            this.tsmEstadistica,
+            this.tsmTopProductos});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             // 
@@ -395,11 +431,94 @@
             this.tsbSalir.Name = "tsbSalir";
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // label1
+            // label2
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.Khaki;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Purple;
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Purple;
+            this.label3.Name = "label3";
+            // 
+            // tsmListaPrecios
+            // 
+            resources.ApplyResources(this.tsmListaPrecios, "tsmListaPrecios");
+            this.tsmListaPrecios.Name = "tsmListaPrecios";
+            // 
+            // tsmRegistroVentas
+            // 
+            resources.ApplyResources(this.tsmRegistroVentas, "tsmRegistroVentas");
+            this.tsmRegistroVentas.Name = "tsmRegistroVentas";
+            // 
+            // tsmListaVentaFechas
+            // 
+            resources.ApplyResources(this.tsmListaVentaFechas, "tsmListaVentaFechas");
+            this.tsmListaVentaFechas.Name = "tsmListaVentaFechas";
+            // 
+            // tsmListaTablaSistema
+            // 
+            resources.ApplyResources(this.tsmListaTablaSistema, "tsmListaTablaSistema");
+            this.tsmListaTablaSistema.Name = "tsmListaTablaSistema";
+            // 
+            // tsmListaClienteProveedores
+            // 
+            resources.ApplyResources(this.tsmListaClienteProveedores, "tsmListaClienteProveedores");
+            this.tsmListaClienteProveedores.Name = "tsmListaClienteProveedores";
+            // 
+            // tsmEstadistica
+            // 
+            this.tsmEstadistica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmVentaAnualesMes,
+            this.tsmVentaAnualesMesesPorTipo,
+            this.tsmVentasPorCategoriasProductos,
+            this.tsmResumenDeVentasAnual});
+            resources.ApplyResources(this.tsmEstadistica, "tsmEstadistica");
+            this.tsmEstadistica.Name = "tsmEstadistica";
+            // 
+            // tsmVentaAnualesMes
+            // 
+            resources.ApplyResources(this.tsmVentaAnualesMes, "tsmVentaAnualesMes");
+            this.tsmVentaAnualesMes.Name = "tsmVentaAnualesMes";
+            // 
+            // tsmVentaAnualesMesesPorTipo
+            // 
+            resources.ApplyResources(this.tsmVentaAnualesMesesPorTipo, "tsmVentaAnualesMesesPorTipo");
+            this.tsmVentaAnualesMesesPorTipo.Name = "tsmVentaAnualesMesesPorTipo";
+            // 
+            // tsmVentasPorCategoriasProductos
+            // 
+            resources.ApplyResources(this.tsmVentasPorCategoriasProductos, "tsmVentasPorCategoriasProductos");
+            this.tsmVentasPorCategoriasProductos.Name = "tsmVentasPorCategoriasProductos";
+            // 
+            // tsmResumenDeVentasAnual
+            // 
+            resources.ApplyResources(this.tsmResumenDeVentasAnual, "tsmResumenDeVentasAnual");
+            this.tsmResumenDeVentasAnual.Name = "tsmResumenDeVentasAnual";
+            // 
+            // tsmTopProductos
+            // 
+            resources.ApplyResources(this.tsmTopProductos, "tsmTopProductos");
+            this.tsmTopProductos.Name = "tsmTopProductos";
+            // 
+            // tsmTablaSistema
+            // 
+            resources.ApplyResources(this.tsmTablaSistema, "tsmTablaSistema");
+            this.tsmTablaSistema.Name = "tsmTablaSistema";
+            // 
+            // tsmClientesProveedores
+            // 
+            resources.ApplyResources(this.tsmClientesProveedores, "tsmClientesProveedores");
+            this.tsmClientesProveedores.Name = "tsmClientesProveedores";
+            // 
+            // tsmVentasDiarias
+            // 
+            resources.ApplyResources(this.tsmVentasDiarias, "tsmVentasDiarias");
+            this.tsmVentasDiarias.Name = "tsmVentasDiarias";
             // 
             // frmPrincipal
             // 
@@ -420,6 +539,7 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
             this.pnlMenu.ResumeLayout(false);
+            this.pnlMenu.PerformLayout();
             this.ssStatusBar.ResumeLayout(false);
             this.ssStatusBar.PerformLayout();
             this.pnlBarTit.ResumeLayout(false);
@@ -469,7 +589,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem tsmCierreCaja;
         private System.Windows.Forms.ToolStripMenuItem facturaElectronicaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockElectronicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmStockRestaurante;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem tsmAperturaCaja;
@@ -478,5 +598,21 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobante;
         internal System.Windows.Forms.ToolStripMenuItem tsmNotaCredito;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
+        private System.Windows.Forms.ToolStripMenuItem tsmClientesProveedores;
+        private System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
+        private System.Windows.Forms.ToolStripMenuItem tsmListaPrecios;
+        private System.Windows.Forms.ToolStripMenuItem tsmRegistroVentas;
+        private System.Windows.Forms.ToolStripMenuItem tsmListaVentaFechas;
+        private System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
+        private System.Windows.Forms.ToolStripMenuItem tsmListaClienteProveedores;
+        private System.Windows.Forms.ToolStripMenuItem tsmEstadistica;
+        private System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMes;
+        private System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMesesPorTipo;
+        private System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
+        private System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
+        private System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
     }
 }
