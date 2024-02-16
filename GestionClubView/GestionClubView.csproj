@@ -147,6 +147,12 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReportListadoDeComprobantesDelDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportListadoDeComprobantesDelDia.Designer.cs">
+      <DependentUpon>frmReportListadoDeComprobantesDelDia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venta\frmEditarNotaDeCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,13 +177,13 @@
     <Compile Include="Pedidos\frmListadoPedidos.Designer.cs">
       <DependentUpon>frmListadoPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\DsCredits.cs">
-      <DependentUpon>DsCredits.xsd</DependentUpon>
+    <Compile Include="DataSet\DsGestionClub.cs">
+      <DependentUpon>DsGestionClub.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSet\DsCredits.Designer.cs">
+    <Compile Include="DataSet\DsGestionClub.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DsCredits.xsd</DependentUpon>
+      <DependentUpon>DsGestionClub.xsd</DependentUpon>
     </Compile>
     <Compile Include="Listas\frmListarEmpresas.cs">
       <SubType>Form</SubType>
@@ -352,6 +358,10 @@
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportListadoDeComprobantesDelDia.resx">
+      <DependentUpon>frmReportListadoDeComprobantesDelDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListadoDeComprobantesDelDia.rdlc" />
     <EmbeddedResource Include="Venta\frmEditarNotaDeCredito.resx">
       <DependentUpon>frmEditarNotaDeCredito.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,16 +450,16 @@
     <EmbeddedResource Include="Stock Restaurante\frmIngresosCompras.resx">
       <DependentUpon>frmIngresosCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet\DsCredits.xsc">
-      <DependentUpon>DsCredits.xsd</DependentUpon>
+    <None Include="DataSet\DsGestionClub.xsc">
+      <DependentUpon>DsGestionClub.xsd</DependentUpon>
     </None>
-    <None Include="DataSet\DsCredits.xsd">
+    <None Include="DataSet\DsGestionClub.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsCredits.Designer.cs</LastGenOutput>
+      <LastGenOutput>DsGestionClub.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSet\DsCredits.xss">
-      <DependentUpon>DsCredits.xsd</DependentUpon>
+    <None Include="DataSet\DsGestionClub.xss">
+      <DependentUpon>DsGestionClub.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -549,7 +559,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plantilla\" />
-    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

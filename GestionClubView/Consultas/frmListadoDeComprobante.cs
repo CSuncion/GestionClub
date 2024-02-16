@@ -1,6 +1,7 @@
 ﻿using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubView.Maestros;
+using GestionClubView.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -145,6 +146,14 @@ namespace GestionClubView.Consultas
                     }
             }
         }
+
+        public void ImprimirComprobantesDelDia()
+        {
+            frmReportListadoDeComprobantesDelDia win = new frmReportListadoDeComprobantesDelDia();
+            win.wFrm = this;
+            TabCtrl.InsertarVentana(this, win);
+            win.GenerarInforme();
+        }
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -188,7 +197,7 @@ namespace GestionClubView.Consultas
 
         private void tsbImprimir_Click(object sender, EventArgs e)
         {
-
+            this.ImprimirComprobantesDelDia();
         }
     }
 }
