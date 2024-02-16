@@ -200,7 +200,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpFecCierreCaja;
         private System.Windows.Forms.TextBox txtId;
+        internal System.Windows.Forms.DateTimePicker dtpFecCierreCaja;
     }
 }

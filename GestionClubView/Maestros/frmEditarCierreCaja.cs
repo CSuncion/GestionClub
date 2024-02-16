@@ -91,6 +91,7 @@ namespace GestionClubView.Maestros
 
             //adicionando el registro
             this.AdicionarCierreCaja();
+            this.ListarComprobante();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Cierre Caja se adiciono correctamente", this.wFrm.eTitulo);
@@ -242,12 +243,11 @@ namespace GestionClubView.Maestros
             //if (this.txtDocId.ReadOnly == true) { return; }
 
             //instanciar
-            frmListarProducto win = new frmListarProducto();
+            frmListadoDeComprobante win = new frmListadoDeComprobante();
             win.eVentana = this;
             win.eTituloVentana = "Listado Comprobante";
-            //win.eCtrlValor = this.txtCodProd;
-            //win.eCtrlFoco = this.txtDesProd;
-            win.eCondicionLista = frmListarProducto.Condicion.Productos;
+            win.fecCierreCaja = this.dtpFecCierreCaja.Value;
+            win.eCondicionLista = frmListadoDeComprobante.Condicion.Comprobantes;
             TabCtrl.InsertarVentana(this, win);
             win.NuevaVentana();
         }

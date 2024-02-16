@@ -34,6 +34,7 @@ namespace GestionClubView.Venta
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
         public string eTitulo = "Nota Credito";
         public List<GestionClubDetalleComprobanteDto> lObjDetalle = new List<GestionClubDetalleComprobanteDto>();
+        public List<GestionClubDetalleComprobanteDto> lObjDetalleParcial = new List<GestionClubDetalleComprobanteDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
@@ -268,19 +269,39 @@ namespace GestionClubView.Venta
             obj.cantidad = Convert.ToInt32(this.nudCantidadProducto.Value);
             obj.preTotal = Convert.ToDecimal(this.txtPrecio.Text) * Convert.ToInt32(this.nudCantidadProducto.Value);
 
+
             if (this.lObjDetalle.Count > 0)
             {
                 for (int i = 0; i < this.lObjDetalle.Count; i++)
                 {
                     if (this.lObjDetalle[i].idProducto.ToString() == this.txtIdProd.Text)
                     {
-                        var itemToRemove = lObjDetalle.Single(r => r.idProducto.ToString() == this.txtIdProd.Text);
-                        this.lObjDetalle.Remove(itemToRemove);
+                        if (this.lObjDetalle[i].cantidad.ToString() == this.nudCantidadProducto.Value.ToString())
+                        {
+                            var itemToRemove = lObjDetalle.Single(r => r.idProducto.ToString() == this.txtIdProd.Text);
+                            this.lObjDetalle.Remove(itemToRemove);
+                        }
+                        else
+                        {
+                            Mensaje.OperacionDenegada("La cantidad que esta agregando no es el correcto.", this.wFrm.eTitulo);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
+                        return;
                     }
                 }
             }
+            if (this.lObjDetalleParcial.Exists(x => x.idProducto.ToString() == this.txtIdProd.Text))
+                this.lObjDetalle.Add(obj);
+            else
+            {
+                Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
+                return;
+            }
 
-            this.lObjDetalle.Add(obj);
             this.MostrarComprobanteDeta();
             this.LimpiarCamposDetalleComprobante();
             this.CalcularTotalYCantidad();
@@ -392,6 +413,7 @@ namespace GestionClubView.Venta
             iComDetEN.idComprobante = pObj.idComprobante;
             iComDetEN.Adicionales.CampoOrden = GestionClubDetalleComprobanteDto._idDetalleComprobante;
             this.lObjDetalle = GestionClubComprobanteController.ListarDetallesComprobantesPorComprobante(iComDetEN);
+            this.lObjDetalleParcial.AddRange(this.lObjDetalle);
         }
         public void MostrarComprobante(GestionClubComprobanteDto pObj)
         {

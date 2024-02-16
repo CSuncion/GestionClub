@@ -41,10 +41,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.DgvListadoComprobante = new System.Windows.Forms.DataGridView();
+            this.DgvComprobantes = new System.Windows.Forms.DataGridView();
+            this.sst1 = new System.Windows.Forms.StatusStrip();
+            this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListadoComprobante)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvComprobantes)).BeginInit();
+            this.sst1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -71,6 +74,7 @@
             this.tsbImprimir.Size = new System.Drawing.Size(58, 43);
             this.tsbImprimir.Text = "Imprimir";
             this.tsbImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
             // 
             // tsbSalir
             // 
@@ -80,6 +84,7 @@
             this.tsbSalir.Size = new System.Drawing.Size(36, 43);
             this.tsbSalir.Text = "Salir";
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
             // tsSecundario
             // 
@@ -107,6 +112,7 @@
             this.tsbPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrimero.Name = "tsbPrimero";
             this.tsbPrimero.Size = new System.Drawing.Size(23, 22);
+            this.tsbPrimero.Click += new System.EventHandler(this.tsbPrimero_Click);
             // 
             // tsbAnterior
             // 
@@ -115,6 +121,7 @@
             this.tsbAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAnterior.Name = "tsbAnterior";
             this.tsbAnterior.Size = new System.Drawing.Size(23, 22);
+            this.tsbAnterior.Click += new System.EventHandler(this.tsbAnterior_Click);
             // 
             // tsbSiguiente
             // 
@@ -123,6 +130,7 @@
             this.tsbSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSiguiente.Name = "tsbSiguiente";
             this.tsbSiguiente.Size = new System.Drawing.Size(23, 22);
+            this.tsbSiguiente.Click += new System.EventHandler(this.tsbSiguiente_Click);
             // 
             // tsbUltimo
             // 
@@ -131,6 +139,7 @@
             this.tsbUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUltimo.Name = "tsbUltimo";
             this.tsbUltimo.Size = new System.Drawing.Size(23, 22);
+            this.tsbUltimo.Click += new System.EventHandler(this.tsbUltimo_Click);
             // 
             // tsbActualizarTabla
             // 
@@ -140,6 +149,7 @@
             this.tsbActualizarTabla.Name = "tsbActualizarTabla";
             this.tsbActualizarTabla.Size = new System.Drawing.Size(23, 22);
             this.tsbActualizarTabla.Text = "Actualiza Grilla";
+            this.tsbActualizarTabla.Click += new System.EventHandler(this.tsbActualizarTabla_Click);
             // 
             // toolStripSeparator1
             // 
@@ -153,6 +163,7 @@
             this.tstBuscar.Name = "tstBuscar";
             this.tstBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tstBuscar.Size = new System.Drawing.Size(180, 25);
+            this.tstBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyUp);
             // 
             // toolStripLabel1
             // 
@@ -163,17 +174,35 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
             // 
-            // DgvListadoComprobante
+            // DgvComprobantes
             // 
-            this.DgvListadoComprobante.BackgroundColor = System.Drawing.Color.White;
-            this.DgvListadoComprobante.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DgvListadoComprobante.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvListadoComprobante.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvListadoComprobante.GridColor = System.Drawing.Color.Silver;
-            this.DgvListadoComprobante.Location = new System.Drawing.Point(0, 71);
-            this.DgvListadoComprobante.Name = "DgvListadoComprobante";
-            this.DgvListadoComprobante.Size = new System.Drawing.Size(621, 379);
-            this.DgvListadoComprobante.TabIndex = 114;
+            this.DgvComprobantes.BackgroundColor = System.Drawing.Color.White;
+            this.DgvComprobantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvComprobantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvComprobantes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvComprobantes.GridColor = System.Drawing.Color.Silver;
+            this.DgvComprobantes.Location = new System.Drawing.Point(0, 71);
+            this.DgvComprobantes.Name = "DgvComprobantes";
+            this.DgvComprobantes.Size = new System.Drawing.Size(621, 357);
+            this.DgvComprobantes.TabIndex = 114;
+            // 
+            // sst1
+            // 
+            this.sst1.BackColor = System.Drawing.SystemColors.Control;
+            this.sst1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssEstado});
+            this.sst1.Location = new System.Drawing.Point(0, 428);
+            this.sst1.Name = "sst1";
+            this.sst1.Size = new System.Drawing.Size(621, 22);
+            this.sst1.TabIndex = 115;
+            this.sst1.Text = "statusStrip1";
+            // 
+            // tssEstado
+            // 
+            this.tssEstado.BackColor = System.Drawing.SystemColors.Control;
+            this.tssEstado.Name = "tssEstado";
+            this.tssEstado.Size = new System.Drawing.Size(10, 17);
+            this.tssEstado.Text = ".";
             // 
             // frmListadoDeComprobante
             // 
@@ -181,17 +210,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.DgvListadoComprobante);
+            this.Controls.Add(this.DgvComprobantes);
+            this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmListadoDeComprobante";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Listado de Comprobante";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListadoDeComprobante_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
             this.tsSecundario.ResumeLayout(false);
             this.tsSecundario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvListadoComprobante)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvComprobantes)).EndInit();
+            this.sst1.ResumeLayout(false);
+            this.sst1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +245,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripTextBox tstBuscar;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.DataGridView DgvListadoComprobante;
+        private System.Windows.Forms.DataGridView DgvComprobantes;
+        internal System.Windows.Forms.StatusStrip sst1;
+        private System.Windows.Forms.ToolStripStatusLabel tssEstado;
     }
 }

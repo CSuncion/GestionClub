@@ -366,5 +366,14 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoCabecera("isp_ListaComprobantePorNroComprobante", lParameter);
         }
+        public List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFecha(GestionClubComprobanteDto objEn)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@fecComprobante",objEn.fecComprobante),
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFecha", lParameter);
+        }
     }
 }

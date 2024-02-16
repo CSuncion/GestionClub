@@ -64,7 +64,7 @@ namespace GestionClubModel.ModelDto
         public decimal impCambio { get; set; }
         public string serGuiaComprobante { get; set; }
         public string nroGuiaComprobante { get; set; }
-        public DateTime fecGuiaComprobante { get; set; }
+        public DateTime fecGuiaComprobante { get; set; } = DateTime.Now;
         public int idNroComanda { get; set; }
         public int idAmbiente { get; set; }
         public int idMesa { get; set; }
@@ -72,7 +72,7 @@ namespace GestionClubModel.ModelDto
         public string turnoCaja { get; set; }
         public string modPagoComprobante { get; set; }
         public string desPagoComprobante { get; set; }
-        public string tipMovComprobante { get; set; }
+        public string tipMovComprobante { get; set; } = "04";
         public decimal impEfeComprobante { get; set; } = 0;
         public decimal impDepComprobante { get; set; } = 0;
         public decimal impTarComprobante { get; set; } = 0;

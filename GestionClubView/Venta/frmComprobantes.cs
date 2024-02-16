@@ -76,7 +76,7 @@ namespace GestionClubView.Venta
             Dgv.Franja iCondicionFranja = eFranjaDgvComprobante;
             string iClaveBusqueda = eClaveDgvComprobante;
             string iColumnaPintura = eNombreColumnaDgvComprobante;
-            List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvProducto();
+            List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvComprobante();
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iColumnaPintura, iListaColumnas);
         }
@@ -90,7 +90,7 @@ namespace GestionClubView.Venta
             //ejecutar y retornar
             return oOpe.ListarDatosParaGrillaPrincipal(iValorBusqueda, iCampoBusqueda, iListaComprobante);
         }
-        public List<DataGridViewColumn> ListarColumnasDgvProducto()
+        public List<DataGridViewColumn> ListarColumnasDgvComprobante()
         {
             //lista resultado
             List<DataGridViewColumn> iLisDgv = new List<DataGridViewColumn>();
