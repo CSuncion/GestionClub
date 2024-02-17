@@ -50,7 +50,7 @@ namespace GestionClubModel.ModelDto
         public string obsProducto { get; set; } = string.Empty;
         public string idCategoria { get; set; } = "0101";
         public string estadoProducto { get; set; } = "01";
-        public string archivoProducto { get; set; } = "01";
+        public string archivoProducto { get; set; } = "";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
