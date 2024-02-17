@@ -1,4 +1,5 @@
 ﻿using GestionClubModel.ModelDto;
+using System;
 using System.Collections.Generic;
 
 namespace GestionClubRepository.IRepository
@@ -17,5 +18,6 @@ namespace GestionClubRepository.IRepository
         List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn);
         GestionClubComprobanteDto ListaComprobantePorNroComprobante(GestionClubComprobanteDto objEn);
         List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFecha(GestionClubComprobanteDto objEn);
+        List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(DateTime fecDesde, DateTime fecHasta);
     }
 }

@@ -191,5 +191,10 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarComprobantesFacturaYBoletaPorFecha(objEn);
         }
+        public static List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(DateTime fecDesde, DateTime fecHasta)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(fecDesde, fecHasta);
+        }
     }
 }

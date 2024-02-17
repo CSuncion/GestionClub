@@ -375,5 +375,16 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFecha", lParameter);
         }
+
+        public List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(DateTime fecDesde, DateTime fecHasta)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                new SqlParameter("@fecDesde",Fecha.ObtenerDiaMesAno(fecDesde)),
+                new SqlParameter("@fecHasta",Fecha.ObtenerDiaMesAno(fecHasta)),
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta", lParameter);
+        }
     }
 }

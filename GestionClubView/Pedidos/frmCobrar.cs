@@ -3,6 +3,7 @@ using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
 using GestionClubView.Listas;
+using GestionClubView.Maestros;
 using Microsoft.Reporting.WinForms;
 using QRCoder;
 using System;
@@ -37,6 +38,7 @@ namespace GestionClubView.Pedidos
         public string eTitulo = "Adicionar Comanda";
         public bool presionTicket = false;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
+        Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public frmCobrar()
         {
             InitializeComponent();
@@ -249,6 +251,16 @@ namespace GestionClubView.Pedidos
             win.eCondicionLista = frmListarClientes.Condicion.Clientes;
             TabCtrl.InsertarVentana(this, win);
             win.NuevaVentana();
+        }
+        public void RegistrarCliente()
+        {
+            frmEditarClientes win = new frmEditarClientes();
+            win.wFrm1 = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvCliente = Dgv.Franja.PorValor;
+            win.Formulario = "Cobrar";
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
         }
 
         public void Cobrar()
@@ -649,6 +661,7 @@ namespace GestionClubView.Pedidos
         private void txtDocId_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1) { this.ListarClientes(); }
+            if (e.KeyCode == Keys.F2) { this.RegistrarCliente(); }
         }
 
         private void txtDocId_Validating(object sender, CancelEventArgs e)

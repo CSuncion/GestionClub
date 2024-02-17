@@ -164,6 +164,7 @@ namespace GestionClubView.Maestros
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Modificar;
             this.eFranjaDgvCliente = Dgv.Franja.PorValor;
+            win.Formulario = "Cliente";
             TabCtrl.InsertarVentana(this, win);
             win.VentanaModificar(iObjEN);
         }
@@ -191,6 +192,7 @@ namespace GestionClubView.Maestros
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Adicionar;
             this.eFranjaDgvCliente = Dgv.Franja.PorValor;
+            win.Formulario = "Cliente";
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }
@@ -205,6 +207,7 @@ namespace GestionClubView.Maestros
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Eliminar;
             this.eFranjaDgvCliente = Dgv.Franja.PorIndice;
+            win.Formulario = "Cliente";
             TabCtrl.InsertarVentana(this, win);
             win.VentanaEliminar(iObjEN);
         }
@@ -229,6 +232,7 @@ namespace GestionClubView.Maestros
             frmEditarClientes win = new frmEditarClientes();
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
+            win.Formulario = "Cliente";
             TabCtrl.InsertarVentana(this, win);
             win.VentanaVisualizar(iPerEN);
         }

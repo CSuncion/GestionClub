@@ -38,6 +38,7 @@ namespace GestionClubView.Venta
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
+        Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public frmEditarComprobante()
         {
             InitializeComponent();
@@ -839,6 +840,16 @@ namespace GestionClubView.Venta
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
         }
+        public void RegistrarCliente()
+        {
+            frmEditarClientes win = new frmEditarClientes();
+            win.wFrm2 = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvCliente = Dgv.Franja.PorValor;
+            win.Formulario = "Comprobante";
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
+        }
         private void txtDocId_Validating(object sender, CancelEventArgs e)
         {
             this.EsClienteValido();
@@ -852,6 +863,7 @@ namespace GestionClubView.Venta
         private void txtDocId_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1) { this.ListarClientes(); }
+            if (e.KeyCode == Keys.F2) { this.RegistrarCliente(); }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

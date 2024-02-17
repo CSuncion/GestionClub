@@ -326,6 +326,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmClientesProveedores, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarListaComprobantesVentaDiarias()
+        {
+            frmListadoDeComprobanteDiarias win = new frmListadoDeComprobanteDiarias();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmVentasDiarias, null, 0, 0);
+            win.NuevaVentana();
+        }
         public void InstanciarNotaDeCredito()
         {
             frmNotaDeCredito win = new frmNotaDeCredito();
@@ -505,6 +511,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmClientesProveedores_Click(object sender, EventArgs e)
         {
             this.InstanciarListaClientesProveedores();
+        }
+
+        private void tsmVentasDiarias_Click(object sender, EventArgs e)
+        {
+            this.InstanciarListaComprobantesVentaDiarias();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

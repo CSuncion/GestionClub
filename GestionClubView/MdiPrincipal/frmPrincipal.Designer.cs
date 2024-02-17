@@ -363,6 +363,7 @@
             // 
             resources.ApplyResources(this.tsmVentasDiarias, "tsmVentasDiarias");
             this.tsmVentasDiarias.Name = "tsmVentasDiarias";
+            this.tsmVentasDiarias.Click += new System.EventHandler(this.tsmVentasDiarias_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -602,7 +603,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
-        private System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
         private System.Windows.Forms.ToolStripMenuItem tsmListaPrecios;
         private System.Windows.Forms.ToolStripMenuItem tsmRegistroVentas;
         private System.Windows.Forms.ToolStripMenuItem tsmListaVentaFechas;
@@ -615,5 +615,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
         private System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmClientesProveedores;
+        internal System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
     }
 }

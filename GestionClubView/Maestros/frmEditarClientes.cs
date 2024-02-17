@@ -3,6 +3,7 @@ using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
 using GestionClubView.Pedidos;
+using GestionClubView.Venta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,11 @@ namespace GestionClubView.Maestros
     public partial class frmEditarClientes : Form
     {
         public frmClientes wFrm;
+        public frmCobrar wFrm1;
+        public frmEditarComprobante wFrm2;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
+        public string Formulario = string.Empty;
         public frmEditarClientes()
         {
             InitializeComponent();
@@ -38,7 +42,7 @@ namespace GestionClubView.Maestros
         public void InicializaVentana()
         {
             //titulo ventana
-            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + this.wFrm.eTitulo;
+            this.Text = this.eOperacion.ToString() + Cadena.Espacios(1) + (this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes");
 
             //eventos de controles
             eMas.lisCtrls = this.ListaCtrls();
@@ -49,7 +53,14 @@ namespace GestionClubView.Maestros
             this.CargarTipoSocio();
 
             // Deshabilitar al propietario
-            this.wFrm.Enabled = false;
+            if (this.Formulario == "Cliente")
+                this.wFrm.Enabled = false;
+            
+            if(this.Formulario == "Cobrar")
+                this.wFrm1.Enabled = false;
+
+            if (this.Formulario == "Comprobante")
+                this.wFrm2.Enabled = false;
 
             // Mostrar ventana
             this.Show();
@@ -80,19 +91,19 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtRazCom, true, "Raz. Comercial", "vvff", 150);
+            xCtrl.TxtTodo(this.txtRazCom, false, "Raz. Comercial", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtEmail, true, "Email", "vvff", 150);
+            xCtrl.TxtTodo(this.txtEmail, false, "Email", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroCelular, true, "N° Celular", "vvff", 150);
+            xCtrl.TxtTodo(this.txtNroCelular, false, "N° Celular", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtRepresentante, true, "Representante", "vvff", 150);
+            xCtrl.TxtTodo(this.txtRepresentante, false, "Representante", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -120,17 +131,21 @@ namespace GestionClubView.Maestros
             if (this.EsCodigoClienteDisponible() == false) { return; };
 
             //desea realizar la operacion?
-            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+            if (Mensaje.DeseasRealizarOperacion(this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes") == false) { return; }
 
             //adicionando el registro
             this.AdicionarCliente();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El Cliente se adiciono correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Cliente se adiciono correctamente", this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes");
 
             //actualizar al propietario
-            this.wFrm.eClaveDgvCliente = this.ObtenerIdCliente();
-            this.wFrm.ActualizarVentana();
+            if (this.Formulario == "Cliente")
+            {
+                this.wFrm.eClaveDgvCliente = this.ObtenerIdCliente();
+                this.wFrm.ActualizarVentana();
+            }
+            else { this.Close(); }
 
             //limpiar controles
             this.MostrarCliente(GestionClubClienteController.EnBlanco());
@@ -146,13 +161,13 @@ namespace GestionClubView.Maestros
             if (this.wFrm.EsActoModificarCliente().Adicionales.EsVerdad == false) { return; }
 
             //desea realizar la operacion?
-            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+            if (Mensaje.DeseasRealizarOperacion(this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes") == false) { return; }
 
             //modificar el registro    
             this.ModificarCliente();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El Cliente se modifico correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Cliente se modifico correctamente", this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes");
 
             //actualizar al wUsu
             this.wFrm.eClaveDgvCliente = this.ObtenerIdCliente();
@@ -168,13 +183,13 @@ namespace GestionClubView.Maestros
             if (this.wFrm.EsActoEliminarCliente().Adicionales.EsVerdad == false) { return; }
 
             //desea realizar la operacion?
-            if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
+            if (Mensaje.DeseasRealizarOperacion(this.Formulario == "Cliente" ? this.wFrm.eTitulo : this.wFrm1.eTitulo) == false) { return; }
 
             //eliminar el registro
             this.EliminarCliente();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El Cliente se elimino correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Cliente se elimino correctamente", this.Formulario == "Cliente" ? this.wFrm.eTitulo : this.wFrm1.eTitulo);
 
             //actualizar al propietario           
             this.wFrm.ActualizarVentana();
@@ -213,7 +228,7 @@ namespace GestionClubView.Maestros
             iCliente = GestionClubClienteController.EsCodigoClienteDisponible(iCliente);
             if (iCliente.Adicionales.EsVerdad == false)
             {
-                Mensaje.OperacionDenegada(iCliente.Adicionales.Mensaje, this.wFrm.eTitulo);
+                Mensaje.OperacionDenegada(iCliente.Adicionales.Mensaje, this.Formulario == "Cliente" ? this.wFrm.eTitulo : this.wFrm1.eTitulo);
                 this.txtNroIdentificacion.Clear();
                 this.txtNroIdentificacion.Focus();
             }
@@ -307,7 +322,14 @@ namespace GestionClubView.Maestros
 
         private void frmEditarClientes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.wFrm.Enabled = true;
+            if (this.Formulario == "Cliente")
+                this.wFrm.Enabled = true;
+
+            if (this.Formulario == "Cobrar")
+                this.wFrm1.Enabled = true;
+
+            if (this.Formulario == "Comprobante")
+                this.wFrm2.Enabled = true;
         }
     }
 }

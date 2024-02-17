@@ -117,6 +117,12 @@
     <Compile Include="Consultas\frmListadoClientesProveedores.Designer.cs">
       <DependentUpon>frmListadoClientesProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\frmListadoDeComprobanteDiarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmListadoDeComprobanteDiarias.Designer.cs">
+      <DependentUpon>frmListadoDeComprobanteDiarias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\frmListadoDeComprobante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\frmListadoClientesProveedores.resx">
       <DependentUpon>frmListadoClientesProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmListadoDeComprobanteDiarias.resx">
+      <DependentUpon>frmListadoDeComprobanteDiarias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\frmListadoDeComprobante.resx">
       <DependentUpon>frmListadoDeComprobante.cs</DependentUpon>
