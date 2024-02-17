@@ -187,5 +187,17 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjeto("isp_ListarClientePorNroDocumentoPorEmpresa", lParameter);
         }
+        public List<GestionClubClienteDto> ListarClientePorTipoPorNroIdePorNomRaz(GestionClubClienteDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@empresa", Universal.gIdEmpresa),
+                new SqlParameter("@tipCliente", pObj.tipCliente),
+                new SqlParameter("@nroIdentificacionCliente", pObj.nroIdentificacionCliente),
+                new SqlParameter("@nomRazSoc", pObj.nombreRazSocialCliente),
+                };
+            return this.BuscarObjetoPorParametro("isp_ListarClientePorTipoPorNroIdePorNomRaz", lParameter);
+        }
+        
     }
 }

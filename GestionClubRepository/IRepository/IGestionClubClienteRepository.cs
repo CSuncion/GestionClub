@@ -13,5 +13,6 @@ namespace GestionClubRepository.IRepository
         void EliminarCliente(GestionClubClienteDto pObj);
         List<GestionClubClienteDto> ListarClientesActivos();
         GestionClubClienteDto ListarClientePorNroDocumentoPorEmpresa(GestionClubClienteDto pObj);
+        List<GestionClubClienteDto> ListarClientePorTipoPorNroIdePorNomRaz(GestionClubClienteDto pObj);
     }
 }

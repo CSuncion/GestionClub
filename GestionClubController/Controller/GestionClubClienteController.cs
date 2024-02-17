@@ -247,6 +247,10 @@ namespace GestionClubController.Controller
             GestionClubClienteRepository objRepo = new GestionClubClienteRepository();
             return objRepo.ListarClientePorNroDocumentoPorEmpresa(pObj);
         }
-
+        public List<GestionClubClienteDto> ListarClientePorTipoPorNroIdePorNomRaz(GestionClubClienteDto pObj)
+        {
+            GestionClubClienteRepository obj = new GestionClubClienteRepository();
+            return obj.ListarClientePorTipoPorNroIdePorNomRaz(pObj);
+        }
     }
 }

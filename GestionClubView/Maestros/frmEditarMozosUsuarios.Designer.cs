@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Maestros
 {
-    partial class frmEditarProveedores
+    partial class frmEditarMozosUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarProveedores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarMozosUsuarios));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnGrabar = new System.Windows.Forms.ToolStripButton();
             this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();

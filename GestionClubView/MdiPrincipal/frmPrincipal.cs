@@ -17,6 +17,7 @@ using GestionClubView.Pedidos;
 using GestionClubView.Maestros;
 using GestionClubView.Venta;
 using GestionClubView.Stock_Restaurante;
+using GestionClubView.Consultas;
 
 namespace GestionClubView.MdiPrincipal
 {
@@ -319,6 +320,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmIngresosCompras, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarListaClientesProveedores()
+        {
+            frmListadoClientesProveedores win = new frmListadoClientesProveedores();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmClientesProveedores, null, 0, 0);
+            win.NewWindow();
+        }
         public void InstanciarNotaDeCredito()
         {
             frmNotaDeCredito win = new frmNotaDeCredito();
@@ -493,6 +500,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmIngresosCompras_Click(object sender, EventArgs e)
         {
             this.InstanciarIngresosCompras();
+        }
+
+        private void tsmClientesProveedores_Click(object sender, EventArgs e)
+        {
+            this.InstanciarListaClientesProveedores();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

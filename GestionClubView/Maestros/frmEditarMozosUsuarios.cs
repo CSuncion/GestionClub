@@ -14,12 +14,12 @@ using WinControles;
 
 namespace GestionClubView.Maestros
 {
-    public partial class frmEditarProveedores : Form
+    public partial class frmEditarMozosUsuarios : Form
     {
         public frmMesas wMes;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
-        public frmEditarProveedores()
+        public frmEditarMozosUsuarios()
         {
             InitializeComponent();
         }

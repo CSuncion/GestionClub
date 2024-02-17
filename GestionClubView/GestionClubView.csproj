@@ -111,6 +111,12 @@
     <Compile Include="AcercaDe\frmAcercaDe.Designer.cs">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\frmListadoClientesProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmListadoClientesProveedores.Designer.cs">
+      <DependentUpon>frmListadoClientesProveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\frmListadoDeComprobante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,11 +245,11 @@
     <Compile Include="Maestros\frmEditarProductos.Designer.cs">
       <DependentUpon>frmEditarProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Maestros\frmEditarProveedores.cs">
+    <Compile Include="Maestros\frmEditarMozosUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Maestros\frmEditarProveedores.Designer.cs">
-      <DependentUpon>frmEditarProveedores.cs</DependentUpon>
+    <Compile Include="Maestros\frmEditarMozosUsuarios.Designer.cs">
+      <DependentUpon>frmEditarMozosUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Maestros\frmEditarClientes.cs">
       <SubType>Form</SubType>
@@ -340,6 +346,9 @@
     <EmbeddedResource Include="AcercaDe\frmAcercaDe.resx">
       <DependentUpon>frmAcercaDe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmListadoClientesProveedores.resx">
+      <DependentUpon>frmListadoClientesProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\frmListadoDeComprobante.resx">
       <DependentUpon>frmListadoDeComprobante.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,8 +410,8 @@
     <EmbeddedResource Include="Maestros\frmEditarProductos.resx">
       <DependentUpon>frmEditarProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Maestros\frmEditarProveedores.resx">
-      <DependentUpon>frmEditarProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="Maestros\frmEditarMozosUsuarios.resx">
+      <DependentUpon>frmEditarMozosUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmEditarClientes.resx">
       <DependentUpon>frmEditarClientes.cs</DependentUpon>
