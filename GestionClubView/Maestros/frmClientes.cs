@@ -23,7 +23,7 @@ namespace GestionClubView.Maestros
         public GestionClubClienteController oOpe = new GestionClubClienteController();
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public string eClaveDgvCliente = string.Empty;
-        string eNombreColumnaDgvCliente = "codCliente";
+        string eNombreColumnaDgvCliente = "nombreRazSocialCliente";
         string eEncabezadoColumnaDgvCliente = "nombreRazSocialCliente";
         public frmClientes()
         {
@@ -306,6 +306,11 @@ namespace GestionClubView.Maestros
         private void tstBuscar_KeyUp(object sender, KeyEventArgs e)
         {
             this.ActualizarVentanaAlBuscarValor(e);
+        }
+
+        private void DgvClientes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex);
         }
     }
 }

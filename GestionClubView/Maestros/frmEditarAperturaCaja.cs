@@ -240,7 +240,7 @@ namespace GestionClubView.Maestros
         public bool ValidarMontoMayorCero()
         {
             bool result = false;
-            if (Convert.ToInt32(this.txtMonto.Text) <= 0)
+            if (Convert.ToDecimal(this.txtMonto.Text) <= 0)
             {
                 Mensaje.OperacionDenegada("Ingrese un monto correcto.", this.wFrm.eTitulo);
                 result = true;

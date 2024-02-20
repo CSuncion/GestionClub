@@ -57,6 +57,7 @@ namespace GestionClubModel.ModelDto
             StringBuilder iEstado = new System.Text.StringBuilder();
             iEstado.Append("Usuario : " + Universal.gCodigoUsuario + " - " + Universal.gNombreUsuario + "   |   ");
             iEstado.Append("Perfil : " + Universal.gNombrePerfil + "   |   ");
+            iEstado.Append("Caja : " + Universal.caja + "   |   ");
             iEstado.Append("Hoy : " + DateTime.Today.ToShortDateString());
             return iEstado.ToString();
         }

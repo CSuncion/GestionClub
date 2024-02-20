@@ -44,6 +44,7 @@ namespace GestionClubView.MdiPrincipal
             //this.wFrm.Enabled = false;
             this.wFrm.menuStrip1.Enabled = false;
             this.wFrm.tsbComanda.Enabled = false;
+            this.wFrm.tsbComprobante.Enabled = false;
 
             // Mostrar ventana
             this.Show();
@@ -71,6 +72,7 @@ namespace GestionClubView.MdiPrincipal
             {
                 this.wFrm.InstanciarAperturaCaja();
             }
+            this.wFrm.tssStatusBar.Text = Universal.EstadoBarra();
             this.Close();
         }
         public bool ValidaAperturaCaja()
@@ -100,6 +102,7 @@ namespace GestionClubView.MdiPrincipal
             this.wFrm.Enabled = true;
             this.wFrm.menuStrip1.Enabled = true;
             this.wFrm.tsbComanda.Enabled = true;
+            this.wFrm.tsbComprobante.Enabled = true;
             this.Cerrar();
         }
 

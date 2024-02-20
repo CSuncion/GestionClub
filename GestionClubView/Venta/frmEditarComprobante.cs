@@ -138,6 +138,13 @@ namespace GestionClubView.Venta
 
             return xLis;
         }
+        public void LimpiarCliente()
+        {
+            this.txtDocId.Text = string.Empty;
+            this.txtApeNom.Text = string.Empty;
+            this.txtIdCliente.Text = string.Empty;
+            this.txtTipoDoc.Text = string.Empty;
+        }
         public void GenerarCorrelativo()
         {
             this.txtSerDoc.Text = string.Empty;
@@ -904,6 +911,7 @@ namespace GestionClubView.Venta
 
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            this.LimpiarCliente();
             this.GenerarCorrelativo();
         }
 

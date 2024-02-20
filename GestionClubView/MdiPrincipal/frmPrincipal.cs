@@ -311,7 +311,7 @@ namespace GestionClubView.MdiPrincipal
         public void InstanciarComprobante()
         {
             frmComprobantes win = new frmComprobantes();
-            this.FormatoVentanaHijoPrincipal(win, this.tsmComprobante, null, 0, 0);
+            this.FormatoVentanaHijoPrincipal(win, this.tsmComprobante, this.tsbComprobante, 0, 0);
             win.NewWindow();
         }
         public void InstanciarIngresosCompras()
@@ -516,6 +516,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmVentasDiarias_Click(object sender, EventArgs e)
         {
             this.InstanciarListaComprobantesVentaDiarias();
+        }
+
+        private void tsbComprobante_Click(object sender, EventArgs e)
+        {
+            this.InstanciarComprobante();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

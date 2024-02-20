@@ -83,6 +83,9 @@ namespace GestionClubView.Maestros
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
 
+
+            if (this.ValidarMontoMayorCero()) { return; }
+
             //el codigo de usuario ya existe?
             if (this.EsCodigoCierreCajaDisponible() == false) { return; };
 
@@ -109,6 +112,8 @@ namespace GestionClubView.Maestros
         {
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
+
+            if (this.ValidarMontoMayorCero()) { return; }
 
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
             if (this.wFrm.EsActoModificarCierreCaja().Adicionales.EsVerdad == false) { return; }
@@ -186,7 +191,16 @@ namespace GestionClubView.Maestros
             }
             return iCierreCaja.Adicionales.EsVerdad;
         }
-
+        public bool ValidarMontoMayorCero()
+        {
+            bool result = false;
+            if (Convert.ToDecimal(this.txtMonto.Text) <= 0)
+            {
+                Mensaje.OperacionDenegada("Ingrese un monto correcto.", this.wFrm.eTitulo);
+                result = true;
+            }
+            return result;
+        }
         public void MostrarCierreCaja(GestionClubCierreCajaDto pObj)
         {
             this.dtpFecCierreCaja.Text = pObj.fecCierreCaja.ToString();

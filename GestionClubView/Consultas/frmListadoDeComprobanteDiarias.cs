@@ -87,6 +87,7 @@ namespace GestionClubView.Consultas
             List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvComprobante();
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iColumnaPintura, iListaColumnas);
+            this.PintarFilaDeGrillaAlternar();
         }
         public void AccionBuscar()
         {
@@ -124,6 +125,17 @@ namespace GestionClubView.Consultas
 
             //devolver
             return iLisDgv;
+        }
+        public void PintarFilaDeGrillaAlternar()
+        {
+            int i = 0;
+            foreach (DataGridViewRow item in DgvComprobantes.Rows)
+            {
+                if (i % 2 == 0)
+                    item.DefaultCellStyle.BackColor = Color.LightGray;
+
+                i += 1;
+            }
         }
         public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
         {

@@ -240,6 +240,7 @@
             this.DgvClientes.Name = "DgvClientes";
             this.DgvClientes.Size = new System.Drawing.Size(800, 357);
             this.DgvClientes.TabIndex = 111;
+            this.DgvClientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvClientes_CellMouseDoubleClick);
             // 
             // frmClientes
             // 
