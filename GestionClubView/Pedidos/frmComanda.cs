@@ -48,6 +48,12 @@ namespace GestionClubView.Pedidos
                 //this.wFrm.InstanciarAperturaCaja();
                 return;
             }
+            if (!this.ValidaTipoCambio())
+            {
+                this.Cerrar();
+                //this.wFrm.InstanciarAperturaCaja();
+                return;
+            }
 
             this.CargarRutas();
             this.CargarAmbientes();
@@ -72,6 +78,17 @@ namespace GestionClubView.Pedidos
                 Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo);
                 result = false;
             }
+
+            return result;
+        }
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.wFrm.eTitulo); result = false; }
 
             return result;
         }

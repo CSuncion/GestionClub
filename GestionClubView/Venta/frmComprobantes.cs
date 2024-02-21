@@ -33,6 +33,7 @@ namespace GestionClubView.Venta
         public void NewWindow()
         {
             if (!this.ValidaAperturaCaja()) { this.Cerrar(); return; }
+            if (!this.ValidaTipoCambio()) { this.Cerrar(); return; }
             this.Dock = DockStyle.Fill;
             this.Show();
             this.ActualizarVentana();
@@ -46,6 +47,17 @@ namespace GestionClubView.Venta
             gestionClubAperturaCajaDto = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(gestionClubAperturaCajaDto);
 
             if (gestionClubAperturaCajaDto.idAperturaCaja == 0) { Mensaje.OperacionDenegada("Debe aperturar la caja.", this.eTitulo); result = false; }
+
+            return result;
+        }
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.eTitulo); result = false; }
 
             return result;
         }

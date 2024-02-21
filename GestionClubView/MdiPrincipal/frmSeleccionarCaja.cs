@@ -68,10 +68,17 @@ namespace GestionClubView.MdiPrincipal
         public void SeleccionarCaja()
         {
             Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);
+
             if (!this.ValidaAperturaCaja())
             {
                 this.wFrm.InstanciarAperturaCaja();
             }
+
+            if (!this.ValidaTipoCambio())
+            {
+                this.wFrm.InstanciarTipoCambio();
+            }
+
             this.wFrm.tssStatusBar.Text = Universal.EstadoBarra();
             this.Close();
         }
@@ -87,6 +94,19 @@ namespace GestionClubView.MdiPrincipal
 
             return result;
         }
+
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.wFrm.eTitulo); result = false; }
+
+            return result;
+        }
+
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;

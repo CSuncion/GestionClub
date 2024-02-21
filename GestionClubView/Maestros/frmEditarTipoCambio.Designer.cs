@@ -199,7 +199,7 @@
             this.Controls.Add(this.tsPrincipal);
             this.Name = "frmEditarTipoCambio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Editar Apertura Caja";
+            this.Text = "Editar Tipo de Cambio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditarTipoCambio_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();

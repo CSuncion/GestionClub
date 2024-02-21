@@ -253,7 +253,7 @@
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTipoCambio";
-            this.Text = "Apertura Caja";
+            this.Text = "Tipo de Cambio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTipoCambio_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
