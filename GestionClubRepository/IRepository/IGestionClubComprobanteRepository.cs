@@ -12,12 +12,13 @@ namespace GestionClubRepository.IRepository
         void ModificarDetalleComprobante(GestionClubDetalleComprobanteDto pObj);
         void EliminarComprobante(GestionClubComprobanteDto pObj);
         void EliminarDetalleComprobante(GestionClubDetalleComprobanteDto pObj);
-        List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn);
+        List<GestionClubComprobanteDto> ListarComprobantesSinComanda(GestionClubComprobanteDto objEn);
         GestionClubComprobanteDto ListarComprobantesPorId(GestionClubComprobanteDto objEn);
         List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantesPorComprobante(GestionClubDetalleComprobanteDto objEn);
         List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn);
         GestionClubComprobanteDto ListaComprobantePorNroComprobante(GestionClubComprobanteDto objEn);
         List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFecha(GestionClubComprobanteDto objEn);
         List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(DateTime fecDesde, DateTime fecHasta);
+        List<GestionClubComprobanteDto> ListarComprobantes();
     }
 }

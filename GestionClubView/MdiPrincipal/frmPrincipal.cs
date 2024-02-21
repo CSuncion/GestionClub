@@ -357,6 +357,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmListaPrecios, null, 0, 0);
             win.VentanaVisualizar();
         }
+        public void InstanciarReporteRegistroVentas()
+        {
+            frmReportRegistroVentas win = new frmReportRegistroVentas();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmRegistroVentas, null, 0, 0);
+            win.VentanaVisualizar();
+        }
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -555,6 +561,16 @@ namespace GestionClubView.MdiPrincipal
         private void tsmListaPrecios_Click(object sender, EventArgs e)
         {
             this.InstanciarReporteListarPrecios();
+        }
+
+        private void tsmRegistroVentas_Click(object sender, EventArgs e)
+        {
+            this.InstanciarReporteRegistroVentas();
+        }
+
+        private void tsmListaVentaFechas_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

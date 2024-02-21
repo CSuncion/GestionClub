@@ -319,7 +319,7 @@ namespace GestionClubRepository.Repository
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }
-        public List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn)
+        public List<GestionClubComprobanteDto> ListarComprobantesSinComanda(GestionClubComprobanteDto objEn)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
@@ -385,6 +385,14 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@fecHasta",Fecha.ObtenerDiaMesAno(fecHasta)),
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta", lParameter);
+        }
+        public List<GestionClubComprobanteDto> ListarComprobantes()
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantes", lParameter);
         }
     }
 }

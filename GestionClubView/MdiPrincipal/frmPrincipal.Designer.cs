@@ -422,11 +422,13 @@
             // 
             resources.ApplyResources(this.tsmRegistroVentas, "tsmRegistroVentas");
             this.tsmRegistroVentas.Name = "tsmRegistroVentas";
+            this.tsmRegistroVentas.Click += new System.EventHandler(this.tsmRegistroVentas_Click);
             // 
             // tsmListaVentaFechas
             // 
             resources.ApplyResources(this.tsmListaVentaFechas, "tsmListaVentaFechas");
             this.tsmListaVentaFechas.Name = "tsmListaVentaFechas";
+            this.tsmListaVentaFechas.Click += new System.EventHandler(this.tsmListaVentaFechas_Click);
             // 
             // tsmListaTablaSistema
             // 
@@ -622,7 +624,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
-        private System.Windows.Forms.ToolStripMenuItem tsmRegistroVentas;
         private System.Windows.Forms.ToolStripMenuItem tsmListaVentaFechas;
         private System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
         private System.Windows.Forms.ToolStripMenuItem tsmListaClienteProveedores;
@@ -637,5 +638,6 @@
         internal System.Windows.Forms.ToolStripButton tsbComprobante;
         internal System.Windows.Forms.ToolStripMenuItem tsmTipoCambio;
         internal System.Windows.Forms.ToolStripMenuItem tsmListaPrecios;
+        internal System.Windows.Forms.ToolStripMenuItem tsmRegistroVentas;
     }
 }

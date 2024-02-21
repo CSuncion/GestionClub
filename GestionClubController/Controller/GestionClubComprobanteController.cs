@@ -56,7 +56,7 @@ namespace GestionClubController.Controller
         public static List<GestionClubComprobanteDto> ListarComprobantes(GestionClubComprobanteDto objEn)
         {
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
-            return obj.ListarComprobantes(objEn);
+            return obj.ListarComprobantesSinComanda(objEn);
         }
         public static List<GestionClubComprobanteDto> ListarComprobantesNotaDeCredito(GestionClubComprobanteDto objEn)
         {
@@ -195,6 +195,11 @@ namespace GestionClubController.Controller
         {
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(fecDesde, fecHasta);
+        }
+        public static List<GestionClubComprobanteDto> ListarComprobantes()
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantes();
         }
     }
 }
