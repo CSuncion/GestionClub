@@ -34,7 +34,7 @@ namespace GestionClubModel.ModelDto
         public string codCliente { get; set; } = string.Empty;
         public string tipSocioCliente { get; set; } = "01";
         public string tipCliente { get; set; } = "01";
-        public string nroIdentificacionCliente { get; set; }
+        public string nroIdentificacionCliente { get; set; } = string.Empty;
         public string nombreRazSocialCliente { get; set; }
         public string razComercialCliente { get; set; }
         public string emailCliente { get; set; }
