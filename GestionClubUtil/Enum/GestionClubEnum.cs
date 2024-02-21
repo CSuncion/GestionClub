@@ -28,6 +28,8 @@ namespace GestionClubUtil.Enum
             public static string TipoCliente = "09";
             public static string DocFac = "01";
             public static string Caja = "17";
+            public static string PrimerNivel = "18";
+            public static string SegundoNivel = "19";
         }
     }
 }

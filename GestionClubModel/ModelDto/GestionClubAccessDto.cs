@@ -37,7 +37,10 @@ namespace GestionClubModel.ModelDto
         public const string GradAcc = "gradoAcceso";
         public const string xPnp = "pnp";
         public const string CargAcc = "cargoAcceso";
+        public const string _claveObjeto = "ClaveObjeto";
 
+
+        public string claveObjeto { get; set; }
         public int idAcceso { get; set; }
         public string codAcceso { get; set; } = string.Empty;
         public string nombreAcceso { get; set; } = string.Empty;
@@ -53,7 +56,7 @@ namespace GestionClubModel.ModelDto
         public Nullable<int> distAcceso { get; set; }
         public string fijoAcceso { get; set; } = string.Empty;
         public string movilAcceso { get; set; } = string.Empty;
-        public Nullable<int> levelAcceso { get; set; }
+        public Nullable<int> levelAcceso { get; set; } = 1;
         public Nullable<int> sitAcceso { get; set; }
         public Nullable<System.DateTime> fechaAcceso { get; set; }
         public Nullable<int> ofc1 { get; set; }
@@ -62,7 +65,7 @@ namespace GestionClubModel.ModelDto
         public Nullable<int> ofc4 { get; set; }
         public string cipAcceso { get; set; } = string.Empty;
         public string codofinAcceso { get; set; } = string.Empty;
-        public Nullable<decimal> gradoAcceso { get; set; }
+        public Nullable<decimal> gradoAcceso { get; set; } = 1;
         public Nullable<int> pnp { get; set; }
         public string cargoAcceso { get; set; } = string.Empty;
 

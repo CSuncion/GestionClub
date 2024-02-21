@@ -483,6 +483,7 @@
             // 
             resources.ApplyResources(this.tsmMozosUsuarios, "tsmMozosUsuarios");
             this.tsmMozosUsuarios.Name = "tsmMozosUsuarios";
+            this.tsmMozosUsuarios.Click += new System.EventHandler(this.tsmMozosUsuarios_Click_1);
             // 
             // tsmSeleccionarCaja
             // 

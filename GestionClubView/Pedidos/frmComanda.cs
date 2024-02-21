@@ -45,7 +45,7 @@ namespace GestionClubView.Pedidos
             if (!this.ValidaAperturaCaja())
             {
                 this.Cerrar();
-                this.wFrm.InstanciarAperturaCaja();
+                //this.wFrm.InstanciarAperturaCaja();
                 return;
             }
 
@@ -84,7 +84,7 @@ namespace GestionClubView.Pedidos
         public void CargarMeseros()
         {
             GestionClubAccessDto objEn = new GestionClubAccessDto();
-            objEn.gradoAcceso = 4;
+            objEn.gradoAcceso = 3;
             Cmb.Cargar(this.cboMesero, oOpeAcc.ListarUsuarioMeserosActivos(objEn), GestionClubAccessDto.IdAcc, GestionClubAccessDto.nombresAcc);
         }
         public void CargarAmbientes()

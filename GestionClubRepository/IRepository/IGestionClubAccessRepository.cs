@@ -12,5 +12,10 @@ namespace GestionClubRepository.IRepository
         GestionClubAccessDto BuscarUsuarioXCodigo(GestionClubAccessDto pObj);
         List<int> ListarSubPrivilegiosAcceso(int idAcceso);
         List<GestionClubAccessDto> ListarUsuarioMeserosActivos(GestionClubAccessDto pObj);
+        List<GestionClubAccessDto> ListarUsuarioMozos();
+        void EliminarAcceso(GestionClubAccessDto pObj);
+        void ModificarAcceso(GestionClubAccessDto pObj);
+        void AdicionarAcceso(GestionClubAccessDto pObj);
+        GestionClubAccessDto ListarUsuarioMozosPorId(GestionClubAccessDto pObj);
     }
 }

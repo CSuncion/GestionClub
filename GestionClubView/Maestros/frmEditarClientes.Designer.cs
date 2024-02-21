@@ -211,7 +211,7 @@
             this.txtRepresentante.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRepresentante.Location = new System.Drawing.Point(127, 186);
             this.txtRepresentante.Name = "txtRepresentante";
-            this.txtRepresentante.Size = new System.Drawing.Size(161, 22);
+            this.txtRepresentante.Size = new System.Drawing.Size(450, 22);
             this.txtRepresentante.TabIndex = 14;
             // 
             // label8

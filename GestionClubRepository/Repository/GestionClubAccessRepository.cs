@@ -44,6 +44,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.gradoAcceso = Convert.ToDecimal(iDr[GestionClubAccessDto.GradAcc]);
             xObjEnc.pnp = Convert.ToInt32(iDr[GestionClubAccessDto.xPnp]);
             xObjEnc.cargoAcceso = iDr[GestionClubAccessDto.CargAcc].ToString();
+            xObjEnc.claveObjeto = xObjEnc.idAcceso.ToString();
             return xObjEnc;
         }
         private GestionClubAccessDto BuscarObjeto(string pScript, List<SqlParameter> lParameter)
@@ -124,6 +125,106 @@ namespace GestionClubRepository.Repository
                 };
 
             return this.BuscarObjetoPorParametro("isp_ListarUsuarioMeserosActivos", lParameter);
+        }
+        public void AdicionarAcceso(GestionClubAccessDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@codAcceso",pObj.codAcceso),
+                    new SqlParameter("@nombreAcceso",pObj.nombreAcceso),
+                    new SqlParameter("@dniAcceso",pObj.dniAcceso),
+                    new SqlParameter("@passAcceso",pObj.passAcceso),
+                    new SqlParameter("@paternoAcceso",pObj.paternoAcceso),
+                    new SqlParameter("@maternoAcceso",pObj.maternoAcceso),
+                    new SqlParameter("@nombresAcceso",pObj.nombresAcceso),
+                    new SqlParameter("@mailAcceso",pObj.mailAcceso),
+                    new SqlParameter("@domicilioAcceso",pObj.domicilioAcceso),
+                    new SqlParameter("@dptoAcceso",pObj.dptoAcceso),
+                    new SqlParameter("@provAcceso",pObj.provAcceso),
+                    new SqlParameter("@distAcceso",pObj.distAcceso),
+                    new SqlParameter("@fijoAcceso",pObj.fijoAcceso),
+                    new SqlParameter("@movilAcceso",pObj.movilAcceso),
+                    new SqlParameter("@levelAcceso",pObj.levelAcceso),
+                    new SqlParameter("@sitAcceso",pObj.sitAcceso),
+                    new SqlParameter("@fechaAcceso",pObj.fechaAcceso),
+                    new SqlParameter("@ofc1",pObj.ofc1),
+                    new SqlParameter("@ofc2",pObj.ofc2),
+                    new SqlParameter("@ofc3",pObj.ofc3),
+                    new SqlParameter("@ofc4",pObj.ofc4),
+                    new SqlParameter("@cipAcceso",pObj.cipAcceso),
+                    new SqlParameter("@codofinAcceso",pObj.codofinAcceso),
+                    new SqlParameter("@gradoAcceso",pObj.gradoAcceso),
+                    new SqlParameter("@pnp",pObj.pnp),
+                    new SqlParameter("@cargoAcceso",pObj.cargoAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_AdicionarAcceso");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void ModificarAcceso(GestionClubAccessDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idAcceso",pObj.idAcceso),
+                    new SqlParameter("@codAcceso",pObj.codAcceso),
+                    new SqlParameter("@nombreAcceso",pObj.nombreAcceso),
+                    new SqlParameter("@dniAcceso",pObj.dniAcceso),
+                    new SqlParameter("@passAcceso",pObj.passAcceso),
+                    new SqlParameter("@paternoAcceso",pObj.paternoAcceso),
+                    new SqlParameter("@maternoAcceso",pObj.maternoAcceso),
+                    new SqlParameter("@nombresAcceso",pObj.nombresAcceso),
+                    new SqlParameter("@mailAcceso",pObj.mailAcceso),
+                    new SqlParameter("@domicilioAcceso",pObj.domicilioAcceso),
+                    new SqlParameter("@dptoAcceso",pObj.dptoAcceso),
+                    new SqlParameter("@provAcceso",pObj.provAcceso),
+                    new SqlParameter("@distAcceso",pObj.distAcceso),
+                    new SqlParameter("@fijoAcceso",pObj.fijoAcceso),
+                    new SqlParameter("@movilAcceso",pObj.movilAcceso),
+                    new SqlParameter("@levelAcceso",pObj.levelAcceso),
+                    new SqlParameter("@sitAcceso",pObj.sitAcceso),
+                    new SqlParameter("@fechaAcceso",pObj.fechaAcceso),
+                    new SqlParameter("@ofc1",pObj.ofc1),
+                    new SqlParameter("@ofc2",pObj.ofc2),
+                    new SqlParameter("@ofc3",pObj.ofc3),
+                    new SqlParameter("@ofc4",pObj.ofc4),
+                    new SqlParameter("@cipAcceso",pObj.cipAcceso),
+                    new SqlParameter("@codofinAcceso",pObj.codofinAcceso),
+                    new SqlParameter("@gradoAcceso",pObj.gradoAcceso),
+                    new SqlParameter("@pnp",pObj.pnp),
+                    new SqlParameter("@cargoAcceso",pObj.cargoAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ModificarAcceso");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void EliminarAcceso(GestionClubAccessDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idAcceso",pObj.idAcceso)
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_EliminarAcceso");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public List<GestionClubAccessDto> ListarUsuarioMozos()
+        {
+              return this.ListarObjetos("isp_ListarUsuarioMozos");
+        }
+        public GestionClubAccessDto ListarUsuarioMozosPorId(GestionClubAccessDto pObj)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idAcceso", pObj.idAcceso)
+                };
+
+            return this.BuscarObjeto("isp_ListarUsuarioMozosPorId", lParameter);
         }
     }
 }
