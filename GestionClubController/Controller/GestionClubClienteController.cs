@@ -111,6 +111,24 @@ namespace GestionClubController.Controller
             //ok         
             return iAmbEN;
         }
+        public static GestionClubClienteDto EsClienteExistenteSinComprobante(GestionClubClienteDto pObj)
+        {
+            //objeto resultado
+            GestionClubClienteDto iAmbEN = new GestionClubClienteDto();
+
+            //validar
+            //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
+            iAmbEN = GestionClubClienteController.BuscarClienteXId(pObj);
+            if (iAmbEN.nroIdentificacionCliente == string.Empty)
+            {
+                iAmbEN.Adicionales.EsVerdad = false;
+                iAmbEN.Adicionales.Mensaje = "El Cliente " + pObj.nroIdentificacionCliente + " no existe";
+                return iAmbEN;
+            }
+
+            //ok         
+            return iAmbEN;
+        }
         public static GestionClubClienteDto BuscarClienteXId(GestionClubClienteDto pObj)
         {
             GestionClubClienteRepository objRepo = new GestionClubClienteRepository();
@@ -119,6 +137,17 @@ namespace GestionClubController.Controller
         public static GestionClubClienteDto EsActoEliminarCliente(GestionClubClienteDto pObj)
         {
             //objeto resultado
+            GestionClubClienteDto iObjEN = new GestionClubClienteDto();
+
+            //validar si existe
+            iObjEN = GestionClubClienteController.EsClienteExistente(pObj);
+            if (iObjEN.Adicionales.EsVerdad == false) { return iObjEN; }
+
+            //ok            
+            return iObjEN;
+        }
+        public static GestionClubClienteDto EsActoEliminarClienteSinComprobante(GestionClubClienteDto pObj)
+        {
             GestionClubClienteDto iObjEN = new GestionClubClienteDto();
 
             //validar si existe

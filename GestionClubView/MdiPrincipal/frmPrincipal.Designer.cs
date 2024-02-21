@@ -54,6 +54,7 @@
             this.tsmMesas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAmbientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTipoCambio = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmTipoCambio = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -295,6 +295,12 @@
             this.tsmCategorias.Name = "tsmCategorias";
             this.tsmCategorias.Click += new System.EventHandler(this.tsmCategorias_Click);
             // 
+            // tsmTipoCambio
+            // 
+            resources.ApplyResources(this.tsmTipoCambio, "tsmTipoCambio");
+            this.tsmTipoCambio.Name = "tsmTipoCambio";
+            this.tsmTipoCambio.Click += new System.EventHandler(this.tsmTipoCambio_Click);
+            // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -410,6 +416,7 @@
             // 
             resources.ApplyResources(this.tsmListaPrecios, "tsmListaPrecios");
             this.tsmListaPrecios.Name = "tsmListaPrecios";
+            this.tsmListaPrecios.Click += new System.EventHandler(this.tsmListaPrecios_Click);
             // 
             // tsmRegistroVentas
             // 
@@ -534,12 +541,6 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmTipoCambio
-            // 
-            resources.ApplyResources(this.tsmTipoCambio, "tsmTipoCambio");
-            this.tsmTipoCambio.Name = "tsmTipoCambio";
-            this.tsmTipoCambio.Click += new System.EventHandler(this.tsmTipoCambio_Click);
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -621,7 +622,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
-        private System.Windows.Forms.ToolStripMenuItem tsmListaPrecios;
         private System.Windows.Forms.ToolStripMenuItem tsmRegistroVentas;
         private System.Windows.Forms.ToolStripMenuItem tsmListaVentaFechas;
         private System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
@@ -636,5 +636,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
         internal System.Windows.Forms.ToolStripButton tsbComprobante;
         internal System.Windows.Forms.ToolStripMenuItem tsmTipoCambio;
+        internal System.Windows.Forms.ToolStripMenuItem tsmListaPrecios;
     }
 }

@@ -18,6 +18,7 @@ using GestionClubView.Maestros;
 using GestionClubView.Venta;
 using GestionClubView.Stock_Restaurante;
 using GestionClubView.Consultas;
+using GestionClubView.Reportes;
 
 namespace GestionClubView.MdiPrincipal
 {
@@ -350,6 +351,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmTipoCambio, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarReporteListarPrecios()
+        {
+            frmReportListaPrecios win = new frmReportListaPrecios();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmListaPrecios, null, 0, 0);
+            win.VentanaVisualizar();
+        }
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -543,6 +550,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmTipoCambio_Click(object sender, EventArgs e)
         {
             this.InstanciarTipoCambio();
+        }
+
+        private void tsmListaPrecios_Click(object sender, EventArgs e)
+        {
+            this.InstanciarReporteListarPrecios();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

@@ -80,6 +80,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTipoCambio = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -248,6 +250,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTipoCambio);
+            this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.cboMoneda);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtNroDoc);
@@ -268,16 +272,17 @@
             // cboMoneda
             // 
             this.cboMoneda.FormattingEnabled = true;
-            this.cboMoneda.Location = new System.Drawing.Point(472, 20);
+            this.cboMoneda.Location = new System.Drawing.Point(478, 20);
             this.cboMoneda.Name = "cboMoneda";
             this.cboMoneda.Size = new System.Drawing.Size(135, 21);
             this.cboMoneda.TabIndex = 457;
+            this.cboMoneda.SelectionChangeCommitted += new System.EventHandler(this.cboMoneda_SelectionChangeCommitted);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(411, 22);
+            this.label14.Location = new System.Drawing.Point(417, 22);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 14);
             this.label14.TabIndex = 456;
@@ -645,6 +650,24 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
+            // txtTipoCambio
+            // 
+            this.txtTipoCambio.Location = new System.Drawing.Point(478, 44);
+            this.txtTipoCambio.MaxLength = 8;
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Size = new System.Drawing.Size(135, 21);
+            this.txtTipoCambio.TabIndex = 461;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(410, 49);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 14);
+            this.label16.TabIndex = 460;
+            this.label16.Text = "T. Cambio:";
+            // 
             // frmEditarComprobante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,5 +768,7 @@
         private System.Windows.Forms.CheckBox chEfectivo;
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtIdComprobante;
+        internal System.Windows.Forms.TextBox txtTipoCambio;
+        private System.Windows.Forms.Label label16;
     }
 }

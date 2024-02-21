@@ -222,6 +222,17 @@ namespace GestionClubView.Maestros
             }
             return iObjEN;
         }
+        public GestionClubClienteDto EsActoEliminarClienteSinComprobante ()
+        {
+            GestionClubClienteDto iObjEN = new GestionClubClienteDto();
+            this.AsignarCliente(iObjEN);
+            iObjEN = GestionClubClienteController.EsActoEliminarCliente(iObjEN);
+            if (iObjEN.Adicionales.EsVerdad == false)
+            {
+                Mensaje.OperacionDenegada(iObjEN.Adicionales.Mensaje, eTitulo);
+            }
+            return iObjEN;
+        }
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe

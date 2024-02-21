@@ -36,7 +36,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.impOtrProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._impOtrProducto]);
             xObjEnc.obsProducto = iDr[GestionClubProductoDto._obsProducto].ToString();
             xObjEnc.idCategoria = Convert.ToString(iDr[GestionClubProductoDto._idCategoria]);
-            xObjEnc.GestionClubCategoriaDto.desCategoria = Convert.ToString(iDr[GestionClubProductoDto._desCategoria]);
+            xObjEnc.desCategoria = Convert.ToString(iDr[GestionClubProductoDto._desCategoria]);
             xObjEnc.estadoProducto = Convert.ToString(iDr[GestionClubProductoDto._estadoProducto]);
             xObjEnc.stockProducto = Convert.ToInt32(iDr[GestionClubProductoDto._stockProducto]);
             xObjEnc.archivoProducto = Convert.ToString(iDr[GestionClubProductoDto._archivoProducto]);

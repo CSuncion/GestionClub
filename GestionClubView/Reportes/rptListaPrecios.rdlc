@@ -7,158 +7,94 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>6500b865-82b7-4369-83bd-de0ab9f41f33</rd:DataSourceID>
+      <rd:DataSourceID>877e76e7-64c6-47ab-9c5b-6f69458db8b3</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsListaComprobanteDelDia">
+    <DataSet Name="dsListarPrecios">
       <Query>
         <DataSourceName>DsGestionClub</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="idComprobante">
-          <DataField>idComprobante</DataField>
+        <Field Name="idProducto">
+          <DataField>idProducto</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="idEmpresa">
           <DataField>idEmpresa</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="tipComprobante">
-          <DataField>tipComprobante</DataField>
+        <Field Name="codProducto">
+          <DataField>codProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="desTipComprobante">
-          <DataField>desTipComprobante</DataField>
+        <Field Name="desProducto">
+          <DataField>desProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="serNroComprobante">
-          <DataField>serNroComprobante</DataField>
+        <Field Name="uniMedProducto">
+          <DataField>uniMedProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="serComprobante">
-          <DataField>serComprobante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nroComprobante">
-          <DataField>nroComprobante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="fecComprobante">
-          <DataField>fecComprobante</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="codMoneda">
           <DataField>codMoneda</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="desMoneda">
-          <DataField>desMoneda</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="impCambio">
-          <DataField>impCambio</DataField>
+        <Field Name="preCosProducto">
+          <DataField>preCosProducto</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="serGuiaComprobante">
-          <DataField>serGuiaComprobante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="preVtsProducto">
+          <DataField>preVtsProducto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="nroGuiaComprobante">
-          <DataField>nroGuiaComprobante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="preVnsProducto">
+          <DataField>preVnsProducto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="fecGuiaComprobante">
-          <DataField>fecGuiaComprobante</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="idNroComanda">
-          <DataField>idNroComanda</DataField>
+        <Field Name="afeIgvProducto">
+          <DataField>afeIgvProducto</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idAmbiente">
-          <DataField>idAmbiente</DataField>
+        <Field Name="afeDtraProducto">
+          <DataField>afeDtraProducto</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idMesa">
-          <DataField>idMesa</DataField>
+        <Field Name="porDtraProducto">
+          <DataField>porDtraProducto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="impDolProducto">
+          <DataField>impDolProducto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="impOtrProducto">
+          <DataField>impOtrProducto</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="stockProducto">
+          <DataField>stockProducto</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="idMozo">
-          <DataField>idMozo</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="turnoCaja">
-          <DataField>turnoCaja</DataField>
+        <Field Name="archivoProducto">
+          <DataField>archivoProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="modPagoComprobante">
-          <DataField>modPagoComprobante</DataField>
+        <Field Name="obsProducto">
+          <DataField>obsProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="desPagoComprobante">
-          <DataField>desPagoComprobante</DataField>
+        <Field Name="idCategoria">
+          <DataField>idCategoria</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="tipMovComprobante">
-          <DataField>tipMovComprobante</DataField>
+        <Field Name="desCategoria">
+          <DataField>desCategoria</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="impEfeComprobante">
-          <DataField>impEfeComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impDepComprobante">
-          <DataField>impDepComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impTarComprobante">
-          <DataField>impTarComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impBruComprobante">
-          <DataField>impBruComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impIgvComprobante">
-          <DataField>impIgvComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impNetComprobante">
-          <DataField>impNetComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="impDtrComprobante">
-          <DataField>impDtrComprobante</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="idCliente">
-          <DataField>idCliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="nroIdentificacionCliente">
-          <DataField>nroIdentificacionCliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nombreRazSocialCliente">
-          <DataField>nombreRazSocialCliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="tipCliente">
-          <DataField>tipCliente</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="estadoComprobante">
-          <DataField>estadoComprobante</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="desEstado">
-          <DataField>desEstado</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="obsComprobante">
-          <DataField>obsComprobante</DataField>
+        <Field Name="estadoProducto">
+          <DataField>estadoProducto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="usuarioAgrega">
@@ -181,10 +117,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
         <rd:SchemaPath>D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\DataSet\DsGestionClub.xsd</rd:SchemaPath>
-        <rd:TableName>isp_ListarComprobantesFacturaYBoletaPorFecha</rd:TableName>
+        <rd:TableName>isp_ListarProductosActivos</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>isp_ListarComprobantesFacturaYBoletaPorFechaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>isp_ListarProductosActivosTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -192,7 +128,7 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix2">
+          <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
@@ -205,7 +141,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.945cm</Width>
+                  <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -213,20 +149,20 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.57354cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox30">
+                        <Textbox Name="Textbox9">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>T. COMPROBANTE</Value>
+                                  <Value>CÓDIGO</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -237,7 +173,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -254,16 +190,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox18">
+                        <Textbox Name="Textbox11">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>COMPROBANTE</Value>
+                                  <Value>DESCRIPCIÓN</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -274,7 +210,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -291,16 +227,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox26">
+                        <Textbox Name="Textbox14">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>FECHA</Value>
+                                  <Value>UNIDAD</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -311,7 +247,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <rd:DefaultName>Textbox14</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -328,16 +264,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox20">
+                        <Textbox Name="Textbox19">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>NOMBRES / RAZ. SOCIAL</Value>
+                                  <Value>STOCK</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -348,7 +284,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -365,16 +301,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox24">
+                        <Textbox Name="Textbox17">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>MONTO</Value>
+                                  <Value>PRECIO</Value>
                                   <Style>
-                                    <FontFamily>calibri</FontFamily>
+                                    <FontFamily>Calibri</FontFamily>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -385,7 +321,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -407,16 +343,16 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="tipComprobante">
+                        <Textbox Name="codProducto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!tipComprobante.Value</Value>
+                                  <Value>=Fields!codProducto.Value</Value>
                                   <Style>
-                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -424,7 +360,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>tipComprobante</rd:DefaultName>
+                          <rd:DefaultName>codProducto</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -440,16 +376,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="serNroComprobante">
+                        <Textbox Name="desProducto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!serNroComprobante.Value</Value>
+                                  <Value>=Fields!desProducto.Value</Value>
                                   <Style>
-                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -457,7 +393,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>serNroComprobante</rd:DefaultName>
+                          <rd:DefaultName>desProducto</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -473,25 +409,24 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="fecComprobante">
+                        <Textbox Name="uniMedProducto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!fecComprobante.Value</Value>
+                                  <Value>=Fields!uniMedProducto.Value</Value>
                                   <Style>
-                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>d</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>fecComprobante</rd:DefaultName>
+                          <rd:DefaultName>uniMedProducto</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -507,16 +442,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="nombreRazSocialCliente">
+                        <Textbox Name="stockProducto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nombreRazSocialCliente.Value</Value>
+                                  <Value>=Fields!stockProducto.Value</Value>
                                   <Style>
-                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -524,7 +459,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>nombreRazSocialCliente</rd:DefaultName>
+                          <rd:DefaultName>stockProducto</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -540,16 +475,16 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="impNetComprobante">
+                        <Textbox Name="preVtsProducto">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!impNetComprobante.Value</Value>
+                                  <Value>=Fields!preVtsProducto.Value</Value>
                                   <Style>
-                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -557,7 +492,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>impNetComprobante</rd:DefaultName>
+                          <rd:DefaultName>preVtsProducto</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -587,104 +522,317 @@
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <TablixHeader>
+                    <Size>2.5cm</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox27">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>CATEGORIA</Value>
+                                <Style>
+                                  <FontFamily>Calibri</FontFamily>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox27</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>Silver</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
                   <KeepWithGroup>After</KeepWithGroup>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Detalles" />
+                  <Group Name="desCategoria">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!desCategoria.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!desCategoria.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>2.5cm</Size>
+                    <CellContents>
+                      <Textbox Name="desCategoria">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!desCategoria.Value</Value>
+                                <Style>
+                                  <FontFamily>calibri</FontFamily>
+                                  <FontSize>7pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>desCategoria</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                      <rd:Selected>true</rd:Selected>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Detalles" />
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>dsListaComprobanteDelDia</DataSetName>
-            <Top>0.52626cm</Top>
-            <Left>1.7726cm</Left>
-            <Height>1.17354cm</Height>
-            <Width>16.945cm</Width>
+            <DataSetName>dsListarPrecios</DataSetName>
+            <Top>0.42043cm</Top>
+            <Left>3.31736cm</Left>
+            <Height>1.2cm</Height>
+            <Width>15cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox32">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Total</Value>
-                    <Style>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox32</rd:DefaultName>
-            <Top>1.84092cm</Top>
-            <Left>15.4374cm</Left>
-            <Height>0.44125cm</Height>
-            <Width>0.78021cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox33">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!impNetComprobante.Value, "dsListaComprobanteDelDia")</Value>
-                    <Style>
-                      <FontFamily>Calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox33</rd:DefaultName>
-            <Top>1.84092cm</Top>
-            <Left>16.2176cm</Left>
-            <Height>0.44125cm</Height>
-            <Width>2.5cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>1.07291in</Height>
+        <Height>0.81249in</Height>
         <Style />
       </Body>
-      <Width>8.01584in</Width>
+      <Width>8.19581in</Width>
       <Page>
         <PageHeader>
           <Height>3.04244cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
+            <Textbox Name="Textbox13">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Pág.:</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox13</rd:DefaultName>
+              <Top>0.31544cm</Top>
+              <Left>16.21424cm</Left>
+              <Height>0.44465cm</Height>
+              <Width>0.74446cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox44">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox44</rd:DefaultName>
+              <Top>0.31543cm</Top>
+              <Left>16.99397cm</Left>
+              <Height>0.44465cm</Height>
+              <Width>1.09771cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox21">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!TotalPages</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox21</rd:DefaultName>
+              <Top>0.31202cm</Top>
+              <Left>18.75646cm</Left>
+              <Height>0.44806cm</Height>
+              <Width>1.09771cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox23">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>de</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox23</rd:DefaultName>
+              <Top>0.31203cm</Top>
+              <Left>18.16596cm</Left>
+              <Height>0.44805cm</Height>
+              <Width>0.55522cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox45">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=DateTime.Now.ToShortDateString()</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox45</rd:DefaultName>
+              <Top>0.83064cm</Top>
+              <Left>16.99397cm</Left>
+              <Height>0.41479cm</Height>
+              <Width>2.96603cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox16">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Proceso:</Value>
+                      <Style>
+                        <FontSize>6.5pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox13</rd:DefaultName>
+              <Top>0.83064cm</Top>
+              <Left>15.81736cm</Left>
+              <Height>0.4229cm</Height>
+              <Width>1.14134cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
             <Textbox Name="Textbox5">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -726,200 +874,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.30733cm</Top>
-              <Left>0.90295cm</Left>
+              <Left>0.50271cm</Left>
               <Height>1.38654cm</Height>
               <Width>9.16029cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox13">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Pág.:</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.31544cm</Top>
-              <Left>16.61448cm</Left>
-              <Height>0.44465cm</Height>
-              <Width>0.74446cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox44">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!PageNumber</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox44</rd:DefaultName>
-              <Top>0.31543cm</Top>
-              <Left>17.39421cm</Left>
-              <Height>0.44465cm</Height>
-              <Width>1.09771cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox21">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Globals!TotalPages</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>0.31202cm</Top>
-              <Left>19.1567cm</Left>
-              <Height>0.44806cm</Height>
-              <Width>1.09771cm</Width>
-              <ZIndex>3</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox23">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>de</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox23</rd:DefaultName>
-              <Top>0.31203cm</Top>
-              <Left>18.5662cm</Left>
-              <Height>0.44805cm</Height>
-              <Width>0.55522cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox45">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=DateTime.Now.ToShortDateString()</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox45</rd:DefaultName>
-              <Top>0.83064cm</Top>
-              <Left>17.39421cm</Left>
-              <Height>0.41479cm</Height>
-              <Width>2.96603cm</Width>
-              <ZIndex>5</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox16">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Proceso:</Value>
-                      <Style>
-                        <FontSize>6.5pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.83064cm</Top>
-              <Left>16.2176cm</Left>
-              <Height>0.4229cm</Height>
-              <Width>1.14134cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -938,7 +895,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORTE COMPROBANTES DEL DÍA</Value>
+                      <Value>REPORTE LISTA DE PRECIOS</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -952,7 +909,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
               <Top>2.23959cm</Top>
-              <Left>6.7726cm</Left>
+              <Left>6.37236cm</Left>
               <Height>0.62646cm</Height>
               <Width>7.92395cm</Width>
               <ZIndex>7</ZIndex>
@@ -996,7 +953,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
               <Top>0.17639cm</Top>
-              <Left>0.29148cm</Left>
+              <Left>0.50271cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
               <Style>
@@ -1026,8 +983,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>4.52891cm</Left>
+              <Top>0.14111cm</Top>
+              <Left>4.74014cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>
               <ZIndex>1</ZIndex>
@@ -1050,10 +1007,10 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>0.5cm</LeftMargin>
-        <RightMargin>0.5cm</RightMargin>
-        <TopMargin>0.5cm</TopMargin>
-        <BottomMargin>0.5cm</BottomMargin>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>2cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>2cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
@@ -1078,7 +1035,6 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
-  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>f3832c16-b0af-433e-b3f5-f9397565210e</rd:ReportID>
+  <rd:ReportID>e62ff031-6609-45b9-93f0-edc8cfced231</rd:ReportID>
 </Report>

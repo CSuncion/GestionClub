@@ -51,6 +51,7 @@ namespace GestionClubView.Pedidos
             this.CargarDatosEmpresa();
             this.GenerarCorrelativo();
             this.MostrarProductosPedidosEnComandaBD(objCom);
+            this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
@@ -71,6 +72,30 @@ namespace GestionClubView.Pedidos
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
             this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0, 1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
             this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+        }
+
+        public void MostrarTipoCambio()
+        {
+            if (!this.ValidaTipoCambio()) return;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = this.dtpFecDoc.Value.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (Cmb.ObtenerValor(this.cboMoneda, string.Empty) == "01")
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.CompraTipoCambio.ToString();
+            else
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.VentaTipoCambio.ToString();
+        }
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.eTitulo); result = false; }
+
+            return result;
         }
         public void InicializaVentana()
         {
@@ -122,6 +147,10 @@ namespace GestionClubView.Pedidos
 
             xCtrl = new ControlEditar();
             xCtrl.Cmb(this.cboMoneda, "vvff");
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtTipoCambio, true, "Tipo de Cambio", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -334,7 +363,7 @@ namespace GestionClubView.Pedidos
             pObj.nroComprobante = this.txtNroDoc.Text.Trim();
             pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
-            pObj.impCambio = 0;
+            pObj.impCambio = Convert.ToDecimal(this.txtTipoCambio.Text);
             pObj.serGuiaComprobante = string.Empty;
             pObj.nroGuiaComprobante = string.Empty;
             pObj.fecGuiaComprobante = DateTime.Now;
@@ -649,6 +678,11 @@ namespace GestionClubView.Pedidos
         {
             this.LimpiarCliente();
             this.GenerarCorrelativo();
+        }
+
+        private void cboMoneda_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.MostrarTipoCambio();
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)

@@ -53,6 +53,7 @@ namespace GestionClubView.Venta
             this.InicializaVentana();
             this.MostrarComprobante(GestionClubComprobanteController.EnBlanco());
             this.GenerarCorrelativo();
+            this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.txtNroDoc.Focus();
@@ -63,6 +64,7 @@ namespace GestionClubView.Venta
             this.MostrarComprobante(pObj);
             this.LLenarComprobanteDetaDeBaseDatos(pObj);
             this.MostrarComprobanteDeta();
+            this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(3);
         }
         public void InicializaVentana()
@@ -119,6 +121,10 @@ namespace GestionClubView.Venta
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtTipoCambio, true, "Tipo de Cambio", "ffff", 11);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.TxtNumeroPositivoConDecimales(this.txtEfectivo, true, "Efectivo", "vvff", 2);
             xLis.Add(xCtrl);
 
@@ -154,6 +160,29 @@ namespace GestionClubView.Venta
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
             this.txtSerDoc.Text = Cmb.ObtenerTexto(this.cboTipDoc).Substring(0, 1) + gestionClubCorrelativoComprobanteDto.serCorrelativo;
             this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+        }
+        public void MostrarTipoCambio()
+        {
+            if (!this.ValidaTipoCambio()) return;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = this.dtpFecDoc.Value.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (Cmb.ObtenerValor(this.cboMoneda, string.Empty) == "01")
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.CompraTipoCambio.ToString();
+            else
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.VentaTipoCambio.ToString();
+        }
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.eTitulo); result = false; }
+
+            return result;
         }
         public void CargarRutas()
         {
@@ -328,7 +357,7 @@ namespace GestionClubView.Venta
             pObj.nroComprobante = this.txtNroDoc.Text.Trim();
             pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
-            pObj.impCambio = 0;
+            pObj.impCambio = Convert.ToDecimal(this.txtTipoCambio.Text);
             pObj.serGuiaComprobante = string.Empty;
             pObj.nroGuiaComprobante = string.Empty;
             pObj.fecGuiaComprobante = DateTime.Now;
@@ -842,6 +871,7 @@ namespace GestionClubView.Venta
             this.MostrarComprobante(pObj);
             this.LLenarComprobanteDetaDeBaseDatos(pObj);
             this.MostrarComprobanteDeta();
+            this.MostrarTipoCambio();
             this.CalcularTotalYCantidad();
             eMas.AccionHabilitarControles(1);
             eMas.AccionPasarTextoPrincipal();
@@ -907,6 +937,11 @@ namespace GestionClubView.Venta
         private void chDeposito_CheckedChanged(object sender, EventArgs e)
         {
             this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
+        }
+
+        private void cboMoneda_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.MostrarTipoCambio();
         }
 
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)

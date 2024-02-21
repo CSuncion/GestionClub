@@ -49,6 +49,7 @@ namespace GestionClubModel.ModelDto
         public int stockProducto { get; set; }
         public string obsProducto { get; set; } = string.Empty;
         public string idCategoria { get; set; } = "0101";
+        public string desCategoria { get; set; } = string.Empty;
         public string estadoProducto { get; set; } = "01";
         public string archivoProducto { get; set; } = "";
         public int usuarioAgrega { get; set; }
