@@ -61,6 +61,7 @@
     <Compile Include="IRepository\IGestionClubCategoriaRepository.cs" />
     <Compile Include="IRepository\IGestionClubMesaRepository.cs" />
     <Compile Include="IRepository\IGestionClubGeneralRepository.cs" />
+    <Compile Include="IRepository\IGestionClubTipoCambioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GestionClubAccessRepository.cs" />
     <Compile Include="Repository\GestionClubComprobanteAlmacenRepository.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Repository\GestionClubAmbienteRepository.cs" />
     <Compile Include="Repository\GestionClubGeneralRepository.cs" />
     <Compile Include="IRepository\IGestionClubAmbienteRepository.cs" />
+    <Compile Include="Repository\GestionClubTipoCambioRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GestionClubConnection\GestionClubConnection.csproj">

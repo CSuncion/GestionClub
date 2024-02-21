@@ -91,6 +91,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
+            this.tsmTipoCambio = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -248,7 +249,8 @@
             this.tsmParametrosVentas,
             this.tsmMesas,
             this.tsmAmbientes,
-            this.tsmCategorias});
+            this.tsmCategorias,
+            this.tsmTipoCambio});
             resources.ApplyResources(this.maestrosToolStripMenuItem, "maestrosToolStripMenuItem");
             this.maestrosToolStripMenuItem.Name = "maestrosToolStripMenuItem";
             // 
@@ -532,6 +534,12 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
+            // tsmTipoCambio
+            // 
+            resources.ApplyResources(this.tsmTipoCambio, "tsmTipoCambio");
+            this.tsmTipoCambio.Name = "tsmTipoCambio";
+            this.tsmTipoCambio.Click += new System.EventHandler(this.tsmTipoCambio_Click);
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -627,5 +635,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmClientesProveedores;
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
         internal System.Windows.Forms.ToolStripButton tsbComprobante;
+        internal System.Windows.Forms.ToolStripMenuItem tsmTipoCambio;
     }
 }

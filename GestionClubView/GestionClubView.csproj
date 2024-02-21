@@ -141,6 +141,18 @@
     <Compile Include="Listas\frmListarClientes.Designer.cs">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maestros\frmEditarTipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmEditarTipoCambio.Designer.cs">
+      <DependentUpon>frmEditarTipoCambio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\frmTipoCambio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmTipoCambio.Designer.cs">
+      <DependentUpon>frmTipoCambio.cs</DependentUpon>
+    </Compile>
     <Compile Include="MdiPrincipal\frmSeleccionarCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -366,6 +378,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarClientes.resx">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmEditarTipoCambio.resx">
+      <DependentUpon>frmEditarTipoCambio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmTipoCambio.resx">
+      <DependentUpon>frmTipoCambio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MdiPrincipal\frmSeleccionarCaja.resx">
       <DependentUpon>frmSeleccionarCaja.cs</DependentUpon>

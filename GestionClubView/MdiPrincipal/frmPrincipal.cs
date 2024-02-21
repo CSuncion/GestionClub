@@ -344,6 +344,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmMozosUsuarios, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarTipoCambio()
+        {
+            frmTipoCambio win = new frmTipoCambio();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmTipoCambio, null, 0, 0);
+            win.NewWindow();
+        }
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -532,6 +538,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmMozosUsuarios_Click_1(object sender, EventArgs e)
         {
             this.InstanciarUsuarioMozo();
+        }
+
+        private void tsmTipoCambio_Click(object sender, EventArgs e)
+        {
+            this.InstanciarTipoCambio();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

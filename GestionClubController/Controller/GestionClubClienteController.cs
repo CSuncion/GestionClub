@@ -101,10 +101,10 @@ namespace GestionClubController.Controller
             //validar
             //pObj.ClavePersonal = GestionClubAmbienteController.ObtenerClavePersonal(pObj);
             iAmbEN = GestionClubClienteController.BuscarClienteXId(pObj);
-            if (iAmbEN.codCliente == string.Empty)
+            if (iAmbEN.nroIdentificacionCliente == string.Empty)
             {
                 iAmbEN.Adicionales.EsVerdad = false;
-                iAmbEN.Adicionales.Mensaje = "El Cliente " + pObj.codCliente + " no existe";
+                iAmbEN.Adicionales.Mensaje = "El Cliente " + pObj.nroIdentificacionCliente + " no existe";
                 return iAmbEN;
             }
 
@@ -155,10 +155,10 @@ namespace GestionClubController.Controller
 
             //validar    
             iAmbiente = GestionClubClienteController.BuscarClienteXClave(pObj);
-            if (iAmbiente.codCliente != string.Empty)
+            if (iAmbiente.nroIdentificacionCliente != string.Empty)
             {
                 iAmbiente.Adicionales.EsVerdad = false;
-                iAmbiente.Adicionales.Mensaje = "El codigo " + pObj.codCliente + " ya existe";
+                iAmbiente.Adicionales.Mensaje = "El codigo " + pObj.nroIdentificacionCliente + " ya existe";
                 return iAmbiente;
             }
 

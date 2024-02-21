@@ -21,15 +21,15 @@ namespace GestionClubModel.ModelDto
 
 
         public string claveObjeto { get; set; }
-        public string idTipoCambio { get; set; }
-        public string FechaTipoCambio { get; set; }
-        public decimal CompraTipoCambio { get; set; }
-        public decimal VentaTipoCambio { get; set; }
-        public string CEstadoTipoCambio { get; set; }
+        public int idTipoCambio { get; set; } = 0;
+        public string FechaTipoCambio { get; set; } = DateTime.Now.ToString();
+        public decimal CompraTipoCambio { get; set; } = 0;
+        public decimal VentaTipoCambio { get; set; } = 0;
+        public string CEstadoTipoCambio { get; set; } = "01";
         public string UsuarioAgrega { get; set; }
-        public DateTime FechaAgrega { get; set; }
+        public DateTime FechaAgrega { get; set; } = DateTime.Now;
         public string UsuarioModifica { get; set; }
-        public DateTime FechaModifica { get; set; }
+        public DateTime FechaModifica { get; set; } = DateTime.Now;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

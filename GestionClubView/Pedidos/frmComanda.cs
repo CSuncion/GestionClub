@@ -105,7 +105,7 @@ namespace GestionClubView.Pedidos
             this.lvMesas.View = View.LargeIcon;
             this.lvMesas.Columns.Add("MESAS", 250);
 
-            this.imgMesas.ImageSize = new System.Drawing.Size(40, 40);
+            this.imgMesas.ImageSize = new System.Drawing.Size(30, 30);
 
             try
             {
@@ -150,7 +150,7 @@ namespace GestionClubView.Pedidos
             lvCategorias.View = View.LargeIcon;
 
             lvCategorias.Columns.Add("CATEGORIAS", 250);
-            imgCategorias.ImageSize = new System.Drawing.Size(40, 40);
+            imgCategorias.ImageSize = new System.Drawing.Size(30, 30);
 
             try
             {
@@ -202,7 +202,7 @@ namespace GestionClubView.Pedidos
             lvProductos.Columns.Add("PRODUCTOS", 220);
             lvProductos.Columns.Add("PRECIO", 80);
 
-            imgProductos.ImageSize = new System.Drawing.Size(50, 50);
+            imgProductos.ImageSize = new System.Drawing.Size(30, 30);
 
             try
             {
@@ -347,7 +347,7 @@ namespace GestionClubView.Pedidos
                 this.lblCantidad.Text = "0";
                 this.lblTotal.Text = "0";
             }
-            this.imgProductosSel.ImageSize = new System.Drawing.Size(50, 50);
+            this.imgProductosSel.ImageSize = new System.Drawing.Size(30, 30);
 
             this.imgProductosSel.Images.Add(this.lvProductos.SelectedItems[0].ImageKey.ToString(), this.imgProductos.Images[this.lvProductos.SelectedItems[0].ImageKey]);
 
@@ -403,6 +403,7 @@ namespace GestionClubView.Pedidos
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
+            this.DisminuirTotalYCantidad();
             this.EliminarDetalleComanda();
 
             this.lvProductosSeleccionados.SelectedItems[0].Remove();
@@ -411,6 +412,11 @@ namespace GestionClubView.Pedidos
             Mensaje.OperacionSatisfactoria("El pedido se elimino correctamente", this.eTitulo);
 
             this.seleccionaProductoSeleccionados = 0;
+        }
+        public void DisminuirTotalYCantidad()
+        {
+            this.lblCantidad.Text = (Convert.ToDecimal(this.lblCantidad.Text) - Convert.ToDecimal(this.lvProductosSeleccionados.SelectedItems[0].SubItems[1].Text)).ToString();
+            this.lblTotal.Text = (Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lvProductosSeleccionados.SelectedItems[0].SubItems[2].Text)).ToString();
         }
 
         public void EliminarDetalleComanda()

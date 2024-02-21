@@ -151,7 +151,7 @@ namespace GestionClubController.Controller
             if (iAmbEN.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
             {
                 iAmbEN.Adicionales.EsVerdad = false;
-                iAmbEN.Adicionales.Mensaje = "El AperturaCaja " + pObj.fecAperturaCaja + " no existe";
+                iAmbEN.Adicionales.Mensaje = "La fecha" + pObj.fecAperturaCaja + " no existe";
                 return iAmbEN;
             }
 

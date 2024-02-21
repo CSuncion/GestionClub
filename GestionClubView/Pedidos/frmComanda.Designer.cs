@@ -218,7 +218,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(308, 437);
+            this.lblCantidad.Location = new System.Drawing.Point(260, 437);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 11;
@@ -245,7 +245,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(382, 437);
+            this.lblTotal.Location = new System.Drawing.Point(335, 437);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 8;
