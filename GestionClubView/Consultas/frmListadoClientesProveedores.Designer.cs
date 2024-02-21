@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoClientesProveedores));
-            this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario = new System.Windows.Forms.ToolStrip();
             this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
             this.tsbAnterior = new System.Windows.Forms.ToolStripButton();
@@ -42,46 +40,21 @@
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboTipCliente = new System.Windows.Forms.ComboBox();
-            this.txtNomRazSoc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNroIdentificacion = new System.Windows.Forms.TextBox();
-            this.tsPrincipal.SuspendLayout();
+            this.txtNomRazSoc = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboTipCliente = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tsBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).BeginInit();
             this.sst1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tsPrincipal
-            // 
-            this.tsPrincipal.AutoSize = false;
-            this.tsPrincipal.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBtnSalir});
-            this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.tsPrincipal.Name = "tsPrincipal";
-            this.tsPrincipal.Size = new System.Drawing.Size(800, 42);
-            this.tsPrincipal.Stretch = true;
-            this.tsPrincipal.TabIndex = 451;
-            // 
-            // tsBtnSalir
-            // 
-            this.tsBtnSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsBtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSalir.Image")));
-            this.tsBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsBtnSalir.Name = "tsBtnSalir";
-            this.tsBtnSalir.Size = new System.Drawing.Size(36, 39);
-            this.tsBtnSalir.Text = "Salir";
-            this.tsBtnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsBtnSalir.Click += new System.EventHandler(this.tsBtnSalir_Click);
             // 
             // tsSecundario
             // 
@@ -92,8 +65,9 @@
             this.tsbSiguiente,
             this.tsbUltimo,
             this.tsbActualizarTabla,
-            this.toolStripSeparator1});
-            this.tsSecundario.Location = new System.Drawing.Point(0, 42);
+            this.toolStripSeparator1,
+            this.tsBtnSalir});
+            this.tsSecundario.Location = new System.Drawing.Point(0, 0);
             this.tsSecundario.Name = "tsSecundario";
             this.tsSecundario.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.tsSecundario.Size = new System.Drawing.Size(800, 25);
@@ -160,9 +134,9 @@
             this.DgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvClientes.GridColor = System.Drawing.Color.Silver;
-            this.DgvClientes.Location = new System.Drawing.Point(12, 161);
+            this.DgvClientes.Location = new System.Drawing.Point(12, 119);
             this.DgvClientes.Name = "DgvClientes";
-            this.DgvClientes.Size = new System.Drawing.Size(776, 264);
+            this.DgvClientes.Size = new System.Drawing.Size(776, 306);
             this.DgvClientes.TabIndex = 453;
             // 
             // sst1
@@ -193,73 +167,11 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.cboTipCliente);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 97);
+            this.groupBox1.Location = new System.Drawing.Point(12, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 58);
             this.groupBox1.TabIndex = 455;
             this.groupBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(3, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 23);
-            this.label3.TabIndex = 449;
-            this.label3.Text = "FILTRO";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 24);
-            this.panel1.TabIndex = 453;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "T. Cliente:";
-            // 
-            // cboTipCliente
-            // 
-            this.cboTipCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipCliente.FormattingEnabled = true;
-            this.cboTipCliente.Location = new System.Drawing.Point(12, 28);
-            this.cboTipCliente.Name = "cboTipCliente";
-            this.cboTipCliente.Size = new System.Drawing.Size(161, 22);
-            this.cboTipCliente.TabIndex = 6;
-            this.cboTipCliente.SelectionChangeCommitted += new System.EventHandler(this.cboTipCliente_SelectionChangeCommitted);
-            // 
-            // txtNomRazSoc
-            // 
-            this.txtNomRazSoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomRazSoc.Location = new System.Drawing.Point(346, 28);
-            this.txtNomRazSoc.Name = "txtNomRazSoc";
-            this.txtNomRazSoc.Size = new System.Drawing.Size(393, 22);
-            this.txtNomRazSoc.TabIndex = 9;
-            this.txtNomRazSoc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNomRazSoc_KeyUp);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(343, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 14);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Nombre/Raz. Social:";
             // 
             // label4
             // 
@@ -280,6 +192,77 @@
             this.txtNroIdentificacion.TabIndex = 10;
             this.txtNroIdentificacion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNroIdentificacion_KeyUp);
             // 
+            // txtNomRazSoc
+            // 
+            this.txtNomRazSoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomRazSoc.Location = new System.Drawing.Point(346, 28);
+            this.txtNomRazSoc.Name = "txtNomRazSoc";
+            this.txtNomRazSoc.Size = new System.Drawing.Size(393, 22);
+            this.txtNomRazSoc.TabIndex = 9;
+            this.txtNomRazSoc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNomRazSoc_KeyUp);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(343, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 14);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Nombre/Raz. Social:";
+            // 
+            // cboTipCliente
+            // 
+            this.cboTipCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipCliente.FormattingEnabled = true;
+            this.cboTipCliente.Location = new System.Drawing.Point(12, 28);
+            this.cboTipCliente.Name = "cboTipCliente";
+            this.cboTipCliente.Size = new System.Drawing.Size(161, 22);
+            this.cboTipCliente.TabIndex = 6;
+            this.cboTipCliente.SelectionChangeCommitted += new System.EventHandler(this.cboTipCliente_SelectionChangeCommitted);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 14);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "T. Cliente:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Khaki;
+            this.label3.Location = new System.Drawing.Point(3, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 23);
+            this.label3.TabIndex = 449;
+            this.label3.Text = "FILTRO";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 24);
+            this.panel1.TabIndex = 453;
+            // 
+            // tsBtnSalir
+            // 
+            this.tsBtnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsBtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnSalir.Image")));
+            this.tsBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBtnSalir.Name = "tsBtnSalir";
+            this.tsBtnSalir.Size = new System.Drawing.Size(23, 22);
+            this.tsBtnSalir.Click += new System.EventHandler(this.tsBtnSalir_Click);
+            // 
             // frmListadoClientesProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -291,13 +274,10 @@
             this.Controls.Add(this.DgvClientes);
             this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
-            this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListadoClientesProveedores";
             this.Text = "Listado Clientes / Proveedores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListadoClientesProveedores_FormClosing);
-            this.tsPrincipal.ResumeLayout(false);
-            this.tsPrincipal.PerformLayout();
             this.tsSecundario.ResumeLayout(false);
             this.tsSecundario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvClientes)).EndInit();
@@ -313,9 +293,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip tsPrincipal;
-        private System.Windows.Forms.ToolStripButton tsBtnSalir;
         internal System.Windows.Forms.ToolStrip tsSecundario;
         internal System.Windows.Forms.ToolStripButton tsbPrimero;
         internal System.Windows.Forms.ToolStripButton tsbAnterior;
@@ -335,5 +312,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNroIdentificacion;
+        private System.Windows.Forms.ToolStripButton tsBtnSalir;
     }
 }

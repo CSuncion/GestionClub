@@ -229,9 +229,10 @@ namespace GestionClubView.Maestros
             this.txtEmail.Text = pObj.mailAcceso.ToString();
             this.txtDireccion.Text = pObj.domicilioAcceso.ToString();
             this.txtTlf.Text = pObj.fijoAcceso.ToString();
+            this.txtCargoAcceso.Text = pObj.cargoAcceso.ToString();
             this.txtCelular.Text = pObj.movilAcceso.ToString();
             this.cboNivel.SelectedValue = pObj.levelAcceso.ToString();
-            this.cboNivelSeg.SelectedValue = pObj.cargoAcceso.ToString();
+            this.cboNivelSeg.SelectedValue = pObj.gradoAcceso.ToString();
             this.cboEstado.SelectedValue = pObj.sitAcceso.ToString();
         }
         public void AsignarAccess(GestionClubAccessDto pObj)
@@ -252,7 +253,7 @@ namespace GestionClubView.Maestros
             pObj.fijoAcceso = this.txtTlf.Text;
             pObj.movilAcceso = this.txtCelular.Text;
             pObj.levelAcceso = Convert.ToInt32(Cmb.ObtenerValor(this.cboNivel, string.Empty));
-            pObj.sitAcceso = 1;
+            pObj.sitAcceso = Cmb.ObtenerValor(this.cboEstado, String.Empty);
             pObj.fechaAcceso = DateTime.Now;
             pObj.ofc1 = 2;
             pObj.ofc2 = 6;

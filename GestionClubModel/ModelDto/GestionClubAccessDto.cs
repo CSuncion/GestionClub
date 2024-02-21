@@ -57,7 +57,7 @@ namespace GestionClubModel.ModelDto
         public string fijoAcceso { get; set; } = string.Empty;
         public string movilAcceso { get; set; } = string.Empty;
         public Nullable<int> levelAcceso { get; set; } = 1;
-        public Nullable<int> sitAcceso { get; set; }
+        public string sitAcceso { get; set; } = "01";
         public Nullable<System.DateTime> fechaAcceso { get; set; }
         public Nullable<int> ofc1 { get; set; }
         public Nullable<int> ofc2 { get; set; }

@@ -1,6 +1,7 @@
 ﻿using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
+using GestionClubUtil.Util;
 using GestionClubView.MdiPrincipal;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace GestionClubView.Consultas
         public GestionClubClienteController oOpe = new GestionClubClienteController();
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public string eClaveDgvCliente = string.Empty;
-        string eNombreColumnaDgvCliente = "codCliente";
+        string eNombreColumnaDgvCliente = "idCliente";
         string eEncabezadoColumnaDgvCliente = "nombreRazSocialCliente";
         public frmListadoClientesProveedores()
         {
@@ -46,7 +47,6 @@ namespace GestionClubView.Consultas
             this.ActualizarDgvClientes();
             Dgv.HabilitarDesplazadores(this.DgvClientes, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
             Dgv.ActualizarBarraEstado(this.DgvClientes, this.sst1);
-            //this.AccionBuscar();
         }
         public void ActualizarListaClienteDeBaseDatos()
         {
@@ -71,11 +71,12 @@ namespace GestionClubView.Consultas
             List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvCliente();
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iColumnaPintura, iListaColumnas);
+            UtilGrilla.PintarFilaDeGrillaAlternar(iGrilla);
         }
         public List<GestionClubClienteDto> ObtenerDatosParaGrilla()
         {
             //asignar parametros
-            string iValorBusqueda = txtNroIdentificacion.Text.Trim();
+            string iValorBusqueda = this.txtNroIdentificacion.Text;
             string iCampoBusqueda = eNombreColumnaDgvCliente;
             List<GestionClubClienteDto> iListaClientes = eLisCliente;
 
@@ -103,12 +104,6 @@ namespace GestionClubView.Consultas
 
             //devolver
             return iLisDgv;
-        }
-        public void AccionBuscar()
-        {
-            //this.tstBuscar.Clear();
-            //this.txtNroIdentificacion.Text = "Ingrese " + this.eEncabezadoColumnaDgvCliente;
-            //this.txtNroIdentificacion.Focus();
         }
         public void Cerrar()
         {

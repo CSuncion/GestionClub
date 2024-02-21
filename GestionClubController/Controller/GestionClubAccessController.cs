@@ -40,7 +40,7 @@ namespace GestionClubController.Controller
             }
             else
             {
-                if (iUsuEN.sitAcceso == 0) //desactivado
+                if (iUsuEN.sitAcceso == "02") //desactivado
                 {
                     iUsuEN = GestionClubAccessController.EnBlanco();
                     iUsuEN.Adicionales.EsVerdad = false;

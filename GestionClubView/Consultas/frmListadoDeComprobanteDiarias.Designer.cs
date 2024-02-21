@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoDeComprobanteDiarias));
-            this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario = new System.Windows.Forms.ToolStrip();
             this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
             this.tsbAnterior = new System.Windows.Forms.ToolStripButton();
@@ -44,43 +42,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.dtpFecHasta = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpFecDesde = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.tsPrincipal.SuspendLayout();
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvComprobantes)).BeginInit();
             this.sst1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tsPrincipal
-            // 
-            this.tsPrincipal.AutoSize = false;
-            this.tsPrincipal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbSalir});
-            this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.tsPrincipal.Name = "tsPrincipal";
-            this.tsPrincipal.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsPrincipal.Size = new System.Drawing.Size(797, 46);
-            this.tsPrincipal.Stretch = true;
-            this.tsPrincipal.TabIndex = 111;
-            this.tsPrincipal.Text = "toolStrip1";
-            // 
-            // tsbSalir
-            // 
-            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
-            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Size = new System.Drawing.Size(36, 43);
-            this.tsbSalir.Text = "Salir";
-            this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
             // tsSecundario
             // 
@@ -91,8 +64,9 @@
             this.tsbSiguiente,
             this.tsbUltimo,
             this.tsbActualizarTabla,
-            this.toolStripSeparator1});
-            this.tsSecundario.Location = new System.Drawing.Point(0, 46);
+            this.toolStripSeparator1,
+            this.tsbSalir});
+            this.tsSecundario.Location = new System.Drawing.Point(0, 0);
             this.tsSecundario.Name = "tsSecundario";
             this.tsSecundario.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.tsSecundario.Size = new System.Drawing.Size(797, 25);
@@ -159,9 +133,9 @@
             this.DgvComprobantes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvComprobantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvComprobantes.GridColor = System.Drawing.Color.Silver;
-            this.DgvComprobantes.Location = new System.Drawing.Point(12, 162);
+            this.DgvComprobantes.Location = new System.Drawing.Point(12, 122);
             this.DgvComprobantes.Name = "DgvComprobantes";
-            this.DgvComprobantes.Size = new System.Drawing.Size(773, 263);
+            this.DgvComprobantes.Size = new System.Drawing.Size(773, 303);
             this.DgvComprobantes.TabIndex = 114;
             // 
             // sst1
@@ -189,7 +163,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 71);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(797, 24);
             this.panel1.TabIndex = 456;
@@ -214,11 +188,22 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.dtpFecDesde);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 98);
+            this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(773, 58);
             this.groupBox1.TabIndex = 457;
             this.groupBox1.TabStop = false;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.BackgroundImage")));
+            this.btnFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnFiltrar.Location = new System.Drawing.Point(218, 29);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(31, 23);
+            this.btnFiltrar.TabIndex = 11;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // dtpFecHasta
             // 
@@ -260,16 +245,14 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Desde:";
             // 
-            // btnFiltrar
+            // tsbSalir
             // 
-            this.btnFiltrar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.BackgroundImage")));
-            this.btnFiltrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFiltrar.Location = new System.Drawing.Point(218, 29);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(31, 23);
-            this.btnFiltrar.TabIndex = 11;
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.tsbSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
+            this.tsbSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Size = new System.Drawing.Size(23, 22);
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
             // frmListadoDeComprobanteDiarias
             // 
@@ -282,14 +265,11 @@
             this.Controls.Add(this.DgvComprobantes);
             this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
-            this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListadoDeComprobanteDiarias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Listado de Comprobante Venta Diarias";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmListadoDeComprobante_FormClosing);
-            this.tsPrincipal.ResumeLayout(false);
-            this.tsPrincipal.PerformLayout();
             this.tsSecundario.ResumeLayout(false);
             this.tsSecundario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvComprobantes)).EndInit();
@@ -305,9 +285,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStrip tsPrincipal;
-        private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStrip tsSecundario;
         internal System.Windows.Forms.ToolStripButton tsbPrimero;
         internal System.Windows.Forms.ToolStripButton tsbAnterior;
@@ -326,5 +303,6 @@
         internal System.Windows.Forms.DateTimePicker dtpFecHasta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ToolStripButton tsbSalir;
     }
 }

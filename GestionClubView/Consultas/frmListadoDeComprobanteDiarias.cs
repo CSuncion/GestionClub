@@ -1,6 +1,7 @@
 ﻿using Comun;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubUtil.Util;
 using GestionClubView.Maestros;
 using GestionClubView.MdiPrincipal;
 using GestionClubView.Reportes;
@@ -33,7 +34,7 @@ namespace GestionClubView.Consultas
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
         Dgv.Franja eFranjaDgvComprobante = Dgv.Franja.PorIndice;
         public string eClaveDgvComprobante = string.Empty;
-        string eNombreColumnaDgvComprobante = "nombreRazSocialCliente";
+        string eNombreColumnaDgvComprobante = "idComprobante";
         string eEncabezadoColumnaDgvComprobante = "nombreRazSocialCliente";
         public Form eVentana = new Form();
         public string eTituloVentana;
@@ -55,17 +56,9 @@ namespace GestionClubView.Consultas
             this.ActualizarDgvComprobante();
             Dgv.HabilitarDesplazadores(this.DgvComprobantes, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
             Dgv.ActualizarBarraEstado(this.DgvComprobantes, this.sst1);
-            //this.AccionBuscar();
         }
         public void ActualizarListaComprobanteDeBaseDatos()
         {
-            //validar si es acto ir a la bd
-            //if (tstBuscar.Text.Trim() != string.Empty && eVaBD == 0) { return; }
-
-
-
-            //ir a la bd
-            //Lista comprobantes que no han sido creado por comandas
             this.dtpFecHasta.Value = DateTime.Now;
 
             DateTime fecDesde = this.dtpFecDesde.Value;
@@ -85,16 +78,12 @@ namespace GestionClubView.Consultas
             string iClaveBusqueda = eClaveDgvComprobante;
             string iColumnaPintura = eNombreColumnaDgvComprobante;
             List<DataGridViewColumn> iListaColumnas = this.ListarColumnasDgvComprobante();
+
             //ejecutar metodo
             Dgv.RefrescarGrilla(iGrilla, iFuenteDatos, iCondicionFranja, iClaveBusqueda, iColumnaPintura, iListaColumnas);
-            this.PintarFilaDeGrillaAlternar();
+            UtilGrilla.PintarFilaDeGrillaAlternar(iGrilla);
         }
-        public void AccionBuscar()
-        {
-            //this.tstBuscar.Clear();
-            //this.tstBuscar.ToolTipText = "Ingrese " + this.eEncabezadoColumnaDgvComprobante;
-            //this.tstBuscar.Focus();
-        }
+
         public List<GestionClubComprobanteDto> ObtenerDatosParaGrilla()
         {
             //asignar parametros
@@ -126,17 +115,7 @@ namespace GestionClubView.Consultas
             //devolver
             return iLisDgv;
         }
-        public void PintarFilaDeGrillaAlternar()
-        {
-            int i = 0;
-            foreach (DataGridViewRow item in DgvComprobantes.Rows)
-            {
-                if (i % 2 == 0)
-                    item.DefaultCellStyle.BackColor = Color.LightGray;
 
-                i += 1;
-            }
-        }
         public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
         {
             //verificar que tecla pulso el usuario

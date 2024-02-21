@@ -33,7 +33,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fijoAcceso = iDr[GestionClubAccessDto.FijAcc].ToString();
             xObjEnc.movilAcceso = iDr[GestionClubAccessDto.MovAcc].ToString();
             xObjEnc.levelAcceso = Convert.ToInt32(iDr[GestionClubAccessDto.LevAcc]);
-            xObjEnc.sitAcceso = Convert.ToInt32(iDr[GestionClubAccessDto.SitAcc]);
+            xObjEnc.sitAcceso = Convert.ToString(iDr[GestionClubAccessDto.SitAcc]);
             xObjEnc.fechaAcceso = Convert.ToDateTime(iDr[GestionClubAccessDto.FecAcc]);
             xObjEnc.ofc1 = Convert.ToInt32(iDr[GestionClubAccessDto.Of1]);
             xObjEnc.ofc2 = Convert.ToInt32(iDr[GestionClubAccessDto.Of2]);
