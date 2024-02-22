@@ -17,36 +17,24 @@ using GestionClubUtil.Enum;
 
 namespace GestionClubView.Reportes
 {
-    public partial class frmIngresarAnioTipoVentaAnual : Form
+    public partial class frmEscogerTipoNombreDniListadoClientes : Form
     {
-        public frmIngresarAnioTipoVentaAnual()
+        public frmEscogerTipoNombreDniListadoClientes()
         {
             InitializeComponent();
         }
         public void VentanaSeleccionar()
         {
             this.Show();
-            this.CargarTipoDocumentos();
-            this.FechaActual();
+            this.CargarTipoCliente();
         }
-        public void CargarTipoDocumentos()
+        public void CargarTipoCliente()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.DocFac.ToString()).OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
-        }
-        public void FechaActual()
-        {
-            this.txtAnio.Text = DateTime.Now.Year.ToString();
+            Cmb.Cargar(this.cboTipCliente, GestionClubGeneralController.ListarSistemaDetallePorTabla(GestionClubEnum.Sistema.TipoCliente.ToString()), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void SeleccionarFecha()
         {
-
-            if (this.txtAnio.Text.Length != 4)
-            {
-                Mensaje.OperacionDenegada("Ingresar año correcto", this.Text);
-                return;
-            }
-
-            frmReportEstadisticaVentaAnualMensualPorTipo win = new frmReportEstadisticaVentaAnualMensualPorTipo();
+            frmReportClienteProveedores win = new frmReportClienteProveedores();
             win.wFrm = this;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaVisualizar();
@@ -54,8 +42,9 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmVentaAnualesMesesPorTipo, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmListaPrecios, null);
         }
+      
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {
             this.SeleccionarFecha();
@@ -69,6 +58,11 @@ namespace GestionClubView.Reportes
         private void frmEscogerListaVentasPorFechas_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Cerrar();
+        }
+
+        private void chkTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.BloquearCategoria();
         }
     }
 }
