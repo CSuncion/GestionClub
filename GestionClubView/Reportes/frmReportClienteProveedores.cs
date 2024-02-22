@@ -1,7 +1,6 @@
 ﻿using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
-using GestionClubView.Consultas;
 using GestionClubView.MdiPrincipal;
 using Microsoft.Reporting.WinForms;
 using System;
@@ -17,19 +16,18 @@ using System.Windows.Forms;
 
 namespace GestionClubView.Reportes
 {
-    public partial class frmReportListaPrecios : Form
+    public partial class frmReportClienteProveedores : Form
     {
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
-        public string nombreReporte = "GestionClubView.Reportes.rptListaPrecios.rdlc";
+        public string nombreReporte = "GestionClubView.Reportes.rptListaClienteProveedores.rdlc";
         public string formaReporte = "Normal";
-        public frmReportListaPrecios()
+        public frmReportClienteProveedores()
         {
             InitializeComponent();
         }
 
-        private void frmReportListaPrecios_Load(object sender, EventArgs e)
+        private void frmReportClienteProveedores_Load(object sender, EventArgs e)
         {
-
         }
         public void VentanaVisualizar()
         {
@@ -43,8 +41,8 @@ namespace GestionClubView.Reportes
             try
             {
                 ReportDataSource rds = new ReportDataSource();
-                rds.Name = "dsListarPrecios";
-                rds.Value = GestionClubProductoController.ListarProductosActivos();
+                rds.Name = "dsListaClienteProveedores";
+                rds.Value = GestionClubClienteController.ListarClientesActivos();
 
                 ReportParameter[] rp = new ReportParameter[1];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
@@ -52,15 +50,15 @@ namespace GestionClubView.Reportes
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
 
 
-                this.rvListaPrecios.Reset();
-                this.rvListaPrecios.LocalReport.ReportEmbeddedResource = nombreReporte;
-                this.rvListaPrecios.LocalReport.SetParameters(rp);
-                this.rvListaPrecios.LocalReport.EnableExternalImages = true;
-                this.rvListaPrecios.LocalReport.DataSources.Clear();
-                this.rvListaPrecios.LocalReport.DataSources.Add(rds);
-                this.rvListaPrecios.SetDisplayMode(DisplayMode.PrintLayout);
-                this.rvListaPrecios.ZoomMode = ZoomMode.Percent;
-                this.rvListaPrecios.ZoomPercent = 100;
+                this.rvListadoClienteProveedores.Reset();
+                this.rvListadoClienteProveedores.LocalReport.ReportEmbeddedResource = nombreReporte;
+                this.rvListadoClienteProveedores.LocalReport.SetParameters(rp);
+                this.rvListadoClienteProveedores.LocalReport.EnableExternalImages = true;
+                this.rvListadoClienteProveedores.LocalReport.DataSources.Clear();
+                this.rvListadoClienteProveedores.LocalReport.DataSources.Add(rds);
+                this.rvListadoClienteProveedores.SetDisplayMode(DisplayMode.PrintLayout);
+                this.rvListadoClienteProveedores.ZoomMode = ZoomMode.Percent;
+                this.rvListadoClienteProveedores.ZoomPercent = 100;
 
                 PageSettings newPageSettings = new PageSettings();
                 newPageSettings.Margins = new Margins(0, 0, 0, 0);
@@ -69,9 +67,9 @@ namespace GestionClubView.Reportes
                 {
                     newPageSettings.Landscape = true;
                 }
-                this.rvListaPrecios.SetPageSettings(newPageSettings);
+                this.rvListadoClienteProveedores.SetPageSettings(newPageSettings);
 
-                this.rvListaPrecios.RefreshReport();
+                this.rvListadoClienteProveedores.RefreshReport();
             }
             catch (Exception)
             {
@@ -82,17 +80,17 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmListaPrecios, null);
-        }
-        private void frmReportListaPrecios_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Cerrar();
+            wMen.CerrarVentanaHijo(this, wMen.tsmListaClienteProveedores, null);
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-    }
 
+        private void frmReportClienteProveedores_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Cerrar();
+        }
+    }
 }

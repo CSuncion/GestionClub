@@ -369,6 +369,18 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmListaVentaFechas, null, 0, 0);
             win.VentanaSeleccionar();
         }
+        public void InstanciarReporteListadoClienteProveedores()
+        {
+            frmReportClienteProveedores win = new frmReportClienteProveedores();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmListaClienteProveedores, null, 0, 0);
+            win.VentanaVisualizar();
+        }
+        public void InstanciarReporteEstadisticaVentaAnualMensual()
+        {
+            frmIngresarAnioVentaAnual win = new frmIngresarAnioVentaAnual();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmVentaAnualesMes, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarEnvioGenerarFileMes(int uniDscto)
         {
             //frmEnvioGeneraFileMes win = new frmEnvioGeneraFileMes();
@@ -577,6 +589,21 @@ namespace GestionClubView.MdiPrincipal
         private void tsmListaVentaFechas_Click(object sender, EventArgs e)
         {
             this.InstanciarReporteRegistroVentasPorFecha();
+        }
+
+        private void tsmListaClienteProveedores_Click(object sender, EventArgs e)
+        {
+            this.InstanciarReporteListadoClienteProveedores();
+        }
+
+        private void tsmTopProductos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmVentaAnualesMes_Click(object sender, EventArgs e)
+        {
+            this.InstanciarReporteEstadisticaVentaAnualMensual();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

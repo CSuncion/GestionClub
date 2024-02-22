@@ -823,7 +823,7 @@
   <data name="tsmTipoCambio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAAz9JREFUWEfdlk1IVFEUx03pyz6kmihoQqKJGcYZ58sISoqKaCEGQdAqclO0CIKi
+        vAAADrwBlbxySQAAAz9JREFUWEfdlk1IVFEUx03pyz6kmihoQqKJGcYZ58sISoqKaCEGQdAqclO0CIKi
         INoUBAWRfQmtglZBq1ZBuAhaZbpIEiyiFmG0SIsCtRTTfud2rnPn+d6kk2PRH/68e8/5n497371vpuJ/
         RxWs/DWcY+RyuaZsNtsDW9Q0N8hkMg0UfwwnhDTQFw6HF6u7fKivr99AsXvwhy3uNHFWZbOPeDy+kgKt
         8Lu3sMMvMKQhs4Pa2tpFbPcZCn/WIqOMb/Nsgh1qc3lDQ/8YlRQ+RMJ3kpii4zwfwJj6K1Kp1DrsN7Gd
@@ -1113,10 +1113,68 @@
 </value>
   </data>
   <data name="tsmIngresosCompras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsmIngresosCompras.Text" xml:space="preserve">
     <value>Ingresos (Compras)</value>
+  </data>
+  <data name="tsmAjustesIngresos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJ
+        TUUH5wgEESsa7nGQWAAAA9xJREFUWEe1l1msTWcUx7ehaM1DG0PETIgYY0pbHoiQRkIivBhCJOYx8cCT
+        ehL0hUTqoVp9MDxITE2RCkIoIrQxRGuqsXj1Uh34/T793H3P2efcfa7rn/xy75ecc9baa61vrbWTlMbA
+        jzApnN5d9eEz2AZX4CZ8C22hSMPgMryChzAHGkFt1RAWw104BofgLzgIraGaRkM0HnkBmyDT2xyaDY9g
+        BbSDvXAcukCRfoC08cg/cAB6QSXqBL/AhnBKkqFwH8aHU5XawCf+Y84fQJYTshYq0VS4Bb3DKUmGg79v
+        jUV1Bh/u+3BCc8GwZzmwGirRUjgNH4VTkjQHi/somO6xYF38DTcg6APYCP9CoQN/wBeQVwvhIrQMpzca
+        CDphgcs+2AOX4K0sOMOi0f/+/1sbJ2bAnzAonKrUAkzHEPgYjMg3UE19YA0Ydq9QpU5YcN75/WD1Z8n+
+        sAzuQLouiqQxjeZ1QuNW/2HwJiidMBKm40PoCevhMehEPSirvE4Y1kLj7WEXPANrwsL0qa/CPLBZ5VJN
+        TpQybvMxHdbEIlgO0yF+piJlOWGNrAQrORpvAF1hN+iULb7OlOWEnIOOYMfcCYbZzjcK6lw6cQ/SDnhe
+        AD/BSdgOOtoP3otWQWGf8Gx3c9jojE71hTqXBWfOf4Z0JGwq5r4ZnIWvoM6VvucdwJbrkx+BbqB0wDS4
+        eEwEdwK73jur0LgNxflu2KPxqMlwHZ7Ac/gOartXBBV2OFup1X4CzHlT8Mmj7G6mYzA4+Ww8fj6XExqY
+        Bo5UQ2wTsZmkm0x3+B2+hvngNTwFPnlaTthW8Clcg7JO+OFZ8CvcBtvmBbCNOiGjcTucY9QFw6smFpxh
+        1ohPHuUMOAPWgj2hpBOGzGJxh3ONMr8ODgeIPxLWJhTbq+kYCV6zeNXsD+bcdJki57+1shW8LROgpBOf
+        g93LBdIvZ8kvOFhKtVcf4CmMA3c9n1zjOr8FyjphLr3Hjk7v+QhweUjLSLhkzAynYvljpsGCM+ca06jG
+        SzmxA8KK7lO5txveuDJ5tw1jlOlwpPqkpaQTPplOaKScE76w/AZfQlgMX4L32hCaEiPiDudCqVwwDavT
+        r5zyOGGRD4B14A0LXcsIpF8aXJWsdHc45YrtF53nNamcE05NdwMn52Y4DyH3Fk5aRsKRalUrQ+UVjdex
+        JmU5YaHHFE4B94kl4VQgXxpMgauzzrm7eUVdoypR2glz3h96QDTubtgYqsnO5Ubri6Rbjb3e8NkZc+9w
+        KemE1e6bkjm3afl7mcaVk8vXJV+lvR1eLeuhVH/II9NrCv09u6tpaAIoSV4DV2gpaWK5Q1AAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="tsmAjustesIngresos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsmAjustesIngresos.Text" xml:space="preserve">
+    <value>Ajustes Ingresos</value>
+  </data>
+  <data name="tsmAjustesSalidas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAVAAAAFQAFBt76BAAADnUlE
+        QVRYR7XWy6tWVRjH8eNt4gUHGgiOInXiLUvRIjEwAscNvISONTAoCtSpExEH9i/kPC//gBoUiKWmQ681
+        yMtcjUTz9znuB3b77HP26/H4g+9513n2s5619lrPetYem4a2hSfhvw5snr111QRehKcN2jM+gU/DhlfN
+        /8kg/4T74YsGbba+CXwQtr5qjq4d4V64FgRoqyZwNyxv0O6bwIdBjDvhc4ZRZHABa2+vhJrEorA/PAvd
+        CbB5xocMfjVUnNthcBLtwS+GCvB7OBwuhMeNrTsBNs/046sPmxi/NO0pJ2H5LDvHn8O74f1gBdgkmt+/
+        w+lwMMxv0D4b5ELbV18x3gu/Njbb8UmYII72i5Nf/5NE9BYPw9GwJswLXbGtDccCX4NXEot1PVTsdaFX
+        9rreuB1gddgSZjesDLvDtw3abPX8o6APidGO2U3qCeJQ+6dDBaIV4WT4MzwPfKD9V/gh8CnpW4OLOTh4
+        6UjQ6UHw5rQ5VDBHTvvHcCpYVrYaaFMgfcVg/55hFC0Osl0ne06Wt1blj7AzLAm15EvDnlD7/FuolTge
+        2M4HsSdI9hcqlrPsOMl2SUWWvQbvq44lz24EvicYIjHEElNsY7THHK/hsIT4NwjwU5gTvL09Z/fmQ7IS
+        fB1pfcVwbMVkr3Fq3PEHzq0zrKDAgM42yXA+jqKlHhKfKmD6ksIkSSu+sapWjP9xo7lUloWqbgsCOWZ8
+        JNsshgHx4avPAYZIrIprDGMZc6QJfBNqAhJuSHy6E1gYppxA3xZ8Hai2wFF7h2FAfKqi7mKIptyCyZJQ
+        bZ8bJJKEctt9GYa0L/CtJBRDLDF7k7B9JNrH0CyrZr/JMRRDrEmPYVftQuRiIUVFcWEzgKPWLUR7Qw1+
+        ObgBabAQ9alKsVvNxULKa1VDS+io9ZViE90YSF8x2Ecuxd0bsX0ZeStLO9ll5Fm9Ob32ZcShioiOtd8C
+        ta9jW+J0fNUwI9cxxzo+fvs+SOzn0AcJn0dBn3qB7gfJ+jBBPpN8LnHy+WQpOdbs69y6WM4EZ1uBUbAO
+        hXNBtrd99TX4qnCpsd0KH4de+WD04cjRh6Rjpy2xvgsy2XFiU1CqummzecaHbyWsN6/Bb4btYUqZhFnq
+        gPa+jfJZblWoncwjD14yCdthv7pJo3g4ct0JsHULi75iWNXPGF5HcqIvWWoC9tulAu2+CZAYk+75dGQQ
+        NVyiudGgzdY3gRlXTaD2tpjGBMbGXgI+Pn57rfEceAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="tsmAjustesSalidas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsmAjustesSalidas.Text" xml:space="preserve">
+    <value>Ajustes Salidas</value>
   </data>
   <data name="tsmStockRestaurante.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1445,24 +1503,25 @@
   <data name="tsmEstadistica.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAHYbAAB2GwH1ht6VAAAAB3RJ
-        TUUH5gEfCS85exu3rAAAA51JREFUWEel12moT2kcwPGbF3Zqisk+Y6uZeCFE9qXJUmSpyRLKVnZeWN7Y
-        U1JK9l0mETKTvSjZR5II84YRmrwjiVeyfb//uc/tcZxz7v3//7/69L/u/zjn9/x+z/Oc51ZURh20Rccy
-        tEcjFB21sRp/42qJruAe9uJHFBWO/AYGoQ1+jvjvLD8hXNcKK/AFh1BUEpbPUXijOBoi7cHy4c1QCyFm
-        wwQ+o6gkshIYgVDepGv4Az8gxByYQNFJZCXQHLYlS2+0Q5h4oQKxfaiH3CilAvI75854GD2wHTuwFVbo
-        IWxXbuTNAX9XnbSl9yuW4ymG+Yu8yEqg2GgAJ2hLrMQj3IRVyY1yE+gAR3se92HZn2ML5mEXcsME7Gkn
-        TMACzMdC9EReDMd1ONl+wxrY+1VwHpjAAeSGCVzGADzAEWyDpRsMZ3x3mKDJqStcBbcxFT58Jk4gjNwE
-        XBkv0ReZERLwQVaiM8bAJbYYznST86HeXENwDIswGa9g6d3O4wRm4S1MzDmSGskEHOkePIF97QdfVv7e
-        G7vhrMcl+J3z5yw2Izw4fHrtX/Baq5kayQRct00xHe5kk7AUcQWsyk7MgD23EqH38aerwetsqdVMjXgO
-        3IUTaS7M3h46Am/g2nZk/u5PhJH6nZP3H/hGdPn5aUv+w0YswyakhgmE0jsSJ583l7uaLLUTMfzbCvhp
-        BQ6jMaxczLfsGZiw7VmC1IgTGAdHJZei22ta2K6LcHabzFAkw5Xhd17jtf6f1IhbUNNl6LXHYcWm4Bac
-        8b9U8mdXxDQ4EDeoFkiN5CR0GY6FR6ysZdgLfXAHLsORMHFXhFyio/A73Ac+wpbGr++qSCZQ3TJ0gjoq
-        q+JOaIJWazQGVnIfcY68QXg1m8RB+Jr/JpIJOIGawPKlLUPb42fY3ZxsLjuTDRVwX/B8+Brx+UCuKl9Y
-        VRHPgZosw1CFMFH97Ib6MHnfiB5C/Pkx3iOZxGl4jiyECYTS2/Pd8A0WJJdh/J3caPojGb5dPbqtwzsk
-        k9gPW1tIwLKVex5IRkjA+2/AJ8QJOMcKz0wm4EtjIkILSuEy9IzwL2xRa5xCnMA5eOr6LgF76IEivrgc
-        3st+e3A5ime4AJdyIdISeIG0m5XCe3lPoy5MpjDyEG449soMDc8BvkTSblYKR2wLMsOeu62uhcn4J9YH
-        pN2sFCdR7d8GXWASnmJdu/bNzMvlw713jcK+WAHZhnK5Q2Yew/6Pioqv0lZ81i/l1aIAAAAASUVORK5C
-        YII=
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAU67AAFOuwGHf0t0AAAAB3RJ
+        TUUH5gQVBioyPb+ySAAAA/xJREFUWEe9l1eoVUcUhq+9l9hbLKAkGg0EA2KvqG+al6DY0khEY6IBIRYU
+        fBAVFQt27CUakajEmGhEjBVBEQRfrPggiL6I4LPft++Z45x99zk5Vy73h+/uObPXzKyZWbNm3wo0Dq7C
+        I3hYSzjWFZgAyeCLoAf0TGFdqfo0abtiaLsQrkHiUS8LqEHuqSw3iqgLqj7E9TENIUuhbSzHdOzkz4cw
+        AvZCV2gLu+EfOAt/wXhw8JVwDqyP0XYfdIZYrcAVbp/8eidXIu+AS6LBcGgGzmYojI3oAs5kIBg38bvA
+        MGgKQbZZBc9hHTjRoAIH/FHTcjt2wBGYCbty5eagChzoDgNgPrgSLWEOLIHFGbik/UG1gKkwFz62Iif7
+        /A96J78qt2IShBWq4oCNvwf3Xwe+g1+KoKMfgVoAl8DZnYY2oHz+DbOgIzSGWDWyBZ3Awb+FbnAdPoMg
+        A9fgvAC/w0gIqrICVnwF3+SwU5c2zKgf/AiTQdvZ4Awd1KX+E34DVy/WB+A2aO9pageqwAGjcwhsSbEe
+        PK8eLQc7BBfhFrjk7qkDTISvIT6C9WAwGCMqbElYoQIH/FFKHjFn6ezMYAcgTlpZ8v0eWA3mmBXgCoQV
+        LdsBPT4G2vm8DG6NcpY/wX5wMFfNnBJkoOrsSzgBn0NQpgNmOpPJdOgLRryXxq/wKRgbBpJ2qgmYFZeC
+        sXETxkAsT8AGMMPGynTgSzCqj8N9OAmDoA6YWFzW8FQ6YBp2UOstu11p6bB9xMo78BSmgFHvbF1Sk4aO
+        hNmYdIxy+Rc8+yrLAcutwTxiX/NSmOAMek9e4sAbMLJNlc7cQFmbe5rLlZ16dY6CjbANVDEHPBnLYTNs
+        SrEGPFl5B56AZ1x5Ebn/Ng51ymXVIZfeXLAdVLlbkKXMGPDMujzimQ57XR0HLHuberPGt6b1HSAo04Fl
+        cAeMhdsQjk11HBgNZjuX/yiYsMyQHkev8qBMB2z0M/QB48KOVXUc0FYZ+doH0iehqAMmGRvEnb2PA/+n
+        Age8LPTOTDYDvLO9xZKv1tzTzq13hXaCWdDUrJ23ngEc2thXPPs0tnXMxIHX8Ae4R3fBnO/eeTrOgxeQ
+        z8dg/Q24B+6tqTnYxW0Og+9L4beDY1c8g2ngMhpAPl1Gz3wo+/S3ZW3EctouLpdCG8d07IIYqE3lY8Dj
+        5oeI+2tQ1QaO5aeaYycfFeE730hPcwZ87x2Q9T4LbW1j26z3jmWsfAGJzFD+HxD2N8aM5pfRKXCPs2xi
+        tNHWNrbNsnEsr+my9QNsrSyWJW1t897yrPqVa6D49H+Bg1DOP6DaaGubuA/7LFufgB+e/hv9AF7Aq1zZ
+        yC2FNtraxrJ92Jd9plRR8RY3mzkUBtrXsQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="tsmEstadistica.Size" type="System.Drawing.Size, System.Drawing">
@@ -1863,30 +1922,6 @@
   <data name="&gt;&gt;tmMostrarMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
-    <value>tsbComanda</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
-    <value>tsbSalir</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
-    <value>tsbComprobante</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;maestrosToolStripMenuItem.Name" xml:space="preserve">
     <value>maestrosToolStripMenuItem</value>
   </data>
@@ -2131,6 +2166,42 @@
     <value>tsmAcercaDe</value>
   </data>
   <data name="&gt;&gt;tsmAcercaDe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
+    <value>tsbComanda</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
+    <value>tsbSalir</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
+    <value>tsbComprobante</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsmAjustesIngresos.Name" xml:space="preserve">
+    <value>tsmAjustesIngresos</value>
+  </data>
+  <data name="&gt;&gt;tsmAjustesIngresos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsmAjustesSalidas.Name" xml:space="preserve">
+    <value>tsmAjustesSalidas</value>
+  </data>
+  <data name="&gt;&gt;tsmAjustesSalidas.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

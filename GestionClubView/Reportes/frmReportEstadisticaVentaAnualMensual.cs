@@ -16,18 +16,20 @@ using System.Windows.Forms;
 
 namespace GestionClubView.Reportes
 {
-    public partial class frmReportRegistroVentas : Form
+    public partial class frmReportEstadisticaVentaAnualMensual : Form
     {
+        public frmIngresarAnioVentaAnual wFrm;
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
-        public string nombreReporte = "GestionClubView.Reportes.rptListadoComprobantes.rdlc";
-        public string formaReporte = "Normal";
-        public frmReportRegistroVentas()
+        public string nombreReporte = "GestionClubView.Reportes.rptEstadisticaVentaAnualMensual.rdlc";
+        public string formaReporte = "Horizontal";
+        public frmReportEstadisticaVentaAnualMensual()
         {
             InitializeComponent();
         }
 
-        private void frmReportRegistroVentas_Load(object sender, EventArgs e)
+        private void frmReportEstadisticaVentaAnualMensual_Load(object sender, EventArgs e)
         {
+
 
         }
         public void VentanaVisualizar()
@@ -42,24 +44,24 @@ namespace GestionClubView.Reportes
             try
             {
                 ReportDataSource rds = new ReportDataSource();
-                rds.Name = "dsRegistroVentas";
-                rds.Value = GestionClubComprobanteController.ListarComprobantes();
+                rds.Name = "dsVentaAnualesMensual";
+                rds.Value = GestionClubComprobanteController.VentaAnualMensual(this.wFrm.txtAnio.Text);
 
-                ReportParameter[] rp = new ReportParameter[1];
+                ReportParameter[] rp = new ReportParameter[2];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
-                //rp[1] = new ReportParameter("fecComprobante", this.wFrm.fecCierreCaja.ToString());
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
+                rp[1] = new ReportParameter("anio", this.wFrm.txtAnio.Text.ToString());
 
 
-                this.rvRegistroVentas.Reset();
-                this.rvRegistroVentas.LocalReport.ReportEmbeddedResource = nombreReporte;
-                this.rvRegistroVentas.LocalReport.SetParameters(rp);
-                this.rvRegistroVentas.LocalReport.EnableExternalImages = true;
-                this.rvRegistroVentas.LocalReport.DataSources.Clear();
-                this.rvRegistroVentas.LocalReport.DataSources.Add(rds);
-                this.rvRegistroVentas.SetDisplayMode(DisplayMode.PrintLayout);
-                this.rvRegistroVentas.ZoomMode = ZoomMode.Percent;
-                this.rvRegistroVentas.ZoomPercent = 100;
+                this.rvVentaAnualMensual.Reset();
+                this.rvVentaAnualMensual.LocalReport.ReportEmbeddedResource = nombreReporte;
+                this.rvVentaAnualMensual.LocalReport.SetParameters(rp);
+                this.rvVentaAnualMensual.LocalReport.EnableExternalImages = true;
+                this.rvVentaAnualMensual.LocalReport.DataSources.Clear();
+                this.rvVentaAnualMensual.LocalReport.DataSources.Add(rds);
+                this.rvVentaAnualMensual.SetDisplayMode(DisplayMode.PrintLayout);
+                this.rvVentaAnualMensual.ZoomMode = ZoomMode.Percent;
+                this.rvVentaAnualMensual.ZoomPercent = 100;
 
                 PageSettings newPageSettings = new PageSettings();
                 newPageSettings.Margins = new Margins(0, 0, 0, 0);
@@ -68,9 +70,9 @@ namespace GestionClubView.Reportes
                 {
                     newPageSettings.Landscape = true;
                 }
-                this.rvRegistroVentas.SetPageSettings(newPageSettings);
+                this.rvVentaAnualMensual.SetPageSettings(newPageSettings);
 
-                this.rvRegistroVentas.RefreshReport();
+                this.rvVentaAnualMensual.RefreshReport();
             }
             catch (Exception)
             {
@@ -81,7 +83,7 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmRegistroVentas, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmVentaAnualesMes, null);
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)
@@ -89,9 +91,9 @@ namespace GestionClubView.Reportes
             this.Close();
         }
 
-        private void frmReportRegistroVentas_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmReportEstadisticaVentaAnualMensual_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Cerrar();
+            //this.Cerrar();
         }
     }
 }

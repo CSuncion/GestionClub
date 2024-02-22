@@ -71,7 +71,6 @@ namespace GestionClubView.Reportes
                 this.rvListaVentasPorFecha.SetPageSettings(newPageSettings);
 
                 this.rvListaVentasPorFecha.RefreshReport();
-                this.Show();
             }
             catch (Exception)
             {

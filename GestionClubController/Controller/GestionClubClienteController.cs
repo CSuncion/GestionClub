@@ -22,6 +22,11 @@ namespace GestionClubController.Controller
             GestionClubClienteRepository obj = new GestionClubClienteRepository();
             return obj.ListarClientes();
         }
+        public static List<GestionClubClienteDto> ListarClientesActivos()
+        {
+            GestionClubClienteRepository obj = new GestionClubClienteRepository();
+            return obj.ListarClientesActivos();
+        }
         public List<GestionClubClienteDto> ListarDatosParaGrillaPrincipal(string pValorBusqueda, string pCampoBusqueda, List<GestionClubClienteDto> pListaOperations)
         {
             //lista resultado

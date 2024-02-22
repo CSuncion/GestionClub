@@ -68,7 +68,6 @@ namespace GestionClubView.Reportes
                 this.rpvListadoComprobanteDelDia.SetPageSettings(newPageSettings);
 
                 this.rpvListadoComprobanteDelDia.RefreshReport();
-                this.Show();
             }
             catch (Exception)
             {
