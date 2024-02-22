@@ -14,11 +14,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinControles.ControlesWindows;
 
 namespace GestionClubView.Reportes
 {
     public partial class frmReportListaPrecios : Form
     {
+        public frmEscogerCategoriaListaPrecios wFrm;
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListaPrecios.rdlc";
         public string formaReporte = "Normal";
@@ -44,7 +46,10 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsListarPrecios";
-                rds.Value = GestionClubProductoController.ListarProductosActivos();
+                if (this.wFrm.chkTodos.Checked)
+                    rds.Value = GestionClubProductoController.ListarProductosActivos();
+                else
+                    rds.Value = GestionClubProductoController.ListarProductosActivos().Where(x => x.idCategoria == Cmb.ObtenerValor(this.wFrm.cboCategoria, string.Empty)).ToList();
 
                 ReportParameter[] rp = new ReportParameter[1];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
@@ -79,14 +84,10 @@ namespace GestionClubView.Reportes
                 throw;
             }
         }
-        public void Cerrar()
-        {
-            frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmListaPrecios, null);
-        }
+
         private void frmReportListaPrecios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Cerrar();
+
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)

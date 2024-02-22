@@ -171,6 +171,12 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmEscogerCategoriaListaPrecios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEscogerCategoriaListaPrecios.Designer.cs">
+      <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmIngresarAnioTipoVentaAnual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEscogerCategoriaListaPrecios.resx">
+      <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioTipoVentaAnual.resx">
       <DependentUpon>frmIngresarAnioTipoVentaAnual.cs</DependentUpon>

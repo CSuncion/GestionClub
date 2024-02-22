@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Reportes
 {
-    partial class frmEscogerListaVentasPorFechas
+    partial class frmEscogerCategoriaListaPrecios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscogerListaVentasPorFechas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEscogerCategoriaListaPrecios));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtpFecHasta = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpFecDesde = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.chkTodos = new System.Windows.Forms.CheckBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,57 +104,47 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dtpFecHasta);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dtpFecDesde);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.chkTodos);
+            this.groupBox1.Controls.Add(this.cboCategoria);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(12, 78);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(333, 77);
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
             // 
-            // dtpFecHasta
+            // label7
             // 
-            this.dtpFecHasta.CustomFormat = "dd/MM/yyyy";
-            this.dtpFecHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecHasta.Location = new System.Drawing.Point(156, 33);
-            this.dtpFecHasta.Name = "dtpFecHasta";
-            this.dtpFecHasta.Size = new System.Drawing.Size(100, 20);
-            this.dtpFecHasta.TabIndex = 14;
-            this.dtpFecHasta.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(110, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 14);
+            this.label7.TabIndex = 219;
+            this.label7.Text = "Categoria:";
             // 
-            // label2
+            // cboCategoria
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(156, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 14);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Hasta:";
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategoria.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(113, 33);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(161, 22);
+            this.cboCategoria.TabIndex = 220;
             // 
-            // dtpFecDesde
+            // chkTodos
             // 
-            this.dtpFecDesde.CustomFormat = "dd/MM/yyyy";
-            this.dtpFecDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecDesde.Location = new System.Drawing.Point(50, 33);
-            this.dtpFecDesde.Name = "dtpFecDesde";
-            this.dtpFecDesde.Size = new System.Drawing.Size(100, 20);
-            this.dtpFecDesde.TabIndex = 12;
-            this.dtpFecDesde.Value = new System.DateTime(2024, 1, 23, 17, 39, 40, 0);
+            this.chkTodos.AutoSize = true;
+            this.chkTodos.Location = new System.Drawing.Point(43, 35);
+            this.chkTodos.Name = "chkTodos";
+            this.chkTodos.Size = new System.Drawing.Size(64, 17);
+            this.chkTodos.TabIndex = 221;
+            this.chkTodos.Text = "TODOS";
+            this.chkTodos.UseVisualStyleBackColor = true;
+            this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 14);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Desde:";
-            // 
-            // frmEscogerListaVentasPorFechas
+            // frmEscogerCategoriaListaPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -164,7 +153,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmEscogerListaVentasPorFechas";
+            this.Name = "frmEscogerCategoriaListaPrecios";
             this.Text = "Ventas por Fechas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
@@ -185,9 +174,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        internal System.Windows.Forms.DateTimePicker dtpFecHasta;
-        private System.Windows.Forms.Label label2;
-        internal System.Windows.Forms.DateTimePicker dtpFecDesde;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        internal System.Windows.Forms.CheckBox chkTodos;
+        internal System.Windows.Forms.ComboBox cboCategoria;
     }
 }
