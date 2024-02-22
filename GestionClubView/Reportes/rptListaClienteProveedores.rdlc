@@ -85,10 +85,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
         <rd:SchemaPath>D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\DataSet\DsGestionClub.xsd</rd:SchemaPath>
-        <rd:TableName>isp_ListarClienteActivos</rd:TableName>
+        <rd:TableName>isp_ListarClientePorTipoPorNroIdePorNomRaz</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>isp_ListarClienteActivosTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>isp_ListarClientePorTipoPorNroIdePorNomRazTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

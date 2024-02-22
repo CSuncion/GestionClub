@@ -371,9 +371,9 @@ namespace GestionClubView.MdiPrincipal
         }
         public void InstanciarReporteListadoClienteProveedores()
         {
-            frmReportClienteProveedores win = new frmReportClienteProveedores();
+            frmEscogerTipoNombreDniListadoClientes win = new frmEscogerTipoNombreDniListadoClientes();
             this.FormatoVentanaHijoPrincipal(win, this.tsmListaClienteProveedores, null, 0, 0);
-            win.VentanaVisualizar();
+            win.VentanaSeleccionar();
         }
         public void InstanciarReporteEstadisticaVentaAnualMensual()
         {

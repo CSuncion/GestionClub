@@ -13,11 +13,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinControles.ControlesWindows;
 
 namespace GestionClubView.Reportes
 {
     public partial class frmReportClienteProveedores : Form
     {
+        public frmEscogerTipoNombreDniListadoClientes wFrm;
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListaClienteProveedores.rdlc";
         public string formaReporte = "Normal";
@@ -40,9 +42,15 @@ namespace GestionClubView.Reportes
             this.Dock = DockStyle.Fill;
             try
             {
+                GestionClubClienteDto gestionClubClienteDto = new GestionClubClienteDto();
+                gestionClubClienteDto.tipCliente = Cmb.ObtenerValor(this.wFrm.cboTipCliente,string.Empty);
+                gestionClubClienteDto.nroIdentificacionCliente = this.wFrm.txtNroIdentificacion.Text;
+                gestionClubClienteDto.nombreRazSocialCliente = this.wFrm.txtNomRazSoc.Text;
+
+                GestionClubClienteController gestionClubClienteController = new GestionClubClienteController();
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsListaClienteProveedores";
-                rds.Value = GestionClubClienteController.ListarClientesActivos();
+                rds.Value = gestionClubClienteController.ListarClientePorTipoPorNroIdePorNomRaz(gestionClubClienteDto);
 
                 ReportParameter[] rp = new ReportParameter[1];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
@@ -90,7 +98,7 @@ namespace GestionClubView.Reportes
 
         private void frmReportClienteProveedores_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Cerrar();
+            //this.Cerrar();
         }
     }
 }

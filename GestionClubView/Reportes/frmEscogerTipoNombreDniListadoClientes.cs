@@ -42,7 +42,7 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmListaPrecios, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmListaClienteProveedores, null);
         }
       
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
@@ -60,9 +60,5 @@ namespace GestionClubView.Reportes
             this.Cerrar();
         }
 
-        private void chkTodos_CheckedChanged(object sender, EventArgs e)
-        {
-            this.BloquearCategoria();
-        }
     }
 }

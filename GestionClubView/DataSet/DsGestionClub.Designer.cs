@@ -38,6 +38,8 @@ namespace GestionClubView.DataSet {
         
         private isp_VentaAnualMensualPorTipoDataTable tableisp_VentaAnualMensualPorTipo;
         
+        private isp_ListarClientePorTipoPorNroIdePorNomRazDataTable tableisp_ListarClientePorTipoPorNroIdePorNomRaz;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -86,6 +88,9 @@ namespace GestionClubView.DataSet {
                 }
                 if ((ds.Tables["isp_VentaAnualMensualPorTipo"] != null)) {
                     base.Tables.Add(new isp_VentaAnualMensualPorTipoDataTable(ds.Tables["isp_VentaAnualMensualPorTipo"]));
+                }
+                if ((ds.Tables["isp_ListarClientePorTipoPorNroIdePorNomRaz"] != null)) {
+                    base.Tables.Add(new isp_ListarClientePorTipoPorNroIdePorNomRazDataTable(ds.Tables["isp_ListarClientePorTipoPorNroIdePorNomRaz"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -177,6 +182,16 @@ namespace GestionClubView.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public isp_ListarClientePorTipoPorNroIdePorNomRazDataTable isp_ListarClientePorTipoPorNroIdePorNomRaz {
+            get {
+                return this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -263,6 +278,9 @@ namespace GestionClubView.DataSet {
                 if ((ds.Tables["isp_VentaAnualMensualPorTipo"] != null)) {
                     base.Tables.Add(new isp_VentaAnualMensualPorTipoDataTable(ds.Tables["isp_VentaAnualMensualPorTipo"]));
                 }
+                if ((ds.Tables["isp_ListarClientePorTipoPorNroIdePorNomRaz"] != null)) {
+                    base.Tables.Add(new isp_ListarClientePorTipoPorNroIdePorNomRazDataTable(ds.Tables["isp_ListarClientePorTipoPorNroIdePorNomRaz"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -338,6 +356,12 @@ namespace GestionClubView.DataSet {
                     this.tableisp_VentaAnualMensualPorTipo.InitVars();
                 }
             }
+            this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz = ((isp_ListarClientePorTipoPorNroIdePorNomRazDataTable)(base.Tables["isp_ListarClientePorTipoPorNroIdePorNomRaz"]));
+            if ((initTable == true)) {
+                if ((this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz != null)) {
+                    this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -362,6 +386,8 @@ namespace GestionClubView.DataSet {
             base.Tables.Add(this.tableisp_VentaAnualMensual);
             this.tableisp_VentaAnualMensualPorTipo = new isp_VentaAnualMensualPorTipoDataTable();
             base.Tables.Add(this.tableisp_VentaAnualMensualPorTipo);
+            this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz = new isp_ListarClientePorTipoPorNroIdePorNomRazDataTable();
+            base.Tables.Add(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -403,6 +429,12 @@ namespace GestionClubView.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeisp_VentaAnualMensualPorTipo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeisp_ListarClientePorTipoPorNroIdePorNomRaz() {
             return false;
         }
         
@@ -481,6 +513,9 @@ namespace GestionClubView.DataSet {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void isp_VentaAnualMensualPorTipoRowChangeEventHandler(object sender, isp_VentaAnualMensualPorTipoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEventHandler(object sender, isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4717,6 +4752,479 @@ namespace GestionClubView.DataSet {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "isp_VentaAnualMensualPorTipoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class isp_ListarClientePorTipoPorNroIdePorNomRazDataTable : global::System.Data.TypedTableBase<isp_ListarClientePorTipoPorNroIdePorNomRazRow> {
+            
+            private global::System.Data.DataColumn columnidCliente;
+            
+            private global::System.Data.DataColumn columnidEmpresa;
+            
+            private global::System.Data.DataColumn columncodCliente;
+            
+            private global::System.Data.DataColumn columntipSocioCliente;
+            
+            private global::System.Data.DataColumn columntipCliente;
+            
+            private global::System.Data.DataColumn columnnroIdentificacionCliente;
+            
+            private global::System.Data.DataColumn columnnombreRazSocialCliente;
+            
+            private global::System.Data.DataColumn columnrazComercialCliente;
+            
+            private global::System.Data.DataColumn columnemailCliente;
+            
+            private global::System.Data.DataColumn columnnroCelularCliente;
+            
+            private global::System.Data.DataColumn columnrepresentanteCliente;
+            
+            private global::System.Data.DataColumn columnestadoCliente;
+            
+            private global::System.Data.DataColumn columnusuarioAgrega;
+            
+            private global::System.Data.DataColumn columnfechaAgrega;
+            
+            private global::System.Data.DataColumn columnusuarioModifica;
+            
+            private global::System.Data.DataColumn columnfechaModifica;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazDataTable() {
+                this.TableName = "isp_ListarClientePorTipoPorNroIdePorNomRaz";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal isp_ListarClientePorTipoPorNroIdePorNomRazDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected isp_ListarClientePorTipoPorNroIdePorNomRazDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idClienteColumn {
+                get {
+                    return this.columnidCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idEmpresaColumn {
+                get {
+                    return this.columnidEmpresa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codClienteColumn {
+                get {
+                    return this.columncodCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipSocioClienteColumn {
+                get {
+                    return this.columntipSocioCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tipClienteColumn {
+                get {
+                    return this.columntipCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nroIdentificacionClienteColumn {
+                get {
+                    return this.columnnroIdentificacionCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nombreRazSocialClienteColumn {
+                get {
+                    return this.columnnombreRazSocialCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn razComercialClienteColumn {
+                get {
+                    return this.columnrazComercialCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn emailClienteColumn {
+                get {
+                    return this.columnemailCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn nroCelularClienteColumn {
+                get {
+                    return this.columnnroCelularCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn representanteClienteColumn {
+                get {
+                    return this.columnrepresentanteCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn estadoClienteColumn {
+                get {
+                    return this.columnestadoCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn usuarioAgregaColumn {
+                get {
+                    return this.columnusuarioAgrega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fechaAgregaColumn {
+                get {
+                    return this.columnfechaAgrega;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn usuarioModificaColumn {
+                get {
+                    return this.columnusuarioModifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn fechaModificaColumn {
+                get {
+                    return this.columnfechaModifica;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRow this[int index] {
+                get {
+                    return ((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEventHandler isp_ListarClientePorTipoPorNroIdePorNomRazRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEventHandler isp_ListarClientePorTipoPorNroIdePorNomRazRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEventHandler isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEventHandler isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Addisp_ListarClientePorTipoPorNroIdePorNomRazRow(isp_ListarClientePorTipoPorNroIdePorNomRazRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRow Addisp_ListarClientePorTipoPorNroIdePorNomRazRow(int idEmpresa, string codCliente, string tipSocioCliente, string tipCliente, string nroIdentificacionCliente, string nombreRazSocialCliente, string razComercialCliente, string emailCliente, string nroCelularCliente, string representanteCliente, string estadoCliente, int usuarioAgrega, System.DateTime fechaAgrega, int usuarioModifica, System.DateTime fechaModifica) {
+                isp_ListarClientePorTipoPorNroIdePorNomRazRow rowisp_ListarClientePorTipoPorNroIdePorNomRazRow = ((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        idEmpresa,
+                        codCliente,
+                        tipSocioCliente,
+                        tipCliente,
+                        nroIdentificacionCliente,
+                        nombreRazSocialCliente,
+                        razComercialCliente,
+                        emailCliente,
+                        nroCelularCliente,
+                        representanteCliente,
+                        estadoCliente,
+                        usuarioAgrega,
+                        fechaAgrega,
+                        usuarioModifica,
+                        fechaModifica};
+                rowisp_ListarClientePorTipoPorNroIdePorNomRazRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowisp_ListarClientePorTipoPorNroIdePorNomRazRow);
+                return rowisp_ListarClientePorTipoPorNroIdePorNomRazRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                isp_ListarClientePorTipoPorNroIdePorNomRazDataTable cln = ((isp_ListarClientePorTipoPorNroIdePorNomRazDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new isp_ListarClientePorTipoPorNroIdePorNomRazDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnidCliente = base.Columns["idCliente"];
+                this.columnidEmpresa = base.Columns["idEmpresa"];
+                this.columncodCliente = base.Columns["codCliente"];
+                this.columntipSocioCliente = base.Columns["tipSocioCliente"];
+                this.columntipCliente = base.Columns["tipCliente"];
+                this.columnnroIdentificacionCliente = base.Columns["nroIdentificacionCliente"];
+                this.columnnombreRazSocialCliente = base.Columns["nombreRazSocialCliente"];
+                this.columnrazComercialCliente = base.Columns["razComercialCliente"];
+                this.columnemailCliente = base.Columns["emailCliente"];
+                this.columnnroCelularCliente = base.Columns["nroCelularCliente"];
+                this.columnrepresentanteCliente = base.Columns["representanteCliente"];
+                this.columnestadoCliente = base.Columns["estadoCliente"];
+                this.columnusuarioAgrega = base.Columns["usuarioAgrega"];
+                this.columnfechaAgrega = base.Columns["fechaAgrega"];
+                this.columnusuarioModifica = base.Columns["usuarioModifica"];
+                this.columnfechaModifica = base.Columns["fechaModifica"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnidCliente = new global::System.Data.DataColumn("idCliente", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidCliente);
+                this.columnidEmpresa = new global::System.Data.DataColumn("idEmpresa", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidEmpresa);
+                this.columncodCliente = new global::System.Data.DataColumn("codCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodCliente);
+                this.columntipSocioCliente = new global::System.Data.DataColumn("tipSocioCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipSocioCliente);
+                this.columntipCliente = new global::System.Data.DataColumn("tipCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipCliente);
+                this.columnnroIdentificacionCliente = new global::System.Data.DataColumn("nroIdentificacionCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnroIdentificacionCliente);
+                this.columnnombreRazSocialCliente = new global::System.Data.DataColumn("nombreRazSocialCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombreRazSocialCliente);
+                this.columnrazComercialCliente = new global::System.Data.DataColumn("razComercialCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrazComercialCliente);
+                this.columnemailCliente = new global::System.Data.DataColumn("emailCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnemailCliente);
+                this.columnnroCelularCliente = new global::System.Data.DataColumn("nroCelularCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnroCelularCliente);
+                this.columnrepresentanteCliente = new global::System.Data.DataColumn("representanteCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnrepresentanteCliente);
+                this.columnestadoCliente = new global::System.Data.DataColumn("estadoCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnestadoCliente);
+                this.columnusuarioAgrega = new global::System.Data.DataColumn("usuarioAgrega", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioAgrega);
+                this.columnfechaAgrega = new global::System.Data.DataColumn("fechaAgrega", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaAgrega);
+                this.columnusuarioModifica = new global::System.Data.DataColumn("usuarioModifica", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnusuarioModifica);
+                this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaModifica);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint11", new global::System.Data.DataColumn[] {
+                                this.columnidCliente}, false));
+                this.columnidCliente.AutoIncrement = true;
+                this.columnidCliente.AllowDBNull = false;
+                this.columnidCliente.ReadOnly = true;
+                this.columnidCliente.Unique = true;
+                this.columncodCliente.MaxLength = 10;
+                this.columntipSocioCliente.MaxLength = 2;
+                this.columntipCliente.MaxLength = 2;
+                this.columnnroIdentificacionCliente.MaxLength = 20;
+                this.columnnombreRazSocialCliente.MaxLength = 60;
+                this.columnrazComercialCliente.MaxLength = 50;
+                this.columnemailCliente.MaxLength = 40;
+                this.columnnroCelularCliente.MaxLength = 12;
+                this.columnrepresentanteCliente.MaxLength = 80;
+                this.columnestadoCliente.MaxLength = 4;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRow Newisp_ListarClientePorTipoPorNroIdePorNomRazRow() {
+                return ((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new isp_ListarClientePorTipoPorNroIdePorNomRazRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(isp_ListarClientePorTipoPorNroIdePorNomRazRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.isp_ListarClientePorTipoPorNroIdePorNomRazRowChanged != null)) {
+                    this.isp_ListarClientePorTipoPorNroIdePorNomRazRowChanged(this, new isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent(((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.isp_ListarClientePorTipoPorNroIdePorNomRazRowChanging != null)) {
+                    this.isp_ListarClientePorTipoPorNroIdePorNomRazRowChanging(this, new isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent(((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleted != null)) {
+                    this.isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleted(this, new isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent(((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleting != null)) {
+                    this.isp_ListarClientePorTipoPorNroIdePorNomRazRowDeleting(this, new isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent(((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removeisp_ListarClientePorTipoPorNroIdePorNomRazRow(isp_ListarClientePorTipoPorNroIdePorNomRazRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DsGestionClub ds = new DsGestionClub();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "isp_ListarClientePorTipoPorNroIdePorNomRazDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -9640,6 +10148,467 @@ namespace GestionClubView.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class isp_ListarClientePorTipoPorNroIdePorNomRazRow : global::System.Data.DataRow {
+            
+            private isp_ListarClientePorTipoPorNroIdePorNomRazDataTable tableisp_ListarClientePorTipoPorNroIdePorNomRaz;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal isp_ListarClientePorTipoPorNroIdePorNomRazRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz = ((isp_ListarClientePorTipoPorNroIdePorNomRazDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int idCliente {
+                get {
+                    return ((int)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idClienteColumn]));
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int idEmpresa {
+                get {
+                    try {
+                        return ((int)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idEmpresaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idEmpresa\' de la tabla \'isp_ListarClientePorTipoPorNroIde" +
+                                "PorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idEmpresaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.codClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codCliente\' de la tabla \'isp_ListarClientePorTipoPorNroId" +
+                                "ePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.codClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipSocioCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipSocioClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipSocioCliente\' de la tabla \'isp_ListarClientePorTipoPor" +
+                                "NroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipSocioClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string tipCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'tipCliente\' de la tabla \'isp_ListarClientePorTipoPorNroId" +
+                                "ePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nroIdentificacionCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroIdentificacionClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nroIdentificacionCliente\' de la tabla \'isp_ListarClienteP" +
+                                "orTipoPorNroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroIdentificacionClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nombreRazSocialCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nombreRazSocialClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombreRazSocialCliente\' de la tabla \'isp_ListarClientePor" +
+                                "TipoPorNroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nombreRazSocialClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string razComercialCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.razComercialClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'razComercialCliente\' de la tabla \'isp_ListarClientePorTip" +
+                                "oPorNroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.razComercialClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string emailCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.emailClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'emailCliente\' de la tabla \'isp_ListarClientePorTipoPorNro" +
+                                "IdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.emailClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string nroCelularCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroCelularClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nroCelularCliente\' de la tabla \'isp_ListarClientePorTipoP" +
+                                "orNroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroCelularClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string representanteCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.representanteClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'representanteCliente\' de la tabla \'isp_ListarClientePorTi" +
+                                "poPorNroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.representanteClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string estadoCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.estadoClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'estadoCliente\' de la tabla \'isp_ListarClientePorTipoPorNr" +
+                                "oIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.estadoClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int usuarioAgrega {
+                get {
+                    try {
+                        return ((int)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioAgregaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuarioAgrega\' de la tabla \'isp_ListarClientePorTipoPorNr" +
+                                "oIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioAgregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fechaAgrega {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaAgregaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaAgrega\' de la tabla \'isp_ListarClientePorTipoPorNroI" +
+                                "dePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaAgregaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int usuarioModifica {
+                get {
+                    try {
+                        return ((int)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioModificaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'usuarioModifica\' de la tabla \'isp_ListarClientePorTipoPor" +
+                                "NroIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioModificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime fechaModifica {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaModificaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaModifica\' de la tabla \'isp_ListarClientePorTipoPorNr" +
+                                "oIdePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaModificaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidEmpresaNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idEmpresaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidEmpresaNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idEmpresaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscodClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.codClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcodClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.codClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstipSocioClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipSocioClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettipSocioClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipSocioClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstipClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettipClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.tipClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnroIdentificacionClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroIdentificacionClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnroIdentificacionClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroIdentificacionClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnombreRazSocialClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nombreRazSocialClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnombreRazSocialClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nombreRazSocialClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsrazComercialClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.razComercialClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetrazComercialClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.razComercialClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsemailClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.emailClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetemailClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.emailClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnroCelularClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroCelularClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnroCelularClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.nroCelularClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsrepresentanteClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.representanteClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetrepresentanteClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.representanteClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsestadoClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.estadoClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetestadoClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.estadoClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsusuarioAgregaNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioAgregaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetusuarioAgregaNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioAgregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsfechaAgregaNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaAgregaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetfechaAgregaNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaAgregaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsusuarioModificaNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioModificaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetusuarioModificaNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.usuarioModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsfechaModificaNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaModificaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetfechaModificaNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -9863,6 +10832,40 @@ namespace GestionClubView.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_VentaAnualMensualPorTipoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent : global::System.EventArgs {
+            
+            private isp_ListarClientePorTipoPorNroIdePorNomRazRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRowChangeEvent(isp_ListarClientePorTipoPorNroIdePorNomRazRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11383,13 +12386,92 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class QueriesTableAdapter : global::System.ComponentModel.Component {
+    public partial class isp_ListarClientePorTipoPorNroIdePorNomRazTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.IDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.IDbCommand[] CommandCollection {
+        public isp_ListarClientePorTipoPorNroIdePorNomRazTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -11400,63 +12482,113 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::GestionClubView.Properties.Settings.Default.DbGestionClubConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.IDbCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Connection = new global::System.Data.SqlClient.SqlConnection(global::GestionClubView.Properties.Settings.Default.DbGestionClubConnectionString);
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandText = "dbo.isp_ListarClientePorTipoPorNroIdePorNomRaz";
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).CommandType = global::System.Data.CommandType.StoredProcedure;
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipCliente", global::System.Data.SqlDbType.VarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nroIdentificacionCliente", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            ((global::System.Data.SqlClient.SqlCommand)(this._commandCollection[0])).Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomRazSoc", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.isp_ListarClientePorTipoPorNroIdePorNomRaz";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@empresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipCliente", global::System.Data.SqlDbType.VarChar, 4, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nroIdentificacionCliente", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nomRazSoc", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int isp_ListarClientePorTipoPorNroIdePorNomRaz(global::System.Nullable<int> empresa, string tipCliente, string nroIdentificacionCliente, string nomRazSoc) {
-            global::System.Data.SqlClient.SqlCommand command = ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[0]));
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DsGestionClub.isp_ListarClientePorTipoPorNroIdePorNomRazDataTable dataTable, global::System.Nullable<int> empresa, string tipCliente, string nroIdentificacionCliente, string nomRazSoc) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((empresa.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(empresa.Value));
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(empresa.Value));
             }
             else {
-                command.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             if ((tipCliente == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((string)(tipCliente));
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(tipCliente));
             }
             if ((nroIdentificacionCliente == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = ((string)(nroIdentificacionCliente));
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nroIdentificacionCliente));
             }
             if ((nomRazSoc == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[4].Value = ((string)(nomRazSoc));
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(nomRazSoc));
             }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
             }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
+            int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DsGestionClub.isp_ListarClientePorTipoPorNroIdePorNomRazDataTable GetData(global::System.Nullable<int> empresa, string tipCliente, string nroIdentificacionCliente, string nomRazSoc) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((empresa.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(empresa.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((tipCliente == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(tipCliente));
+            }
+            if ((nroIdentificacionCliente == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(nroIdentificacionCliente));
+            }
+            if ((nomRazSoc == null)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((string)(nomRazSoc));
+            }
+            DsGestionClub.isp_ListarClientePorTipoPorNroIdePorNomRazDataTable dataTable = new DsGestionClub.isp_ListarClientePorTipoPorNroIdePorNomRazDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
