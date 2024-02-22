@@ -1,4 +1,5 @@
-﻿using GestionClubController.Controller;
+﻿using Comun;
+using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
 using GestionClubView.MdiPrincipal;
@@ -13,11 +14,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinControles.ControlesWindows;
 
 namespace GestionClubView.Reportes
 {
     public partial class frmReportRegistroVentas : Form
     {
+        public frmIngresarAnioMesVentaAnual wFrm;
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListadoComprobantes.rdlc";
         public string formaReporte = "Normal";
@@ -43,7 +46,7 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsRegistroVentas";
-                rds.Value = GestionClubComprobanteController.ListarComprobantes();
+                rds.Value = GestionClubComprobanteController.ListarComprobantes().Where(x => Fecha.ObtenerAño(x.fecComprobante.ToShortDateString()) == this.wFrm.txtAnio.Text && Fecha.ObtenerMes(x.fecComprobante.ToShortTimeString()) == Cmb.ObtenerValor(this.wFrm.cboMes, string.Empty)).ToList();
 
                 ReportParameter[] rp = new ReportParameter[1];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
@@ -91,7 +94,7 @@ namespace GestionClubView.Reportes
 
         private void frmReportRegistroVentas_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Cerrar();
+            //this.Cerrar();
         }
     }
 }

@@ -30,6 +30,7 @@ namespace GestionClubUtil.Enum
             public static string Caja = "17";
             public static string PrimerNivel = "18";
             public static string SegundoNivel = "19";
+            public static string Mes = "20";
         }
     }
 }

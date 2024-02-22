@@ -353,15 +353,15 @@ namespace GestionClubView.MdiPrincipal
         }
         public void InstanciarReporteListarPrecios()
         {
-            frmReportListaPrecios win = new frmReportListaPrecios();
+            frmEscogerCategoriaListaPrecios win = new frmEscogerCategoriaListaPrecios();
             this.FormatoVentanaHijoPrincipal(win, this.tsmListaPrecios, null, 0, 0);
-            win.VentanaVisualizar();
+            win.VentanaSeleccionar();
         }
         public void InstanciarReporteRegistroVentas()
         {
-            frmReportRegistroVentas win = new frmReportRegistroVentas();
+            frmIngresarAnioMesVentaAnual win = new frmIngresarAnioMesVentaAnual();
             this.FormatoVentanaHijoPrincipal(win, this.tsmRegistroVentas, null, 0, 0);
-            win.VentanaVisualizar();
+            win.VentanaSeleccionar();
         }
         public void InstanciarReporteRegistroVentasPorFecha()
         {

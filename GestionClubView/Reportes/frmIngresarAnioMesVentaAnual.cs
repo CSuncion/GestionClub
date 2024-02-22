@@ -13,27 +13,40 @@ using Comun;
 using GestionClubView.MdiPrincipal;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubUtil.Enum;
 
 namespace GestionClubView.Reportes
 {
-    public partial class frmEscogerCategoriaListaPrecios : Form
+    public partial class frmIngresarAnioMesVentaAnual : Form
     {
-        public frmEscogerCategoriaListaPrecios()
+        public frmIngresarAnioMesVentaAnual()
         {
             InitializeComponent();
         }
         public void VentanaSeleccionar()
         {
             this.Show();
-            this.CargarCategorias();
+            this.CargarMes();
+            this.FechaActual();
         }
-        public void CargarCategorias()
+        public void CargarMes()
         {
-            Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._codCategoria, GestionClubCategoriaDto._desCategoria);
+            Cmb.Cargar(this.cboMes, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.Mes.ToString(), string.Empty).OrderBy(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+        }
+        public void FechaActual()
+        {
+            this.txtAnio.Text = DateTime.Now.Year.ToString();
         }
         public void SeleccionarFecha()
         {
-            frmReportListaPrecios win = new frmReportListaPrecios();
+
+            if (this.txtAnio.Text.Length != 4)
+            {
+                Mensaje.OperacionDenegada("Ingresar año correcto", this.Text);
+                return;
+            }
+
+            frmReportRegistroVentas win = new frmReportRegistroVentas();
             win.wFrm = this;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaVisualizar();
@@ -41,14 +54,7 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmListaPrecios, null);
-        }
-        public void BloquearCategoria()
-        {
-            if (this.chkTodos.Checked)
-                this.cboCategoria.Enabled = false;
-            else
-                this.cboCategoria.Enabled = true;
+            wMen.CerrarVentanaHijo(this, wMen.tsmRegistroVentas, null);
         }
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {
@@ -63,11 +69,6 @@ namespace GestionClubView.Reportes
         private void frmEscogerListaVentasPorFechas_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Cerrar();
-        }
-
-        private void chkTodos_CheckedChanged(object sender, EventArgs e)
-        {
-            this.BloquearCategoria();
         }
     }
 }
