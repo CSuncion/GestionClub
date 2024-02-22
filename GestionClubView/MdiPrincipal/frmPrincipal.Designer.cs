@@ -66,6 +66,8 @@
             this.facturaElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmStockRestaurante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIngresosCompras = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAjustesIngresos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAjustesSalidas = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClientesProveedores = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,8 +94,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmAjustesIngresos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAjustesSalidas = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -377,6 +377,16 @@
             this.tsmIngresosCompras.Name = "tsmIngresosCompras";
             this.tsmIngresosCompras.Click += new System.EventHandler(this.tsmIngresosCompras_Click);
             // 
+            // tsmAjustesIngresos
+            // 
+            resources.ApplyResources(this.tsmAjustesIngresos, "tsmAjustesIngresos");
+            this.tsmAjustesIngresos.Name = "tsmAjustesIngresos";
+            // 
+            // tsmAjustesSalidas
+            // 
+            resources.ApplyResources(this.tsmAjustesSalidas, "tsmAjustesSalidas");
+            this.tsmAjustesSalidas.Name = "tsmAjustesSalidas";
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -465,6 +475,7 @@
             // 
             resources.ApplyResources(this.tsmVentaAnualesMesesPorTipo, "tsmVentaAnualesMesesPorTipo");
             this.tsmVentaAnualesMesesPorTipo.Name = "tsmVentaAnualesMesesPorTipo";
+            this.tsmVentaAnualesMesesPorTipo.Click += new System.EventHandler(this.tsmVentaAnualesMesesPorTipo_Click);
             // 
             // tsmVentasPorCategoriasProductos
             // 
@@ -550,16 +561,6 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmAjustesIngresos
-            // 
-            resources.ApplyResources(this.tsmAjustesIngresos, "tsmAjustesIngresos");
-            this.tsmAjustesIngresos.Name = "tsmAjustesIngresos";
-            // 
-            // tsmAjustesSalidas
-            // 
-            resources.ApplyResources(this.tsmAjustesSalidas, "tsmAjustesSalidas");
-            this.tsmAjustesSalidas.Name = "tsmAjustesSalidas";
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -643,7 +644,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
         private System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadistica;
-        private System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMesesPorTipo;
         private System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
         private System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
         private System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
@@ -658,5 +658,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMes;
         private System.Windows.Forms.ToolStripMenuItem tsmAjustesIngresos;
         private System.Windows.Forms.ToolStripMenuItem tsmAjustesSalidas;
+        internal System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMesesPorTipo;
     }
 }

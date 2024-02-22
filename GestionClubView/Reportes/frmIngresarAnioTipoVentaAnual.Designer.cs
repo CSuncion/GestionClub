@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Reportes
 {
-    partial class frmIngresarAnioVentaAnual
+    partial class frmIngresarAnioTipoVentaAnual
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioVentaAnual));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioTipoVentaAnual));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
@@ -81,30 +83,50 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cboTipDoc);
             this.groupBox1.Controls.Add(this.txtAnio);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 64);
+            this.groupBox1.Size = new System.Drawing.Size(333, 85);
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
             // 
             // txtAnio
             // 
-            this.txtAnio.Location = new System.Drawing.Point(124, 27);
+            this.txtAnio.Location = new System.Drawing.Point(115, 46);
             this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(100, 20);
+            this.txtAnio.Size = new System.Drawing.Size(135, 20);
             this.txtAnio.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(87, 30);
+            this.label1.Location = new System.Drawing.Point(78, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 14);
             this.label1.TabIndex = 11;
             this.label1.Text = "Año:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(53, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 14);
+            this.label9.TabIndex = 453;
+            this.label9.Text = "Tip. Doc.:";
+            // 
+            // cboTipDoc
+            // 
+            this.cboTipDoc.FormattingEnabled = true;
+            this.cboTipDoc.Location = new System.Drawing.Point(115, 19);
+            this.cboTipDoc.Name = "cboTipDoc";
+            this.cboTipDoc.Size = new System.Drawing.Size(135, 21);
+            this.cboTipDoc.TabIndex = 452;
             // 
             // tsBtnSeleccionar
             // 
@@ -128,17 +150,17 @@
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // frmIngresarAnioVentaAnual
+            // frmIngresarAnioTipoVentaAnual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 158);
+            this.ClientSize = new System.Drawing.Size(357, 179);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmIngresarAnioVentaAnual";
-            this.Text = "Ventas Anual";
+            this.Name = "frmIngresarAnioTipoVentaAnual";
+            this.Text = "Ventas Por Tipo y Año";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
@@ -160,5 +182,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.TextBox txtAnio;
+        private System.Windows.Forms.Label label9;
+        internal System.Windows.Forms.ComboBox cboTipDoc;
     }
 }

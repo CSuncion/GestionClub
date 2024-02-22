@@ -21,5 +21,6 @@ namespace GestionClubRepository.IRepository
         List<GestionClubComprobanteDto> ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(DateTime fecDesde, DateTime fecHasta);
         List<GestionClubComprobanteDto> ListarComprobantes();
         List<dynamic> VentaAnualMensual(string anio);
+        List<dynamic> VentaAnualMensualPorTipo(string anio, string tipo);
     }
 }

@@ -418,5 +418,31 @@ namespace GestionClubRepository.Repository
             xObjCn.Disconnect();
             return result;
         }
+        public List<dynamic> VentaAnualMensualPorTipo(string anio, string tipo)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@anio",anio),
+                    new SqlParameter("@tipo",tipo)
+                };
+            List<dynamic> result = new List<dynamic>();
+            xObjCn.Connection();
+            xObjCn.CommandStoreProcedure("isp_VentaAnualMensualPorTipo");
+            xObjCn.AssignParameters(lParameter);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                result.Add(new
+                {
+                    TIPOCOMPROBANTE = (string)xIdr[0],
+                    ANIO = (int)xIdr[1],
+                    MES = (int)xIdr[2],
+                    CANTIDAD = (int)xIdr[3]
+                });
+            }
+            xObjCn.Disconnect();
+            return result;
+        }
     }
 }
