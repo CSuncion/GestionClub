@@ -171,6 +171,12 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmEscogerListaVentasPorFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEscogerListaVentasPorFechas.Designer.cs">
+      <DependentUpon>frmEscogerListaVentasPorFechas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportListadoDeComprobantesDelDia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,12 @@
     </Compile>
     <Compile Include="Reportes\frmReportListaPrecios.Designer.cs">
       <DependentUpon>frmReportListaPrecios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportListaVentasPorFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportListaVentasPorFecha.Designer.cs">
+      <DependentUpon>frmReportListaVentasPorFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportRegistroVentas.cs">
       <SubType>Form</SubType>
@@ -406,15 +418,22 @@
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEscogerListaVentasPorFechas.resx">
+      <DependentUpon>frmEscogerListaVentasPorFechas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportListadoDeComprobantesDelDia.resx">
       <DependentUpon>frmReportListadoDeComprobantesDelDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportListaPrecios.resx">
       <DependentUpon>frmReportListaPrecios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportListaVentasPorFecha.resx">
+      <DependentUpon>frmReportListaVentasPorFecha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportRegistroVentas.resx">
       <DependentUpon>frmReportRegistroVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListadoComprobantesPorFecha.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoComprobantes.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoDeComprobantesDelDia.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaPrecios.rdlc" />
