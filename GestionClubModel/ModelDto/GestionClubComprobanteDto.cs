@@ -119,8 +119,11 @@ namespace GestionClubModel.ModelDto
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
 
+        public const string _serNroComprobante = "serNroComprobante";
+        public const string _Fecha = "Fecha";
+
         public string claveObjeto { get; set; }
-        public int idDetalleComprobante { get; set; }
+        public int idDetalleComprobante { get; set; } = 0;
         public int idComprobante { get; set; }
         public int idEmpresa { get; set; }
         public int idProducto { get; set; }
@@ -135,6 +138,12 @@ namespace GestionClubModel.ModelDto
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+
+        public string serNroComprobante { get; set; }
+        public string Fecha { get; set; }
+
+
+
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales
         {

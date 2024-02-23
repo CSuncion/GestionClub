@@ -481,11 +481,13 @@
             // 
             resources.ApplyResources(this.tsmVentasPorCategoriasProductos, "tsmVentasPorCategoriasProductos");
             this.tsmVentasPorCategoriasProductos.Name = "tsmVentasPorCategoriasProductos";
+            this.tsmVentasPorCategoriasProductos.Click += new System.EventHandler(this.tsmVentasPorCategoriasProductos_Click);
             // 
             // tsmResumenDeVentasAnual
             // 
             resources.ApplyResources(this.tsmResumenDeVentasAnual, "tsmResumenDeVentasAnual");
             this.tsmResumenDeVentasAnual.Name = "tsmResumenDeVentasAnual";
+            this.tsmResumenDeVentasAnual.Click += new System.EventHandler(this.tsmResumenDeVentasAnual_Click);
             // 
             // tsmTopProductos
             // 
@@ -642,11 +644,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
-        private System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadistica;
-        private System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
-        private System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
-        private System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmClientesProveedores;
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
         internal System.Windows.Forms.ToolStripButton tsbComprobante;
@@ -659,5 +657,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmAjustesIngresos;
         private System.Windows.Forms.ToolStripMenuItem tsmAjustesSalidas;
         internal System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMesesPorTipo;
+        internal System.Windows.Forms.ToolStripMenuItem tsmListaTablaSistema;
+        internal System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
+        internal System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
+        internal System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
     }
 }

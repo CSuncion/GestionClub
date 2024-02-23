@@ -211,5 +211,15 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.VentaAnualMensualPorTipo(anio, tipo);
         }
+        public static List<dynamic> ListarVentasPorCategoriaProductos(string anio, string categoria, string producto)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarVentasPorCategoriaProductos(anio, categoria, producto);
+        }
+        public static List<GestionClubDetalleComprobanteDto> ListarResumenVentasAnual(string anio, string categoria)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarResumenVentasAnual(anio, categoria);
+        }
     }
 }

@@ -83,6 +83,8 @@ namespace GestionClubRepository.Repository
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubDetalleComprobanteDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubDetalleComprobanteDto._fechaModifica]);
             xObjEnc.claveObjeto = xObjEnc.idDetalleComprobante.ToString();
+            xObjEnc.serNroComprobante = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._serNroComprobante]);
+            xObjEnc.Fecha = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._Fecha]);
             return xObjEnc;
         }
         private GestionClubComprobanteDto BuscarObjetoCabecera(string pScript, List<SqlParameter> lParameter)
@@ -443,6 +445,42 @@ namespace GestionClubRepository.Repository
             }
             xObjCn.Disconnect();
             return result;
+        }
+        public List<dynamic> ListarVentasPorCategoriaProductos(string anio, string categoria, string producto)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@anio",anio),
+                    new SqlParameter("@codCategoria",categoria),
+                    new SqlParameter("@producto",producto)
+                };
+            List<dynamic> result = new List<dynamic>();
+            xObjCn.Connection();
+            xObjCn.CommandStoreProcedure("isp_ListarVentasPorCategoriaProductos");
+            xObjCn.AssignParameters(lParameter);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                result.Add(new
+                {
+                    MES = (int)xIdr[0],
+                    CANTIDAD = (int)xIdr[1],
+                    MONTO = (decimal)xIdr[2]
+                });
+            }
+            xObjCn.Disconnect();
+            return result;
+        }
+        public List<GestionClubDetalleComprobanteDto> ListarResumenVentasAnual(string anio, string codCategoria)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@anio",anio),
+                    new SqlParameter("@codCategoria",codCategoria)
+                };
+            return this.BuscarObjetoPorParametroDetalle("isp_ListarResumenVentasAnual", lParameter);
         }
     }
 }
