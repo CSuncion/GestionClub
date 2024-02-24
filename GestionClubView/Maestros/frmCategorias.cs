@@ -82,7 +82,7 @@ namespace GestionClubView.Maestros
             //agregando las columnas
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._codCategoria, "Código", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._desCategoria, "Descripción", 280));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._estadoCategoria, "Estado", 150));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._Estado, "Estado", 150));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._idCategoria, "idCategoria", 80, false));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubCategoriaDto._claveObjeto, "claveObjeto", 80, false));
             //devolver

@@ -84,7 +84,7 @@ namespace GestionClubView.Maestros
             iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._desAmbiente, "Ambiente", 200));
             iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._codMesa, "Código", 80));
             iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._desMesa, "Descripción", 280));
-            iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._estadoMesa, "Estado", 150));
+            iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._Estado, "Estado", 150));
             iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._idMesa, "idMesa", 80, false));
             iLisGv.Add(Dgv.NuevaColumnaTextCadena(GestionClubMesaDto._claveObjeto, "claveObjeto", 80, false));
 

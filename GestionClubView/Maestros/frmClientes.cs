@@ -81,15 +81,15 @@ namespace GestionClubView.Maestros
 
             //agregando las columnas
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._codCliente, "Código", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._tipSocioCliente, "T. Socio", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._tipCliente, "T. Cliente", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._TipoSocio, "T. Socio", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._TipoCliente, "T. Cliente", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._nroIdentificacionCliente, "N° Id.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._nombreRazSocialCliente, "Nombre/Raz. Social", 250));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._razComercialCliente, "Raz. Comercial", 150));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._emailCliente, "E-mail", 150));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._nroCelularCliente, "N° Cel.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._representanteCliente, "Rep.", 100));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._estadoCliente, "Estado", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._Estado, "Estado", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._idCliente, "idCliente", 80, false));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubClienteDto._claveObjeto, "claveObjeto", 80, false));
 

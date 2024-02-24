@@ -89,6 +89,7 @@ namespace GestionClubView.Maestros
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto.DomAcc, "Domicilio", 150));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto.FijAcc, "Fijo", 90));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto.MovAcc, "Movil", 90));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto._Estado, "Estado", 90));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto.IdAcc, "idAccess", 80, false));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubAccessDto._claveObjeto, "claveObjeto", 80, false));
 

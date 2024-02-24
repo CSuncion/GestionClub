@@ -93,7 +93,7 @@ namespace GestionClubView.Maestros
             this.AdicionarAperturaCaja();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El AperturaCaja se adiciono correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Apertura Caja se adiciono correctamente", this.wFrm.eTitulo);
 
             //actualizar al propietario
             this.wFrm.eClaveDgvAperturaCaja = this.ObtenerIdAperturaCaja();
@@ -121,7 +121,7 @@ namespace GestionClubView.Maestros
             this.ModificarAperturaCaja();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El AperturaCaja se modifico correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Apertura Caja se modifico correctamente", this.wFrm.eTitulo);
 
             //actualizar al wUsu
             this.wFrm.eClaveDgvAperturaCaja = this.ObtenerIdAperturaCaja();
@@ -143,7 +143,7 @@ namespace GestionClubView.Maestros
             this.EliminarAperturaCaja();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El AperturaCaja se elimino correctamente", this.wFrm.eTitulo);
+            Mensaje.OperacionSatisfactoria("El Apertura Caja se elimino correctamente", this.wFrm.eTitulo);
 
             //actualizar al propietario           
             this.wFrm.ActualizarVentana();

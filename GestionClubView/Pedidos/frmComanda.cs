@@ -54,7 +54,7 @@ namespace GestionClubView.Pedidos
                 //this.wFrm.InstanciarAperturaCaja();
                 return;
             }
-
+            this.tsbCobrar.Enabled = false;
             this.CargarRutas();
             this.CargarAmbientes();
             this.CargarMeseros();
@@ -167,7 +167,7 @@ namespace GestionClubView.Pedidos
             lvCategorias.View = View.LargeIcon;
 
             lvCategorias.Columns.Add("CATEGORIAS", 250);
-            imgCategorias.ImageSize = new System.Drawing.Size(30, 30);
+            imgCategorias.ImageSize = new System.Drawing.Size(20, 20);
 
             try
             {
@@ -303,6 +303,8 @@ namespace GestionClubView.Pedidos
 
         public void AccionCobrar()
         {
+            if (!this.ValidarComanda()) { return; }
+
             GestionClubComandaDto iComObj = new GestionClubComandaDto();//this.EsActoAdicionarRegistroCompra();
             //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
             this.AsignarComanda(iComObj);
@@ -312,6 +314,15 @@ namespace GestionClubView.Pedidos
             //this.eFranjaDgvRefAmp = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaCobrar(iComObj);
+        }
+        public bool ValidarComanda()
+        {
+            if (this.lvProductosSeleccionados.Items.Count == 0)
+            {
+                Mensaje.OperacionDenegada("No hay producto seleccionado", this.eTitulo);
+                return false;
+            }
+            return true;
         }
         public void MostrarComanda(GestionClubMesaDto pObj)
         {
@@ -636,11 +647,11 @@ namespace GestionClubView.Pedidos
         {
             if (this.lObjDetalleComanda.Count > 0)
             {
-                this.btnCobrar.Enabled = true;
+                this.tsbCobrar.Enabled = true;
             }
             else
             {
-                this.btnCobrar.Enabled = false;
+                this.tsbCobrar.Enabled = false;
             }
         }
         public void LimpiarLvSeleccionados()
@@ -654,7 +665,7 @@ namespace GestionClubView.Pedidos
             {
                 this.eVaBDMesa = 0;
                 //tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
-                this.btnCobrar.Enabled = !this.btnCobrar.Enabled;
+                this.tsbCobrar.Enabled = !this.tsbCobrar.Enabled;
                 this.BloquearMesa();
                 if (this.lblIdComanda.Text == "0")
                     this.Adicionar();
@@ -692,8 +703,7 @@ namespace GestionClubView.Pedidos
 
         private void btnCobrar_Click(object sender, EventArgs e)
         {
-            btnCobrar.Enabled = !btnCobrar.Enabled;
-            this.AccionCobrar();
+
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)
@@ -715,6 +725,12 @@ namespace GestionClubView.Pedidos
         private void txtProducto_KeyUp(object sender, KeyEventArgs e)
         {
             this.ActualizarVentanaAlBuscarValorProducto(e);
+        }
+
+        private void tsbCobrar_Click(object sender, EventArgs e)
+        {
+            this.tsbCobrar.Enabled = !this.tsbCobrar.Enabled;
+            this.AccionCobrar();
         }
 
         private void lvProductos_MouseClick(object sender, MouseEventArgs e)

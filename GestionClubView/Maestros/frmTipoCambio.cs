@@ -83,7 +83,7 @@ namespace GestionClubView.Maestros
             iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._FechaTipoCambio, "Fecha", 80));
             iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._CompraTipoCambio, "Compra", 80));
             iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._VentaTipoCambio, "Venta", 80));
-            iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._CEstadoTipoCambio, "Estado", 150));
+            iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._Estado, "Estado", 150));
             iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._idTipoCambio, "idTipoCambio", 150, false));
             iLisTipoCambio.Add(Dgv.NuevaColumnaTextCadena(GestionClubTipoCambioDto._claveObjeto, "claveObjeto", 150, false));
 

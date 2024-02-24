@@ -83,7 +83,7 @@ namespace GestionClubView.Maestros
             iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._fecCierreCaja, "Fecha", 80));
             iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._montoCierreCaja, "Monto", 80));
             iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubAperturaCajaDto._caja, "Caja", 80));
-            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._estadoCierreCaja, "Estado", 150));
+            iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._Estado, "Estado", 150));
             iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._idCierreCaja, "idCierreCaja", 150, false));
             iLisCierre.Add(Dgv.NuevaColumnaTextCadena(GestionClubCierreCajaDto._claveObjeto, "claveObjeto", 150, false));
 

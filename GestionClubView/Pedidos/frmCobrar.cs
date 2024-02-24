@@ -656,7 +656,7 @@ namespace GestionClubView.Pedidos
         private void frmCobrar_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.wCom.Enabled = !this.wCom.Enabled;
-            this.wCom.btnCobrar.Enabled = !this.wCom.btnCobrar.Enabled;
+            this.wCom.tsbCobrar.Enabled = !this.wCom.tsbCobrar.Enabled;
         }
 
         private void chEfectivo_CheckedChanged(object sender, EventArgs e)

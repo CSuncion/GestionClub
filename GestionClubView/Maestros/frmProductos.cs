@@ -82,9 +82,9 @@ namespace GestionClubView.Maestros
             //agregando las columnas
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._codProducto, "Código", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._desProducto, "Descripción", 250));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._desProducto, "Producto", 150));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._uniMedProducto, "Medida", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._codMoneda, "Moneda", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._Medida, "Medida", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._Moneda, "Moneda", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._desCategoria, "Categoria", 120));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preCosProducto, "P. Costo", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preVtsProducto, "P. Venta", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preVnsProducto, "P.V. No Soc.", 80));
@@ -93,7 +93,7 @@ namespace GestionClubView.Maestros
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._porDtraProducto, "% Dtra.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._impDolProducto, "Imp. $", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._impOtrProducto, "Imp. Otro", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._estadoProducto, "Estado", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._Estado, "Estado", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._idProducto, "idProducto", 80, false));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._claveObjeto, "claveObjeto", 80, false));
 
