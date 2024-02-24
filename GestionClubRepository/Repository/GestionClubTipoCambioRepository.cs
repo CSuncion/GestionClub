@@ -25,6 +25,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.CompraTipoCambio = Convert.ToDecimal(iDr[GestionClubTipoCambioDto._CompraTipoCambio]);
             xObjEnc.VentaTipoCambio = Convert.ToDecimal(iDr[GestionClubTipoCambioDto._VentaTipoCambio]);
             xObjEnc.CEstadoTipoCambio = Convert.ToString(iDr[GestionClubTipoCambioDto._CEstadoTipoCambio]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubTipoCambioDto._Estado]);
             xObjEnc.UsuarioAgrega = Convert.ToString(iDr[GestionClubTipoCambioDto._UsuarioAgrega]);
             xObjEnc.FechaAgrega = Convert.ToDateTime(iDr[GestionClubTipoCambioDto._FechaAgrega]);
             xObjEnc.UsuarioModifica = Convert.ToString(iDr[GestionClubTipoCambioDto._UsuarioModifica]);

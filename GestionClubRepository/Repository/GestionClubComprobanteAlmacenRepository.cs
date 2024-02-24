@@ -45,6 +45,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.totIgv = Convert.ToDecimal(iDr[GestionClubComprobanteAlmacenDto._totIgv]);
             xObjEnc.totBru = Convert.ToDecimal(iDr[GestionClubComprobanteAlmacenDto._totBru]);
             xObjEnc.estAlmacen = iDr[GestionClubComprobanteAlmacenDto._estAlmacen].ToString();
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubComprobanteAlmacenDto._Estado]);
             xObjEnc.Obsope = iDr[GestionClubComprobanteAlmacenDto._Obsope].ToString();
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaAgrega]);
@@ -79,6 +80,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.cantidad = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._cantidad]);
             xObjEnc.totCosto = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._totCosto]);
             xObjEnc.estAlmacen = iDr[GestionClubComprobanteDetalleAlmacenDto._estAlmacen].ToString();
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubComprobanteAlmacenDto._Estado]);
             xObjEnc.obsOperacion = iDr[GestionClubComprobanteDetalleAlmacenDto._obsOperacion].ToString();
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaAgrega]);

@@ -64,7 +64,7 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCategoria, true, "Nombre Categoria", "vvff", 150);
+            xCtrl.TxtTodo(this.txtCategoria, true, "Nombre Categoria", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();

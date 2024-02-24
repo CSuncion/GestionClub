@@ -172,7 +172,6 @@ namespace GestionClubView.Maestros
         public void AsignarAperturaCaja(GestionClubAperturaCajaDto pObj)
         {
             pObj.idAperturaCaja = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvAperturaCaja, GestionClubAperturaCajaDto._idAperturaCaja));
-            pObj.caja = Convert.ToString(Dgv.ObtenerValorCelda(this.DgvAperturaCaja, GestionClubAperturaCajaDto._caja));
         }
         public void AccionModificarAlHacerDobleClick(int pColumna, int pFila)
         {

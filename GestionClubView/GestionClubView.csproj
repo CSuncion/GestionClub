@@ -207,6 +207,12 @@
     <Compile Include="Reportes\frmIngresarAnioTipoVentaAnual.Designer.cs">
       <DependentUpon>frmIngresarAnioTipoVentaAnual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmIngresarAnioTopVentaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioTopVentaProductos.Designer.cs">
+      <DependentUpon>frmIngresarAnioTopVentaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmIngresarAnioVentaAnual.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,12 @@
     </Compile>
     <Compile Include="Reportes\frmReportEstadisticaVentaAnualMensual.Designer.cs">
       <DependentUpon>frmReportEstadisticaVentaAnualMensual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportTopProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportTopProductosVendidos.Designer.cs">
+      <DependentUpon>frmReportTopProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportResumenVentasAnual.cs">
       <SubType>Form</SubType>
@@ -508,6 +520,9 @@
     <EmbeddedResource Include="Reportes\frmIngresarAnioTipoVentaAnual.resx">
       <DependentUpon>frmIngresarAnioTipoVentaAnual.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmIngresarAnioTopVentaProductos.resx">
+      <DependentUpon>frmIngresarAnioTopVentaProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioVentaAnual.resx">
       <DependentUpon>frmIngresarAnioVentaAnual.cs</DependentUpon>
     </EmbeddedResource>
@@ -522,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportEstadisticaVentaAnualMensual.resx">
       <DependentUpon>frmReportEstadisticaVentaAnualMensual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportTopProductosVendidos.resx">
+      <DependentUpon>frmReportTopProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportResumenVentasAnual.resx">
       <DependentUpon>frmReportResumenVentasAnual.cs</DependentUpon>
@@ -544,6 +562,7 @@
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensualPorTipo.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaClienteProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\rptListadoTopProductosVentasAnual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoResumenVentasAnual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoComprobantesPorFecha.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoComprobantes.rdlc" />

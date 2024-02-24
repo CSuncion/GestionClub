@@ -357,6 +357,14 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarDetallesComprobantesPorComprobante", lParameter);
         }
+        public List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantes()
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@idEmpresa",Universal.gIdEmpresa)
+                };
+            return this.BuscarObjetoPorParametroDetalle("isp_ListarDetallesComprobantes", lParameter);
+        }
 
         public GestionClubComprobanteDto ListaComprobantePorNroComprobante(GestionClubComprobanteDto objEn)
         {
@@ -481,6 +489,15 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@codCategoria",codCategoria)
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarResumenVentasAnual", lParameter);
+        }
+        public List<GestionClubDetalleComprobanteDto> TopVentaProductos(string anio)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@anio",anio)
+                };
+            return this.BuscarObjetoPorParametroDetalle("isp_TopVentaProductos", lParameter);
         }
     }
 }

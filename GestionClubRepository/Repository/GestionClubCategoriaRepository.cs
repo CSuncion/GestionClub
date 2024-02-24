@@ -24,6 +24,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.desCategoria = iDr["desCategoria"].ToString();
             xObjEnc.archivoCategoria = iDr["archivoCategoria"].ToString();
             xObjEnc.estadoCategoria = Convert.ToString(iDr["estadoCategoria"]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubCategoriaDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);

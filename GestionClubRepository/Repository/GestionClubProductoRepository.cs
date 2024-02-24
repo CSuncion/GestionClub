@@ -25,7 +25,9 @@ namespace GestionClubRepository.Repository
             xObjEnc.codProducto = iDr[GestionClubProductoDto._codProducto].ToString();
             xObjEnc.desProducto = iDr[GestionClubProductoDto._desProducto].ToString();
             xObjEnc.uniMedProducto = iDr[GestionClubProductoDto._uniMedProducto].ToString();
+            xObjEnc.Medida = iDr[GestionClubProductoDto._Medida].ToString();
             xObjEnc.codMoneda = iDr[GestionClubProductoDto._codMoneda].ToString();
+            xObjEnc.Moneda = iDr[GestionClubProductoDto._Moneda].ToString();
             xObjEnc.preCosProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preCosProducto]);
             xObjEnc.preVtsProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preVtsProducto]);
             xObjEnc.preVnsProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preVnsProducto]);
@@ -38,6 +40,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idCategoria = Convert.ToString(iDr[GestionClubProductoDto._idCategoria]);
             xObjEnc.desCategoria = Convert.ToString(iDr[GestionClubProductoDto._desCategoria]);
             xObjEnc.estadoProducto = Convert.ToString(iDr[GestionClubProductoDto._estadoProducto]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubProductoDto._Estado]);
             xObjEnc.stockProducto = Convert.ToInt32(iDr[GestionClubProductoDto._stockProducto]);
             xObjEnc.archivoProducto = Convert.ToString(iDr[GestionClubProductoDto._archivoProducto]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubProductoDto._usuarioAgrega]);

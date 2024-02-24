@@ -24,5 +24,7 @@ namespace GestionClubRepository.IRepository
         List<dynamic> VentaAnualMensualPorTipo(string anio, string tipo);
         List<dynamic> ListarVentasPorCategoriaProductos(string anio, string categoria, string producto);
         List<GestionClubDetalleComprobanteDto> ListarResumenVentasAnual(string anio, string codCategoria);
+        List<GestionClubDetalleComprobanteDto> TopVentaProductos(string anio);
+        List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantes();
     }
 }

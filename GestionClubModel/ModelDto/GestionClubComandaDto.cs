@@ -24,6 +24,7 @@ namespace GestionClubModel.ModelDto
         public const string _nroAtencion = "nroAtencion";
         public const string _obsComprobante = "obsComprobante";
         public const string _estadoComanda = "estadoComanda";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
@@ -45,6 +46,7 @@ namespace GestionClubModel.ModelDto
         public string nroAtencion { get; set; }
         public string obsComprobante { get; set; }
         public string estadoComanda { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
@@ -78,6 +80,7 @@ namespace GestionClubModel.ModelDto
         public const string _nroAtencion = "nroAtencion";
         public const string _obsComprobante = "obsComprobante";
         public const string _estadoComanda = "estadoComanda";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
@@ -102,6 +105,7 @@ namespace GestionClubModel.ModelDto
         public string nroAtencion { get; set; }
         public string obsComprobante { get; set; }
         public string estadoComanda { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

@@ -64,7 +64,7 @@ namespace GestionClubView.Maestros
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vvff", 150);
+            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -175,6 +175,8 @@ namespace GestionClubView.Maestros
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
             if (this.wFrm.EsActoEliminarProducto().Adicionales.EsVerdad == false) { return; }
 
+            if (this.ValidarExisteProductoTieneComprobante()) { Mensaje.OperacionDenegada("El producto tiene movimentos. No puede eliminar", this.wFrm.eTitulo); return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wFrm.eTitulo) == false) { return; }
 
@@ -189,6 +191,12 @@ namespace GestionClubView.Maestros
 
             //salir de la ventana
             this.Close();
+        }
+        public bool ValidarExisteProductoTieneComprobante()
+        {
+            GestionClubProductoDto iPerEN = new GestionClubProductoDto();
+            this.AsignarProducto(iPerEN);
+            return GestionClubComprobanteController.ValidaExisteProductoComprobante(iPerEN);
         }
         public void EliminarProducto()
         {

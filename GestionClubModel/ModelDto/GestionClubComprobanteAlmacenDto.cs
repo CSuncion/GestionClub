@@ -32,6 +32,7 @@ namespace GestionClubModel.ModelDto
         public const string _totIgv = "totIgv";
         public const string _totBru = "totBru";
         public const string _estAlmacen = "estAlmacen";
+        public const string _Estado = "Estado";
         public const string _Obsope = "Obsope";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -61,6 +62,7 @@ namespace GestionClubModel.ModelDto
         public decimal totIgv { get; set; }
         public decimal totBru { get; set; }
         public string estAlmacen { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public string Obsope { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; } = DateTime.Now;
@@ -99,6 +101,7 @@ namespace GestionClubModel.ModelDto
         public const string _cantidad = "cantidad";
         public const string _totCosto = "totCosto";
         public const string _estAlmacen = "estAlmacen";
+        public const string _Estado = "Estado";
         public const string _obsOperacion = "obsOperacion";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -128,6 +131,7 @@ namespace GestionClubModel.ModelDto
         public int cantidad { get; set; }
         public decimal totCosto { get; set; }
         public string estAlmacen { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public string obsOperacion { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; } = DateTime.Now;

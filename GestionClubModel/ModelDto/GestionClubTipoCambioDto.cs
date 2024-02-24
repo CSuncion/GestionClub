@@ -14,6 +14,7 @@ namespace GestionClubModel.ModelDto
         public const string _CompraTipoCambio = "CompraTipoCambio";
         public const string _VentaTipoCambio = "VentaTipoCambio";
         public const string _CEstadoTipoCambio = "CEstadoTipoCambio";
+        public const string _Estado = "Estado";
         public const string _UsuarioAgrega = "UsuarioAgrega";
         public const string _FechaAgrega = "FechaAgrega";
         public const string _UsuarioModifica = "UsuarioModifica";
@@ -26,6 +27,7 @@ namespace GestionClubModel.ModelDto
         public decimal CompraTipoCambio { get; set; } = 0;
         public decimal VentaTipoCambio { get; set; } = 0;
         public string CEstadoTipoCambio { get; set; } = "01";
+        public string Estado { get; set; } = string.Empty;
         public string UsuarioAgrega { get; set; }
         public DateTime FechaAgrega { get; set; } = DateTime.Now;
         public string UsuarioModifica { get; set; }

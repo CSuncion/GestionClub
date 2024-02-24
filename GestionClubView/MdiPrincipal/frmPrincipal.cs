@@ -381,6 +381,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmVentaAnualesMes, null, 0, 0);
             win.VentanaSeleccionar();
         }
+        public void InstanciarReporteTopProductosVendidos()
+        {
+            frmIngresarAnioTopVentaProductos win = new frmIngresarAnioTopVentaProductos();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmTopProductos, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarReporteEstadisticaVentaAnualMensualPorTipo()
         {
             frmIngresarAnioTipoVentaAnual win = new frmIngresarAnioTipoVentaAnual();
@@ -616,7 +622,7 @@ namespace GestionClubView.MdiPrincipal
 
         private void tsmTopProductos_Click(object sender, EventArgs e)
         {
-
+            this.InstanciarReporteTopProductosVendidos();
         }
 
         private void tsmVentaAnualesMes_Click(object sender, EventArgs e)

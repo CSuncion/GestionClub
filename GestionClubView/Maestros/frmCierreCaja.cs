@@ -172,7 +172,6 @@ namespace GestionClubView.Maestros
         public void AsignarCierreCaja(GestionClubCierreCajaDto pObj)
         {
             pObj.idCierreCaja = Convert.ToInt32(Dgv.ObtenerValorCelda(this.DgvCierreCaja, GestionClubCierreCajaDto._idCierreCaja));
-            pObj.caja = Convert.ToString(Dgv.ObtenerValorCelda(this.DgvCierreCaja, GestionClubCierreCajaDto._caja));
         }
         public void AccionModificarAlHacerDobleClick(int pColumna, int pFila)
         {

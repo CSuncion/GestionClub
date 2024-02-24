@@ -19,6 +19,7 @@ namespace GestionClubModel.ModelDto
         public const string _tlfFijoEmpresa = "tlfFijoEmpresa";
         public const string _tlfCelularEmpresa = "tlfCelularEmpresa";
         public const string _estadoEmpresa = "estadoEmpresa";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";

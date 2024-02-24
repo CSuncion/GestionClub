@@ -44,6 +44,7 @@ namespace GestionClubModel.ModelDto
         public const string _tipCliente = "tipCliente";
         public const string _obsComprobante = "obsComprobante";
         public const string _estadoComprobante = "estadoComprobante";
+        public const string _Estado = "Estado";
         public const string _desEstado = "desEstado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
@@ -86,6 +87,7 @@ namespace GestionClubModel.ModelDto
         public string tipCliente { get; set; } = "01";
         public string obsComprobante { get; set; }
         public string estadoComprobante { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public string desEstado { get; set; }
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }

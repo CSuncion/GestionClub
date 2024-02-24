@@ -221,5 +221,30 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarResumenVentasAnual(anio, categoria);
         }
+        public static List<GestionClubDetalleComprobanteDto> TopVentaProductos(string anio)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.TopVentaProductos(anio);
+        }
+        public static bool ValidaExisteClienteComprobante(GestionClubClienteDto cliente)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            List<GestionClubComprobanteDto> comprobante = obj.ListarComprobantes().Where(x => x.idCliente == cliente.idCliente).ToList();
+            if (comprobante.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool ValidaExisteProductoComprobante(GestionClubProductoDto producto)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            List<GestionClubDetalleComprobanteDto> comprobante = obj.ListarDetallesComprobantes().Where(x => x.idProducto == producto.idProducto).ToList();
+            if (comprobante.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

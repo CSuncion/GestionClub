@@ -24,7 +24,9 @@ namespace GestionClubRepository.Repository
             xObjEnc.idEmpresa = Convert.ToInt32(iDr["idEmpresa"]);
             xObjEnc.codCliente = iDr["codCliente"].ToString();
             xObjEnc.tipSocioCliente = iDr["tipSocioCliente"].ToString();
+            xObjEnc.TipoSocio = iDr[GestionClubClienteDto._TipoSocio].ToString();
             xObjEnc.tipCliente = Convert.ToString(iDr["tipCliente"]);
+            xObjEnc.TipoCliente = iDr[GestionClubClienteDto._TipoCliente].ToString();
             xObjEnc.nroIdentificacionCliente = Convert.ToString(iDr["nroIdentificacionCliente"]);
             xObjEnc.nombreRazSocialCliente = Convert.ToString(iDr["nombreRazSocialCliente"]);
             xObjEnc.razComercialCliente = Convert.ToString(iDr["razComercialCliente"]);
@@ -32,6 +34,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.nroCelularCliente = Convert.ToString(iDr["nroCelularCliente"]);
             xObjEnc.representanteCliente = Convert.ToString(iDr["representanteCliente"]);
             xObjEnc.estadoCliente = Convert.ToString(iDr["estadoCliente"]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubClienteDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
@@ -183,7 +186,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@empresa", Universal.gIdEmpresa),
-                new SqlParameter("@nroIdentificacionCliente", pObj.nroIdentificacionCliente),                
+                new SqlParameter("@nroIdentificacionCliente", pObj.nroIdentificacionCliente),
                 };
             return this.BuscarObjeto("isp_ListarClientePorNroDocumentoPorEmpresa", lParameter);
         }
@@ -198,6 +201,6 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametro("isp_ListarClientePorTipoPorNroIdePorNomRaz", lParameter);
         }
-        
+
     }
 }

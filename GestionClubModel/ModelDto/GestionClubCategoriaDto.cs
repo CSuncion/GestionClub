@@ -15,6 +15,7 @@ namespace GestionClubModel.ModelDto
         public const string _desCategoria = "desCategoria";
         public const string _archivoCategoria = "archivoCategoria";
         public const string _estadoCategoria = "estadoCategoria";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
@@ -27,6 +28,7 @@ namespace GestionClubModel.ModelDto
         public string desCategoria { get; set; }
         public string archivoCategoria { get; set; }
         public string estadoCategoria { get; set; } = "01";
+        public string Estado { get; set; } = string.Empty;
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

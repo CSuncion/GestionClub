@@ -190,7 +190,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(59, 217);
+            this.label10.Location = new System.Drawing.Point(74, 217);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 14);
             this.label10.TabIndex = 16;
@@ -200,11 +200,11 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(30, 189);
+            this.label9.Location = new System.Drawing.Point(58, 189);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(91, 14);
+            this.label9.Size = new System.Drawing.Size(63, 14);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Representante:";
+            this.label9.Text = "Domicilio:";
             // 
             // txtRepresentante
             // 

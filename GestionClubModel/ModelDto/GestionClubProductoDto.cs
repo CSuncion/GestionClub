@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 
 namespace GestionClubModel.ModelDto
 {
@@ -10,7 +11,9 @@ namespace GestionClubModel.ModelDto
         public const string _codProducto = "codProducto";
         public const string _desProducto = "desProducto";
         public const string _uniMedProducto = "uniMedProducto";
+        public const string _Medida = "Medida";
         public const string _codMoneda = "codMoneda";
+        public const string _Moneda = "Moneda";
         public const string _preCosProducto = "preCosProducto";
         public const string _preVtsProducto = "preVtsProducto";
         public const string _preVnsProducto = "preVnsProducto";
@@ -25,6 +28,7 @@ namespace GestionClubModel.ModelDto
         public const string _stockProducto = "stockProducto";
         public const string _archivoProducto = "archivoProducto";
         public const string _estadoProducto = "estadoProducto";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
@@ -37,7 +41,9 @@ namespace GestionClubModel.ModelDto
         public string codProducto { get; set; } = string.Empty;
         public string desProducto { get; set; }
         public string uniMedProducto { get; set; } = "01";
+        public string Medida { get; set; } = string.Empty;
         public string codMoneda { get; set; } = "01";
+        public string Moneda { get; set; } = string.Empty;
         public decimal preCosProducto { get; set; }
         public decimal preVtsProducto { get; set; }
         public decimal preVnsProducto { get; set; }
@@ -51,6 +57,7 @@ namespace GestionClubModel.ModelDto
         public string idCategoria { get; set; } = "0101";
         public string desCategoria { get; set; } = string.Empty;
         public string estadoProducto { get; set; } = "01";
+        public string Estado { get; set; } = string.Empty;
         public string archivoProducto { get; set; } = "";
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }

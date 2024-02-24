@@ -36,6 +36,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.nroAtencion = Convert.ToString(iDr[GestionClubComandaDto._nroAtencion]);
             xObjEnc.obsComprobante = Convert.ToString(iDr[GestionClubComandaDto._obsComprobante]);
             xObjEnc.estadoComanda = Convert.ToString(iDr[GestionClubComandaDto._estadoComanda]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubComandaDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubComandaDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComandaDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComandaDto._usuarioModifica]);
@@ -64,6 +65,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.nroAtencion = Convert.ToString(iDr[GestionClubDetalleComandaDto._nroAtencion]);
             xObjEnc.obsComprobante = Convert.ToString(iDr[GestionClubDetalleComandaDto._obsComprobante]);
             xObjEnc.estadoComanda = Convert.ToString(iDr[GestionClubDetalleComandaDto._estadoComanda]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubDetalleComandaDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubDetalleComandaDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._usuarioModifica]);

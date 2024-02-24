@@ -58,7 +58,7 @@ namespace GestionClubView.Maestros
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.dtpFecCierreCaja, true, "Fecha Cierre", "vvff", 150);
+            xCtrl.TxtTodo(this.dtpFecCierreCaja, true, "Fecha Cierre", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();

@@ -25,6 +25,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.montoAperturaCaja = Convert.ToDecimal(iDr["montoAperturaCaja"]);
             xObjEnc.caja = Convert.ToString(iDr["caja"]);
             xObjEnc.estadoAperturaCaja = Convert.ToString(iDr["estadoAperturaCaja"]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubAperturaCajaDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
@@ -89,7 +90,7 @@ namespace GestionClubRepository.Repository
                 {
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@fecAperturaCaja", obj.fecAperturaCaja.ToShortDateString()),
-                    new SqlParameter("@caja", obj.caja)
+                    new SqlParameter("@caja", Universal.caja)
                 };
             return this.BuscarObjeto("isp_ListarAperturaCajasPorFechaPorCaja", lParameter);
         }
@@ -101,7 +102,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                         new SqlParameter("@fecAperturaCaja",pObj.fecAperturaCaja),
                         new SqlParameter("@montoAperturaCaja",pObj.montoAperturaCaja),
-                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@caja",Universal.caja),
                         new SqlParameter("@estadoAperturaCaja",pObj.estadoAperturaCaja),
                         new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                         new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
@@ -118,7 +119,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@idAperturaCaja", pObj.idAperturaCaja),
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa)
                 };
-            return this.BuscarObjeto("isp_ListarAperturaCajaPorId", lParameter);
+            return this.BuscarObjeto("isp_ListarAperturaCajasPorId", lParameter);
         }
         public void ModificarAperturaCaja(GestionClubAperturaCajaDto pObj)
         {
@@ -129,7 +130,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                         new SqlParameter("@fecAperturaCaja",pObj.fecAperturaCaja),
                         new SqlParameter("@montoAperturaCaja",pObj.montoAperturaCaja),
-                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@caja",Universal.caja),
                         new SqlParameter("@estadoAperturaCaja",pObj.estadoAperturaCaja),
                         new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                         new SqlParameter("@usuarioModifica",Universal.gIdAcceso),

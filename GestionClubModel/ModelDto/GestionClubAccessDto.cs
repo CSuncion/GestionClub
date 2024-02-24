@@ -27,6 +27,7 @@ namespace GestionClubModel.ModelDto
         public const string MovAcc = "movilAcceso";
         public const string LevAcc = "levelAcceso";
         public const string SitAcc = "sitAcceso";
+        public const string _Estado = "Estado";
         public const string FecAcc = "fechaAcceso";
         public const string Of1 = "ofc1";
         public const string Of2 = "ofc2";
@@ -58,6 +59,7 @@ namespace GestionClubModel.ModelDto
         public string movilAcceso { get; set; } = string.Empty;
         public Nullable<int> levelAcceso { get; set; } = 1;
         public string sitAcceso { get; set; } = "01";
+        public string Estado { get; set; } = string.Empty;
         public Nullable<System.DateTime> fechaAcceso { get; set; }
         public Nullable<int> ofc1 { get; set; }
         public Nullable<int> ofc2 { get; set; }

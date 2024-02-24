@@ -15,6 +15,7 @@ namespace GestionClubModel.ModelDto
         public const string _montoAperturaCaja = "montoAperturaCaja";
         public const string _caja = "caja";
         public const string _estadoAperturaCaja = "estadoAperturaCaja";
+        public const string _Estado = "Estado";
         public const string _usuarioAgrega = "usuarioAgrega";
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
@@ -27,6 +28,7 @@ namespace GestionClubModel.ModelDto
         public decimal montoAperturaCaja { get; set; }
         public string caja { get; set; }
         public string estadoAperturaCaja { get; set; }
+        public string Estado { get; set; } = string.Empty;
         public int usuarioAgrega { get; set; }
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }

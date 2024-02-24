@@ -1,4 +1,5 @@
-﻿using GestionClubModel.ModelDto;
+﻿using Comun;
+using GestionClubModel.ModelDto;
 using GestionClubRepository.IRepository;
 using GestionClubRepository.Repository;
 using System;
@@ -147,8 +148,8 @@ namespace GestionClubController.Controller
 
             //validar
             //pObj.ClavePersonal = GestionClubAperturaCajaController.ObtenerClavePersonal(pObj);
-            iAmbEN = GestionClubAperturaCajaController.ListarAperturaCajasPorFechaPorCaja(pObj);
-            if (iAmbEN.fecAperturaCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
+            iAmbEN = GestionClubAperturaCajaController.BuscarAperturaCajaXId(pObj);
+            if (iAmbEN.idAperturaCaja == 0)
             {
                 iAmbEN.Adicionales.EsVerdad = false;
                 iAmbEN.Adicionales.Mensaje = "La fecha" + pObj.fecAperturaCaja + " no existe";

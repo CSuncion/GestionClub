@@ -25,6 +25,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.montoCierreCaja = Convert.ToDecimal(iDr["montoCierreCaja"]);
             xObjEnc.caja = Convert.ToString(iDr["caja"]);
             xObjEnc.estadoCierreCaja = Convert.ToString(iDr["estadoCierreCaja"]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubCierreCajaDto._Estado]);
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr["usuarioAgrega"]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr["fechaAgrega"]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr["usuarioModifica"]);
@@ -88,7 +89,7 @@ namespace GestionClubRepository.Repository
                 {
                     new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                     new SqlParameter("@fecCierreCaja", obj.fecCierreCaja.ToShortDateString()),
-                    new SqlParameter("@caja", obj.caja)
+                    new SqlParameter("@caja", Universal.caja)
                 };
             return this.BuscarObjeto("isp_ListarCierreCajaPorFechaPorCaja", lParameter);
         }
@@ -100,7 +101,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                         new SqlParameter("@fecCierreCaja",pObj.fecCierreCaja),
                         new SqlParameter("@montoCierreCaja",pObj.montoCierreCaja),
-                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@caja",Universal.caja),
                         new SqlParameter("@estadoCierreCaja",pObj.estadoCierreCaja),
                         new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                         new SqlParameter("@usuarioModifica",Universal.gIdAcceso),
@@ -128,7 +129,7 @@ namespace GestionClubRepository.Repository
                         new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                         new SqlParameter("@fecCierreCaja",pObj.fecCierreCaja),
                         new SqlParameter("@montoCierreCaja",pObj.montoCierreCaja),
-                        new SqlParameter("@caja",pObj.caja),
+                        new SqlParameter("@caja",Universal.caja),
                         new SqlParameter("@estadoCierreCaja",pObj.estadoCierreCaja),
                         new SqlParameter("@usuarioAgrega",Universal.gIdAcceso),
                         new SqlParameter("@usuarioModifica",Universal.gIdAcceso),

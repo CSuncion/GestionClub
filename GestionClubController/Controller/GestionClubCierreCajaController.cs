@@ -142,8 +142,8 @@ namespace GestionClubController.Controller
 
             //validar
             //pObj.ClavePersonal = GestionClubCierreCajaController.ObtenerClavePersonal(pObj);
-            iAmbEN = GestionClubCierreCajaController.ListarCierreCajasPorFechaPorCaja(pObj);
-            if (iAmbEN.fecCierreCaja.ToShortDateString() != DateTime.Now.ToShortDateString())
+            iAmbEN = GestionClubCierreCajaController.BuscarCierreCajaXId(pObj);
+            if (iAmbEN.idCierreCaja == 0)
             {
                 iAmbEN.Adicionales.EsVerdad = false;
                 iAmbEN.Adicionales.Mensaje = "El CierreCaja " + pObj.fecCierreCaja.ToShortDateString() + " no existe";

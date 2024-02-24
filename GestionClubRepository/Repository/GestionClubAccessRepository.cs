@@ -34,6 +34,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.movilAcceso = iDr[GestionClubAccessDto.MovAcc].ToString();
             xObjEnc.levelAcceso = Convert.ToInt32(iDr[GestionClubAccessDto.LevAcc]);
             xObjEnc.sitAcceso = Convert.ToString(iDr[GestionClubAccessDto.SitAcc]);
+            xObjEnc.Estado = Convert.ToString(iDr[GestionClubAccessDto._Estado]);
             xObjEnc.fechaAcceso = Convert.ToDateTime(iDr[GestionClubAccessDto.FecAcc]);
             xObjEnc.ofc1 = Convert.ToInt32(iDr[GestionClubAccessDto.Of1]);
             xObjEnc.ofc2 = Convert.ToInt32(iDr[GestionClubAccessDto.Of2]);
@@ -215,7 +216,7 @@ namespace GestionClubRepository.Repository
         }
         public List<GestionClubAccessDto> ListarUsuarioMozos()
         {
-              return this.ListarObjetos("isp_ListarUsuarioMozos");
+            return this.ListarObjetos("isp_ListarUsuarioMozos");
         }
         public GestionClubAccessDto ListarUsuarioMozosPorId(GestionClubAccessDto pObj)
         {

@@ -83,7 +83,7 @@ namespace GestionClubView.Maestros
             //agregando las columnas
             iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._codAmbiente, "Código", 80));
             iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._desAmbiente, "Descripción", 280));
-            iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._estadoAmbiente, "Estado", 150));
+            iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._Estado, "Estado", 150));
             iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._idAmbiente, "idAmbiente", 80, false));
             iLisAmbiente.Add(Dgv.NuevaColumnaTextCadena(GestionClubAmbientesDto._claveObjeto, "claveObjeto", 80, false));
 

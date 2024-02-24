@@ -55,8 +55,8 @@ namespace GestionClubView.Maestros
             // Deshabilitar al propietario
             if (this.Formulario == "Cliente")
                 this.wFrm.Enabled = false;
-            
-            if(this.Formulario == "Cobrar")
+
+            if (this.Formulario == "Cobrar")
                 this.wFrm1.Enabled = false;
 
             if (this.Formulario == "Comprobante")
@@ -79,11 +79,11 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroIdentificacion, true, "Cod. Identificación", "vvff", 150);
+            xCtrl.TxtTodo(this.txtNroIdentificacion, true, "Cod. Identificación", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vvff", 150);
+            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -182,6 +182,8 @@ namespace GestionClubView.Maestros
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
             if (this.wFrm.EsActoEliminarCliente().Adicionales.EsVerdad == false) { return; }
 
+            if (this.ValidarExisteClienteTieneComprobante()) { Mensaje.OperacionDenegada("El cliente tiene movimentos. No puede eliminar", this.Formulario == "Cliente" ? this.wFrm.eTitulo : this.wFrm1.eTitulo); return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.Formulario == "Cliente" ? this.wFrm.eTitulo : this.wFrm1.eTitulo) == false) { return; }
 
@@ -196,6 +198,12 @@ namespace GestionClubView.Maestros
 
             //salir de la ventana
             this.Close();
+        }
+        public bool ValidarExisteClienteTieneComprobante()
+        {
+            GestionClubClienteDto iPerEN = new GestionClubClienteDto();
+            this.AsignarCliente(iPerEN);
+            return GestionClubComprobanteController.ValidaExisteClienteComprobante(iPerEN);
         }
         public void EliminarCliente()
         {
