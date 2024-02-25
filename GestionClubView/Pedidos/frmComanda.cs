@@ -671,11 +671,16 @@ namespace GestionClubView.Pedidos
                 this.eVaBDMesa = 0;
                 //tsbRealizarPedido.Enabled = !tsbRealizarPedido.Enabled;
                 this.tsbCobrar.Enabled = !this.tsbCobrar.Enabled;
-                this.BloquearMesa();
                 if (this.lblIdComanda.Text == "0")
+                {
                     this.Adicionar();
+                    this.BloquearMesa();
+                }
                 else
+                {
                     this.Modificar();
+                    this.BloquearMesa();
+                }
 
                 this.realizoPedido = 1;
             }
@@ -767,9 +772,7 @@ namespace GestionClubView.Pedidos
 
         private void tsbRealizarPedido_Click(object sender, EventArgs e)
         {
-
             this.Aceptar();
-
         }
         private void cboAmbiente_SelectionChangeCommitted(object sender, EventArgs e)
         {

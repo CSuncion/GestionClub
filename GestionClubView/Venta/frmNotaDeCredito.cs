@@ -120,7 +120,7 @@ namespace GestionClubView.Venta
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmComprobante, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmNotaCredito, null);
         }
         public void ActualizarVentanaAlBuscarValor(KeyEventArgs pE)
         {

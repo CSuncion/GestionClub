@@ -57,6 +57,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.idMozo = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idMozo]);
             xObjEnc.fecDetalleComanda = Convert.ToDateTime(iDr[GestionClubDetalleComandaDto._fecDetalleComanda]);
             xObjEnc.idProducto = Convert.ToInt32(iDr[GestionClubDetalleComandaDto._idProducto]);
+            xObjEnc.codProducto = Convert.ToString(iDr[GestionClubDetalleComandaDto._codProducto]);
             xObjEnc.desProducto = Convert.ToString(iDr[GestionClubDetalleComandaDto._desProducto]);
             xObjEnc.archivoProducto = Convert.ToString(iDr[GestionClubDetalleComandaDto._archivoProducto]);
             xObjEnc.preVenta = Convert.ToDecimal(iDr[GestionClubDetalleComandaDto._preVenta]);

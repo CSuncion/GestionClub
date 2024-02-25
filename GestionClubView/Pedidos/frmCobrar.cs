@@ -307,6 +307,10 @@ namespace GestionClubView.Pedidos
             //el codigo de usuario ya existe?
             if (this.ValidaMontoSeanMayoresACero() == false) { return; };
 
+            if (this.ValidarItemParaFacturar()) { return; }
+
+            if (this.ValidarComprobanteFactura()) { return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
 
@@ -342,6 +346,46 @@ namespace GestionClubView.Pedidos
             obj.serCorrelativo = this.txtSerDoc.Text.Substring(1, this.txtSerDoc.Text.Length - 1);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
+        }
+        public bool ValidarItemParaFacturar()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+                {
+                    result = true;
+                }
+
+            if (result)
+                if (this.lObjDetalle.Count > 1)
+                {
+                    Mensaje.OperacionDenegada("Solo debe existir servicio de Evento, debido que contiene detracción.", this.wCom.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
+        }
+        public bool ValidarComprobanteFactura()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+                {
+                    result = true;
+                }
+
+            if (result)
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02")
+                {
+                    Mensaje.OperacionDenegada("Debe ser factura, si contiene un item para Eventos.", this.wCom.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
         }
         public void AdicionarComprobante()
         {
@@ -379,7 +423,7 @@ namespace GestionClubView.Pedidos
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
             pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
             pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
-            pObj.impNetComprobante = Convert.ToDecimal(this.lblTotal.Text);
+            pObj.impNetComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lblTotal.Text)) * Convert.ToDecimal(0.12) : 0;
             pObj.impDtrComprobante = 0;
             pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;

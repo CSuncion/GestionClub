@@ -373,8 +373,8 @@ namespace GestionClubView.Venta
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
             pObj.impBruComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
             pObj.impIgvComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
+            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.12)) : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
-            pObj.impDtrComprobante = 0;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
@@ -382,7 +382,46 @@ namespace GestionClubView.Venta
             pObj.estadoComprobante = "04";
             pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
         }
+        public bool ValidarItemParaFacturar()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+                {
+                    result = true;
+                }
 
+            if (result)
+                if (this.lObjDetalle.Count > 1)
+                {
+                    Mensaje.OperacionDenegada("Solo debe existir servicio de Evento, debido que contiene detracción.", this.wFrm.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
+        }
+        public bool ValidarComprobanteFactura()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+                {
+                    result = true;
+                }
+
+            if (result)
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02")
+                {
+                    Mensaje.OperacionDenegada("Debe ser factura, si contiene un item para Eventos.", this.wFrm.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
+        }
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
         {
             pObj.idComprobante = identity;
@@ -537,6 +576,10 @@ namespace GestionClubView.Venta
             if (eMas.CamposObligatorios() == false) { return; }
 
             if (this.ValidaPagoPendiente() == false) { return; };
+
+            if (this.ValidarItemParaFacturar()) { return; }
+
+            if (this.ValidarComprobanteFactura()) { return; }
 
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }

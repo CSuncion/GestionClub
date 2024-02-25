@@ -72,6 +72,7 @@ namespace GestionClubModel.ModelDto
         public const string _idMozo = "idMozo";
         public const string _fecDetalleComanda = "fecDetalleComanda";
         public const string _idProducto = "idProducto";
+        public const string _codProducto = "codProducto";
         public const string _desProducto = "desProducto";
         public const string _archivoProducto = "archivoProducto";
         public const string _preVenta = "preVenta";
@@ -97,6 +98,7 @@ namespace GestionClubModel.ModelDto
         public int idMozo { get; set; }
         public DateTime fecDetalleComanda { get; set; }
         public int idProducto { get; set; }
+        public string codProducto { get; set; }
         public string desProducto { get; set; }
         public string archivoProducto { get; set; }
         public decimal preVenta { get; set; }
