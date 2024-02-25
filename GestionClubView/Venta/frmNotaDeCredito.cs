@@ -323,5 +323,11 @@ namespace GestionClubView.Venta
         {
             this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
+
+        private void DgvComprobantes_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            Dgv.HabilitarDesplazadores(this.DgvComprobantes, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
+            Dgv.ActualizarBarraEstado(this.DgvComprobantes, this.sst1);
+        }
     }
 }

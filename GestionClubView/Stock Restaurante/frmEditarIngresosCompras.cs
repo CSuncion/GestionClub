@@ -336,7 +336,7 @@ namespace GestionClubView.Stock_Restaurante
             //pObj.nro = string.Empty;
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
-            pObj.tipoMovimiento = "01";
+            pObj.tipoMovimiento = "10";
             pObj.totVta = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
             pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
             pObj.totBru = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto));

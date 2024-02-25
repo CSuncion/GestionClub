@@ -73,6 +73,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTipoCambio = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
@@ -83,8 +85,6 @@
             this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTipoCambio = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -129,8 +129,8 @@
             this.tsBtnTicket.Image = ((System.Drawing.Image)(resources.GetObject("tsBtnTicket.Image")));
             this.tsBtnTicket.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsBtnTicket.Name = "tsBtnTicket";
-            this.tsBtnTicket.Size = new System.Drawing.Size(43, 42);
-            this.tsBtnTicket.Text = "Ticket";
+            this.tsBtnTicket.Size = new System.Drawing.Size(69, 42);
+            this.tsBtnTicket.Text = "Pre-cuenta";
             this.tsBtnTicket.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsBtnTicket.Click += new System.EventHandler(this.tsBtnTicket_Click);
             // 
@@ -577,6 +577,24 @@
             this.groupBox4.TabIndex = 457;
             this.groupBox4.TabStop = false;
             // 
+            // txtTipoCambio
+            // 
+            this.txtTipoCambio.Location = new System.Drawing.Point(506, 42);
+            this.txtTipoCambio.MaxLength = 8;
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Size = new System.Drawing.Size(135, 21);
+            this.txtTipoCambio.TabIndex = 459;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(438, 47);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 14);
+            this.label16.TabIndex = 458;
+            this.label16.Text = "T. Cambio:";
+            // 
             // cboMoneda
             // 
             this.cboMoneda.FormattingEnabled = true;
@@ -670,24 +688,6 @@
             this.label7.Size = new System.Drawing.Size(31, 14);
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
-            // 
-            // txtTipoCambio
-            // 
-            this.txtTipoCambio.Location = new System.Drawing.Point(506, 42);
-            this.txtTipoCambio.MaxLength = 8;
-            this.txtTipoCambio.Name = "txtTipoCambio";
-            this.txtTipoCambio.Size = new System.Drawing.Size(135, 21);
-            this.txtTipoCambio.TabIndex = 459;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(438, 47);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 14);
-            this.label16.TabIndex = 458;
-            this.label16.Text = "T. Cambio:";
             // 
             // frmCobrar
             // 

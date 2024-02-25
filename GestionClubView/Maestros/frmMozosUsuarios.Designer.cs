@@ -239,6 +239,7 @@
             this.DgvUsuarioMozo.Name = "DgvUsuarioMozo";
             this.DgvUsuarioMozo.Size = new System.Drawing.Size(800, 357);
             this.DgvUsuarioMozo.TabIndex = 112;
+            this.DgvUsuarioMozo.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsuarioMozo_CellEnter);
             this.DgvUsuarioMozo.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvUsuarioMozo_CellMouseDoubleClick);
             // 
             // frmMozosUsuarios

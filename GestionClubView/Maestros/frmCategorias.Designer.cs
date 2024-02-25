@@ -239,6 +239,7 @@
             this.DgvCategorias.Name = "DgvCategorias";
             this.DgvCategorias.Size = new System.Drawing.Size(800, 357);
             this.DgvCategorias.TabIndex = 113;
+            this.DgvCategorias.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCategorias_CellEnter);
             this.DgvCategorias.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCategorias_CellMouseDoubleClick);
             // 
             // frmCategorias

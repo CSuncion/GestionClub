@@ -239,6 +239,7 @@
             this.DgvMesas.Name = "DgvMesas";
             this.DgvMesas.Size = new System.Drawing.Size(800, 357);
             this.DgvMesas.TabIndex = 112;
+            this.DgvMesas.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvMesas_CellEnter);
             this.DgvMesas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvMesas_CellMouseDoubleClick);
             // 
             // frmMesas

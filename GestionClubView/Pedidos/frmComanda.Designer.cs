@@ -59,6 +59,7 @@
             this.tsbCobrar = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -75,10 +76,11 @@
             this.lvMesas.LargeImageList = this.imgMesas;
             this.lvMesas.Location = new System.Drawing.Point(6, 49);
             this.lvMesas.Name = "lvMesas";
-            this.lvMesas.Size = new System.Drawing.Size(302, 195);
+            this.lvMesas.Size = new System.Drawing.Size(302, 344);
             this.lvMesas.SmallImageList = this.imgMesas;
             this.lvMesas.TabIndex = 0;
             this.lvMesas.UseCompatibleStateImageBehavior = false;
+            this.lvMesas.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvMesas_ItemSelectionChanged);
             this.lvMesas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvMesas_MouseClick);
             // 
             // imgMesas
@@ -94,7 +96,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(314, 250);
+            this.groupBox1.Size = new System.Drawing.Size(314, 399);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS COMEDOR";
@@ -156,7 +158,7 @@
             this.lvProductos.LargeImageList = this.imgProductos;
             this.lvProductos.Location = new System.Drawing.Point(6, 169);
             this.lvProductos.Name = "lvProductos";
-            this.lvProductos.Size = new System.Drawing.Size(331, 272);
+            this.lvProductos.Size = new System.Drawing.Size(331, 285);
             this.lvProductos.SmallImageList = this.imgProductos;
             this.lvProductos.TabIndex = 1;
             this.lvProductos.UseCompatibleStateImageBehavior = false;
@@ -179,6 +181,7 @@
             // 
             // gbProductosSeleccionados
             // 
+            this.gbProductosSeleccionados.Controls.Add(this.label3);
             this.gbProductosSeleccionados.Controls.Add(this.lblIdComanda);
             this.gbProductosSeleccionados.Controls.Add(this.lblCantidad);
             this.gbProductosSeleccionados.Controls.Add(this.label5);
@@ -198,7 +201,7 @@
             // 
             this.lblIdComanda.AutoSize = true;
             this.lblIdComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdComanda.Location = new System.Drawing.Point(66, 423);
+            this.lblIdComanda.Location = new System.Drawing.Point(6, 431);
             this.lblIdComanda.Name = "lblIdComanda";
             this.lblIdComanda.Size = new System.Drawing.Size(13, 14);
             this.lblIdComanda.TabIndex = 465;
@@ -208,7 +211,7 @@
             // lblCantidad
             // 
             this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(260, 437);
+            this.lblCantidad.Location = new System.Drawing.Point(260, 424);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 11;
@@ -217,7 +220,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(260, 423);
+            this.label5.Location = new System.Drawing.Point(260, 410);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 14);
             this.label5.TabIndex = 10;
@@ -226,7 +229,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(335, 423);
+            this.label4.Location = new System.Drawing.Point(335, 410);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 14);
             this.label4.TabIndex = 9;
@@ -235,7 +238,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(335, 437);
+            this.lblTotal.Location = new System.Drawing.Point(335, 424);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 8;
@@ -245,9 +248,9 @@
             // 
             this.btnQuitar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuitar.BackgroundImage")));
             this.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnQuitar.Location = new System.Drawing.Point(6, 422);
+            this.btnQuitar.Location = new System.Drawing.Point(118, 413);
             this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(37, 32);
+            this.btnQuitar.Size = new System.Drawing.Size(28, 25);
             this.btnQuitar.TabIndex = 6;
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
@@ -258,9 +261,9 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lvProductosSeleccionados.HideSelection = false;
             this.lvProductosSeleccionados.LargeImageList = this.imgProductosSel;
-            this.lvProductosSeleccionados.Location = new System.Drawing.Point(6, 19);
+            this.lvProductosSeleccionados.Location = new System.Drawing.Point(6, 18);
             this.lvProductosSeleccionados.Name = "lvProductosSeleccionados";
-            this.lvProductosSeleccionados.Size = new System.Drawing.Size(389, 397);
+            this.lvProductosSeleccionados.Size = new System.Drawing.Size(389, 389);
             this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
             this.lvProductosSeleccionados.TabIndex = 0;
             this.lvProductosSeleccionados.UseCompatibleStateImageBehavior = false;
@@ -378,10 +381,20 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "CATEGORIAS:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 413);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 14);
+            this.label3.TabIndex = 466;
+            this.label3.Text = "QUITAR PRODUCTO:";
+            // 
             // frmComanda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1095, 535);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox4);
@@ -439,5 +452,6 @@
         internal System.Windows.Forms.ToolStripButton tsbCobrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -304,5 +304,11 @@ namespace GestionClubView.Maestros
         {
             this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
+
+        private void DgvMesas_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            Dgv.HabilitarDesplazadores(this.DgvMesas, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
+            Dgv.ActualizarBarraEstado(this.DgvMesas, this.sst1);
+        }
     }
 }

@@ -232,7 +232,7 @@ namespace GestionClubView.Pedidos
 
             foreach (GestionClubDetalleComandaDto detalle in this.lObjDetalle)
             {
-                this.imgProductosSel.ImageSize = new Size(50, 50);
+                this.imgProductosSel.ImageSize = new Size(30, 30);
                 this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(this.rutaProducto + detalle.archivoProducto));
                 this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
@@ -373,7 +373,7 @@ namespace GestionClubView.Pedidos
             pObj.idMozo = Convert.ToInt32(this.lblIdMozo.Text);
             pObj.turnoCaja = "01";
             pObj.modPagoComprobante = this.modoCodigoPago();
-            pObj.tipMovComprobante = "01";
+            pObj.tipMovComprobante = "20";
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);

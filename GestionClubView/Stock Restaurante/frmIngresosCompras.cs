@@ -322,5 +322,10 @@ namespace GestionClubView.Stock_Restaurante
             this.AccionModificarAlHacerDobleClick(e.ColumnIndex, e.RowIndex); ;
         }
 
+        private void DgvIngresos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            Dgv.HabilitarDesplazadores(this.DgvIngresos, this.tsbPrimero, this.tsbAnterior, this.tsbSiguiente, this.tsbUltimo);
+            Dgv.ActualizarBarraEstado(this.DgvIngresos, this.sst1);
+        }
     }
 }

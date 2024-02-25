@@ -239,6 +239,7 @@
             this.DgvAmbientes.Name = "DgvAmbientes";
             this.DgvAmbientes.Size = new System.Drawing.Size(800, 357);
             this.DgvAmbientes.TabIndex = 113;
+            this.DgvAmbientes.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvAmbientes_CellEnter);
             this.DgvAmbientes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvAmbientes_CellMouseDoubleClick);
             // 
             // frmAmbientes

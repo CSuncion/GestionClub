@@ -367,7 +367,7 @@ namespace GestionClubView.Venta
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
             pObj.modPagoComprobante = this.modoPago();
-            pObj.tipMovComprobante = "01";
+            pObj.tipMovComprobante = "20";
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);

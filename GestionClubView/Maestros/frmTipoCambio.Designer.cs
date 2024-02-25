@@ -239,6 +239,7 @@
             this.DgvTipoCambio.Name = "DgvTipoCambio";
             this.DgvTipoCambio.Size = new System.Drawing.Size(800, 357);
             this.DgvTipoCambio.TabIndex = 112;
+            this.DgvTipoCambio.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTipoCambio_CellEnter);
             this.DgvTipoCambio.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvTipoCambio_CellMouseDoubleClick);
             // 
             // frmTipoCambio

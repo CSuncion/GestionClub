@@ -238,6 +238,7 @@
             this.DgvCierreCaja.Name = "DgvCierreCaja";
             this.DgvCierreCaja.Size = new System.Drawing.Size(800, 357);
             this.DgvCierreCaja.TabIndex = 113;
+            this.DgvCierreCaja.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCierreCaja_CellEnter);
             this.DgvCierreCaja.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvCierreCaja_CellMouseDoubleClick);
             // 
             // frmCierreCaja

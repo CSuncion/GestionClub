@@ -60,11 +60,11 @@ namespace GestionClubView.Maestros
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vvff", 150);
+            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vfff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCategoria, true, "Nombre Categoria", "vfff", 150);
+            xCtrl.TxtTodo(this.txtCategoria, true, "Nombre Categoria", "vvff", 150);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();

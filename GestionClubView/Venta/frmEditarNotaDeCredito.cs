@@ -359,7 +359,7 @@ namespace GestionClubView.Venta
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
             pObj.modPagoComprobante = "";
-            pObj.tipMovComprobante = Cmb.ObtenerValor(this.cboTipoDocCmp, string.Empty);
+            pObj.tipMovComprobante = "10";
             pObj.impEfeComprobante = 0;
             pObj.impDepComprobante = 0;
             pObj.impTarComprobante = 0;

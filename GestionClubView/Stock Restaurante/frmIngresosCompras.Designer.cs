@@ -239,6 +239,7 @@
             this.DgvIngresos.Name = "DgvIngresos";
             this.DgvIngresos.Size = new System.Drawing.Size(800, 357);
             this.DgvIngresos.TabIndex = 111;
+            this.DgvIngresos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIngresos_CellEnter);
             this.DgvIngresos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIngresos_CellMouseDoubleClick);
             // 
             // frmIngresosCompras

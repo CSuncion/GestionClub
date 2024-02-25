@@ -215,6 +215,7 @@
             this.DgvComprobantes.Name = "DgvComprobantes";
             this.DgvComprobantes.Size = new System.Drawing.Size(800, 357);
             this.DgvComprobantes.TabIndex = 111;
+            this.DgvComprobantes.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvComprobantes_CellEnter);
             this.DgvComprobantes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvComprobantes_CellMouseDoubleClick);
             // 
             // frmNotaDeCredito
