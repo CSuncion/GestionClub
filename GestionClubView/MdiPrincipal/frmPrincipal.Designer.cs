@@ -278,6 +278,7 @@
             // 
             resources.ApplyResources(this.tsmParametrosVentas, "tsmParametrosVentas");
             this.tsmParametrosVentas.Name = "tsmParametrosVentas";
+            this.tsmParametrosVentas.Click += new System.EventHandler(this.tsmParametrosVentas_Click);
             // 
             // tsmMesas
             // 
@@ -616,7 +617,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maestrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmParametrosVentas;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProveedores;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterClientes;
@@ -661,5 +661,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
         internal System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
+        internal System.Windows.Forms.ToolStripMenuItem tsmParametrosVentas;
     }
 }

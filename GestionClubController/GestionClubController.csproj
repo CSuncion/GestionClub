@@ -48,6 +48,7 @@
     <Compile Include="Controller\GestionClubComprobanteAlmacenController.cs" />
     <Compile Include="Controller\GestionClubComprobanteController.cs" />
     <Compile Include="Controller\GestionClubCorrelativoComprobanteController.cs" />
+    <Compile Include="Controller\GestionClubParametroController.cs" />
     <Compile Include="Controller\GestionClubPermisoEmpresaController.cs" />
     <Compile Include="Controller\GestionClubComandaController.cs" />
     <Compile Include="Controller\GestionClubProductoController.cs" />

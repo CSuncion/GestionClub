@@ -61,6 +61,7 @@
     <Compile Include="ModelDto\GestionClubComprobanteAlmacenDto.cs" />
     <Compile Include="ModelDto\GestionClubComprobanteDto.cs" />
     <Compile Include="ModelDto\GestionClubCorrelativoComprobanteDto.cs" />
+    <Compile Include="ModelDto\GestionClubParametroDto.cs" />
     <Compile Include="ModelDto\GestionClubPermisoEmpresaDto.cs" />
     <Compile Include="ModelDto\GestionClubEmpresaDto.cs" />
     <Compile Include="ModelDto\GestionClubMesaDto.cs" />
