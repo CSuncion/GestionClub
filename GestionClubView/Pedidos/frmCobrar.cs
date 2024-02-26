@@ -311,6 +311,10 @@ namespace GestionClubView.Pedidos
 
             if (this.ValidarComprobanteFactura()) { return; }
 
+            if (this.ValidarItemParaTicket()) { return; }
+
+            if (this.ValidarComprobanteTicket()) { return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
 
@@ -326,6 +330,42 @@ namespace GestionClubView.Pedidos
             this.wCom.LimpiarLvSeleccionados();
             //salir de la ventana
             this.Close();
+        }
+        public bool ValidarItemParaTicket()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
+                {
+                    result = false;
+                }
+                else
+                {
+                    Mensaje.OperacionDenegada("Los productos solo debe contener aportes.", this.eTitulo);
+                    result = true;
+                }
+
+            return result;
+        }
+        public bool ValidarComprobanteTicket()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
+                {
+                    result = true;
+                }
+
+            if (result)
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02" || Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "01")
+                {
+                    Mensaje.OperacionDenegada("Debe ser ticket, si contiene un item para aportes.", this.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
         }
         public bool ValidaMontoSeanMayoresACero()
         {

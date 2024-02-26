@@ -146,10 +146,13 @@ namespace GestionClubView.Venta
         }
         public void LimpiarCliente()
         {
-            this.txtDocId.Text = string.Empty;
-            this.txtApeNom.Text = string.Empty;
-            this.txtIdCliente.Text = string.Empty;
-            this.txtTipoDoc.Text = string.Empty;
+            if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "01")
+            {
+                this.txtDocId.Text = string.Empty;
+                this.txtApeNom.Text = string.Empty;
+                this.txtIdCliente.Text = string.Empty;
+                this.txtTipoDoc.Text = string.Empty;
+            }
         }
         public void GenerarCorrelativo()
         {
@@ -371,9 +374,12 @@ namespace GestionClubView.Venta
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
-            pObj.impBruComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
-            pObj.impIgvComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
-            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.12)) : 0;
+            pObj.impBruComprobante = !this.ValidarItemParaTicket() ? Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
+            pObj.impIgvComprobante = !this.ValidarItemParaTicket() ? 0 :
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
+            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.12))
+                : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
@@ -412,7 +418,7 @@ namespace GestionClubView.Venta
                 }
 
             if (result)
-                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02")
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02" || Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03")
                 {
                     Mensaje.OperacionDenegada("Debe ser factura, si contiene un item para Eventos.", this.wFrm.eTitulo);
                     result = true;
@@ -581,6 +587,10 @@ namespace GestionClubView.Venta
 
             if (this.ValidarComprobanteFactura()) { return; }
 
+            if (this.ValidarItemParaTicket()) { return; }
+
+            if (this.ValidarComprobanteTicket()) { return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
@@ -598,6 +608,44 @@ namespace GestionClubView.Venta
             eMas.AccionPasarTextoPrincipal();
             this.Close();
         }
+
+        public bool ValidarItemParaTicket()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
+                {
+                    result = false;
+                }
+                else
+                {
+                    Mensaje.OperacionDenegada("Los productos solo debe contener aportes.", this.wFrm.eTitulo);
+                    result = true;
+                }
+
+            return result;
+        }
+        public bool ValidarComprobanteTicket()
+        {
+            bool result = false;
+            if (this.lObjDetalle.Count > 0)
+                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
+                {
+                    result = true;
+                }
+
+            if (result)
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02" || Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "01")
+                {
+                    Mensaje.OperacionDenegada("Debe ser ticket, si contiene un item para aportes.", this.wFrm.eTitulo);
+                    result = true;
+                }
+                else
+                    result = false;
+
+            return result;
+        }
+
 
         public void ActualizarStockProducto()
         {
@@ -754,8 +802,12 @@ namespace GestionClubView.Venta
 
             int SPACE = 240;
 
+            if (Cmb.ObtenerValor(this.cboTipDoc).ToUpper() == "03")
+                g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper(), fHead, sb, 100, 205);
+            else
+                g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
 
-            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
+
             g.DrawString(iComEN.serComprobante + " - " + iComEN.nroComprobante, fBodySerNro, sb, 95, 220);
             g.DrawString("______________________________________________", fBody, sb, 10, 225);
 

@@ -88,7 +88,7 @@ namespace GestionClubView.Pedidos
             gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
             gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
 
-            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.wFrm.eTitulo); result = false; }
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.eTitulo); result = false; }
 
             return result;
         }
@@ -730,8 +730,8 @@ namespace GestionClubView.Pedidos
 
         private void lvCategorias_MouseClick(object sender, MouseEventArgs e)
         {
-            //if (!this.ValidarQueSeleccioneMesa())
-            this.CargarProductosSegunBusqueda(1, null);
+            if (this.lvCategorias.SelectedItems.Count != 0)
+                this.CargarProductosSegunBusqueda(1, null);
         }
 
         private void txtProducto_KeyUp(object sender, KeyEventArgs e)
@@ -752,7 +752,8 @@ namespace GestionClubView.Pedidos
 
         private void lvProductos_MouseClick(object sender, MouseEventArgs e)
         {
-            this.seleccionaProducto = 1;
+            if (this.lvProductos.SelectedItems.Count != 0)
+                this.seleccionaProducto = 1;
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
