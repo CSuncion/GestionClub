@@ -339,6 +339,18 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmNotaCredito, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarAjusteIngresos()
+        {
+            frmAjusteIngresos win = new frmAjusteIngresos();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmAjustesIngresos, null, 0, 0);
+            win.NewWindow();
+        }
+        public void InstanciarAjusteSalidas()
+        {
+            frmAjusteSalidas win = new frmAjusteSalidas();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmAjustesSalidas, null, 0, 0);
+            win.NewWindow();
+        }
         public void InstanciarUsuarioMozo()
         {
             frmMozosUsuarios win = new frmMozosUsuarios();
@@ -654,6 +666,16 @@ namespace GestionClubView.MdiPrincipal
         private void tsmParametrosVentas_Click(object sender, EventArgs e)
         {
             this.InstanciarParametros();
+        }
+
+        private void tsmAjustesIngresos_Click(object sender, EventArgs e)
+        {
+            this.InstanciarAjusteIngresos();
+        }
+
+        private void tsmAjustesSalidas_Click(object sender, EventArgs e)
+        {
+            this.InstanciarAjusteSalidas();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

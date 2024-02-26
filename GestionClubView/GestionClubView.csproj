@@ -297,6 +297,30 @@
     <Compile Include="Reportes\frmReportVentasCategoriasProductos.Designer.cs">
       <DependentUpon>frmReportVentasCategoriasProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock Restaurante\frmAjusteSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmAjusteSalidas.Designer.cs">
+      <DependentUpon>frmAjusteSalidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmAjusteIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmAjusteIngresos.Designer.cs">
+      <DependentUpon>frmAjusteIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmEditarAjusteSalidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmEditarAjusteSalidas.Designer.cs">
+      <DependentUpon>frmEditarAjusteSalidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmEditarAjusteIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Restaurante\frmEditarAjusteIngresos.Designer.cs">
+      <DependentUpon>frmEditarAjusteIngresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venta\frmEditarNotaDeCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -587,6 +611,18 @@
     <EmbeddedResource Include="Reportes\rptListadoDeComprobantesDelDia.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaPrecios.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentasPorCategoriasProductos.rdlc" />
+    <EmbeddedResource Include="Stock Restaurante\frmAjusteSalidas.resx">
+      <DependentUpon>frmAjusteSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Restaurante\frmAjusteIngresos.resx">
+      <DependentUpon>frmAjusteIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Restaurante\frmEditarAjusteSalidas.resx">
+      <DependentUpon>frmEditarAjusteSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Restaurante\frmEditarAjusteIngresos.resx">
+      <DependentUpon>frmEditarAjusteIngresos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Venta\frmEditarNotaDeCredito.resx">
       <DependentUpon>frmEditarNotaDeCredito.cs</DependentUpon>
     </EmbeddedResource>
