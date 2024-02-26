@@ -550,7 +550,7 @@ namespace GestionClubView.Stock_Restaurante
         {
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
-            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.tipoDocumento = "AL";
             obj.serCorrelativo = "";
             obj.nroCorrelativo = this.correlativoAlmacen;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
@@ -559,7 +559,7 @@ namespace GestionClubView.Stock_Restaurante
         {
             this.GenerarCorrelativoDetalle();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
-            obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
+            obj.tipoDocumento = "ALDT";
             obj.serCorrelativo = "";
             obj.nroCorrelativo = this.correlativoAlmacenDet;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);

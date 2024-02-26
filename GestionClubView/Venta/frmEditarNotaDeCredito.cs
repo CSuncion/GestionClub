@@ -812,7 +812,7 @@ namespace GestionClubView.Venta
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
             obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1, this.txtSerDoc.Text.Length - 1);
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(2);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }
