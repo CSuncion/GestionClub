@@ -243,7 +243,10 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            object obj = GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos")
+                            .Where(x => x.codigo == "01" || x.codigo == "02")
+                            .OrderByDescending(x => x.idTabSistemaDetalle).ToList();
+            Cmb.Cargar(this.cboTipDoc, obj, GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {

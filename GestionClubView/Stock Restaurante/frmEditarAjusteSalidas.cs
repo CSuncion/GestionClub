@@ -32,7 +32,7 @@ namespace GestionClubView.Stock_Restaurante
         public Universal.Opera eOperacion;
         public GestionClubComprobanteAlmacenController oOpe = new GestionClubComprobanteAlmacenController();
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
-        public string eTitulo = "Ingresos (Compras)";
+        public string eTitulo = "Ajuste Salida";
         public List<GestionClubComprobanteDetalleAlmacenDto> lObjDetalle = new List<GestionClubComprobanteDetalleAlmacenDto>();
         public List<GestionClubComprobanteDetalleAlmacenDto> lObjDetalleParcial = new List<GestionClubComprobanteDetalleAlmacenDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
@@ -118,11 +118,11 @@ namespace GestionClubView.Stock_Restaurante
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "vvff", 11);
+            xCtrl.TxtTodo(this.txtNroDoc, true, "N°. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -143,14 +143,15 @@ namespace GestionClubView.Stock_Restaurante
         public void GenerarCorrelativo()
         {
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
-            gestionClubCorrelativoComprobanteDto.tipoDocumento = "AL";
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = "AS";
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
-            this.correlativoAlmacen = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
+            this.txtSerDoc.Text = "AS" + gestionClubCorrelativoComprobanteDto.serCorrelativo;
+            this.txtNroDoc.Text = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
         public void GenerarCorrelativoDetalle()
         {
             GestionClubCorrelativoComprobanteDto gestionClubCorrelativoComprobanteDto = new GestionClubCorrelativoComprobanteDto();
-            gestionClubCorrelativoComprobanteDto.tipoDocumento = "ALDT";
+            gestionClubCorrelativoComprobanteDto.tipoDocumento = "ASDT";
             gestionClubCorrelativoComprobanteDto = GestionClubCorrelativoComprobanteController.GenerarCorrelativo(gestionClubCorrelativoComprobanteDto);
             this.correlativoAlmacenDet = gestionClubCorrelativoComprobanteDto.nroCorrelativo;
         }
@@ -243,7 +244,10 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            object obj = GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "")
+                .Where(x => x.codigo == "06")
+                .OrderByDescending(x => x.idTabSistemaDetalle).ToList();
+            Cmb.Cargar(this.cboTipDoc, obj, GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -330,13 +334,13 @@ namespace GestionClubView.Stock_Restaurante
             pObj.fecFactura = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.anoProceso = DateTime.Now.Year.ToString();
             pObj.mesProceso = DateTime.Now.Month.ToString("00");
-            pObj.nroDocumento = this.correlativoAlmacen;
+            pObj.nroDocumento = this.txtNroDoc.Text;
             pObj.guiaRe = string.Empty;
-            pObj.codAlmacen = this.correlativoAlmacen;
+            pObj.codAlmacen = this.txtNroDoc.Text.Substring(4);
             //pObj.nro = string.Empty;
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
-            pObj.tipoMovimiento = "10";
+            pObj.tipoMovimiento = "25";
             pObj.totVta = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
             pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
             pObj.totBru = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto));
@@ -354,11 +358,11 @@ namespace GestionClubView.Stock_Restaurante
             pObj.idComprobanteAlmacen = identity;
             pObj.estAlmacen = "04";
             pObj.obsOperacion = string.Empty;
-            pObj.codAlmacen = this.correlativoAlmacen;
+            pObj.codAlmacen = this.txtNroDoc.Text.Substring(4);
             pObj.anoProceso = DateTime.Now.Year.ToString();
             pObj.mesProceso = DateTime.Now.Month.ToString("00");
-            pObj.tipoMovimiento = "01";
-            pObj.nroDocumento = this.correlativoAlmacen;
+            pObj.tipoMovimiento = "25";
+            pObj.nroDocumento = this.txtNroDoc.Text.Substring(4);
             pObj.tipoFactura = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serFactura = this.txtSerDoc.Text.Trim();
             pObj.nroFactura = this.txtNroDoc.Text.Trim();
@@ -414,7 +418,7 @@ namespace GestionClubView.Stock_Restaurante
             this.txtApeNom.Text = pObj.razSocial;
             //this.txtIdCliente.Text = pObj.id.ToString();
             this.txtTipoDoc.Text = pObj.tipCliente.ToString();
-            this.cboTipDoc.SelectedValue = pObj.tipFactura;
+            this.cboTipDoc.SelectedValue = "06";
             this.dtpFecDoc.Text = pObj.fecFactura.ToShortDateString();
             this.txtSerDoc.Text = pObj.serFactura;
             this.txtNroDoc.Text = pObj.nroFactura;
@@ -537,9 +541,9 @@ namespace GestionClubView.Stock_Restaurante
 
                 switch (this.eOperacion)
                 {
-                    case Universal.Opera.Adicionar: { xProducto.stockProducto += producto.cantidad; break; }
-                    case Universal.Opera.Modificar: { xProducto.stockProducto += producto.cantidad - this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idProducto == producto.idProducto).cantidad; break; }
-                    case Universal.Opera.Eliminar: { xProducto.stockProducto -= producto.cantidad; break; }
+                    case Universal.Opera.Adicionar: { xProducto.stockProducto -= producto.cantidad; break; }
+                    case Universal.Opera.Modificar: { xProducto.stockProducto -= producto.cantidad - this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idProducto == producto.idProducto).cantidad; break; }
+                    case Universal.Opera.Eliminar: { xProducto.stockProducto += producto.cantidad; break; }
                     default: break;
                 }
 
@@ -550,17 +554,17 @@ namespace GestionClubView.Stock_Restaurante
         {
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
-            obj.tipoDocumento = "AL";
-            obj.serCorrelativo = "";
-            obj.nroCorrelativo = this.correlativoAlmacen;
+            obj.tipoDocumento = "AS";
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(2);
+            obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }
         public void ActualizarCorrelativoComprobanteDetalle()
         {
             this.GenerarCorrelativoDetalle();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
-            obj.tipoDocumento = "ALDT";
-            obj.serCorrelativo = "";
+            obj.tipoDocumento = "ASDT";
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(2);
             obj.nroCorrelativo = this.correlativoAlmacenDet;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }

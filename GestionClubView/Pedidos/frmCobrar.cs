@@ -469,13 +469,13 @@ namespace GestionClubView.Pedidos
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
-            pObj.estadoComprobante = "04";
+            pObj.estadoComprobante = "05";
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
         {
             pObj.idComprobante = identity;
-            pObj.estadoDetalleComprobante = "04";
+            pObj.estadoDetalleComprobante = "05";
             pObj.obsDetalleComprobante = string.Empty;
             foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
             {

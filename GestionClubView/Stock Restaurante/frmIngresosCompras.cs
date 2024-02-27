@@ -157,14 +157,14 @@ namespace GestionClubView.Stock_Restaurante
 
             //preguntar si este usuario tiene acceso a la accion modificar
             //basta con ver si el boton modificar esta habilitado o no
-            //if (tsbEditar.Enabled == false)
-            //{
-            //    Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
-            //}
-            //else
-            //{
-            //    this.AccionModificar();
-            //}
+            if (tsbEditar.Enabled == false)
+            {
+                Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
+            }
+            else
+            {
+                this.AccionModificar();
+            }
         }
         public void AccionModificar()
         {

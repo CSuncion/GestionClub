@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtIdNC = new System.Windows.Forms.TextBox();
             this.txtIdComprobante = new System.Windows.Forms.TextBox();
             this.txtTipoDoc = new System.Windows.Forms.TextBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
@@ -70,18 +71,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtSerComprobante = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNroComprobante = new System.Windows.Forms.TextBox();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpFecCmp = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
-            this.cboTipoDocCmp = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.cboTipoDocCmp = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtSerComprobante = new System.Windows.Forms.TextBox();
-            this.txtIdNC = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -169,6 +169,16 @@
             this.groupBox1.Size = new System.Drawing.Size(622, 48);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // txtIdNC
+            // 
+            this.txtIdNC.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdNC.Location = new System.Drawing.Point(608, 14);
+            this.txtIdNC.Name = "txtIdNC";
+            this.txtIdNC.ReadOnly = true;
+            this.txtIdNC.Size = new System.Drawing.Size(10, 22);
+            this.txtIdNC.TabIndex = 453;
+            this.txtIdNC.Visible = false;
             // 
             // txtIdComprobante
             // 
@@ -546,6 +556,15 @@
             this.groupBox5.TabIndex = 470;
             this.groupBox5.TabStop = false;
             // 
+            // txtSerComprobante
+            // 
+            this.txtSerComprobante.Location = new System.Drawing.Point(147, 30);
+            this.txtSerComprobante.MaxLength = 8;
+            this.txtSerComprobante.Name = "txtSerComprobante";
+            this.txtSerComprobante.Size = new System.Drawing.Size(49, 21);
+            this.txtSerComprobante.TabIndex = 460;
+            this.txtSerComprobante.Validating += new System.ComponentModel.CancelEventHandler(this.txtSerComprobante_Validating);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -603,15 +622,6 @@
             this.label18.TabIndex = 451;
             this.label18.Text = "Tip. Cmp.:";
             // 
-            // cboTipoDocCmp
-            // 
-            this.cboTipoDocCmp.FormattingEnabled = true;
-            this.cboTipoDocCmp.Location = new System.Drawing.Point(6, 30);
-            this.cboTipoDocCmp.Name = "cboTipoDocCmp";
-            this.cboTipoDocCmp.Size = new System.Drawing.Size(135, 21);
-            this.cboTipoDocCmp.TabIndex = 450;
-            this.cboTipoDocCmp.SelectionChangeCommitted += new System.EventHandler(this.cboTipoDocCmp_SelectionChangeCommitted);
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -621,6 +631,15 @@
             this.label19.Size = new System.Drawing.Size(31, 14);
             this.label19.TabIndex = 446;
             this.label19.Text = "Fec.:";
+            // 
+            // cboTipoDocCmp
+            // 
+            this.cboTipoDocCmp.FormattingEnabled = true;
+            this.cboTipoDocCmp.Location = new System.Drawing.Point(6, 30);
+            this.cboTipoDocCmp.Name = "cboTipoDocCmp";
+            this.cboTipoDocCmp.Size = new System.Drawing.Size(135, 21);
+            this.cboTipoDocCmp.TabIndex = 450;
+            this.cboTipoDocCmp.SelectionChangeCommitted += new System.EventHandler(this.cboTipoDocCmp_SelectionChangeCommitted);
             // 
             // panel4
             // 
@@ -642,24 +661,6 @@
             this.label20.Size = new System.Drawing.Size(189, 19);
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE COMPROBANTE";
-            // 
-            // txtSerComprobante
-            // 
-            this.txtSerComprobante.Location = new System.Drawing.Point(147, 30);
-            this.txtSerComprobante.MaxLength = 8;
-            this.txtSerComprobante.Name = "txtSerComprobante";
-            this.txtSerComprobante.Size = new System.Drawing.Size(49, 21);
-            this.txtSerComprobante.TabIndex = 460;
-            // 
-            // txtIdNC
-            // 
-            this.txtIdNC.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdNC.Location = new System.Drawing.Point(608, 14);
-            this.txtIdNC.Name = "txtIdNC";
-            this.txtIdNC.ReadOnly = true;
-            this.txtIdNC.Size = new System.Drawing.Size(10, 22);
-            this.txtIdNC.TabIndex = 453;
-            this.txtIdNC.Visible = false;
             // 
             // frmEditarNotaDeCredito
             // 

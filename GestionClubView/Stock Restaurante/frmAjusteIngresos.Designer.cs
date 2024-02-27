@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresosCompras));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjusteIngresos));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
@@ -242,7 +242,7 @@
             this.DgvIngresos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvIngresos_CellEnter);
             this.DgvIngresos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvIngresos_CellMouseDoubleClick);
             // 
-            // frmIngresosCompras
+            // frmAjusteIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -253,8 +253,8 @@
             this.Controls.Add(this.tsSecundario);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmIngresosCompras";
-            this.Text = "Ingresos (Compras)";
+            this.Name = "frmAjusteIngresos";
+            this.Text = "Ajuste Ingreso";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmIngresosCompras_FormClosing);
             this.tsPrincipal.ResumeLayout(false);

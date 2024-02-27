@@ -244,7 +244,10 @@ namespace GestionClubView.Venta
         }
         public void CargarTipoDocumentosComprobante()
         {
-            Cmb.Cargar(this.cboTipoDocCmp, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            object obj = GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos")
+                .Where(x => x.codigo == "01" || x.codigo == "02")
+                .OrderByDescending(x => x.idTabSistemaDetalle).ToList();
+            Cmb.Cargar(this.cboTipoDocCmp, obj, GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -260,7 +263,7 @@ namespace GestionClubView.Venta
             GestionClubDetalleComprobanteDto obj = new GestionClubDetalleComprobanteDto();
             obj.idComprobante = 0;
             obj.idDetalleComprobante = 0;
-            obj.estadoDetalleComprobante = "01";
+            obj.estadoDetalleComprobante = "05";
             obj.obsDetalleComprobante = string.Empty;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
@@ -336,10 +339,11 @@ namespace GestionClubView.Venta
             this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
-
             GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
             this.AsignarDetalleComprobante(iDetObjEN, identity);
 
+            iComEN.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
+            GestionClubComprobanteController.ModificarComprobanteAnulado(iComEN);
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
@@ -371,14 +375,14 @@ namespace GestionClubView.Venta
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
-            pObj.estadoComprobante = "04";
+            pObj.estadoComprobante = "05";
             pObj.idComprobante = Convert.ToInt32(this.txtIdNC.Text);
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
         {
             pObj.idComprobante = identity;
-            pObj.estadoDetalleComprobante = "04";
+            pObj.estadoDetalleComprobante = "05";
             pObj.obsDetalleComprobante = string.Empty;
             foreach (GestionClubDetalleComprobanteDto obj in this.lObjDetalle)
             {
@@ -834,6 +838,7 @@ namespace GestionClubView.Venta
             gestionClubComprobanteDto.serComprobante = this.txtSerComprobante.Text;
             gestionClubComprobanteDto.nroComprobante = this.txtNroComprobante.Text;
             gestionClubComprobanteDto = GestionClubComprobanteController.ListaComprobantePorNroComprobante(gestionClubComprobanteDto);
+            if (gestionClubComprobanteDto.estadoComprobante == "04") { Mensaje.OperacionDenegada("Comprobante se encuentra anulado.", this.wFrm.eTitulo); return; }
             this.MostrarComprobante(gestionClubComprobanteDto);
             this.LLenarComprobanteDetaDeBaseDatos(gestionClubComprobanteDto);
             this.MostrarComprobanteDeta();
@@ -872,6 +877,11 @@ namespace GestionClubView.Venta
         private void cboTipoDocCmp_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.MostrarInicialTipoComprobante();
+        }
+
+        private void txtSerComprobante_Validating(object sender, CancelEventArgs e)
+        {
+            this.BuscarComprobante();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)

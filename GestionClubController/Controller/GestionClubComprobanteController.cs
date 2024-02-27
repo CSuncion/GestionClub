@@ -246,5 +246,10 @@ namespace GestionClubController.Controller
             }
             return false;
         }
+        public static void ModificarComprobanteAnulado(GestionClubComprobanteDto pObj)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            obj.ModificarComprobanteAnulado(pObj);
+        }
     }
 }

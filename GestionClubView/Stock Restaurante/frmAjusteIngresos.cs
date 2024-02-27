@@ -18,7 +18,7 @@ namespace GestionClubView.Stock_Restaurante
 {
     public partial class frmAjusteIngresos : Form
     {
-        public string eTitulo = "Registro Ingresos";
+        public string eTitulo = "Ajuste Ingreso";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubComprobanteAlmacenDto> eLisComp = new List<GestionClubComprobanteAlmacenDto>();
         public GestionClubComprobanteAlmacenController oOpe = new GestionClubComprobanteAlmacenController();
@@ -65,7 +65,7 @@ namespace GestionClubView.Stock_Restaurante
             //ir a la bd
             //Lista ComprobanteAlmacens que no han sido creado por comandas
             GestionClubComprobanteAlmacenDto iOpEN = new GestionClubComprobanteAlmacenDto();
-            this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN);
+            this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN).Where(x => x.tipFactura == "05").ToList();
         }
         public void ActualizarDgvComprobanteAlmacen()
         {
@@ -157,14 +157,14 @@ namespace GestionClubView.Stock_Restaurante
 
             //preguntar si este usuario tiene acceso a la accion modificar
             //basta con ver si el boton modificar esta habilitado o no
-            //if (tsbEditar.Enabled == false)
-            //{
-            //    Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
-            //}
-            //else
-            //{
-            //    this.AccionModificar();
-            //}
+            if (tsbEditar.Enabled == false)
+            {
+                Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
+            }
+            else
+            {
+                this.AccionModificar();
+            }
         }
         public void AccionModificar()
         {

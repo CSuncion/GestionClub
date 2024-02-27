@@ -291,7 +291,7 @@ namespace GestionClubView.Venta
             GestionClubDetalleComprobanteDto obj = new GestionClubDetalleComprobanteDto();
             obj.idComprobante = 0;
             obj.idDetalleComprobante = 0;
-            obj.estadoDetalleComprobante = "01";
+            obj.estadoDetalleComprobante = "05";
             obj.obsDetalleComprobante = string.Empty;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
@@ -385,7 +385,7 @@ namespace GestionClubView.Venta
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = string.Empty;
-            pObj.estadoComprobante = "04";
+            pObj.estadoComprobante = "05";
             pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
         }
         public bool ValidarItemParaFacturar()
@@ -431,7 +431,7 @@ namespace GestionClubView.Venta
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
         {
             pObj.idComprobante = identity;
-            pObj.estadoDetalleComprobante = "04";
+            pObj.estadoDetalleComprobante = "05";
             pObj.obsDetalleComprobante = string.Empty;
             foreach (GestionClubDetalleComprobanteDto obj in this.lObjDetalle)
             {
