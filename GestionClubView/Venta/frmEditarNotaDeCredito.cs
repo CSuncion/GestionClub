@@ -132,6 +132,10 @@ namespace GestionClubView.Venta
             //xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtGlosa, false, "Observación", "vvff", 200);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtSerDoc, true, "Ser. Doc.", "ffff", 11);
             xLis.Add(xCtrl);
 
@@ -264,7 +268,7 @@ namespace GestionClubView.Venta
             obj.idComprobante = 0;
             obj.idDetalleComprobante = 0;
             obj.estadoDetalleComprobante = "05";
-            obj.obsDetalleComprobante = string.Empty;
+            obj.obsDetalleComprobante = this.txtGlosa.Text;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
             obj.desProducto = this.txtDesProd.Text;
@@ -374,7 +378,7 @@ namespace GestionClubView.Venta
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
-            pObj.obsComprobante = string.Empty;
+            pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
             pObj.idComprobante = Convert.ToInt32(this.txtIdNC.Text);
         }
@@ -383,7 +387,7 @@ namespace GestionClubView.Venta
         {
             pObj.idComprobante = identity;
             pObj.estadoDetalleComprobante = "05";
-            pObj.obsDetalleComprobante = string.Empty;
+            pObj.obsDetalleComprobante = this.txtGlosa.Text;
             foreach (GestionClubDetalleComprobanteDto obj in this.lObjDetalle)
             {
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;

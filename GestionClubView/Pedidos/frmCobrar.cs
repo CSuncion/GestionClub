@@ -58,10 +58,13 @@ namespace GestionClubView.Pedidos
         }
         public void LimpiarCliente()
         {
-            this.txtDocId.Text = string.Empty;
-            this.txtApeNom.Text = string.Empty;
-            this.txtIdCliente.Text = string.Empty;
-            this.txtTipoDoc.Text = string.Empty;
+            if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "01")
+            {
+                this.txtDocId.Text = string.Empty;
+                this.txtApeNom.Text = string.Empty;
+                this.txtIdCliente.Text = string.Empty;
+                this.txtTipoDoc.Text = string.Empty;
+            }
         }
         public void GenerarCorrelativo()
         {
@@ -150,6 +153,10 @@ namespace GestionClubView.Pedidos
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtGlosa, false, "Observación", "vvff", 200);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtTipoCambio, true, "Tipo de Cambio", "ffff", 11);
             xLis.Add(xCtrl);
 
@@ -196,7 +203,10 @@ namespace GestionClubView.Pedidos
         }
         public void CargarTipoDocumentos()
         {
-            Cmb.Cargar(this.cboTipDoc, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos").OrderByDescending(x => x.idTabSistemaDetalle).ToList(), GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
+            object obj = GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.DocFac.ToString(), "pedidos")
+                           .Where(x => x.codigo == "01" || x.codigo == "02")
+                           .OrderByDescending(x => x.idTabSistemaDetalle).ToList();
+            Cmb.Cargar(this.cboTipDoc, obj, GestionClubSistemaDetalleDto._codigo, GestionClubSistemaDetalleDto._descri);
         }
         public void CargarMoneda()
         {
@@ -334,17 +344,36 @@ namespace GestionClubView.Pedidos
         public bool ValidarItemParaTicket()
         {
             bool result = false;
-            if (this.lObjDetalle.Count > 0)
-                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
-                {
-                    result = false;
-                }
-                else
-                {
-                    Mensaje.OperacionDenegada("Los productos solo debe contener aportes.", this.eTitulo);
-                    result = true;
-                }
+            int cantidadItems = this.lObjDetalle.Count;
+            int cantidad = 0;
+            if (cantidadItems == 1)
+            {
+                return false;
+            }
 
+            if (cantidadItems > 1)
+            {
+                for (int i = 0; i < cantidadItems; i++)
+                {
+                    if (this.lObjDetalle.Exists(x => x.codProducto.StartsWith("02")))
+                    {
+                        if (!this.lObjDetalle[i].codProducto.StartsWith("02"))
+                        {
+                            cantidad += 1;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            if (cantidad > 0)
+            {
+                Mensaje.OperacionDenegada("Hay aportes en los items, validar bien lo agregado.", this.eTitulo);
+                result = true;
+            }
             return result;
         }
         public bool ValidarComprobanteTicket()
@@ -383,7 +412,7 @@ namespace GestionClubView.Pedidos
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
             obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1, this.txtSerDoc.Text.Length - 1);
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }
@@ -468,7 +497,7 @@ namespace GestionClubView.Pedidos
             pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
-            pObj.obsComprobante = string.Empty;
+            pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
         }
 
@@ -740,7 +769,6 @@ namespace GestionClubView.Pedidos
         private void frmCobrar_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.wCom.Enabled = !this.wCom.Enabled;
-            this.wCom.tsbCobrar.Enabled = !this.wCom.tsbCobrar.Enabled;
         }
 
         private void chEfectivo_CheckedChanged(object sender, EventArgs e)

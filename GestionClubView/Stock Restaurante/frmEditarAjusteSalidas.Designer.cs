@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarIngresosCompras));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarAjusteSalidas));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbGrabar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -72,6 +72,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -151,7 +153,7 @@
             this.groupBox1.Controls.Add(this.txtDocId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 74);
+            this.groupBox1.Location = new System.Drawing.Point(10, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(706, 49);
             this.groupBox1.TabIndex = 453;
@@ -221,7 +223,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 129);
+            this.panel2.Location = new System.Drawing.Point(0, 123);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(730, 26);
             this.panel2.TabIndex = 454;
@@ -239,6 +241,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtGlosa);
+            this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.cboMoneda);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.txtNroDoc);
@@ -250,9 +254,9 @@
             this.groupBox4.Controls.Add(this.txtSerDoc);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 161);
+            this.groupBox4.Location = new System.Drawing.Point(12, 151);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(706, 75);
+            this.groupBox4.Size = new System.Drawing.Size(706, 104);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
             // 
@@ -354,7 +358,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(0, 242);
+            this.panel3.Location = new System.Drawing.Point(0, 261);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(730, 25);
             this.panel3.TabIndex = 459;
@@ -373,9 +377,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DgvComprobanteDeta);
-            this.groupBox2.Location = new System.Drawing.Point(10, 332);
+            this.groupBox2.Location = new System.Drawing.Point(10, 344);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(618, 135);
+            this.groupBox2.Size = new System.Drawing.Size(618, 123);
             this.groupBox2.TabIndex = 460;
             this.groupBox2.TabStop = false;
             // 
@@ -387,7 +391,7 @@
             this.DgvComprobanteDeta.GridColor = System.Drawing.Color.Silver;
             this.DgvComprobanteDeta.Location = new System.Drawing.Point(6, 19);
             this.DgvComprobanteDeta.Name = "DgvComprobanteDeta";
-            this.DgvComprobanteDeta.Size = new System.Drawing.Size(588, 104);
+            this.DgvComprobanteDeta.Size = new System.Drawing.Size(588, 98);
             this.DgvComprobanteDeta.TabIndex = 461;
             // 
             // groupBox3
@@ -401,7 +405,7 @@
             this.groupBox3.Controls.Add(this.txtCodProd);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 273);
+            this.groupBox3.Location = new System.Drawing.Point(10, 288);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(706, 53);
             this.groupBox3.TabIndex = 461;
@@ -497,7 +501,7 @@
             this.btnQuitar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(634, 351);
+            this.btnQuitar.Location = new System.Drawing.Point(634, 363);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(84, 34);
             this.btnQuitar.TabIndex = 463;
@@ -547,7 +551,25 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
-            // frmEditarIngresosCompras
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(68, 71);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(539, 21);
+            this.txtGlosa.TabIndex = 465;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(20, 73);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 464;
+            this.label17.Text = "Glosa:";
+            // 
+            // frmEditarAjusteSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -566,7 +588,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
-            this.Name = "frmEditarIngresosCompras";
+            this.Name = "frmEditarAjusteSalidas";
             this.Text = "Ingresos (Compras)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComprobante_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
@@ -636,5 +658,7 @@
         private System.Windows.Forms.TextBox txtTipoDoc;
         private System.Windows.Forms.TextBox txtIdComprobante;
         private System.Windows.Forms.TextBox txtUniMedida;
+        internal System.Windows.Forms.TextBox txtGlosa;
+        private System.Windows.Forms.Label label17;
     }
 }

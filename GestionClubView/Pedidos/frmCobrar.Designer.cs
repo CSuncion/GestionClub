@@ -85,6 +85,8 @@
             this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -234,7 +236,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(1, 225);
+            this.panel2.Location = new System.Drawing.Point(1, 252);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(683, 24);
             this.panel2.TabIndex = 453;
@@ -258,9 +260,9 @@
             this.groupBox2.Controls.Add(this.lblTotal);
             this.groupBox2.Controls.Add(this.lvProductosSeleccionados);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(262, 251);
+            this.groupBox2.Location = new System.Drawing.Point(262, 282);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(410, 239);
+            this.groupBox2.Size = new System.Drawing.Size(410, 208);
             this.groupBox2.TabIndex = 454;
             this.groupBox2.TabStop = false;
             // 
@@ -268,7 +270,7 @@
             // 
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.Location = new System.Drawing.Point(274, 222);
+            this.lblCantidad.Location = new System.Drawing.Point(271, 191);
             this.lblCantidad.Name = "lblCantidad";
             this.lblCantidad.Size = new System.Drawing.Size(13, 14);
             this.lblCantidad.TabIndex = 14;
@@ -278,7 +280,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(274, 205);
+            this.label5.Location = new System.Drawing.Point(271, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 14);
             this.label5.TabIndex = 13;
@@ -288,7 +290,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(341, 205);
+            this.label4.Location = new System.Drawing.Point(338, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 14);
             this.label4.TabIndex = 12;
@@ -298,7 +300,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(341, 222);
+            this.lblTotal.Location = new System.Drawing.Point(338, 191);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 11;
@@ -311,7 +313,7 @@
             this.lvProductosSeleccionados.HideSelection = false;
             this.lvProductosSeleccionados.Location = new System.Drawing.Point(6, 20);
             this.lvProductosSeleccionados.Name = "lvProductosSeleccionados";
-            this.lvProductosSeleccionados.Size = new System.Drawing.Size(395, 182);
+            this.lvProductosSeleccionados.Size = new System.Drawing.Size(395, 154);
             this.lvProductosSeleccionados.TabIndex = 10;
             this.lvProductosSeleccionados.UseCompatibleStateImageBehavior = false;
             // 
@@ -336,9 +338,9 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.lblFecha);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 251);
+            this.groupBox3.Location = new System.Drawing.Point(12, 282);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(244, 239);
+            this.groupBox3.Size = new System.Drawing.Size(244, 208);
             this.groupBox3.TabIndex = 455;
             this.groupBox3.TabStop = false;
             // 
@@ -346,7 +348,7 @@
             // 
             this.lblIdNroComanda.AutoSize = true;
             this.lblIdNroComanda.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdNroComanda.Location = new System.Drawing.Point(6, 222);
+            this.lblIdNroComanda.Location = new System.Drawing.Point(6, 183);
             this.lblIdNroComanda.Name = "lblIdNroComanda";
             this.lblIdNroComanda.Size = new System.Drawing.Size(13, 14);
             this.lblIdNroComanda.TabIndex = 464;
@@ -357,7 +359,7 @@
             // 
             this.lblIdMozo.AutoSize = true;
             this.lblIdMozo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdMozo.Location = new System.Drawing.Point(25, 222);
+            this.lblIdMozo.Location = new System.Drawing.Point(25, 183);
             this.lblIdMozo.Name = "lblIdMozo";
             this.lblIdMozo.Size = new System.Drawing.Size(13, 14);
             this.lblIdMozo.TabIndex = 463;
@@ -368,7 +370,7 @@
             // 
             this.lblIdAmbiente.AutoSize = true;
             this.lblIdAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdAmbiente.Location = new System.Drawing.Point(152, 47);
+            this.lblIdAmbiente.Location = new System.Drawing.Point(152, 30);
             this.lblIdAmbiente.Name = "lblIdAmbiente";
             this.lblIdAmbiente.Size = new System.Drawing.Size(13, 14);
             this.lblIdAmbiente.TabIndex = 462;
@@ -379,7 +381,7 @@
             // 
             this.lblIdMesa.AutoSize = true;
             this.lblIdMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdMesa.Location = new System.Drawing.Point(134, 61);
+            this.lblIdMesa.Location = new System.Drawing.Point(134, 44);
             this.lblIdMesa.Name = "lblIdMesa";
             this.lblIdMesa.Size = new System.Drawing.Size(13, 14);
             this.lblIdMesa.TabIndex = 461;
@@ -390,7 +392,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(24, 156);
+            this.label15.Location = new System.Drawing.Point(24, 139);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 14);
             this.label15.TabIndex = 460;
@@ -400,7 +402,7 @@
             // 
             this.lblPendiente.AutoSize = true;
             this.lblPendiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendiente.Location = new System.Drawing.Point(115, 156);
+            this.lblPendiente.Location = new System.Drawing.Point(115, 139);
             this.lblPendiente.Name = "lblPendiente";
             this.lblPendiente.Size = new System.Drawing.Size(13, 14);
             this.lblPendiente.TabIndex = 459;
@@ -409,7 +411,7 @@
             // txtTransferencia
             // 
             this.txtTransferencia.Enabled = false;
-            this.txtTransferencia.Location = new System.Drawing.Point(115, 132);
+            this.txtTransferencia.Location = new System.Drawing.Point(115, 115);
             this.txtTransferencia.Name = "txtTransferencia";
             this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
             this.txtTransferencia.TabIndex = 458;
@@ -419,7 +421,7 @@
             // 
             this.chTransferencia.AutoSize = true;
             this.chTransferencia.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chTransferencia.Location = new System.Drawing.Point(6, 133);
+            this.chTransferencia.Location = new System.Drawing.Point(6, 116);
             this.chTransferencia.Name = "chTransferencia";
             this.chTransferencia.Size = new System.Drawing.Size(103, 18);
             this.chTransferencia.TabIndex = 457;
@@ -430,7 +432,7 @@
             // txtDeposito
             // 
             this.txtDeposito.Enabled = false;
-            this.txtDeposito.Location = new System.Drawing.Point(115, 105);
+            this.txtDeposito.Location = new System.Drawing.Point(115, 88);
             this.txtDeposito.Name = "txtDeposito";
             this.txtDeposito.Size = new System.Drawing.Size(79, 21);
             this.txtDeposito.TabIndex = 456;
@@ -440,7 +442,7 @@
             // 
             this.chDeposito.AutoSize = true;
             this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDeposito.Location = new System.Drawing.Point(30, 106);
+            this.chDeposito.Location = new System.Drawing.Point(30, 89);
             this.chDeposito.Name = "chDeposito";
             this.chDeposito.Size = new System.Drawing.Size(79, 18);
             this.chDeposito.TabIndex = 455;
@@ -451,7 +453,7 @@
             // txtEfectivo
             // 
             this.txtEfectivo.Enabled = false;
-            this.txtEfectivo.Location = new System.Drawing.Point(115, 78);
+            this.txtEfectivo.Location = new System.Drawing.Point(115, 61);
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
             this.txtEfectivo.TabIndex = 452;
@@ -461,7 +463,7 @@
             // 
             this.chEfectivo.AutoSize = true;
             this.chEfectivo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chEfectivo.Location = new System.Drawing.Point(39, 79);
+            this.chEfectivo.Location = new System.Drawing.Point(39, 62);
             this.chEfectivo.Name = "chEfectivo";
             this.chEfectivo.Size = new System.Drawing.Size(70, 18);
             this.chEfectivo.TabIndex = 451;
@@ -473,7 +475,7 @@
             // 
             this.lblNroMesa.AutoSize = true;
             this.lblNroMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroMesa.Location = new System.Drawing.Point(115, 61);
+            this.lblNroMesa.Location = new System.Drawing.Point(115, 44);
             this.lblNroMesa.Name = "lblNroMesa";
             this.lblNroMesa.Size = new System.Drawing.Size(13, 14);
             this.lblNroMesa.TabIndex = 18;
@@ -483,7 +485,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(54, 61);
+            this.label11.Location = new System.Drawing.Point(54, 44);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 14);
             this.label11.TabIndex = 17;
@@ -493,7 +495,7 @@
             // 
             this.lblAmbiente.AutoSize = true;
             this.lblAmbiente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmbiente.Location = new System.Drawing.Point(115, 47);
+            this.lblAmbiente.Location = new System.Drawing.Point(115, 30);
             this.lblAmbiente.Name = "lblAmbiente";
             this.lblAmbiente.Size = new System.Drawing.Size(31, 14);
             this.lblAmbiente.TabIndex = 16;
@@ -503,7 +505,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(46, 47);
+            this.label8.Location = new System.Drawing.Point(46, 30);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 14);
             this.label8.TabIndex = 15;
@@ -513,7 +515,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 33);
+            this.label6.Location = new System.Drawing.Point(24, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(85, 14);
             this.label6.TabIndex = 14;
@@ -523,7 +525,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(115, 33);
+            this.lblFecha.Location = new System.Drawing.Point(115, 16);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(13, 14);
             this.lblFecha.TabIndex = 13;
@@ -558,6 +560,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtGlosa);
+            this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtTipoCambio);
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.cboMoneda);
@@ -573,7 +577,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 150);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(660, 73);
+            this.groupBox4.Size = new System.Drawing.Size(660, 102);
             this.groupBox4.TabIndex = 457;
             this.groupBox4.TabStop = false;
             // 
@@ -689,11 +693,29 @@
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 460;
+            this.label17.Text = "Glosa:";
+            // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(72, 72);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(569, 21);
+            this.txtGlosa.TabIndex = 461;
+            // 
             // frmCobrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 496);
+            this.ClientSize = new System.Drawing.Size(684, 500);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panel3);
@@ -785,5 +807,7 @@
         private System.Windows.Forms.TextBox txtTipoDoc;
         internal System.Windows.Forms.TextBox txtTipoCambio;
         private System.Windows.Forms.Label label16;
+        internal System.Windows.Forms.TextBox txtGlosa;
+        private System.Windows.Forms.Label label17;
     }
 }

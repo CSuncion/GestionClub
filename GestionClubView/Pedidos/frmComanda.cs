@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Principal;
@@ -110,6 +111,7 @@ namespace GestionClubView.Pedidos
         }
         public void cargarMesas()
         {
+            this.tsbCobrar.Enabled = false;
             this.seleccionaMesa = 0;
             this.lvProductos.Items.Clear();
             this.lvMesas.Items.Clear();
@@ -174,6 +176,7 @@ namespace GestionClubView.Pedidos
                 foreach (GestionClubCategoriaDto oObjEn in lObjCategoria)
                 {
                     string path = this.rutaCategoria + (oObjEn.archivoCategoria == string.Empty ? "no-foto.png" : oObjEn.archivoCategoria);
+                    path = File.Exists(path) ? path : this.rutaCategoria + "no-foto.png";
                     imgCategorias.Images.Add(oObjEn.codCategoria.ToString(), Image.FromFile(path));
                 }
             }
@@ -191,7 +194,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarCategoriaDesdeBaseDeDatos()
         {
-            this.lObjCategoria = GestionClubCategoriaController.ListarCategoriasActivos();
+            this.lObjCategoria = GestionClubCategoriaController.ListarCategoriasActivos().Where(x => x.codCategoria.StartsWith("01")).ToList();
         }
         public void CargarProductoDesdeBD()
         {
@@ -226,6 +229,7 @@ namespace GestionClubView.Pedidos
                 foreach (GestionClubProductoDto oObjEn in this.lObjProductos)
                 {
                     string path = this.rutaProducto + (oObjEn.archivoProducto == string.Empty ? "no-foto.png" : oObjEn.archivoProducto);
+                    path = File.Exists(path) ? path : this.rutaCategoria + "no-foto.png";
                     this.imgProductos.Images.Add(oObjEn.idProducto.ToString(), Image.FromFile(path));
                 }
             }

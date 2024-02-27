@@ -21,6 +21,7 @@ namespace GestionClubView.Listas
         public enum Condicion
         {
             Productos,
+            ProductosComprobante
         }
         public Form eVentana = new Form();
         public GestionClubProductoDto eCli = new GestionClubProductoDto();
@@ -80,7 +81,7 @@ namespace GestionClubView.Listas
             switch (eCondicionLista)
             {
                 case Condicion.Productos: { this.eLisCli = GestionClubProductoController.ListarProductos(); break; }
-
+                case Condicion.ProductosComprobante: { this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => !x.idCategoria.StartsWith("01")).ToList(); break; }
             }
         }
 

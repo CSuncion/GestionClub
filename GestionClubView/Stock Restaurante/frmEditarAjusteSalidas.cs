@@ -126,6 +126,10 @@ namespace GestionClubView.Stock_Restaurante
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtGlosa, false, "Observación", "vvff", 200);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.Dtp(this.dtpFecDoc, "ffff");
             xLis.Add(xCtrl);
 
@@ -263,7 +267,7 @@ namespace GestionClubView.Stock_Restaurante
             obj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
             obj.idComprobanteDetalleAlmacen = this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idComprobanteAlmacen == Convert.ToInt32(this.txtIdComprobante.Text) && x.idProducto == Convert.ToInt32(this.txtIdProd.Text)).idComprobanteDetalleAlmacen;
             obj.estAlmacen = "01";
-            obj.obsOperacion = string.Empty;
+            obj.obsOperacion = this.txtGlosa.Text;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
             obj.desProducto = this.txtDesProd.Text;
@@ -348,7 +352,7 @@ namespace GestionClubView.Stock_Restaurante
             pObj.nroRuc = Convert.ToString(this.txtDocId.Text);
             pObj.razSocial = this.txtApeNom.Text;
             //pObj.nroIdentificacionCliente = this.txtDocId.Text;
-            pObj.Obsope = string.Empty;
+            pObj.Obsope = this.txtGlosa.Text;
             pObj.estAlmacen = "04";
             pObj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
         }
@@ -357,7 +361,7 @@ namespace GestionClubView.Stock_Restaurante
         {
             pObj.idComprobanteAlmacen = identity;
             pObj.estAlmacen = "04";
-            pObj.obsOperacion = string.Empty;
+            pObj.obsOperacion = this.txtGlosa.Text;
             pObj.codAlmacen = this.txtNroDoc.Text.Substring(4);
             pObj.anoProceso = DateTime.Now.Year.ToString();
             pObj.mesProceso = DateTime.Now.Month.ToString("00");

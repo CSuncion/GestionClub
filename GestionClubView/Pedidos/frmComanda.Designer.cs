@@ -33,14 +33,19 @@
             this.lvMesas = new System.Windows.Forms.ListView();
             this.imgMesas = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboAmbiente = new System.Windows.Forms.ComboBox();
             this.gbProductos = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lvCategorias = new System.Windows.Forms.ListView();
+            this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.btnAgregar = new System.Windows.Forms.Button();
             this.nudCantidadProducto = new System.Windows.Forms.NumericUpDown();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.lvProductos = new System.Windows.Forms.ListView();
             this.imgProductos = new System.Windows.Forms.ImageList(this.components);
-            this.cboAmbiente = new System.Windows.Forms.ComboBox();
             this.gbProductosSeleccionados = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblIdComanda = new System.Windows.Forms.Label();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,15 +56,10 @@
             this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbRealizarPedido = new System.Windows.Forms.ToolStripButton();
+            this.tsbCobrar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.lvCategorias = new System.Windows.Forms.ListView();
-            this.imgCategorias = new System.Windows.Forms.ImageList(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.cboMesero = new System.Windows.Forms.ComboBox();
-            this.tsbCobrar = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
@@ -101,6 +101,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS COMEDOR";
             // 
+            // cboAmbiente
+            // 
+            this.cboAmbiente.FormattingEnabled = true;
+            this.cboAmbiente.Location = new System.Drawing.Point(6, 21);
+            this.cboAmbiente.Name = "cboAmbiente";
+            this.cboAmbiente.Size = new System.Drawing.Size(301, 22);
+            this.cboAmbiente.TabIndex = 0;
+            this.cboAmbiente.SelectionChangeCommitted += new System.EventHandler(this.cboAmbiente_SelectionChangeCommitted);
+            // 
             // gbProductos
             // 
             this.gbProductos.Controls.Add(this.label2);
@@ -117,6 +126,44 @@
             this.gbProductos.TabIndex = 2;
             this.gbProductos.TabStop = false;
             this.gbProductos.Text = "BUSCAR PRODUCTOS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 14);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "CATEGORIAS:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 14);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "PRODUCTOS:";
+            // 
+            // lvCategorias
+            // 
+            this.lvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvCategorias.HideSelection = false;
+            this.lvCategorias.LargeImageList = this.imgCategorias;
+            this.lvCategorias.Location = new System.Drawing.Point(6, 35);
+            this.lvCategorias.Name = "lvCategorias";
+            this.lvCategorias.Size = new System.Drawing.Size(324, 86);
+            this.lvCategorias.SmallImageList = this.imgCategorias;
+            this.lvCategorias.TabIndex = 2;
+            this.lvCategorias.UseCompatibleStateImageBehavior = false;
+            this.lvCategorias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvCategorias_MouseClick);
+            // 
+            // imgCategorias
+            // 
+            this.imgCategorias.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgCategorias.ImageSize = new System.Drawing.Size(16, 16);
+            this.imgCategorias.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // btnAgregar
             // 
@@ -170,15 +217,6 @@
             this.imgProductos.ImageSize = new System.Drawing.Size(16, 16);
             this.imgProductos.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // cboAmbiente
-            // 
-            this.cboAmbiente.FormattingEnabled = true;
-            this.cboAmbiente.Location = new System.Drawing.Point(6, 21);
-            this.cboAmbiente.Name = "cboAmbiente";
-            this.cboAmbiente.Size = new System.Drawing.Size(301, 22);
-            this.cboAmbiente.TabIndex = 0;
-            this.cboAmbiente.SelectionChangeCommitted += new System.EventHandler(this.cboAmbiente_SelectionChangeCommitted);
-            // 
             // gbProductosSeleccionados
             // 
             this.gbProductosSeleccionados.Controls.Add(this.label3);
@@ -196,6 +234,15 @@
             this.gbProductosSeleccionados.TabIndex = 4;
             this.gbProductosSeleccionados.TabStop = false;
             this.gbProductosSeleccionados.Text = "PRODUCTO SELECCIONADOS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 413);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 14);
+            this.label3.TabIndex = 466;
+            this.label3.Text = "QUITAR PRODUCTO:";
             // 
             // lblIdComanda
             // 
@@ -302,6 +349,17 @@
             this.tsbRealizarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbRealizarPedido.Click += new System.EventHandler(this.tsbRealizarPedido_Click);
             // 
+            // tsbCobrar
+            // 
+            this.tsbCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbCobrar.Image = ((System.Drawing.Image)(resources.GetObject("tsbCobrar.Image")));
+            this.tsbCobrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCobrar.Name = "tsbCobrar";
+            this.tsbCobrar.Size = new System.Drawing.Size(46, 39);
+            this.tsbCobrar.Text = "Cobrar";
+            this.tsbCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbCobrar.Click += new System.EventHandler(this.tsbCobrar_Click);
+            // 
             // tsbSalir
             // 
             this.tsbSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,26 +370,6 @@
             this.tsbSalir.Text = "Salir";
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
-            // 
-            // lvCategorias
-            // 
-            this.lvCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lvCategorias.HideSelection = false;
-            this.lvCategorias.LargeImageList = this.imgCategorias;
-            this.lvCategorias.Location = new System.Drawing.Point(6, 35);
-            this.lvCategorias.Name = "lvCategorias";
-            this.lvCategorias.Size = new System.Drawing.Size(324, 86);
-            this.lvCategorias.SmallImageList = this.imgCategorias;
-            this.lvCategorias.TabIndex = 2;
-            this.lvCategorias.UseCompatibleStateImageBehavior = false;
-            this.lvCategorias.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvCategorias_MouseClick);
-            // 
-            // imgCategorias
-            // 
-            this.imgCategorias.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imgCategorias.ImageSize = new System.Drawing.Size(16, 16);
-            this.imgCategorias.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // groupBox4
             // 
@@ -351,44 +389,6 @@
             this.cboMesero.Name = "cboMesero";
             this.cboMesero.Size = new System.Drawing.Size(301, 22);
             this.cboMesero.TabIndex = 0;
-            // 
-            // tsbCobrar
-            // 
-            this.tsbCobrar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbCobrar.Image = ((System.Drawing.Image)(resources.GetObject("tsbCobrar.Image")));
-            this.tsbCobrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCobrar.Name = "tsbCobrar";
-            this.tsbCobrar.Size = new System.Drawing.Size(46, 39);
-            this.tsbCobrar.Text = "Cobrar";
-            this.tsbCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbCobrar.Click += new System.EventHandler(this.tsbCobrar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 14);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "PRODUCTOS:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 14);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "CATEGORIAS:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 413);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 14);
-            this.label3.TabIndex = 466;
-            this.label3.Text = "QUITAR PRODUCTO:";
             // 
             // frmComanda
             // 

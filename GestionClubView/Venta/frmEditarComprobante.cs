@@ -121,6 +121,10 @@ namespace GestionClubView.Venta
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtGlosa, false, "Observación", "vvff", 200);
+            xLis.Add(xCtrl);
+
+            xCtrl = new ControlEditar();
             xCtrl.TxtTodo(this.txtTipoCambio, true, "Tipo de Cambio", "ffff", 11);
             xLis.Add(xCtrl);
 
@@ -245,7 +249,7 @@ namespace GestionClubView.Venta
             win.eTituloVentana = "Productos";
             win.eCtrlValor = this.txtCodProd;
             win.eCtrlFoco = this.txtDesProd;
-            win.eCondicionLista = frmListarProducto.Condicion.Productos;
+            win.eCondicionLista = frmListarProducto.Condicion.ProductosComprobante;
             TabCtrl.InsertarVentana(this, win);
             win.NuevaVentana();
         }
@@ -292,7 +296,7 @@ namespace GestionClubView.Venta
             obj.idComprobante = 0;
             obj.idDetalleComprobante = 0;
             obj.estadoDetalleComprobante = "05";
-            obj.obsDetalleComprobante = string.Empty;
+            obj.obsDetalleComprobante = this.txtGlosa.Text;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
             obj.codProducto = this.txtCodProd.Text;
             obj.desProducto = this.txtDesProd.Text;
@@ -384,7 +388,7 @@ namespace GestionClubView.Venta
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
-            pObj.obsComprobante = string.Empty;
+            pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
             pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
         }
@@ -432,7 +436,7 @@ namespace GestionClubView.Venta
         {
             pObj.idComprobante = identity;
             pObj.estadoDetalleComprobante = "05";
-            pObj.obsDetalleComprobante = string.Empty;
+            pObj.obsDetalleComprobante = this.txtGlosa.Text;
             foreach (GestionClubDetalleComprobanteDto obj in this.lObjDetalle)
             {
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;
@@ -612,26 +616,48 @@ namespace GestionClubView.Venta
         public bool ValidarItemParaTicket()
         {
             bool result = false;
-            if (this.lObjDetalle.Count > 0)
-                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
-                {
-                    result = false;
-                }
-                else
-                {
-                    Mensaje.OperacionDenegada("Los productos solo debe contener aportes.", this.wFrm.eTitulo);
-                    result = true;
-                }
+            int cantidadItems = this.lObjDetalle.Count;
+            int cantidad = 0;
+            if (cantidadItems == 1)
+            {
+                return false;
+            }
 
+            if (cantidadItems > 1)
+            {
+                for (int i = 0; i < cantidadItems; i++)
+                {
+                    if (this.lObjDetalle.Exists(x => x.codProducto.StartsWith("02")))
+                    {
+                        if (!this.lObjDetalle[i].codProducto.StartsWith("02"))
+                        {
+                            cantidad += 1;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            if (cantidad > 0)
+            {
+                Mensaje.OperacionDenegada("Hay aportes en los items, validar bien lo agregado.", this.wFrm.eTitulo);
+                result = true;
+            }
             return result;
         }
         public bool ValidarComprobanteTicket()
         {
             bool result = false;
             if (this.lObjDetalle.Count > 0)
-                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("02")))
+                foreach (GestionClubDetalleComprobanteDto item in this.lObjDetalle)
                 {
-                    result = true;
+                    if (item.codProducto.Substring(0, 2) == "02")
+                    {
+                        result = true;
+                    }
                 }
 
             if (result)
@@ -956,7 +982,7 @@ namespace GestionClubView.Venta
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
             obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text.Substring(2, this.txtSerDoc.Text.Length - 1);
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }

@@ -82,6 +82,8 @@
             this.cboTipoDocCmp = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -164,7 +166,7 @@
             this.groupBox1.Controls.Add(this.txtDocId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 146);
+            this.groupBox1.Location = new System.Drawing.Point(10, 145);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(622, 48);
             this.groupBox1.TabIndex = 453;
@@ -262,6 +264,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtGlosa);
+            this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtNroDoc);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Controls.Add(this.label10);
@@ -273,7 +277,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(12, 217);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(620, 61);
+            this.groupBox4.Size = new System.Drawing.Size(620, 84);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
             // 
@@ -357,7 +361,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel3.Controls.Add(this.label2);
             this.panel3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(0, 287);
+            this.panel3.Location = new System.Drawing.Point(0, 307);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(645, 21);
             this.panel3.TabIndex = 459;
@@ -376,9 +380,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DgvComprobanteDeta);
-            this.groupBox2.Location = new System.Drawing.Point(12, 357);
+            this.groupBox2.Location = new System.Drawing.Point(12, 377);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(575, 135);
+            this.groupBox2.Size = new System.Drawing.Size(575, 115);
             this.groupBox2.TabIndex = 460;
             this.groupBox2.TabStop = false;
             // 
@@ -390,7 +394,7 @@
             this.DgvComprobanteDeta.GridColor = System.Drawing.Color.Silver;
             this.DgvComprobanteDeta.Location = new System.Drawing.Point(6, 19);
             this.DgvComprobanteDeta.Name = "DgvComprobanteDeta";
-            this.DgvComprobanteDeta.Size = new System.Drawing.Size(558, 104);
+            this.DgvComprobanteDeta.Size = new System.Drawing.Size(558, 89);
             this.DgvComprobanteDeta.TabIndex = 461;
             // 
             // groupBox3
@@ -403,7 +407,7 @@
             this.groupBox3.Controls.Add(this.txtCodProd);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(13, 310);
+            this.groupBox3.Location = new System.Drawing.Point(12, 329);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(619, 46);
             this.groupBox3.TabIndex = 461;
@@ -489,7 +493,7 @@
             this.btnQuitar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(593, 362);
+            this.btnQuitar.Location = new System.Drawing.Point(593, 396);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(42, 23);
             this.btnQuitar.TabIndex = 463;
@@ -550,7 +554,7 @@
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.cboTipoDocCmp);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 64);
+            this.groupBox5.Location = new System.Drawing.Point(12, 65);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(620, 59);
             this.groupBox5.TabIndex = 470;
@@ -662,6 +666,24 @@
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE COMPROBANTE";
             // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(51, 57);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(513, 21);
+            this.txtGlosa.TabIndex = 463;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 59);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 462;
+            this.label17.Text = "Glosa:";
+            // 
             // frmEditarNotaDeCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,5 +790,7 @@
         internal System.Windows.Forms.TextBox txtSerComprobante;
         internal System.Windows.Forms.DateTimePicker dtpFecCmp;
         private System.Windows.Forms.TextBox txtIdNC;
+        internal System.Windows.Forms.TextBox txtGlosa;
+        private System.Windows.Forms.Label label17;
     }
 }
