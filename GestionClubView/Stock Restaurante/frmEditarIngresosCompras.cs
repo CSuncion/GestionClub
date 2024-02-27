@@ -709,7 +709,7 @@ namespace GestionClubView.Stock_Restaurante
             int SPACE = 240;
 
 
-            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
+            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper(), fHead, sb, 100, 205);
             g.DrawString(iComEN.serFactura + " - " + iComEN.nroFactura, fBodySerNro, sb, 95, 220);
             g.DrawString("______________________________________________", fBody, sb, 10, 225);
 
