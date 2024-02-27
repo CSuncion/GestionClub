@@ -193,10 +193,13 @@ namespace GestionClubView.Venta
         }
         public void CargarRutas()
         {
-            rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
-            rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
-            rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
-            RutaQR = ConfigurationManager.AppSettings["RutaQR"].ToString();
+            //variables
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
+            rutaMesa = iParEN.FirstOrDefault().RutaImagenMesa; // ConfigurationManager.AppSettings["RutaMesa"].ToString();
+            rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
+            rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void ListarClientes()
         {
@@ -358,6 +361,7 @@ namespace GestionClubView.Venta
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.tipComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serComprobante = this.txtSerDoc.Text.Trim();
@@ -379,10 +383,10 @@ namespace GestionClubView.Venta
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
             pObj.impBruComprobante = !this.ValidarItemParaTicket() ? Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
-                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
             pObj.impIgvComprobante = !this.ValidarItemParaTicket() ? 0 :
-                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.18);
-            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * Convert.ToDecimal(0.12))
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
                 : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
@@ -802,6 +806,7 @@ namespace GestionClubView.Venta
         }
         void pd_PrintPage(object sender, PrintPageEventArgs e)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
 
@@ -903,9 +908,9 @@ namespace GestionClubView.Venta
 
 
             saltoLinea = saltoLinea + 15;
-            g.DrawString("IGV 18%:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("IGV " + Convert.ToInt32(iParEN.FirstOrDefault().PorcentajeIgv).ToString() + "%", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * Convert.ToDecimal(0.18), 2);
+            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * (iParEN.FirstOrDefault().PorcentajeIgv / 100), 2);
             e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 

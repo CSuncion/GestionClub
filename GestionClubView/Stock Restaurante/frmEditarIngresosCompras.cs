@@ -160,10 +160,13 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void CargarRutas()
         {
-            rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
-            rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
-            rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
-            RutaQR = ConfigurationManager.AppSettings["RutaQR"].ToString();
+            //variables
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
+            rutaMesa = iParEN.FirstOrDefault().RutaImagenMesa; // ConfigurationManager.AppSettings["RutaMesa"].ToString();
+            rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
+            rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void ListarClientes()
         {

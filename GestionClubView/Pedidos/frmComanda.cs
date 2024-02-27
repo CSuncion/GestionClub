@@ -95,9 +95,12 @@ namespace GestionClubView.Pedidos
         }
         public void CargarRutas()
         {
-            rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
-            rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
-            rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            //variables
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
+            rutaMesa = iParEN.FirstOrDefault().RutaImagenMesa; // ConfigurationManager.AppSettings["RutaMesa"].ToString();
+            rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
+            rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
         }
         public void CargarMeseros()
         {

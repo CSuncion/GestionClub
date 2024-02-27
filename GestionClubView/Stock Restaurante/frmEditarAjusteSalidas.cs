@@ -161,10 +161,13 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void CargarRutas()
         {
-            rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
-            rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
-            rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
-            RutaQR = ConfigurationManager.AppSettings["RutaQR"].ToString();
+            //variables
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
+            rutaMesa = iParEN.FirstOrDefault().RutaImagenMesa; // ConfigurationManager.AppSettings["RutaMesa"].ToString();
+            rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
+            rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void ListarClientes()
         {
@@ -331,6 +334,7 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void AsignarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.tipFactura = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serFactura = this.txtSerDoc.Text.Trim();
@@ -345,8 +349,8 @@ namespace GestionClubView.Stock_Restaurante
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
             pObj.tipoMovimiento = "25";
-            pObj.totVta = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
-            pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
+            pObj.totVta = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
             pObj.totBru = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto));
             //pObj.impD trComprobante = 0;
             pObj.nroRuc = Convert.ToString(this.txtDocId.Text);
@@ -680,6 +684,7 @@ namespace GestionClubView.Stock_Restaurante
         }
         void pd_PrintPage(object sender, PrintPageEventArgs e)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteAlmacenDto iComEN = new GestionClubComprobanteAlmacenDto();
             this.AsignarComprobanteAlmacen(iComEN);
 
@@ -707,7 +712,7 @@ namespace GestionClubView.Stock_Restaurante
             int SPACE = 240;
 
 
-            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper() + " ELECTRONICA", fHead, sb, 80, 205);
+            g.DrawString(Cmb.ObtenerTexto(this.cboTipDoc).ToUpper(), fHead, sb, 80, 205);
             g.DrawString(iComEN.serFactura + " - " + iComEN.nroFactura, fBodySerNro, sb, 95, 220);
             g.DrawString("______________________________________________", fBody, sb, 10, 225);
 
@@ -777,9 +782,9 @@ namespace GestionClubView.Stock_Restaurante
 
 
             saltoLinea = saltoLinea + 15;
-            g.DrawString("IGV 18%:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("IGV " + Convert.ToInt32(iParEN.FirstOrDefault().PorcentajeIgv).ToString() + "%", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * Convert.ToDecimal(0.18), 2);
+            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * (iParEN.FirstOrDefault().PorcentajeIgv / 100), 2);
             e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 

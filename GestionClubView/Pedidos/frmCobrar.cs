@@ -187,10 +187,13 @@ namespace GestionClubView.Pedidos
         }
         public void CargarRutas()
         {
-            rutaMesa = ConfigurationManager.AppSettings["RutaMesa"].ToString();
-            rutaCategoria = ConfigurationManager.AppSettings["RutaCategoria"].ToString();
-            rutaProducto = ConfigurationManager.AppSettings["RutaProducto"].ToString();
-            RutaQR = ConfigurationManager.AppSettings["RutaQR"].ToString();
+            //variables
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
+            rutaMesa = iParEN.FirstOrDefault().RutaImagenMesa; // ConfigurationManager.AppSettings["RutaMesa"].ToString();
+            rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
+            rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
+            RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void CargarDatosEmpresa()
         {
@@ -470,6 +473,7 @@ namespace GestionClubView.Pedidos
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.tipComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serComprobante = this.txtSerDoc.Text.Trim();
@@ -490,9 +494,9 @@ namespace GestionClubView.Pedidos
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
-            pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
-            pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * Convert.ToDecimal(0.18);
-            pObj.impNetComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lblTotal.Text)) * Convert.ToDecimal(0.12) : 0;
+            pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.impNetComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lblTotal.Text)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100) : 0;
             pObj.impDtrComprobante = 0;
             pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
@@ -578,6 +582,7 @@ namespace GestionClubView.Pedidos
         }
         void pd_PrintPage(object sender, PrintPageEventArgs e)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
 
@@ -690,9 +695,9 @@ namespace GestionClubView.Pedidos
 
 
             saltoLinea = saltoLinea + 15;
-            g.DrawString("IGV 18%:", fBody, sb, 90, SPACE + saltoLinea);
+            g.DrawString("IGV " + Convert.ToInt32(iParEN.FirstOrDefault().PorcentajeIgv).ToString() + "%", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * Convert.ToDecimal(0.18), 2);
+            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * (iParEN.FirstOrDefault().PorcentajeIgv / 100), 2);
             e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
