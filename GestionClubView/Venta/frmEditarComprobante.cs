@@ -295,6 +295,8 @@ namespace GestionClubView.Venta
 
             if (!this.ValidaCantidadMayorCero()) return;
 
+            if (!this.ValidaPrecioMayorCero()) return;
+
             GestionClubDetalleComprobanteDto obj = new GestionClubDetalleComprobanteDto();
             obj.idComprobante = 0;
             obj.idDetalleComprobante = 0;
@@ -547,6 +549,16 @@ namespace GestionClubView.Venta
             this.txtDeposito.Text = Formato.NumeroDecimal(this.txtDeposito.Text, 2);
             this.txtTransferencia.Text = Formato.NumeroDecimal(this.txtTransferencia.Text, 2);
             this.lblPendiente.Text = Formato.NumeroDecimal(Convert.ToDecimal(this.lblTotal.Text) - (Convert.ToDecimal(this.txtTransferencia.Text) + Convert.ToDecimal(this.txtDeposito.Text) + Convert.ToDecimal(this.txtEfectivo.Text)), 2);
+        }
+        public bool ValidaPrecioMayorCero()
+        {
+            bool result = true;
+            if (Convert.ToDecimal(this.txtPrecio.Text) <= 0)
+            {
+                Mensaje.OperacionDenegada("El precio debe ser mayor a 0.", this.eTitulo);
+                result = false;
+            }
+            return result;
         }
         public bool ValidaCantidadMayorCero()
         {
@@ -847,7 +859,12 @@ namespace GestionClubView.Venta
             g.DrawString("Cliente:", fBody, sb, 10, SPACE + 15);
             g.DrawString(iComEN.nombreRazSocialCliente, fBodyNoBold, sb, 90, SPACE + 15);
             g.DrawString("R.U.C./N°Doc.:", fBody, sb, 10, SPACE + 30);
-            g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+
+            if (Cmb.ObtenerValor(this.cboTipDoc).ToUpper() == "01")
+                g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+            else
+                g.DrawString(iComEN.nroIdentificacionCliente.Substring(iComEN.nroIdentificacionCliente.Length - 8, 8), fBodyNoBold, sb, 90, SPACE + 30);
+
             g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
             g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
 

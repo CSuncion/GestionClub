@@ -620,7 +620,12 @@ namespace GestionClubView.Pedidos
                 g.DrawString("Cliente:", fBody, sb, 10, SPACE + 15);
                 g.DrawString(iComEN.nombreRazSocialCliente, fBodyNoBold, sb, 90, SPACE + 15);
                 g.DrawString("R.U.C./N°Doc.:", fBody, sb, 10, SPACE + 30);
-                g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+
+                if (Cmb.ObtenerValor(this.cboTipDoc).ToUpper() == "01")
+                    g.DrawString(iComEN.nroIdentificacionCliente, fBodyNoBold, sb, 90, SPACE + 30);
+                else
+                    g.DrawString(iComEN.nroIdentificacionCliente.Substring(iComEN.nroIdentificacionCliente.Length - 8, 8), fBodyNoBold, sb, 90, SPACE + 30);
+
                 g.DrawString("Dirección:", fBody, sb, 10, SPACE + 45);
                 g.DrawString(string.Empty, fBodyNoBold, sb, 90, SPACE + 45);
             }

@@ -70,9 +70,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.imgProductosSel = new System.Windows.Forms.ImageList(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtTipoCambio = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
@@ -85,16 +85,16 @@
             this.cboTipDoc = new System.Windows.Forms.ComboBox();
             this.txtSerDoc = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -163,9 +163,9 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Location = new System.Drawing.Point(1, 180);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 22);
+            this.panel1.Size = new System.Drawing.Size(683, 22);
             this.panel1.TabIndex = 451;
             // 
             // groupBox1
@@ -176,7 +176,7 @@
             this.groupBox1.Controls.Add(this.txtDocId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 70);
+            this.groupBox1.Location = new System.Drawing.Point(13, 202);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(660, 49);
             this.groupBox1.TabIndex = 452;
@@ -537,27 +537,6 @@
             this.imgProductosSel.ImageSize = new System.Drawing.Size(16, 16);
             this.imgProductosSel.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1, 121);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(683, 23);
-            this.panel3.TabIndex = 456;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Khaki;
-            this.label2.Location = new System.Drawing.Point(2, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 19);
-            this.label2.TabIndex = 449;
-            this.label2.Text = "DATOS DE COMPROBANTE";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtGlosa);
@@ -575,11 +554,29 @@
             this.groupBox4.Controls.Add(this.txtSerDoc);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 150);
+            this.groupBox4.Location = new System.Drawing.Point(12, 74);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(660, 102);
-            this.groupBox4.TabIndex = 457;
+            this.groupBox4.TabIndex = 459;
             this.groupBox4.TabStop = false;
+            // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(72, 72);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(569, 21);
+            this.txtGlosa.TabIndex = 461;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(24, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 460;
+            this.label17.Text = "Glosa:";
             // 
             // txtTipoCambio
             // 
@@ -693,23 +690,26 @@
             this.label7.TabIndex = 446;
             this.label7.Text = "Fec.:";
             // 
-            // label17
+            // panel3
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(24, 74);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 14);
-            this.label17.TabIndex = 460;
-            this.label17.Text = "Glosa:";
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(1, 48);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(683, 23);
+            this.panel3.TabIndex = 458;
             // 
-            // txtGlosa
+            // label2
             // 
-            this.txtGlosa.Location = new System.Drawing.Point(72, 72);
-            this.txtGlosa.MaxLength = 8;
-            this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(569, 21);
-            this.txtGlosa.TabIndex = 461;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Khaki;
+            this.label2.Location = new System.Drawing.Point(2, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(189, 19);
+            this.label2.TabIndex = 449;
+            this.label2.Text = "DATOS DE COMPROBANTE";
             // 
             // frmCobrar
             // 
@@ -742,10 +742,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -787,27 +787,27 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lblPendiente;
         private System.Windows.Forms.Label lblIdMesa;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox4;
-        internal System.Windows.Forms.TextBox txtSerDoc;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cboTipDoc;
-        private System.Windows.Forms.DateTimePicker dtpFecDoc;
-        internal System.Windows.Forms.TextBox txtNroDoc;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cboMoneda;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblIdNroComanda;
         private System.Windows.Forms.Label lblIdMozo;
         private System.Windows.Forms.Label lblIdAmbiente;
         private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.TextBox txtTipoDoc;
-        internal System.Windows.Forms.TextBox txtTipoCambio;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox4;
         internal System.Windows.Forms.TextBox txtGlosa;
         private System.Windows.Forms.Label label17;
+        internal System.Windows.Forms.TextBox txtTipoCambio;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox cboMoneda;
+        private System.Windows.Forms.Label label14;
+        internal System.Windows.Forms.TextBox txtNroDoc;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtpFecDoc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cboTipDoc;
+        internal System.Windows.Forms.TextBox txtSerDoc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
     }
 }

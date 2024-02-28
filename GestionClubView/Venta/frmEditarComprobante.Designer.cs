@@ -44,6 +44,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtTipoCambio = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
@@ -82,8 +84,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtGlosa = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -108,7 +108,7 @@
             this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tsPrincipal.Name = "tsPrincipal";
-            this.tsPrincipal.Size = new System.Drawing.Size(730, 42);
+            this.tsPrincipal.Size = new System.Drawing.Size(732, 42);
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 450;
             // 
@@ -139,7 +139,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 45);
+            this.panel1.Location = new System.Drawing.Point(0, 169);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(730, 23);
             this.panel1.TabIndex = 452;
@@ -164,7 +164,7 @@
             this.groupBox1.Controls.Add(this.txtDocId);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 69);
+            this.groupBox1.Location = new System.Drawing.Point(10, 193);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(706, 49);
             this.groupBox1.TabIndex = 453;
@@ -234,7 +234,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 121);
+            this.panel2.Location = new System.Drawing.Point(0, 42);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(730, 26);
             this.panel2.TabIndex = 454;
@@ -267,11 +267,29 @@
             this.groupBox4.Controls.Add(this.txtSerDoc);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(12, 149);
+            this.groupBox4.Location = new System.Drawing.Point(12, 68);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(706, 98);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
+            // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(68, 71);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(545, 21);
+            this.txtGlosa.TabIndex = 463;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(20, 73);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 462;
+            this.label17.Text = "Glosa:";
             // 
             // txtTipoCambio
             // 
@@ -446,7 +464,6 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(431, 20);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(79, 21);
             this.txtPrecio.TabIndex = 452;
             // 
@@ -672,29 +689,11 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
-            // txtGlosa
-            // 
-            this.txtGlosa.Location = new System.Drawing.Point(68, 71);
-            this.txtGlosa.MaxLength = 8;
-            this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(545, 21);
-            this.txtGlosa.TabIndex = 463;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(20, 73);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 14);
-            this.label17.TabIndex = 462;
-            this.label17.Text = "Glosa:";
-            // 
             // frmEditarComprobante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 519);
+            this.ClientSize = new System.Drawing.Size(732, 519);
             this.ControlBox = false;
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.label5);
