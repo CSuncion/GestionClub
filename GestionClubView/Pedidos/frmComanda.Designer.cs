@@ -344,8 +344,8 @@
             this.tsbRealizarPedido.Image = ((System.Drawing.Image)(resources.GetObject("tsbRealizarPedido.Image")));
             this.tsbRealizarPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRealizarPedido.Name = "tsbRealizarPedido";
-            this.tsbRealizarPedido.Size = new System.Drawing.Size(97, 39);
-            this.tsbRealizarPedido.Text = "Realizar Pedido";
+            this.tsbRealizarPedido.Size = new System.Drawing.Size(102, 39);
+            this.tsbRealizarPedido.Text = "Grabar Comanda";
             this.tsbRealizarPedido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbRealizarPedido.Click += new System.EventHandler(this.tsbRealizarPedido_Click);
             // 
@@ -355,8 +355,8 @@
             this.tsbCobrar.Image = ((System.Drawing.Image)(resources.GetObject("tsbCobrar.Image")));
             this.tsbCobrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbCobrar.Name = "tsbCobrar";
-            this.tsbCobrar.Size = new System.Drawing.Size(46, 39);
-            this.tsbCobrar.Text = "Cobrar";
+            this.tsbCobrar.Size = new System.Drawing.Size(100, 39);
+            this.tsbCobrar.Text = "Cobrar Comanda";
             this.tsbCobrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbCobrar.Click += new System.EventHandler(this.tsbCobrar_Click);
             // 

@@ -47,7 +47,7 @@
         </Field>
         <Field Name="fecComprobante">
           <DataField>fecComprobante</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="codMoneda">
           <DataField>codMoneda</DataField>
@@ -181,10 +181,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
         <rd:SchemaPath>D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\DataSet\DsGestionClub.xsd</rd:SchemaPath>
-        <rd:TableName>isp_ListarComprobantesFacturaYBoletaPorFecha</rd:TableName>
+        <rd:TableName>isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>isp_ListarComprobantesFacturaYBoletaPorFechaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -333,6 +333,7 @@
                                   <Style>
                                     <FontFamily>CALIbri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>d</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

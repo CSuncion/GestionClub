@@ -391,8 +391,8 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
-                new SqlParameter("@fecDesde",Fecha.ObtenerDiaMesAno(fecDesde)),
-                new SqlParameter("@fecHasta",Fecha.ObtenerDiaMesAno(fecHasta)),
+                new SqlParameter("@fecDesde",Fecha.ObtenerAnoMesDia(fecDesde)),
+                new SqlParameter("@fecHasta",Fecha.ObtenerAnoMesDia(fecHasta)),
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta", lParameter);
         }

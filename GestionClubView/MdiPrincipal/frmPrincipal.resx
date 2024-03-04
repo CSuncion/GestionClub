@@ -849,7 +849,7 @@
   <data name="tsmTablaSistema.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAPVJREFUWEft00ELAUEABeCZ/S/O/oWL4rYUFxe5aB1EKRQXLlKc/Nn1Hpkm3sxB
+        vQAADr0BR/uQrQAAAPVJREFUWEft00ELAUEABeCZ/S/O/oWL4rYUFxe5aB1EKRQXLlKc/Nn1Hpkm3sxB
         ahxm6yvte+nVzhhrijqlPCAPyAP+Z4AxpgONiDHM394p7LCrspeOGtCE2NOGwfNn9BkCu7GnmQeoARXw
         HATYHZx05mPH7nXmVGrAEvph9ghXnfnYYVdlzlIN+NUnYCfpGcgDvh6wgF6YPcBFZz522FWZs1ADZtAN
         49V6XEOR+dw1FJkzUwPyGcgDtjAKs2e46czHDrsqczZqwARaYcUaf8zrJTIfO+yqzJmoAfkMJB9QMoiY
@@ -994,7 +994,7 @@
 </value>
   </data>
   <data name="tsmAperturaCaja.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
+    <value>207, 22</value>
   </data>
   <data name="tsmAperturaCaja.Text" xml:space="preserve">
     <value>Apertura Caja</value>
@@ -1015,7 +1015,7 @@
 </value>
   </data>
   <data name="tsmCierreCaja.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
+    <value>207, 22</value>
   </data>
   <data name="tsmCierreCaja.Text" xml:space="preserve">
     <value>Cierre Caja</value>
@@ -1037,10 +1037,10 @@
 </value>
   </data>
   <data name="tsmComprobante.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
+    <value>207, 22</value>
   </data>
   <data name="tsmComprobante.Text" xml:space="preserve">
-    <value>Comprobante</value>
+    <value>Comprobante (BV, FA, TK)</value>
   </data>
   <data name="tsmNotaCredito.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1058,7 +1058,7 @@
 </value>
   </data>
   <data name="tsmNotaCredito.Size" type="System.Drawing.Size, System.Drawing">
-    <value>159, 22</value>
+    <value>207, 22</value>
   </data>
   <data name="tsmNotaCredito.Text" xml:space="preserve">
     <value>Nota de Crédito</value>
@@ -1519,7 +1519,7 @@
   <data name="tsmEstadistica.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAU6xAAFOsQHcC4CYAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAU6vAAFOrwExltysAAAAB3RJ
         TUUH5gQVBioyPb+ySAAAA/xJREFUWEe9l1eoVUcUhq+9l9hbLKAkGg0EA2KvqG+al6DY0khEY6IBIRYU
         fBAVFQt27CUakajEmGhEjBVBEQRfrPggiL6I4LPft++Z45x99zk5Vy73h+/uObPXzKyZWbNm3wo0Dq7C
         I3hYSzjWFZgAyeCLoAf0TGFdqfo0abtiaLsQrkHiUS8LqEHuqSw3iqgLqj7E9TENIUuhbSzHdOzkz4cw
@@ -1867,10 +1867,10 @@
     <value>Magenta</value>
   </data>
   <data name="tsbComprobante.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 31</value>
+    <value>168, 31</value>
   </data>
   <data name="tsbComprobante.Text" xml:space="preserve">
-    <value>Comprobante</value>
+    <value>Comprobante (BV, FA, TK)</value>
   </data>
   <data name="tsAccDir.Location" type="System.Drawing.Point, System.Drawing">
     <value>193, 64</value>

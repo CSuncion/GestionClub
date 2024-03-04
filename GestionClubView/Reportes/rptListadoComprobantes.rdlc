@@ -333,6 +333,7 @@
                                   <Style>
                                     <FontFamily>CALIbri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>dd/MM/yyyy</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

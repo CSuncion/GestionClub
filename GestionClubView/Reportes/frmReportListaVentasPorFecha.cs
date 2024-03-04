@@ -1,4 +1,5 @@
-﻿using GestionClubController.Controller;
+﻿using Comun;
+using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
 using GestionClubView.MdiPrincipal;
@@ -46,8 +47,8 @@ namespace GestionClubView.Reportes
                 rds.Value = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFechaDesdeHasta(this.wFrm.dtpFecDesde.Value, this.wFrm.dtpFecHasta.Value);
 
                 ReportParameter[] rp = new ReportParameter[3];
-                rp[0] = new ReportParameter("fecDesde", this.wFrm.dtpFecDesde.Value.ToShortDateString());
-                rp[1] = new ReportParameter("fecHasta", this.wFrm.dtpFecHasta.Value.ToShortDateString());
+                rp[0] = new ReportParameter("fecDesde", Fecha.ObtenerDiaMesAno(this.wFrm.dtpFecDesde.Value));
+                rp[1] = new ReportParameter("fecHasta", Fecha.ObtenerDiaMesAno(this.wFrm.dtpFecHasta.Value));
                 rp[2] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
 
 
