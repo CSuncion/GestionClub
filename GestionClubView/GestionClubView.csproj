@@ -273,6 +273,12 @@
     <Compile Include="Reportes\frmReportEstadisticaVentaAnualMensual.Designer.cs">
       <DependentUpon>frmReportEstadisticaVentaAnualMensual.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmReportListaSistemaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportListaSistemaDetalle.Designer.cs">
+      <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmReportTopProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -607,6 +613,9 @@
     <EmbeddedResource Include="Reportes\frmReportEstadisticaVentaAnualMensual.resx">
       <DependentUpon>frmReportEstadisticaVentaAnualMensual.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportListaSistemaDetalle.resx">
+      <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportTopProductosVendidos.resx">
       <DependentUpon>frmReportTopProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -631,6 +640,7 @@
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensualPorTipo.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaClienteProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\rptListadoSistemaDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoTopProductosVentasAnual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoResumenVentasAnual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoComprobantesPorFecha.rdlc" />

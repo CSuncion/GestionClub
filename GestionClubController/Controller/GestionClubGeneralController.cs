@@ -140,5 +140,10 @@ namespace GestionClubController.Controller
             GestionClubGeneralRepository obj = new GestionClubGeneralRepository();
             return obj.ListarSistemaDetallePorCodigo(pObj);
         }
+        public static List<GestionClubSistemaDetalleDto> ListarSistemaDetalle()
+        {
+            GestionClubGeneralRepository obj = new GestionClubGeneralRepository();
+            return obj.ListarSistemaDetalle();
+        }
     }
 }

@@ -18,5 +18,6 @@ namespace GestionClubRepository.IRepository
         void ModificarSistemaDetalle(GestionClubSistemaDetalleDto pObj);
         void EliminarSistemaDetalle(GestionClubSistemaDetalleDto pObj);
         GestionClubSistemaDetalleDto ListarSistemaDetallePorCodigo(GestionClubSistemaDetalleDto pObj);
+        List<GestionClubSistemaDetalleDto> ListarSistemaDetalle();
     }
 }

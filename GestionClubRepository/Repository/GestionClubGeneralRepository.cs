@@ -259,5 +259,9 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoDetalle("isp_ListarSistemaDetallePorCodigo", lParameter);
         }
+        public List<GestionClubSistemaDetalleDto> ListarSistemaDetalle()
+        {
+            return this.ListarObjetosDetalle("isp_ListarSistemaDetalle");
+        }
     }
 }

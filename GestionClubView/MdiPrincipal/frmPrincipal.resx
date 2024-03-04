@@ -849,7 +849,7 @@
   <data name="tsmTablaSistema.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAPVJREFUWEft00ELAUEABeCZ/S/O/oWL4rYUFxe5aB1EKRQXLlKc/Nn1Hpkm3sxB
+        vwAADr8BOAVTJAAAAPVJREFUWEft00ELAUEABeCZ/S/O/oWL4rYUFxe5aB1EKRQXLlKc/Nn1Hpkm3sxB
         ahxm6yvte+nVzhhrijqlPCAPyAP+Z4AxpgONiDHM394p7LCrspeOGtCE2NOGwfNn9BkCu7GnmQeoARXw
         HATYHZx05mPH7nXmVGrAEvph9ghXnfnYYVdlzlIN+NUnYCfpGcgDvh6wgF6YPcBFZz522FWZs1ADZtAN
         49V6XEOR+dw1FJkzUwPyGcgDtjAKs2e46czHDrsqczZqwARaYcUaf8zrJTIfO+yqzJmoAfkMJB9QMoiY
@@ -1519,7 +1519,7 @@
   <data name="tsmEstadistica.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAU6yAAFOsgFxsqH1AAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAU6xAAFOsQHcC4CYAAAAB3RJ
         TUUH5gQVBioyPb+ySAAAA/xJREFUWEe9l1eoVUcUhq+9l9hbLKAkGg0EA2KvqG+al6DY0khEY6IBIRYU
         fBAVFQt27CUakajEmGhEjBVBEQRfrPggiL6I4LPft++Z45x99zk5Vy73h+/uObPXzKyZWbNm3wo0Dq7C
         I3hYSzjWFZgAyeCLoAf0TGFdqfo0abtiaLsQrkHiUS8LqEHuqSw3iqgLqj7E9TENIUuhbSzHdOzkz4cw

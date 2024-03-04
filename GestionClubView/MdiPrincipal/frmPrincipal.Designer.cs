@@ -460,6 +460,7 @@
             // 
             resources.ApplyResources(this.tsmReporteTablaSistema, "tsmReporteTablaSistema");
             this.tsmReporteTablaSistema.Name = "tsmReporteTablaSistema";
+            this.tsmReporteTablaSistema.Click += new System.EventHandler(this.tsmReporteTablaSistema_Click);
             // 
             // tsmListaClienteProveedores
             // 
