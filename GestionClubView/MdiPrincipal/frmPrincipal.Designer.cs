@@ -55,6 +55,7 @@
             this.tsmAmbientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTipoCambio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +95,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
@@ -306,6 +306,12 @@
             this.tsmTipoCambio.Name = "tsmTipoCambio";
             this.tsmTipoCambio.Click += new System.EventHandler(this.tsmTipoCambio_Click);
             // 
+            // tsmTablaSistema
+            // 
+            resources.ApplyResources(this.tsmTablaSistema, "tsmTablaSistema");
+            this.tsmTablaSistema.Name = "tsmTablaSistema";
+            this.tsmTablaSistema.Click += new System.EventHandler(this.tsmTablaSistema_Click);
+            // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -405,6 +411,7 @@
             // 
             resources.ApplyResources(this.tsmConsultaTablaSistema, "tsmConsultaTablaSistema");
             this.tsmConsultaTablaSistema.Name = "tsmConsultaTablaSistema";
+            this.tsmConsultaTablaSistema.Click += new System.EventHandler(this.tsmConsultaTablaSistema_Click);
             // 
             // tsmClientesProveedores
             // 
@@ -568,12 +575,6 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmTablaSistema
-            // 
-            resources.ApplyResources(this.tsmTablaSistema, "tsmTablaSistema");
-            this.tsmTablaSistema.Name = "tsmTablaSistema";
-            this.tsmTablaSistema.Click += new System.EventHandler(this.tsmTablaSistema_Click);
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -653,7 +654,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripMenuItem tsmConsultaTablaSistema;
         private System.Windows.Forms.ToolStripMenuItem tsmEstadistica;
         internal System.Windows.Forms.ToolStripMenuItem tsmClientesProveedores;
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasDiarias;
@@ -673,5 +673,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmAjustesIngresos;
         internal System.Windows.Forms.ToolStripMenuItem tsmAjustesSalidas;
         internal System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
+        internal System.Windows.Forms.ToolStripMenuItem tsmConsultaTablaSistema;
     }
 }

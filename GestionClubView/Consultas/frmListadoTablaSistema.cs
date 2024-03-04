@@ -17,7 +17,7 @@ using static WinControles.ControlesWindows.Dgv;
 
 namespace GestionClubView.Maestros
 {
-    public partial class frmTablaSistema : Form
+    public partial class frmListadoTablaSistema : Form
     {
         string eNombreColumna = GestionClubSistemaDetalleDto._codigo;
         string eEncabezadoColumna = "nroSistema";
@@ -26,7 +26,7 @@ namespace GestionClubView.Maestros
         int eIndiceFilaAnterior = 0;
         public string eTitulo = "Tabla Sistema";
         Dgv.Franja eFranjaDgvTablaSistema = Dgv.Franja.PorIndice;
-        public frmTablaSistema()
+        public frmListadoTablaSistema()
         {
             InitializeComponent();
         }
@@ -93,12 +93,12 @@ namespace GestionClubView.Maestros
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmTablaSistema, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmConsultaTablaSistema, null);
         }
         public void AccionAdicionar()
         {
             frmEditarTablaSistema win = new frmEditarTablaSistema();
-            win.wFrm = this;
+            //win.wFrm = this;
             win.eOperacion = Universal.Opera.Adicionar;
             this.eFranja = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
@@ -137,14 +137,14 @@ namespace GestionClubView.Maestros
 
             //preguntar si este usuario tiene acceso a la accion modificar
             //basta con ver si el boton modificar esta habilitado o no
-            if (tsbEditar.Enabled == false)
-            {
-                Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
-            }
-            else
-            {
-                this.AccionModificar();
-            }
+            //if (tsbEditar.Enabled == false)
+            //{
+            //    Mensaje.OperacionDenegada("Tu usuario no tiene permiso para modificar este registro", "Modificar");
+            //}
+            //else
+            //{
+            //    this.AccionModificar();
+            //}
         }
         public void AccionModificar()
         {
@@ -154,7 +154,7 @@ namespace GestionClubView.Maestros
 
             //si existe
             frmEditarTablaSistema win = new frmEditarTablaSistema();
-            win.wFrm = this;
+            //win.wFrm = this;
             win.eOperacion = Universal.Opera.Modificar;
             this.eFranjaDgvTablaSistema = Dgv.Franja.PorValor;
             TabCtrl.InsertarVentana(this, win);
@@ -168,7 +168,7 @@ namespace GestionClubView.Maestros
 
             //si existe
             frmEditarTablaSistema win = new frmEditarTablaSistema();
-            win.wFrm = this;
+            //win.wFrm = this;
             win.eOperacion = Universal.Opera.Eliminar;
             this.eFranjaDgvTablaSistema = Dgv.Franja.PorIndice;
             TabCtrl.InsertarVentana(this, win);
@@ -183,7 +183,7 @@ namespace GestionClubView.Maestros
 
             //si existe
             frmEditarTablaSistema win = new frmEditarTablaSistema();
-            win.wFrm = this;
+            //win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaVisualizar(iPerEN);

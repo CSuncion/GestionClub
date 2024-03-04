@@ -43,6 +43,9 @@ namespace GestionClubView.Pedidos
 
         public void NewWindow()
         {
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+
             if (!this.ValidaAperturaCaja())
             {
                 this.Cerrar();

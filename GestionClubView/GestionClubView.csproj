@@ -129,6 +129,12 @@
     <Compile Include="Consultas\frmListadoDeComprobante.Designer.cs">
       <DependentUpon>frmListadoDeComprobante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\frmListadoTablaSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmListadoTablaSistema.Designer.cs">
+      <DependentUpon>frmListadoTablaSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listas\frmListarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     </Compile>
     <Compile Include="Listas\frmListarClientes.Designer.cs">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maestros\frmEditarTablaSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maestros\frmEditarTablaSistema.Designer.cs">
+      <DependentUpon>frmEditarTablaSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Maestros\frmEditarParametro.cs">
       <SubType>Form</SubType>
@@ -523,11 +535,17 @@
     <EmbeddedResource Include="Consultas\frmListadoDeComprobante.resx">
       <DependentUpon>frmListadoDeComprobante.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmListadoTablaSistema.resx">
+      <DependentUpon>frmListadoTablaSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarProducto.resx">
       <DependentUpon>frmListarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarClientes.resx">
       <DependentUpon>frmListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maestros\frmEditarTablaSistema.resx">
+      <DependentUpon>frmEditarTablaSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Maestros\frmEditarParametro.resx">
       <DependentUpon>frmEditarParametro.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Maestros
 {
-    partial class frmTablaSistema
+    partial class frmListadoTablaSistema
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTablaSistema));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoTablaSistema));
             this.DgvSistema = new System.Windows.Forms.DataGridView();
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsbAdicionar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
-            this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.DgvSistemaDetalle = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DgvSistema)).BeginInit();
@@ -62,10 +58,6 @@
             this.tsPrincipal.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAdicionar,
-            this.tsbEditar,
-            this.tsbEliminar,
-            this.tsbVisualizar,
             this.tsbSalir});
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tsPrincipal.Name = "tsPrincipal";
@@ -74,46 +66,6 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 115;
             this.tsPrincipal.Text = "toolStrip1";
-            // 
-            // tsbAdicionar
-            // 
-            this.tsbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdicionar.Image")));
-            this.tsbAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdicionar.Name = "tsbAdicionar";
-            this.tsbAdicionar.Size = new System.Drawing.Size(63, 34);
-            this.tsbAdicionar.Text = "Adicionar";
-            this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Size = new System.Drawing.Size(43, 34);
-            this.tsbEditar.Text = "Editar";
-            this.tsbEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbEditar.Click += new System.EventHandler(this.tsbEditar_Click);
-            // 
-            // tsbEliminar
-            // 
-            this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
-            this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEliminar.Name = "tsbEliminar";
-            this.tsbEliminar.Size = new System.Drawing.Size(57, 34);
-            this.tsbEliminar.Text = "Eliminar";
-            this.tsbEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // tsbVisualizar
-            // 
-            this.tsbVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbVisualizar.Image")));
-            this.tsbVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbVisualizar.Name = "tsbVisualizar";
-            this.tsbVisualizar.Size = new System.Drawing.Size(66, 34);
-            this.tsbVisualizar.Text = "Visualizar";
-            this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.tsbVisualizar.Click += new System.EventHandler(this.tsbVisualizar_Click);
             // 
             // tsbSalir
             // 
@@ -140,7 +92,7 @@
             this.DgvSistemaDetalle.TabIndex = 116;
             this.DgvSistemaDetalle.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvSistemaDetalle_CellMouseDoubleClick);
             // 
-            // frmTablaSistema
+            // frmListadoTablaSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +101,7 @@
             this.Controls.Add(this.tsPrincipal);
             this.Controls.Add(this.DgvSistema);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmTablaSistema";
+            this.Name = "frmListadoTablaSistema";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tabla Sistema";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -164,10 +116,6 @@
 
         #endregion
         private System.Windows.Forms.ToolStrip tsPrincipal;
-        private System.Windows.Forms.ToolStripButton tsbAdicionar;
-        private System.Windows.Forms.ToolStripButton tsbEditar;
-        private System.Windows.Forms.ToolStripButton tsbEliminar;
-        private System.Windows.Forms.ToolStripButton tsbVisualizar;
         private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.DataGridView DgvSistema;
         internal System.Windows.Forms.DataGridView DgvSistemaDetalle;
