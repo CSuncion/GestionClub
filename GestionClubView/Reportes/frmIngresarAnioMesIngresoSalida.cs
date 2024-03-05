@@ -17,9 +17,9 @@ using GestionClubUtil.Enum;
 
 namespace GestionClubView.Reportes
 {
-    public partial class frmIngresarAnioMesAlmacen : Form
+    public partial class frmIngresarAnioMesIngresoSalida : Form
     {
-        public frmIngresarAnioMesAlmacen()
+        public frmIngresarAnioMesIngresoSalida()
         {
             InitializeComponent();
         }
@@ -49,7 +49,7 @@ namespace GestionClubView.Reportes
                 return;
             }
 
-            frmReportResumenAnualAlmacen win = new frmReportResumenAnualAlmacen();
+            frmReportResumenAnualIngresoSalida win = new frmReportResumenAnualIngresoSalida();
             win.wFrm = this;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaVisualizar();
@@ -57,7 +57,7 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmResumenAlmacen, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmCuadroSalidaIngreso, null);
         }
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {

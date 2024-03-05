@@ -1,6 +1,6 @@
 ﻿namespace GestionClubView.Reportes
 {
-    partial class frmIngresarAnioMesAlmacen
+    partial class frmIngresarAnioMesIngresoSalida
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesAlmacen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesIngresoSalida));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -150,7 +150,7 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Año:";
             // 
-            // frmIngresarAnioMesAlmacen
+            // frmIngresarAnioMesIngresoSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,8 +159,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmIngresarAnioMesAlmacen";
-            this.Text = "Resumen Almacen";
+            this.Name = "frmIngresarAnioMesIngresoSalida";
+            this.Text = "Resumen Ingreso y Salida";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();

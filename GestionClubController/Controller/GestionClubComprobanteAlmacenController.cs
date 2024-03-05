@@ -194,5 +194,10 @@ namespace GestionClubController.Controller
             GestionClubComprobanteAlmacenRepository objRepo = new GestionClubComprobanteAlmacenRepository();
             return objRepo.ResumenAnioMesAlmacen(anio, mes);
         }
+        public static List<GestionClubComprobanteAlmacenDto> CuadroAnualIngresoYSalida(string anio, string mes)
+        {
+            GestionClubComprobanteAlmacenRepository objRepo = new GestionClubComprobanteAlmacenRepository();
+            return objRepo.CuadroAnualIngresoYSalida(anio, mes);
+        }
     }
 }

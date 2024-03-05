@@ -375,5 +375,14 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_ResumenAnioMesAlmacen", lParameter);
         }
+        public List<GestionClubComprobanteAlmacenDto> CuadroAnualIngresoYSalida(string anio, string mes)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@anio",anio),
+                new SqlParameter("@mes",mes)
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_CuadroAnualIngresoYSalida", lParameter);
+        }
     }
 }

@@ -86,6 +86,7 @@
             this.tsmVentasPorCategoriasProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmResumenDeVentasAnual = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTopProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformatica = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRespaldoBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCuadroSalidaIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -446,7 +447,8 @@
             this.tsmListaClienteProveedores,
             this.tsmEstadistica,
             this.tsmTopProductos,
-            this.tsmResumenAlmacen});
+            this.tsmResumenAlmacen,
+            this.tsmCuadroSalidaIngreso});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             // 
@@ -520,6 +522,12 @@
             this.tsmTopProductos.Name = "tsmTopProductos";
             this.tsmTopProductos.Click += new System.EventHandler(this.tsmTopProductos_Click);
             // 
+            // tsmResumenAlmacen
+            // 
+            resources.ApplyResources(this.tsmResumenAlmacen, "tsmResumenAlmacen");
+            this.tsmResumenAlmacen.Name = "tsmResumenAlmacen";
+            this.tsmResumenAlmacen.Click += new System.EventHandler(this.tsmResumenAlmacen_Click);
+            // 
             // tsmInformatica
             // 
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -588,11 +596,11 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmResumenAlmacen
+            // tsmCuadroSalidaIngreso
             // 
-            resources.ApplyResources(this.tsmResumenAlmacen, "tsmResumenAlmacen");
-            this.tsmResumenAlmacen.Name = "tsmResumenAlmacen";
-            this.tsmResumenAlmacen.Click += new System.EventHandler(this.tsmResumenAlmacen_Click);
+            resources.ApplyResources(this.tsmCuadroSalidaIngreso, "tsmCuadroSalidaIngreso");
+            this.tsmCuadroSalidaIngreso.Name = "tsmCuadroSalidaIngreso";
+            this.tsmCuadroSalidaIngreso.Click += new System.EventHandler(this.tsmCuadroSalidaIngreso_Click);
             // 
             // frmPrincipal
             // 
@@ -696,5 +704,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmConsultaTablaSistema;
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.ToolStripMenuItem tsmResumenAlmacen;
+        internal System.Windows.Forms.ToolStripMenuItem tsmCuadroSalidaIngreso;
     }
 }

@@ -5903,7 +5903,7 @@
   <data name="tsmResumenAlmacen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAC30lE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAC30lE
         QVRYR73X12sUURSA8bWLDWJHjSUotmDviEaiiIjtRSyJGrGhomLvXWOJig1siERf9MknH3wR/zO/D2Zg
         GGbcaeyBH0l2d+6euXPuuTe1lOiHwRVzzEzRF0dwD9cTXMPVFL6XdI1jOaZj143+uIV5aMKoCP9eiteB
         l4E3eAvfS7pmPhzTseuGH/JudqEL+yM64d18xVH0Bo7hO3zPz0SvOYCtuIJcCXyDA6/Fuoj16ME2rA74
@@ -5924,6 +5924,37 @@
   </data>
   <data name="tsmResumenAlmacen.Text" xml:space="preserve">
     <value>Resumen Almacen </value>
+  </data>
+  <data name="tsmCuadroSalidaIngreso.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAAgAAAAIAF4TTcwAAAER0lE
+        QVRoQ+2aS6hVVRjHjymYjzTfRZoQDUQFxRcKhhZIOBEbCU0cSQ/yrYgDHzgSKRXDgQaZDjQHTqKHRVkg
+        YlYOfCGE+KjAdKCplFJa/n6Hu2Pddfc+x9vde599oT/84J61X/+zz1rf+ta3bi0H9YMpsAw+hLPwG/wT
+        Ydt5WAqPQUvVE8bBWvgMfoUHEJuOOQ4ToWVKjG+FXyDNZBbfgde2TMNhA3TWuHwPzcw/DiOgD/SwIS95
+        s1lwBLK6yd9gH/ct7wG71uvwBrwJjpFmmgBe73Peh+3geJkHk2EkON46NX56wQLIeut/gA9dD9PhSfiv
+        A3Q0XIb4GX/CTbgAR+EDmARNpfmVcAvim/4Fvqn5MBjy0BPgII+fFXIfdsJAaCjNr4A7EN/kIrwFeRlP
+        ZIA4CPHzEnxpb0N/aCq7TRzL7efHYCoUpS0QPjPkIxgATeWA/RniG/h2RkGReg3i5yZcgZnQUIbKLyG+
+        WPNPQ9F6Ge5B/PyEz2EYpMpwaZy3q4QX2W2ehTI0Hq6Dz/WLXGv7O0FvekydJ7w47joO2GlQlnxRdhXn
+        G2f7F0EPoaefQK/tZOz2gvBEQ9ZiKFOD4FvYBkm0MUnUS+hNr+3mG6f5+O0b5/MOlc3UG14BJ8REQ+Br
+        CL3ptV1q4tQfnuAM6yRVFfml7kLo0TSjLvMLU+Lw4Ako++03kr+CKUvo8RPoC/VE6yqEB9dB1WT0CT3q
+        uZ4kxoPExMnErGqaAWF2oOd6NzrQ1pDgTxUOoqrICOW6IvS6H2qngwYxXc11QZGT9LQPQq96r90IGsSI
+        VFW9C6FXvbdrEFdRVdUaiP12aKjyF9Bb7LdDw/9foECldqFuP4jPBA3S7cJoPJH9AE4aVZO5md5Cr/WJ
+        zOm4O6QSeopTiSWQmsxZqKqa9BR6/DeZM53+FMKD5hxDIZGFpEcqaRQkvcTd52Oop9MqbUHjIkKZ2FkN
+        m1v/1Bo1XNCotCXlV/A87AIX2dZsWqFHWlK6QH4HwpMsa5wCi6t+btX8YH02XtTrtUMR2VKFJYvwxJDd
+        ULYs6VyC0IceU/canCgc6Vl7AF+AmxBlyRqRRbXQQ8PClhoDaTV6OQeWHsvQM3AIYg+HIbO0aLSxm8T9
+        LcGNvLFQtCwgp5l34L4AqXKafg+yzIthbA4UKUv3dpu4PusMbMk/VVbDNsHvEF8YswiKkC9wOcQDVm6D
+        lRM3XVLlAeP9bFgIG2EvfAM/gj+dN/FmmyFPGeOtAFrGdAcmNu/2VkPzWTLGOk27J/AcWJN5FV6Crsj7
+        OtYMjxbPTFmc9WPj4sai3abT5rsidw9ddOyAVeBWq6xua/OX1bQZb1Z3NYwbst2NKXVd4j5vXHjqLL51
+        u3BmqCxK/v/DSUgz1Qx/CY1b83eGdbeyVD0FprZp5rIwXDuvWGF2kLbEeCLTCwelRvx3G9fY9vHYtG0e
+        8xzPdTHiWqQLqtUeAn1dPSzNhHUEAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsmCuadroSalidaIngreso.Size" type="System.Drawing.Size, System.Drawing">
+    <value>242, 22</value>
+  </data>
+  <data name="tsmCuadroSalidaIngreso.Text" xml:space="preserve">
+    <value>Cuadro Ingreso y Salida</value>
   </data>
   <data name="reportesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6520,6 +6551,12 @@
   <data name="&gt;&gt;tsmTopProductos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tsmResumenAlmacen.Name" xml:space="preserve">
+    <value>tsmResumenAlmacen</value>
+  </data>
+  <data name="&gt;&gt;tsmResumenAlmacen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tsmInformatica.Name" xml:space="preserve">
     <value>tsmInformatica</value>
   </data>
@@ -6574,10 +6611,10 @@
   <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tsmResumenAlmacen.Name" xml:space="preserve">
-    <value>tsmResumenAlmacen</value>
+  <data name="&gt;&gt;tsmCuadroSalidaIngreso.Name" xml:space="preserve">
+    <value>tsmCuadroSalidaIngreso</value>
   </data>
-  <data name="&gt;&gt;tsmResumenAlmacen.Type" xml:space="preserve">
+  <data name="&gt;&gt;tsmCuadroSalidaIngreso.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

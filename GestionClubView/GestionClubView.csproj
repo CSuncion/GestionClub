@@ -225,6 +225,12 @@
     <Compile Include="Reportes\frmEscogerCategoriaListaPrecios.Designer.cs">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesIngresoSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesIngresoSalida.Designer.cs">
+      <DependentUpon>frmIngresarAnioMesIngresoSalida.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmIngresarAnioMesAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,12 @@
     </Compile>
     <Compile Include="Reportes\frmReportListaSistemaDetalle.Designer.cs">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportResumenAnualIngresoSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportResumenAnualIngresoSalida.Designer.cs">
+      <DependentUpon>frmReportResumenAnualIngresoSalida.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportResumenAnualAlmacen.cs">
       <SubType>Form</SubType>
@@ -607,6 +619,9 @@
     <EmbeddedResource Include="Reportes\frmEscogerCategoriaListaPrecios.resx">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmIngresarAnioMesIngresoSalida.resx">
+      <DependentUpon>frmIngresarAnioMesIngresoSalida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioMesAlmacen.resx">
       <DependentUpon>frmIngresarAnioMesAlmacen.cs</DependentUpon>
     </EmbeddedResource>
@@ -637,6 +652,9 @@
     <EmbeddedResource Include="Reportes\frmReportListaSistemaDetalle.resx">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportResumenAnualIngresoSalida.resx">
+      <DependentUpon>frmReportResumenAnualIngresoSalida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportResumenAnualAlmacen.resx">
       <DependentUpon>frmReportResumenAnualAlmacen.cs</DependentUpon>
     </EmbeddedResource>
@@ -664,6 +682,7 @@
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensualPorTipo.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaClienteProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\rptListadoCuadroAnioMesAlmacen.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoResumenAnioMesAlmacen.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoSistemaDetalle.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoTopProductosVentasAnual.rdlc" />
