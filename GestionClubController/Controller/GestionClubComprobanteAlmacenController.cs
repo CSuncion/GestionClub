@@ -189,5 +189,10 @@ namespace GestionClubController.Controller
             GestionClubComprobanteDetalleAlmacenDto iPerEN = new GestionClubComprobanteDetalleAlmacenDto();
             return iPerEN;
         }
+        public static List<GestionClubComprobanteAlmacenDto> ResumenAnioMesAlmacen(string anio, string mes)
+        {
+            GestionClubComprobanteAlmacenRepository objRepo = new GestionClubComprobanteAlmacenRepository();
+            return objRepo.ResumenAnioMesAlmacen(anio, mes);
+        }
     }
 }

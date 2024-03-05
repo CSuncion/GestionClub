@@ -38,6 +38,8 @@ namespace GestionClubModel.ModelDto
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
+        public const string _desProducto = "desProducto";
+        public const string _cantidad = "cantidad";
 
         public string claveObjeto { get; set; }
         public int idComprobanteAlmacen { get; set; }
@@ -68,6 +70,8 @@ namespace GestionClubModel.ModelDto
         public DateTime fechaAgrega { get; set; } = DateTime.Now;
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; } = DateTime.Now;
+        public string desProducto { get; set; } = string.Empty;
+        public int cantidad { get; set; } = 0;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

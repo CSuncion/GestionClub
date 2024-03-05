@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlLogo = new System.Windows.Forms.Panel();
@@ -95,7 +96,9 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
+            this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -106,10 +109,17 @@
             // 
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.label3);
             this.pnlMenu.Controls.Add(this.label2);
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Name = "pnlMenu";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // label3
             // 
@@ -117,6 +127,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Purple;
             this.label3.Name = "label3";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -434,7 +445,8 @@
             this.tsmReporteTablaSistema,
             this.tsmListaClienteProveedores,
             this.tsmEstadistica,
-            this.tsmTopProductos});
+            this.tsmTopProductos,
+            this.tsmResumenAlmacen});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             // 
@@ -576,6 +588,12 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
+            // tsmResumenAlmacen
+            // 
+            resources.ApplyResources(this.tsmResumenAlmacen, "tsmResumenAlmacen");
+            this.tsmResumenAlmacen.Name = "tsmResumenAlmacen";
+            this.tsmResumenAlmacen.Click += new System.EventHandler(this.tsmResumenAlmacen_Click);
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -596,6 +614,7 @@
             this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ssStatusBar.ResumeLayout(false);
             this.ssStatusBar.PerformLayout();
             this.pnlBarTit.ResumeLayout(false);
@@ -675,5 +694,7 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmAjustesSalidas;
         internal System.Windows.Forms.ToolStripMenuItem tsmTablaSistema;
         internal System.Windows.Forms.ToolStripMenuItem tsmConsultaTablaSistema;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.ToolStripMenuItem tsmResumenAlmacen;
     }
 }

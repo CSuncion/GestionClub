@@ -391,6 +391,7 @@ namespace GestionClubView.Venta
             pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
                 : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
+            pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;

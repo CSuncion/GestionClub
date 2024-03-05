@@ -351,6 +351,7 @@ namespace GestionClubView.Stock_Restaurante
             pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
             pObj.totBru = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto));
             //pObj.impD trComprobante = 0;
+            pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.nroRuc = Convert.ToString(this.txtDocId.Text);
             pObj.razSocial = this.txtApeNom.Text;
             //pObj.nroIdentificacionCliente = this.txtDocId.Text;

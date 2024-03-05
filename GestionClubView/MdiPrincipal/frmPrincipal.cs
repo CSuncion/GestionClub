@@ -369,6 +369,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmReporteTablaSistema, null, 0, 0);
             win.VentanaVisualizar();
         }
+        public void InstanciarReporteResumenAlmacen()
+        {
+            frmIngresarAnioMesAlmacen win = new frmIngresarAnioMesAlmacen();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmResumenAlmacen, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarUsuarioMozo()
         {
             frmMozosUsuarios win = new frmMozosUsuarios();
@@ -709,6 +715,16 @@ namespace GestionClubView.MdiPrincipal
         private void tsmReporteTablaSistema_Click(object sender, EventArgs e)
         {
             this.InstanciarReporteListadoTablaSistema();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmResumenAlmacen_Click(object sender, EventArgs e)
+        {
+            this.InstanciarReporteResumenAlmacen();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

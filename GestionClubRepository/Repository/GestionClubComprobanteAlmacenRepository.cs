@@ -51,6 +51,8 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaModifica]);
+            xObjEnc.desProducto = Convert.ToString(iDr[GestionClubComprobanteAlmacenDto._desProducto]);
+            xObjEnc.cantidad = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._cantidad]);
             xObjEnc.claveObjeto = xObjEnc.idComprobanteAlmacen.ToString();
             return xObjEnc;
         }
@@ -363,6 +365,15 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@idComprobanteAlmacen",objEn.idComprobanteAlmacen)
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarComprobanteDetalleAlmacenPorComprobanteAlmacen", lParameter);
+        }
+        public List<GestionClubComprobanteAlmacenDto> ResumenAnioMesAlmacen(string anio, string mes)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                new SqlParameter("@anio",anio),
+                new SqlParameter("@mes",mes)
+                };
+            return this.BuscarObjetoPorParametroCabecera("isp_ResumenAnioMesAlmacen", lParameter);
         }
     }
 }
