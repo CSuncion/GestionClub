@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -66,6 +67,16 @@ namespace GestionClubView.Pedidos
                 this.txtTipoDoc.Text = string.Empty;
             }
         }
+        //public void VentanaVisualizar(GestionClubComprobanteDto pObj)
+        //{
+        //    this.InicializaVentana();
+        //    this.MostrarProductosPedidosEnComandaBD(pObj);
+        //    this.LLenarComprobanteDetaDeBaseDatos(pObj);
+        //    this.MostrarComprobanteDeta();
+        //    this.MostrarTipoCambio();
+        //    eMas.AccionHabilitarControles(3);
+        //    this.tsbGrabar.Enabled = false;
+        //}
         public void GenerarCorrelativo()
         {
             this.txtSerDoc.Text = string.Empty;
@@ -246,7 +257,9 @@ namespace GestionClubView.Pedidos
             foreach (GestionClubDetalleComandaDto detalle in this.lObjDetalle)
             {
                 this.imgProductosSel.ImageSize = new Size(30, 30);
-                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(this.rutaProducto + detalle.archivoProducto));
+                string path = this.rutaProducto + (detalle.archivoProducto == string.Empty ? "no-foto.png" : detalle.archivoProducto);
+                path = File.Exists(path) ? path : this.rutaCategoria + "no-foto.png";
+                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(path));
                 this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
@@ -338,7 +351,14 @@ namespace GestionClubView.Pedidos
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
 
-            this.ImprimirComprobante();
+            bool detallado = false;
+            if (Mensaje.DeseasRealizarOperacion("¿Desea comprobante detallado?", this.eTitulo))
+                detallado = true;
+            else
+                detallado = false;
+
+
+            this.ImprimirComprobante(detallado, 3);
 
             this.wCom.cargarMesas();
             this.wCom.LimpiarLvSeleccionados();
@@ -565,24 +585,38 @@ namespace GestionClubView.Pedidos
             GestionClubComandaController.ModificarSituacionComanda(objCab);
         }
 
-        public void ImprimirComprobante()
+        public void ImprimirComprobante(bool detallado, int cantidad)
         {
-            PrintDocument printDocument = new PrintDocument();
-            PaperSize ps = new PaperSize("", 420, 840);
-            if (Mensaje.DeseasRealizarOperacion("¿Desea comprobante detallado?", this.eTitulo))
-                printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageDetallado);
-            else
-                printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageConsumo);
 
-
-            printDocument.PrintController = new StandardPrintController();
-            printDocument.DefaultPageSettings.Margins.Left = 0;
-            printDocument.DefaultPageSettings.Margins.Right = 0;
-            printDocument.DefaultPageSettings.Margins.Top = 0;
-            printDocument.DefaultPageSettings.Margins.Bottom = 0;
-            printDocument.DefaultPageSettings.PaperSize = ps;
-            printDocument.Print();
-
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (detallado)
+                {
+                    PrintDocument printDocument = new PrintDocument();
+                    PaperSize ps = new PaperSize("", 420, 840);
+                    printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageDetallado);
+                    printDocument.PrintController = new StandardPrintController();
+                    printDocument.DefaultPageSettings.Margins.Left = 0;
+                    printDocument.DefaultPageSettings.Margins.Right = 0;
+                    printDocument.DefaultPageSettings.Margins.Top = 0;
+                    printDocument.DefaultPageSettings.Margins.Bottom = 0;
+                    printDocument.DefaultPageSettings.PaperSize = ps;
+                    printDocument.Print();
+                }
+                else
+                {
+                    PrintDocument printDocument = new PrintDocument();
+                    PaperSize ps = new PaperSize("", 420, 840);
+                    printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageConsumo);
+                    printDocument.PrintController = new StandardPrintController();
+                    printDocument.DefaultPageSettings.Margins.Left = 0;
+                    printDocument.DefaultPageSettings.Margins.Right = 0;
+                    printDocument.DefaultPageSettings.Margins.Top = 0;
+                    printDocument.DefaultPageSettings.Margins.Bottom = 0;
+                    printDocument.DefaultPageSettings.PaperSize = ps;
+                    printDocument.Print();
+                }
+            }
             this.presionTicket = false;
         }
         void pd_PrintPageConsumo(object sender, PrintPageEventArgs e)
@@ -593,7 +627,7 @@ namespace GestionClubView.Pedidos
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
@@ -742,13 +776,15 @@ namespace GestionClubView.Pedidos
                 string tipoDoc = this.txtTipoDoc.Text == "01" ? "DNI" : "RUC";
 
                 string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + "|" + tipoDoc + "|" + iComEN.nroIdentificacionCliente + "|" + iComEN.serComprobante + "|" + iComEN.nroComprobante + "|" + iComEN.fecComprobante.ToShortDateString() + "|" + total.ToString();
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
-                QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-                string fileName = Path.Combine(RutaQR, DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_QRCode.png");
-                qrCodeImage.Save(fileName, ImageFormat.Png);
+                string fileName = Path.Combine(RutaQR, iComEN.serComprobante + '-' + iComEN.nroComprobante + "_QRCode.png");
+                if (!File.Exists(fileName))
+                {
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                    qrCodeImage.Save(fileName, ImageFormat.Png);
+                }
 
                 saltoLinea = saltoLinea + 15;
                 g.DrawString("Representación impresa de la " + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + " ELECTRONICA", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
@@ -785,7 +821,7 @@ namespace GestionClubView.Pedidos
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
@@ -866,7 +902,7 @@ namespace GestionClubView.Pedidos
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 180, SPACE + (saltoLinea));
-                g.DrawString(item.SubItems[0].Text, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
+                g.DrawString(item.SubItems[0].Text.Substring(0, item.SubItems[0].Text.Length > 20 ? 20 : item.SubItems[0].Text.Length), fBodyNoBold, sb, 50, SPACE + (saltoLinea));//descripcion
                 g.DrawString(item.SubItems[1].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
 
 
@@ -928,13 +964,26 @@ namespace GestionClubView.Pedidos
                 string tipoDoc = this.txtTipoDoc.Text == "01" ? "DNI" : "RUC";
 
                 string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + "|" + tipoDoc + "|" + iComEN.nroIdentificacionCliente + "|" + iComEN.serComprobante + "|" + iComEN.nroComprobante + "|" + iComEN.fecComprobante.ToShortDateString() + "|" + total.ToString();
-                QRCodeGenerator qrGenerator = new QRCodeGenerator();
-                QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
-                QRCode qrCode = new QRCode(qrCodeData);
-                Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-                string fileName = Path.Combine(RutaQR, DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_QRCode.png");
-                qrCodeImage.Save(fileName, ImageFormat.Png);
+                string fileName = Path.Combine(RutaQR, iComEN.serComprobante + '-' + iComEN.nroComprobante + "_QRCode.jpeg");
+                if (!File.Exists(fileName))
+                {
+                    QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                    ASCIIEncoding ASSCII = new ASCIIEncoding();
+                    QRCodeData qrCodeData = qrGenerator.CreateQrCode(ASSCII.GetBytes(datosQR), QRCodeGenerator.ECCLevel.H);
+                    QRCode qrCode = new QRCode(qrCodeData);
+                    //PngByteQRCode png = new PngByteQRCode();
+                    //png.SetQRCodeData(qrCodeData);
+                    //var arr = png.GetGraphic(20);
+                    //MemoryStream ms = new MemoryStream();
+                    //ms.Write(arr, 0, arr.Length);
+                    //Bitmap qrCodeImage = new Bitmap(ms);
+                    //qrCodeImage.Save(fileName, ImageFormat.Jpeg);
+                    Bitmap qrCodeImage = new Bitmap(50, 50);
+                    using (qrCodeImage = qrCode.GetGraphic(20))
+                    {
+                        qrCodeImage.Save(fileName, ImageFormat.Jpeg);
+                    }
+                }
 
                 saltoLinea = saltoLinea + 15;
                 g.DrawString("Representación impresa de la " + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + " ELECTRONICA", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
@@ -986,7 +1035,7 @@ namespace GestionClubView.Pedidos
         private void tsBtnTicket_Click(object sender, EventArgs e)
         {
             this.presionTicket = true;
-            this.ImprimirComprobante();
+            this.ImprimirComprobante(true, 1);
         }
 
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
@@ -998,6 +1047,24 @@ namespace GestionClubView.Pedidos
         private void cboMoneda_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.MostrarTipoCambio();
+        }
+
+        private void txtEfectivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
+        }
+
+        private void txtDeposito_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
+        }
+
+        private void txtTransferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)

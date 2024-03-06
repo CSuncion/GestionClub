@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoPedidos));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario = new System.Windows.Forms.ToolStrip();
             this.tsbPrimero = new System.Windows.Forms.ToolStripButton();
@@ -44,11 +43,12 @@
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DgvRefiAmp = new System.Windows.Forms.DataGridView();
+            this.DgvListadoPedidos = new System.Windows.Forms.DataGridView();
+            this.tsbVisualizar = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListadoPedidos)).BeginInit();
             this.SuspendLayout();
             // 
             // tsPrincipal
@@ -66,15 +66,6 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 111;
             this.tsPrincipal.Text = "toolStrip1";
-            // 
-            // tsbVisualizar
-            // 
-            this.tsbVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbVisualizar.Image")));
-            this.tsbVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbVisualizar.Name = "tsbVisualizar";
-            this.tsbVisualizar.Size = new System.Drawing.Size(66, 43);
-            this.tsbVisualizar.Text = "Visualizar";
-            this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tsbSalir
             // 
@@ -113,6 +104,7 @@
             this.tsbPrimero.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPrimero.Name = "tsbPrimero";
             this.tsbPrimero.Size = new System.Drawing.Size(23, 22);
+            this.tsbPrimero.Click += new System.EventHandler(this.tsbPrimero_Click);
             // 
             // tsbAnterior
             // 
@@ -121,6 +113,7 @@
             this.tsbAnterior.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAnterior.Name = "tsbAnterior";
             this.tsbAnterior.Size = new System.Drawing.Size(23, 22);
+            this.tsbAnterior.Click += new System.EventHandler(this.tsbAnterior_Click);
             // 
             // tsbSiguiente
             // 
@@ -129,6 +122,7 @@
             this.tsbSiguiente.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSiguiente.Name = "tsbSiguiente";
             this.tsbSiguiente.Size = new System.Drawing.Size(23, 22);
+            this.tsbSiguiente.Click += new System.EventHandler(this.tsbSiguiente_Click);
             // 
             // tsbUltimo
             // 
@@ -137,6 +131,7 @@
             this.tsbUltimo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUltimo.Name = "tsbUltimo";
             this.tsbUltimo.Size = new System.Drawing.Size(23, 22);
+            this.tsbUltimo.Click += new System.EventHandler(this.tsbUltimo_Click);
             // 
             // tsbActualizarTabla
             // 
@@ -146,6 +141,7 @@
             this.tsbActualizarTabla.Name = "tsbActualizarTabla";
             this.tsbActualizarTabla.Size = new System.Drawing.Size(23, 22);
             this.tsbActualizarTabla.Text = "Actualiza Grilla";
+            this.tsbActualizarTabla.Click += new System.EventHandler(this.tsbActualizarTabla_Click);
             // 
             // toolStripSeparator1
             // 
@@ -159,6 +155,7 @@
             this.tstBuscar.Name = "tstBuscar";
             this.tstBuscar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tstBuscar.Size = new System.Drawing.Size(180, 25);
+            this.tstBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyUp);
             // 
             // toolStripLabel1
             // 
@@ -177,6 +174,7 @@
             this.tsbImprimir.Name = "tsbImprimir";
             this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
             this.tsbImprimir.Text = "Imprimir";
+            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
             // 
             // sst1
             // 
@@ -196,17 +194,28 @@
             this.tssEstado.Size = new System.Drawing.Size(10, 17);
             this.tssEstado.Text = ".";
             // 
-            // DgvRefiAmp
+            // DgvListadoPedidos
             // 
-            this.DgvRefiAmp.BackgroundColor = System.Drawing.Color.White;
-            this.DgvRefiAmp.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.DgvRefiAmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvRefiAmp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvRefiAmp.GridColor = System.Drawing.Color.Silver;
-            this.DgvRefiAmp.Location = new System.Drawing.Point(0, 71);
-            this.DgvRefiAmp.Name = "DgvRefiAmp";
-            this.DgvRefiAmp.Size = new System.Drawing.Size(800, 357);
-            this.DgvRefiAmp.TabIndex = 114;
+            this.DgvListadoPedidos.BackgroundColor = System.Drawing.Color.White;
+            this.DgvListadoPedidos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvListadoPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListadoPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvListadoPedidos.GridColor = System.Drawing.Color.Silver;
+            this.DgvListadoPedidos.Location = new System.Drawing.Point(0, 71);
+            this.DgvListadoPedidos.Name = "DgvListadoPedidos";
+            this.DgvListadoPedidos.Size = new System.Drawing.Size(800, 357);
+            this.DgvListadoPedidos.TabIndex = 114;
+            this.DgvListadoPedidos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListadoPedidos_CellEnter);
+            // 
+            // tsbVisualizar
+            // 
+            this.tsbVisualizar.Image = ((System.Drawing.Image)(resources.GetObject("tsbVisualizar.Image")));
+            this.tsbVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVisualizar.Name = "tsbVisualizar";
+            this.tsbVisualizar.Size = new System.Drawing.Size(66, 43);
+            this.tsbVisualizar.Text = "Visualizar";
+            this.tsbVisualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbVisualizar.Click += new System.EventHandler(this.tsbVisualizar_Click);
             // 
             // frmListadoPedidos
             // 
@@ -214,7 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.DgvRefiAmp);
+            this.Controls.Add(this.DgvListadoPedidos);
             this.Controls.Add(this.sst1);
             this.Controls.Add(this.tsSecundario);
             this.Controls.Add(this.tsPrincipal);
@@ -229,7 +238,7 @@
             this.tsSecundario.PerformLayout();
             this.sst1.ResumeLayout(false);
             this.sst1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvRefiAmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvListadoPedidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,7 +247,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip tsPrincipal;
-        private System.Windows.Forms.ToolStripButton tsbVisualizar;
         private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStrip tsSecundario;
         internal System.Windows.Forms.ToolStripButton tsbPrimero;
@@ -252,6 +260,7 @@
         private System.Windows.Forms.ToolStripButton tsbImprimir;
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
-        private System.Windows.Forms.DataGridView DgvRefiAmp;
+        private System.Windows.Forms.DataGridView DgvListadoPedidos;
+        private System.Windows.Forms.ToolStripButton tsbVisualizar;
     }
 }

@@ -75,6 +75,7 @@ namespace GestionClubView.Maestros
                 case Universal.Opera.Eliminar: { this.Eliminar(); break; }
                 default: break;
             }
+            this.Close();
         }
         public void Adicionar()
         {
@@ -108,7 +109,7 @@ namespace GestionClubView.Maestros
         {
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
-            
+
             if (this.ValidarMontoMayorCero()) { return; }
 
             //preguntar si este objeto fue eliminado mientras estaba activa la ventana
@@ -240,7 +241,7 @@ namespace GestionClubView.Maestros
         public bool ValidarMontoMayorCero()
         {
             bool result = false;
-            if (Convert.ToDecimal(this.txtMonto.Text) <= 0)
+            if (Convert.ToDecimal(this.txtMonto.Text) < 0)
             {
                 Mensaje.OperacionDenegada("Ingrese un monto correcto.", this.wFrm.eTitulo);
                 result = true;

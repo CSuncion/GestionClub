@@ -654,7 +654,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);

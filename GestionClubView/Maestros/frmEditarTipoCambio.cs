@@ -79,6 +79,7 @@ namespace GestionClubView.Maestros
                 case Universal.Opera.Eliminar: { this.Eliminar(); break; }
                 default: break;
             }
+            this.Close();
         }
         public void Adicionar()
         {

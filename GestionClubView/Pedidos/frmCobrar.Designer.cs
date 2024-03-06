@@ -415,6 +415,7 @@
             this.txtTransferencia.Name = "txtTransferencia";
             this.txtTransferencia.Size = new System.Drawing.Size(79, 21);
             this.txtTransferencia.TabIndex = 458;
+            this.txtTransferencia.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTransferencia_KeyDown);
             this.txtTransferencia.Validated += new System.EventHandler(this.txtTransferencia_Validated);
             // 
             // chTransferencia
@@ -436,17 +437,18 @@
             this.txtDeposito.Name = "txtDeposito";
             this.txtDeposito.Size = new System.Drawing.Size(79, 21);
             this.txtDeposito.TabIndex = 456;
+            this.txtDeposito.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDeposito_KeyDown);
             this.txtDeposito.Validated += new System.EventHandler(this.txtDeposito_Validated);
             // 
             // chDeposito
             // 
             this.chDeposito.AutoSize = true;
             this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDeposito.Location = new System.Drawing.Point(30, 89);
+            this.chDeposito.Location = new System.Drawing.Point(56, 89);
             this.chDeposito.Name = "chDeposito";
-            this.chDeposito.Size = new System.Drawing.Size(79, 18);
+            this.chDeposito.Size = new System.Drawing.Size(53, 18);
             this.chDeposito.TabIndex = 455;
-            this.chDeposito.Text = "Deposito:";
+            this.chDeposito.Text = "Visa:";
             this.chDeposito.UseVisualStyleBackColor = true;
             this.chDeposito.CheckedChanged += new System.EventHandler(this.chDeposito_CheckedChanged);
             // 
@@ -457,6 +459,7 @@
             this.txtEfectivo.Name = "txtEfectivo";
             this.txtEfectivo.Size = new System.Drawing.Size(79, 21);
             this.txtEfectivo.TabIndex = 452;
+            this.txtEfectivo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEfectivo_KeyDown);
             this.txtEfectivo.Validated += new System.EventHandler(this.txtEfectivo_Validated);
             // 
             // chEfectivo

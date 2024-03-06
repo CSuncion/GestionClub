@@ -142,7 +142,7 @@ namespace GestionClubView.Maestros
             this.ModificarCliente();
 
             //mensaje satisfactorio
-            Mensaje.OperacionSatisfactoria("El Cliente se modifico correctamente", this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes");
+            Mensaje.OperacionSatisfactoria("El Parametro se modifico correctamente", this.Formulario == "Cliente" ? this.wFrm.eTitulo : "Comprobantes");
 
             //actualizar al wUsu
             //this.wFrm.eClaveDgvParametro = this.ObtenerIdCliente();

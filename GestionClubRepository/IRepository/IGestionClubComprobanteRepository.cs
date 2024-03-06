@@ -27,5 +27,7 @@ namespace GestionClubRepository.IRepository
         List<GestionClubDetalleComprobanteDto> TopVentaProductos(string anio);
         List<GestionClubDetalleComprobanteDto> ListarDetallesComprobantes();
         void ModificarComprobanteAnulado(GestionClubComprobanteDto pObj);
+        List<GestionClubComprobanteDto> ListarComprobantesConComanda(GestionClubComprobanteDto objEn);
     }
+
 }

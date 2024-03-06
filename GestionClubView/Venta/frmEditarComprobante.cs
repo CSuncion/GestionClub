@@ -5,6 +5,7 @@ using GestionClubUtil.Enum;
 using GestionClubView.Listas;
 using GestionClubView.Maestros;
 using GestionClubView.MdiPrincipal;
+using GestionClubView.Pedidos;
 using QRCoder;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace GestionClubView.Venta
     public partial class frmEditarComprobante : Form
     {
         public frmComprobantes wFrm;
+        public frmListadoPedidos wFrmPed;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
@@ -38,6 +40,7 @@ namespace GestionClubView.Venta
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
+        public int FormularioActivo = 0;
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public frmEditarComprobante()
         {
@@ -66,6 +69,7 @@ namespace GestionClubView.Venta
             this.MostrarComprobanteDeta();
             this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(3);
+            this.tsbGrabar.Enabled = false;
         }
         public void InicializaVentana()
         {
@@ -82,7 +86,10 @@ namespace GestionClubView.Venta
             this.CargarMoneda();
             this.SetearConCeroModoPago();
             // Deshabilitar al propietario
-            this.wFrm.Enabled = false;
+            if (this.FormularioActivo == 0)
+                this.wFrm.Enabled = false;
+            else
+                this.wFrmPed.Enabled = false;
 
             // Mostrar ventana
             this.Show();
@@ -621,7 +628,14 @@ namespace GestionClubView.Venta
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
 
-            this.ImprimirComprobante();
+            bool detallado = false;
+            if (Mensaje.DeseasRealizarOperacion("¿Desea comprobante detallado?", this.eTitulo))
+                detallado = true;
+            else
+                detallado = false;
+
+
+            this.ImprimirComprobante(detallado, 3);
 
             this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();
@@ -730,7 +744,15 @@ namespace GestionClubView.Venta
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Comprobante se modifico correctamente", this.wFrm.eTitulo);
 
-            this.ImprimirComprobante();
+            bool detallado = false;
+            if (Mensaje.DeseasRealizarOperacion("¿Desea comprobante detallado?", this.eTitulo))
+                detallado = true;
+            else
+                detallado = false;
+
+
+            this.ImprimirComprobante(detallado, 3);
+
 
             //actualizar al wUsu
             this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
@@ -803,24 +825,37 @@ namespace GestionClubView.Venta
             return modoPago;
         }
 
-        public void ImprimirComprobante()
+        public void ImprimirComprobante(bool detallado, int cantidad)
         {
-            PrintDocument printDocument = new PrintDocument();
-            PaperSize ps = new PaperSize("", 420, 840);
-            if (Mensaje.DeseasRealizarOperacion("¿Desea comprobante detallado?", this.eTitulo))
-                printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageDetallado);
-            else
-                printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageConsumo);
-
-
-
-            printDocument.PrintController = new StandardPrintController();
-            printDocument.DefaultPageSettings.Margins.Left = 0;
-            printDocument.DefaultPageSettings.Margins.Right = 0;
-            printDocument.DefaultPageSettings.Margins.Top = 0;
-            printDocument.DefaultPageSettings.Margins.Bottom = 0;
-            printDocument.DefaultPageSettings.PaperSize = ps;
-            printDocument.Print();
+            for (int i = 0; i < cantidad; i++)
+            {
+                if (detallado)
+                {
+                    PrintDocument printDocument = new PrintDocument();
+                    PaperSize ps = new PaperSize("", 420, 840);
+                    printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageDetallado);
+                    printDocument.PrintController = new StandardPrintController();
+                    printDocument.DefaultPageSettings.Margins.Left = 0;
+                    printDocument.DefaultPageSettings.Margins.Right = 0;
+                    printDocument.DefaultPageSettings.Margins.Top = 0;
+                    printDocument.DefaultPageSettings.Margins.Bottom = 0;
+                    printDocument.DefaultPageSettings.PaperSize = ps;
+                    printDocument.Print();
+                }
+                else
+                {
+                    PrintDocument printDocument = new PrintDocument();
+                    PaperSize ps = new PaperSize("", 420, 840);
+                    printDocument.PrintPage += new PrintPageEventHandler(pd_PrintPageConsumo);
+                    printDocument.PrintController = new StandardPrintController();
+                    printDocument.DefaultPageSettings.Margins.Left = 0;
+                    printDocument.DefaultPageSettings.Margins.Right = 0;
+                    printDocument.DefaultPageSettings.Margins.Top = 0;
+                    printDocument.DefaultPageSettings.Margins.Bottom = 0;
+                    printDocument.DefaultPageSettings.PaperSize = ps;
+                    printDocument.Print();
+                }
+            }
         }
         void pd_PrintPageConsumo(object sender, PrintPageEventArgs e)
         {
@@ -830,7 +865,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
@@ -963,13 +998,15 @@ namespace GestionClubView.Venta
             string tipoDoc = this.txtTipoDoc.Text == "01" ? "DNI" : "RUC";
 
             string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + "|" + tipoDoc + "|" + iComEN.nroIdentificacionCliente + "|" + iComEN.serComprobante + "|" + iComEN.nroComprobante + "|" + iComEN.fecComprobante.ToShortDateString() + "|" + total.ToString();
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-            string fileName = Path.Combine(RutaQR, DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_QRCode.png");
-            qrCodeImage.Save(fileName, ImageFormat.Png);
+            string fileName = Path.Combine(RutaQR, iComEN.serComprobante + '-' + iComEN.nroComprobante + "_QRCode.png");
+            if (!File.Exists(fileName))
+            {
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                qrCodeImage.Save(fileName, ImageFormat.Png);
+            }
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("Representación impresa de la " + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + " ELECTRONICA", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
@@ -1001,7 +1038,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "cosfupico.ico";
+            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
@@ -1071,7 +1108,7 @@ namespace GestionClubView.Venta
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));
-                g.DrawString(item.desProducto, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
+                g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBold, sb, 50, SPACE + (saltoLinea));
                 g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
 
 
@@ -1130,13 +1167,15 @@ namespace GestionClubView.Venta
             string tipoDoc = this.txtTipoDoc.Text == "01" ? "DNI" : "RUC";
 
             string datosQR = this.NroRuc + "|" + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + "|" + tipoDoc + "|" + iComEN.nroIdentificacionCliente + "|" + iComEN.serComprobante + "|" + iComEN.nroComprobante + "|" + iComEN.fecComprobante.ToShortDateString() + "|" + total.ToString();
-            QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
-            QRCode qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
-
-            string fileName = Path.Combine(RutaQR, DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + "_QRCode.png");
-            qrCodeImage.Save(fileName, ImageFormat.Png);
+            string fileName = Path.Combine(RutaQR, iComEN.serComprobante + '-' + iComEN.nroComprobante + "_QRCode.png");
+            if (!File.Exists(fileName))
+            {
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(datosQR, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+                qrCodeImage.Save(fileName, ImageFormat.Png);
+            }
 
             saltoLinea = saltoLinea + 15;
             g.DrawString("Representación impresa de la " + Cmb.ObtenerTexto(cboTipDoc).ToUpper() + " ELECTRONICA", fBodyNoBoldFood, sb, 30, SPACE + saltoLinea);
@@ -1159,11 +1198,6 @@ namespace GestionClubView.Venta
 
 
             g.Dispose();
-        }
-
-        public void ImprimirPreTicket()
-        {
-            this.ImprimirComprobante();
         }
         public bool ValidaPagoPendiente()
         {
@@ -1264,6 +1298,24 @@ namespace GestionClubView.Venta
             this.MostrarTipoCambio();
         }
 
+        private void txtEfectivo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
+        }
+
+        private void txtDeposito_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
+        }
+
+        private void txtTransferencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.CalcularPendientePagar();
+        }
+
         private void cboTipDoc_SelectionChangeCommitted(object sender, EventArgs e)
         {
             this.LimpiarCliente();
@@ -1302,7 +1354,10 @@ namespace GestionClubView.Venta
 
         private void frmComprobante_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.wFrm.Enabled = true;
+            if (this.FormularioActivo == 0)
+                this.wFrm.Enabled = true;
+            else
+                this.wFrmPed.Enabled = true;
         }
     }
 }

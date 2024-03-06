@@ -427,7 +427,10 @@ namespace GestionClubView.Pedidos
             {
                 this.lblIdComanda.Text = this.lObjDetalleComanda.FirstOrDefault().idComanda.ToString();
                 this.imgProductosSel.ImageSize = new System.Drawing.Size(30, 30);
-                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(this.rutaProducto + (detalle.archivoProducto == string.Empty ? "no-foto.png" : detalle.archivoProducto)));
+
+                string path = this.rutaProducto + (detalle.archivoProducto == string.Empty ? "no-foto.png" : detalle.archivoProducto);
+                path = File.Exists(path) ? path : this.rutaCategoria + "no-foto.png";
+                this.imgProductosSel.Images.Add(detalle.idProducto.ToString(), Image.FromFile(path));
                 this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;
 
                 this.lvProductosSeleccionados.SmallImageList = imgProductosSel;
@@ -701,6 +704,7 @@ namespace GestionClubView.Pedidos
             this.seleccionaProducto = 0;
             this.seleccionaMesa = 1;
             this.lObjDetalleComanda.Clear();
+            this.lblIdComanda.Text = "0";
             this.MostrarProductosPedidosEnComandaBD();
             if (this.lObjDetalleComanda.Count > 0)
             {

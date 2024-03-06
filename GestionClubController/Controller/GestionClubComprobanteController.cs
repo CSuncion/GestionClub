@@ -251,5 +251,10 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             obj.ModificarComprobanteAnulado(pObj);
         }
+        public static List<GestionClubComprobanteDto> ListarComprobantesConComanda(GestionClubComprobanteDto objEn)
+        {
+            GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
+            return obj.ListarComprobantesConComanda(objEn);
+        }
     }
 }
