@@ -284,6 +284,11 @@ namespace GestionClubView.Venta
             this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
 
+            if (this.txtCodProd.Text.StartsWith("03"))
+                this.txtPrecio.Enabled = true;
+            else
+                this.txtPrecio.Enabled = false;
+
             //devolver
             return iProEN.Adicionales.EsVerdad;
         }
