@@ -87,6 +87,7 @@
             this.tsmResumenDeVentasAnual = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTopProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCuadroSalidaIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformatica = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRespaldoBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,7 +98,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmCuadroSalidaIngreso = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -110,6 +111,7 @@
             // 
             resources.ApplyResources(this.pnlMenu, "pnlMenu");
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.pnlMenu.Controls.Add(this.label4);
             this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.label3);
             this.pnlMenu.Controls.Add(this.label2);
@@ -528,6 +530,12 @@
             this.tsmResumenAlmacen.Name = "tsmResumenAlmacen";
             this.tsmResumenAlmacen.Click += new System.EventHandler(this.tsmResumenAlmacen_Click);
             // 
+            // tsmCuadroSalidaIngreso
+            // 
+            resources.ApplyResources(this.tsmCuadroSalidaIngreso, "tsmCuadroSalidaIngreso");
+            this.tsmCuadroSalidaIngreso.Name = "tsmCuadroSalidaIngreso";
+            this.tsmCuadroSalidaIngreso.Click += new System.EventHandler(this.tsmCuadroSalidaIngreso_Click);
+            // 
             // tsmInformatica
             // 
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -596,11 +604,12 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmCuadroSalidaIngreso
+            // label4
             // 
-            resources.ApplyResources(this.tsmCuadroSalidaIngreso, "tsmCuadroSalidaIngreso");
-            this.tsmCuadroSalidaIngreso.Name = "tsmCuadroSalidaIngreso";
-            this.tsmCuadroSalidaIngreso.Click += new System.EventHandler(this.tsmCuadroSalidaIngreso_Click);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.Purple;
+            this.label4.Name = "label4";
             // 
             // frmPrincipal
             // 
@@ -705,5 +714,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.ToolStripMenuItem tsmResumenAlmacen;
         internal System.Windows.Forms.ToolStripMenuItem tsmCuadroSalidaIngreso;
+        private System.Windows.Forms.Label label4;
     }
 }

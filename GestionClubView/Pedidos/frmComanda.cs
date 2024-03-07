@@ -361,9 +361,26 @@ namespace GestionClubView.Pedidos
             clickCategoria = 1;
             obj.idCategoria = Convert.ToString(lvCategorias.SelectedItems[0].ImageKey);
         }
-
+        public bool ValidarExistenciaStock()
+        {
+            GestionClubProductoDto xProducto = new GestionClubProductoDto();
+            xProducto.idProducto = Convert.ToInt32(lvProductos.SelectedItems[0].ImageKey);
+            xProducto = GestionClubProductoController.BuscarProductoXId(xProducto);
+            if ((xProducto.idCategoria == "0103"
+                || xProducto.idCategoria == "0106"
+                || xProducto.idCategoria == "0108"
+                || xProducto.idCategoria == "0112")
+                && xProducto.stockProducto <= 0)
+            {
+                Mensaje.OperacionDenegada("Validar el stock de los productos", this.eTitulo);
+                return true;
+            }
+            return false;
+        }
         public void AgregarProductoSeleccionados()
         {
+
+            if (this.ValidarExistenciaStock()) { return; }
 
             lvProductosSeleccionados.View = View.Details;
             this.lvProductosSeleccionados.SmallImageList = this.imgProductosSel;

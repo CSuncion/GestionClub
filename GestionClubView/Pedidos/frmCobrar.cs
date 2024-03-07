@@ -341,12 +341,15 @@ namespace GestionClubView.Pedidos
 
             if (this.ValidarComprobanteTicket()) { return; }
 
+            if (this.ValidarExistenciaStock()) { return; }
+
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
 
             this.AdicionarComprobante();
             this.ModificarSituacionMesa();
             this.ModificarSituacionComanda();
+            this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
@@ -364,6 +367,46 @@ namespace GestionClubView.Pedidos
             this.wCom.LimpiarLvSeleccionados();
             //salir de la ventana
             this.Close();
+        }
+        public bool ValidarExistenciaStock()
+        {
+            GestionClubProductoDto xProducto;
+            foreach (GestionClubDetalleComandaDto producto in this.lObjDetalle)
+            {
+                xProducto = new GestionClubProductoDto();
+                xProducto.idProducto = producto.idProducto;
+                xProducto = GestionClubProductoController.BuscarProductoXId(xProducto);
+                if ((xProducto.idCategoria == "0103"
+                    || xProducto.idCategoria == "0106"
+                    || xProducto.idCategoria == "0108"
+                    || xProducto.idCategoria == "0112")
+                    && xProducto.stockProducto <= 0)
+                {
+                    Mensaje.OperacionDenegada("Validar el stock de los productos", this.eTitulo);
+                    return true;
+                }
+            }
+            return false;
+        }
+        public void ActualizarStockProducto()
+        {
+            GestionClubProductoDto xProducto;
+            foreach (GestionClubDetalleComandaDto producto in this.lObjDetalle)
+            {
+                xProducto = new GestionClubProductoDto();
+                xProducto.idProducto = producto.idProducto;
+                xProducto = GestionClubProductoController.BuscarProductoXId(xProducto);
+                if (xProducto.idCategoria == "0103"
+                    || xProducto.idCategoria == "0106"
+                    || xProducto.idCategoria == "0108"
+                    || xProducto.idCategoria == "0112"
+                    )
+                {
+                    xProducto.idProducto = producto.idProducto;
+                    xProducto.stockProducto -= producto.cantidad;
+                    GestionClubProductoController.ActualizarStockProducto(xProducto);
+                }
+            }
         }
         public bool ValidarItemParaTicket()
         {
@@ -517,7 +560,7 @@ namespace GestionClubView.Pedidos
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
             pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
             pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impNetComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lblTotal.Text)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100) : 0;
+            pObj.impNetComprobante = pObj.impBruComprobante + pObj.impIgvComprobante;
             pObj.impDtrComprobante = 0;
             pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;

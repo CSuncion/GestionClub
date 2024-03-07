@@ -285,9 +285,9 @@ namespace GestionClubView.Venta
             this.txtIdProd.Text = iProEN.idProducto.ToString();
 
             if (this.txtCodProd.Text.StartsWith("03"))
-                this.txtPrecio.Enabled = true;
+                this.txtPrecio.ReadOnly = false;
             else
-                this.txtPrecio.Enabled = false;
+                this.txtPrecio.ReadOnly = true;
 
             //devolver
             return iProEN.Adicionales.EsVerdad;
@@ -628,7 +628,7 @@ namespace GestionClubView.Venta
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
             this.AdicionarComprobante();
-            this.ActualizarStockProducto();
+            //this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);

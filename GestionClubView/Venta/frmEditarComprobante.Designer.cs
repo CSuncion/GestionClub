@@ -464,6 +464,7 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(431, 20);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(79, 21);
             this.txtPrecio.TabIndex = 452;
             // 
