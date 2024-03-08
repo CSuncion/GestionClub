@@ -547,8 +547,17 @@ namespace GestionClubView.Venta
             {
                 xProducto = new GestionClubProductoDto();
                 xProducto.idProducto = producto.idProducto;
-                xProducto.stockProducto += producto.cantidad;
-                GestionClubProductoController.ActualizarStockProducto(xProducto);
+                xProducto = GestionClubProductoController.BuscarProductoXId(xProducto);
+                if (xProducto.idCategoria == "0103"
+                    || xProducto.idCategoria == "0106"
+                    || xProducto.idCategoria == "0108"
+                    || xProducto.idCategoria == "0112"
+                    )
+                {
+                    xProducto.idProducto = producto.idProducto;
+                    xProducto.stockProducto += producto.cantidad;
+                    GestionClubProductoController.ActualizarStockProducto(xProducto);
+                }
             }
         }
 

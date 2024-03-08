@@ -219,7 +219,7 @@ namespace GestionClubView.Stock_Restaurante
             win.eTituloVentana = "Productos";
             win.eCtrlValor = this.txtCodProd;
             win.eCtrlFoco = this.txtDesProd;
-            win.eCondicionLista = frmListarProducto.Condicion.Productos;
+            win.eCondicionLista = frmListarProducto.Condicion.ProductosStock;
             TabCtrl.InsertarVentana(this, win);
             win.NuevaVentana();
         }
@@ -267,7 +267,13 @@ namespace GestionClubView.Stock_Restaurante
 
             GestionClubComprobanteDetalleAlmacenDto obj = new GestionClubComprobanteDetalleAlmacenDto();
             obj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
-            obj.idComprobanteDetalleAlmacen = this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idComprobanteAlmacen == Convert.ToInt32(this.txtIdComprobante.Text) && x.idProducto == Convert.ToInt32(this.txtIdProd.Text)).idComprobanteDetalleAlmacen;
+            obj.idComprobanteDetalleAlmacen = this.lObjDetalleParcial.Count == 0 ?
+                0
+                : this.lObjDetalleParcial.Exists(x => x.idComprobanteAlmacen == Convert.ToInt32(this.txtIdComprobante.Text)
+                                                && x.idProducto == Convert.ToInt32(this.txtIdProd.Text)) ?
+                                                        this.lObjDetalleParcial.Find(x => x.idComprobanteAlmacen == Convert.ToInt32(this.txtIdComprobante.Text)
+                                                                                && x.idProducto == Convert.ToInt32(this.txtIdProd.Text)).idComprobanteDetalleAlmacen
+                                                                                        : 0;
             obj.estAlmacen = "01";
             obj.obsOperacion = this.txtGlosa.Text;
             obj.idProducto = Convert.ToInt32(this.txtIdProd.Text);
@@ -545,11 +551,22 @@ namespace GestionClubView.Stock_Restaurante
             {
                 xProducto = new GestionClubProductoDto();
                 xProducto.idProducto = producto.idProducto;
+                xProducto = GestionClubProductoController.BuscarProductoXId(xProducto);
 
                 switch (this.eOperacion)
                 {
                     case Universal.Opera.Adicionar: { xProducto.stockProducto += producto.cantidad; break; }
-                    case Universal.Opera.Modificar: { xProducto.stockProducto += producto.cantidad - this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idProducto == producto.idProducto).cantidad; break; }
+                    case Universal.Opera.Modificar:
+                        {
+                            if (producto.idComprobanteDetalleAlmacen == 0)
+                                xProducto.stockProducto += producto.cantidad;
+                            else
+                            {
+                                xProducto.stockProducto -= this.lObjDetalleParcial.Count == 0 ? 0 : this.lObjDetalleParcial.Find(x => x.idProducto == producto.idProducto).cantidad;
+                                xProducto.stockProducto += producto.cantidad;
+                            }
+                            break;
+                        }
                     case Universal.Opera.Eliminar: { xProducto.stockProducto -= producto.cantidad; break; }
                     default: break;
                 }

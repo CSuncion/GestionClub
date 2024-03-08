@@ -793,7 +793,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.31501cm</Height>
+          <Height>1.31502cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -814,7 +814,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0.33987cm</Top>
+              <Top>0.02237cm</Top>
               <Left>0.35054cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -845,7 +845,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0.3046cm</Top>
               <Left>4.58797cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

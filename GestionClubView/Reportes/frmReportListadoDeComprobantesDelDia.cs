@@ -18,7 +18,7 @@ namespace GestionClubView.Reportes
 {
     public partial class frmReportListadoDeComprobantesDelDia : Form
     {
-        public frmListadoDeComprobante wFrm; 
+        public frmListadoDeComprobante wFrm;
         //CreditsReportController objReportController = new CreditsReportController();
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListadoDeComprobantesDelDia.rdlc";
@@ -33,6 +33,7 @@ namespace GestionClubView.Reportes
         }
         public void GenerarInforme()
         {
+            this.Show();
             this.Dock = DockStyle.Fill;
             try
             {
@@ -58,14 +59,19 @@ namespace GestionClubView.Reportes
                 this.rpvListadoComprobanteDelDia.ZoomMode = ZoomMode.Percent;
                 this.rpvListadoComprobanteDelDia.ZoomPercent = 100;
 
-                PageSettings newPageSettings = new PageSettings();
-                newPageSettings.Margins = new Margins(0, 0, 0, 0);
+                PageSettings pg = new PageSettings
+                {
+                    Landscape = false
+                };
+                pg.Margins = new Margins(0, 0, 0, 0);
+                PaperSize size = new PaperSize("A4", 827, 1169);
+                pg.PaperSize = size;
 
                 if (formaReporte == "Horizontal")
                 {
-                    newPageSettings.Landscape = true;
+                    pg.Landscape = true;
                 }
-                this.rpvListadoComprobanteDelDia.SetPageSettings(newPageSettings);
+                this.rpvListadoComprobanteDelDia.SetPageSettings(pg);
 
                 this.rpvListadoComprobanteDelDia.RefreshReport();
             }

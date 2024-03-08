@@ -70,6 +70,7 @@ namespace GestionClubView.Venta
             this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(3);
             this.tsbGrabar.Enabled = false;
+            this.btnQuitar.Enabled = false;
         }
         public void InicializaVentana()
         {
@@ -640,7 +641,7 @@ namespace GestionClubView.Venta
                 detallado = false;
 
 
-            this.ImprimirComprobante(detallado, 3);
+            this.ImprimirComprobante(detallado, 1);
 
             this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();

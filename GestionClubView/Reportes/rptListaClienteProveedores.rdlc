@@ -81,6 +81,18 @@
           <DataField>fechaModifica</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="TipoCliente">
+          <DataField>TipoCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TipoSocio">
+          <DataField>TipoSocio</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Estado">
+          <DataField>Estado</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
@@ -160,14 +172,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="tipCliente">
+                        <Textbox Name="TipoCliente">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!tipCliente.Value</Value>
+                                  <Value>=Fields!TipoCliente.Value</Value>
                                   <Style>
                                     <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -177,7 +189,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>tipCliente</rd:DefaultName>
+                          <rd:DefaultName>TipoCliente</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -978,7 +990,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0.21167cm</Top>
               <Left>0.36253cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1009,7 +1020,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0.17639cm</Top>
               <Left>4.59996cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

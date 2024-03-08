@@ -22,6 +22,7 @@ namespace GestionClubModel.ModelDto
         public const string _nroRuc = "nroRuc";
         public const string _razSocial = "razSocial";
         public const string _tipFactura = "tipFactura";
+        public const string _desTipFactura = "desTipFactura"; 
         public const string _serNroFactura = "serNroFactura";
         public const string _serFactura = "serFactura";
         public const string _nroFactura = "nroFactura";
@@ -54,6 +55,7 @@ namespace GestionClubModel.ModelDto
         public string nroRuc { get; set; }
         public string razSocial { get; set; }
         public string tipFactura { get; set; } = "01";
+        public string desTipFactura { get; set; } = string.Empty;
         public string serNroFactura { get; set; }
         public string serFactura { get; set; }
         public string nroFactura { get; set; }

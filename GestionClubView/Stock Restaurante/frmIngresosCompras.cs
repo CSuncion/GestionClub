@@ -96,13 +96,13 @@ namespace GestionClubView.Stock_Restaurante
 
             //agregando las columnas
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._nroDocumento, "N° Documento", 90));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._desTipFactura, "T. Fac.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._serNroFactura, "Documento", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._fecFactura, "Fecha", 100));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._tipoMovimiento, "T. Mov.", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._tipFactura, "T. Fac.", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._nroRuc, "N° Id.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._razSocial, "Raz. Social", 150));
             iLisDgv.Add(Dgv.NuevaColumnaTextNumerico(GestionClubComprobanteAlmacenDto._totBru, "Total", 80, 2));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._estAlmacen, "Estado", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._Estado, "Estado", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._idComprobanteAlmacen, "idComprobanteAlmacen", 80, false));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubComprobanteAlmacenDto._claveObjeto, "claveObjeto", 80, false));
 

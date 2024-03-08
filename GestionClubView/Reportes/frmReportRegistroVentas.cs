@@ -64,14 +64,19 @@ namespace GestionClubView.Reportes
                 this.rvRegistroVentas.ZoomMode = ZoomMode.Percent;
                 this.rvRegistroVentas.ZoomPercent = 100;
 
-                PageSettings newPageSettings = new PageSettings();
-                newPageSettings.Margins = new Margins(0, 0, 0, 0);
+                PageSettings pg = new PageSettings
+                {
+                    Landscape = false
+                };
+                pg.Margins = new Margins(0, 0, 0, 0);
+                PaperSize size = new PaperSize("A4", 827, 1169);
+                pg.PaperSize = size;
 
                 if (formaReporte == "Horizontal")
                 {
-                    newPageSettings.Landscape = true;
+                    pg.Landscape = true;
                 }
-                this.rvRegistroVentas.SetPageSettings(newPageSettings);
+                this.rvRegistroVentas.SetPageSettings(pg);
 
                 this.rvRegistroVentas.RefreshReport();
             }

@@ -204,7 +204,7 @@ namespace GestionClubView.Pedidos
         }
         public void CargarProductoDesdeBD()
         {
-            this.lObjProductos = GestionClubProductoController.ListarProductosActivos();
+            this.lObjProductos = GestionClubProductoController.ListarProductosActivos().Where(x => x.idCategoria.StartsWith("01")).ToList();
             this.lObjProductosParcial = this.lObjProductos;
         }
         public void CargarProductosSegunBusqueda(int hizoClickCategoria, GestionClubProductoDto obj)

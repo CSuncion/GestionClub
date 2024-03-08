@@ -63,14 +63,19 @@ namespace GestionClubView.Reportes
                 this.rvVentasCategoriaProductos.ZoomMode = ZoomMode.Percent;
                 this.rvVentasCategoriaProductos.ZoomPercent = 100;
 
-                PageSettings newPageSettings = new PageSettings();
-                newPageSettings.Margins = new Margins(0, 0, 0, 0);
+                PageSettings pg = new PageSettings
+                {
+                    Landscape = false
+                };
+                pg.Margins = new Margins(0, 0, 0, 0);
+                PaperSize size = new PaperSize("A4", 827, 1169);
+                pg.PaperSize = size;
 
                 if (formaReporte == "Horizontal")
                 {
-                    newPageSettings.Landscape = true;
+                    pg.Landscape = true;
                 }
-                this.rvVentasCategoriaProductos.SetPageSettings(newPageSettings);
+                this.rvVentasCategoriaProductos.SetPageSettings(pg);
 
                 this.rvVentasCategoriaProductos.RefreshReport();
             }

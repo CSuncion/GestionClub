@@ -35,6 +35,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.nroRuc = iDr[GestionClubComprobanteAlmacenDto._nroRuc].ToString();
             xObjEnc.razSocial = iDr[GestionClubComprobanteAlmacenDto._razSocial].ToString();
             xObjEnc.tipFactura = iDr[GestionClubComprobanteAlmacenDto._tipFactura].ToString();
+            xObjEnc.desTipFactura = iDr[GestionClubComprobanteAlmacenDto._desTipFactura].ToString();
             xObjEnc.serNroFactura = iDr[GestionClubComprobanteAlmacenDto._serNroFactura].ToString();
             xObjEnc.serFactura = iDr[GestionClubComprobanteAlmacenDto._serFactura].ToString();
             xObjEnc.nroFactura = iDr[GestionClubComprobanteAlmacenDto._nroFactura].ToString();
@@ -51,8 +52,6 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteAlmacenDto._fechaModifica]);
-            xObjEnc.desProducto = Convert.ToString(iDr[GestionClubComprobanteAlmacenDto._desProducto]);
-            xObjEnc.cantidad = Convert.ToInt32(iDr[GestionClubComprobanteAlmacenDto._cantidad]);
             xObjEnc.claveObjeto = xObjEnc.idComprobanteAlmacen.ToString();
             return xObjEnc;
         }

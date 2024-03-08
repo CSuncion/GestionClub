@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportListaPrecios));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.rvListaPrecios = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.rvListaPrecios = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,16 +50,6 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 450;
             // 
-            // rvListaPrecios
-            // 
-            this.rvListaPrecios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rvListaPrecios.LocalReport.ReportEmbeddedResource = "GestionClubView.Reportes.rptListaPrecios.rdlc";
-            this.rvListaPrecios.Location = new System.Drawing.Point(0, 45);
-            this.rvListaPrecios.Name = "rvListaPrecios";
-            this.rvListaPrecios.ServerReport.BearerToken = null;
-            this.rvListaPrecios.Size = new System.Drawing.Size(800, 405);
-            this.rvListaPrecios.TabIndex = 451;
-            // 
             // tsbSalir
             // 
             this.tsbSalir.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,6 +60,17 @@
             this.tsbSalir.Text = "Salir";
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
+            // rvListaPrecios
+            // 
+            this.rvListaPrecios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvListaPrecios.LocalReport.ReportEmbeddedResource = "GestionClubView.Reportes.rptListaPrecios.rdlc";
+            this.rvListaPrecios.Location = new System.Drawing.Point(0, 45);
+            this.rvListaPrecios.Name = "rvListaPrecios";
+            this.rvListaPrecios.PromptAreaCollapsed = true;
+            this.rvListaPrecios.ServerReport.BearerToken = null;
+            this.rvListaPrecios.Size = new System.Drawing.Size(800, 405);
+            this.rvListaPrecios.TabIndex = 451;
             // 
             // frmReportListaPrecios
             // 

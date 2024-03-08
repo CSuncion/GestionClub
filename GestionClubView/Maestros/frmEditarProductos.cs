@@ -64,7 +64,7 @@ namespace GestionClubView.Maestros
             ControlEditar xCtrl;
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vfff", 150);
+            xCtrl.TxtTodo(this.txtCodigo, true, "Código", "vfff", 8);
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
@@ -124,6 +124,8 @@ namespace GestionClubView.Maestros
             //validar los campos obligatorios
             if (eMas.CamposObligatorios() == false) { return; }
 
+            if (this.ValidarLongitudCodigo()) { return; }
+
             //el codigo de usuario ya existe?
             if (this.EsCodigoProductoDisponible() == false) { return; };
 
@@ -144,6 +146,15 @@ namespace GestionClubView.Maestros
             this.MostrarProducto(GestionClubProductoController.EnBlanco());
             eMas.AccionPasarTextoPrincipal();
             this.txtCodigo.Focus();
+        }
+        public bool ValidarLongitudCodigo()
+        {
+            if (this.txtCodigo.Text.Length != 8)
+            {
+                Mensaje.OperacionDenegada("Debe tener 8 digitos, seguir el correlativo de código segun corresponda a la categoria.", this.wFrm.eTitulo);
+                return true;
+            }
+            return false;
         }
         public void Modificar()
         {

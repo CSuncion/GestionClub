@@ -361,7 +361,7 @@ namespace GestionClubView.Pedidos
                 detallado = false;
 
 
-            this.ImprimirComprobante(detallado, 3);
+            this.ImprimirComprobante(detallado, 1);
 
             this.wCom.cargarMesas();
             this.wCom.LimpiarLvSeleccionados();

@@ -5076,6 +5076,12 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnfechaModifica;
             
+            private global::System.Data.DataColumn columnTipoCliente;
+            
+            private global::System.Data.DataColumn columnTipoSocio;
+            
+            private global::System.Data.DataColumn columnEstado;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarClientePorTipoPorNroIdePorNomRazDataTable() {
@@ -5239,6 +5245,30 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TipoClienteColumn {
+                get {
+                    return this.columnTipoCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TipoSocioColumn {
+                get {
+                    return this.columnTipoSocio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5274,7 +5304,25 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public isp_ListarClientePorTipoPorNroIdePorNomRazRow Addisp_ListarClientePorTipoPorNroIdePorNomRazRow(int idEmpresa, string codCliente, string tipSocioCliente, string tipCliente, string nroIdentificacionCliente, string nombreRazSocialCliente, string razComercialCliente, string emailCliente, string nroCelularCliente, string representanteCliente, string estadoCliente, int usuarioAgrega, System.DateTime fechaAgrega, int usuarioModifica, System.DateTime fechaModifica) {
+            public isp_ListarClientePorTipoPorNroIdePorNomRazRow Addisp_ListarClientePorTipoPorNroIdePorNomRazRow(
+                        int idEmpresa, 
+                        string codCliente, 
+                        string tipSocioCliente, 
+                        string tipCliente, 
+                        string nroIdentificacionCliente, 
+                        string nombreRazSocialCliente, 
+                        string razComercialCliente, 
+                        string emailCliente, 
+                        string nroCelularCliente, 
+                        string representanteCliente, 
+                        string estadoCliente, 
+                        int usuarioAgrega, 
+                        System.DateTime fechaAgrega, 
+                        int usuarioModifica, 
+                        System.DateTime fechaModifica, 
+                        string TipoCliente, 
+                        string TipoSocio, 
+                        string Estado) {
                 isp_ListarClientePorTipoPorNroIdePorNomRazRow rowisp_ListarClientePorTipoPorNroIdePorNomRazRow = ((isp_ListarClientePorTipoPorNroIdePorNomRazRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -5292,7 +5340,10 @@ namespace GestionClubView.DataSet {
                         usuarioAgrega,
                         fechaAgrega,
                         usuarioModifica,
-                        fechaModifica};
+                        fechaModifica,
+                        TipoCliente,
+                        TipoSocio,
+                        Estado};
                 rowisp_ListarClientePorTipoPorNroIdePorNomRazRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarClientePorTipoPorNroIdePorNomRazRow);
                 return rowisp_ListarClientePorTipoPorNroIdePorNomRazRow;
@@ -5331,6 +5382,9 @@ namespace GestionClubView.DataSet {
                 this.columnfechaAgrega = base.Columns["fechaAgrega"];
                 this.columnusuarioModifica = base.Columns["usuarioModifica"];
                 this.columnfechaModifica = base.Columns["fechaModifica"];
+                this.columnTipoCliente = base.Columns["TipoCliente"];
+                this.columnTipoSocio = base.Columns["TipoSocio"];
+                this.columnEstado = base.Columns["Estado"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5368,6 +5422,12 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnusuarioModifica);
                 this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaModifica);
+                this.columnTipoCliente = new global::System.Data.DataColumn("TipoCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipoCliente);
+                this.columnTipoSocio = new global::System.Data.DataColumn("TipoSocio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipoSocio);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint11", new global::System.Data.DataColumn[] {
                                 this.columnidCliente}, false));
                 this.columnidCliente.AutoIncrement = true;
@@ -14629,6 +14689,57 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TipoCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TipoCliente\' de la tabla \'isp_ListarClientePorTipoPorNroI" +
+                                "dePorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TipoSocio {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoSocioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TipoSocio\' de la tabla \'isp_ListarClientePorTipoPorNroIde" +
+                                "PorNomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoSocioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Estado {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.EstadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estado\' de la tabla \'isp_ListarClientePorTipoPorNroIdePor" +
+                                "NomRaz\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.EstadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.idEmpresaColumn);
             }
@@ -14805,6 +14916,42 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaModificaNull() {
                 this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTipoClienteNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTipoClienteNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTipoSocioNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoSocioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTipoSocioNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.TipoSocioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstadoNull() {
+                return this.IsNull(this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.EstadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstadoNull() {
+                this[this.tableisp_ListarClientePorTipoPorNroIdePorNomRaz.EstadoColumn] = global::System.Convert.DBNull;
             }
         }
         

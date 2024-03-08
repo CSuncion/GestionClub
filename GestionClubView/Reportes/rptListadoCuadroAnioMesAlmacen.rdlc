@@ -323,14 +323,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="tipFactura">
+                        <Textbox Name="desTipFactura">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!tipFactura.Value</Value>
+                                  <Value>=Fields!desTipFactura.Value</Value>
                                   <Style>
                                     <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -340,7 +340,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>tipFactura</rd:DefaultName>
+                          <rd:DefaultName>desTipFactura</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1113,7 +1113,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0.17639cm</Top>
+              <Top>0cm</Top>
               <Left>0.10583cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1144,7 +1144,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0.14111cm</Top>
+              <Top>0cm</Top>
               <Left>4.34326cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>
