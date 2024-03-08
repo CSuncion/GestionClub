@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -70,6 +71,8 @@
             this.tsmIngresosCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAjustesIngresos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAjustesSalidas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmRecalcularStock = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmConsultaTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmClientesProveedores = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +101,6 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -117,6 +119,13 @@
             this.pnlMenu.Controls.Add(this.label2);
             this.pnlMenu.Controls.Add(this.pnlLogo);
             this.pnlMenu.Name = "pnlMenu";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.Purple;
+            this.label4.Name = "label4";
             // 
             // pictureBox1
             // 
@@ -390,7 +399,9 @@
             this.tsmStockRestaurante.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmIngresosCompras,
             this.tsmAjustesIngresos,
-            this.tsmAjustesSalidas});
+            this.tsmAjustesSalidas,
+            this.toolStripSeparator1,
+            this.tsmRecalcularStock});
             resources.ApplyResources(this.tsmStockRestaurante, "tsmStockRestaurante");
             this.tsmStockRestaurante.Name = "tsmStockRestaurante";
             // 
@@ -411,6 +422,17 @@
             resources.ApplyResources(this.tsmAjustesSalidas, "tsmAjustesSalidas");
             this.tsmAjustesSalidas.Name = "tsmAjustesSalidas";
             this.tsmAjustesSalidas.Click += new System.EventHandler(this.tsmAjustesSalidas_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // tsmRecalcularStock
+            // 
+            resources.ApplyResources(this.tsmRecalcularStock, "tsmRecalcularStock");
+            this.tsmRecalcularStock.Name = "tsmRecalcularStock";
+            this.tsmRecalcularStock.Click += new System.EventHandler(this.tsmRecalcularStock_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -604,13 +626,6 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.Purple;
-            this.label4.Name = "label4";
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -715,5 +730,7 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmResumenAlmacen;
         internal System.Windows.Forms.ToolStripMenuItem tsmCuadroSalidaIngreso;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        internal System.Windows.Forms.ToolStripMenuItem tsmRecalcularStock;
     }
 }

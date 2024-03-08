@@ -383,5 +383,20 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_CuadroAnualIngresoYSalida", lParameter);
         }
+        public void RecalcularStockProducto(string anio, string mes)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
+                    new SqlParameter("@IdCodAlmacen", 1),
+                    new SqlParameter("@Anio", Convert.ToInt32(anio)),
+                    new SqlParameter("@Mes", Convert.ToInt32(mes))
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_RecalcularStockProducto");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
     }
 }

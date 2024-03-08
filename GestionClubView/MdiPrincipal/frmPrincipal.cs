@@ -381,6 +381,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmCuadroSalidaIngreso, null, 0, 0);
             win.VentanaSeleccionar();
         }
+        public void InstanciarRecalcularStock()
+        {
+            frmRecalcularStockAnioMes win = new frmRecalcularStockAnioMes();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmRecalcularStock, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarUsuarioMozo()
         {
             frmMozosUsuarios win = new frmMozosUsuarios();
@@ -736,6 +742,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmCuadroSalidaIngreso_Click(object sender, EventArgs e)
         {
             this.InstanciarReporteResumenIngresoSalida();
+        }
+
+        private void tsmRecalcularStock_Click(object sender, EventArgs e)
+        {
+            this.InstanciarRecalcularStock();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRespaldoBackup));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.btnRespaldo = new System.Windows.Forms.Button();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.btnRespaldo = new System.Windows.Forms.Button();
             this.tsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,21 +47,6 @@
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 447;
             // 
-            // btnRespaldo
-            // 
-            this.btnRespaldo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRespaldo.Image = ((System.Drawing.Image)(resources.GetObject("btnRespaldo.Image")));
-            this.btnRespaldo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRespaldo.Location = new System.Drawing.Point(101, 28);
-            this.btnRespaldo.Name = "btnRespaldo";
-            this.btnRespaldo.Size = new System.Drawing.Size(215, 51);
-            this.btnRespaldo.TabIndex = 448;
-            this.btnRespaldo.Text = "Respaldar Fonbiepol";
-            this.btnRespaldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRespaldo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRespaldo.UseVisualStyleBackColor = true;
-            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
-            // 
             // tsbSalir
             // 
             this.tsbSalir.Image = ((System.Drawing.Image)(resources.GetObject("tsbSalir.Image")));
@@ -71,6 +56,21 @@
             this.tsbSalir.Text = "Salir";
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
+            // btnRespaldo
+            // 
+            this.btnRespaldo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRespaldo.Image = ((System.Drawing.Image)(resources.GetObject("btnRespaldo.Image")));
+            this.btnRespaldo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRespaldo.Location = new System.Drawing.Point(101, 28);
+            this.btnRespaldo.Name = "btnRespaldo";
+            this.btnRespaldo.Size = new System.Drawing.Size(215, 51);
+            this.btnRespaldo.TabIndex = 448;
+            this.btnRespaldo.Text = "Respaldar COSFUP";
+            this.btnRespaldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRespaldo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRespaldo.UseVisualStyleBackColor = true;
+            this.btnRespaldo.Click += new System.EventHandler(this.btnRespaldo_Click);
             // 
             // frmRespaldoBackup
             // 

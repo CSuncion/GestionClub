@@ -16,5 +16,6 @@ namespace GestionClubRepository.IRepository
         List<GestionClubComprobanteDetalleAlmacenDto> ListarComprobanteDetalleAlmacenPorComprobanteAlmacen(GestionClubComprobanteDetalleAlmacenDto objEn);
         List<GestionClubComprobanteAlmacenDto> ResumenAnioMesAlmacen(string anio, string mes);
         List<GestionClubComprobanteAlmacenDto> CuadroAnualIngresoYSalida(string anio, string mes);
+        void RecalcularStockProducto(string anio, string mes);
     }
 }

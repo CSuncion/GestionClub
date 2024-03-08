@@ -5485,7 +5485,7 @@
 </value>
   </data>
   <data name="tsmIngresosCompras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsmIngresosCompras.Text" xml:space="preserve">
     <value>Ingresos (Compras)</value>
@@ -5515,7 +5515,7 @@
 </value>
   </data>
   <data name="tsmAjustesIngresos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsmAjustesIngresos.Text" xml:space="preserve">
     <value>Ajustes Ingresos</value>
@@ -5543,10 +5543,43 @@
 </value>
   </data>
   <data name="tsmAjustesSalidas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsmAjustesSalidas.Text" xml:space="preserve">
     <value>Ajustes Salidas</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="tsmRecalcularStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAAB3RJ
+        TUUH5wgEESsa7nGQWAAAA9xJREFUWEe1l1msTWcUx7ehaM1DG0PETIgYY0pbHoiQRkIivBhCJOYx8cCT
+        ehL0hUTqoVp9MDxITE2RCkIoIrQxRGuqsXj1Uh34/T793H3P2efcfa7rn/xy75ecc9baa61vrbWTlMbA
+        jzApnN5d9eEz2AZX4CZ8C22hSMPgMryChzAHGkFt1RAWw104BofgLzgIraGaRkM0HnkBmyDT2xyaDY9g
+        BbSDvXAcukCRfoC08cg/cAB6QSXqBL/AhnBKkqFwH8aHU5XawCf+Y84fQJYTshYq0VS4Bb3DKUmGg79v
+        jUV1Bh/u+3BCc8GwZzmwGirRUjgNH4VTkjQHi/somO6xYF38DTcg6APYCP9CoQN/wBeQVwvhIrQMpzca
+        CDphgcs+2AOX4K0sOMOi0f/+/1sbJ2bAnzAonKrUAkzHEPgYjMg3UE19YA0Ydq9QpU5YcN75/WD1Z8n+
+        sAzuQLouiqQxjeZ1QuNW/2HwJiidMBKm40PoCevhMehEPSirvE4Y1kLj7WEXPANrwsL0qa/CPLBZ5VJN
+        TpQybvMxHdbEIlgO0yF+piJlOWGNrAQrORpvAF1hN+iULb7OlOWEnIOOYMfcCYbZzjcK6lw6cQ/SDnhe
+        AD/BSdgOOtoP3otWQWGf8Gx3c9jojE71hTqXBWfOf4Z0JGwq5r4ZnIWvoM6VvucdwJbrkx+BbqB0wDS4
+        eEwEdwK73jur0LgNxflu2KPxqMlwHZ7Ac/gOartXBBV2OFup1X4CzHlT8Mmj7G6mYzA4+Ww8fj6XExqY
+        Bo5UQ2wTsZmkm0x3+B2+hvngNTwFPnlaTthW8Clcg7JO+OFZ8CvcBtvmBbCNOiGjcTucY9QFw6smFpxh
+        1ohPHuUMOAPWgj2hpBOGzGJxh3ONMr8ODgeIPxLWJhTbq+kYCV6zeNXsD+bcdJki57+1shW8LROgpBOf
+        g93LBdIvZ8kvOFhKtVcf4CmMA3c9n1zjOr8FyjphLr3Hjk7v+QhweUjLSLhkzAynYvljpsGCM+ca06jG
+        SzmxA8KK7lO5txveuDJ5tw1jlOlwpPqkpaQTPplOaKScE76w/AZfQlgMX4L32hCaEiPiDudCqVwwDavT
+        r5zyOGGRD4B14A0LXcsIpF8aXJWsdHc45YrtF53nNamcE05NdwMn52Y4DyH3Fk5aRsKRalUrQ+UVjdex
+        JmU5YaHHFE4B94kl4VQgXxpMgauzzrm7eUVdoypR2glz3h96QDTubtgYqsnO5Ubri6Rbjb3e8NkZc+9w
+        KemE1e6bkjm3afl7mcaVk8vXJV+lvR1eLeuhVH/II9NrCv09u6tpaAIoSV4DV2gpaWK5Q1AAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="tsmRecalcularStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsmRecalcularStock.Text" xml:space="preserve">
+    <value>Recalcular Stock</value>
   </data>
   <data name="tsmStockRestaurante.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5936,7 +5969,7 @@
   <data name="tsmResumenAlmacen.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7AAAAOwAFq1okJAAAC30lE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6+AAAOvgHqQrHAAAAC30lE
         QVRYR73X12sUURSA8bWLDWJHjSUotmDviEaiiIjtRSyJGrGhomLvXWOJig1siERf9MknH3wR/zO/D2Zg
         GGbcaeyBH0l2d+6euXPuuTe1lOiHwRVzzEzRF0dwD9cTXMPVFL6XdI1jOaZj143+uIV5aMKoCP9eiteB
         l4E3eAvfS7pmPhzTseuGH/JudqEL+yM64d18xVH0Bo7hO3zPz0SvOYCtuIJcCXyDA6/Fuoj16ME2rA74
@@ -6486,6 +6519,18 @@
     <value>tsmAjustesSalidas</value>
   </data>
   <data name="&gt;&gt;tsmAjustesSalidas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsmRecalcularStock.Name" xml:space="preserve">
+    <value>tsmRecalcularStock</value>
+  </data>
+  <data name="&gt;&gt;tsmRecalcularStock.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;consultasToolStripMenuItem.Name" xml:space="preserve">
