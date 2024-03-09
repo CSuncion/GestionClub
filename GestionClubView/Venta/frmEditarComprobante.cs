@@ -290,6 +290,15 @@ namespace GestionClubView.Venta
             else
                 this.txtPrecio.ReadOnly = true;
 
+            if (this.txtCodProd.Text.StartsWith("0602") || this.txtCodProd.Text.StartsWith("0501"))
+                this.nudCantidadProducto.ReadOnly = false;
+            else
+            {
+                this.nudCantidadProducto.Value = 1;
+                this.nudCantidadProducto.ReadOnly = true;
+            }
+
+
             //devolver
             return iProEN.Adicionales.EsVerdad;
         }
