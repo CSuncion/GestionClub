@@ -4,7 +4,7 @@
 
     partial class DsGestionClub
     {
-        partial class Tb_SolicitantesDataTable
+        partial class isp_CuadroAnualIngresoYSalidaV1DataTable
         {
         }
     }

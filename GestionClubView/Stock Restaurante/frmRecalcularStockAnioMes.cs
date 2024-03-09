@@ -49,7 +49,7 @@ namespace GestionClubView.Stock_Restaurante
                 Mensaje.OperacionDenegada("Ingresar año correcto", this.Text);
                 return;
             }
-            GestionClubComprobanteAlmacenController.RecalcularStockProducto(this.txtAnio.Text, Cmb.ObtenerValor(this.cboMes, string.Empty));
+            GestionClubResumenAlmacenController.RecalcularStockProducto(this.txtAnio.Text, Cmb.ObtenerValor(this.cboMes, string.Empty));
             Mensaje.OperacionSatisfactoria("Se recalculo correctamente el stock", this.eTitulo);
         }
         public void Cerrar()

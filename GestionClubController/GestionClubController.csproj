@@ -59,6 +59,7 @@
     <Compile Include="Controller\GestionClubMesaController.cs" />
     <Compile Include="Controller\GestionClubAmbienteController.cs" />
     <Compile Include="Controller\GestionClubGeneralController.cs" />
+    <Compile Include="Controller\GestionClubResumenAlmacenController.cs" />
     <Compile Include="Controller\GestionClubTipoCambioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

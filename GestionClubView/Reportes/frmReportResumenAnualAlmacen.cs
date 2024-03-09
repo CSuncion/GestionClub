@@ -44,7 +44,7 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsResumenAnoMesAlmacen";
-                rds.Value = GestionClubComprobanteAlmacenController.ResumenAnioMesAlmacen(this.wFrm.txtAnio.Text, Cmb.ObtenerValor(this.wFrm.cboMes));
+                rds.Value = GestionClubResumenAlmacenController.ResumenAnioMesAlmacen(this.wFrm.txtAnio.Text, Cmb.ObtenerValor(this.wFrm.cboMes));
 
                 ReportParameter[] rp = new ReportParameter[1];
 

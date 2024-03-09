@@ -66,6 +66,7 @@
     <Compile Include="ModelDto\GestionClubEmpresaDto.cs" />
     <Compile Include="ModelDto\GestionClubMesaDto.cs" />
     <Compile Include="ModelDto\GestionClubProductoDto.cs" />
+    <Compile Include="ModelDto\GestionClubResumenAlmacenDto.cs" />
     <Compile Include="ModelDto\GestionClubSistemaDetalleDto.cs" />
     <Compile Include="ModelDto\GestionClubTipoCambioDto.cs" />
     <Compile Include="ModelDto\Universal.cs" />

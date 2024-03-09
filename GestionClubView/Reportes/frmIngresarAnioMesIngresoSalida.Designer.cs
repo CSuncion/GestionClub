@@ -35,8 +35,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cboMes = new System.Windows.Forms.ComboBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
@@ -105,33 +103,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.cboMes);
             this.groupBox1.Controls.Add(this.txtAnio);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 78);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 85);
+            this.groupBox1.Size = new System.Drawing.Size(333, 55);
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(76, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 14);
-            this.label9.TabIndex = 453;
-            this.label9.Text = "Mes:";
-            // 
-            // cboMes
-            // 
-            this.cboMes.FormattingEnabled = true;
-            this.cboMes.Location = new System.Drawing.Point(115, 45);
-            this.cboMes.Name = "cboMes";
-            this.cboMes.Size = new System.Drawing.Size(135, 21);
-            this.cboMes.TabIndex = 452;
             // 
             // txtAnio
             // 
@@ -154,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 179);
+            this.ClientSize = new System.Drawing.Size(357, 146);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
@@ -182,7 +160,5 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         internal System.Windows.Forms.TextBox txtAnio;
-        private System.Windows.Forms.Label label9;
-        internal System.Windows.Forms.ComboBox cboMes;
     }
 }

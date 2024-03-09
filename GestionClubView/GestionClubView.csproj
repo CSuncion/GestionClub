@@ -375,12 +375,6 @@
     <Compile Include="Stock Restaurante\frmRecalcularStockAnioMes.Designer.cs">
       <DependentUpon>frmRecalcularStockAnioMes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Restaurante\frmRecalcularStockProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Stock Restaurante\frmRecalcularStockProducto.Designer.cs">
-      <DependentUpon>frmRecalcularStockProducto.cs</DependentUpon>
-    </Compile>
     <Compile Include="Venta\frmEditarNotaDeCredito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -712,9 +706,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock Restaurante\frmRecalcularStockAnioMes.resx">
       <DependentUpon>frmRecalcularStockAnioMes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Stock Restaurante\frmRecalcularStockProducto.resx">
-      <DependentUpon>frmRecalcularStockProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Venta\frmEditarNotaDeCredito.resx">
       <DependentUpon>frmEditarNotaDeCredito.cs</DependentUpon>

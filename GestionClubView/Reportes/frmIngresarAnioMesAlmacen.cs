@@ -26,15 +26,7 @@ namespace GestionClubView.Reportes
         public void VentanaSeleccionar()
         {
             this.Show();
-            this.CargarMes();
             this.FechaActual();
-        }
-        public void CargarMes()
-        {
-            Cmb.Cargar(this.cboMes, GestionClubGeneralController.ListarSistemaDetallePorTablaPorObs(GestionClubEnum.Sistema.Mes.ToString(), string.Empty)
-                .OrderBy(x => x.idTabSistemaDetalle).ToList(),
-                GestionClubSistemaDetalleDto._codigo,
-                GestionClubSistemaDetalleDto._descri);
         }
         public void FechaActual()
         {

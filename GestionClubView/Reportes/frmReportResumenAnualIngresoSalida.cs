@@ -23,7 +23,7 @@ namespace GestionClubView.Reportes
         //CreditsReportController objReportController = new CreditsReportController();
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListadoCuadroAnioMesAlmacen.rdlc";
-        public string formaReporte = "Normal";
+        public string formaReporte = "Horizontal";
         public frmReportResumenAnualIngresoSalida()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsCuadroAnoMesAlmacen";
-                rds.Value = GestionClubComprobanteAlmacenController.CuadroAnualIngresoYSalida(this.wFrm.txtAnio.Text, Cmb.ObtenerValor(this.wFrm.cboMes));
+                rds.Value = GestionClubResumenAlmacenController.CuadroAnualIngresoYSalida(this.wFrm.txtAnio.Text);
 
                 ReportParameter[] rp = new ReportParameter[1];
 

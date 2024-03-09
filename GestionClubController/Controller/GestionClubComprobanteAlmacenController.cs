@@ -189,20 +189,5 @@ namespace GestionClubController.Controller
             GestionClubComprobanteDetalleAlmacenDto iPerEN = new GestionClubComprobanteDetalleAlmacenDto();
             return iPerEN;
         }
-        public static List<GestionClubComprobanteAlmacenDto> ResumenAnioMesAlmacen(string anio, string mes)
-        {
-            GestionClubComprobanteAlmacenRepository objRepo = new GestionClubComprobanteAlmacenRepository();
-            return objRepo.ResumenAnioMesAlmacen(anio, mes);
-        }
-        public static List<GestionClubComprobanteAlmacenDto> CuadroAnualIngresoYSalida(string anio, string mes)
-        {
-            GestionClubComprobanteAlmacenRepository objRepo = new GestionClubComprobanteAlmacenRepository();
-            return objRepo.CuadroAnualIngresoYSalida(anio, mes);
-        }
-        public static void RecalcularStockProducto(string anio, string mes)
-        {
-            GestionClubComprobanteAlmacenRepository obj = new GestionClubComprobanteAlmacenRepository();
-            obj.RecalcularStockProducto(anio, mes);
-        }
     }
 }

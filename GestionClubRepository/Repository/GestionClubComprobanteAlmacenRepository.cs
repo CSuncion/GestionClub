@@ -365,38 +365,6 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarComprobanteDetalleAlmacenPorComprobanteAlmacen", lParameter);
         }
-        public List<GestionClubComprobanteAlmacenDto> ResumenAnioMesAlmacen(string anio, string mes)
-        {
-            List<SqlParameter> lParameter = new List<SqlParameter>()
-                {
-                new SqlParameter("@anio",anio),
-                new SqlParameter("@mes",mes)
-                };
-            return this.BuscarObjetoPorParametroCabecera("isp_ResumenAnioMesAlmacen", lParameter);
-        }
-        public List<GestionClubComprobanteAlmacenDto> CuadroAnualIngresoYSalida(string anio, string mes)
-        {
-            List<SqlParameter> lParameter = new List<SqlParameter>()
-                {
-                new SqlParameter("@anio",anio),
-                new SqlParameter("@mes",mes)
-                };
-            return this.BuscarObjetoPorParametroCabecera("isp_CuadroAnualIngresoYSalida", lParameter);
-        }
-        public void RecalcularStockProducto(string anio, string mes)
-        {
-            xObjCn.Connection();
-            List<SqlParameter> lParameter = new List<SqlParameter>()
-                {
-                    new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
-                    new SqlParameter("@IdCodAlmacen", 1),
-                    new SqlParameter("@Anio", Convert.ToInt32(anio)),
-                    new SqlParameter("@Mes", Convert.ToInt32(mes))
-                };
-            xObjCn.AssignParameters(lParameter);
-            xObjCn.CommandStoreProcedure("isp_RecalcularStockProducto");
-            xObjCn.ExecuteNotResult();
-            xObjCn.Disconnect();
-        }
+
     }
 }
