@@ -42,10 +42,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.sst1 = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.DgvComprobantes = new System.Windows.Forms.DataGridView();
-            this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
             this.tsSecundario.SuspendLayout();
             this.sst1.SuspendLayout();
@@ -188,6 +188,16 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
             // 
+            // tsbImprimir
+            // 
+            this.tsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbImprimir.Image")));
+            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbImprimir.Name = "tsbImprimir";
+            this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
+            this.tsbImprimir.Text = "Imprimir";
+            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
+            // 
             // sst1
             // 
             this.sst1.BackColor = System.Drawing.SystemColors.Control;
@@ -219,16 +229,6 @@
             this.DgvComprobantes.TabIndex = 111;
             this.DgvComprobantes.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvComprobantes_CellEnter);
             this.DgvComprobantes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvComprobantes_CellMouseDoubleClick);
-            // 
-            // tsbImprimir
-            // 
-            this.tsbImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbImprimir.Image")));
-            this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbImprimir.Name = "tsbImprimir";
-            this.tsbImprimir.Size = new System.Drawing.Size(23, 22);
-            this.tsbImprimir.Text = "Imprimir";
-            this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
             // 
             // frmComprobantes
             // 

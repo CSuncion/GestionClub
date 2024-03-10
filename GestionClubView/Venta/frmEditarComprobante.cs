@@ -2,9 +2,9 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
+using GestionClubUtil.Util;
 using GestionClubView.Listas;
 using GestionClubView.Maestros;
-using GestionClubView.MdiPrincipal;
 using GestionClubView.Pedidos;
 using QRCoder;
 using System;
@@ -17,9 +17,6 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinControles;
 using WinControles.ControlesWindows;
@@ -371,16 +368,32 @@ namespace GestionClubView.Venta
             this.CalcularTotalYCantidad();
             this.CalcularPendientePagar();
         }
-        public void AdicionarComprobante()
+        public bool AdicionarComprobante()
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
+
+            GenerarArchivoComprobante.Main(iComEN, this.lObjDetalle, iParEN);
+            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+            string[] jsonArray = json.Split('|');
+
+            if (json.Contains("errors"))
+            {
+                Mensaje.OperacionDenegada(jsonArray[1], this.wFrm.eTitulo);
+                return true;
+            }
+
+
+
             this.ActualizarCorrelativoComprobante();
+
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
 
             GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
             this.AsignarDetalleComprobante(iDetObjEN, identity);
+            return false;
 
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
@@ -406,11 +419,12 @@ namespace GestionClubView.Venta
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
-            pObj.impBruComprobante = !this.ValidarItemParaTicket() ? Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
-                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impIgvComprobante = !this.ValidarItemParaTicket() ? 0 :
-                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impDtrComprobante = !this.ValidarItemParaFacturar() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
+            decimal precioReal = (Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
+            pObj.impBruComprobante = this.ValidarComprobanteTicket() ? Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
+                precioReal;
+            pObj.impIgvComprobante = this.ValidarComprobanteTicket() ? 0 :
+               precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.impDtrComprobante = this.ValidarComprobanteFactura() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
                 : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
             pObj.tipCliente = this.txtTipoDoc.Text;
@@ -637,8 +651,9 @@ namespace GestionClubView.Venta
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
-            this.AdicionarComprobante();
+            if (this.AdicionarComprobante()) { return; }
             //this.ActualizarStockProducto();
+
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);

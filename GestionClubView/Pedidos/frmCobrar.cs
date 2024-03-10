@@ -2,6 +2,7 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
+using GestionClubUtil.Util;
 using GestionClubView.Listas;
 using GestionClubView.Maestros;
 using Microsoft.Reporting.WinForms;
@@ -34,6 +35,7 @@ namespace GestionClubView.Pedidos
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public List<GestionClubDetalleComandaDto> lObjDetalle = new List<GestionClubDetalleComandaDto>();
+        public List<GestionClubDetalleComprobanteDto> lObjDetalleComprobante = new List<GestionClubDetalleComprobanteDto>();
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
         public List<GestionClubMesaDto> lObjMesas = new List<GestionClubMesaDto>();
         public string eTitulo = "Adicionar Comanda";
@@ -346,7 +348,8 @@ namespace GestionClubView.Pedidos
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.wCom.eTitulo) == false) { return; }
 
-            this.AdicionarComprobante();
+            if (this.AdicionarComprobante()) { return; }
+
             this.ModificarSituacionMesa();
             this.ModificarSituacionComanda();
             this.ActualizarStockProducto();
@@ -523,17 +526,30 @@ namespace GestionClubView.Pedidos
 
             return result;
         }
-        public void AdicionarComprobante()
+        public bool AdicionarComprobante()
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
+            GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
             this.AsignarComprobante(iComEN);
+
+            this.AsignarDetalleComprobanteDB(iDetObjEN, 0);
+
+            GenerarArchivoComprobante.Main(iComEN, this.lObjDetalleComprobante, iParEN);
+            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+            string[] jsonArray = json.Split('|');
+
+            if (json.Contains("errors"))
+            {
+                Mensaje.OperacionDenegada(jsonArray[1], this.eTitulo);
+                return true;
+            }
+
             this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
-
-            GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
             this.AsignarDetalleComprobante(iDetObjEN, identity);
-
+            return false;
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
@@ -567,6 +583,22 @@ namespace GestionClubView.Pedidos
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
+        }
+
+        public void AsignarDetalleComprobanteDB(GestionClubDetalleComprobanteDto pObj, int identity)
+        {
+            pObj.idComprobante = identity;
+            pObj.estadoDetalleComprobante = "05";
+            pObj.obsDetalleComprobante = string.Empty;
+            foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
+            {
+                pObj.idProducto = Convert.ToInt32(item.ImageKey);
+                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
+                pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
+                pObj.preTotal = (pObj.preVenta * pObj.cantidad);
+                this.lObjDetalleComprobante.Add(pObj);
+            }
+
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)

@@ -1,6 +1,7 @@
 ﻿using Comun;
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
+using GestionClubUtil.Util;
 using GestionClubView.MdiPrincipal;
 using QRCoder;
 using System;
@@ -728,6 +729,11 @@ namespace GestionClubView.Venta
         private void tsbPrimero_Click(object sender, EventArgs e)
         {
             Dgv.SeleccionarRegistroXDesplazamiento(this.DgvComprobantes, Dgv.Desplazar.Primero);
+        }
+
+        private void pruebafactura_Click(object sender, EventArgs e)
+        {
+            //FacturacionElectronicaNubeFact.Main();
         }
 
         private void tsbAnterior_Click(object sender, EventArgs e)

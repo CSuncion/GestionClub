@@ -256,5 +256,6 @@ namespace GestionClubController.Controller
             GestionClubComprobanteRepository obj = new GestionClubComprobanteRepository();
             return obj.ListarComprobantesConComanda(objEn);
         }
+
     }
 }

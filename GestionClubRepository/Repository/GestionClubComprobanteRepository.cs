@@ -202,6 +202,8 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@impNetComprobante", pObj.impNetComprobante),
                     new SqlParameter("@impDtrComprobante", pObj.impDtrComprobante),
                     new SqlParameter("@idCliente", pObj.idCliente),
+                    new SqlParameter("@codCliente", pObj.nroIdentificacionCliente),
+                    new SqlParameter("@nombreCliente", pObj.nombreRazSocialCliente),
                     new SqlParameter("@estadoComprobante", pObj.estadoComprobante),
                     new SqlParameter("@obsComprobante", pObj.obsComprobante),
                     new SqlParameter("@usuarioAgrega", Universal.gIdAcceso),
