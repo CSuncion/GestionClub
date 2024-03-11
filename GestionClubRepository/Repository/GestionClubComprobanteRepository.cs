@@ -223,6 +223,8 @@ namespace GestionClubRepository.Repository
                 new SqlParameter("@idComprobante", pObj.idComprobante),
                 new SqlParameter("@idEmpresa", Universal.gIdEmpresa),
                 new SqlParameter("@idProducto", pObj.idProducto),
+                new SqlParameter("@codProducto", pObj.codProducto),
+                new SqlParameter("@desProducto", pObj.desProducto),
                 new SqlParameter("@preVenta", pObj.preVenta),
                 new SqlParameter("@cantidad", pObj.cantidad),
                 new SqlParameter("@preTotal", pObj.preTotal),

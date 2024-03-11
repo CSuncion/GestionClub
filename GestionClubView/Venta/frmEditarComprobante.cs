@@ -38,6 +38,7 @@ namespace GestionClubView.Venta
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
         public int FormularioActivo = 0;
+        public bool aplicaDetra = false;
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public frmEditarComprobante()
         {
@@ -340,6 +341,15 @@ namespace GestionClubView.Venta
                 }
             }
 
+            this.aplicaDetra = false;
+            if (obj.codProducto.StartsWith("06"))
+            {
+                this.cboTipDoc.SelectedValue = "01";
+                this.aplicaDetra = true;
+                this.LimpiarCliente();
+                this.GenerarCorrelativo();
+            }
+
             this.lObjDetalle.Add(obj);
             this.MostrarComprobanteDeta();
             this.LimpiarCamposDetalleComprobante();
@@ -374,7 +384,7 @@ namespace GestionClubView.Venta
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
 
-            GenerarArchivoComprobante.Main(iComEN, this.lObjDetalle, iParEN);
+            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
 
             if (this.AdicionarErrors(json, iComEN)) { return true; };
@@ -417,6 +427,7 @@ namespace GestionClubView.Venta
             resultado.serie = jsonArray[3].ToString();
             resultado.numero = jsonArray[5].ToString();
             resultado.enlace = jsonArray[7].ToString();
+            resultado.sunat_ticket_numero = string.Empty;
             resultado.aceptada_por_sunat = jsonArray[9].ToString();
             resultado.sunat_description = jsonArray[11].ToString();
             resultado.sunat_note = jsonArray[13].ToString();
@@ -428,6 +439,7 @@ namespace GestionClubView.Venta
             resultado.cdr_zip_base64 = jsonArray[25].ToString();
             resultado.cadena_para_codigo_qr = jsonArray[27].ToString() + "|" + jsonArray[28].ToString() + "|" + jsonArray[29].ToString() + "|" + jsonArray[30].ToString() + "|" + jsonArray[31].ToString() + "|" + jsonArray[32].ToString() + "|" + jsonArray[33].ToString() + "|" + jsonArray[34].ToString() + "|" + jsonArray[35].ToString() + "|" + jsonArray[36].ToString() + "|" + jsonArray[37].ToString();
             resultado.codigo_hash = jsonArray[39].ToString();
+            resultado.key = string.Empty;
             resultado.enlace_del_pdf = jsonArray[41].ToString();
             resultado.enlace_del_xml = jsonArray[43].ToString();
             resultado.enlace_del_cdr = jsonArray[45].ToString();
@@ -461,7 +473,7 @@ namespace GestionClubView.Venta
                 precioReal;
             pObj.impIgvComprobante = this.ValidarComprobanteTicket() ? 0 :
                precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impDtrComprobante = this.ValidarComprobanteFactura() ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
+            pObj.impDtrComprobante = aplicaDetra ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
                 : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
             pObj.tipCliente = this.txtTipoDoc.Text;
@@ -492,23 +504,29 @@ namespace GestionClubView.Venta
 
             return result;
         }
-        public bool ValidarComprobanteFactura()
+        public bool ValidarComprobanteFactura(bool aplicaDtr)
         {
             bool result = false;
             if (this.lObjDetalle.Count > 0)
-                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+            {
+                foreach (GestionClubDetalleComprobanteDto item in this.lObjDetalle)
                 {
-                    result = true;
+                    GestionClubProductoDto obj = new GestionClubProductoDto();
+                    obj.idProducto = item.idProducto;
+                    obj = GestionClubProductoController.BuscarProductoXId(obj);
+                    if (obj.afeDtraProducto == 1)
+                    {
+                        aplicaDetra = true;
+                        result = true;
+                        break;
+                    }
                 }
-
-            if (result)
-                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "02" || Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03")
+                if (result && Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "01")
                 {
-                    Mensaje.OperacionDenegada("Debe ser factura, si contiene un item para Eventos.", this.wFrm.eTitulo);
-                    result = true;
-                }
-                else
+                    Mensaje.OperacionDenegada("Debe seleccionar factura", this.wFrm.eTitulo);
                     result = false;
+                }
+            }
 
             return result;
         }
@@ -521,6 +539,8 @@ namespace GestionClubView.Venta
             {
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;
                 pObj.idProducto = obj.idProducto;
+                pObj.codProducto = obj.codProducto;
+                pObj.desProducto = obj.desProducto;
                 pObj.preVenta = obj.preVenta;
                 pObj.cantidad = obj.cantidad;
                 pObj.preTotal = obj.preTotal;
@@ -679,7 +699,7 @@ namespace GestionClubView.Venta
 
             if (this.ValidarItemParaFacturar()) { return; }
 
-            if (this.ValidarComprobanteFactura()) { return; }
+            //if (this.ValidarComprobanteFactura(this.aplicaDetra) && this.aplicaDetra) { return; }
 
             if (this.ValidarItemParaTicket()) { return; }
 

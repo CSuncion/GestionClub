@@ -82,6 +82,7 @@ namespace GestionClubController.Controller
                 case GestionClubResultadoNubeFactDto._serie: return pObj.serie.ToString();
                 case GestionClubResultadoNubeFactDto._numero: return pObj.numero.ToString();
                 case GestionClubResultadoNubeFactDto._enlace: return pObj.enlace.ToString();
+                case GestionClubResultadoNubeFactDto._sunat_ticket_numero: return pObj.sunat_ticket_numero.ToString();
                 case GestionClubResultadoNubeFactDto._aceptada_por_sunat: return pObj.aceptada_por_sunat.ToString();
                 case GestionClubResultadoNubeFactDto._sunat_description: return pObj.sunat_description.ToString();
                 case GestionClubResultadoNubeFactDto._sunat_note: return pObj.sunat_note.ToString();
@@ -93,6 +94,7 @@ namespace GestionClubController.Controller
                 case GestionClubResultadoNubeFactDto._cdr_zip_base64: return pObj.cdr_zip_base64.ToString();
                 case GestionClubResultadoNubeFactDto._cadena_para_codigo_qr: return pObj.cadena_para_codigo_qr.ToString();
                 case GestionClubResultadoNubeFactDto._codigo_hash: return pObj.codigo_hash.ToString();
+                case GestionClubResultadoNubeFactDto._key: return pObj.key.ToString();
                 case GestionClubResultadoNubeFactDto._enlace_del_pdf: return pObj.enlace_del_pdf.ToString();
                 case GestionClubResultadoNubeFactDto._enlace_del_xml: return pObj.enlace_del_xml.ToString();
                 case GestionClubResultadoNubeFactDto._enlace_del_cdr: return pObj.enlace_del_cdr.ToString();

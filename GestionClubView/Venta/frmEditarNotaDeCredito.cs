@@ -2,6 +2,7 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
+using GestionClubUtil.Util;
 using GestionClubView.Listas;
 using GestionClubView.Maestros;
 using GestionClubView.MdiPrincipal;
@@ -339,10 +340,19 @@ namespace GestionClubView.Venta
             this.CalcularTotalYCantidad();
             //this.CalcularPendientePagar();
         }
-        public void AdicionarComprobante()
+        public bool AdicionarComprobante()
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
+
+            GenerarArchivoComprobante.NotaCreditoElectronico(iComEN, iParEN);
+            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+
+            if (this.AdicionarErrors(json, iComEN)) { return true; };
+
+            this.AdicionarResultado(json);
+
             this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
@@ -351,6 +361,46 @@ namespace GestionClubView.Venta
 
             iComEN.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
             GestionClubComprobanteController.ModificarComprobanteAnulado(iComEN);
+            return false;
+        }
+        public bool AdicionarErrors(string json, GestionClubComprobanteDto iComEN)
+        {
+            string[] jsonArray = json.Split('|');
+
+            if (json.Contains("errors"))
+            {
+                Mensaje.OperacionDenegada(jsonArray[1], this.wFrm.eTitulo);
+                GestionClubErrorNubeFactDto errors = new GestionClubErrorNubeFactDto();
+                errors.tipo_de_comprobante = iComEN.tipComprobante;
+                errors.serie = iComEN.serComprobante;
+                errors.numero = iComEN.nroComprobante;
+                errors.errors = jsonArray[1].ToString();
+                errors.codigo = jsonArray[3].ToString();
+                GestionClubResultadoNubeFactController.AdicionarErrorNubeFact(errors);
+                return true;
+            }
+            return false;
+        }
+        public void AdicionarResultado(string json)
+        {
+            string[] jsonArray = json.Split('|');
+            GestionClubResultadoNubeFactDto resultado = new GestionClubResultadoNubeFactDto();
+            resultado.numero = jsonArray[1].ToString();
+            resultado.enlace = jsonArray[3].ToString();
+            resultado.sunat_ticket_numero = jsonArray[5].ToString();
+            resultado.aceptada_por_sunat = jsonArray[7].ToString();
+            resultado.sunat_description = jsonArray[9].ToString();
+            resultado.sunat_note = jsonArray[11].ToString();
+            resultado.sunat_responsecode = jsonArray[13].ToString();
+            resultado.sunat_soap_error = jsonArray[15].ToString();
+            resultado.pdf_zip_base64 = jsonArray[17].ToString();
+            resultado.xml_zip_base64 = jsonArray[19].ToString();
+            resultado.cdr_zip_base64 = jsonArray[21].ToString();
+            resultado.key = jsonArray[23].ToString();
+            resultado.enlace_del_pdf = jsonArray[25].ToString();
+            resultado.enlace_del_xml = jsonArray[27].ToString();
+            resultado.enlace_del_cdr = jsonArray[29].ToString();
+            GestionClubResultadoNubeFactController.AdicionarResultadoNubeFact(resultado);
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
@@ -525,7 +575,8 @@ namespace GestionClubView.Venta
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
 
-            this.AdicionarComprobante();
+            if (this.AdicionarComprobante()) { return; }
+
             this.ActualizarStockProducto();
 
             //mensaje satisfactorio

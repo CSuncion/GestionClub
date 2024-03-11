@@ -529,27 +529,74 @@ namespace GestionClubView.Pedidos
         public bool AdicionarComprobante()
         {
             List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
+
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
+
             GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
+
             this.AsignarComprobante(iComEN);
 
-            this.AsignarDetalleComprobanteDB(iDetObjEN, 0);
+            this.lObjDetalleComprobante = new List<GestionClubDetalleComprobanteDto>();
+            this.AsignarDetalleComprobanteDB(this.lObjDetalleComprobante, 0);
 
-            GenerarArchivoComprobante.Main(iComEN, this.lObjDetalleComprobante, iParEN);
+
+            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalleComprobante, iParEN);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+
+            if (this.AdicionarErrors(json, iComEN)) { return true; };
+
+            this.AdicionarResultado(json);
+
+            this.ActualizarCorrelativoComprobante();
+
+            int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
+
+            this.AsignarDetalleComprobante(iDetObjEN, identity);
+            return false;
+        }
+        public bool AdicionarErrors(string json, GestionClubComprobanteDto iComEN)
+        {
             string[] jsonArray = json.Split('|');
 
             if (json.Contains("errors"))
             {
                 Mensaje.OperacionDenegada(jsonArray[1], this.eTitulo);
+                GestionClubErrorNubeFactDto errors = new GestionClubErrorNubeFactDto();
+                errors.tipo_de_comprobante = iComEN.tipComprobante;
+                errors.serie = iComEN.serComprobante;
+                errors.numero = iComEN.nroComprobante;
+                errors.errors = jsonArray[1].ToString();
+                errors.codigo = jsonArray[3].ToString();
+                GestionClubResultadoNubeFactController.AdicionarErrorNubeFact(errors);
                 return true;
             }
-
-            this.ActualizarCorrelativoComprobante();
-            int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
-
-            this.AsignarDetalleComprobante(iDetObjEN, identity);
             return false;
+        }
+        public void AdicionarResultado(string json)
+        {
+            string[] jsonArray = json.Split('|');
+            GestionClubResultadoNubeFactDto resultado = new GestionClubResultadoNubeFactDto();
+            resultado.tipo_de_comprobante = jsonArray[1].ToString();
+            resultado.serie = jsonArray[3].ToString();
+            resultado.numero = jsonArray[5].ToString();
+            resultado.enlace = jsonArray[7].ToString();
+            resultado.sunat_ticket_numero = string.Empty;
+            resultado.aceptada_por_sunat = jsonArray[9].ToString();
+            resultado.sunat_description = jsonArray[11].ToString();
+            resultado.sunat_note = jsonArray[13].ToString();
+            resultado.sunat_responsecode = jsonArray[15].ToString();
+            resultado.sunat_soap_error = jsonArray[17].ToString();
+            resultado.anulado = jsonArray[19].ToString();
+            resultado.pdf_zip_base64 = jsonArray[21].ToString();
+            resultado.xml_zip_base64 = jsonArray[23].ToString();
+            resultado.cdr_zip_base64 = jsonArray[25].ToString();
+            resultado.cadena_para_codigo_qr = jsonArray[27].ToString() + "|" + jsonArray[28].ToString() + "|" + jsonArray[29].ToString() + "|" + jsonArray[30].ToString() + "|" + jsonArray[31].ToString() + "|" + jsonArray[32].ToString() + "|" + jsonArray[33].ToString() + "|" + jsonArray[34].ToString() + "|" + jsonArray[35].ToString() + "|" + jsonArray[36].ToString() + "|" + jsonArray[37].ToString();
+            resultado.codigo_hash = jsonArray[39].ToString();
+            resultado.key = string.Empty;
+            resultado.enlace_del_pdf = jsonArray[41].ToString();
+            resultado.enlace_del_xml = jsonArray[43].ToString();
+            resultado.enlace_del_cdr = jsonArray[45].ToString();
+            GestionClubResultadoNubeFactController.AdicionarResultadoNubeFact(resultado);
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
         {
@@ -574,8 +621,9 @@ namespace GestionClubView.Pedidos
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
-            pObj.impBruComprobante = Convert.ToDecimal(this.lblTotal.Text) - Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impIgvComprobante = Convert.ToDecimal(this.lblTotal.Text) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            decimal precioReal = Convert.ToDecimal(this.lblTotal.Text) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100));
+            pObj.impBruComprobante = precioReal;
+            pObj.impIgvComprobante = precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
             pObj.impNetComprobante = pObj.impBruComprobante + pObj.impIgvComprobante;
             pObj.impDtrComprobante = 0;
             pObj.idCliente = this.presionTicket ? 0 : Convert.ToInt32(this.txtIdCliente.Text);
@@ -585,20 +633,38 @@ namespace GestionClubView.Pedidos
             pObj.estadoComprobante = "05";
         }
 
-        public void AsignarDetalleComprobanteDB(GestionClubDetalleComprobanteDto pObj, int identity)
+        public void AsignarDetalleComprobanteDB(List<GestionClubDetalleComprobanteDto> objLista, int identity)
         {
+            GestionClubDetalleComprobanteDto pObj = new GestionClubDetalleComprobanteDto();
             pObj.idComprobante = identity;
             pObj.estadoDetalleComprobante = "05";
             pObj.obsDetalleComprobante = string.Empty;
-            foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
-            {
-                pObj.idProducto = Convert.ToInt32(item.ImageKey);
-                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
-                pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
-                pObj.preTotal = (pObj.preVenta * pObj.cantidad);
-                this.lObjDetalleComprobante.Add(pObj);
-            }
 
+            foreach (GestionClubDetalleComandaDto item in this.lObjDetalle)
+            {
+                pObj.idProducto = item.idProducto;
+
+                GestionClubProductoDto objProd = new GestionClubProductoDto();
+
+                objProd.idProducto = pObj.idProducto;
+                objProd = GestionClubProductoController.BuscarProductoXId(objProd);
+
+                pObj.codProducto = objProd.codProducto;
+                pObj.desProducto = objProd.desProducto;
+                pObj.preVenta = item.preVenta;
+                pObj.cantidad = item.cantidad;
+                pObj.preTotal = (pObj.preVenta * pObj.cantidad);
+
+                objLista.Add(new GestionClubDetalleComprobanteDto()
+                {
+                    idProducto = pObj.idProducto,
+                    codProducto = pObj.codProducto,
+                    desProducto = pObj.desProducto,
+                    preVenta = pObj.preVenta,
+                    cantidad = pObj.cantidad,
+                    preTotal = (pObj.preVenta * pObj.cantidad)
+                });
+            }
         }
 
         public void AsignarDetalleComprobante(GestionClubDetalleComprobanteDto pObj, int identity)
@@ -606,11 +672,16 @@ namespace GestionClubView.Pedidos
             pObj.idComprobante = identity;
             pObj.estadoDetalleComprobante = "05";
             pObj.obsDetalleComprobante = string.Empty;
-            foreach (ListViewItem item in this.lvProductosSeleccionados.Items)
+            foreach (GestionClubDetalleComprobanteDto item in this.lObjDetalleComprobante)
             {
-                pObj.idProducto = Convert.ToInt32(item.ImageKey);
-                pObj.preVenta = Convert.ToDecimal(item.SubItems[2].Text);
-                pObj.cantidad = Convert.ToInt32(item.SubItems[1].Text);
+                pObj.idProducto = Convert.ToInt32(item.idProducto);
+                GestionClubProductoDto objProd = new GestionClubProductoDto();
+                objProd.idProducto = pObj.idProducto;
+                objProd = GestionClubProductoController.BuscarProductoXId(objProd);
+                pObj.codProducto = objProd.codProducto;
+                pObj.desProducto = objProd.desProducto;
+                pObj.preVenta = Convert.ToDecimal(item.preVenta);
+                pObj.cantidad = Convert.ToInt32(item.cantidad);
                 pObj.preTotal = (pObj.preVenta * pObj.cantidad);
                 if (!this.presionTicket)
                     GestionClubComprobanteController.AgregarDetalleComprobante(pObj);

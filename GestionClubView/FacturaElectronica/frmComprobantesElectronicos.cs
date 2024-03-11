@@ -84,6 +84,7 @@ namespace GestionClubView.FacturaElectronica
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._serie, "Serie", 80));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._numero, "Numero", 80));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._enlace, "Enlace", 200));
+            iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._sunat_ticket_numero, "Ticket N°", 80));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._aceptada_por_sunat, "Acep. Sunat", 80));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._sunat_description, "Sunat. Desc.", 150));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._sunat_note, "Sunat Note", 150));
@@ -95,6 +96,7 @@ namespace GestionClubView.FacturaElectronica
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._cdr_zip_base64, "CDR Base64", 100));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._cadena_para_codigo_qr, "Cad. QR", 200));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._codigo_hash, "Cod. Hash", 100));
+            iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._key, "Key", 100));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._enlace_del_pdf, "Enl. PDF", 200));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._enlace_del_xml, "Enl. XML", 200));
             iLisComprobante.Add(Dgv.NuevaColumnaTextCadena(GestionClubResultadoNubeFactDto._enlace_del_cdr, "Enl. CDR", 200));

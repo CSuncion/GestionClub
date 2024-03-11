@@ -1,0 +1,50 @@
+operacion|generar_comprobante|
+tipo_de_comprobante|2|
+serie|BBB1|
+numero|0005588|
+sunat_transaction|1|
+cliente_tipo_de_documento|1|
+cliente_numero_de_documento|00031655|
+cliente_denominacion|GONZALEZ ISLA, WALTER HERBERTO                    |
+cliente_direccion||
+cliente_email||
+cliente_email1||
+cliente_email2||
+fecha_de_emision|11-03-2024|
+fecha_de_vencimiento||
+moneda|1|
+tipo_de_cambio|3.730|
+porcentaje_de_igv|18.00|
+descuento_global||
+total_descuento||
+total_anticipo||
+total_gravada|63.559322033898305084745762712|
+total_inafecta||
+total_exonerada||
+total_igv|11.440677966101694915254237288|
+total_gratuita||
+total_otros_cargos||
+total|75.000000000000000000000000000|
+percepcion_tipo||
+percepcion_base_imponible||
+total_percepcion||
+total_incluido_percepcion||
+detraccion|false|
+observaciones||
+documento_que_se_modifica_tipo||
+documento_que_se_modifica_serie||
+documento_que_se_modifica_numero||
+tipo_de_nota_de_credito||
+tipo_de_nota_de_debito||
+enviar_automaticamente_a_la_sunat|true|
+enviar_automaticamente_al_cliente|false|
+codigo_unico||
+condiciones_de_pago||
+medio_de_pago||
+placa_vehiculo||
+orden_compra_servicio||
+tabla_personalizada_codigo||
+formato_de_pdf||
+item|NIU|01010101|MENU DEL DIA (MARTES A VIERNES)|2|13.559322033898305084745762712|16.00||27.118644067796610169491525424|1|4.8813559322033898305084745763|29.559322033898305084745762712|false|||10000000|
+item|NIU|01020101|POLLO AL HORNO|1|29.661016949152542372881355932|35.00||29.661016949152542372881355932|1|5.3389830508474576271186440678|35.000000000000000000000000000|false|||10000000|
+item|NIU|01030102|COCA COLA 1 LT Y 1/2|1|6.7796610169491525423728813559|8.00||6.7796610169491525423728813559|1|1.2203389830508474576271186441|8.000000000000000000000000000|false|||10000000|

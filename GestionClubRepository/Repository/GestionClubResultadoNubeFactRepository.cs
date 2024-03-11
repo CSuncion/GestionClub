@@ -27,6 +27,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.serie = iDr[GestionClubResultadoNubeFactDto._serie].ToString();
             xObjEnc.numero = iDr[GestionClubResultadoNubeFactDto._numero].ToString();
             xObjEnc.enlace = iDr[GestionClubResultadoNubeFactDto._enlace].ToString();
+            xObjEnc.sunat_ticket_numero = iDr[GestionClubResultadoNubeFactDto._sunat_ticket_numero].ToString();
             xObjEnc.aceptada_por_sunat = iDr[GestionClubResultadoNubeFactDto._aceptada_por_sunat].ToString();
             xObjEnc.sunat_description = iDr[GestionClubResultadoNubeFactDto._sunat_description].ToString();
             xObjEnc.sunat_note = iDr[GestionClubResultadoNubeFactDto._sunat_note].ToString();
@@ -38,6 +39,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.cdr_zip_base64 = iDr[GestionClubResultadoNubeFactDto._cdr_zip_base64].ToString();
             xObjEnc.cadena_para_codigo_qr = iDr[GestionClubResultadoNubeFactDto._cadena_para_codigo_qr].ToString();
             xObjEnc.codigo_hash = iDr[GestionClubResultadoNubeFactDto._codigo_hash].ToString();
+            xObjEnc.key = iDr[GestionClubResultadoNubeFactDto._key].ToString();
             xObjEnc.enlace_del_pdf = iDr[GestionClubResultadoNubeFactDto._enlace_del_pdf].ToString();
             xObjEnc.enlace_del_xml = iDr[GestionClubResultadoNubeFactDto._enlace_del_xml].ToString();
             xObjEnc.enlace_del_cdr = iDr[GestionClubResultadoNubeFactDto._enlace_del_cdr].ToString();
@@ -148,6 +150,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@serie" ,pObj.serie),
                     new SqlParameter("@numero" ,pObj.numero),
                     new SqlParameter("@enlace" ,pObj.enlace),
+                    new SqlParameter("@sunat_ticket_numero" ,pObj.sunat_ticket_numero),
                     new SqlParameter("@aceptada_por_sunat" ,pObj.aceptada_por_sunat),
                     new SqlParameter("@sunat_description" ,pObj.sunat_description),
                     new SqlParameter("@sunat_note" ,pObj.sunat_note),
@@ -159,6 +162,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@cdr_zip_base64" ,pObj.cdr_zip_base64),
                     new SqlParameter("@cadena_para_codigo_qr" ,pObj.cadena_para_codigo_qr),
                     new SqlParameter("@codigo_hash" ,pObj.codigo_hash),
+                    new SqlParameter("@key" ,pObj.key),
                     new SqlParameter("@enlace_del_pdf" ,pObj.enlace_del_pdf),
                     new SqlParameter("@enlace_del_xml" ,pObj.enlace_del_xml),
                     new SqlParameter("@enlace_del_cdr" ,pObj.enlace_del_cdr),

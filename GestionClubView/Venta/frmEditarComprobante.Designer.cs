@@ -84,6 +84,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -252,6 +253,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Controls.Add(this.txtGlosa);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtTipoCambio);
@@ -693,6 +695,16 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(619, 75);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(78, 17);
+            this.checkBox1.TabIndex = 464;
+            this.checkBox1.Text = "Detracción";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // frmEditarComprobante
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -797,5 +809,6 @@
         private System.Windows.Forms.Label label16;
         internal System.Windows.Forms.TextBox txtGlosa;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

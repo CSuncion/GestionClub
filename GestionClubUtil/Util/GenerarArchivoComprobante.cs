@@ -12,7 +12,7 @@ namespace GestionClubUtil.Util
 {
     public class GenerarArchivoComprobante
     {
-        public static void Main(GestionClubComprobanteDto objCabecera,
+        public static void ComprobanteElectronico(GestionClubComprobanteDto objCabecera,
             List<GestionClubDetalleComprobanteDto> objDetalle,
             List<GestionClubParametroDto> objParametro)
         {
@@ -33,7 +33,7 @@ namespace GestionClubUtil.Util
                     objCabecera.serComprobante.Replace('0', 'B'))
                     + "|");
                 outputFile.WriteLine("numero|" + objCabecera.nroComprobante + "|");
-                outputFile.WriteLine("sunat_transaction|1|");
+                outputFile.WriteLine("sunat_transaction|" + (objCabecera.impDtrComprobante > 0 ? "30" : "1") + "|");
                 outputFile.WriteLine("cliente_tipo_de_documento|" +
                     (objCabecera.tipCliente != "01" ?
                     "6" :
@@ -41,7 +41,7 @@ namespace GestionClubUtil.Util
                     + "|");
                 outputFile.WriteLine("cliente_numero_de_documento|" +
                     (objCabecera.tipCliente == "01" ?
-                    objCabecera.nroIdentificacionCliente.Substring(0, 8) :
+                    objCabecera.nroIdentificacionCliente.Substring(3, 8) :
                     objCabecera.nroIdentificacionCliente.Substring(0, 11))
                     + "|");
                 outputFile.WriteLine("cliente_denominacion|" + objCabecera.nombreRazSocialCliente + "|");
@@ -74,7 +74,7 @@ namespace GestionClubUtil.Util
                 outputFile.WriteLine("percepcion_base_imponible||");
                 outputFile.WriteLine("total_percepcion||");
                 outputFile.WriteLine("total_incluido_percepcion||");
-                outputFile.WriteLine("detraccion|false|");
+                outputFile.WriteLine("detraccion|" + (objCabecera.impDtrComprobante > 0 ? "true" : "false") + "|");
                 outputFile.WriteLine("observaciones||");
                 outputFile.WriteLine("documento_que_se_modifica_tipo||");
                 outputFile.WriteLine("documento_que_se_modifica_serie||");
@@ -88,7 +88,15 @@ namespace GestionClubUtil.Util
                 outputFile.WriteLine("medio_de_pago||");
                 outputFile.WriteLine("placa_vehiculo||");
                 outputFile.WriteLine("orden_compra_servicio||");
-                outputFile.WriteLine("tabla_personalizada_codigo||");
+                if (objCabecera.impDtrComprobante > 0)
+                {
+                    outputFile.WriteLine("detraccion_tipo|17|");
+                    outputFile.WriteLine("detraccion_total|" + (objCabecera.impDtrComprobante) + "|");
+                    outputFile.WriteLine("medio_de_pago_detraccion|1|");
+                }
+                else
+                    outputFile.WriteLine("tabla_personalizada_codigo||");
+
                 outputFile.WriteLine("formato_de_pdf||");
                 foreach (GestionClubDetalleComprobanteDto item in objDetalle)
                 {
@@ -100,17 +108,41 @@ namespace GestionClubUtil.Util
                         + "|" +
                         (item.cantidad)
                         + "|" +
-                        (precioReal)
+                        (Formato.NumeroDecimal(precioReal, 10))
                         + "|" +
-                        (item.preVenta)
+                        (Formato.NumeroDecimal(precioReal + (precioReal * objParametro.FirstOrDefault().PorcentajeIgv / 100), 10))
                         + "||" +
-                        (item.cantidad * precioReal)
+                        (Formato.NumeroDecimal((precioReal * item.cantidad), 10))
                         + "|1|" +
-                        (precioReal * (objParametro.FirstOrDefault().PorcentajeIgv / 100))
+                        (Formato.NumeroDecimal((precioReal * item.cantidad) * (objParametro.FirstOrDefault().PorcentajeIgv / 100), 10))
                         + "|" +
-                        ((item.cantidad * precioReal) + (precioReal * (objParametro.FirstOrDefault().PorcentajeIgv / 100)))
+                        (Formato.NumeroDecimal(((precioReal * item.cantidad) + ((precioReal * item.cantidad) * (objParametro.FirstOrDefault().PorcentajeIgv / 100))), 10))
                         + "|false|||10000000|");
                 }
+            }
+        }
+        public static void NotaCreditoElectronico(GestionClubComprobanteDto objCabecera,
+    List<GestionClubParametroDto> objParametro)
+        {
+            string nombreArchivo = objCabecera.serComprobante + "-" + objCabecera.nroComprobante + ".txt";
+            string docPath = objParametro.FirstOrDefault().RutaImagenQR;
+            string rutaComprobante = Path.Combine(docPath, nombreArchivo);
+            if (File.Exists(rutaComprobante))
+            {
+                File.Delete(rutaComprobante);
+            }
+            using (StreamWriter outputFile = new StreamWriter(rutaComprobante, true))
+            {
+                outputFile.WriteLine("operacion|generar_anulacion|");
+                outputFile.WriteLine("tipo_de_comprobante|" + (objCabecera.serGuiaComprobante.Substring(0, 1) == "B" ? "2" : "1") + "|");
+                outputFile.WriteLine("serie|" +
+                    (objCabecera.serGuiaComprobante.Substring(0, 1) == "F" ?
+                    objCabecera.serGuiaComprobante.Replace('0', 'F') :
+                    objCabecera.serGuiaComprobante.Replace('0', 'B'))
+                    + "|");
+                outputFile.WriteLine("numero|" + objCabecera.nroGuiaComprobante + "|");
+                outputFile.WriteLine("motivo|" + objCabecera.obsComprobante + "|");
+                outputFile.WriteLine("codigo_unico||");
             }
         }
     }
