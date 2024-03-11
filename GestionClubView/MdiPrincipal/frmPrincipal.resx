@@ -5164,32 +5164,34 @@
 </value>
   </data>
   <data name="tsmComprobanteElectronicos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 22</value>
+    <value>281, 22</value>
   </data>
   <data name="tsmComprobanteElectronicos.Text" xml:space="preserve">
-    <value>Comprobantes Electronicos(FA, BV)</value>
+    <value>Comprobantes Electrónicos(FA, BV, NC)</value>
   </data>
-  <data name="tsmNotaCreditoElectronico.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmErrorElectronico.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHElE
-        QVRYR+3WTUtVQRjA8eNLamZpakpalKAR0kKQsnWbtDYluAyDaBMV+gEqCKxWCaXUQsiKyJeQMkOLUgn6
-        BH6h/n89A4cLtyv3Tnd1H/jBnTlzz5kzz8yZSSpRiQJRjYOpBlThQKauJtWIQwht6tOybbxH0TGMn9jA
-        Ks7iPn7Beq9fwRe8xyIu4g0+4iu8XnTcxWdcxh/cxhIm8QJPMIVnOIPveIDfGMIH3EPR4Z9f7v1MbsCR
-        eIV29GMBnzAI4ybsxJ3dUpK8RrQOmNvDqNst7UXIfQjzbTnkPWoHjsA317FUKB9FmHyWbWtE6YC59q2m
-        4aRywmU5OefQgWtYw3M0wXRFG4EunM7jBGrRjB7Y1hGJmoIWdObRipACy7Y1oqXA4bQjP7Cew1n/Fqbg
-        Omxj2+gpOI5TeYQUOPlMiW2jp6ANPqg7h3W+vQ/0U2ydbY2oKfBm29jMYZ1fPJflaFp26P/LKnCG564A
-        6xwFNyUfOoCTMKKmYD/Rh3lMwHREHYFC4efX1eDeYCpckmXtgDGOLTyGK6LsHejFGHbgdjyLsnXAZRhG
-        4BHcP6KOgDl2WM1tCB+S3Y79GF2Cu6MRdRWEA4k3dcs9B09HK7gA4xZsEx5acgf+dSSbwVOEY1k4kj2E
-        aTiPko9k2UOpe78PyR5KR3AV3+DxbBlOvnfpbzcrrxcd5n0/x3K/gM4Pj2i28Zpl671eiUrkiST5C+P5
-        eaVIwJq/AAAAAElFTkSuQmCC
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAOw3AADsNwEH5WQiAAACqElE
+        QVRYR+2XOYsVQRRGn8KoYDK4IA7oMC6xiiJGjksoo4Mb/gADAwMTFVwQA2XAUMVMA8FETNx/gDNG7oI/
+        QNRQxSVzOcepgmamq6rfazUQPzhQr7r6VnX3vV/V6/xXj+qDhTAYWBD6/qjmwhY4CzfhJbwOvAh9XtsK
+        jv1tmg074R58hh/wDd5DXMCH0Oc1x9yFHeC9rTQAl8Cg3+EVnIPdsBqWBtbAHvCaYxz7CbzXGD1pJfjU
+        PtVbOAZONgNS8toScOw78N77sAK6kquOkz+CjZCbeKocuxmegDHuQOM3MQt8dXHyVVAnJzH754d2nfxM
+        j8FYF8DYRe2CL+BrH7ajRnPgMDyDp3Ao9NVpExjLPNpuR06Wjxnsiv2OKe2Dr2BQF2t7FFI6Aca8BdkS
+        tYYNaCZrMCmdBwOOwcXQPgIpGcuYxtZLkjoDBrOccjoKjrsMV0N7P+QUF33q168aaaW6mYOs85z8rj7N
+        m8BH2AA57QVjO0etbevtWqoOZ/bmtAgca0Cx3KyGnDQrY3ufc02TJhOt1XZOM+EaxAVcgZJPFON3swAV
+        80AO2lFQMb6m4utxY/F1lRTzwFJM+UVVxjT2c3CuaaomoQlTUj/cgOuhXZLeYexkEqqmZRi1HIYmm0XF
+        MtSUktIkmhiRWg8PYRzW2ZFRYyPSJt25XGnOitVxcJwcsCOj0+C4ohUrTzImlvu5W2pKa2ECHkAuaX1i
+        Yxlzmx0lVbdjDSZnSprPvMlmrVxYPBM03o5V9UDifm6ZtTmQ3Iauj2Yeo2I+uJ+bvRpIbiFec4zfPB7J
+        nHwZ9CRX7avz+8VDqeWkT0w9lFrnXnNMPJR672JoJY/WI2AGuxCfqnQs96lNuNbH8qosHzPa/Vw3q/tj
+        chIcUyy1ttJK//pfs39Rnc5Peta/X5y7MK4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="tsmNotaCreditoElectronico.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 22</value>
+  <data name="tsmErrorElectronico.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 22</value>
   </data>
-  <data name="tsmNotaCreditoElectronico.Text" xml:space="preserve">
-    <value>Nota de Crédito Electronico</value>
+  <data name="tsmErrorElectronico.Text" xml:space="preserve">
+    <value>Errores Electrónicos</value>
   </data>
   <data name="facturaElectronicaToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5211,7 +5213,7 @@
     <value>138, 20</value>
   </data>
   <data name="facturaElectronicaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Factura Electronica</value>
+    <value>Factura Electrónica</value>
   </data>
   <data name="tsmStockRestaurante.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6804,10 +6806,10 @@
   <data name="&gt;&gt;tsmComprobanteElectronicos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tsmNotaCreditoElectronico.Name" xml:space="preserve">
-    <value>tsmNotaCreditoElectronico</value>
+  <data name="&gt;&gt;tsmErrorElectronico.Name" xml:space="preserve">
+    <value>tsmErrorElectronico</value>
   </data>
-  <data name="&gt;&gt;tsmNotaCreditoElectronico.Type" xml:space="preserve">
+  <data name="&gt;&gt;tsmErrorElectronico.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -19,6 +19,7 @@ using GestionClubView.Venta;
 using GestionClubView.Stock_Restaurante;
 using GestionClubView.Consultas;
 using GestionClubView.Reportes;
+using GestionClubView.FacturaElectronica;
 
 namespace GestionClubView.MdiPrincipal
 {
@@ -387,6 +388,18 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmRecalcularStock, null, 0, 0);
             win.VentanaSeleccionar();
         }
+        public void InstanciarComprobanteElectronico()
+        {
+            frmComprobantesElectronicos win = new frmComprobantesElectronicos();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmComprobanteElectronicos, null, 0, 0);
+            win.NewWindow();
+        }
+        public void InstanciarErroresElectronicos()
+        {
+            frmErroresElectronicos win = new frmErroresElectronicos();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmErrorElectronico, null, 0, 0);
+            win.NewWindow();
+        }
         public void InstanciarUsuarioMozo()
         {
             frmMozosUsuarios win = new frmMozosUsuarios();
@@ -747,6 +760,16 @@ namespace GestionClubView.MdiPrincipal
         private void tsmRecalcularStock_Click(object sender, EventArgs e)
         {
             this.InstanciarRecalcularStock();
+        }
+
+        private void tsmErrorElectronico_Click(object sender, EventArgs e)
+        {
+            this.InstanciarErroresElectronicos();
+        }
+
+        private void tsmComprobanteElectronicos_Click(object sender, EventArgs e)
+        {
+            this.InstanciarComprobanteElectronico();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

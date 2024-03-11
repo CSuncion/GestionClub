@@ -62,6 +62,7 @@
     <Compile Include="IRepository\IGestionClubCategoriaRepository.cs" />
     <Compile Include="IRepository\IGestionClubMesaRepository.cs" />
     <Compile Include="IRepository\IGestionClubGeneralRepository.cs" />
+    <Compile Include="IRepository\IGestionClubResultadoNubeFactRepository.cs" />
     <Compile Include="IRepository\IGestionClubResumenAlmacenRepository.cs" />
     <Compile Include="IRepository\IGestionClubTipoCambioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Repository\GestionClubAmbienteRepository.cs" />
     <Compile Include="Repository\GestionClubGeneralRepository.cs" />
     <Compile Include="IRepository\IGestionClubAmbienteRepository.cs" />
+    <Compile Include="Repository\GestionClubResultadoNubeFactRepository.cs" />
     <Compile Include="Repository\GestionClubResumenAlmacenRepository.cs" />
     <Compile Include="Repository\GestionClubTipoCambioRepository.cs" />
   </ItemGroup>

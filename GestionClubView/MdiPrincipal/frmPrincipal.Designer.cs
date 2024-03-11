@@ -102,7 +102,7 @@
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
             this.tsmComprobanteElectronicos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmNotaCreditoElectronico = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmErrorElectronico = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -395,7 +395,7 @@
             // 
             this.facturaElectronicaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmComprobanteElectronicos,
-            this.tsmNotaCreditoElectronico});
+            this.tsmErrorElectronico});
             resources.ApplyResources(this.facturaElectronicaToolStripMenuItem, "facturaElectronicaToolStripMenuItem");
             this.facturaElectronicaToolStripMenuItem.Name = "facturaElectronicaToolStripMenuItem";
             // 
@@ -635,11 +635,13 @@
             // 
             resources.ApplyResources(this.tsmComprobanteElectronicos, "tsmComprobanteElectronicos");
             this.tsmComprobanteElectronicos.Name = "tsmComprobanteElectronicos";
+            this.tsmComprobanteElectronicos.Click += new System.EventHandler(this.tsmComprobanteElectronicos_Click);
             // 
-            // tsmNotaCreditoElectronico
+            // tsmErrorElectronico
             // 
-            resources.ApplyResources(this.tsmNotaCreditoElectronico, "tsmNotaCreditoElectronico");
-            this.tsmNotaCreditoElectronico.Name = "tsmNotaCreditoElectronico";
+            resources.ApplyResources(this.tsmErrorElectronico, "tsmErrorElectronico");
+            this.tsmErrorElectronico.Name = "tsmErrorElectronico";
+            this.tsmErrorElectronico.Click += new System.EventHandler(this.tsmErrorElectronico_Click);
             // 
             // frmPrincipal
             // 
@@ -748,6 +750,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         internal System.Windows.Forms.ToolStripMenuItem tsmRecalcularStock;
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobanteElectronicos;
-        internal System.Windows.Forms.ToolStripMenuItem tsmNotaCreditoElectronico;
+        internal System.Windows.Forms.ToolStripMenuItem tsmErrorElectronico;
     }
 }
