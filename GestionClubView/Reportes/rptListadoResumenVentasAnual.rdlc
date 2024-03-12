@@ -75,7 +75,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>0.68569cm</Top>
-            <Left>14.91041cm</Left>
+            <Left>14.1343cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <Style>
@@ -100,6 +100,7 @@
                       <FontFamily>calibri</FontFamily>
                       <FontSize>7pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -108,9 +109,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox39</rd:DefaultName>
             <Top>0.68569cm</Top>
-            <Left>17.5868cm</Left>
+            <Left>16.6343cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.32361cm</Width>
+            <Width>2.49999cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -120,6 +121,7 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
           <Tablix Name="Tablix1">
@@ -326,6 +328,7 @@
                                   <Style>
                                     <FontFamily>CAlibri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -342,6 +345,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -369,7 +373,7 @@
             </TablixRowHierarchy>
             <DataSetName>dsResumenVentasAnual</DataSetName>
             <Top>0.01514cm</Top>
-            <Left>2.53682cm</Left>
+            <Left>1.58432cm</Left>
             <Height>0.6cm</Height>
             <Width>17.54998cm</Width>
             <ZIndex>2</ZIndex>
@@ -380,10 +384,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.54758in</Height>
+        <Height>0.53716in</Height>
         <Style />
       </Body>
-      <Width>8.44638in</Width>
+      <Width>8in</Width>
       <Page>
         <PageHeader>
           <Height>3.81605cm</Height>
@@ -960,7 +964,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>3.17886cm</Top>
-              <Left>2.53682cm</Left>
+              <Left>1.58432cm</Left>
               <Height>0.61073cm</Height>
               <Width>17.54998cm</Width>
               <ZIndex>10</ZIndex>

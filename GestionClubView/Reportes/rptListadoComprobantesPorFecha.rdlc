@@ -433,6 +433,7 @@
                                   <Style>
                                     <FontFamily>CALIbri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -449,6 +450,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -476,7 +478,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsRegistroVentasPorFecha</DataSetName>
-            <Left>1.45567cm</Left>
+            <Left>0.82067cm</Left>
             <Height>0.6cm</Height>
             <Width>18.63113cm</Width>
             <Style>
@@ -504,7 +506,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>0.67056cm</Top>
-            <Left>15.08678cm</Left>
+            <Left>14.45178cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -530,6 +532,7 @@
                       <FontFamily>calibri</FontFamily>
                       <FontSize>7pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -538,7 +541,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox39</rd:DefaultName>
             <Top>0.67056cm</Top>
-            <Left>17.5868cm</Left>
+            <Left>16.9518cm</Left>
             <Height>0.6cm</Height>
             <Width>2.49998cm</Width>
             <ZIndex>2</ZIndex>
@@ -550,13 +553,14 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
         </ReportItems>
         <Height>0.56841in</Height>
         <Style />
       </Body>
-      <Width>8.44638in</Width>
+      <Width>8in</Width>
       <Page>
         <PageHeader>
           <Height>3.78327cm</Height>
@@ -1234,7 +1238,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>3.07772cm</Top>
-              <Left>1.45566cm</Left>
+              <Left>0.82066cm</Left>
               <Height>0.61073cm</Height>
               <Width>18.63112cm</Width>
               <ZIndex>12</ZIndex>

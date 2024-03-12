@@ -395,7 +395,7 @@
             <FixedColumnHeaders>true</FixedColumnHeaders>
             <FixedRowHeaders>true</FixedRowHeaders>
             <DataSetName>dsListaClienteProveedores</DataSetName>
-            <Left>0.31681cm</Left>
+            <Left>0.10577cm</Left>
             <Height>0.6cm</Height>
             <Width>19.98901cm</Width>
             <Style>
@@ -408,10 +408,10 @@
         <Height>0.30577in</Height>
         <Style />
       </Body>
-      <Width>8.19581in</Width>
+      <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>4.06432cm</Height>
+          <Height>3.67626cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -950,8 +950,8 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.46432cm</Top>
-              <Left>0.31681cm</Left>
+              <Top>3.07626cm</Top>
+              <Left>0.10577cm</Left>
               <Height>0.6cm</Height>
               <Width>19.98901cm</Width>
               <ZIndex>8</ZIndex>
@@ -990,6 +990,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>0.36253cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1020,6 +1021,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>4.59996cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

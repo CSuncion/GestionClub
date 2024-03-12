@@ -246,7 +246,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -362,6 +361,8 @@
                                   <Style>
                                     <FontFamily>CAlibri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                                    <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -485,7 +486,7 @@
         <Height>0.53124in</Height>
         <Style />
       </Body>
-      <Width>8.03296in</Width>
+      <Width>8.01584in</Width>
       <Page>
         <PageHeader>
           <Height>3.78327cm</Height>

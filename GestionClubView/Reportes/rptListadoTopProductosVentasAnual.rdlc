@@ -136,6 +136,7 @@
                       <FontFamily>calibri</FontFamily>
                       <FontSize>7pt</FontSize>
                       <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -156,6 +157,7 @@
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>
               <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
           <Tablix Name="Tablix1">
@@ -290,6 +292,8 @@
                                   <Style>
                                     <FontFamily>CAlibri</FontFamily>
                                     <FontSize>7pt</FontSize>
+                                    <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                                    <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -344,7 +348,7 @@
         <Height>0.56841in</Height>
         <Style />
       </Body>
-      <Width>8.44638in</Width>
+      <Width>8in</Width>
       <Page>
         <PageHeader>
           <Height>3.7039cm</Height>
@@ -358,7 +362,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Pág.:</Value>
+                      <Value>Pág.:-</Value>
                       <Style>
                         <FontSize>6.5pt</FontSize>
                       </Style>
@@ -369,7 +373,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.31544cm</Top>
-              <Left>16.44686cm</Left>
+              <Left>16.12936cm</Left>
               <Height>0.44465cm</Height>
               <Width>0.74446cm</Width>
               <Style>
@@ -400,7 +404,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
               <Top>0.31543cm</Top>
-              <Left>17.22659cm</Left>
+              <Left>16.90909cm</Left>
               <Height>0.44465cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>1</ZIndex>
@@ -432,7 +436,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
               <Top>0.31202cm</Top>
-              <Left>18.98908cm</Left>
+              <Left>18.67158cm</Left>
               <Height>0.44806cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>2</ZIndex>
@@ -464,7 +468,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
               <Top>0.31203cm</Top>
-              <Left>18.39858cm</Left>
+              <Left>18.08108cm</Left>
               <Height>0.44805cm</Height>
               <Width>0.55522cm</Width>
               <ZIndex>3</ZIndex>
@@ -496,7 +500,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
               <Top>0.83064cm</Top>
-              <Left>17.22659cm</Left>
+              <Left>16.90909cm</Left>
               <Height>0.41479cm</Height>
               <Width>2.96603cm</Width>
               <ZIndex>4</ZIndex>
@@ -528,7 +532,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.83064cm</Top>
-              <Left>16.04998cm</Left>
+              <Left>15.73248cm</Left>
               <Height>0.4229cm</Height>
               <Width>1.14134cm</Width>
               <ZIndex>5</ZIndex>
