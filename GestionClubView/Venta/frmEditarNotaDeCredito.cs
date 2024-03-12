@@ -486,7 +486,7 @@ namespace GestionClubView.Venta
             this.txtIdCliente.Text = pObj.idCliente.ToString();
             this.txtTipoDoc.Text = pObj.tipCliente.ToString();
             this.dtpFecCmp.Value = pObj.fecComprobante;
-            this.cboTipoDocCmp.SelectedValue = "02";
+            this.cboTipoDocCmp.SelectedValue = pObj.tipComprobante;
         }
 
         public void MostrarNotaCredito(GestionClubComprobanteDto pObj)
@@ -950,7 +950,7 @@ namespace GestionClubView.Venta
 
         private void txtSerComprobante_Validating(object sender, CancelEventArgs e)
         {
-            this.BuscarComprobante();
+            //this.BuscarComprobante();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)

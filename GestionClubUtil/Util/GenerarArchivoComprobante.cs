@@ -14,7 +14,8 @@ namespace GestionClubUtil.Util
     {
         public static void ComprobanteElectronico(GestionClubComprobanteDto objCabecera,
             List<GestionClubDetalleComprobanteDto> objDetalle,
-            List<GestionClubParametroDto> objParametro)
+            List<GestionClubParametroDto> objParametro,
+            GestionClubClienteDto cliente)
         {
             string nombreArchivo = objCabecera.serComprobante + "-" + objCabecera.nroComprobante + ".txt";
             string docPath = objParametro.FirstOrDefault().RutaImagenQR;
@@ -45,10 +46,13 @@ namespace GestionClubUtil.Util
                     objCabecera.nroIdentificacionCliente.Substring(0, 11))
                     + "|");
                 outputFile.WriteLine("cliente_denominacion|" + objCabecera.nombreRazSocialCliente + "|");
-                outputFile.WriteLine("cliente_direccion|" + "" + "|");
-                outputFile.WriteLine("cliente_email|" + "" + "|");
+
+                outputFile.WriteLine("cliente_direccion|" + (cliente.representanteCliente == string.Empty ? string.Empty : cliente.representanteCliente) + "|");
+                outputFile.WriteLine("cliente_email|" + (cliente.emailCliente == string.Empty ? string.Empty : cliente.emailCliente) + "|");
                 outputFile.WriteLine("cliente_email1|" + "" + "|");
                 outputFile.WriteLine("cliente_email2|" + "" + "|");
+
+
                 outputFile.WriteLine("fecha_de_emision|" +
                     (Fecha.ObtenerNumeroDia(objCabecera.fecComprobante)
                     + "-" +
@@ -82,7 +86,7 @@ namespace GestionClubUtil.Util
                 outputFile.WriteLine("tipo_de_nota_de_credito||");
                 outputFile.WriteLine("tipo_de_nota_de_debito||");
                 outputFile.WriteLine("enviar_automaticamente_a_la_sunat|true|");
-                outputFile.WriteLine("enviar_automaticamente_al_cliente|false|");
+                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "true") + "|");
                 outputFile.WriteLine("codigo_unico||");
                 outputFile.WriteLine("condiciones_de_pago||");
                 outputFile.WriteLine("medio_de_pago||");

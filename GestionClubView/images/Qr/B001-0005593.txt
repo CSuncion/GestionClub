@@ -1,0 +1,50 @@
+operacion|generar_comprobante|
+tipo_de_comprobante|2|
+serie|BBB1|
+numero|0005593|
+sunat_transaction|1|
+cliente_tipo_de_documento|1|
+cliente_numero_de_documento|09391733|
+cliente_denominacion|AQUINO DAMIAN, RAUL SERGIO                        |
+cliente_direccion||
+cliente_email||
+cliente_email1||
+cliente_email2||
+fecha_de_emision|11-03-2024|
+fecha_de_vencimiento||
+moneda|1|
+tipo_de_cambio|3.730|
+porcentaje_de_igv|18.00|
+descuento_global||
+total_descuento||
+total_anticipo||
+total_gravada|22.033898305084745762711864407|
+total_inafecta||
+total_exonerada||
+total_igv|3.9661016949152542372881355933|
+total_gratuita||
+total_otros_cargos||
+total|26.000000000000000000000000000|
+percepcion_tipo||
+percepcion_base_imponible||
+total_percepcion||
+total_incluido_percepcion||
+detraccion|false|
+observaciones||
+documento_que_se_modifica_tipo||
+documento_que_se_modifica_serie||
+documento_que_se_modifica_numero||
+tipo_de_nota_de_credito||
+tipo_de_nota_de_debito||
+enviar_automaticamente_a_la_sunat|true|
+enviar_automaticamente_al_cliente|false|
+codigo_unico||
+condiciones_de_pago||
+medio_de_pago||
+placa_vehiculo||
+orden_compra_servicio||
+tabla_personalizada_codigo||
+formato_de_pdf||
+item|NIU|01010101|MENU DEL DIA (MARTES A VIERNES)|1|13.5593220339|16.0000000000||13.5593220339|1|2.4406779661|16.0000000000|false|||10000000|
+item|NIU|01030107|INCA KOLA 1 LT Y 1/2|1|6.7796610169|8.0000000000||6.7796610169|1|1.2203389831|8.0000000000|false|||10000000|
+item|NIU|01030202|AGUA CIELO 1/2 LT|1|1.6949152542|2.0000000000||1.6949152542|1|0.3050847458|2.0000000000|false|||10000000|

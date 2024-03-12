@@ -283,18 +283,11 @@ namespace GestionClubView.Venta
             this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
 
-            if (this.txtCodProd.Text.StartsWith("03"))
-                this.txtPrecio.ReadOnly = false;
-            else
-                this.txtPrecio.ReadOnly = true;
+            this.txtPrecio.ReadOnly = false;
+            this.nudCantidadProducto.Value = 1;
+            this.nudCantidadProducto.ReadOnly = true;
+            this.nudCantidadProducto.Enabled = false;
 
-            if (this.txtCodProd.Text.StartsWith("0602") || this.txtCodProd.Text.StartsWith("0501"))
-                this.nudCantidadProducto.ReadOnly = false;
-            else
-            {
-                this.nudCantidadProducto.Value = 1;
-                this.nudCantidadProducto.ReadOnly = true;
-            }
 
 
             //devolver
@@ -344,10 +337,13 @@ namespace GestionClubView.Venta
             this.aplicaDetra = false;
             if (obj.codProducto.StartsWith("06"))
             {
-                this.cboTipDoc.SelectedValue = "01";
-                this.aplicaDetra = true;
-                this.LimpiarCliente();
-                this.GenerarCorrelativo();
+                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "01")
+                {
+                    this.cboTipDoc.SelectedValue = "01";
+                    this.aplicaDetra = true;
+                    this.LimpiarCliente();
+                    this.GenerarCorrelativo();
+                }
             }
 
             this.lObjDetalle.Add(obj);
@@ -384,7 +380,11 @@ namespace GestionClubView.Venta
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
 
-            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN);
+            GestionClubClienteDto cliente = new GestionClubClienteDto();
+            cliente.nroIdentificacionCliente = iComEN.nroIdentificacionCliente;
+            cliente = GestionClubClienteController.BuscarClienteXNroDocumento(cliente);
+
+            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
 
             if (this.AdicionarErrors(json, iComEN)) { return true; };

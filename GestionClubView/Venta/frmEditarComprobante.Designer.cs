@@ -44,6 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtGlosa = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtTipoCambio = new System.Windows.Forms.TextBox();
@@ -84,7 +85,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -274,6 +274,16 @@
             this.groupBox4.Size = new System.Drawing.Size(706, 98);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(619, 75);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(78, 17);
+            this.checkBox1.TabIndex = 464;
+            this.checkBox1.Text = "Detracción";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // txtGlosa
             // 
@@ -694,16 +704,6 @@
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(619, 75);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(78, 17);
-            this.checkBox1.TabIndex = 464;
-            this.checkBox1.Text = "Detracción";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // frmEditarComprobante
             // 

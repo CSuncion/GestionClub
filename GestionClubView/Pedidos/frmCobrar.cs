@@ -540,7 +540,11 @@ namespace GestionClubView.Pedidos
             this.AsignarDetalleComprobanteDB(this.lObjDetalleComprobante, 0);
 
 
-            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalleComprobante, iParEN);
+            GestionClubClienteDto cliente = new GestionClubClienteDto();
+            cliente.nroIdentificacionCliente = iComEN.nroIdentificacionCliente;
+            cliente = GestionClubClienteController.BuscarClienteXNroDocumento(cliente);
+
+            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalleComprobante, iParEN, cliente);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
 
             if (this.AdicionarErrors(json, iComEN)) { return true; };
