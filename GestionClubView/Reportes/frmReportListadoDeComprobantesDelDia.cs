@@ -1,4 +1,5 @@
-﻿using GestionClubController.Controller;
+﻿using Comun;
+using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
 using GestionClubView.Consultas;
@@ -50,11 +51,10 @@ namespace GestionClubView.Reportes
 
                 rds.Value = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(gestionClubComprobanteDto);
 
-                ReportParameter[] rp = new ReportParameter[1];
-                //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
-                //rp[1] = new ReportParameter("fecComprobante", this.wFrm.fecCierreCaja.ToString());
+                ReportParameter[] rp = new ReportParameter[3];
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
-
+                rp[1] = new ReportParameter("nroCaja", Universal.caja.ToString());
+                rp[2] = new ReportParameter("fecCierre", Fecha.ObtenerDiaMesAno(this.wFrm.fecCierreCaja.ToString()));
 
                 this.rpvListadoComprobanteDelDia.Reset();
                 if (reporte == 1)
