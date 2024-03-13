@@ -66,7 +66,7 @@ namespace GestionClubView.Venta
             //Lista comprobantes que no han sido creado por comandas
             GestionClubComprobanteDto iOpEN = new GestionClubComprobanteDto();
             iOpEN.idNroComanda = 0;
-            this.eLisComp = GestionClubComprobanteController.ListarComprobantesNotaDeCredito(iOpEN);
+            this.eLisComp = GestionClubComprobanteController.ListarComprobantesNotaDeCredito(iOpEN).Where(x => x.caja == Universal.caja.ToString()).ToList();
         }
         public void ActualizarDgvComprobante()
         {

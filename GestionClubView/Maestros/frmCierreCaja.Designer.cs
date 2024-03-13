@@ -84,6 +84,7 @@
             // 
             // tsbEditar
             // 
+            this.tsbEditar.Enabled = false;
             this.tsbEditar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEditar.Image")));
             this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEditar.Name = "tsbEditar";
@@ -94,6 +95,7 @@
             // 
             // tsbEliminar
             // 
+            this.tsbEliminar.Enabled = false;
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";
@@ -272,7 +274,6 @@
 
         private System.Windows.Forms.ToolStrip tsPrincipal;
         private System.Windows.Forms.ToolStripButton tsbAdicionar;
-        private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.ToolStripButton tsbVisualizar;
         private System.Windows.Forms.ToolStripButton tsbSalir;
         internal System.Windows.Forms.ToolStrip tsSecundario;
@@ -287,6 +288,7 @@
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
         private System.Windows.Forms.DataGridView DgvCierreCaja;
-        private System.Windows.Forms.ToolStripButton tsbEditar;
+        internal System.Windows.Forms.ToolStripButton tsbEliminar;
+        internal System.Windows.Forms.ToolStripButton tsbEditar;
     }
 }
