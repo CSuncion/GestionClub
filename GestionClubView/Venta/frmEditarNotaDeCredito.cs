@@ -56,6 +56,7 @@ namespace GestionClubView.Venta
             this.MostrarComprobante(GestionClubComprobanteController.EnBlanco());
             this.GenerarCorrelativo();
             this.MostrarInicialTipoComprobante();
+            this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.txtNroDoc.Focus();
@@ -66,6 +67,7 @@ namespace GestionClubView.Venta
             this.MostrarNotaCredito(pObj);
             this.LLenarComprobanteDetaDeBaseDatos(pObj);
             this.MostrarComprobanteDeta();
+            this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(3);
         }
         public void InicializaVentana()
@@ -90,6 +92,29 @@ namespace GestionClubView.Venta
 
             // Mostrar ventana
             this.Show();
+        }
+        public void MostrarTipoCambio()
+        {
+            if (!this.ValidaTipoCambio()) return;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = this.dtpFecDoc.Value.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (Cmb.ObtenerValor(this.cboMoneda, string.Empty) == "01")
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.CompraTipoCambio.ToString();
+            else
+                this.txtTipoCambio.Text = gestionClubTipoCambioDto.VentaTipoCambio.ToString();
+        }
+        public bool ValidaTipoCambio()
+        {
+            bool result = true;
+            GestionClubTipoCambioDto gestionClubTipoCambioDto = new GestionClubTipoCambioDto();
+            gestionClubTipoCambioDto.FechaTipoCambio = DateTime.Now.ToString();
+            gestionClubTipoCambioDto = GestionClubTipoCambioController.ListarTipoCambioPorFecha(gestionClubTipoCambioDto);
+
+            if (gestionClubTipoCambioDto.idTipoCambio == 0) { Mensaje.OperacionDenegada("Debe ingresar tipo de cambio.", this.eTitulo); result = false; }
+
+            return result;
         }
         List<ControlEditar> ListaCtrls()
         {
@@ -411,7 +436,7 @@ namespace GestionClubView.Venta
             pObj.nroComprobante = this.txtNroDoc.Text.Trim();
             pObj.fecComprobante = Convert.ToDateTime(this.dtpFecDoc.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
-            pObj.impCambio = 0;
+            pObj.impCambio = Convert.ToDecimal(this.txtTipoCambio.Text);
             pObj.serGuiaComprobante = this.txtSerComprobante.Text;
             pObj.nroGuiaComprobante = this.txtNroComprobante.Text;
             pObj.fecGuiaComprobante = Convert.ToDateTime(this.dtpFecCmp.Value.ToShortDateString() + " " + DateTime.Now.ToShortTimeString());
@@ -951,6 +976,11 @@ namespace GestionClubView.Venta
         private void txtSerComprobante_Validating(object sender, CancelEventArgs e)
         {
             //this.BuscarComprobante();
+        }
+
+        private void cboMoneda_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.MostrarTipoCambio();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)

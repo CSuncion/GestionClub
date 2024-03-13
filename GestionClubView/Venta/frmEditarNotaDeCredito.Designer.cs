@@ -45,6 +45,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -82,8 +84,8 @@
             this.cboTipoDocCmp = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtGlosa = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.txtTipoCambio = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -264,6 +266,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtTipoCambio);
+            this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.txtGlosa);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtNroDoc);
@@ -280,6 +284,24 @@
             this.groupBox4.Size = new System.Drawing.Size(620, 84);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
+            // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(51, 57);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(369, 21);
+            this.txtGlosa.TabIndex = 463;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 59);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 462;
+            this.label17.Text = "Glosa:";
             // 
             // txtNroDoc
             // 
@@ -595,6 +617,7 @@
             this.cboMoneda.Name = "cboMoneda";
             this.cboMoneda.Size = new System.Drawing.Size(135, 21);
             this.cboMoneda.TabIndex = 457;
+            this.cboMoneda.SelectionChangeCommitted += new System.EventHandler(this.cboMoneda_SelectionChangeCommitted);
             // 
             // label15
             // 
@@ -666,23 +689,23 @@
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE COMPROBANTE";
             // 
-            // txtGlosa
+            // txtTipoCambio
             // 
-            this.txtGlosa.Location = new System.Drawing.Point(51, 57);
-            this.txtGlosa.MaxLength = 8;
-            this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(513, 21);
-            this.txtGlosa.TabIndex = 463;
+            this.txtTipoCambio.Location = new System.Drawing.Point(494, 57);
+            this.txtTipoCambio.MaxLength = 8;
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Size = new System.Drawing.Size(70, 21);
+            this.txtTipoCambio.TabIndex = 465;
             // 
-            // label17
+            // label16
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 59);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 14);
-            this.label17.TabIndex = 462;
-            this.label17.Text = "Glosa:";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(426, 59);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 14);
+            this.label16.TabIndex = 464;
+            this.label16.Text = "T. Cambio:";
             // 
             // frmEditarNotaDeCredito
             // 
@@ -792,5 +815,7 @@
         private System.Windows.Forms.TextBox txtIdNC;
         internal System.Windows.Forms.TextBox txtGlosa;
         private System.Windows.Forms.Label label17;
+        internal System.Windows.Forms.TextBox txtTipoCambio;
+        private System.Windows.Forms.Label label16;
     }
 }

@@ -61,6 +61,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteDto._fechaModifica]);
+            xObjEnc.caja = Convert.ToString(iDr[GestionClubComprobanteDto._caja]);
             xObjEnc.claveObjeto = xObjEnc.idComprobante.ToString();
             return xObjEnc;
         }
@@ -208,6 +209,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@obsComprobante", pObj.obsComprobante),
                     new SqlParameter("@usuarioAgrega", Universal.gIdAcceso),
                     new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
+                    new SqlParameter("@caja", Universal.caja),
                 };
             xObjCn.AssignParameters(lParameter);
             xObjCn.CommandStoreProcedure("isp_AgregarComprobante");
@@ -394,7 +396,7 @@ namespace GestionClubRepository.Repository
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
-                new SqlParameter("@fecComprobante",objEn.fecComprobante),
+                new SqlParameter("@fecComprobante",Fecha.ObtenerAnoMesDia(objEn.fecComprobante)),
                 };
             return this.BuscarObjetoPorParametroCabecera("isp_ListarComprobantesFacturaYBoletaPorFecha", lParameter);
         }

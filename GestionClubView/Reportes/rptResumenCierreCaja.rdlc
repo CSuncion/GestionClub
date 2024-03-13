@@ -7,11 +7,11 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1d15d775-bdcd-4c12-b11c-01655747bf68</rd:DataSourceID>
+      <rd:DataSourceID>6c6cfd23-0148-430d-a7d5-3b5c2fb07528</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsRegistroVentas">
+    <DataSet Name="dsResumenCierreCaja">
       <Query>
         <DataSourceName>DsGestionClub</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -181,10 +181,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
         <rd:SchemaPath>D:\Perú Ticcs\Victor Noriega\Cosfup\GestionClub\GestionClubView\DataSet\DsGestionClub.xsd</rd:SchemaPath>
-        <rd:TableName>isp_ListarComprobantes</rd:TableName>
+        <rd:TableName>isp_ListarComprobantesFacturaYBoletaPorFecha</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>isp_ListarComprobantesTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>isp_ListarComprobantesFacturaYBoletaPorFechaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -192,29 +192,11 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix2">
+          <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.23542cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>4.16029cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.23542cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.32292cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -223,224 +205,27 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="nroIdentificacionCliente">
+                        <Textbox Name="impTarComprobante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nroIdentificacionCliente.Value</Value>
+                                  <Value>=Fields!impTarComprobante.Value</Value>
                                   <Style>
-                                    <FontFamily>CALIbri</FontFamily>
+                                    <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>nroIdentificacionCliente</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="nombreRazSocialCliente">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!nombreRazSocialCliente.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>nombreRazSocialCliente</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="desTipComprobante">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!desTipComprobante.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>desTipComprobante</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="fecComprobante">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!fecComprobante.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <Format>dd/MM/yyyy</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>fecComprobante</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="serNroComprobante">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!serNroComprobante.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>serNroComprobante</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="desMoneda">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!desMoneda.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>desMoneda</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="impNetComprobante">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!impNetComprobante.Value</Value>
-                                  <Style>
-                                    <FontFamily>CALIbri</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                                    <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>impNetComprobante</rd:DefaultName>
+                          <rd:DefaultName>impTarComprobante</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -450,7 +235,6 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
-                            <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -461,40 +245,322 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
-                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Detalles" />
+                  <Group Name="tipComprobante">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!tipComprobante.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!tipComprobante.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>1.12417cm</Size>
+                    <CellContents>
+                      <Textbox Name="tipComprobante">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!tipComprobante.Value</Value>
+                                <Style>
+                                  <FontFamily>calibri</FontFamily>
+                                  <FontSize>7pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>tipComprobante</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>2.20897cm</Size>
+                        <CellContents>
+                          <Textbox Name="desTipComprobante1">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!desTipComprobante.Value</Value>
+                                    <Style>
+                                      <FontFamily>calibri</FontFamily>
+                                      <FontSize>7pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>desTipComprobante1</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>1.81207cm</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox52">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Count(Fields!tipComprobante.Value)</Value>
+                                        <Style>
+                                          <FontFamily>calibri</FontFamily>
+                                          <FontSize>7pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox52</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>LightGrey</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>1.97462cm</Size>
+                                <CellContents>
+                                  <Textbox Name="impNetComprobante1">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Sum(Fields!impNetComprobante.Value)</Value>
+                                            <Style>
+                                              <FontFamily>calibri</FontFamily>
+                                              <FontSize>7pt</FontSize>
+                                              <FontWeight>Bold</FontWeight>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>impNetComprobante1</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>1.99729cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="impEfeComprobante1">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Sum(Fields!impEfeComprobante.Value)</Value>
+                                                <Style>
+                                                  <FontFamily>calibri</FontFamily>
+                                                  <FontSize>7pt</FontSize>
+                                                  <FontWeight>Bold</FontWeight>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style />
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>impEfeComprobante1</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>2.07667cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="impDepComprobante1">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!impDepComprobante.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily>calibri</FontFamily>
+                                                      <FontSize>7pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>impDepComprobante1</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                      <TablixMembers>
+                                        <TablixMember>
+                                          <TablixHeader>
+                                            <Size>2.12958cm</Size>
+                                            <CellContents>
+                                              <Textbox Name="impTarComprobante1">
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Sum(Fields!impTarComprobante.Value)</Value>
+                                                        <Style>
+                                                          <FontFamily>calibri</FontFamily>
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style />
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <rd:DefaultName>impTarComprobante1</rd:DefaultName>
+                                                <Style>
+                                                  <Border>
+                                                    <Color>LightGrey</Color>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixHeader>
+                                          <TablixMembers>
+                                            <TablixMember>
+                                              <Group Name="Detalles" />
+                                            </TablixMember>
+                                          </TablixMembers>
+                                        </TablixMember>
+                                      </TablixMembers>
+                                    </TablixMember>
+                                  </TablixMembers>
+                                </TablixMember>
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>dsRegistroVentas</DataSetName>
-            <Left>0.82067cm</Left>
+            <DataSetName>dsResumenCierreCaja</DataSetName>
+            <Top>0.17639cm</Top>
+            <Left>0.98246cm</Left>
             <Height>0.6cm</Height>
-            <Width>18.63113cm</Width>
+            <Width>14.64628cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox10">
+          <Textbox Name="Textbox32">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Totales:</Value>
+                    <Value>TOTALES</Value>
                     <Style>
                       <FontSize>7pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -504,11 +570,11 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>0.67056cm</Top>
-            <Left>14.4518cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.50001cm</Width>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>2.79454cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>1.52105cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -520,30 +586,32 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox39">
+          <Textbox Name="Textbox33">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!impNetComprobante.Value, "dsRegistroVentas")</Value>
+                    <Value>=Sum(Fields!impDepComprobante.Value, "dsResumenCierreCaja")</Value>
                     <Style>
-                      <FontFamily>calibri</FontFamily>
+                      <FontFamily>Calibri</FontFamily>
                       <FontSize>7pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <Format>'S/'#,0.00;('S/'#,0.00)</Format>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox39</rd:DefaultName>
-            <Top>0.67056cm</Top>
-            <Left>16.95181cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.49998cm</Width>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>10.09957cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.07667cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -556,14 +624,166 @@
               <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox36">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!impEfeComprobante.Value, "dsResumenCierreCaja")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>8.10228cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>1.99729cm</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox43">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!impNetComprobante.Value, "dsResumenCierreCaja")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>6.12766cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>1.97462cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox47">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Count(Fields!tipComprobante.Value, "dsResumenCierreCaja")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>4.31559cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>1.81582cm</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox38">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!impTarComprobante.Value, "dsResumenCierreCaja")</Value>
+                    <Style>
+                      <FontFamily>Calibri</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox33</rd:DefaultName>
+            <Top>0.9175cm</Top>
+            <Left>12.19891cm</Left>
+            <Height>0.49417cm</Height>
+            <Width>2.10691cm</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>0.57672in</Height>
+        <Height>0.625in</Height>
         <Style />
       </Body>
-      <Width>8in</Width>
+      <Width>7.7153in</Width>
       <Page>
         <PageHeader>
-          <Height>3.759cm</Height>
+          <Height>3.47705cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -584,8 +804,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.31544cm</Top>
-              <Left>16.44686cm</Left>
+              <Top>0.3092cm</Top>
+              <Left>12.59579cm</Left>
               <Height>0.44465cm</Height>
               <Width>0.74446cm</Width>
               <Style>
@@ -615,8 +835,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
-              <Top>0.31543cm</Top>
-              <Left>17.22659cm</Left>
+              <Top>0.30919cm</Top>
+              <Left>13.37552cm</Left>
               <Height>0.44465cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>1</ZIndex>
@@ -647,8 +867,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>0.31202cm</Top>
-              <Left>18.98908cm</Left>
+              <Top>0.30578cm</Top>
+              <Left>15.13801cm</Left>
               <Height>0.44806cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>2</ZIndex>
@@ -679,8 +899,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
-              <Top>0.31203cm</Top>
-              <Left>18.39858cm</Left>
+              <Top>0.30579cm</Top>
+              <Left>14.54751cm</Left>
               <Height>0.44805cm</Height>
               <Width>0.55522cm</Width>
               <ZIndex>3</ZIndex>
@@ -711,8 +931,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
-              <Top>0.83064cm</Top>
-              <Left>17.22659cm</Left>
+              <Top>0.8244cm</Top>
+              <Left>13.37552cm</Left>
               <Height>0.41479cm</Height>
               <Width>2.96603cm</Width>
               <ZIndex>4</ZIndex>
@@ -743,8 +963,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.83064cm</Top>
-              <Left>16.04998cm</Left>
+              <Top>0.8244cm</Top>
+              <Left>12.19891cm</Left>
               <Height>0.4229cm</Height>
               <Width>1.14134cm</Width>
               <ZIndex>5</ZIndex>
@@ -798,10 +1018,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>0.30733cm</Top>
-              <Left>0.73533cm</Left>
+              <Top>0.3175cm</Top>
+              <Left>0.50938cm</Left>
               <Height>1.38654cm</Height>
-              <Width>9.16029cm</Width>
+              <Width>4.9005cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -820,7 +1040,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORTE REGISTRO DE VENTAS</Value>
+                      <Value>RESUMEN DEL CIERRE DE CAJA</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -833,10 +1053,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
-              <Top>2.23959cm</Top>
-              <Left>6.60498cm</Left>
+              <Top>1.91354cm</Top>
+              <Left>1.48606cm</Left>
               <Height>0.62646cm</Height>
-              <Width>7.92395cm</Width>
+              <Width>12.98167cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -850,79 +1070,7 @@
             </Textbox>
             <Rectangle Name="Rectangle1">
               <ReportItems>
-                <Textbox Name="Textbox29">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>DOC. ID.</Value>
-                          <Style>
-                            <FontFamily>calibri</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Height>0.6cm</Height>
-                  <Width>2.23542cm</Width>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <BackgroundColor>Silver</BackgroundColor>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox31">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>NOMBRE/RAZ. SOCIAL</Value>
-                          <Style>
-                            <FontFamily>calibri</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>2.23542cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>4.16029cm</Width>
-                  <ZIndex>1</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <BackgroundColor>Silver</BackgroundColor>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox32">
+                <Textbox Name="Textbox34">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -943,48 +1091,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>6.39571cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>2.5cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <BackgroundColor>Silver</BackgroundColor>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox33">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>FECHA</Value>
-                          <Style>
-                            <FontFamily>calibri</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>8.89571cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>2.23542cm</Width>
-                  <ZIndex>3</ZIndex>
+                  <Top>0.03528cm</Top>
+                  <Height>0.56472cm</Height>
+                  <Width>1.12417cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1003,7 +1112,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>N° COMPROBANTE</Value>
+                          <Value>CANTIDAD</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -1017,10 +1126,121 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>11.13113cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>2.5cm</Width>
+                  <Top>0.03528cm</Top>
+                  <Left>3.33312cm</Left>
+                  <Height>0.56472cm</Height>
+                  <Width>1.81208cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>Silver</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox39">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>MONTO</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0.03528cm</Top>
+                  <Left>5.14521cm</Left>
+                  <Height>0.56472cm</Height>
+                  <Width>1.97462cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>Silver</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox40">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>EFECTIVO</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0.03528cm</Top>
+                  <Left>7.11983cm</Left>
+                  <Height>0.56472cm</Height>
+                  <Width>1.99729cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>Silver</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox41">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>DEPOSITO</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0.03528cm</Top>
+                  <Left>9.11712cm</Left>
+                  <Height>0.56472cm</Height>
+                  <Width>2.07667cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -1033,14 +1253,14 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox37">
+                <Textbox Name="Textbox42">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>MONEDA</Value>
+                          <Value>TARJETA</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -1054,48 +1274,10 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>13.63113cm</Left>
+                  <Left>11.22906cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>2.49999cm</Width>
+                  <Width>2.09431cm</Width>
                   <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <BackgroundColor>Silver</BackgroundColor>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox38">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>TOTAL</Value>
-                          <Style>
-                            <FontFamily>calibri</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Center</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0.01073cm</Top>
-                  <Left>16.13114cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>2.49998cm</Width>
-                  <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -1109,10 +1291,10 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.04244cm</Top>
-              <Left>0.82067cm</Left>
-              <Height>0.61073cm</Height>
-              <Width>18.63112cm</Width>
+              <Top>2.83076cm</Top>
+              <Left>0.98246cm</Left>
+              <Height>0.64629cm</Height>
+              <Width>13.32337cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -1120,6 +1302,43 @@
                 </Border>
               </Style>
             </Rectangle>
+            <Textbox Name="Textbox37">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>DOCUMENTO</Value>
+                      <Style>
+                        <FontFamily>calibri</FontFamily>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox28</rd:DefaultName>
+              <Top>2.86604cm</Top>
+              <Left>2.10662cm</Left>
+              <Height>0.56472cm</Height>
+              <Width>2.20896cm</Width>
+              <ZIndex>9</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BackgroundColor>Silver</BackgroundColor>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -1128,7 +1347,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.97896cm</Height>
+          <Height>1.00542cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1149,7 +1368,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Left>0.10583cm</Left>
+              <Top>0.07042cm</Top>
+              <Left>0.25454cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
               <Style>
@@ -1179,7 +1399,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Left>4.34326cm</Left>
+              <Top>0.07042cm</Top>
+              <Left>4.49197cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>
               <ZIndex>1</ZIndex>
@@ -1231,5 +1452,5 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>4b85448c-57a0-4953-8209-305c8b7c64d2</rd:ReportID>
+  <rd:ReportID>fc6c2685-3ea6-4cc3-bc1e-d83a13235f9d</rd:ReportID>
 </Report>

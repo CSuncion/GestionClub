@@ -22,6 +22,7 @@ namespace GestionClubView.Reportes
         //CreditsReportController objReportController = new CreditsReportController();
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListadoDeComprobantesDelDia.rdlc";
+        public string nombreReporteResumen = "GestionClubView.Reportes.rptResumenCierreCaja.rdlc";
         public string formaReporte = "Normal";
         public frmReportListadoDeComprobantesDelDia()
         {
@@ -31,7 +32,7 @@ namespace GestionClubView.Reportes
         private void frmReportListadoDeComprobantesDelDia_Load(object sender, EventArgs e)
         {
         }
-        public void GenerarInforme()
+        public void GenerarInforme(int reporte)
         {
             this.Show();
             this.Dock = DockStyle.Fill;
@@ -40,7 +41,13 @@ namespace GestionClubView.Reportes
                 GestionClubComprobanteDto gestionClubComprobanteDto = new GestionClubComprobanteDto();
                 gestionClubComprobanteDto.fecComprobante = this.wFrm.fecCierreCaja;
                 ReportDataSource rds = new ReportDataSource();
-                rds.Name = "dsListaComprobanteDelDia";
+
+                if (reporte == 1)
+                    rds.Name = "dsListaComprobanteDelDia";
+                else
+                    rds.Name = "dsResumenCierreCaja";
+
+
                 rds.Value = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(gestionClubComprobanteDto);
 
                 ReportParameter[] rp = new ReportParameter[1];
@@ -50,7 +57,11 @@ namespace GestionClubView.Reportes
 
 
                 this.rpvListadoComprobanteDelDia.Reset();
-                this.rpvListadoComprobanteDelDia.LocalReport.ReportEmbeddedResource = nombreReporte;
+                if (reporte == 1)
+                    this.rpvListadoComprobanteDelDia.LocalReport.ReportEmbeddedResource = nombreReporte;
+                else
+                    this.rpvListadoComprobanteDelDia.LocalReport.ReportEmbeddedResource = nombreReporteResumen;
+
                 this.rpvListadoComprobanteDelDia.LocalReport.SetParameters(rp);
                 this.rpvListadoComprobanteDelDia.LocalReport.EnableExternalImages = true;
                 this.rpvListadoComprobanteDelDia.LocalReport.DataSources.Clear();

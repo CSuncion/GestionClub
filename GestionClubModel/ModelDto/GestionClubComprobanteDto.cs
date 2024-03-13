@@ -50,6 +50,7 @@ namespace GestionClubModel.ModelDto
         public const string _fechaAgrega = "fechaAgrega";
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
+        public const string _caja = "caja";
 
         public string claveObjeto { get; set; }
         public int idComprobante { get; set; }
@@ -93,6 +94,7 @@ namespace GestionClubModel.ModelDto
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
+        public string  caja { get; set; }
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

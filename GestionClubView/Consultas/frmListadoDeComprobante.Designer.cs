@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListadoDeComprobante));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
+            this.tsbImprimirResumen = new System.Windows.Forms.ToolStripButton();
             this.tsbImprimir = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsSecundario = new System.Windows.Forms.ToolStrip();
@@ -57,6 +58,7 @@
             this.tsPrincipal.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbImprimir,
+            this.tsbImprimirResumen,
             this.tsbSalir});
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tsPrincipal.Name = "tsPrincipal";
@@ -66,13 +68,23 @@
             this.tsPrincipal.TabIndex = 111;
             this.tsPrincipal.Text = "toolStrip1";
             // 
+            // tsbImprimirResumen
+            // 
+            this.tsbImprimirResumen.Image = ((System.Drawing.Image)(resources.GetObject("tsbImprimirResumen.Image")));
+            this.tsbImprimirResumen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbImprimirResumen.Name = "tsbImprimirResumen";
+            this.tsbImprimirResumen.Size = new System.Drawing.Size(86, 43);
+            this.tsbImprimirResumen.Text = "Imp.Resumen";
+            this.tsbImprimirResumen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbImprimirResumen.Click += new System.EventHandler(this.tsbImprimirResumen_Click);
+            // 
             // tsbImprimir
             // 
             this.tsbImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbImprimir.Image")));
             this.tsbImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbImprimir.Name = "tsbImprimir";
-            this.tsbImprimir.Size = new System.Drawing.Size(58, 43);
-            this.tsbImprimir.Text = "Imprimir";
+            this.tsbImprimir.Size = new System.Drawing.Size(90, 43);
+            this.tsbImprimir.Text = "Imp.Detallado";
             this.tsbImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbImprimir.Click += new System.EventHandler(this.tsbImprimir_Click);
             // 
@@ -248,5 +260,6 @@
         private System.Windows.Forms.DataGridView DgvComprobantes;
         internal System.Windows.Forms.StatusStrip sst1;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
+        private System.Windows.Forms.ToolStripButton tsbImprimirResumen;
     }
 }

@@ -713,6 +713,7 @@
     <EmbeddedResource Include="Reportes\rptListadoDeComprobantesDelDia.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaPrecios.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentasPorCategoriasProductos.rdlc" />
+    <EmbeddedResource Include="Reportes\rptResumenCierreCaja.rdlc" />
     <EmbeddedResource Include="Stock Restaurante\frmAjusteSalidas.resx">
       <DependentUpon>frmAjusteSalidas.cs</DependentUpon>
     </EmbeddedResource>

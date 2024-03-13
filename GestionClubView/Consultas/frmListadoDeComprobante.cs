@@ -147,12 +147,12 @@ namespace GestionClubView.Consultas
             }
         }
 
-        public void ImprimirComprobantesDelDia()
+        public void ImprimirComprobantesDelDia(int reporte)
         {
             frmReportListadoDeComprobantesDelDia win = new frmReportListadoDeComprobantesDelDia();
             win.wFrm = this;
             TabCtrl.InsertarVentana(this, win);
-            win.GenerarInforme();
+            win.GenerarInforme(reporte);
         }
         private void tsbSalir_Click(object sender, EventArgs e)
         {
@@ -197,7 +197,12 @@ namespace GestionClubView.Consultas
 
         private void tsbImprimir_Click(object sender, EventArgs e)
         {
-            this.ImprimirComprobantesDelDia();
+            this.ImprimirComprobantesDelDia(1);
+        }
+
+        private void tsbImprimirResumen_Click(object sender, EventArgs e)
+        {
+            this.ImprimirComprobantesDelDia(2);
         }
     }
 }
