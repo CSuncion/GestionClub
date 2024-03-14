@@ -44,6 +44,7 @@ namespace GestionClubView.MdiPrincipal
             this.NewWindowAccess();
             this.AccesoPorPerfiles();
             this.InstanciarSeleccionarCaja();
+            this.ConfiguracionCajas();
 
         }
         private void btnReports_Click(object sender, EventArgs e)
@@ -185,10 +186,10 @@ namespace GestionClubView.MdiPrincipal
 
                 //if (listMenu[i] == 2)
                 //{
-                this.tsmInformatica.Visible = true;
+                //this.tsmInformatica.Visible = true;
                 //}
             }
-            this.tsmInformatica.Visible = true;
+            //this.tsmInformatica.Visible = true;
         }
         private void LoadTheme()
         {
@@ -206,7 +207,22 @@ namespace GestionClubView.MdiPrincipal
                 button.BackColor = themeColor;
             }
         }
+        public void ConfiguracionCajas()
+        {
+            if (Universal.caja == "01")
+            {
+                this.tsmComprobante.Visible = false;
+                this.tsbComprobante.Visible = false;
+                this.tsmInformatica.Visible = false;
+            }
+            if (Universal.caja == "02")
+            {
+                this.tsmPedidos.Visible = false;
+                this.tsbComanda.Visible = false;
+                this.tsmInformatica.Visible = false;
+            }
 
+        }
         public void NewWindowAccess()
         {
             frmLogin frmLogin = new frmLogin();
@@ -340,6 +356,13 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmNotaCredito, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarAprobacionClave()
+        {
+            frmAprobacionClave win = new frmAprobacionClave();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmNotaCredito, null, 0, 0);
+            win.wfrm = this;
+            win.NewWindow();
+        }
         public void InstanciarAjusteIngresos()
         {
             frmAjusteIngresos win = new frmAjusteIngresos();
@@ -392,6 +415,12 @@ namespace GestionClubView.MdiPrincipal
         {
             frmComprobantesElectronicos win = new frmComprobantesElectronicos();
             this.FormatoVentanaHijoPrincipal(win, this.tsmComprobanteElectronicos, null, 0, 0);
+            win.NewWindow();
+        }
+        public void InstanciarCambiarClave()
+        {
+            frmCambiarAprobacionClave win = new frmCambiarAprobacionClave();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmCambiarClave, null, 0, 0);
             win.NewWindow();
         }
         public void InstanciarErroresElectronicos()
@@ -772,9 +801,14 @@ namespace GestionClubView.MdiPrincipal
             this.InstanciarComprobanteElectronico();
         }
 
+        private void tsmCambiarClave_Click(object sender, EventArgs e)
+        {
+            this.InstanciarCambiarClave();
+        }
+
         private void tsmNotaCredito_Click(object sender, EventArgs e)
         {
-            this.InstanciarNotaDeCredito();
+            this.InstanciarAprobacionClave();
         }
 
 

@@ -545,7 +545,7 @@
             <DataSetName>dsListarPrecios</DataSetName>
             <Left>1.82438cm</Left>
             <Height>1.27938cm</Height>
-            <Width>15.72854cm</Width>
+            <Width>15.72853cm</Width>
             <Style>
               <Border>
                 <Color>White</Color>
@@ -553,77 +553,8 @@
               </Border>
             </Style>
           </Tablix>
-          <Textbox Name="Textbox10">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Totales:</Value>
-                    <Style>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox10</rd:DefaultName>
-            <Top>1.27938cm</Top>
-            <Left>14.37854cm</Left>
-            <Height>0.6cm</Height>
-            <Width>1.70625cm</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox39">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Sum(Fields!preCosProducto.Value, "dsListarPrecios")</Value>
-                    <Style>
-                      <FontFamily>calibri</FontFamily>
-                      <FontSize>7pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                      <Format>'S/'#,0.00;('S/'#,0.00)</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox39</rd:DefaultName>
-            <Top>1.27938cm</Top>
-            <Left>16.08479cm</Left>
-            <Height>0.6cm</Height>
-            <Width>1.46812cm</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-              <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>0.77095in</Height>
+        <Height>0.51053in</Height>
         <Style />
       </Body>
       <Width>8in</Width>
@@ -1141,6 +1072,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>0.50271cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1171,6 +1103,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>4.63431cm</Left>
               <Height>0.6cm</Height>
               <Width>9.76722cm</Width>

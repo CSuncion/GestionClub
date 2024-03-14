@@ -150,6 +150,18 @@
     <Compile Include="FacturaElectronica\frmErroresElectronicos.Designer.cs">
       <DependentUpon>frmErroresElectronicos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Informatica\frmCambiarAprobacionClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informatica\frmCambiarAprobacionClave.Designer.cs">
+      <DependentUpon>frmCambiarAprobacionClave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Informatica\frmAprobacionClave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informatica\frmAprobacionClave.Designer.cs">
+      <DependentUpon>frmAprobacionClave.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listas\frmListarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -594,6 +606,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacturaElectronica\frmErroresElectronicos.resx">
       <DependentUpon>frmErroresElectronicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informatica\frmCambiarAprobacionClave.resx">
+      <DependentUpon>frmCambiarAprobacionClave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informatica\frmAprobacionClave.resx">
+      <DependentUpon>frmAprobacionClave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listas\frmListarProducto.resx">
       <DependentUpon>frmListarProducto.cs</DependentUpon>

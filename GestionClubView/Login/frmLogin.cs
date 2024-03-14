@@ -147,7 +147,7 @@ namespace GestionClubView.Login
         {
             pUsu.dniAcceso = this.txtDniUsuario.Text.Trim();
             pUsu.nombresAcceso = this.txtNameUsr.Text.Trim();
-            pUsu.passAcceso = utilGestionClub.Encripta(this.txtPwd.Text.Trim());
+            pUsu.passAcceso = UtilGestionClub.Encripta(this.txtPwd.Text.Trim());
         }
 
         public bool EsClaveDeUsuario()

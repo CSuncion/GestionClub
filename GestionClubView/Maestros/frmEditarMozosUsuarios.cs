@@ -2,6 +2,7 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Enum;
+using GestionClubUtil.Util;
 using GestionClubView.Pedidos;
 using System;
 using System.Collections.Generic;
@@ -241,7 +242,7 @@ namespace GestionClubView.Maestros
             pObj.codAcceso = this.txtCodigo.Text;
             pObj.nombreAcceso = this.txtNombres.Text;
             pObj.dniAcceso = this.txtDocId.Text;
-            pObj.passAcceso = Encriptacion.Encriptar(this.txtDocId.Text.Trim());
+            pObj.passAcceso = UtilGestionClub.Encripta(this.txtDocId.Text.Trim());
             pObj.paternoAcceso = this.txtApePaterno.Text;
             pObj.maternoAcceso = this.txtApeMaterno.Text;
             pObj.nombresAcceso = this.txtNombres.Text;

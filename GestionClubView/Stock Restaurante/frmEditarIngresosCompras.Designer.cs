@@ -44,6 +44,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtGlosa = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.cboMoneda = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
@@ -72,8 +74,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtGlosa = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -260,6 +260,24 @@
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
             // 
+            // txtGlosa
+            // 
+            this.txtGlosa.Location = new System.Drawing.Point(68, 71);
+            this.txtGlosa.MaxLength = 8;
+            this.txtGlosa.Name = "txtGlosa";
+            this.txtGlosa.Size = new System.Drawing.Size(539, 21);
+            this.txtGlosa.TabIndex = 465;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(20, 73);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(42, 14);
+            this.label17.TabIndex = 464;
+            this.label17.Text = "Glosa:";
+            // 
             // cboMoneda
             // 
             this.cboMoneda.FormattingEnabled = true;
@@ -425,7 +443,6 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(431, 20);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(79, 21);
             this.txtPrecio.TabIndex = 452;
             // 
@@ -550,24 +567,6 @@
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
-            // 
-            // txtGlosa
-            // 
-            this.txtGlosa.Location = new System.Drawing.Point(68, 71);
-            this.txtGlosa.MaxLength = 8;
-            this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(539, 21);
-            this.txtGlosa.TabIndex = 465;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(20, 73);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(42, 14);
-            this.label17.TabIndex = 464;
-            this.label17.Text = "Glosa:";
             // 
             // frmEditarIngresosCompras
             // 

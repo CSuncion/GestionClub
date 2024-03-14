@@ -11,7 +11,7 @@ namespace GestionClubUtil.Util
 {
     public class UtilGestionClub
     {
-        public string Encripta(string wTexto)
+        public static string Encripta(string wTexto)
         {
             string str = "";
             byte num1 = checked((byte)Strings.Len(Strings.Trim(wTexto)));

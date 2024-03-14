@@ -276,8 +276,8 @@ namespace GestionClubView.Maestros
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.tipSocioCliente = Cmb.ObtenerValor(this.cboTipSocio, string.Empty);
             pObj.tipCliente = Cmb.ObtenerValor(this.cboTipCliente, string.Empty);
-            pObj.codCliente = this.txtCodigo.Text;
-            pObj.nroIdentificacionCliente = this.txtNroIdentificacion.Text;
+            pObj.codCliente = Formato.NumeroComprobante(this.txtCodigo.Text, 10);
+            pObj.nroIdentificacionCliente = Formato.NumeroComprobante(this.txtNroIdentificacion.Text, 11);
             pObj.nombreRazSocialCliente = this.txtNomRazSoc.Text;
             pObj.razComercialCliente = this.txtRazCom.Text;
             pObj.emailCliente = this.txtEmail.Text;

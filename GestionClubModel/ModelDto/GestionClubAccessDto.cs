@@ -39,6 +39,7 @@ namespace GestionClubModel.ModelDto
         public const string xPnp = "pnp";
         public const string CargAcc = "cargoAcceso";
         public const string _claveObjeto = "ClaveObjeto";
+        public const string _ClaveAprobador = "ClaveAprobador";
 
 
         public string claveObjeto { get; set; }
@@ -70,6 +71,7 @@ namespace GestionClubModel.ModelDto
         public Nullable<decimal> gradoAcceso { get; set; } = 1;
         public Nullable<int> pnp { get; set; }
         public string cargoAcceso { get; set; } = string.Empty;
+        public string ClaveAprobador { get; set; } = string.Empty;
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

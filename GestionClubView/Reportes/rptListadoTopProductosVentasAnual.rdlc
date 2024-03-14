@@ -281,14 +281,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="preVenta">
+                        <Textbox Name="preTotal">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!preVenta.Value</Value>
+                                  <Value>=Fields!preTotal.Value</Value>
                                   <Style>
                                     <FontFamily>CAlibri</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -300,7 +300,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>preVenta</rd:DefaultName>
+                          <rd:DefaultName>preTotal</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -890,7 +890,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>0.10583cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -921,7 +920,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>4.34326cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

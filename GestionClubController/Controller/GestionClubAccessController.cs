@@ -274,5 +274,10 @@ namespace GestionClubController.Controller
             GestionClubAccessRepository objRepo = new GestionClubAccessRepository();
             return objRepo.BuscarUsuarioXCodigo(pObj);
         }
+        public static void ActualizarClaveAprobador(GestionClubAccessDto pObj)
+        {
+            GestionClubAccessRepository objAcceso = new GestionClubAccessRepository();
+            objAcceso.ActualizarClaveAprobador(pObj);
+        }
     }
 }

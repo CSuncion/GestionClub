@@ -384,12 +384,14 @@ namespace GestionClubView.Venta
             cliente.nroIdentificacionCliente = iComEN.nroIdentificacionCliente;
             cliente = GestionClubClienteController.BuscarClienteXNroDocumento(cliente);
 
-            GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
-            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+            if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "03")
+            {
+                GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
+                string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+                if (this.AdicionarErrors(json, iComEN)) { return true; };
 
-            if (this.AdicionarErrors(json, iComEN)) { return true; };
-
-            this.AdicionarResultado(json);
+                this.AdicionarResultado(json);
+            }
 
             this.ActualizarCorrelativoComprobante();
 

@@ -78,6 +78,7 @@ namespace GestionClubView.MdiPrincipal
             {
                 this.wFrm.InstanciarTipoCambio();
             }
+            this.wFrm.ConfiguracionCajas();
 
             this.wFrm.tssStatusBar.Text = Universal.EstadoBarra();
             this.Close();

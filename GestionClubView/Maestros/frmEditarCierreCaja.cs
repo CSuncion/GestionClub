@@ -84,7 +84,7 @@ namespace GestionClubView.Maestros
             if (eMas.CamposObligatorios() == false) { return; }
 
 
-            if (this.ValidarMontoMayorCero()) { return; }
+            //if (this.ValidarMontoMayorCero()) { return; }
 
             //el codigo de usuario ya existe?
             if (this.EsCodigoCierreCajaDisponible() == false) { return; };
@@ -201,6 +201,21 @@ namespace GestionClubView.Maestros
             }
             return result;
         }
+        public decimal SumarMontoListadoComprobantePorCaja()
+        {
+            decimal result = 0;
+            List<GestionClubComprobanteDto> listComprobantes = new List<GestionClubComprobanteDto>();
+            if (listComprobantes.Count > 0)
+            {
+                listComprobantes = GestionClubComprobanteController.ListarComprobantes()
+                    .Where(x => Fecha.ObtenerDiaMesAno(x.fecComprobante) == Fecha.ObtenerDiaMesAno(this.dtpFecCierreCaja.Value)
+                           && x.caja == Universal.caja).ToList();
+                result = listComprobantes.Sum(x => x.impNetComprobante);
+            }
+            else result = 0;
+
+            return result;
+        }
         public void MostrarCierreCaja(GestionClubCierreCajaDto pObj)
         {
             this.dtpFecCierreCaja.Text = pObj.fecCierreCaja.ToString();
@@ -213,7 +228,7 @@ namespace GestionClubView.Maestros
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.caja = Universal.caja;
             pObj.fecCierreCaja = Convert.ToDateTime(this.dtpFecCierreCaja.Text);
-            pObj.montoCierreCaja = Convert.ToDecimal(this.txtMonto.Text);
+            pObj.montoCierreCaja = this.SumarMontoListadoComprobantePorCaja();
             pObj.estadoCierreCaja = "01";
             pObj.idCierreCaja = Convert.ToInt32(this.txtId.Text);
             //Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);  

@@ -45,6 +45,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.gradoAcceso = Convert.ToDecimal(iDr[GestionClubAccessDto.GradAcc]);
             xObjEnc.pnp = Convert.ToInt32(iDr[GestionClubAccessDto.xPnp]);
             xObjEnc.cargoAcceso = iDr[GestionClubAccessDto.CargAcc].ToString();
+            xObjEnc.ClaveAprobador = iDr[GestionClubAccessDto._ClaveAprobador].ToString();
             xObjEnc.claveObjeto = xObjEnc.idAcceso.ToString();
             return xObjEnc;
         }
@@ -199,6 +200,20 @@ namespace GestionClubRepository.Repository
                 };
             xObjCn.AssignParameters(lParameter);
             xObjCn.CommandStoreProcedure("isp_ModificarAcceso");
+            xObjCn.ExecuteNotResult();
+            xObjCn.Disconnect();
+        }
+        public void ActualizarClaveAprobador(GestionClubAccessDto pObj)
+        {
+            xObjCn.Connection();
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@dniAcceso",pObj.dniAcceso),
+                    new SqlParameter("@claveAprobador",pObj.ClaveAprobador),
+
+                };
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure("isp_ActualizarClaveAprobador");
             xObjCn.ExecuteNotResult();
             xObjCn.Disconnect();
         }

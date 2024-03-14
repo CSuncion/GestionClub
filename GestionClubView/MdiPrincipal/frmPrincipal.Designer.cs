@@ -58,7 +58,7 @@
             this.tsmCategorias = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTipoCambio = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTablaSistema = new System.Windows.Forms.ToolStripMenuItem();
-            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmComanda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmListadoPedidos = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,6 +67,8 @@
             this.tsmComprobante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmNotaCredito = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaElectronicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmComprobanteElectronicos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmErrorElectronico = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmStockRestaurante = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmIngresosCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAjustesIngresos = new System.Windows.Forms.ToolStripMenuItem();
@@ -101,8 +103,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmComprobanteElectronicos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmErrorElectronico = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCambiarClave = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -258,7 +259,7 @@
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maestrosToolStripMenuItem,
-            this.pedidosToolStripMenuItem,
+            this.tsmPedidos,
             this.ventasToolStripMenuItem,
             this.facturaElectronicaToolStripMenuItem,
             this.tsmStockRestaurante,
@@ -337,13 +338,13 @@
             this.tsmTablaSistema.Name = "tsmTablaSistema";
             this.tsmTablaSistema.Click += new System.EventHandler(this.tsmTablaSistema_Click);
             // 
-            // pedidosToolStripMenuItem
+            // tsmPedidos
             // 
-            this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmPedidos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmComanda,
             this.tsmListadoPedidos});
-            resources.ApplyResources(this.pedidosToolStripMenuItem, "pedidosToolStripMenuItem");
-            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            resources.ApplyResources(this.tsmPedidos, "tsmPedidos");
+            this.tsmPedidos.Name = "tsmPedidos";
             // 
             // tsmComanda
             // 
@@ -398,6 +399,18 @@
             this.tsmErrorElectronico});
             resources.ApplyResources(this.facturaElectronicaToolStripMenuItem, "facturaElectronicaToolStripMenuItem");
             this.facturaElectronicaToolStripMenuItem.Name = "facturaElectronicaToolStripMenuItem";
+            // 
+            // tsmComprobanteElectronicos
+            // 
+            resources.ApplyResources(this.tsmComprobanteElectronicos, "tsmComprobanteElectronicos");
+            this.tsmComprobanteElectronicos.Name = "tsmComprobanteElectronicos";
+            this.tsmComprobanteElectronicos.Click += new System.EventHandler(this.tsmComprobanteElectronicos_Click);
+            // 
+            // tsmErrorElectronico
+            // 
+            resources.ApplyResources(this.tsmErrorElectronico, "tsmErrorElectronico");
+            this.tsmErrorElectronico.Name = "tsmErrorElectronico";
+            this.tsmErrorElectronico.Click += new System.EventHandler(this.tsmErrorElectronico_Click);
             // 
             // tsmStockRestaurante
             // 
@@ -568,7 +581,8 @@
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmRespaldoBackup,
             this.tsmMozosUsuarios,
-            this.tsmSeleccionarCaja});
+            this.tsmSeleccionarCaja,
+            this.tsmCambiarClave});
             resources.ApplyResources(this.tsmInformatica, "tsmInformatica");
             this.tsmInformatica.Name = "tsmInformatica";
             // 
@@ -631,17 +645,11 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmComprobanteElectronicos
+            // tsmCambiarClave
             // 
-            resources.ApplyResources(this.tsmComprobanteElectronicos, "tsmComprobanteElectronicos");
-            this.tsmComprobanteElectronicos.Name = "tsmComprobanteElectronicos";
-            this.tsmComprobanteElectronicos.Click += new System.EventHandler(this.tsmComprobanteElectronicos_Click);
-            // 
-            // tsmErrorElectronico
-            // 
-            resources.ApplyResources(this.tsmErrorElectronico, "tsmErrorElectronico");
-            this.tsmErrorElectronico.Name = "tsmErrorElectronico";
-            this.tsmErrorElectronico.Click += new System.EventHandler(this.tsmErrorElectronico_Click);
+            resources.ApplyResources(this.tsmCambiarClave, "tsmCambiarClave");
+            this.tsmCambiarClave.Name = "tsmCambiarClave";
+            this.tsmCambiarClave.Click += new System.EventHandler(this.tsmCambiarClave_Click);
             // 
             // frmPrincipal
             // 
@@ -695,7 +703,7 @@
         private System.Windows.Forms.ToolStrip tsAccDir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         internal System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
-        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmPedidos;
         private System.Windows.Forms.ToolStripMenuItem maestrosToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmMasterProveedores;
@@ -751,5 +759,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmRecalcularStock;
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobanteElectronicos;
         internal System.Windows.Forms.ToolStripMenuItem tsmErrorElectronico;
+        internal System.Windows.Forms.ToolStripMenuItem tsmCambiarClave;
     }
 }

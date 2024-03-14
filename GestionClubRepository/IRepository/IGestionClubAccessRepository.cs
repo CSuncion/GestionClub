@@ -17,5 +17,6 @@ namespace GestionClubRepository.IRepository
         void ModificarAcceso(GestionClubAccessDto pObj);
         void AdicionarAcceso(GestionClubAccessDto pObj);
         GestionClubAccessDto ListarUsuarioMozosPorId(GestionClubAccessDto pObj);
+        void ActualizarClaveAprobador(GestionClubAccessDto pObj);
     }
 }

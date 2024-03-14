@@ -203,7 +203,7 @@ namespace GestionClubController.Controller
         public static GestionClubClienteDto BuscarClienteXClave(GestionClubClienteDto pObj)
         {
             GestionClubClienteRepository obj = new GestionClubClienteRepository();
-            return obj.ListarClientePorCodigoPorEmpresa(pObj);
+            return obj.ListarClientePorNroDocumentoPorEmpresa(pObj);
         }
         public static void EliminarCliente(GestionClubClienteDto pObj)
         {
