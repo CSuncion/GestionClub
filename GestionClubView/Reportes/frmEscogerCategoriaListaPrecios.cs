@@ -31,7 +31,7 @@ namespace GestionClubView.Reportes
         {
             Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._codCategoria, GestionClubCategoriaDto._desCategoria);
         }
-        public void SeleccionarFecha()
+        public void SeleccionarOpciones()
         {
             frmReportListaPrecios win = new frmReportListaPrecios();
             win.wFrm = this;
@@ -52,7 +52,7 @@ namespace GestionClubView.Reportes
         }
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {
-            this.SeleccionarFecha();
+            this.SeleccionarOpciones();
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)

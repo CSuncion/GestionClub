@@ -35,9 +35,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.chkTodos = new System.Windows.Forms.CheckBox();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -113,26 +113,6 @@
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(110, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 14);
-            this.label7.TabIndex = 219;
-            this.label7.Text = "Categoria:";
-            // 
-            // cboCategoria
-            // 
-            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategoria.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(113, 33);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(161, 22);
-            this.cboCategoria.TabIndex = 220;
-            // 
             // chkTodos
             // 
             this.chkTodos.AutoSize = true;
@@ -144,6 +124,26 @@
             this.chkTodos.UseVisualStyleBackColor = true;
             this.chkTodos.CheckedChanged += new System.EventHandler(this.chkTodos_CheckedChanged);
             // 
+            // cboCategoria
+            // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategoria.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Location = new System.Drawing.Point(113, 33);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(161, 22);
+            this.cboCategoria.TabIndex = 220;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(110, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 14);
+            this.label7.TabIndex = 219;
+            this.label7.Text = "Categoria:";
+            // 
             // frmEscogerCategoriaListaPrecios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,7 +154,7 @@
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEscogerCategoriaListaPrecios";
-            this.Text = "Ventas por Fechas";
+            this.Text = "Lista de Precios";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();

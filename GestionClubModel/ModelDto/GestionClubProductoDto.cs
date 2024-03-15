@@ -18,7 +18,9 @@ namespace GestionClubModel.ModelDto
         public const string _preVtsProducto = "preVtsProducto";
         public const string _preVnsProducto = "preVnsProducto";
         public const string _afeIgvProducto = "afeIgvProducto";
+        public const string _desAfeIgvProducto = "desAfeIgvProducto";
         public const string _afeDtraProducto = "afeDtraProducto";
+        public const string _desAfeDtraProducto = "desAfeDtraProducto";
         public const string _porDtraProducto = "porDtraProducto";
         public const string _impDolProducto = "impDolProducto";
         public const string _impOtrProducto = "impOtrProducto";
@@ -48,7 +50,9 @@ namespace GestionClubModel.ModelDto
         public decimal preVtsProducto { get; set; }
         public decimal preVnsProducto { get; set; }
         public decimal afeIgvProducto { get; set; }
+        public string desAfeIgvProducto { get; set; }
         public decimal afeDtraProducto { get; set; }
+        public string desAfeDtraProducto { get; set; }
         public decimal porDtraProducto { get; set; }
         public decimal impDolProducto { get; set; }
         public decimal impOtrProducto { get; set; }

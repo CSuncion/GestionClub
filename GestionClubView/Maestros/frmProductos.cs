@@ -88,8 +88,8 @@ namespace GestionClubView.Maestros
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preCosProducto, "P. Costo", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preVtsProducto, "P. Venta", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._preVnsProducto, "P.V. No Soc.", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._afeIgvProducto, "A. IGV", 80));
-            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._afeDtraProducto, "A. Dtra. IGV", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._desAfeIgvProducto, "A. IGV", 80));
+            iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._desAfeDtraProducto, "A. Dtra. IGV", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._porDtraProducto, "% Dtra.", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._impDolProducto, "Imp. $", 80));
             iLisDgv.Add(Dgv.NuevaColumnaTextCadena(GestionClubProductoDto._impOtrProducto, "Imp. Otro", 80));

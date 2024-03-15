@@ -31,8 +31,12 @@ namespace GestionClubRepository.Repository
             xObjEnc.preCosProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preCosProducto]);
             xObjEnc.preVtsProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preVtsProducto]);
             xObjEnc.preVnsProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._preVnsProducto]);
+
             xObjEnc.afeIgvProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._afeIgvProducto]);
+            xObjEnc.desAfeIgvProducto = Convert.ToString(iDr[GestionClubProductoDto._desAfeIgvProducto]);
             xObjEnc.afeDtraProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._afeDtraProducto]);
+            xObjEnc.desAfeDtraProducto = Convert.ToString(iDr[GestionClubProductoDto._desAfeDtraProducto]);
+
             xObjEnc.porDtraProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._porDtraProducto]);
             xObjEnc.impDolProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._impDolProducto]);
             xObjEnc.impOtrProducto = Convert.ToDecimal(iDr[GestionClubProductoDto._impOtrProducto]);

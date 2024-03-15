@@ -1758,6 +1758,10 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnEstado;
             
+            private global::System.Data.DataColumn columndesAfeIgvProducto;
+            
+            private global::System.Data.DataColumn columndesAfeDtraProducto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarProductosActivosDataTable() {
@@ -2009,6 +2013,22 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn desAfeIgvProductoColumn {
+                get {
+                    return this.columndesAfeIgvProducto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn desAfeDtraProductoColumn {
+                get {
+                    return this.columndesAfeDtraProducto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2070,7 +2090,9 @@ namespace GestionClubView.DataSet {
                         System.DateTime fechaModifica, 
                         string Medida, 
                         string Moneda, 
-                        string Estado) {
+                        string Estado, 
+                        string desAfeIgvProducto, 
+                        string desAfeDtraProducto) {
                 isp_ListarProductosActivosRow rowisp_ListarProductosActivosRow = ((isp_ListarProductosActivosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2099,7 +2121,9 @@ namespace GestionClubView.DataSet {
                         fechaModifica,
                         Medida,
                         Moneda,
-                        Estado};
+                        Estado,
+                        desAfeIgvProducto,
+                        desAfeDtraProducto};
                 rowisp_ListarProductosActivosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarProductosActivosRow);
                 return rowisp_ListarProductosActivosRow;
@@ -2156,6 +2180,8 @@ namespace GestionClubView.DataSet {
                 this.columnMedida = base.Columns["Medida"];
                 this.columnMoneda = base.Columns["Moneda"];
                 this.columnEstado = base.Columns["Estado"];
+                this.columndesAfeIgvProducto = base.Columns["desAfeIgvProducto"];
+                this.columndesAfeDtraProducto = base.Columns["desAfeDtraProducto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2215,6 +2241,10 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnMoneda);
                 this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstado);
+                this.columndesAfeIgvProducto = new global::System.Data.DataColumn("desAfeIgvProducto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesAfeIgvProducto);
+                this.columndesAfeDtraProducto = new global::System.Data.DataColumn("desAfeDtraProducto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesAfeDtraProducto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidProducto}, true));
                 this.columnidProducto.AutoIncrement = true;
@@ -2233,6 +2263,10 @@ namespace GestionClubView.DataSet {
                 this.columnMedida.MaxLength = 60;
                 this.columnMoneda.MaxLength = 60;
                 this.columnEstado.MaxLength = 60;
+                this.columndesAfeIgvProducto.ReadOnly = true;
+                this.columndesAfeIgvProducto.MaxLength = 2;
+                this.columndesAfeDtraProducto.ReadOnly = true;
+                this.columndesAfeDtraProducto.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11576,6 +11610,40 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string desAfeIgvProducto {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarProductosActivos.desAfeIgvProductoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'desAfeIgvProducto\' de la tabla \'isp_ListarProductosActivo" +
+                                "s\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarProductosActivos.desAfeIgvProductoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string desAfeDtraProducto {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarProductosActivos.desAfeDtraProductoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'desAfeDtraProducto\' de la tabla \'isp_ListarProductosActiv" +
+                                "os\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarProductosActivos.desAfeDtraProductoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarProductosActivos.idEmpresaColumn);
             }
@@ -11884,6 +11952,30 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetEstadoNull() {
                 this[this.tableisp_ListarProductosActivos.EstadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdesAfeIgvProductoNull() {
+                return this.IsNull(this.tableisp_ListarProductosActivos.desAfeIgvProductoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdesAfeIgvProductoNull() {
+                this[this.tableisp_ListarProductosActivos.desAfeIgvProductoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdesAfeDtraProductoNull() {
+                return this.IsNull(this.tableisp_ListarProductosActivos.desAfeDtraProductoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdesAfeDtraProductoNull() {
+                this[this.tableisp_ListarProductosActivos.desAfeDtraProductoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -20500,6 +20592,8 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("Medida", "Medida");
             tableMapping.ColumnMappings.Add("Moneda", "Moneda");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("desAfeIgvProducto", "desAfeIgvProducto");
+            tableMapping.ColumnMappings.Add("desAfeDtraProducto", "desAfeDtraProducto");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

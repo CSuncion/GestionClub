@@ -242,13 +242,11 @@ namespace GestionClubView.MdiPrincipal
             {
                 this.tsmComprobante.Visible = false;
                 this.tsbComprobante.Visible = false;
-                this.tsmInformatica.Visible = false;
             }
             if (Universal.caja == "02")
             {
                 this.tsmPedidos.Visible = false;
                 this.tsbComanda.Visible = false;
-                this.tsmInformatica.Visible = false;
             }
 
         }

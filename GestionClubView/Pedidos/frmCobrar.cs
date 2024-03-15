@@ -1176,6 +1176,7 @@ namespace GestionClubView.Pedidos
         private void chEfectivo_CheckedChanged(object sender, EventArgs e)
         {
             this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
+            this.txtEfectivo.Focus();
         }
 
         private void tsBtnCobrar_Click(object sender, EventArgs e)
@@ -1251,11 +1252,13 @@ namespace GestionClubView.Pedidos
         private void chDeposito_CheckedChanged(object sender, EventArgs e)
         {
             this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
+            this.txtDeposito.Focus();
         }
 
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)
         {
             this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
+            this.txtTransferencia.Focus();
         }
     }
 }

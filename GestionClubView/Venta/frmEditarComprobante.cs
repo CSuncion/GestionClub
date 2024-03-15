@@ -39,6 +39,7 @@ namespace GestionClubView.Venta
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
         public int FormularioActivo = 0;
         public bool aplicaDetra = false;
+        public decimal porcentajeDtra = 0;
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
         public frmEditarComprobante()
         {
@@ -475,7 +476,7 @@ namespace GestionClubView.Venta
                 precioReal;
             pObj.impIgvComprobante = this.ValidarComprobanteTicket() ? 0 :
                precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impDtrComprobante = aplicaDetra ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeDetra / 100))
+            pObj.impDtrComprobante = aplicaDetra ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (this.porcentajeDtra / 100))
                 : 0;
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
             pObj.tipCliente = this.txtTipoDoc.Text;
@@ -518,7 +519,8 @@ namespace GestionClubView.Venta
                     obj = GestionClubProductoController.BuscarProductoXId(obj);
                     if (obj.afeDtraProducto == 1)
                     {
-                        aplicaDetra = true;
+                        this.porcentajeDtra = obj.porDtraProducto;
+                        this.aplicaDetra = true;
                         result = true;
                         break;
                     }
@@ -701,7 +703,7 @@ namespace GestionClubView.Venta
 
             if (this.ValidarItemParaFacturar()) { return; }
 
-            //if (this.ValidarComprobanteFactura(this.aplicaDetra) && this.aplicaDetra) { return; }
+            if (this.ValidarTotalSiEsDetraccion()) { return; }
 
             if (this.ValidarItemParaTicket()) { return; }
 
@@ -1299,6 +1301,21 @@ namespace GestionClubView.Venta
             }
             return result;
         }
+        public bool ValidarTotalSiEsDetraccion()
+        {
+            if (this.aplicaDetra)
+            {
+                if (Convert.ToDecimal(this.lblTotal.Text) >= 700)
+                    return false;
+                else
+                {
+                    Mensaje.OperacionDenegada("El monto total debe ser mayor o igual a 700", this.wFrm.eTitulo);
+                    return true;
+                }
+            }
+            else
+                return false;
+        }
         public void ActualizarCorrelativoComprobante()
         {
             this.GenerarCorrelativo();
@@ -1375,11 +1392,13 @@ namespace GestionClubView.Venta
         private void chEfectivo_CheckedChanged(object sender, EventArgs e)
         {
             this.txtEfectivo.Enabled = !this.txtEfectivo.Enabled;
+            this.txtEfectivo.Focus();
         }
 
         private void chDeposito_CheckedChanged(object sender, EventArgs e)
         {
             this.txtDeposito.Enabled = !this.txtDeposito.Enabled;
+            this.txtDeposito.Focus();
         }
 
         private void cboMoneda_SelectionChangeCommitted(object sender, EventArgs e)
@@ -1419,6 +1438,7 @@ namespace GestionClubView.Venta
         private void chTransferencia_CheckedChanged(object sender, EventArgs e)
         {
             this.txtTransferencia.Enabled = !this.txtTransferencia.Enabled;
+            this.txtTransferencia.Focus();
         }
 
         private void txtEfectivo_Validated(object sender, EventArgs e)
