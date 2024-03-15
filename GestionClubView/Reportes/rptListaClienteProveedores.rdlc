@@ -121,13 +121,13 @@
                   <Width>4.20315cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.21563cm</Width>
+                  <Width>3.77126cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.89378cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.70322cm</Width>
+                  <Width>3.75382cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -156,8 +156,8 @@
                           <rd:DefaultName>TipoCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -176,21 +176,23 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nroIdentificacionCliente.Value</Value>
+                                  <Value>=IIf(Fields!tipCliente.Value = "01", Right(Fields!nroIdentificacionCliente.Value,8),Fields!nroIdentificacionCliente.Value)</Value>
                                   <Style>
                                     <FontFamily>calibri</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>nroIdentificacionCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -222,8 +224,8 @@
                           <rd:DefaultName>nombreRazSocialCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -255,8 +257,8 @@
                           <rd:DefaultName>emailCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -282,14 +284,16 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>nroCelularCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -321,8 +325,8 @@
                           <rd:DefaultName>representanteCliente</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
+                              <Color>White</Color>
+                              <Style>None</Style>
                             </Border>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -358,7 +362,6 @@
             <FixedColumnHeaders>true</FixedColumnHeaders>
             <FixedRowHeaders>true</FixedRowHeaders>
             <DataSetName>dsListaClienteProveedores</DataSetName>
-            <Top>0.03554cm</Top>
             <Left>1.04823cm</Left>
             <Height>0.6cm</Height>
             <Width>17.90637cm</Width>
@@ -375,7 +378,7 @@
       <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>3.67626cm</Height>
+          <Height>2.44408cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -396,7 +399,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.31544cm</Top>
+              <Top>0.30733cm</Top>
               <Left>16.39156cm</Left>
               <Height>0.44465cm</Height>
               <Width>0.74446cm</Width>
@@ -427,7 +430,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
-              <Top>0.31543cm</Top>
+              <Top>0.30732cm</Top>
               <Left>17.17129cm</Left>
               <Height>0.44465cm</Height>
               <Width>1.09771cm</Width>
@@ -459,7 +462,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>0.31202cm</Top>
+              <Top>0.30391cm</Top>
               <Left>18.93378cm</Left>
               <Height>0.44806cm</Height>
               <Width>1.09771cm</Width>
@@ -491,7 +494,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
-              <Top>0.31203cm</Top>
+              <Top>0.30392cm</Top>
               <Left>18.34328cm</Left>
               <Height>0.44805cm</Height>
               <Width>0.55522cm</Width>
@@ -523,7 +526,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
-              <Top>0.83064cm</Top>
+              <Top>0.82253cm</Top>
               <Left>17.17129cm</Left>
               <Height>0.41479cm</Height>
               <Width>2.96603cm</Width>
@@ -555,7 +558,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
-              <Top>0.83064cm</Top>
+              <Top>0.82253cm</Top>
               <Left>15.99468cm</Left>
               <Height>0.4229cm</Height>
               <Width>1.14134cm</Width>
@@ -613,7 +616,7 @@
               <Top>0.30733cm</Top>
               <Left>0.36253cm</Left>
               <Height>1.38654cm</Height>
-              <Width>9.16029cm</Width>
+              <Width>4.97007cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -632,7 +635,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORTE LISTA DE CLIENTE/PROVEEDORES</Value>
+                      <Value>LISTA DE CLIENTE/PROVEEDORES</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -645,10 +648,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
-              <Top>2.23959cm</Top>
-              <Left>5.3326cm</Left>
+              <Top>0.30733cm</Top>
+              <Left>5.86997cm</Left>
               <Height>0.62646cm</Height>
-              <Width>10.09353cm</Width>
+              <Width>8.42666cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -661,240 +664,262 @@
               </Style>
             </Textbox>
             <Rectangle Name="Rectangle2">
+              <ReportItems>
+                <Textbox Name="Textbox39">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>REPRESENTANTE</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>14.15255cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.74153cm</Width>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox30">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>TIPO</Value>
+                          <Style>
+                            <FontFamily>CAlibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>0.01004cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.83009cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox32">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>N° IDENTIFICACIÓN</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>1.84013cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>2.45428cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox34">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>NOMBRE/RAZ. SOCIAL</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>4.29441cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>4.20315cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox36">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>E-MAIL</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>8.48752cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.77126cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="Textbox38">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>N° CEL</Value>
+                          <Style>
+                            <FontFamily>calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0cm</Top>
+                  <Left>12.25878cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>1.89378cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+              </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.07626cm</Top>
-              <Left>1.05827cm</Left>
+              <Top>1.7647cm</Top>
+              <Left>1.04823cm</Left>
               <Height>0.6cm</Height>
               <Width>17.90637cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
-                  <Style>None</Style>
+                  <Style>Solid</Style>
+                  <Width>0.25pt</Width>
                 </Border>
+                <TopBorder>
+                  <Color>Black</Color>
+                  <Style>Solid</Style>
+                  <Width>0.25pt</Width>
+                </TopBorder>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Solid</Style>
+                  <Width>0.25pt</Width>
+                </BottomBorder>
+                <LeftBorder>
+                  <Color>Black</Color>
+                  <Style>Solid</Style>
+                  <Width>0.25pt</Width>
+                </LeftBorder>
+                <RightBorder>
+                  <Color>Black</Color>
+                  <Style>Solid</Style>
+                  <Width>0.25pt</Width>
+                </RightBorder>
               </Style>
             </Rectangle>
-            <Textbox Name="Textbox30">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>TIPO</Value>
-                      <Style>
-                        <FontFamily>CAlibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>1.05827cm</Left>
-              <Height>0.6cm</Height>
-              <Width>1.83009cm</Width>
-              <ZIndex>9</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox32">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>N° IDENTIFICACIÓN</Value>
-                      <Style>
-                        <FontFamily>calibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>2.88836cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.45428cm</Width>
-              <ZIndex>10</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox34">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>NOMBRE/RAZ. SOCIAL</Value>
-                      <Style>
-                        <FontFamily>calibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>5.34264cm</Left>
-              <Height>0.6cm</Height>
-              <Width>4.20315cm</Width>
-              <ZIndex>11</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox36">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>E-MAIL</Value>
-                      <Style>
-                        <FontFamily>calibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>9.54579cm</Left>
-              <Height>0.6cm</Height>
-              <Width>3.21563cm</Width>
-              <ZIndex>12</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox38">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>N° CEL</Value>
-                      <Style>
-                        <FontFamily>calibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>12.76142cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.48771cm</Width>
-              <ZIndex>13</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox39">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>REPRESENTANTE</Value>
-                      <Style>
-                        <FontFamily>calibri</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Center</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox28</rd:DefaultName>
-              <Top>3.07626cm</Top>
-              <Left>15.26142cm</Left>
-              <Height>0.6cm</Height>
-              <Width>3.70322cm</Width>
-              <ZIndex>14</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <BackgroundColor>Silver</BackgroundColor>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -903,7 +928,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.08479cm</Height>
+          <Height>0.87312cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>

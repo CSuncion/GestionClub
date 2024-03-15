@@ -563,7 +563,7 @@
       <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>3.78327cm</Height>
+          <Height>2.35452cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -585,7 +585,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.14595cm</Top>
-              <Left>16.44686cm</Left>
+              <Left>16.55269cm</Left>
               <Height>0.44465cm</Height>
               <Width>0.74446cm</Width>
               <Style>
@@ -616,7 +616,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
               <Top>0.14594cm</Top>
-              <Left>17.22659cm</Left>
+              <Left>17.33242cm</Left>
               <Height>0.44465cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>1</ZIndex>
@@ -648,7 +648,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
               <Top>0.14253cm</Top>
-              <Left>18.98908cm</Left>
+              <Left>19.09491cm</Left>
               <Height>0.44806cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>2</ZIndex>
@@ -680,7 +680,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
               <Top>0.14254cm</Top>
-              <Left>18.39858cm</Left>
+              <Left>18.50441cm</Left>
               <Height>0.44805cm</Height>
               <Width>0.55522cm</Width>
               <ZIndex>3</ZIndex>
@@ -712,7 +712,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
               <Top>0.66115cm</Top>
-              <Left>17.22659cm</Left>
+              <Left>17.33242cm</Left>
               <Height>0.41479cm</Height>
               <Width>2.96603cm</Width>
               <ZIndex>4</ZIndex>
@@ -744,7 +744,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.66115cm</Top>
-              <Left>16.04998cm</Left>
+              <Left>16.15581cm</Left>
               <Height>0.4229cm</Height>
               <Width>1.14134cm</Width>
               <ZIndex>5</ZIndex>
@@ -801,7 +801,7 @@
               <Top>0.14253cm</Top>
               <Left>0.73533cm</Left>
               <Height>1.38654cm</Height>
-              <Width>9.16029cm</Width>
+              <Width>5.03279cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -820,7 +820,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORTE REGISTRO DE VENTAS</Value>
+                      <Value>REGISTRO DE VENTAS</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -833,7 +833,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
-              <Top>1.59963cm</Top>
+              <Top>0.14595cm</Top>
               <Left>7.16285cm</Left>
               <Height>0.62646cm</Height>
               <Width>7.92395cm</Width>
@@ -865,7 +865,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>2.40248cm</Top>
+              <Top>0.9488cm</Top>
               <Left>8.30026cm</Left>
               <Height>0.49885cm</Height>
               <Width>1.0977cm</Width>
@@ -897,7 +897,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>fecDesde</rd:DefaultName>
-              <Top>2.40248cm</Top>
+              <Top>0.9488cm</Top>
               <Left>9.39797cm</Left>
               <Height>0.49885cm</Height>
               <Width>1.77681cm</Width>
@@ -929,7 +929,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
-              <Top>2.40248cm</Top>
+              <Top>0.9488cm</Top>
               <Left>11.24533cm</Left>
               <Height>0.49885cm</Height>
               <Width>0.98306cm</Width>
@@ -961,7 +961,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>fecHasta</rd:DefaultName>
-              <Top>2.40248cm</Top>
+              <Top>0.9488cm</Top>
               <Left>12.22839cm</Left>
               <Height>0.49885cm</Height>
               <Width>1.81154cm</Width>
@@ -1237,8 +1237,8 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.07772cm</Top>
-              <Left>0.82066cm</Left>
+              <Top>1.70546cm</Top>
+              <Left>0.82068cm</Left>
               <Height>0.61073cm</Height>
               <Width>18.63112cm</Width>
               <ZIndex>12</ZIndex>
