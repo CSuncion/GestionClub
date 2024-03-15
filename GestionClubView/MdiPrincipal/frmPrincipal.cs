@@ -175,21 +175,50 @@ namespace GestionClubView.MdiPrincipal
 
         public void AccesoPorPerfiles()
         {
-            List<int> listMenu = new List<int>();
+
+            List<string> listMenu = new List<string>();
+
             listMenu = oCredAccCtrl.ListarSubPrivilegiosAcceso(Universal.gIdAcceso);
-            for (int i = 0; i < listMenu.Count; i++)
+
+
+            foreach (ToolStripMenuItem item in this.menuStrip1.Items)
             {
-                //if (listMenu[i] == 1)
-                //{
-
-                //}
-
-                //if (listMenu[i] == 2)
-                //{
-                //this.tsmInformatica.Visible = true;
-                //}
+                for (int i = 0; i < listMenu.Count; i++)
+                {
+                    if (item.Name == listMenu[i])
+                    {
+                        if (listMenu[i + 1] == "true")
+                            item.Visible = true;
+                        else
+                            item.Visible = false;
+                    }
+                    i++;
+                }
             }
-            //this.tsmInformatica.Visible = true;
+            foreach (ToolStripMenuItem item in this.menuStrip1.Items)
+            {
+                //item.DropDownItems.Remove(this.toolStripSeparator1);
+                for (int i = 0; i < item.DropDownItems.Count; i++)
+                {
+                    for (int j = 0; j < listMenu.Count; j++)
+                    {
+                        if (item.DropDownItems[i].Name == "tsmAjustesSalidas")
+                        {
+                            i += 1;
+                        }
+
+                        if (item.DropDownItems[i].Name == listMenu[j])
+                        {
+                            if (listMenu[j + 1] == "true")
+                                item.DropDownItems[i].Visible = true;
+                            else
+                                item.DropDownItems[i].Visible = false;
+                        }
+                        j++;
+                    }
+                }
+            }
+
         }
         private void LoadTheme()
         {

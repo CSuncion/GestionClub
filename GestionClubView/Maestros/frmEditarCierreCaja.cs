@@ -32,6 +32,7 @@ namespace GestionClubView.Maestros
         {
             this.InicializaVentana();
             this.MostrarCierreCaja(GestionClubCierreCajaController.EnBlanco());
+            this.MuestraMonto();
             eMas.AccionHabilitarControles(0);
             eMas.AccionPasarTextoPrincipal();
             this.dtpFecCierreCaja.Focus();
@@ -45,7 +46,7 @@ namespace GestionClubView.Maestros
             eMas.lisCtrls = this.ListaCtrls();
             eMas.EjecutarTodosLosEventos();
 
-            //this.ActualizarVentana();
+             //this.ActualizarVentana();
             // Deshabilitar al propietario
             this.wFrm.Enabled = false;
 
@@ -62,11 +63,15 @@ namespace GestionClubView.Maestros
             xLis.Add(xCtrl);
 
             xCtrl = new ControlEditar();
-            xCtrl.TxtNumeroPositivoConDecimales(this.txtMonto, true, "Monto", "vvff", 2);
+            xCtrl.TxtNumeroPositivoConDecimales(this.txtMonto, true, "Monto", "ffff", 2);
             xLis.Add(xCtrl);
 
 
             return xLis;
+        }
+        public void MuestraMonto()
+        {
+            this.txtMonto.Text = this.SumarMontoListadoComprobantePorCaja().ToString();
         }
         public void Aceptar()
         {
@@ -205,11 +210,11 @@ namespace GestionClubView.Maestros
         {
             decimal result = 0;
             List<GestionClubComprobanteDto> listComprobantes = new List<GestionClubComprobanteDto>();
+            listComprobantes = GestionClubComprobanteController.ListarComprobantes()
+                .Where(x => Fecha.ObtenerDiaMesAno(x.fecComprobante) == Fecha.ObtenerDiaMesAno(this.dtpFecCierreCaja.Value)
+                       && x.caja == Universal.caja).ToList();
             if (listComprobantes.Count > 0)
             {
-                listComprobantes = GestionClubComprobanteController.ListarComprobantes()
-                    .Where(x => Fecha.ObtenerDiaMesAno(x.fecComprobante) == Fecha.ObtenerDiaMesAno(this.dtpFecCierreCaja.Value)
-                           && x.caja == Universal.caja).ToList();
                 result = listComprobantes.Sum(x => x.impNetComprobante);
             }
             else result = 0;

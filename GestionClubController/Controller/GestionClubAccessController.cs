@@ -85,7 +85,7 @@ namespace GestionClubController.Controller
             GestionClubAccessDto iUsuEN = new GestionClubAccessDto();
             return iUsuEN;
         }
-        public List<int> ListarSubPrivilegiosAcceso(int idAcceso)
+        public List<string> ListarSubPrivilegiosAcceso(int idAcceso)
         {
             return this._iCreditAccessRepository.ListarSubPrivilegiosAcceso(idAcceso);
         }

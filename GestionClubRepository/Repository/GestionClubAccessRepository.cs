@@ -100,21 +100,22 @@ namespace GestionClubRepository.Repository
 
             return this.BuscarObjeto("isp_BuscarUsuarioXCodigo", lParameter);
         }
-        public List<int> ListarSubPrivilegiosAcceso(int idAcceso)
+        public List<string> ListarSubPrivilegiosAcceso(int idAcceso)
         {
             List<SqlParameter> lParameter = new List<SqlParameter>()
                 {
                 new SqlParameter("@strIdAcceso", idAcceso)
                 };
 
-            List<int> menu = new List<int>();
+            List<string> menu = new List<string>();
             xObjCn.Connection();
             xObjCn.CommandStoreProcedure("isp_ListarSubPrivilegiosAcceso");
             xObjCn.AssignParameters(lParameter);
             IDataReader xIdr = xObjCn.GetIdr();
             while (xIdr.Read())
             {
-                menu.Add((int)xIdr[0]);
+                menu.Add((string)xIdr[0]);
+                menu.Add((string)xIdr[1]);
             }
             xObjCn.Disconnect();
             return menu;

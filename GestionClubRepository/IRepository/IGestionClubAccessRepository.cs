@@ -10,7 +10,7 @@ namespace GestionClubRepository.IRepository
     public interface IGestionClubAccessRepository
     {
         GestionClubAccessDto BuscarUsuarioXCodigo(GestionClubAccessDto pObj);
-        List<int> ListarSubPrivilegiosAcceso(int idAcceso);
+        List<string> ListarSubPrivilegiosAcceso(int idAcceso);
         List<GestionClubAccessDto> ListarUsuarioMeserosActivos(GestionClubAccessDto pObj);
         List<GestionClubAccessDto> ListarUsuarioMozos();
         void EliminarAcceso(GestionClubAccessDto pObj);

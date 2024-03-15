@@ -1,0 +1,50 @@
+operacion|generar_comprobante|
+tipo_de_comprobante|2|
+serie|BBB1|
+numero|0005557|
+sunat_transaction|1|
+cliente_tipo_de_documento|1|
+cliente_numero_de_documento|40694856|
+cliente_denominacion|MONTERO PACORA, YHASSER ZOSIMO                    |
+cliente_direccion||
+cliente_email|YHASSER19@HOTMAIL.COM|
+cliente_email1||
+cliente_email2||
+fecha_de_emision|14-03-2024|
+fecha_de_vencimiento||
+moneda|1|
+tipo_de_cambio|3.700|
+porcentaje_de_igv|18.00|
+descuento_global||
+total_descuento||
+total_anticipo||
+total_gravada|41.10169491525423728813559322|
+total_inafecta||
+total_exonerada||
+total_igv|7.3983050847457627118644067796|
+total_gratuita||
+total_otros_cargos||
+total|48.500000000000000000000000000|
+percepcion_tipo||
+percepcion_base_imponible||
+total_percepcion||
+total_incluido_percepcion||
+detraccion|false|
+observaciones||
+documento_que_se_modifica_tipo||
+documento_que_se_modifica_serie||
+documento_que_se_modifica_numero||
+tipo_de_nota_de_credito||
+tipo_de_nota_de_debito||
+enviar_automaticamente_a_la_sunat|true|
+enviar_automaticamente_al_cliente|true|
+codigo_unico||
+condiciones_de_pago||
+medio_de_pago||
+placa_vehiculo||
+orden_compra_servicio||
+tabla_personalizada_codigo||
+formato_de_pdf||
+item|NIU|01070106|CUBA LIBRE|1|12.7118644068|15.0000000000||12.7118644068|1|2.2881355932|15.0000000000|false|||10000000|
+item|NIU|01080201|HELADO SUBLIME.|1|2.9661016949|3.5000000000||2.9661016949|1|0.5338983051|3.5000000000|false|||10000000|
+item|NIU|01020201|LOMO SALTADO|1|25.4237288136|30.0000000000||25.4237288136|1|4.5762711864|30.0000000000|false|||10000000|
