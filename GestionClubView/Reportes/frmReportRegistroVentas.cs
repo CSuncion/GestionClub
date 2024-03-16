@@ -48,7 +48,8 @@ namespace GestionClubView.Reportes
                 rds.Name = "dsRegistroVentas";
                 rds.Value = GestionClubComprobanteController.ListarComprobantes()
                     .Where(x => Fecha.ObtenerAño(x.fecComprobante.ToShortDateString()) == this.wFrm.txtAnio.Text
-                    && Fecha.ObtenerMes(x.fecComprobante.ToShortDateString()) == Cmb.ObtenerValor(this.wFrm.cboMes, string.Empty))
+                    && Fecha.ObtenerMes(x.fecComprobante.ToShortDateString()) == Cmb.ObtenerValor(this.wFrm.cboMes, string.Empty)
+                    && (x.tipComprobante == "01" || x.tipComprobante == "02"))
                     .ToList();
 
                 ReportParameter[] rp = new ReportParameter[3];

@@ -919,6 +919,8 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnfechaModifica;
             
+            private global::System.Data.DataColumn columncaja;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarComprobantesFacturaYBoletaPorFechaDataTable() {
@@ -1274,6 +1276,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cajaColumn {
+                get {
+                    return this.columncaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1348,7 +1358,8 @@ namespace GestionClubView.DataSet {
                         int usuarioAgrega, 
                         System.DateTime fechaAgrega, 
                         int usuarioModifica, 
-                        System.DateTime fechaModifica) {
+                        System.DateTime fechaModifica, 
+                        string caja) {
                 isp_ListarComprobantesFacturaYBoletaPorFechaRow rowisp_ListarComprobantesFacturaYBoletaPorFechaRow = ((isp_ListarComprobantesFacturaYBoletaPorFechaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1390,7 +1401,8 @@ namespace GestionClubView.DataSet {
                         usuarioAgrega,
                         fechaAgrega,
                         usuarioModifica,
-                        fechaModifica};
+                        fechaModifica,
+                        caja};
                 rowisp_ListarComprobantesFacturaYBoletaPorFechaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarComprobantesFacturaYBoletaPorFechaRow);
                 return rowisp_ListarComprobantesFacturaYBoletaPorFechaRow;
@@ -1460,6 +1472,7 @@ namespace GestionClubView.DataSet {
                 this.columnfechaAgrega = base.Columns["fechaAgrega"];
                 this.columnusuarioModifica = base.Columns["usuarioModifica"];
                 this.columnfechaModifica = base.Columns["fechaModifica"];
+                this.columncaja = base.Columns["caja"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1545,6 +1558,8 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnusuarioModifica);
                 this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaModifica);
+                this.columncaja = new global::System.Data.DataColumn("caja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncaja);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidComprobante}, true));
                 this.columnidComprobante.AutoIncrement = true;
@@ -1571,6 +1586,7 @@ namespace GestionClubView.DataSet {
                 this.columnestadoComprobante.MaxLength = 4;
                 this.columndesEstado.MaxLength = 60;
                 this.columnobsComprobante.MaxLength = 50;
+                this.columncaja.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2480,6 +2496,8 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnfechaModifica;
             
+            private global::System.Data.DataColumn columncaja;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarComprobantesFacturaYBoletaDataTable() {
@@ -2835,6 +2853,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cajaColumn {
+                get {
+                    return this.columncaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2909,7 +2935,8 @@ namespace GestionClubView.DataSet {
                         int usuarioAgrega, 
                         System.DateTime fechaAgrega, 
                         int usuarioModifica, 
-                        System.DateTime fechaModifica) {
+                        System.DateTime fechaModifica, 
+                        string caja) {
                 isp_ListarComprobantesFacturaYBoletaRow rowisp_ListarComprobantesFacturaYBoletaRow = ((isp_ListarComprobantesFacturaYBoletaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2951,7 +2978,8 @@ namespace GestionClubView.DataSet {
                         usuarioAgrega,
                         fechaAgrega,
                         usuarioModifica,
-                        fechaModifica};
+                        fechaModifica,
+                        caja};
                 rowisp_ListarComprobantesFacturaYBoletaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarComprobantesFacturaYBoletaRow);
                 return rowisp_ListarComprobantesFacturaYBoletaRow;
@@ -3021,6 +3049,7 @@ namespace GestionClubView.DataSet {
                 this.columnfechaAgrega = base.Columns["fechaAgrega"];
                 this.columnusuarioModifica = base.Columns["usuarioModifica"];
                 this.columnfechaModifica = base.Columns["fechaModifica"];
+                this.columncaja = base.Columns["caja"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3106,6 +3135,8 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnusuarioModifica);
                 this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaModifica);
+                this.columncaja = new global::System.Data.DataColumn("caja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncaja);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidComprobante}, true));
                 this.columnidComprobante.AutoIncrement = true;
@@ -3132,6 +3163,7 @@ namespace GestionClubView.DataSet {
                 this.columnestadoComprobante.MaxLength = 4;
                 this.columndesEstado.MaxLength = 60;
                 this.columnobsComprobante.MaxLength = 50;
+                this.columncaja.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3344,6 +3376,8 @@ namespace GestionClubView.DataSet {
             private global::System.Data.DataColumn columnusuarioModifica;
             
             private global::System.Data.DataColumn columnfechaModifica;
+            
+            private global::System.Data.DataColumn columncaja;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -3700,6 +3734,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cajaColumn {
+                get {
+                    return this.columncaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3774,7 +3816,8 @@ namespace GestionClubView.DataSet {
                         int usuarioAgrega, 
                         System.DateTime fechaAgrega, 
                         int usuarioModifica, 
-                        System.DateTime fechaModifica) {
+                        System.DateTime fechaModifica, 
+                        string caja) {
                 isp_ListarComprobantesRow rowisp_ListarComprobantesRow = ((isp_ListarComprobantesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3816,7 +3859,8 @@ namespace GestionClubView.DataSet {
                         usuarioAgrega,
                         fechaAgrega,
                         usuarioModifica,
-                        fechaModifica};
+                        fechaModifica,
+                        caja};
                 rowisp_ListarComprobantesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarComprobantesRow);
                 return rowisp_ListarComprobantesRow;
@@ -3886,6 +3930,7 @@ namespace GestionClubView.DataSet {
                 this.columnfechaAgrega = base.Columns["fechaAgrega"];
                 this.columnusuarioModifica = base.Columns["usuarioModifica"];
                 this.columnfechaModifica = base.Columns["fechaModifica"];
+                this.columncaja = base.Columns["caja"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3971,6 +4016,8 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnusuarioModifica);
                 this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaModifica);
+                this.columncaja = new global::System.Data.DataColumn("caja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncaja);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidComprobante}, true));
                 this.columnidComprobante.AutoIncrement = true;
@@ -3997,6 +4044,7 @@ namespace GestionClubView.DataSet {
                 this.columnestadoComprobante.MaxLength = 4;
                 this.columndesEstado.MaxLength = 60;
                 this.columnobsComprobante.MaxLength = 50;
+                this.columncaja.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7510,6 +7558,8 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnfechaModifica;
             
+            private global::System.Data.DataColumn columncaja;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaDataTable() {
@@ -7865,6 +7915,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn cajaColumn {
+                get {
+                    return this.columncaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7939,7 +7997,8 @@ namespace GestionClubView.DataSet {
                         int usuarioAgrega, 
                         System.DateTime fechaAgrega, 
                         int usuarioModifica, 
-                        System.DateTime fechaModifica) {
+                        System.DateTime fechaModifica, 
+                        string caja) {
                 isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow rowisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow = ((isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7981,7 +8040,8 @@ namespace GestionClubView.DataSet {
                         usuarioAgrega,
                         fechaAgrega,
                         usuarioModifica,
-                        fechaModifica};
+                        fechaModifica,
+                        caja};
                 rowisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow);
                 return rowisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHastaRow;
@@ -8051,6 +8111,7 @@ namespace GestionClubView.DataSet {
                 this.columnfechaAgrega = base.Columns["fechaAgrega"];
                 this.columnusuarioModifica = base.Columns["usuarioModifica"];
                 this.columnfechaModifica = base.Columns["fechaModifica"];
+                this.columncaja = base.Columns["caja"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8136,6 +8197,8 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnusuarioModifica);
                 this.columnfechaModifica = new global::System.Data.DataColumn("fechaModifica", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaModifica);
+                this.columncaja = new global::System.Data.DataColumn("caja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncaja);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidComprobante}, true));
                 this.columnidComprobante.AutoIncrement = true;
@@ -8164,6 +8227,7 @@ namespace GestionClubView.DataSet {
                 this.columnestadoComprobante.MaxLength = 4;
                 this.columndesEstado.MaxLength = 60;
                 this.columnobsComprobante.MaxLength = 50;
+                this.columncaja.MaxLength = 2;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10875,6 +10939,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string caja {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.cajaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'caja\' de la tabla \'isp_ListarComprobantesFacturaYBoletaPo" +
+                                "rFecha\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.cajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.idEmpresaColumn);
             }
@@ -11339,6 +11420,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaModificaNull() {
                 this[this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscajaNull() {
+                return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.cajaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcajaNull() {
+                this[this.tableisp_ListarComprobantesFacturaYBoletaPorFecha.cajaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12870,6 +12963,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string caja {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarComprobantesFacturaYBoleta.cajaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'caja\' de la tabla \'isp_ListarComprobantesFacturaYBoleta\' " +
+                                "es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarComprobantesFacturaYBoleta.cajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoleta.idEmpresaColumn);
             }
@@ -13334,6 +13444,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaModificaNull() {
                 this[this.tableisp_ListarComprobantesFacturaYBoleta.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscajaNull() {
+                return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoleta.cajaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcajaNull() {
+                this[this.tableisp_ListarComprobantesFacturaYBoleta.cajaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -14025,6 +14147,22 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string caja {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarComprobantes.cajaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'caja\' de la tabla \'isp_ListarComprobantes\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarComprobantes.cajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarComprobantes.idEmpresaColumn);
             }
@@ -14489,6 +14627,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaModificaNull() {
                 this[this.tableisp_ListarComprobantes.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscajaNull() {
+                return this.IsNull(this.tableisp_ListarComprobantes.cajaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcajaNull() {
+                this[this.tableisp_ListarComprobantes.cajaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -17844,6 +17994,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string caja {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.cajaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'caja\' de la tabla \'isp_ListarComprobantesFacturaYBoletaPo" +
+                                "rFechaDesdeHasta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.cajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsidEmpresaNull() {
                 return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.idEmpresaColumn);
             }
@@ -18308,6 +18475,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetfechaModificaNull() {
                 this[this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.fechaModificaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscajaNull() {
+                return this.IsNull(this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.cajaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcajaNull() {
+                this[this.tableisp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta.cajaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -20855,6 +21034,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("fechaAgrega", "fechaAgrega");
             tableMapping.ColumnMappings.Add("usuarioModifica", "usuarioModifica");
             tableMapping.ColumnMappings.Add("fechaModifica", "fechaModifica");
+            tableMapping.ColumnMappings.Add("caja", "caja");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -20875,14 +21055,14 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEmpresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecComprobante", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecComprobante", global::System.Data.SqlDbType.VarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable dataTable, global::System.Nullable<int> idEmpresa, global::System.Nullable<global::System.DateTime> fecComprobante) {
+        public virtual int Fill(DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable dataTable, global::System.Nullable<int> idEmpresa, string fecComprobante) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((idEmpresa.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idEmpresa.Value));
@@ -20890,11 +21070,11 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((fecComprobante.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fecComprobante.Value));
+            if ((fecComprobante == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecComprobante));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -20907,7 +21087,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable GetData(global::System.Nullable<int> idEmpresa, global::System.Nullable<global::System.DateTime> fecComprobante) {
+        public virtual DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable GetData(global::System.Nullable<int> idEmpresa, string fecComprobante) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((idEmpresa.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idEmpresa.Value));
@@ -20915,11 +21095,11 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((fecComprobante.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fecComprobante.Value));
+            if ((fecComprobante == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(fecComprobante));
             }
             DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable dataTable = new DsGestionClub.isp_ListarComprobantesFacturaYBoletaPorFechaDataTable();
             this.Adapter.Fill(dataTable);
@@ -21297,6 +21477,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("fechaAgrega", "fechaAgrega");
             tableMapping.ColumnMappings.Add("usuarioModifica", "usuarioModifica");
             tableMapping.ColumnMappings.Add("fechaModifica", "fechaModifica");
+            tableMapping.ColumnMappings.Add("caja", "caja");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -21530,6 +21711,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("fechaAgrega", "fechaAgrega");
             tableMapping.ColumnMappings.Add("usuarioModifica", "usuarioModifica");
             tableMapping.ColumnMappings.Add("fechaModifica", "fechaModifica");
+            tableMapping.ColumnMappings.Add("caja", "caja");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -23399,6 +23581,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("fechaAgrega", "fechaAgrega");
             tableMapping.ColumnMappings.Add("usuarioModifica", "usuarioModifica");
             tableMapping.ColumnMappings.Add("fechaModifica", "fechaModifica");
+            tableMapping.ColumnMappings.Add("caja", "caja");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

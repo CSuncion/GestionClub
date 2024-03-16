@@ -44,7 +44,7 @@ namespace GestionClubView.MdiPrincipal
             this.NewWindowAccess();
             this.AccesoPorPerfiles();
             this.InstanciarSeleccionarCaja();
-            this.ConfiguracionCajas();
+            //this.ConfiguracionCajas();
 
         }
         private void btnReports_Click(object sender, EventArgs e)

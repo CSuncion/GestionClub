@@ -374,7 +374,7 @@ namespace GestionClubView.Stock_Restaurante
             pObj.codAlmacen = this.correlativoAlmacen;
             pObj.anoProceso = DateTime.Now.Year.ToString();
             pObj.mesProceso = DateTime.Now.Month.ToString("00");
-            pObj.tipoMovimiento = "01";
+            pObj.tipoMovimiento = "10";
             pObj.nroDocumento = this.correlativoAlmacen;
             pObj.tipoFactura = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serFactura = this.txtSerDoc.Text.Trim();
