@@ -23,7 +23,7 @@ namespace GestionClubView.Reportes
         //CreditsReportController objReportController = new CreditsReportController();
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptListadoCuadroAnioMesAlmacen.rdlc";
-        public string formaReporte = "Horizontal";
+        public string formaReporte = "Normal";
         public frmReportResumenAnualIngresoSalida()
         {
             InitializeComponent();
