@@ -127,7 +127,7 @@
                   <Width>1.89378cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.75382cm</Width>
+                  <Width>4.8307cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -364,7 +364,7 @@
             <DataSetName>dsListaClienteProveedores</DataSetName>
             <Left>1.04823cm</Left>
             <Height>0.6cm</Height>
-            <Width>17.90637cm</Width>
+            <Width>18.98326cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -529,7 +529,7 @@
               <Top>0.82253cm</Top>
               <Left>17.17129cm</Left>
               <Height>0.41479cm</Height>
-              <Width>2.96603cm</Width>
+              <Width>2.8602cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -603,7 +603,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>GERENCIA GENERAL-CAJA DEL CLUB</Value>
+                      <Value>ÁREA RESTAURANTE SISTEMA</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -672,7 +672,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>REPRESENTANTE</Value>
+                          <Value>DIRECCIÓN</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -686,10 +686,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>14.15255cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>3.74153cm</Width>
+                  <Width>4.83071cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -722,7 +721,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>0.01004cm</Left>
                   <Height>0.6cm</Height>
                   <Width>1.83009cm</Width>
@@ -745,7 +743,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>N° IDENTIFICACIÓN</Value>
+                          <Value>DNI/RUC</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -759,7 +757,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>1.84013cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.45428cm</Width>
@@ -796,7 +793,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>4.29441cm</Left>
                   <Height>0.6cm</Height>
                   <Width>4.20315cm</Width>
@@ -833,7 +829,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>8.48752cm</Left>
                   <Height>0.6cm</Height>
                   <Width>3.77126cm</Width>
@@ -870,7 +865,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>12.25878cm</Left>
                   <Height>0.6cm</Height>
                   <Width>1.89378cm</Width>
@@ -891,7 +885,7 @@
               <Top>1.7647cm</Top>
               <Left>1.04823cm</Left>
               <Height>0.6cm</Height>
-              <Width>17.90637cm</Width>
+              <Width>18.98326cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>

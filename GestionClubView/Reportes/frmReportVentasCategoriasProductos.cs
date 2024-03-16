@@ -21,7 +21,7 @@ namespace GestionClubView.Reportes
         public frmEscogerAnioCategoriaProductoVentas wFrm;
         UtilConvertDataTable utilConvertDataTable = new UtilConvertDataTable();
         public string nombreReporte = "GestionClubView.Reportes.rptEstadisticaVentasPorCategoriasProductos.rdlc";
-        public string formaReporte = "Horizontal";
+        public string formaReporte = "Normal";
         public frmReportVentasCategoriasProductos()
         {
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsVentasCategoriasProductos";
-                rds.Value = GestionClubComprobanteController.ListarVentasPorCategoriaProductos(this.wFrm.txtAnio.Text, Cmb.ObtenerValor(this.wFrm.cboCategoria, string.Empty), this.wFrm.txtProducto.Text);
+                rds.Value = GestionClubComprobanteController.ListarVentasPorCategoriaProductos(this.wFrm.txtAnio.Text, string.Empty, string.Empty);
 
                 ReportParameter[] rp = new ReportParameter[2];
                 //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());

@@ -31,7 +31,7 @@ namespace GestionClubView.Reportes
         }
         public void CargarCategorias()
         {
-            Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._codCategoria, GestionClubCategoriaDto._desCategoria);
+            //Cmb.Cargar(this.cboCategoria, GestionClubCategoriaController.ListarCategoriasActivos(), GestionClubCategoriaDto._codCategoria, GestionClubCategoriaDto._desCategoria);
         }
         public void MostrarReporte()
         {

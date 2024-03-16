@@ -34,6 +34,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.SaldoNuevo = Convert.ToInt32(iDr[GestionClubResumenAlmacenDto._SaldoNuevo]);
             xObjEnc.PrecioCostoNuevo = Convert.ToDecimal(iDr[GestionClubResumenAlmacenDto._PrecioCostoNuevo]);
             xObjEnc.FlagProcesado = Convert.ToBoolean(iDr[GestionClubResumenAlmacenDto._FlagProcesado]);
+            xObjEnc.desCategoria = Convert.ToString(iDr[GestionClubResumenAlmacenDto._desCategoria]);
             xObjEnc.claveObjeto = xObjEnc.IdResumenAlmacen.ToString();
             return xObjEnc;
         }

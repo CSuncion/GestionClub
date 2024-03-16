@@ -333,7 +333,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="isp_ListarVentasPorCategoriaProductosTableAdapter" GeneratorDataComponentClassName="isp_ListarVentasPorCategoriaProductosTableAdapter" Name="isp_ListarVentasPorCategoriaProductos" UserDataComponentName="isp_ListarVentasPorCategoriaProductosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="DbGestionClubConnectionString (Settings)" DbObjectName="DbGestionClub.dbo.isp_ListarVentasPorCategoriaProductos" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="DbGestionClubConnectionString (Settings)" DbObjectName="DbGestionClub.dbo.isp_ListarVentasPorCategoriaProductos" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.isp_ListarVentasPorCategoriaProductos</CommandText>
@@ -349,9 +349,9 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="MES" DataSetColumn="MES" />
               <Mapping SourceColumn="CANTIDAD" DataSetColumn="CANTIDAD" />
               <Mapping SourceColumn="MONTO" DataSetColumn="MONTO" />
+              <Mapping SourceColumn="desCategoria" DataSetColumn="desCategoria" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -403,8 +403,6 @@
               <Mapping SourceColumn="preVenta" DataSetColumn="preVenta" />
               <Mapping SourceColumn="idDetalleComprobante" DataSetColumn="idDetalleComprobante" />
               <Mapping SourceColumn="idComprobante" DataSetColumn="idComprobante" />
-              <Mapping SourceColumn="idEmpresa" DataSetColumn="idEmpresa" />
-              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
               <Mapping SourceColumn="preTotal" DataSetColumn="preTotal" />
               <Mapping SourceColumn="estadoDetalleComprobante" DataSetColumn="estadoDetalleComprobante" />
               <Mapping SourceColumn="obsDetalleComprobante" DataSetColumn="obsDetalleComprobante" />
@@ -412,6 +410,12 @@
               <Mapping SourceColumn="fechaAgrega" DataSetColumn="fechaAgrega" />
               <Mapping SourceColumn="usuarioModifica" DataSetColumn="usuarioModifica" />
               <Mapping SourceColumn="fechaModifica" DataSetColumn="fechaModifica" />
+              <Mapping SourceColumn="serNroComprobante" DataSetColumn="serNroComprobante" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="idEmpresa" DataSetColumn="idEmpresa1" />
+              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto1" />
+              <Mapping SourceColumn="porcentaje" DataSetColumn="porcentaje" />
+              <Mapping SourceColumn="acumulado" DataSetColumn="acumulado" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -537,6 +541,11 @@
               <Mapping SourceColumn="PrecioCostoNuevo" DataSetColumn="PrecioCostoNuevo" />
               <Mapping SourceColumn="Mes" DataSetColumn="Mes" />
               <Mapping SourceColumn="desProducto" DataSetColumn="desProducto" />
+              <Mapping SourceColumn="IdResumenAlmacen" DataSetColumn="IdResumenAlmacen" />
+              <Mapping SourceColumn="idEmpresa" DataSetColumn="idEmpresa" />
+              <Mapping SourceColumn="IdCodAlmacen" DataSetColumn="IdCodAlmacen" />
+              <Mapping SourceColumn="FlagProcesado" DataSetColumn="FlagProcesado" />
+              <Mapping SourceColumn="desCategoria" DataSetColumn="desCategoria" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -883,14 +892,14 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="desAfeIgvProducto" msdata:ReadOnly="true" msprop:Generator_UserColumnName="desAfeIgvProducto" msprop:Generator_ColumnPropNameInTable="desAfeIgvProductoColumn" msprop:Generator_ColumnPropNameInRow="desAfeIgvProducto" msprop:Generator_ColumnVarNameInTable="columndesAfeIgvProducto" minOccurs="0">
+              <xs:element name="desAfeIgvProducto" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="desAfeIgvProductoColumn" msprop:Generator_ColumnPropNameInRow="desAfeIgvProducto" msprop:Generator_UserColumnName="desAfeIgvProducto" msprop:Generator_ColumnVarNameInTable="columndesAfeIgvProducto" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="desAfeDtraProducto" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="desAfeDtraProducto" msprop:Generator_ColumnPropNameInTable="desAfeDtraProductoColumn" msprop:Generator_ColumnVarNameInTable="columndesAfeDtraProducto" msprop:Generator_UserColumnName="desAfeDtraProducto" minOccurs="0">
+              <xs:element name="desAfeDtraProducto" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="desAfeDtraProductoColumn" msprop:Generator_ColumnPropNameInRow="desAfeDtraProducto" msprop:Generator_UserColumnName="desAfeDtraProducto" msprop:Generator_ColumnVarNameInTable="columndesAfeDtraProducto" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -1416,9 +1425,15 @@
         <xs:element name="isp_ListarVentasPorCategoriaProductos" msprop:Generator_RowEvHandlerName="isp_ListarVentasPorCategoriaProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="isp_ListarVentasPorCategoriaProductosRowDeleted" msprop:Generator_RowDeletingName="isp_ListarVentasPorCategoriaProductosRowDeleting" msprop:Generator_RowEvArgName="isp_ListarVentasPorCategoriaProductosRowChangeEvent" msprop:Generator_TablePropName="isp_ListarVentasPorCategoriaProductos" msprop:Generator_RowChangedName="isp_ListarVentasPorCategoriaProductosRowChanged" msprop:Generator_UserTableName="isp_ListarVentasPorCategoriaProductos" msprop:Generator_RowChangingName="isp_ListarVentasPorCategoriaProductosRowChanging" msprop:Generator_RowClassName="isp_ListarVentasPorCategoriaProductosRow" msprop:Generator_TableClassName="isp_ListarVentasPorCategoriaProductosDataTable" msprop:Generator_TableVarName="tableisp_ListarVentasPorCategoriaProductos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="MES" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MESColumn" msprop:Generator_ColumnPropNameInRow="MES" msprop:Generator_UserColumnName="MES" msprop:Generator_ColumnVarNameInTable="columnMES" type="xs:int" minOccurs="0" />
               <xs:element name="CANTIDAD" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" type="xs:int" minOccurs="0" />
               <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_UserColumnName="MONTO" msprop:Generator_ColumnVarNameInTable="columnMONTO" type="xs:decimal" minOccurs="0" />
+              <xs:element name="desCategoria" msprop:Generator_ColumnPropNameInRow="desCategoria" msprop:Generator_ColumnPropNameInTable="desCategoriaColumn" msprop:Generator_ColumnVarNameInTable="columndesCategoria" msprop:Generator_UserColumnName="desCategoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1500,6 +1515,36 @@
               <xs:element name="fechaAgrega" msprop:Generator_ColumnPropNameInTable="fechaAgregaColumn" msprop:Generator_ColumnPropNameInRow="fechaAgrega" msprop:Generator_UserColumnName="fechaAgrega" msprop:Generator_ColumnVarNameInTable="columnfechaAgrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="usuarioModifica" msprop:Generator_ColumnPropNameInTable="usuarioModificaColumn" msprop:Generator_ColumnPropNameInRow="usuarioModifica" msprop:Generator_UserColumnName="usuarioModifica" msprop:Generator_ColumnVarNameInTable="columnusuarioModifica" type="xs:int" minOccurs="0" />
               <xs:element name="fechaModifica" msprop:Generator_ColumnPropNameInTable="fechaModificaColumn" msprop:Generator_ColumnPropNameInRow="fechaModifica" msprop:Generator_UserColumnName="fechaModifica" msprop:Generator_ColumnVarNameInTable="columnfechaModifica" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="serNroComprobante" msdata:ReadOnly="true" msprop:Generator_UserColumnName="serNroComprobante" msprop:Generator_ColumnPropNameInTable="serNroComprobanteColumn" msprop:Generator_ColumnPropNameInRow="serNroComprobante" msprop:Generator_ColumnVarNameInTable="columnserNroComprobante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="18" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idEmpresa1" msdata:Caption="idEmpresa" msprop:Generator_UserColumnName="idEmpresa1" msprop:Generator_ColumnPropNameInTable="idEmpresa1Column" msprop:Generator_ColumnPropNameInRow="idEmpresa1" msprop:Generator_ColumnVarNameInTable="columnidEmpresa1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idProducto1" msdata:Caption="idProducto" msprop:Generator_UserColumnName="idProducto1" msprop:Generator_ColumnPropNameInTable="idProducto1Column" msprop:Generator_ColumnPropNameInRow="idProducto1" msprop:Generator_ColumnVarNameInTable="columnidProducto1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="porcentaje" msdata:ReadOnly="true" msprop:Generator_UserColumnName="porcentaje" msprop:Generator_ColumnPropNameInTable="porcentajeColumn" msprop:Generator_ColumnPropNameInRow="porcentaje" msprop:Generator_ColumnVarNameInTable="columnporcentaje" type="xs:decimal" minOccurs="0" />
+              <xs:element name="acumulado" msdata:ReadOnly="true" msprop:Generator_UserColumnName="acumulado" msprop:Generator_ColumnPropNameInTable="acumuladoColumn" msprop:Generator_ColumnPropNameInRow="acumulado" msprop:Generator_ColumnVarNameInTable="columnacumulado" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1779,6 +1824,23 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IdResumenAlmacen" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="IdResumenAlmacen" msprop:Generator_ColumnPropNameInTable="IdResumenAlmacenColumn" msprop:Generator_ColumnPropNameInRow="IdResumenAlmacen" msprop:Generator_ColumnVarNameInTable="columnIdResumenAlmacen" type="xs:int" />
+              <xs:element name="idEmpresa" msprop:Generator_UserColumnName="idEmpresa" msprop:Generator_ColumnPropNameInTable="idEmpresaColumn" msprop:Generator_ColumnPropNameInRow="idEmpresa" msprop:Generator_ColumnVarNameInTable="columnidEmpresa" type="xs:int" />
+              <xs:element name="IdCodAlmacen" msprop:Generator_UserColumnName="IdCodAlmacen" msprop:Generator_ColumnPropNameInTable="IdCodAlmacenColumn" msprop:Generator_ColumnPropNameInRow="IdCodAlmacen" msprop:Generator_ColumnVarNameInTable="columnIdCodAlmacen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FlagProcesado" msprop:Generator_UserColumnName="FlagProcesado" msprop:Generator_ColumnPropNameInTable="FlagProcesadoColumn" msprop:Generator_ColumnPropNameInRow="FlagProcesado" msprop:Generator_ColumnVarNameInTable="columnFlagProcesado" type="xs:boolean" minOccurs="0" />
+              <xs:element name="desCategoria" msprop:Generator_UserColumnName="desCategoria" msprop:Generator_ColumnPropNameInTable="desCategoriaColumn" msprop:Generator_ColumnPropNameInRow="desCategoria" msprop:Generator_ColumnVarNameInTable="columndesCategoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1926,6 +1988,10 @@
     <xs:unique name="isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:isp_ListarComprobantesFacturaYBoletaPorFechaDesdeHasta" />
       <xs:field xpath="mstns:idComprobante" />
+    </xs:unique>
+    <xs:unique name="isp_ResumenAnioMesAlmacen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:isp_ResumenAnioMesAlmacen" />
+      <xs:field xpath="mstns:IdResumenAlmacen" />
     </xs:unique>
     <xs:unique name="isp_ListarCategorias_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:isp_ListarCategorias" />

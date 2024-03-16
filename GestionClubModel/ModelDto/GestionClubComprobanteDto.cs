@@ -94,7 +94,7 @@ namespace GestionClubModel.ModelDto
         public DateTime fechaAgrega { get; set; }
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
-        public string  caja { get; set; }
+        public string caja { get; set; }
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales
@@ -125,10 +125,12 @@ namespace GestionClubModel.ModelDto
 
         public const string _serNroComprobante = "serNroComprobante";
         public const string _Fecha = "Fecha";
+        public const string _porcentaje = "porcentaje";
+        public const string _acumulado = "acumulado";
 
         public string claveObjeto { get; set; }
         public int idDetalleComprobante { get; set; } = 0;
-        public int idComprobante { get; set; }
+        public int idComprobante { get; set; } = 0;
         public int idEmpresa { get; set; }
         public int idProducto { get; set; }
         public string codProducto { get; set; }
@@ -137,15 +139,16 @@ namespace GestionClubModel.ModelDto
         public int cantidad { get; set; }
         public decimal preTotal { get; set; }
         public string estadoDetalleComprobante { get; set; }
-        public string obsDetalleComprobante { get; set; }
-        public int usuarioAgrega { get; set; }
-        public DateTime fechaAgrega { get; set; }
-        public int usuarioModifica { get; set; }
-        public DateTime fechaModifica { get; set; }
+        public string obsDetalleComprobante { get; set; } = string.Empty;
+        public int usuarioAgrega { get; set; } = Universal.gIdAcceso;
+        public DateTime fechaAgrega { get; set; } = DateTime.Now;
+        public int usuarioModifica { get; set; } = Universal.gIdAcceso;
+        public DateTime fechaModifica { get; set; } = DateTime.Now;
 
-        public string serNroComprobante { get; set; }
-        public string Fecha { get; set; }
-
+        public string serNroComprobante { get; set; } = string.Empty;
+        public string Fecha { get; set; } = DateTime.Now.ToShortDateString();
+        public decimal porcentaje { get; set; }
+        public decimal acumulado { get; set; }
 
 
         private Adicional _Adicionales = new Adicional();

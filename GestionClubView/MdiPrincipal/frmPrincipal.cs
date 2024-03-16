@@ -238,11 +238,6 @@ namespace GestionClubView.MdiPrincipal
         }
         public void ConfiguracionCajas()
         {
-            if (Universal.caja == "01")
-            {
-                this.tsmComprobante.Visible = false;
-                this.tsbComprobante.Visible = false;
-            }
             if (Universal.caja == "02")
             {
                 this.tsmPedidos.Visible = false;
@@ -513,7 +508,7 @@ namespace GestionClubView.MdiPrincipal
         public void InstanciarReporteEstadisticaVentaCategoriaProducto()
         {
             frmEscogerAnioCategoriaProductoVentas win = new frmEscogerAnioCategoriaProductoVentas();
-            this.FormatoVentanaHijoPrincipal(win, this.tsmVentaAnualesMesesPorTipo, null, 0, 0);
+            this.FormatoVentanaHijoPrincipal(win, this.tsmVentasPorCategoriasProductos, null, 0, 0);
             win.VentanaSeleccionar();
         }
         public void InstanciarReporteEstadisticaVentaProducto()

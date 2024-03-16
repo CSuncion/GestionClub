@@ -88,6 +88,23 @@ namespace GestionClubRepository.Repository
             xObjEnc.Fecha = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._Fecha]);
             return xObjEnc;
         }
+
+        private GestionClubDetalleComprobanteDto ObjetoDetalleTop(IDataReader iDr)
+        {
+            GestionClubDetalleComprobanteDto xObjEnc = new GestionClubDetalleComprobanteDto();
+            xObjEnc.idEmpresa = Convert.ToInt32(iDr[GestionClubDetalleComprobanteDto._idEmpresa]);
+            xObjEnc.idProducto = Convert.ToInt32(iDr[GestionClubDetalleComprobanteDto._idProducto]);
+            xObjEnc.codProducto = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._codProducto]);
+            xObjEnc.desProducto = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._desProducto]);
+            xObjEnc.preVenta = Convert.ToDecimal(iDr[GestionClubDetalleComprobanteDto._preVenta]);
+            xObjEnc.cantidad = Convert.ToInt32(iDr[GestionClubDetalleComprobanteDto._cantidad]);
+            xObjEnc.preTotal = Convert.ToInt32(iDr[GestionClubDetalleComprobanteDto._preTotal]);
+            xObjEnc.estadoDetalleComprobante = Convert.ToString(iDr[GestionClubDetalleComprobanteDto._estadoDetalleComprobante]);
+            xObjEnc.porcentaje = Convert.ToDecimal(iDr[GestionClubDetalleComprobanteDto._porcentaje]);
+            xObjEnc.acumulado = Convert.ToDecimal(iDr[GestionClubDetalleComprobanteDto._acumulado]);
+            return xObjEnc;
+        }
+
         private GestionClubComprobanteDto BuscarObjetoCabecera(string pScript, List<SqlParameter> lParameter)
         {
             xObjCn.Connection();
@@ -168,6 +185,20 @@ namespace GestionClubRepository.Repository
             {
                 //adicionando cada objeto a la lista
                 this.xListaDet.Add(this.ObjetoDetalle(xIdr));
+            }
+            xObjCn.Disconnect();
+            return xListaDet;
+        }
+        private List<GestionClubDetalleComprobanteDto> BuscarObjetoPorParametroDetalleTop(string pScript, List<SqlParameter> lParameter)
+        {
+            xObjCn.Connection();
+            xObjCn.AssignParameters(lParameter);
+            xObjCn.CommandStoreProcedure(pScript);
+            IDataReader xIdr = xObjCn.GetIdr();
+            while (xIdr.Read())
+            {
+                //adicionando cada objeto a la lista
+                this.xListaDet.Add(this.ObjetoDetalleTop(xIdr));
             }
             xObjCn.Disconnect();
             return xListaDet;
@@ -487,7 +518,7 @@ namespace GestionClubRepository.Repository
             {
                 result.Add(new
                 {
-                    MES = (int)xIdr[0],
+                    desCategoria = (string)xIdr[0],
                     CANTIDAD = (int)xIdr[1],
                     MONTO = (decimal)xIdr[2]
                 });
@@ -512,7 +543,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
                     new SqlParameter("@anio",anio)
                 };
-            return this.BuscarObjetoPorParametroDetalle("isp_TopVentaProductos", lParameter);
+            return this.BuscarObjetoPorParametroDetalleTop("isp_TopVentaProductos", lParameter);
         }
         public void ModificarComprobanteAnulado(GestionClubComprobanteDto pObj)
         {

@@ -46,12 +46,15 @@ namespace GestionClubView.Reportes
             {
                 ReportDataSource rds = new ReportDataSource();
                 rds.Name = "dsRegistroVentas";
-                rds.Value = GestionClubComprobanteController.ListarComprobantes().Where(x => Fecha.ObtenerAño(x.fecComprobante.ToShortDateString()) == this.wFrm.txtAnio.Text && Fecha.ObtenerMes(x.fecComprobante.ToShortTimeString()) == Cmb.ObtenerValor(this.wFrm.cboMes, string.Empty)).ToList();
+                rds.Value = GestionClubComprobanteController.ListarComprobantes()
+                    .Where(x => Fecha.ObtenerAño(x.fecComprobante.ToShortDateString()) == this.wFrm.txtAnio.Text
+                    && Fecha.ObtenerMes(x.fecComprobante.ToShortDateString()) == Cmb.ObtenerValor(this.wFrm.cboMes, string.Empty))
+                    .ToList();
 
-                ReportParameter[] rp = new ReportParameter[1];
-                //rp[0] = new ReportParameter("idEmpresa", Universal.gIdEmpresa.ToString());
-                //rp[1] = new ReportParameter("fecComprobante", this.wFrm.fecCierreCaja.ToString());
+                ReportParameter[] rp = new ReportParameter[3];
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
+                rp[1] = new ReportParameter("anio", this.wFrm.txtAnio.Text);
+                rp[2] = new ReportParameter("mes", Cmb.ObtenerTexto(this.wFrm.cboMes));
 
 
                 this.rvRegistroVentas.Reset();

@@ -24,6 +24,7 @@ namespace GestionClubModel.ModelDto
         public const string _SaldoNuevo = "SaldoNuevo";
         public const string _PrecioCostoNuevo = "PrecioCostoNuevo";
         public const string _FlagProcesado = "FlagProcesado";
+        public const string _desCategoria = "desCategoria";
 
         public string claveObjeto { get; set; }
         public int IdResumenAlmacen { get; set; }
@@ -41,6 +42,7 @@ namespace GestionClubModel.ModelDto
         public int SaldoNuevo { get; set; }
         public decimal PrecioCostoNuevo { get; set; }
         public bool FlagProcesado { get; set; }
+        public string desCategoria { get; set; }
     }
     public class CuadroAnualAlmacen
     {
