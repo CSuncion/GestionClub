@@ -1032,7 +1032,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ÁREA RESTAURANTES SISTEMAS</Value>
+                      <Value>ÁREA RESTAURANTES </Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1044,7 +1055,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.30733cm</Top>
               <Left>0.41783cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.58167cm</Height>
               <Width>4.87404cm</Width>
               <ZIndex>6</ZIndex>
               <Style>

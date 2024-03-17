@@ -795,7 +795,7 @@
                           <FontFamily>Calibri</FontFamily>
                           <FontSize>7pt</FontSize>
                           <FontWeight>Bold</FontWeight>
-                          <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                          <Format>#,0.00;(#,0.00)</Format>
                         </Style>
                       </TextRun>
                     </TextRuns>
@@ -1165,7 +1165,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>GERENCIA GENERAL-CAJA DEL CLUB</Value>
+                      <Value>ÁREA RESTAURANTE</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1177,7 +1188,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.3175cm</Top>
               <Left>0.25454cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.52765cm</Height>
               <Width>4.9005cm</Width>
               <ZIndex>6</ZIndex>
               <Style>

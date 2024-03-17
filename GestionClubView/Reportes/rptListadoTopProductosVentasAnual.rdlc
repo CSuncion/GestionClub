@@ -457,7 +457,7 @@
       <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>2.43618cm</Height>
+          <Height>2.70077cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -682,7 +682,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ÁREA RESTAURANTE SISTEMAS</Value>
+                      <Value>ÁREA RESTAURANTE </Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -694,7 +705,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.31544cm</Top>
               <Left>0.73533cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.56293cm</Height>
               <Width>4.87404cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -993,7 +1004,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.73726cm</Top>
+              <Top>2.05476cm</Top>
               <Left>2.43826cm</Left>
               <Height>0.64601cm</Height>
               <Width>15.04998cm</Width>

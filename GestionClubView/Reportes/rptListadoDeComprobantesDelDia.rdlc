@@ -177,6 +177,10 @@
           <DataField>fechaModifica</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="caja">
+          <DataField>caja</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
@@ -1622,7 +1626,7 @@
       <Width>8.19643in</Width>
       <Page>
         <PageHeader>
-          <Height>2.98179cm</Height>
+          <Height>3.14054cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1656,7 +1660,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>GERENCIA GENERAL-CAJA DEL CLUB</Value>
+                      <Value>ÁREA RESTAURANTE</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1668,7 +1683,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.23678cm</Top>
               <Left>0.29148cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.56265cm</Height>
               <Width>4.84758cm</Width>
               <Style>
                 <Border>
@@ -2334,7 +2349,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>6.30333cm</Left>
                   <Height>0.56472cm</Height>
                   <Width>1.90011cm</Width>
@@ -2371,7 +2385,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Top>0cm</Top>
                   <Left>14.57484cm</Left>
                   <Height>0.56472cm</Height>
                   <Width>1.90011cm</Width>
@@ -2389,7 +2402,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.79971cm</Top>
+              <Top>1.97582cm</Top>
               <Left>0.29148cm</Left>
               <Height>1.12944cm</Height>
               <Width>20.06876cm</Width>

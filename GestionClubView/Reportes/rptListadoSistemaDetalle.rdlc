@@ -515,7 +515,7 @@
       <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>2.72521cm</Height>
+          <Height>2.91042cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -740,7 +740,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>GERENCIA GENERAL-CAJA DEL CLUB</Value>
+                      <Value>ÁREA RESTAURANTE</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -752,7 +763,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.53304cm</Top>
               <Left>0.3175cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.53043cm</Height>
               <Width>4.99715cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -982,7 +993,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>2.02541cm</Top>
+              <Top>2.20459cm</Top>
               <Left>2.90647cm</Left>
               <Height>0.61073cm</Height>
               <Width>12.5cm</Width>
@@ -1043,6 +1054,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>0.31955cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1073,6 +1085,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>4.55698cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

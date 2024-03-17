@@ -330,7 +330,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1326,7 +1325,7 @@
       <Width>8.13202in</Width>
       <Page>
         <PageHeader>
-          <Height>3.124cm</Height>
+          <Height>3.28275cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1551,7 +1550,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ÁREA RESTAURANTE SISTEMAS</Value>
+                      <Value>ÁREA RESTAURANTE </Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1563,7 +1573,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.30733cm</Top>
               <Left>0.73533cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.52847cm</Height>
               <Width>4.92696cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -1946,7 +1956,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.83498cm</Top>
+              <Top>1.97691cm</Top>
               <Left>0.20929cm</Left>
               <Height>1.23528cm</Height>
               <Width>19.73639cm</Width>

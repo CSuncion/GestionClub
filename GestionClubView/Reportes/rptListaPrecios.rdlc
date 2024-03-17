@@ -912,7 +912,7 @@
             </TablixRowHierarchy>
             <DataSetName>dsListarPrecios</DataSetName>
             <Left>0.3175cm</Left>
-            <Height>1.06771cm</Height>
+            <Height>1.06772cm</Height>
             <Width>19.11335cm</Width>
             <Style>
               <Border>
@@ -1028,7 +1028,7 @@
       <Width>7.94669in</Width>
       <Page>
         <PageHeader>
-          <Height>2.91015cm</Height>
+          <Height>3.23119cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1253,7 +1253,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>AREA RESTAURANTE SISTEMAS</Value>
+                      <Value>AREA RESTAURANTE </Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1263,9 +1274,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>0.30733cm</Top>
+              <Top>0.30391cm</Top>
               <Left>0.50271cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.58346cm</Height>
               <Width>4.84758cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -1722,7 +1733,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.74626cm</Top>
+              <Top>2.06376cm</Top>
               <Left>0.3175cm</Left>
               <Height>1.08806cm</Height>
               <Width>19.11334cm</Width>
@@ -1782,7 +1793,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>0.18521cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -1813,7 +1823,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>4.31681cm</Left>
               <Height>0.6cm</Height>
               <Width>9.76722cm</Width>

@@ -445,7 +445,7 @@ namespace GestionClubView.Venta
             pObj.idMesa = 0;
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
-            pObj.modPagoComprobante = "";
+            pObj.modPagoComprobante = "01";
             pObj.tipMovComprobante = "10";
             pObj.impEfeComprobante = 0;
             pObj.impDepComprobante = 0;

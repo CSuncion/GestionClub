@@ -518,9 +518,11 @@ namespace GestionClubRepository.Repository
             {
                 result.Add(new
                 {
-                    desCategoria = (string)xIdr[0],
-                    CANTIDAD = (int)xIdr[1],
-                    MONTO = (decimal)xIdr[2]
+                    codCategoria = (string)xIdr[0],
+                    desCategoria = (string)xIdr[1],
+                    CANTIDAD = (int)xIdr[2],
+                    MONTO = (decimal)xIdr[3],
+                    acumulado = (decimal)xIdr[4]
                 });
             }
             xObjCn.Disconnect();

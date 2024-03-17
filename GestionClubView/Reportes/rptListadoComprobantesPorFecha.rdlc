@@ -334,7 +334,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1165,7 +1164,6 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox10</rd:DefaultName>
-                <Left>0cm</Left>
                 <Height>0.44125cm</Height>
                 <Width>2.97625cm</Width>
                 <Style>
@@ -1323,7 +1321,7 @@
       <Width>8in</Width>
       <Page>
         <PageHeader>
-          <Height>3.01598cm</Height>
+          <Height>3.17473cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1548,7 +1546,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ÁREA RESTAURANTE SISTEMAS</Value>
+                      <Value>ÁREA RESTAURANTE </Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1560,7 +1569,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.14253cm</Top>
               <Left>0.73533cm</Left>
-              <Height>1.38654cm</Height>
+              <Height>1.58525cm</Height>
               <Width>5.03279cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -2071,7 +2080,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>1.67018cm</Top>
+              <Top>1.79834cm</Top>
               <Left>0.3556cm</Left>
               <Height>1.23528cm</Height>
               <Width>19.73639cm</Width>
@@ -2131,6 +2140,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>0.10583cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -2161,6 +2171,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
+              <Top>0cm</Top>
               <Left>4.34326cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>
