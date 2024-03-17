@@ -633,7 +633,7 @@
       <Width>11.0822in</Width>
       <Page>
         <PageHeader>
-          <Height>3.2651cm</Height>
+          <Height>1.91572cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -858,7 +858,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>GERENCIA GENERAL-CAJA DEL CLUB</Value>
+                      <Value>ÁREA RESTAURANTE SISTEMAS</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -871,7 +871,7 @@
               <Top>0.3175cm</Top>
               <Left>0.29762cm</Left>
               <Height>1.38654cm</Height>
-              <Width>9.16029cm</Width>
+              <Width>5.08571cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -890,7 +890,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REPORTE VENTA ANUAL - MENSUALES</Value>
+                      <Value>VENTA ANUAL - MENSUALES</Value>
                       <Style>
                         <FontFamily>calibri</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -904,8 +904,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
-              <Top>1.86225cm</Top>
-              <Left>8.89249cm</Left>
+              <Top>0.3175cm</Top>
+              <Left>7.73304cm</Left>
               <Height>0.73229cm</Height>
               <Width>10.6227cm</Width>
               <ZIndex>7</ZIndex>
@@ -936,8 +936,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
-              <Top>2.70038cm</Top>
-              <Left>10.71338cm</Left>
+              <Top>1.15563cm</Top>
+              <Left>9.55393cm</Left>
               <Height>0.49885cm</Height>
               <Width>0.98306cm</Width>
               <ZIndex>8</ZIndex>
@@ -968,9 +968,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>anio</rd:DefaultName>
-              <Top>2.6651cm</Top>
-              <Left>11.73172cm</Left>
-              <Height>0.6cm</Height>
+              <Top>1.15563cm</Top>
+              <Left>10.57227cm</Left>
+              <Height>0.49885cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
@@ -1000,8 +1000,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
-              <Top>2.6651cm</Top>
-              <Left>14.40811cm</Left>
+              <Top>1.15563cm</Top>
+              <Left>13.24866cm</Left>
               <Height>0.49885cm</Height>
               <Width>0.98306cm</Width>
               <ZIndex>10</ZIndex>
@@ -1032,9 +1032,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>tipo</rd:DefaultName>
-              <Top>2.6651cm</Top>
-              <Left>15.39117cm</Left>
-              <Height>0.6cm</Height>
+              <Top>1.15563cm</Top>
+              <Left>14.23172cm</Left>
+              <Height>0.49885cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>11</ZIndex>
               <Style>

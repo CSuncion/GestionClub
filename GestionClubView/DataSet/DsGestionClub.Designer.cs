@@ -5783,6 +5783,8 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columndesCategoria;
             
+            private global::System.Data.DataColumn columncodCategoria;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ListarVentasPorCategoriaProductosDataTable() {
@@ -5842,6 +5844,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn codCategoriaColumn {
+                get {
+                    return this.columncodCategoria;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5877,12 +5887,13 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public isp_ListarVentasPorCategoriaProductosRow Addisp_ListarVentasPorCategoriaProductosRow(int CANTIDAD, decimal MONTO, string desCategoria) {
+            public isp_ListarVentasPorCategoriaProductosRow Addisp_ListarVentasPorCategoriaProductosRow(int CANTIDAD, decimal MONTO, string desCategoria, string codCategoria) {
                 isp_ListarVentasPorCategoriaProductosRow rowisp_ListarVentasPorCategoriaProductosRow = ((isp_ListarVentasPorCategoriaProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CANTIDAD,
                         MONTO,
-                        desCategoria};
+                        desCategoria,
+                        codCategoria};
                 rowisp_ListarVentasPorCategoriaProductosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ListarVentasPorCategoriaProductosRow);
                 return rowisp_ListarVentasPorCategoriaProductosRow;
@@ -5908,6 +5919,7 @@ namespace GestionClubView.DataSet {
                 this.columnCANTIDAD = base.Columns["CANTIDAD"];
                 this.columnMONTO = base.Columns["MONTO"];
                 this.columndesCategoria = base.Columns["desCategoria"];
+                this.columncodCategoria = base.Columns["codCategoria"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5919,9 +5931,12 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnMONTO);
                 this.columndesCategoria = new global::System.Data.DataColumn("desCategoria", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndesCategoria);
+                this.columncodCategoria = new global::System.Data.DataColumn("codCategoria", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodCategoria);
                 this.columnCANTIDAD.ReadOnly = true;
                 this.columnMONTO.ReadOnly = true;
                 this.columndesCategoria.MaxLength = 50;
+                this.columncodCategoria.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15977,6 +15992,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string codCategoria {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ListarVentasPorCategoriaProductos.codCategoriaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codCategoria\' de la tabla \'isp_ListarVentasPorCategoriaPr" +
+                                "oductos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ListarVentasPorCategoriaProductos.codCategoriaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCANTIDADNull() {
                 return this.IsNull(this.tableisp_ListarVentasPorCategoriaProductos.CANTIDADColumn);
             }
@@ -16009,6 +16041,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdesCategoriaNull() {
                 this[this.tableisp_ListarVentasPorCategoriaProductos.desCategoriaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IscodCategoriaNull() {
+                return this.IsNull(this.tableisp_ListarVentasPorCategoriaProductos.codCategoriaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetcodCategoriaNull() {
+                this[this.tableisp_ListarVentasPorCategoriaProductos.codCategoriaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -22713,6 +22757,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
             tableMapping.ColumnMappings.Add("MONTO", "MONTO");
             tableMapping.ColumnMappings.Add("desCategoria", "desCategoria");
+            tableMapping.ColumnMappings.Add("codCategoria", "codCategoria");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

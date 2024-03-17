@@ -181,7 +181,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.44125cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -685,7 +685,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.44125cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -1363,7 +1363,7 @@
             </TablixRowHierarchy>
             <DataSetName>dsCuadroAnoMesAlmacen</DataSetName>
             <Left>1.05833cm</Left>
-            <Height>1.2cm</Height>
+            <Height>0.8825cm</Height>
             <Width>18.73188cm</Width>
             <Style>
               <Border>
@@ -1378,7 +1378,7 @@
       <Width>8.034in</Width>
       <Page>
         <PageHeader>
-          <Height>2.34322cm</Height>
+          <Height>2.34323cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2081,7 +2081,6 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Left>0cm</Left>
                   <Height>0.42146cm</Height>
                   <Width>1.26528cm</Width>
                   <ZIndex>11</ZIndex>
@@ -2245,7 +2244,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>0.87313cm</Height>
+          <Height>0.89103cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2266,6 +2265,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
+              <Top>0.14111cm</Top>
               <Left>4.94298cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>
@@ -2296,6 +2296,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>0.14111cm</Top>
               <Left>0.74083cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>

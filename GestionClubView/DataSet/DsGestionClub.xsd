@@ -355,6 +355,7 @@
               <Mapping SourceColumn="CANTIDAD" DataSetColumn="CANTIDAD" />
               <Mapping SourceColumn="MONTO" DataSetColumn="MONTO" />
               <Mapping SourceColumn="desCategoria" DataSetColumn="desCategoria" />
+              <Mapping SourceColumn="codCategoria" DataSetColumn="codCategoria" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -791,7 +792,7 @@
               <xs:element name="fechaAgrega" msprop:Generator_ColumnPropNameInTable="fechaAgregaColumn" msprop:Generator_ColumnPropNameInRow="fechaAgrega" msprop:Generator_UserColumnName="fechaAgrega" msprop:Generator_ColumnVarNameInTable="columnfechaAgrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="usuarioModifica" msprop:Generator_ColumnPropNameInTable="usuarioModificaColumn" msprop:Generator_ColumnPropNameInRow="usuarioModifica" msprop:Generator_UserColumnName="usuarioModifica" msprop:Generator_ColumnVarNameInTable="columnusuarioModifica" type="xs:int" minOccurs="0" />
               <xs:element name="fechaModifica" msprop:Generator_ColumnPropNameInTable="fechaModificaColumn" msprop:Generator_ColumnPropNameInRow="fechaModifica" msprop:Generator_UserColumnName="fechaModifica" msprop:Generator_ColumnVarNameInTable="columnfechaModifica" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="caja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_UserColumnName="caja" minOccurs="0">
+              <xs:element name="caja" msprop:Generator_UserColumnName="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnVarNameInTable="columncaja" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -1077,7 +1078,7 @@
               <xs:element name="fechaAgrega" msprop:Generator_ColumnPropNameInTable="fechaAgregaColumn" msprop:Generator_ColumnPropNameInRow="fechaAgrega" msprop:Generator_UserColumnName="fechaAgrega" msprop:Generator_ColumnVarNameInTable="columnfechaAgrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="usuarioModifica" msprop:Generator_ColumnPropNameInTable="usuarioModificaColumn" msprop:Generator_ColumnPropNameInRow="usuarioModifica" msprop:Generator_UserColumnName="usuarioModifica" msprop:Generator_ColumnVarNameInTable="columnusuarioModifica" type="xs:int" minOccurs="0" />
               <xs:element name="fechaModifica" msprop:Generator_ColumnPropNameInTable="fechaModificaColumn" msprop:Generator_ColumnPropNameInRow="fechaModifica" msprop:Generator_UserColumnName="fechaModifica" msprop:Generator_ColumnVarNameInTable="columnfechaModifica" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="caja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_UserColumnName="caja" minOccurs="0">
+              <xs:element name="caja" msprop:Generator_UserColumnName="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnVarNameInTable="columncaja" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -1244,7 +1245,7 @@
               <xs:element name="fechaAgrega" msprop:Generator_ColumnPropNameInTable="fechaAgregaColumn" msprop:Generator_ColumnPropNameInRow="fechaAgrega" msprop:Generator_UserColumnName="fechaAgrega" msprop:Generator_ColumnVarNameInTable="columnfechaAgrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="usuarioModifica" msprop:Generator_ColumnPropNameInTable="usuarioModificaColumn" msprop:Generator_ColumnPropNameInRow="usuarioModifica" msprop:Generator_UserColumnName="usuarioModifica" msprop:Generator_ColumnVarNameInTable="columnusuarioModifica" type="xs:int" minOccurs="0" />
               <xs:element name="fechaModifica" msprop:Generator_ColumnPropNameInTable="fechaModificaColumn" msprop:Generator_ColumnPropNameInRow="fechaModifica" msprop:Generator_UserColumnName="fechaModifica" msprop:Generator_ColumnVarNameInTable="columnfechaModifica" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="caja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_UserColumnName="caja" minOccurs="0">
+              <xs:element name="caja" msprop:Generator_UserColumnName="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnVarNameInTable="columncaja" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
@@ -1452,10 +1453,17 @@
             <xs:sequence>
               <xs:element name="CANTIDAD" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" type="xs:int" minOccurs="0" />
               <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_UserColumnName="MONTO" msprop:Generator_ColumnVarNameInTable="columnMONTO" type="xs:decimal" minOccurs="0" />
-              <xs:element name="desCategoria" msprop:Generator_UserColumnName="desCategoria" msprop:Generator_ColumnPropNameInTable="desCategoriaColumn" msprop:Generator_ColumnPropNameInRow="desCategoria" msprop:Generator_ColumnVarNameInTable="columndesCategoria" minOccurs="0">
+              <xs:element name="desCategoria" msprop:Generator_ColumnPropNameInTable="desCategoriaColumn" msprop:Generator_ColumnPropNameInRow="desCategoria" msprop:Generator_UserColumnName="desCategoria" msprop:Generator_ColumnVarNameInTable="columndesCategoria" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="codCategoria" msprop:Generator_ColumnPropNameInRow="codCategoria" msprop:Generator_ColumnPropNameInTable="codCategoriaColumn" msprop:Generator_ColumnVarNameInTable="columncodCategoria" msprop:Generator_UserColumnName="codCategoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1802,7 +1810,7 @@
               <xs:element name="fechaAgrega" msprop:Generator_ColumnPropNameInTable="fechaAgregaColumn" msprop:Generator_ColumnPropNameInRow="fechaAgrega" msprop:Generator_UserColumnName="fechaAgrega" msprop:Generator_ColumnVarNameInTable="columnfechaAgrega" type="xs:dateTime" minOccurs="0" />
               <xs:element name="usuarioModifica" msprop:Generator_ColumnPropNameInTable="usuarioModificaColumn" msprop:Generator_ColumnPropNameInRow="usuarioModifica" msprop:Generator_UserColumnName="usuarioModifica" msprop:Generator_ColumnVarNameInTable="columnusuarioModifica" type="xs:int" minOccurs="0" />
               <xs:element name="fechaModifica" msprop:Generator_ColumnPropNameInTable="fechaModificaColumn" msprop:Generator_ColumnPropNameInRow="fechaModifica" msprop:Generator_UserColumnName="fechaModifica" msprop:Generator_ColumnVarNameInTable="columnfechaModifica" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="caja" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnVarNameInTable="columncaja" msprop:Generator_UserColumnName="caja" minOccurs="0">
+              <xs:element name="caja" msprop:Generator_UserColumnName="caja" msprop:Generator_ColumnPropNameInTable="cajaColumn" msprop:Generator_ColumnPropNameInRow="caja" msprop:Generator_ColumnVarNameInTable="columncaja" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
