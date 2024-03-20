@@ -350,7 +350,7 @@ namespace GestionClubView.Stock_Restaurante
             pObj.mesProceso = DateTime.Now.Month.ToString("00");
             pObj.nroDocumento = this.txtNroDoc.Text;
             pObj.guiaRe = string.Empty;
-            pObj.codAlmacen = this.txtNroDoc.Text.Substring(4);
+            pObj.codAlmacen = "001";
             //pObj.nro = string.Empty;
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
@@ -363,16 +363,16 @@ namespace GestionClubView.Stock_Restaurante
             pObj.razSocial = this.txtApeNom.Text;
             //pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.Obsope = this.txtGlosa.Text;
-            pObj.estAlmacen = "04";
+            pObj.estAlmacen = "05";
             pObj.idComprobanteAlmacen = Convert.ToInt32(this.txtIdComprobante.Text);
         }
 
         public void AsignarDetalleComprobante(GestionClubComprobanteDetalleAlmacenDto pObj, int identity)
         {
             pObj.idComprobanteAlmacen = identity;
-            pObj.estAlmacen = "04";
+            pObj.estAlmacen = "05";
             pObj.obsOperacion = this.txtGlosa.Text;
-            pObj.codAlmacen = this.txtNroDoc.Text.Substring(4);
+            pObj.codAlmacen = "001";
             pObj.anoProceso = DateTime.Now.Year.ToString();
             pObj.mesProceso = DateTime.Now.Month.ToString("00");
             pObj.tipoMovimiento = "15";
@@ -537,7 +537,7 @@ namespace GestionClubView.Stock_Restaurante
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
 
-            this.ImprimirComprobante();
+            //this.ImprimirComprobante();
 
             this.wFrm.eClaveDgvComprobanteAlmacen = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();

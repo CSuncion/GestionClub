@@ -65,7 +65,8 @@ namespace GestionClubView.Stock_Restaurante
             //ir a la bd
             //Lista ComprobanteAlmacens que no han sido creado por comandas
             GestionClubComprobanteAlmacenDto iOpEN = new GestionClubComprobanteAlmacenDto();
-            this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN);
+            this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN)
+                .Where(x=>x.tipFactura == "01" || x.tipFactura == "02").ToList();
         }
         public void ActualizarDgvComprobanteAlmacen()
         {

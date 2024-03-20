@@ -95,6 +95,7 @@
             // 
             // tsbEliminar
             // 
+            this.tsbEliminar.Enabled = false;
             this.tsbEliminar.Image = ((System.Drawing.Image)(resources.GetObject("tsbEliminar.Image")));
             this.tsbEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbEliminar.Name = "tsbEliminar";

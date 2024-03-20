@@ -445,6 +445,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmCambiarClave, null, 0, 0);
             win.NewWindow();
         }
+        public void InstanciarRelacionMensualStock()
+        {
+            frmIngresarAnioMesDocumentoStock win = new frmIngresarAnioMesDocumentoStock();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmMovMensualStock, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarErroresElectronicos()
         {
             frmErroresElectronicos win = new frmErroresElectronicos();
@@ -514,7 +520,7 @@ namespace GestionClubView.MdiPrincipal
         public void InstanciarReporteEstadisticaVentaProducto()
         {
             frmEscogerAnioCategoriaVentas win = new frmEscogerAnioCategoriaVentas();
-            this.FormatoVentanaHijoPrincipal(win, this.tsmResumenDeVentasAnual, null, 0, 0);
+            //this.FormatoVentanaHijoPrincipal(win, this.tsmResumenDeVentasAnual, null, 0, 0);
             win.VentanaSeleccionar();
         }
         public void InstanciarParametros()
@@ -826,6 +832,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmCambiarClave_Click(object sender, EventArgs e)
         {
             this.InstanciarCambiarClave();
+        }
+
+        private void tsmMovMensualStock_Click(object sender, EventArgs e)
+        {
+            this.InstanciarRelacionMensualStock();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

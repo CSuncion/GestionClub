@@ -4458,6 +4458,9 @@
   <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 152</value>
   </data>
@@ -5282,7 +5285,7 @@
 </value>
   </data>
   <data name="tsmComanda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="tsmComanda.Text" xml:space="preserve">
     <value>Comanda</value>
@@ -5304,7 +5307,7 @@
 </value>
   </data>
   <data name="tsmListadoPedidos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="tsmListadoPedidos.Text" xml:space="preserve">
     <value>Listado de Pedidos</value>
@@ -5445,7 +5448,7 @@
   <data name="tsmComprobanteElectronicos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7AAAAOwAFq1okJAAAB80lE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA69AAAOvQFH+5CtAAAB80lE
         QVRYR93X20sUYRjH8S0t06BSw8NFqUmiohfiARRBjTIRorIrzxaKiBeCoIInFMED2oWgXngTVDfedu//
         5ve3M6/Mjrs5O7vvsOwPPrwzC+LDPM/7zm4sl1OCRWxgLYBNjKMQWUk3DvEW9fd4gyb8QjuykgHMOJeB
         8xPvncvMk6qAx3iNB/G7xFgvQP2dxDW69IEv1gvowF9MQz33x3oBjVABB+jTB75YL0B9VxFfcYVqeBNJ
@@ -5530,7 +5533,7 @@
 </value>
   </data>
   <data name="tsmIngresosCompras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="tsmIngresosCompras.Text" xml:space="preserve">
     <value>Ingresos (Compras)</value>
@@ -5560,7 +5563,7 @@
 </value>
   </data>
   <data name="tsmAjustesIngresos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="tsmAjustesIngresos.Text" xml:space="preserve">
     <value>Ajustes Ingresos</value>
@@ -5588,18 +5591,18 @@
 </value>
   </data>
   <data name="tsmAjustesSalidas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="tsmAjustesSalidas.Text" xml:space="preserve">
     <value>Ajustes Salidas</value>
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>176, 6</value>
   </data>
   <data name="tsmRecalcularStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6+AAAOvgHqQrHAAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAAAB3RJ
         TUUH5wgEESsa7nGQWAAAA9xJREFUWEe1l1msTWcUx7ehaM1DG0PETIgYY0pbHoiQRkIivBhCJOYx8cCT
         ehL0hUTqoVp9MDxITE2RCkIoIrQxRGuqsXj1Uh34/T793H3P2efcfa7rn/xy75ecc9baa61vrbWTlMbA
         jzApnN5d9eEz2AZX4CZ8C22hSMPgMryChzAHGkFt1RAWw104BofgLzgIraGaRkM0HnkBmyDT2xyaDY9g
@@ -5621,7 +5624,7 @@
 </value>
   </data>
   <data name="tsmRecalcularStock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>179, 22</value>
   </data>
   <data name="tsmRecalcularStock.Text" xml:space="preserve">
     <value>Recalcular Stock</value>
@@ -5763,7 +5766,7 @@
 </value>
   </data>
   <data name="tsmListaPrecios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmListaPrecios.Text" xml:space="preserve">
     <value>Lista de Precios</value>
@@ -5785,7 +5788,7 @@
 </value>
   </data>
   <data name="tsmRegistroVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmRegistroVentas.Text" xml:space="preserve">
     <value>Registro de Ventas</value>
@@ -5807,7 +5810,7 @@
 </value>
   </data>
   <data name="tsmListaVentaFechas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmListaVentaFechas.Text" xml:space="preserve">
     <value>Lista de Ventas por Fechas</value>
@@ -5823,7 +5826,7 @@
 </value>
   </data>
   <data name="tsmReporteTablaSistema.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmReporteTablaSistema.Text" xml:space="preserve">
     <value>Lista de Tabla del Sistema</value>
@@ -5852,7 +5855,7 @@
 </value>
   </data>
   <data name="tsmListaClienteProveedores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmListaClienteProveedores.Text" xml:space="preserve">
     <value>Lista de Clientes - Proveedores</value>
@@ -5931,25 +5934,6 @@
   <data name="tsmVentasPorCategoriasProductos.Text" xml:space="preserve">
     <value>Ventas por Categorias Productos</value>
   </data>
-  <data name="tsmResumenDeVentasAnual.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAB2FAAAdhQHwGzLsAAAAB3RJ
-        TUUH5AwCEA0SdMl6ywAAAVdJREFUWEftl0tKxTAAResC1IlDP3NdgStwLAiCMxfguvxMBTfgWMUNCP4R
-        nQmO/J0DDZTy8pomFUV64dDSpLc3SdOk1aiIZmABVmA5EevOwyDaggu4TeSmPh7DGhTJlp/BJzxAMI9h
-        ufXe4QtOoSiE3RlM12GpvhbDcuvdgQGKQ2gaWud5iqx3DW9wBUUhcgPYa4+wBw5hdoiSAE+wAZuQHaIk
-        wAvsgiHsieZwrEKScgP4DjhznsGecDhewQByArPQqZwAc7AP3mNPBAzl7Pioz5P8cgIoQ7S/nGGKhu9J
-        kp+VcgLE1NvvTweY1M1NJi1IXh8kgA8/gHsI5W0sOwTrBg0aQPOuAEfwIwGU89g3ezGCZc2Hq/8TQOPx
-        HdD416ZhrsYAWQFcuVI3pdPw3t6rodvyc0jdlk8jNEQvPfVO0jb0+THp4hJ2IFk5v2Yx9NBLz1EtVdU3
-        C5vi3XsrexQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="tsmResumenDeVentasAnual.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 22</value>
-  </data>
-  <data name="tsmResumenDeVentasAnual.Text" xml:space="preserve">
-    <value>Resumen de Ventas Anual</value>
-  </data>
   <data name="tsmEstadistica.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -5975,7 +5959,7 @@
 </value>
   </data>
   <data name="tsmEstadistica.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmEstadistica.Text" xml:space="preserve">
     <value>Estadisticas</value>
@@ -6006,7 +5990,7 @@
 </value>
   </data>
   <data name="tsmTopProductos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmTopProductos.Text" xml:space="preserve">
     <value>Top de Productos</value>
@@ -6031,7 +6015,7 @@
 </value>
   </data>
   <data name="tsmResumenAlmacen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmResumenAlmacen.Text" xml:space="preserve">
     <value>Resumen Almacen </value>
@@ -6062,10 +6046,36 @@
 </value>
   </data>
   <data name="tsmCuadroSalidaIngreso.Size" type="System.Drawing.Size, System.Drawing">
-    <value>242, 22</value>
+    <value>271, 22</value>
   </data>
   <data name="tsmCuadroSalidaIngreso.Text" xml:space="preserve">
     <value>Cuadro Ingreso y Salida</value>
+  </data>
+  <data name="tsmMovMensualStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATr0AAE69AFFT5SzAAAAB3RJ
+        TUUH5gcKBx4MCewLOgAAAwpJREFUWEftl01rE1EUhidZiHURCLQui/k2aUKadb4WsaJ/oMQEQlBrK4FQ
+        8C+4sOJSKggKQsEW9F+o9Vf4gQt1odAqgq0wvu/1njCZTubj6tKBl9w595zzPjOTzL2xbNuOGyoGsZ7i
+        2CsnUEYAFo56vX46n893qFarNccY5iKDRAKgSaPRoPFKOp3eSaVSh9A3jHcRu2gCEgrAw/gAsqEPWhwf
+        moD4AvgYv8f53VKptERxzJiem4Cg9kwQiCdAkHGxWFzq9XrMZb01HA7jADmvQb7qXILsBd2RKYCIxlJn
+        9ft9BZDJZG4jVwCO9afvo5FGMf2tjmTc7XbjnNPG8ggOUPMsm81eQfyOIz4FQk/2YUOrUqmkMPmExTr5
+        DYsjGtPgOQwut9vtuUKhYA0GA8nbYk9H3g492UsdoL2uJ6kjFNyrVqtnE4mE83aFMmY/R02MPZaXlxfY
+        k711jU1PZc4Dkzf1xA/oJ3SMpvtIusbizc3NyMY8R+08elxF3iv2hAhAD5uezFGHACDxKQrWMN6HWECQ
+        l9B9jN8yBzIxpl4jdoMe7OMJAG0nk0lpsI5zAVG3DfqI+KDT6ZxiXQTjDd5J9sb5NjTzDjxAM9WYcd1w
+        A3MCcoScFzRhQ1WMI8iYORrWogfmAgF4Ve4rc94R+Y6sUSGMpV9kAJGALLhAfmmJ8foMY5ExgEiB1Gq1
+        edTcQs13imPGOMccV41Tfw2gxBrkL0KyGi4y5pXr0r8BgPj2PCcAHDPmyvHSf4BAgEej0UglugrdMgGw
+        xuNxjB4nAPDzkcXoMxK2+N7nwsMiVxNRFAC1iHHnBFOuJZ/oRU9tb1nlchm+0/sAJKvleHV1VTVxNw0B
+        4Ld67sIzo8x1cow7oVwudwmTe0hybki8QPwAQi3byFPviylqAjWbzUAQ5uEKJgAcM2awX5i9KfUDwfMs
+        Ym4CwDFjUYwnXu6AUz4g73D+GJ9fKIwf4jPMfuGkh1fQLR8QpyIZi0IBiGaAGBmLIgGIaKL/P1yAVkz+
+        E4qMALRoxnoj4z+y478BdkdZap3yYR8AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="tsmMovMensualStock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 22</value>
+  </data>
+  <data name="tsmMovMensualStock.Text" xml:space="preserve">
+    <value>Movimiento Mensual Stock Almacen</value>
   </data>
   <data name="tsmReportes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6165,7 +6175,7 @@
   <data name="tsmCambiarClave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7CAAAOwgEVKEqAAAAB8UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6/AAAOvwE4BVMkAAAB8UlE
         QVRYR+3WO0gcUQCF4Y1GTWJjJCKRYGUnWIgaDIiKaJdWtBS0sdJSjKBNOrEyIShYpLBKIwgKJr4CNhYq
         kghiocZHI5pExESj/mfYC5Nld5idvbNY7IGPZS7KnN37mIlkkkKyUYDneIIHSEt0s1Z8xCq2sYgRvEQW
         QssL6MaXuMYxdnGK2+h1Lx7BegrxCbrRV7SjDCpVgT4cQuV6YH1K9M1081mUaiBOXuMI+iU0HdaixbaC
@@ -6419,6 +6429,9 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6445,6 +6458,30 @@
   </data>
   <data name="&gt;&gt;tmMostrarMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
+    <value>tsbComanda</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
+    <value>tsbSalir</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
+    <value>tsbComprobante</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsmMaestros.Name" xml:space="preserve">
     <value>tsmMaestros</value>
@@ -6692,12 +6729,6 @@
   <data name="&gt;&gt;tsmVentasPorCategoriasProductos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tsmResumenDeVentasAnual.Name" xml:space="preserve">
-    <value>tsmResumenDeVentasAnual</value>
-  </data>
-  <data name="&gt;&gt;tsmResumenDeVentasAnual.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;tsmTopProductos.Name" xml:space="preserve">
     <value>tsmTopProductos</value>
   </data>
@@ -6714,6 +6745,12 @@
     <value>tsmCuadroSalidaIngreso</value>
   </data>
   <data name="&gt;&gt;tsmCuadroSalidaIngreso.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsmMovMensualStock.Name" xml:space="preserve">
+    <value>tsmMovMensualStock</value>
+  </data>
+  <data name="&gt;&gt;tsmMovMensualStock.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsmInformatica.Name" xml:space="preserve">
@@ -6751,30 +6788,6 @@
   </data>
   <data name="&gt;&gt;tsmAcercaDe.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
-    <value>tsbComanda</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
-    <value>tsbSalir</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
-    <value>tsbComprobante</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>frmPrincipal</value>

@@ -36,7 +36,7 @@ namespace GestionClubView.Venta
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
-        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
+        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty, RutaLogo = string.Empty;
         public int FormularioActivo = 0;
         public bool aplicaDetra = false;
         public decimal porcentajeDtra = 0;
@@ -207,6 +207,7 @@ namespace GestionClubView.Venta
             rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
             RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
+            RutaLogo = iParEN.FirstOrDefault().RutaLogoEmpresa;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void ListarClientes()
         {
@@ -346,6 +347,13 @@ namespace GestionClubView.Venta
                     this.GenerarCorrelativo();
                 }
             }
+            GestionClubProductoDto objProd = new GestionClubProductoDto();
+            objProd.idProducto = obj.idProducto;
+            objProd = GestionClubProductoController.BuscarProductoXId(objProd);
+            if (objProd.afeDtraProducto == 1)
+            {
+                this.porcentajeDtra = objProd.porDtraProducto;
+            }
 
             this.lObjDetalle.Add(obj);
             this.MostrarComprobanteDeta();
@@ -389,9 +397,10 @@ namespace GestionClubView.Venta
             {
                 GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
                 string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
-                if (this.AdicionarErrors(json, iComEN)) { return true; };
-
-                this.AdicionarResultado(json);
+                if (!this.AdicionarErrors(json, iComEN))
+                {
+                    this.AdicionarResultado(json);
+                }
             }
 
             this.ActualizarCorrelativoComprobante();
@@ -956,7 +965,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
+            string title = this.RutaLogo + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);
@@ -1129,7 +1138,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
+            string title = this.RutaLogo + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);

@@ -63,30 +63,45 @@ namespace GestionClubRepository.Repository
             xObjEnc.idComprobanteAlmacen = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._idComprobanteAlmacen]);
             xObjEnc.idEmpresa = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._idEmpresa]);
             xObjEnc.codAlmacen = iDr[GestionClubComprobanteDetalleAlmacenDto._codAlmacen].ToString();
+            xObjEnc.desAlmacen = iDr[GestionClubComprobanteDetalleAlmacenDto._desAlmacen].ToString();
             xObjEnc.anoProceso = iDr[GestionClubComprobanteDetalleAlmacenDto._anoProceso].ToString();
             xObjEnc.mesProceso = iDr[GestionClubComprobanteDetalleAlmacenDto._mesProceso].ToString();
+            xObjEnc.desMes = iDr[GestionClubComprobanteDetalleAlmacenDto._desMes].ToString();
             xObjEnc.tipoMovimiento = iDr[GestionClubComprobanteDetalleAlmacenDto._tipoMovimiento].ToString();
             xObjEnc.nroDocumento = iDr[GestionClubComprobanteDetalleAlmacenDto._nroDocumento].ToString();
             xObjEnc.nroDocCorrelativo = iDr[GestionClubComprobanteDetalleAlmacenDto._nroDocCorrelativo].ToString();
             xObjEnc.fechaAlmacen = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaAlmacen]);
+            xObjEnc.fecAlmacen = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fecAlmacen]);
+            xObjEnc.tipCliente = iDr[GestionClubComprobanteDetalleAlmacenDto._tipCliente].ToString();
+            xObjEnc.nroRuc = iDr[GestionClubComprobanteDetalleAlmacenDto._nroRuc].ToString();
+            xObjEnc.razSocial = iDr[GestionClubComprobanteDetalleAlmacenDto._razSocial].ToString();
+            xObjEnc.tipFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._tipFactura].ToString();
             xObjEnc.tipoFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._tipoFactura].ToString();
+            xObjEnc.desTipFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._desTipFactura].ToString();
             xObjEnc.serFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._serFactura].ToString();
             xObjEnc.nroFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._nroFactura].ToString();
+            xObjEnc.serNroFactura = iDr[GestionClubComprobanteDetalleAlmacenDto._serNroFactura].ToString();
             xObjEnc.fecFactura = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fecFactura]);
-            xObjEnc.codProducto = Convert.ToString(iDr[GestionClubComprobanteDetalleAlmacenDto._codProducto]);
+            xObjEnc.guiaRe = iDr[GestionClubComprobanteDetalleAlmacenDto._guiaRe].ToString();
+            xObjEnc.fecGui = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fecGui]);
+            xObjEnc.totVta = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._totVta]);
+            xObjEnc.totIgv = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._totIgv]);
+            xObjEnc.totBru = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._totBru]);
             xObjEnc.idProducto = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._idProducto]);
+            xObjEnc.codProducto = iDr[GestionClubComprobanteDetalleAlmacenDto._codProducto].ToString();
             xObjEnc.desProducto = iDr[GestionClubComprobanteDetalleAlmacenDto._desProducto].ToString();
             xObjEnc.uniMedida = iDr[GestionClubComprobanteDetalleAlmacenDto._uniMedida].ToString();
             xObjEnc.precioCosto = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._precioCosto]);
             xObjEnc.cantidad = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._cantidad]);
             xObjEnc.totCosto = Convert.ToDecimal(iDr[GestionClubComprobanteDetalleAlmacenDto._totCosto]);
             xObjEnc.estAlmacen = iDr[GestionClubComprobanteDetalleAlmacenDto._estAlmacen].ToString();
-            xObjEnc.Estado = Convert.ToString(iDr[GestionClubComprobanteAlmacenDto._Estado]);
+            xObjEnc.Estado = iDr[GestionClubComprobanteDetalleAlmacenDto._Estado].ToString();
             xObjEnc.obsOperacion = iDr[GestionClubComprobanteDetalleAlmacenDto._obsOperacion].ToString();
             xObjEnc.usuarioAgrega = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._usuarioAgrega]);
             xObjEnc.fechaAgrega = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaAgrega]);
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteDetalleAlmacenDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteDetalleAlmacenDto._fechaModifica]);
+
             xObjEnc.claveObjeto = xObjEnc.idComprobanteDetalleAlmacen.ToString();
 
             return xObjEnc;
@@ -365,6 +380,15 @@ namespace GestionClubRepository.Repository
                 };
             return this.BuscarObjetoPorParametroDetalle("isp_ListarComprobanteDetalleAlmacenPorComprobanteAlmacen", lParameter);
         }
-
+        public List<GestionClubComprobanteDetalleAlmacenDto> ListaResumenMensualStock(string anio, string mes)
+        {
+            List<SqlParameter> lParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@idEmpresa",Universal.gIdEmpresa),
+                    new SqlParameter("@mes",mes),
+                    new SqlParameter("@anio",anio)
+                };
+            return this.BuscarObjetoPorParametroDetalle("isp_ListaResumenMensualStock", lParameter);
+        }
     }
 }

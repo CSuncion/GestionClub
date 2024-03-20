@@ -234,7 +234,7 @@ namespace GestionClubView.Maestros
             pObj.caja = Universal.caja;
             pObj.fecCierreCaja = Convert.ToDateTime(this.dtpFecCierreCaja.Text);
             pObj.montoCierreCaja = this.SumarMontoListadoComprobantePorCaja();
-            pObj.estadoCierreCaja = "01";
+            pObj.estadoCierreCaja = "05";
             pObj.idCierreCaja = Convert.ToInt32(this.txtId.Text);
             //Universal.caja = Cmb.ObtenerValor(this.cboCaja, string.Empty);  
         }

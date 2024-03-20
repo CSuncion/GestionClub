@@ -32,22 +32,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlLogo = new System.Windows.Forms.Panel();
             this.ssStatusBar = new System.Windows.Forms.StatusStrip();
             this.tssStatusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.tbcContainer = new System.Windows.Forms.TabControl();
             this.pnlBarTit = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRestaurar = new System.Windows.Forms.Button();
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnMaximizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.tmOcultarMenu = new System.Windows.Forms.Timer(this.components);
             this.tmMostrarMenu = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsAccDir = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbComanda = new System.Windows.Forms.ToolStripButton();
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
             this.tsmMaestros = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMasterProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMasterProveedores = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,27 +88,28 @@
             this.tsmVentaAnualesMes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentaAnualesMesesPorTipo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentasPorCategoriasProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmResumenDeVentasAnual = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmTopProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCuadroSalidaIngreso = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMovMensualStock = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformatica = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRespaldoBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSeleccionarCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCambiarClave = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsAccDir = new System.Windows.Forms.ToolStrip();
-            this.tsbComanda = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
-            this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
             this.pnlBarTit.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.tsAccDir.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -130,12 +130,6 @@
             this.label4.ForeColor = System.Drawing.Color.Purple;
             this.label4.Name = "label4";
             // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
@@ -150,11 +144,6 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Purple;
             this.label2.Name = "label2";
-            // 
-            // pnlLogo
-            // 
-            resources.ApplyResources(this.pnlLogo, "pnlLogo");
-            this.pnlLogo.Name = "pnlLogo";
             // 
             // ssStatusBar
             // 
@@ -196,54 +185,6 @@
             this.label1.ForeColor = System.Drawing.Color.Khaki;
             this.label1.Name = "label1";
             // 
-            // btnRestaurar
-            // 
-            resources.ApplyResources(this.btnRestaurar, "btnRestaurar");
-            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestaurar.FlatAppearance.BorderSize = 0;
-            this.btnRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnRestaurar.Image = global::GestionClubView.Properties.Resources.Icono_Restaurar;
-            this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.UseVisualStyleBackColor = true;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
-            // 
-            // btnMinimizar
-            // 
-            resources.ApplyResources(this.btnMinimizar, "btnMinimizar");
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnMinimizar.Image = global::GestionClubView.Properties.Resources.Icono_Minimizar;
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.UseVisualStyleBackColor = true;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnMaximizar
-            // 
-            resources.ApplyResources(this.btnMaximizar, "btnMaximizar");
-            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnMaximizar.Image = global::GestionClubView.Properties.Resources.Icono_Maximizar;
-            this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.UseVisualStyleBackColor = true;
-            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
-            // 
-            // btnCerrar
-            // 
-            resources.ApplyResources(this.btnCerrar, "btnCerrar");
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnCerrar.Image = global::GestionClubView.Properties.Resources.ICON_CERRARF;
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // tmOcultarMenu
             // 
             this.tmOcultarMenu.Interval = 15;
@@ -268,6 +209,42 @@
             this.tsmInformatica,
             this.tsmAcercaDe});
             this.menuStrip1.Name = "menuStrip1";
+            // 
+            // tsAccDir
+            // 
+            resources.ApplyResources(this.tsAccDir, "tsAccDir");
+            this.tsAccDir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tsAccDir.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tsAccDir.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbComanda,
+            this.toolStripSeparator4,
+            this.tsbSalir,
+            this.tsbComprobante});
+            this.tsAccDir.Name = "tsAccDir";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // tsbComanda
+            // 
+            resources.ApplyResources(this.tsbComanda, "tsbComanda");
+            this.tsbComanda.Name = "tsbComanda";
+            this.tsbComanda.Click += new System.EventHandler(this.tsbComanda_Click);
+            // 
+            // tsbSalir
+            // 
+            this.tsbSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.tsbSalir, "tsbSalir");
+            this.tsbSalir.Name = "tsbSalir";
+            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            // 
+            // tsbComprobante
+            // 
+            resources.ApplyResources(this.tsbComprobante, "tsbComprobante");
+            this.tsbComprobante.Name = "tsbComprobante";
+            this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
             // tsmMaestros
             // 
@@ -490,7 +467,8 @@
             this.tsmEstadistica,
             this.tsmTopProductos,
             this.tsmResumenAlmacen,
-            this.tsmCuadroSalidaIngreso});
+            this.tsmCuadroSalidaIngreso,
+            this.tsmMovMensualStock});
             resources.ApplyResources(this.tsmReportes, "tsmReportes");
             this.tsmReportes.Name = "tsmReportes";
             // 
@@ -529,8 +507,7 @@
             this.tsmEstadistica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmVentaAnualesMes,
             this.tsmVentaAnualesMesesPorTipo,
-            this.tsmVentasPorCategoriasProductos,
-            this.tsmResumenDeVentasAnual});
+            this.tsmVentasPorCategoriasProductos});
             resources.ApplyResources(this.tsmEstadistica, "tsmEstadistica");
             this.tsmEstadistica.Name = "tsmEstadistica";
             // 
@@ -552,12 +529,6 @@
             this.tsmVentasPorCategoriasProductos.Name = "tsmVentasPorCategoriasProductos";
             this.tsmVentasPorCategoriasProductos.Click += new System.EventHandler(this.tsmVentasPorCategoriasProductos_Click);
             // 
-            // tsmResumenDeVentasAnual
-            // 
-            resources.ApplyResources(this.tsmResumenDeVentasAnual, "tsmResumenDeVentasAnual");
-            this.tsmResumenDeVentasAnual.Name = "tsmResumenDeVentasAnual";
-            this.tsmResumenDeVentasAnual.Click += new System.EventHandler(this.tsmResumenDeVentasAnual_Click);
-            // 
             // tsmTopProductos
             // 
             resources.ApplyResources(this.tsmTopProductos, "tsmTopProductos");
@@ -575,6 +546,12 @@
             resources.ApplyResources(this.tsmCuadroSalidaIngreso, "tsmCuadroSalidaIngreso");
             this.tsmCuadroSalidaIngreso.Name = "tsmCuadroSalidaIngreso";
             this.tsmCuadroSalidaIngreso.Click += new System.EventHandler(this.tsmCuadroSalidaIngreso_Click);
+            // 
+            // tsmMovMensualStock
+            // 
+            resources.ApplyResources(this.tsmMovMensualStock, "tsmMovMensualStock");
+            this.tsmMovMensualStock.Name = "tsmMovMensualStock";
+            this.tsmMovMensualStock.Click += new System.EventHandler(this.tsmMovMensualStock_Click);
             // 
             // tsmInformatica
             // 
@@ -615,41 +592,64 @@
             this.tsmAcercaDe.Name = "tsmAcercaDe";
             this.tsmAcercaDe.Click += new System.EventHandler(this.tsmAcercaDe_Click);
             // 
-            // tsAccDir
+            // pictureBox1
             // 
-            resources.ApplyResources(this.tsAccDir, "tsAccDir");
-            this.tsAccDir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tsAccDir.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tsAccDir.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbComanda,
-            this.toolStripSeparator4,
-            this.tsbSalir,
-            this.tsbComprobante});
-            this.tsAccDir.Name = "tsAccDir";
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
-            // tsbComanda
+            // pnlLogo
             // 
-            resources.ApplyResources(this.tsbComanda, "tsbComanda");
-            this.tsbComanda.Name = "tsbComanda";
-            this.tsbComanda.Click += new System.EventHandler(this.tsbComanda_Click);
+            resources.ApplyResources(this.pnlLogo, "pnlLogo");
+            this.pnlLogo.Name = "pnlLogo";
             // 
-            // toolStripSeparator4
+            // btnRestaurar
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            resources.ApplyResources(this.btnRestaurar, "btnRestaurar");
+            this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestaurar.FlatAppearance.BorderSize = 0;
+            this.btnRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnRestaurar.Image = global::GestionClubView.Properties.Resources.Icono_Restaurar;
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
-            // tsbSalir
+            // btnMinimizar
             // 
-            this.tsbSalir.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.tsbSalir, "tsbSalir");
-            this.tsbSalir.Name = "tsbSalir";
-            this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
+            resources.ApplyResources(this.btnMinimizar, "btnMinimizar");
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnMinimizar.Image = global::GestionClubView.Properties.Resources.Icono_Minimizar;
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.UseVisualStyleBackColor = true;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
-            // tsbComprobante
+            // btnMaximizar
             // 
-            resources.ApplyResources(this.tsbComprobante, "tsbComprobante");
-            this.tsbComprobante.Name = "tsbComprobante";
-            this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
+            resources.ApplyResources(this.btnMaximizar, "btnMaximizar");
+            this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnMaximizar.Image = global::GestionClubView.Properties.Resources.Icono_Maximizar;
+            this.btnMaximizar.Name = "btnMaximizar";
+            this.btnMaximizar.UseVisualStyleBackColor = true;
+            this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
+            // 
+            // btnCerrar
+            // 
+            resources.ApplyResources(this.btnCerrar, "btnCerrar");
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnCerrar.Image = global::GestionClubView.Properties.Resources.ICON_CERRARF;
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmPrincipal
             // 
@@ -671,7 +671,6 @@
             this.Resize += new System.EventHandler(this.frmPrincipal_Resize);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ssStatusBar.ResumeLayout(false);
             this.ssStatusBar.PerformLayout();
             this.pnlBarTit.ResumeLayout(false);
@@ -680,6 +679,7 @@
             this.menuStrip1.PerformLayout();
             this.tsAccDir.ResumeLayout(false);
             this.tsAccDir.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -744,7 +744,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmVentaAnualesMesesPorTipo;
         internal System.Windows.Forms.ToolStripMenuItem tsmReporteTablaSistema;
         internal System.Windows.Forms.ToolStripMenuItem tsmVentasPorCategoriasProductos;
-        internal System.Windows.Forms.ToolStripMenuItem tsmResumenDeVentasAnual;
         internal System.Windows.Forms.ToolStripMenuItem tsmTopProductos;
         internal System.Windows.Forms.ToolStripMenuItem tsmParametrosVentas;
         internal System.Windows.Forms.ToolStripMenuItem tsmAjustesIngresos;
@@ -760,5 +759,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmComprobanteElectronicos;
         internal System.Windows.Forms.ToolStripMenuItem tsmErrorElectronico;
         internal System.Windows.Forms.ToolStripMenuItem tsmCambiarClave;
+        internal System.Windows.Forms.ToolStripMenuItem tsmMovMensualStock;
     }
 }

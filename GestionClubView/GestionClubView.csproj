@@ -252,6 +252,12 @@
     <Compile Include="Reportes\frmEscogerCategoriaListaPrecios.Designer.cs">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesDocumentoStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesDocumentoStock.Designer.cs">
+      <DependentUpon>frmIngresarAnioMesDocumentoStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmIngresarAnioMesIngresoSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,12 @@
     </Compile>
     <Compile Include="Reportes\frmReportListaSistemaDetalle.Designer.cs">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportRelacionMensualDocumentoStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportRelacionMensualDocumentoStock.Designer.cs">
+      <DependentUpon>frmReportRelacionMensualDocumentoStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportResumenAnualIngresoSalida.cs">
       <SubType>Form</SubType>
@@ -658,6 +670,9 @@
     <EmbeddedResource Include="Reportes\frmEscogerCategoriaListaPrecios.resx">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmIngresarAnioMesDocumentoStock.resx">
+      <DependentUpon>frmIngresarAnioMesDocumentoStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioMesIngresoSalida.resx">
       <DependentUpon>frmIngresarAnioMesIngresoSalida.cs</DependentUpon>
     </EmbeddedResource>
@@ -690,6 +705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportListaSistemaDetalle.resx">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportRelacionMensualDocumentoStock.resx">
+      <DependentUpon>frmReportRelacionMensualDocumentoStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportResumenAnualIngresoSalida.resx">
       <DependentUpon>frmReportResumenAnualIngresoSalida.cs</DependentUpon>
@@ -731,6 +749,7 @@
     <EmbeddedResource Include="Reportes\rptListadoDeComprobantesDelDia.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaPrecios.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentasPorCategoriasProductos.rdlc" />
+    <EmbeddedResource Include="Reportes\rptRelacionMensualStock.rdlc" />
     <EmbeddedResource Include="Reportes\rptResumenCierreCaja.rdlc" />
     <EmbeddedResource Include="Stock Restaurante\frmAjusteSalidas.resx">
       <DependentUpon>frmAjusteSalidas.cs</DependentUpon>

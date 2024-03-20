@@ -65,7 +65,8 @@ namespace GestionClubView.Consultas
             GestionClubComprobanteDto iOpEN = new GestionClubComprobanteDto();
             iOpEN.idNroComanda = 0;
             iOpEN.fecComprobante = fecCierreCaja;
-            this.eLisComp = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(iOpEN);
+            this.eLisComp = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(iOpEN)
+                .Where(x => x.caja == Universal.caja).ToList();
         }
         public void ActualizarDgvComprobante()
         {

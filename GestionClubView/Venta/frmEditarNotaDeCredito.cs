@@ -39,7 +39,7 @@ namespace GestionClubView.Venta
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
-        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty;
+        public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty, RutaLogo = string.Empty;
         public frmEditarNotaDeCredito()
         {
             InitializeComponent();
@@ -190,6 +190,7 @@ namespace GestionClubView.Venta
             rutaCategoria = iParEN.FirstOrDefault().RutaImagenCategoria;//ConfigurationManager.AppSettings["RutaCategoria"].ToString();
             rutaProducto = iParEN.FirstOrDefault().RutaImagenProducto;// ConfigurationManager.AppSettings["RutaProducto"].ToString();
             RutaQR = iParEN.FirstOrDefault().RutaImagenQR;//ConfigurationManager.AppSettings["RutaQR"].ToString();
+            RutaLogo = iParEN.FirstOrDefault().RutaLogoEmpresa;//ConfigurationManager.AppSettings["RutaQR"].ToString();
         }
         public void ListarClientes()
         {
@@ -374,7 +375,7 @@ namespace GestionClubView.Venta
             GenerarArchivoComprobante.NotaCreditoElectronico(iComEN, iParEN);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
 
-            if (this.AdicionarErrors(json, iComEN)) { return true; };
+            this.AdicionarErrors(json, iComEN);
 
             this.AdicionarResultado(json);
 
@@ -471,6 +472,7 @@ namespace GestionClubView.Venta
             {
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;
                 pObj.idProducto = obj.idProducto;
+                pObj.codProducto = obj.codProducto;
                 pObj.preVenta = obj.preVenta;
                 pObj.cantidad = obj.cantidad;
                 pObj.preTotal = obj.preTotal;
@@ -739,7 +741,7 @@ namespace GestionClubView.Venta
 
             Graphics g = e.Graphics;
             //g.DrawRectangle(Pens.White, 5, 5, 410, 730);
-            string title = ConfigurationManager.AppSettings["RutaLogo"].ToString() + "logo-cosfup.ico";
+            string title = this.RutaLogo + "logo-cosfup.ico";
             g.DrawImage(Image.FromFile(title), 100, 7);
 
             Font fBody = new Font("Calibri", 8, FontStyle.Bold);

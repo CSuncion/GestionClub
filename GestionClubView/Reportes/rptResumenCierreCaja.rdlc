@@ -177,6 +177,10 @@
           <DataField>fechaModifica</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="caja">
+          <DataField>caja</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsGestionClub</rd:DataSetName>
@@ -368,6 +372,7 @@
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
+                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
@@ -1587,7 +1592,7 @@
                   <Top>0.27978cm</Top>
                   <Left>1.12417cm</Left>
                   <Height>0.56472cm</Height>
-                  <Width>2.03256cm</Width>
+                  <Width>2.20896cm</Width>
                   <ZIndex>6</ZIndex>
                   <Style>
                     <Border>

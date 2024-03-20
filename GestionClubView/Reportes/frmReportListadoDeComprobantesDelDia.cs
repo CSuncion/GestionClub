@@ -49,7 +49,7 @@ namespace GestionClubView.Reportes
                     rds.Name = "dsResumenCierreCaja";
 
 
-                rds.Value = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(gestionClubComprobanteDto);
+                rds.Value = GestionClubComprobanteController.ListarComprobantesFacturaYBoletaPorFecha(gestionClubComprobanteDto).Where(x => x.caja == Universal.caja);
 
                 ReportParameter[] rp = new ReportParameter[3];
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);

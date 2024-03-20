@@ -296,8 +296,15 @@ namespace GestionClubView.Maestros
 
         public void AsignarProducto(GestionClubProductoDto pObj)
         {
+            List<GestionClubCategoriaDto> categoria = new List<GestionClubCategoriaDto>();
+            categoria = GestionClubCategoriaController.ListarCategoriasActivos();
+
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.codProducto = this.txtCodigo.Text.Trim();
+            this.cboCategoria.SelectedValue =
+                categoria.Exists(x => x.codCategoria == this.txtCodigo.Text.Substring(0, 4)) ?
+                this.txtCodigo.Text.Substring(0, 4) 
+                : Convert.ToString(Cmb.ObtenerValor(this.cboCategoria, string.Empty));
             pObj.idCategoria = Convert.ToString(Cmb.ObtenerValor(this.cboCategoria, string.Empty));
             pObj.codMoneda = Cmb.ObtenerValor(this.cboMoneda, string.Empty);
             pObj.desProducto = this.txtDescripcion.Text.Trim();

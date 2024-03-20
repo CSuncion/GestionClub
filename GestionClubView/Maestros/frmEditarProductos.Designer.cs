@@ -393,6 +393,7 @@
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(127, 18);
+            this.txtCodigo.MaxLength = 8;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(161, 22);
             this.txtCodigo.TabIndex = 18;

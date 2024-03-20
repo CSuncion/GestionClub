@@ -4,13 +4,13 @@ serie|BBB1|
 numero|0005555|
 sunat_transaction|1|
 cliente_tipo_de_documento|1|
-cliente_numero_de_documento|10145285|
-cliente_denominacion|ALTAMIRANO CORDERO, ALFREDO EDGEL                 |
+cliente_numero_de_documento|42722722|
+cliente_denominacion|AGUILAR ADRIANZEN, JESUS ARMANDO                  |
 cliente_direccion||
-cliente_email||
+cliente_email|jesusaguilar53@hotmail.co|
 cliente_email1||
 cliente_email2||
-fecha_de_emision|14-03-2024|
+fecha_de_emision|18-03-2024|
 fecha_de_vencimiento||
 moneda|1|
 tipo_de_cambio|3.700|
@@ -18,13 +18,13 @@ porcentaje_de_igv|18.00|
 descuento_global||
 total_descuento||
 total_anticipo||
-total_gravada|27.118644067796610169491525424|
+total_gravada|47.457627118644067796610169492|
 total_inafecta||
 total_exonerada||
-total_igv|4.8813559322033898305084745763|
+total_igv|8.542372881355932203389830509|
 total_gratuita||
 total_otros_cargos||
-total|32.000000000000000000000000000|
+total|56.000000000000000000000000001|
 percepcion_tipo||
 percepcion_base_imponible||
 total_percepcion||
@@ -37,7 +37,7 @@ documento_que_se_modifica_numero||
 tipo_de_nota_de_credito||
 tipo_de_nota_de_debito||
 enviar_automaticamente_a_la_sunat|true|
-enviar_automaticamente_al_cliente|false|
+enviar_automaticamente_al_cliente|true|
 codigo_unico||
 condiciones_de_pago||
 medio_de_pago||
@@ -45,4 +45,7 @@ placa_vehiculo||
 orden_compra_servicio||
 tabla_personalizada_codigo||
 formato_de_pdf||
-item|NIU|01010101|MENU|2|13.5593220339|16.0000000000||27.1186440678|1|4.8813559322|32.0000000000|false|||10000000|
+item|NIU|01010102|MENU PARTICULAR|1|13.5593220339|16.0000000000||13.5593220339|1|2.4406779661|16.0000000000|false|||10000000|
+item|NIU|01020202|BISTECK A LA PLANCHA CON PAPA FRITA Y ENSALADA|1|25.4237288136|30.0000000000||25.4237288136|1|4.5762711864|30.0000000000|false|||10000000|
+item|NIU|01040106|INFUSIONES|1|1.6949152542|2.0000000000||1.6949152542|1|0.3050847458|2.0000000000|false|||10000000|
+item|NIU|01050101|JUGO DE PAPAYA|1|6.7796610169|8.0000000000||6.7796610169|1|1.2203389831|8.0000000000|false|||10000000|
