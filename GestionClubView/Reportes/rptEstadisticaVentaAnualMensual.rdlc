@@ -21,13 +21,21 @@
           <DataField>ANIO</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="MES">
-          <DataField>MES</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="CANTIDAD">
           <DataField>CANTIDAD</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MONTO">
+          <DataField>MONTO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MES">
+          <DataField>MES</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="desMes">
+          <DataField>desMes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
@@ -50,7 +58,7 @@
                 <ChartMember>
                   <Group Name="Chart2_CategoryGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!MES.Value</GroupExpression>
+                      <GroupExpression>=Fields!desMes.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -58,7 +66,7 @@
                       <Value>=Fields!MES.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=UCase(MonthName(Fields!MES.Value))</Label>
+                  <Label>=Fields!desMes.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -67,7 +75,7 @@
                 <ChartMember>
                   <Group Name="Chart2_SeriesGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!MES.Value</GroupExpression>
+                      <GroupExpression>=Fields!desMes.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -75,23 +83,25 @@
                       <Value>=Fields!MES.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <Label>=UCase(MonthName(Fields!MES.Value))</Label>
+                  <Label>=Fields!desMes.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="MES">
+                <ChartSeries Name="MONTO">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!CANTIDAD.Value)</Y>
+                        <Y>=Sum(Fields!MONTO.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style>
-                          <FontFamily>Calibri</FontFamily>
+                          <FontFamily>CAlibri</FontFamily>
                           <FontSize>8pt</FontSize>
                           <FontWeight>Bold</FontWeight>
+                          <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                          <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
                         </Style>
                         <UseValueAsLabel>true</UseValueAsLabel>
                         <Visible>true</Visible>
@@ -134,7 +144,6 @@
                       <FontFamily>Calibri</FontFamily>
                       <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Format>=MonthName(Fields!MES.Value)</Format>
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
@@ -434,6 +443,9 @@
                 <TablixColumn>
                   <Width>2.5cm</Width>
                 </TablixColumn>
+                <TablixColumn>
+                  <Width>2.5cm</Width>
+                </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
@@ -513,6 +525,43 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox1">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>MONTO</Value>
+                                  <Style>
+                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Silver</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -520,14 +569,14 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="MES">
+                        <Textbox Name="desMes">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=UCase(MonthName(Fields!MES.Value))</Value>
+                                  <Value>=Fields!desMes.Value</Value>
                                   <Style>
                                     <FontFamily>CAlibri</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -538,7 +587,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>MES</rd:DefaultName>
+                          <rd:DefaultName>desMes</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -586,12 +635,49 @@
                         </Textbox>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="MONTO">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!MONTO.Value</Value>
+                                  <Style>
+                                    <FontFamily>CAlibri</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Format>'S/'#,0.00;('S/'#,0.00)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>MONTO</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>quz-PE</rd:FormatSymbolCulture>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember />
                 <TablixMember />
               </TablixMembers>
@@ -607,10 +693,15 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsVentaAnualesMensual</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!MES.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>6.89173cm</Top>
             <Left>1.50495cm</Left>
             <Height>1.2cm</Height>
-            <Width>5cm</Width>
+            <Width>7.5cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

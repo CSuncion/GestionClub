@@ -467,8 +467,10 @@ namespace GestionClubRepository.Repository
                 result.Add(new
                 {
                     ANIO = (int)xIdr[0],
-                    MES = (int)xIdr[1],
-                    CANTIDAD = (int)xIdr[2]
+                    MES = (string)xIdr[1],
+                    desMes = (string)xIdr[2],
+                    CANTIDAD = (int)xIdr[3],
+                    MONTO = (decimal)xIdr[4]
                 });
             }
             xObjCn.Disconnect();
@@ -493,8 +495,10 @@ namespace GestionClubRepository.Repository
                 {
                     TIPOCOMPROBANTE = (string)xIdr[0],
                     ANIO = (int)xIdr[1],
-                    MES = (int)xIdr[2],
-                    CANTIDAD = (int)xIdr[3]
+                    MES = (string)xIdr[2],
+                    desMes = (string)xIdr[3],
+                    CANTIDAD = (int)xIdr[4],
+                    MONTO = (decimal)xIdr[5]
                 });
             }
             xObjCn.Disconnect();

@@ -260,6 +260,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -500,6 +501,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -790,6 +792,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1109,12 +1112,9 @@
                 <TablixMember>
                   <Group Name="tipComprobante">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!tipComprobante.Value</GroupExpression>
                       <GroupExpression>=Fields!caja.Value</GroupExpression>
+                      <GroupExpression>=Fields!tipComprobante.Value</GroupExpression>
                     </GroupExpressions>
-                    <PageBreak>
-                      <BreakLocation>Start</BreakLocation>
-                    </PageBreak>
                   </Group>
                   <SortExpressions>
                     <SortExpression>

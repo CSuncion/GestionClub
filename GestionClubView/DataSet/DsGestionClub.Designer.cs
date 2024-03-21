@@ -4730,9 +4730,13 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnANIO;
             
+            private global::System.Data.DataColumn columnCANTIDAD;
+            
+            private global::System.Data.DataColumn columnMONTO;
+            
             private global::System.Data.DataColumn columnMES;
             
-            private global::System.Data.DataColumn columnCANTIDAD;
+            private global::System.Data.DataColumn columndesMes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -4777,6 +4781,22 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CANTIDADColumn {
+                get {
+                    return this.columnCANTIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MONTOColumn {
+                get {
+                    return this.columnMONTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn MESColumn {
                 get {
                     return this.columnMES;
@@ -4785,9 +4805,9 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn CANTIDADColumn {
+            public global::System.Data.DataColumn desMesColumn {
                 get {
-                    return this.columnCANTIDAD;
+                    return this.columndesMes;
                 }
             }
             
@@ -4828,12 +4848,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public isp_VentaAnualMensualRow Addisp_VentaAnualMensualRow(int ANIO, int MES, int CANTIDAD) {
+            public isp_VentaAnualMensualRow Addisp_VentaAnualMensualRow(int ANIO, int CANTIDAD, decimal MONTO, string MES, string desMes) {
                 isp_VentaAnualMensualRow rowisp_VentaAnualMensualRow = ((isp_VentaAnualMensualRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ANIO,
+                        CANTIDAD,
+                        MONTO,
                         MES,
-                        CANTIDAD};
+                        desMes};
                 rowisp_VentaAnualMensualRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_VentaAnualMensualRow);
                 return rowisp_VentaAnualMensualRow;
@@ -4857,8 +4879,10 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnANIO = base.Columns["ANIO"];
-                this.columnMES = base.Columns["MES"];
                 this.columnCANTIDAD = base.Columns["CANTIDAD"];
+                this.columnMONTO = base.Columns["MONTO"];
+                this.columnMES = base.Columns["MES"];
+                this.columndesMes = base.Columns["desMes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4866,13 +4890,20 @@ namespace GestionClubView.DataSet {
             private void InitClass() {
                 this.columnANIO = new global::System.Data.DataColumn("ANIO", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnANIO);
-                this.columnMES = new global::System.Data.DataColumn("MES", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMES);
                 this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCANTIDAD);
+                this.columnMONTO = new global::System.Data.DataColumn("MONTO", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMONTO);
+                this.columnMES = new global::System.Data.DataColumn("MES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMES);
+                this.columndesMes = new global::System.Data.DataColumn("desMes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesMes);
                 this.columnANIO.ReadOnly = true;
-                this.columnMES.ReadOnly = true;
                 this.columnCANTIDAD.ReadOnly = true;
+                this.columnMONTO.ReadOnly = true;
+                this.columnMES.ReadOnly = true;
+                this.columnMES.MaxLength = 2;
+                this.columndesMes.MaxLength = 60;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5010,11 +5041,13 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columnANIO;
             
-            private global::System.Data.DataColumn columnMES;
-            
             private global::System.Data.DataColumn columnCANTIDAD;
             
             private global::System.Data.DataColumn columnMONTO;
+            
+            private global::System.Data.DataColumn columnMES;
+            
+            private global::System.Data.DataColumn columndesMes;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -5067,14 +5100,6 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MESColumn {
-                get {
-                    return this.columnMES;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn CANTIDADColumn {
                 get {
                     return this.columnCANTIDAD;
@@ -5086,6 +5111,22 @@ namespace GestionClubView.DataSet {
             public global::System.Data.DataColumn MONTOColumn {
                 get {
                     return this.columnMONTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MESColumn {
+                get {
+                    return this.columnMES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn desMesColumn {
+                get {
+                    return this.columndesMes;
                 }
             }
             
@@ -5126,14 +5167,15 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public isp_VentaAnualMensualPorTipoRow Addisp_VentaAnualMensualPorTipoRow(string TIPOCOMPROBANTE, int ANIO, int MES, int CANTIDAD, decimal MONTO) {
+            public isp_VentaAnualMensualPorTipoRow Addisp_VentaAnualMensualPorTipoRow(string TIPOCOMPROBANTE, int ANIO, int CANTIDAD, decimal MONTO, string MES, string desMes) {
                 isp_VentaAnualMensualPorTipoRow rowisp_VentaAnualMensualPorTipoRow = ((isp_VentaAnualMensualPorTipoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TIPOCOMPROBANTE,
                         ANIO,
-                        MES,
                         CANTIDAD,
-                        MONTO};
+                        MONTO,
+                        MES,
+                        desMes};
                 rowisp_VentaAnualMensualPorTipoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_VentaAnualMensualPorTipoRow);
                 return rowisp_VentaAnualMensualPorTipoRow;
@@ -5158,9 +5200,10 @@ namespace GestionClubView.DataSet {
             internal void InitVars() {
                 this.columnTIPOCOMPROBANTE = base.Columns["TIPOCOMPROBANTE"];
                 this.columnANIO = base.Columns["ANIO"];
-                this.columnMES = base.Columns["MES"];
                 this.columnCANTIDAD = base.Columns["CANTIDAD"];
                 this.columnMONTO = base.Columns["MONTO"];
+                this.columnMES = base.Columns["MES"];
+                this.columndesMes = base.Columns["desMes"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5170,17 +5213,21 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnTIPOCOMPROBANTE);
                 this.columnANIO = new global::System.Data.DataColumn("ANIO", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnANIO);
-                this.columnMES = new global::System.Data.DataColumn("MES", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMES);
                 this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCANTIDAD);
                 this.columnMONTO = new global::System.Data.DataColumn("MONTO", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMONTO);
+                this.columnMES = new global::System.Data.DataColumn("MES", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMES);
+                this.columndesMes = new global::System.Data.DataColumn("desMes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndesMes);
                 this.columnTIPOCOMPROBANTE.MaxLength = 60;
                 this.columnANIO.ReadOnly = true;
-                this.columnMES.ReadOnly = true;
                 this.columnCANTIDAD.ReadOnly = true;
                 this.columnMONTO.ReadOnly = true;
+                this.columnMES.ReadOnly = true;
+                this.columnMES.MaxLength = 2;
+                this.columndesMes.MaxLength = 60;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16850,10 +16897,42 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MES {
+            public int CANTIDAD {
                 get {
                     try {
-                        return ((int)(this[this.tableisp_VentaAnualMensual.MESColumn]));
+                        return ((int)(this[this.tableisp_VentaAnualMensual.CANTIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'isp_VentaAnualMensual\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_VentaAnualMensual.CANTIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal MONTO {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableisp_VentaAnualMensual.MONTOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MONTO\' de la tabla \'isp_VentaAnualMensual\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_VentaAnualMensual.MONTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string MES {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_VentaAnualMensual.MESColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'MES\' de la tabla \'isp_VentaAnualMensual\' es DBNull.", e);
@@ -16866,17 +16945,17 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int CANTIDAD {
+            public string desMes {
                 get {
                     try {
-                        return ((int)(this[this.tableisp_VentaAnualMensual.CANTIDADColumn]));
+                        return ((string)(this[this.tableisp_VentaAnualMensual.desMesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'isp_VentaAnualMensual\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'desMes\' de la tabla \'isp_VentaAnualMensual\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableisp_VentaAnualMensual.CANTIDADColumn] = value;
+                    this[this.tableisp_VentaAnualMensual.desMesColumn] = value;
                 }
             }
             
@@ -16894,6 +16973,30 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCANTIDADNull() {
+                return this.IsNull(this.tableisp_VentaAnualMensual.CANTIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCANTIDADNull() {
+                this[this.tableisp_VentaAnualMensual.CANTIDADColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMONTONull() {
+                return this.IsNull(this.tableisp_VentaAnualMensual.MONTOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMONTONull() {
+                this[this.tableisp_VentaAnualMensual.MONTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsMESNull() {
                 return this.IsNull(this.tableisp_VentaAnualMensual.MESColumn);
             }
@@ -16906,14 +17009,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsCANTIDADNull() {
-                return this.IsNull(this.tableisp_VentaAnualMensual.CANTIDADColumn);
+            public bool IsdesMesNull() {
+                return this.IsNull(this.tableisp_VentaAnualMensual.desMesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetCANTIDADNull() {
-                this[this.tableisp_VentaAnualMensual.CANTIDADColumn] = global::System.Convert.DBNull;
+            public void SetdesMesNull() {
+                this[this.tableisp_VentaAnualMensual.desMesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -16967,23 +17070,6 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int MES {
-                get {
-                    try {
-                        return ((int)(this[this.tableisp_VentaAnualMensualPorTipo.MESColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MES\' de la tabla \'isp_VentaAnualMensualPorTipo\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableisp_VentaAnualMensualPorTipo.MESColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int CANTIDAD {
                 get {
                     try {
@@ -17018,6 +17104,40 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string MES {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_VentaAnualMensualPorTipo.MESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'MES\' de la tabla \'isp_VentaAnualMensualPorTipo\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_VentaAnualMensualPorTipo.MESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string desMes {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_VentaAnualMensualPorTipo.desMesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'desMes\' de la tabla \'isp_VentaAnualMensualPorTipo\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_VentaAnualMensualPorTipo.desMesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTIPOCOMPROBANTENull() {
                 return this.IsNull(this.tableisp_VentaAnualMensualPorTipo.TIPOCOMPROBANTEColumn);
             }
@@ -17042,18 +17162,6 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMESNull() {
-                return this.IsNull(this.tableisp_VentaAnualMensualPorTipo.MESColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMESNull() {
-                this[this.tableisp_VentaAnualMensualPorTipo.MESColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCANTIDADNull() {
                 return this.IsNull(this.tableisp_VentaAnualMensualPorTipo.CANTIDADColumn);
             }
@@ -17074,6 +17182,30 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetMONTONull() {
                 this[this.tableisp_VentaAnualMensualPorTipo.MONTOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsMESNull() {
+                return this.IsNull(this.tableisp_VentaAnualMensualPorTipo.MESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetMESNull() {
+                this[this.tableisp_VentaAnualMensualPorTipo.MESColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsdesMesNull() {
+                return this.IsNull(this.tableisp_VentaAnualMensualPorTipo.desMesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetdesMesNull() {
+                this[this.tableisp_VentaAnualMensualPorTipo.desMesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -25767,8 +25899,10 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "isp_VentaAnualMensual";
             tableMapping.ColumnMappings.Add("ANIO", "ANIO");
-            tableMapping.ColumnMappings.Add("MES", "MES");
             tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
+            tableMapping.ColumnMappings.Add("MONTO", "MONTO");
+            tableMapping.ColumnMappings.Add("MES", "MES");
+            tableMapping.ColumnMappings.Add("desMes", "desMes");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -25964,9 +26098,10 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.DataSetTable = "isp_VentaAnualMensualPorTipo";
             tableMapping.ColumnMappings.Add("TIPOCOMPROBANTE", "TIPOCOMPROBANTE");
             tableMapping.ColumnMappings.Add("ANIO", "ANIO");
-            tableMapping.ColumnMappings.Add("MES", "MES");
             tableMapping.ColumnMappings.Add("CANTIDAD", "CANTIDAD");
             tableMapping.ColumnMappings.Add("MONTO", "MONTO");
+            tableMapping.ColumnMappings.Add("MES", "MES");
+            tableMapping.ColumnMappings.Add("desMes", "desMes");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

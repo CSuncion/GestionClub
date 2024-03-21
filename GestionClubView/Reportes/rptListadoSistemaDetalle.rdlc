@@ -108,7 +108,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.25646cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3.78354cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -129,7 +132,42 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="titSistema">
+                        <Textbox Name="nroSistema">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!nroSistema.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>nroSistema</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="titSistema1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -147,7 +185,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>titSistema</rd:DefaultName>
+                          <rd:DefaultName>titSistema1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -163,7 +201,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox118">
+                        <Textbox Name="Textbox1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -173,14 +211,15 @@
                                   <Value />
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox118</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -300,7 +339,41 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox120">
+                        <Textbox Name="codigo">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!codigo.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>codigo</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>White</Color>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="descri">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -317,7 +390,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox120</rd:DefaultName>
+                          <rd:DefaultName>descri</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -333,7 +406,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="desbrv1">
+                        <Textbox Name="desbrv">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -350,7 +423,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>desbrv1</rd:DefaultName>
+                          <rd:DefaultName>desbrv</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>White</Color>
@@ -474,6 +547,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -486,7 +560,7 @@
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!titSistema.Value</Value>
+                      <Value>=Fields!nroSistema.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
@@ -499,9 +573,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsListadoSistemaDetalle</DataSetName>
-            <Left>2.90647cm</Left>
+            <Left>2.27147cm</Left>
             <Height>1.2cm</Height>
-            <Width>12.5cm</Width>
+            <Width>15.04cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -834,8 +908,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Left>1.25646cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>2.5cm</Width>
+                  <Width>3.74354cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -868,7 +943,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Left>2.5cm</Left>
+                  <Left>5cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>1</ZIndex>
@@ -904,7 +979,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Left>5cm</Left>
+                  <Left>7.54cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>2</ZIndex>
@@ -940,7 +1015,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Left>7.5cm</Left>
+                  <Left>10.04cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>3</ZIndex>
@@ -976,7 +1051,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox28</rd:DefaultName>
-                  <Left>10cm</Left>
+                  <Left>12.54cm</Left>
                   <Height>0.6cm</Height>
                   <Width>2.5cm</Width>
                   <ZIndex>4</ZIndex>
@@ -991,12 +1066,48 @@
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
+                <Textbox Name="Textbox32">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>CÓDIGO</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>8pt</FontSize>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <rd:DefaultName>Textbox28</rd:DefaultName>
+                  <Top>0.00537cm</Top>
+                  <Height>0.6cm</Height>
+                  <Width>1.25646cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <BackgroundColor>White</BackgroundColor>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>2.20459cm</Top>
-              <Left>2.90647cm</Left>
+              <Left>2.27147cm</Left>
               <Height>0.61073cm</Height>
-              <Width>12.5cm</Width>
+              <Width>15.04cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
