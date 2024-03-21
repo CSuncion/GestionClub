@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesAlmacen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesDocumentoStock));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboMes = new System.Windows.Forms.ComboBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboMes = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -115,9 +115,28 @@
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(76, 48);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 14);
+            this.label9.TabIndex = 453;
+            this.label9.Text = "Mes:";
+            // 
+            // cboMes
+            // 
+            this.cboMes.FormattingEnabled = true;
+            this.cboMes.Location = new System.Drawing.Point(115, 45);
+            this.cboMes.Name = "cboMes";
+            this.cboMes.Size = new System.Drawing.Size(135, 21);
+            this.cboMes.TabIndex = 452;
+            // 
             // txtAnio
             // 
             this.txtAnio.Location = new System.Drawing.Point(115, 19);
+            this.txtAnio.MaxLength = 4;
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(135, 20);
             this.txtAnio.TabIndex = 12;
@@ -132,25 +151,7 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Año:";
             // 
-            // cboMes
-            // 
-            this.cboMes.FormattingEnabled = true;
-            this.cboMes.Location = new System.Drawing.Point(115, 45);
-            this.cboMes.Name = "cboMes";
-            this.cboMes.Size = new System.Drawing.Size(135, 21);
-            this.cboMes.TabIndex = 452;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(76, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 14);
-            this.label9.TabIndex = 453;
-            this.label9.Text = "Mes:";
-            // 
-            // frmIngresarAnioMesAlmacen
+            // frmIngresarAnioMesDocumentoStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +160,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmIngresarAnioMesAlmacen";
+            this.Name = "frmIngresarAnioMesDocumentoStock";
             this.Text = "Resumen Almacen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);

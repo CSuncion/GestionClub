@@ -35,12 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNomRazSoc = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNroIdentificacion = new System.Windows.Forms.TextBox();
             this.cboTipCliente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNroIdentificacion = new System.Windows.Forms.TextBox();
+            this.txtNomRazSoc = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,42 +119,6 @@
             this.groupBox1.TabIndex = 454;
             this.groupBox1.TabStop = false;
             // 
-            // txtNomRazSoc
-            // 
-            this.txtNomRazSoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomRazSoc.Location = new System.Drawing.Point(9, 75);
-            this.txtNomRazSoc.Name = "txtNomRazSoc";
-            this.txtNomRazSoc.Size = new System.Drawing.Size(318, 22);
-            this.txtNomRazSoc.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 58);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 14);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Nombre/Raz. Social:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(160, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 14);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "N° de Identificación:";
-            // 
-            // txtNroIdentificacion
-            // 
-            this.txtNroIdentificacion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroIdentificacion.Location = new System.Drawing.Point(163, 33);
-            this.txtNroIdentificacion.Name = "txtNroIdentificacion";
-            this.txtNroIdentificacion.Size = new System.Drawing.Size(161, 22);
-            this.txtNroIdentificacion.TabIndex = 12;
-            // 
             // cboTipCliente
             // 
             this.cboTipCliente.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,6 +137,43 @@
             this.label1.Size = new System.Drawing.Size(60, 14);
             this.label1.TabIndex = 14;
             this.label1.Text = "T. Cliente:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(160, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 14);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "N° de Identificación:";
+            // 
+            // txtNroIdentificacion
+            // 
+            this.txtNroIdentificacion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroIdentificacion.Location = new System.Drawing.Point(163, 33);
+            this.txtNroIdentificacion.MaxLength = 11;
+            this.txtNroIdentificacion.Name = "txtNroIdentificacion";
+            this.txtNroIdentificacion.Size = new System.Drawing.Size(161, 22);
+            this.txtNroIdentificacion.TabIndex = 12;
+            // 
+            // txtNomRazSoc
+            // 
+            this.txtNomRazSoc.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomRazSoc.Location = new System.Drawing.Point(9, 75);
+            this.txtNomRazSoc.Name = "txtNomRazSoc";
+            this.txtNomRazSoc.Size = new System.Drawing.Size(318, 22);
+            this.txtNomRazSoc.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 58);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 14);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Nombre/Raz. Social:";
             // 
             // frmEscogerTipoNombreDniListadoClientes
             // 

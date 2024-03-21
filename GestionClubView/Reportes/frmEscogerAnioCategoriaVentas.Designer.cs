@@ -148,6 +148,7 @@
             // 
             this.txtAnio.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAnio.Location = new System.Drawing.Point(10, 33);
+            this.txtAnio.MaxLength = 4;
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(118, 22);
             this.txtAnio.TabIndex = 12;
