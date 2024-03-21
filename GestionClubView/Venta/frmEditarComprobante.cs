@@ -1353,6 +1353,8 @@ namespace GestionClubView.Venta
             win.eOperacion = Universal.Opera.Adicionar;
             this.eFranjaDgvCliente = Dgv.Franja.PorValor;
             win.Formulario = "Comprobante";
+            win.eCtrlValor = this.txtDocId;
+            win.eCtrlFoco = this.txtApeNom;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }

@@ -26,6 +26,8 @@ namespace GestionClubView.Maestros
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public string Formulario = string.Empty;
+        public TextBox eCtrlValor;
+        public Control eCtrlFoco;
         public frmEditarClientes()
         {
             InitializeComponent();
@@ -145,7 +147,13 @@ namespace GestionClubView.Maestros
                 this.wFrm.eClaveDgvCliente = this.ObtenerIdCliente();
                 this.wFrm.ActualizarVentana();
             }
-            else { this.Close(); }
+            else
+            {
+                this.eCtrlValor.Text = Formato.NumeroComprobante(this.txtNroIdentificacion.Text, 11);
+                this.Close();
+                this.eCtrlValor.Focus();
+                this.eCtrlFoco.Focus();
+            }
 
             //limpiar controles
             this.MostrarCliente(GestionClubClienteController.EnBlanco());

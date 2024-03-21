@@ -324,6 +324,8 @@ namespace GestionClubView.Pedidos
             win.eOperacion = Universal.Opera.Adicionar;
             this.eFranjaDgvCliente = Dgv.Franja.PorValor;
             win.Formulario = "Cobrar";
+            win.eCtrlValor = this.txtDocId;
+            win.eCtrlFoco = this.txtApeNom;
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }
