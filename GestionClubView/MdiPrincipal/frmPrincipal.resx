@@ -5448,7 +5448,7 @@
   <data name="tsmComprobanteElectronicos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA69AAAOvQFH+5CtAAAB80lE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA68AAAOvAGVvHJJAAAB80lE
         QVRYR93X20sUYRjH8S0t06BSw8NFqUmiohfiARRBjTIRorIrzxaKiBeCoIInFMED2oWgXngTVDfedu//
         5ve3M6/Mjrs5O7vvsOwPPrwzC+LDPM/7zm4sl1OCRWxgLYBNjKMQWUk3DvEW9fd4gyb8QjuykgHMOJeB
         8xPvncvMk6qAx3iNB/G7xFgvQP2dxDW69IEv1gvowF9MQz33x3oBjVABB+jTB75YL0B9VxFfcYVqeBNJ
@@ -6054,7 +6054,7 @@
   <data name="tsmMovMensualStock.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATr0AAE69AFFT5SzAAAAB3RJ
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAATrzAAE68wEXCzLMAAAAB3RJ
         TUUH5gcKBx4MCewLOgAAAwpJREFUWEftl01rE1EUhidZiHURCLQui/k2aUKadb4WsaJ/oMQEQlBrK4FQ
         8C+4sOJSKggKQsEW9F+o9Vf4gQt1odAqgq0wvu/1njCZTubj6tKBl9w595zzPjOTzL2xbNuOGyoGsZ7i
         2CsnUEYAFo56vX46n893qFarNccY5iKDRAKgSaPRoPFKOp3eSaVSh9A3jHcRu2gCEgrAw/gAsqEPWhwf
@@ -6076,6 +6076,28 @@
   </data>
   <data name="tsmMovMensualStock.Text" xml:space="preserve">
     <value>Movimiento Mensual Stock Almacen</value>
+  </data>
+  <data name="tsmRegistroTicket.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHElE
+        QVRYR+3WTUtVQRjA8eNLamZpakpalKAR0kKQsnWbtDYluAyDaBMV+gEqCKxWCaXUQsiKyJeQMkOLUgn6
+        BH6h/n89A4cLtyv3Tnd1H/jBnTlzz5kzz8yZSSpRiQJRjYOpBlThQKauJtWIQwht6tOybbxH0TGMn9jA
+        Ks7iPn7Beq9fwRe8xyIu4g0+4iu8XnTcxWdcxh/cxhIm8QJPMIVnOIPveIDfGMIH3EPR4Z9f7v1MbsCR
+        eIV29GMBnzAI4ybsxJ3dUpK8RrQOmNvDqNst7UXIfQjzbTnkPWoHjsA317FUKB9FmHyWbWtE6YC59q2m
+        4aRywmU5OefQgWtYw3M0wXRFG4EunM7jBGrRjB7Y1hGJmoIWdObRipACy7Y1oqXA4bQjP7Cew1n/Fqbg
+        Omxj2+gpOI5TeYQUOPlMiW2jp6ANPqg7h3W+vQ/0U2ydbY2oKfBm29jMYZ1fPJflaFp26P/LKnCG564A
+        6xwFNyUfOoCTMKKmYD/Rh3lMwHREHYFC4efX1eDeYCpckmXtgDGOLTyGK6LsHejFGHbgdjyLsnXAZRhG
+        4BHcP6KOgDl2WM1tCB+S3Y79GF2Cu6MRdRWEA4k3dcs9B09HK7gA4xZsEx5acgf+dSSbwVOEY1k4kj2E
+        aTiPko9k2UOpe78PyR5KR3AV3+DxbBlOvnfpbzcrrxcd5n0/x3K/gM4Pj2i28Zpl671eiUrkiST5C+P5
+        eaVIwJq/AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="tsmRegistroTicket.Size" type="System.Drawing.Size, System.Drawing">
+    <value>271, 22</value>
+  </data>
+  <data name="tsmRegistroTicket.Text" xml:space="preserve">
+    <value>Registro de Tickets</value>
   </data>
   <data name="tsmReportes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6175,7 +6197,7 @@
   <data name="tsmCambiarClave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6/AAAOvwE4BVMkAAAB8UlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA6+AAAOvgHqQrHAAAAB8UlE
         QVRYR+3WO0gcUQCF4Y1GTWJjJCKRYGUnWIgaDIiKaJdWtBS0sdJSjKBNOrEyIShYpLBKIwgKJr4CNhYq
         kghiocZHI5pExESj/mfYC5Nld5idvbNY7IGPZS7KnN37mIlkkkKyUYDneIIHSEt0s1Z8xCq2sYgRvEQW
         QssL6MaXuMYxdnGK2+h1Lx7BegrxCbrRV7SjDCpVgT4cQuV6YH1K9M1081mUaiBOXuMI+iU0HdaixbaC
@@ -6429,9 +6451,6 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10pt</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6458,30 +6477,6 @@
   </data>
   <data name="&gt;&gt;tmMostrarMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
-    <value>tsbComanda</value>
-  </data>
-  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
-    <value>tsbSalir</value>
-  </data>
-  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
-    <value>tsbComprobante</value>
-  </data>
-  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsmMaestros.Name" xml:space="preserve">
     <value>tsmMaestros</value>
@@ -6787,6 +6782,36 @@
     <value>tsmAcercaDe</value>
   </data>
   <data name="&gt;&gt;tsmAcercaDe.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Name" xml:space="preserve">
+    <value>tsbComanda</value>
+  </data>
+  <data name="&gt;&gt;tsbComanda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Name" xml:space="preserve">
+    <value>tsbSalir</value>
+  </data>
+  <data name="&gt;&gt;tsbSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Name" xml:space="preserve">
+    <value>tsbComprobante</value>
+  </data>
+  <data name="&gt;&gt;tsbComprobante.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsmRegistroTicket.Name" xml:space="preserve">
+    <value>tsmRegistroTicket</value>
+  </data>
+  <data name="&gt;&gt;tsmRegistroTicket.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

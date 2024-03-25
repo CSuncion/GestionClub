@@ -161,7 +161,7 @@
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmIngresarAnioMesVentaAnual";
-            this.Text = "Ventas Por Tipo y Año";
+            this.Text = "Registro de Ventas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();

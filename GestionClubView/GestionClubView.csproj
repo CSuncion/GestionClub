@@ -57,6 +57,7 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
@@ -89,7 +90,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -228,6 +231,12 @@
     <Compile Include="Pedidos\frmComanda.Designer.cs">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Crp_ResumenMensualAlmacen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Crp_ResumenMensualAlmacen.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\frmEscogerAnioCategoriaVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +261,12 @@
     <Compile Include="Reportes\frmEscogerCategoriaListaPrecios.Designer.cs">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesAlmacenCrystal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesAlmacenCrystal.Designer.cs">
+      <DependentUpon>frmIngresarAnioMesAlmacenCrystal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmIngresarAnioMesDocumentoStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +284,12 @@
     </Compile>
     <Compile Include="Reportes\frmIngresarAnioMesAlmacen.Designer.cs">
       <DependentUpon>frmIngresarAnioMesAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesTicketAnual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmIngresarAnioMesTicketAnual.Designer.cs">
+      <DependentUpon>frmIngresarAnioMesTicketAnual.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmIngresarAnioMesVentaAnual.cs">
       <SubType>Form</SubType>
@@ -323,6 +344,18 @@
     </Compile>
     <Compile Include="Reportes\frmReportListaSistemaDetalle.Designer.cs">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportMiscelaneo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportMiscelaneo.Designer.cs">
+      <DependentUpon>frmReportMiscelaneo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReportRegistroTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReportRegistroTicket.Designer.cs">
+      <DependentUpon>frmReportRegistroTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmReportRelacionMensualDocumentoStock.cs">
       <SubType>Form</SubType>
@@ -658,6 +691,10 @@
     <EmbeddedResource Include="Pedidos\frmComanda.resx">
       <DependentUpon>frmComanda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Crp_ResumenMensualAlmacen.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Crp_ResumenMensualAlmacen.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmEscogerAnioCategoriaVentas.resx">
       <DependentUpon>frmEscogerAnioCategoriaVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -670,6 +707,9 @@
     <EmbeddedResource Include="Reportes\frmEscogerCategoriaListaPrecios.resx">
       <DependentUpon>frmEscogerCategoriaListaPrecios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmIngresarAnioMesAlmacenCrystal.resx">
+      <DependentUpon>frmIngresarAnioMesAlmacenCrystal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioMesDocumentoStock.resx">
       <DependentUpon>frmIngresarAnioMesDocumentoStock.cs</DependentUpon>
     </EmbeddedResource>
@@ -678,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioMesAlmacen.resx">
       <DependentUpon>frmIngresarAnioMesAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmIngresarAnioMesTicketAnual.resx">
+      <DependentUpon>frmIngresarAnioMesTicketAnual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmIngresarAnioMesVentaAnual.resx">
       <DependentUpon>frmIngresarAnioMesVentaAnual.cs</DependentUpon>
@@ -705,6 +748,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportListaSistemaDetalle.resx">
       <DependentUpon>frmReportListaSistemaDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportMiscelaneo.resx">
+      <DependentUpon>frmReportMiscelaneo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReportRegistroTicket.resx">
+      <DependentUpon>frmReportRegistroTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmReportRelacionMensualDocumentoStock.resx">
       <DependentUpon>frmReportRelacionMensualDocumentoStock.cs</DependentUpon>
@@ -739,6 +788,7 @@
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensualPorTipo.rdlc" />
     <EmbeddedResource Include="Reportes\rptEstadisticaVentaAnualMensual.rdlc" />
     <EmbeddedResource Include="Reportes\rptListaClienteProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\rptListadoTicket.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoCuadroAnioMesAlmacen.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoResumenAnioMesAlmacen.rdlc" />
     <EmbeddedResource Include="Reportes\rptListadoSistemaDetalle.rdlc" />

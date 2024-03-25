@@ -451,6 +451,12 @@ namespace GestionClubView.MdiPrincipal
             this.FormatoVentanaHijoPrincipal(win, this.tsmMovMensualStock, null, 0, 0);
             win.VentanaSeleccionar();
         }
+        public void InstanciarRegistroTickets()
+        {
+            frmIngresarAnioMesTicketAnual win = new frmIngresarAnioMesTicketAnual();
+            this.FormatoVentanaHijoPrincipal(win, this.tsmRegistroTicket, null, 0, 0);
+            win.VentanaSeleccionar();
+        }
         public void InstanciarErroresElectronicos()
         {
             frmErroresElectronicos win = new frmErroresElectronicos();
@@ -837,6 +843,11 @@ namespace GestionClubView.MdiPrincipal
         private void tsmMovMensualStock_Click(object sender, EventArgs e)
         {
             this.InstanciarRelacionMensualStock();
+        }
+
+        private void tsmRegistroTicket_Click(object sender, EventArgs e)
+        {
+            this.InstanciarRegistroTickets();
         }
 
         private void tsmNotaCredito_Click(object sender, EventArgs e)

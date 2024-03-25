@@ -1016,9 +1016,9 @@ namespace GestionClubView.Venta
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
             g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
-            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
-            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("Cant.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
@@ -1189,9 +1189,9 @@ namespace GestionClubView.Venta
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
             g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
-            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
-            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("Cant.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
