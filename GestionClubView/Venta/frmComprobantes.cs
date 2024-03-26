@@ -696,6 +696,34 @@ namespace GestionClubView.Venta
 
             g.Dispose();
         }
+
+        public void AccionAdicionarAnticipo()
+        {
+            //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
+            //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
+
+            frmEditarAnticipo win = new frmEditarAnticipo();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
+        }
+
+        public void AccionAdicionarRegularizarAnticipo()
+        {
+            //DeclaracionesRegistroCompraDto iRegComDto = this.EsActoAdicionarRegistroCompra();
+            //if (iRegComDto.Adicionales.EsVerdad == false) { return; }
+
+            frmEditarRegularizacionAnticipo win = new frmEditarRegularizacionAnticipo();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Adicionar;
+            this.eFranjaDgvComprobante = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaAdicionar();
+        }
+
+
         private void tsbSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -734,6 +762,16 @@ namespace GestionClubView.Venta
         private void pruebafactura_Click(object sender, EventArgs e)
         {
             //FacturacionElectronicaNubeFact.Main();
+        }
+
+        private void tsbAnticipo_Click(object sender, EventArgs e)
+        {
+            this.AccionAdicionarAnticipo();
+        }
+
+        private void tsbAdRegAnt_Click(object sender, EventArgs e)
+        {
+            this.AccionAdicionarRegularizarAnticipo();
         }
 
         private void tsbAnterior_Click(object sender, EventArgs e)

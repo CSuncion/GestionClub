@@ -22,7 +22,9 @@ namespace GestionClubView.Listas
         {
             Productos,
             ProductosComprobante,
-            ProductosStock
+            ProductosStock,
+            ProductoAnticipo,
+            ProductoSinAnticipo
         }
         public Form eVentana = new Form();
         public GestionClubProductoDto eCli = new GestionClubProductoDto();
@@ -79,16 +81,40 @@ namespace GestionClubView.Listas
             if (txtBus.Text.Trim() != string.Empty) { return; }
 
             //ejecutar segun condicion
-            switch (eCondicionLista)
+           switch (eCondicionLista)
             {
                 case Condicion.Productos: { this.eLisCli = GestionClubProductoController.ListarProductos(); break; }
-                case Condicion.ProductosComprobante: { this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => !x.idCategoria.StartsWith("01")).ToList(); break; }
+                case Condicion.ProductosComprobante:
+                    {
+                        this.eLisCli = GestionClubProductoController.ListarProductos()
+                            .Where(x => !x.idCategoria.StartsWith("01")
+                            && (x.idCategoria != "0303"
+                            && x.idCategoria != "0601")
+                            ).ToList(); break;
+                    }
                 case Condicion.ProductosStock:
                     {
                         this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => x.idCategoria == "0103"
                 || x.idCategoria == "0106"
                 || x.idCategoria == "0108"
                 || x.idCategoria == "0112").ToList(); break;
+                    }
+                case Condicion.ProductoAnticipo:
+                    {
+                        this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => x.idCategoria == "0303"
+                        || x.idCategoria == "0601").
+                        ToList(); break;
+                    }
+                case Condicion.ProductoSinAnticipo:
+                    {
+                        this.eLisCli = GestionClubProductoController.ListarProductos()
+                            .Where(x => x.idCategoria != "0303"
+                                        && x.idCategoria != "0601"
+                                        && x.idCategoria != "0103"
+                                        && x.idCategoria != "0106"
+                                        && x.idCategoria != "0108"
+                                        && x.idCategoria != "0112")
+                            .ToList(); break;
                     }
             }
         }

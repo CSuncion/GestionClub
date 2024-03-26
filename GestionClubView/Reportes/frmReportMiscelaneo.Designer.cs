@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportMiscelaneo));
-            this.crp_ResumenMensualAlmacen1 = new GestionClubView.Reportes.Crp_ResumenMensualAlmacen();
+            //this.crp_ResumenMensualAlmacen1 = new GestionClubView.Reportes.Crp_ResumenMensualAlmacen();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.Crp_ResumenMensualAlmacen2 = new GestionClubView.Reportes.Crp_ResumenMensualAlmacen();
+            //this.Crp_ResumenMensualAlmacen2 = new GestionClubView.Reportes.Crp_ResumenMensualAlmacen();
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
@@ -45,7 +45,7 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 45);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.Crp_ResumenMensualAlmacen2;
+            //this.crystalReportViewer1.ReportSource = this.Crp_ResumenMensualAlmacen2;
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 405);
             this.crystalReportViewer1.TabIndex = 0;
             // 
@@ -93,9 +93,9 @@
 
         #endregion
 
-        private Crp_ResumenMensualAlmacen crp_ResumenMensualAlmacen1;
+        //private Crp_ResumenMensualAlmacen crp_ResumenMensualAlmacen1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private Crp_ResumenMensualAlmacen Crp_ResumenMensualAlmacen2;
+        //private Crp_ResumenMensualAlmacen Crp_ResumenMensualAlmacen2;
         private System.Windows.Forms.ToolStrip tsPrincipal;
         private System.Windows.Forms.ToolStripButton tsbSalir;
     }

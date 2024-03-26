@@ -23,6 +23,7 @@ namespace GestionClubView.Maestros
         public frmClientes wFrm;
         public frmCobrar wFrm1;
         public frmEditarComprobante wFrm2;
+        public frmEditarAnticipo wFrm3;
         Masivo eMas = new Masivo();
         public Universal.Opera eOperacion;
         public string Formulario = string.Empty;
@@ -63,6 +64,9 @@ namespace GestionClubView.Maestros
 
             if (this.Formulario == "Comprobante")
                 this.wFrm2.Enabled = false;
+
+            if (this.Formulario == "Anticipo")
+                this.wFrm3.Enabled = false;
 
             // Mostrar ventana
             this.Show();
@@ -346,6 +350,9 @@ namespace GestionClubView.Maestros
 
             if (this.Formulario == "Comprobante")
                 this.wFrm2.Enabled = true;
+
+            if (this.Formulario == "Anticipo")
+                this.wFrm3.Enabled = true;
         }
     }
 }
