@@ -28,6 +28,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.RutaImagenProducto = iDr[GestionClubParametroDto._RutaImagenProducto].ToString();
             xObjEnc.RutaImagenMesa = iDr[GestionClubParametroDto._RutaImagenMesa].ToString();
             xObjEnc.RutaImagenQR = iDr[GestionClubParametroDto._RutaImagenQR].ToString();
+            xObjEnc.CtaBcoNacion = iDr[GestionClubParametroDto._CtaBcoNacion].ToString();
             xObjEnc.UsuarioAgrega = iDr[GestionClubParametroDto._UsuarioAgrega].ToString();
             xObjEnc.FechaAgrega = Convert.ToDateTime(iDr[GestionClubParametroDto._FechaAgrega]);
             xObjEnc.UsuarioModifica = iDr[GestionClubParametroDto._UsuarioModifica].ToString();
@@ -95,6 +96,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@RutaImagenProducto",pObj.RutaImagenProducto),
                     new SqlParameter("@RutaImagenMesa",pObj.RutaImagenMesa),
                     new SqlParameter("@RutaImagenQR",pObj.RutaImagenQR),
+                    new SqlParameter("@CtaBcoNacion",pObj.RutaImagenQR),
                     new SqlParameter("@UsuarioModifica",Universal.gIdAcceso)
                 };
             xObjCn.AssignParameters(lParameter);

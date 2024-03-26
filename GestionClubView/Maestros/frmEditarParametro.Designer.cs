@@ -35,6 +35,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtRutaQR = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtRutaMesa = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtRutaProducto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRutaCategoria = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,12 +53,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtRutaLogo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtRutaProducto = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtRutaMesa = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtRutaQR = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCtaBcoNacion = new System.Windows.Forms.TextBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -118,6 +120,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtCtaBcoNacion);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtRutaQR);
             this.groupBox1.Controls.Add(this.label2);
@@ -139,15 +143,69 @@
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(627, 283);
+            this.groupBox1.Size = new System.Drawing.Size(627, 310);
             this.groupBox1.TabIndex = 453;
             this.groupBox1.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(49, 248);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 14);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Ruta QR:";
+            // 
+            // txtRutaQR
+            // 
+            this.txtRutaQR.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaQR.Location = new System.Drawing.Point(108, 245);
+            this.txtRutaQR.Name = "txtRutaQR";
+            this.txtRutaQR.Size = new System.Drawing.Size(450, 22);
+            this.txtRutaQR.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 220);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 14);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Ruta Mesa:";
+            // 
+            // txtRutaMesa
+            // 
+            this.txtRutaMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaMesa.Location = new System.Drawing.Point(108, 217);
+            this.txtRutaMesa.Name = "txtRutaMesa";
+            this.txtRutaMesa.Size = new System.Drawing.Size(450, 22);
+            this.txtRutaMesa.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 192);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 14);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Ruta Producto:";
+            // 
+            // txtRutaProducto
+            // 
+            this.txtRutaProducto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaProducto.Location = new System.Drawing.Point(108, 189);
+            this.txtRutaProducto.Name = "txtRutaProducto";
+            this.txtRutaProducto.Size = new System.Drawing.Size(450, 22);
+            this.txtRutaProducto.TabIndex = 16;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 166);
+            this.label9.Location = new System.Drawing.Point(12, 164);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 14);
             this.label9.TabIndex = 15;
@@ -156,7 +214,7 @@
             // txtRutaCategoria
             // 
             this.txtRutaCategoria.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutaCategoria.Location = new System.Drawing.Point(102, 163);
+            this.txtRutaCategoria.Location = new System.Drawing.Point(108, 161);
             this.txtRutaCategoria.Name = "txtRutaCategoria";
             this.txtRutaCategoria.Size = new System.Drawing.Size(450, 22);
             this.txtRutaCategoria.TabIndex = 14;
@@ -165,7 +223,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(29, 138);
+            this.label8.Location = new System.Drawing.Point(35, 136);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 14);
             this.label8.TabIndex = 13;
@@ -174,7 +232,7 @@
             // txtNDolares
             // 
             this.txtNDolares.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNDolares.Location = new System.Drawing.Point(102, 135);
+            this.txtNDolares.Location = new System.Drawing.Point(108, 133);
             this.txtNDolares.Name = "txtNDolares";
             this.txtNDolares.Size = new System.Drawing.Size(161, 22);
             this.txtNDolares.TabIndex = 12;
@@ -182,7 +240,7 @@
             // txtNSoles
             // 
             this.txtNSoles.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNSoles.Location = new System.Drawing.Point(102, 107);
+            this.txtNSoles.Location = new System.Drawing.Point(108, 105);
             this.txtNSoles.Name = "txtNSoles";
             this.txtNSoles.Size = new System.Drawing.Size(161, 22);
             this.txtNSoles.TabIndex = 11;
@@ -191,7 +249,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(42, 110);
+            this.label7.Location = new System.Drawing.Point(48, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 14);
             this.label7.TabIndex = 10;
@@ -200,7 +258,7 @@
             // txtDetraccion
             // 
             this.txtDetraccion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDetraccion.Location = new System.Drawing.Point(102, 76);
+            this.txtDetraccion.Location = new System.Drawing.Point(108, 74);
             this.txtDetraccion.Name = "txtDetraccion";
             this.txtDetraccion.Size = new System.Drawing.Size(87, 22);
             this.txtDetraccion.TabIndex = 9;
@@ -209,7 +267,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(28, 79);
+            this.label6.Location = new System.Drawing.Point(34, 77);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 14);
             this.label6.TabIndex = 8;
@@ -218,7 +276,7 @@
             // txtIgv
             // 
             this.txtIgv.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIgv.Location = new System.Drawing.Point(102, 48);
+            this.txtIgv.Location = new System.Drawing.Point(108, 46);
             this.txtIgv.Name = "txtIgv";
             this.txtIgv.Size = new System.Drawing.Size(87, 22);
             this.txtIgv.TabIndex = 7;
@@ -227,7 +285,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 51);
+            this.label5.Location = new System.Drawing.Point(73, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 14);
             this.label5.TabIndex = 6;
@@ -237,7 +295,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 23);
+            this.label4.Location = new System.Drawing.Point(39, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 14);
             this.label4.TabIndex = 4;
@@ -246,71 +304,35 @@
             // txtRutaLogo
             // 
             this.txtRutaLogo.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutaLogo.Location = new System.Drawing.Point(102, 20);
+            this.txtRutaLogo.Location = new System.Drawing.Point(108, 18);
             this.txtRutaLogo.Name = "txtRutaLogo";
             this.txtRutaLogo.Size = new System.Drawing.Size(490, 22);
             this.txtRutaLogo.TabIndex = 3;
             // 
-            // label1
+            // label11
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(11, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 14);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Ruta Producto:";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 276);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(96, 14);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Cta. Bco. Nación:";
             // 
-            // txtRutaProducto
+            // txtCtaBcoNacion
             // 
-            this.txtRutaProducto.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutaProducto.Location = new System.Drawing.Point(102, 191);
-            this.txtRutaProducto.Name = "txtRutaProducto";
-            this.txtRutaProducto.Size = new System.Drawing.Size(450, 22);
-            this.txtRutaProducto.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 222);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 14);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Ruta Mesa:";
-            // 
-            // txtRutaMesa
-            // 
-            this.txtRutaMesa.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutaMesa.Location = new System.Drawing.Point(102, 219);
-            this.txtRutaMesa.Name = "txtRutaMesa";
-            this.txtRutaMesa.Size = new System.Drawing.Size(450, 22);
-            this.txtRutaMesa.TabIndex = 18;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(43, 250);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 14);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "Ruta QR:";
-            // 
-            // txtRutaQR
-            // 
-            this.txtRutaQR.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRutaQR.Location = new System.Drawing.Point(102, 247);
-            this.txtRutaQR.Name = "txtRutaQR";
-            this.txtRutaQR.Size = new System.Drawing.Size(450, 22);
-            this.txtRutaQR.TabIndex = 20;
+            this.txtCtaBcoNacion.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCtaBcoNacion.Location = new System.Drawing.Point(108, 273);
+            this.txtCtaBcoNacion.Name = "txtCtaBcoNacion";
+            this.txtCtaBcoNacion.Size = new System.Drawing.Size(161, 22);
+            this.txtCtaBcoNacion.TabIndex = 22;
             // 
             // frmEditarParametro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(651, 374);
+            this.ClientSize = new System.Drawing.Size(651, 403);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -355,5 +377,7 @@
         private System.Windows.Forms.TextBox txtRutaMesa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRutaProducto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCtaBcoNacion;
     }
 }

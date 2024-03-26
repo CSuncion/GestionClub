@@ -18,6 +18,7 @@ namespace GestionClubModel.ModelDto
         public const string _RutaImagenProducto = "RutaImagenProducto";
         public const string _RutaImagenMesa = "RutaImagenMesa";
         public const string _RutaImagenQR = "RutaImagenQR";
+        public const string _CtaBcoNacion = "CtaBcoNacion";
         public const string _UsuarioAgrega = "UsuarioAgrega";
         public const string _FechaAgrega = "FechaAgrega";
         public const string _UsuarioModifica = "UsuarioModifica";
@@ -33,6 +34,7 @@ namespace GestionClubModel.ModelDto
         public string RutaImagenProducto { get; set; }
         public string RutaImagenMesa { get; set; }
         public string RutaImagenQR { get; set; }
+        public string CtaBcoNacion { get; set; }
         public string UsuarioAgrega { get; set; }
         public DateTime FechaAgrega { get; set; }
         public string UsuarioModifica { get; set; }

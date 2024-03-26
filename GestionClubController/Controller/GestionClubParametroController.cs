@@ -67,6 +67,7 @@ namespace GestionClubController.Controller
                 case GestionClubParametroDto._RutaImagenProducto: return pObj.RutaImagenProducto.ToString();
                 case GestionClubParametroDto._RutaImagenMesa: return pObj.RutaImagenMesa.ToString();
                 case GestionClubParametroDto._RutaImagenQR: return pObj.RutaImagenQR.ToString();
+                case GestionClubParametroDto._CtaBcoNacion: return pObj.CtaBcoNacion.ToString();
             }
 
             //retorna

@@ -84,6 +84,7 @@ namespace GestionClubView.Maestros
             iLisParametro.Add(Dgv.NuevaColumnaTextCadena(GestionClubParametroDto._RutaImagenProducto, "Ruta Producto", 130));
             iLisParametro.Add(Dgv.NuevaColumnaTextCadena(GestionClubParametroDto._RutaImagenMesa, "Ruta Mesa", 130));
             iLisParametro.Add(Dgv.NuevaColumnaTextCadena(GestionClubParametroDto._RutaImagenQR, "Ruta QR", 130));
+            iLisParametro.Add(Dgv.NuevaColumnaTextCadena(GestionClubParametroDto._CtaBcoNacion, "Cta. Bco. Nación", 130));
 
             //devolver
             return iLisParametro;

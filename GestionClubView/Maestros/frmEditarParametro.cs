@@ -85,6 +85,10 @@ namespace GestionClubView.Maestros
             xCtrl.TxtTodo(this.txtRutaQR, false, "Ruta QR", "vvff", 150);
             xLis.Add(xCtrl);
 
+            xCtrl = new ControlEditar();
+            xCtrl.TxtTodo(this.txtCtaBcoNacion, false, "Cta. Bco. Nación", "vvff", 150);
+            xLis.Add(xCtrl);
+
             return xLis;
         }
         public void Aceptar()
@@ -230,6 +234,7 @@ namespace GestionClubView.Maestros
             this.txtRutaProducto.Text = pObj.RutaImagenProducto;
             this.txtRutaMesa.Text = pObj.RutaImagenMesa;
             this.txtRutaQR.Text = pObj.RutaImagenQR;
+            this.txtCtaBcoNacion.Text = pObj.CtaBcoNacion.Trim();
         }
 
         public void AsignaParametro(GestionClubParametroDto pObj)
@@ -243,6 +248,7 @@ namespace GestionClubView.Maestros
             pObj.RutaImagenProducto = this.txtRutaProducto.Text;
             pObj.RutaImagenMesa = this.txtRutaMesa.Text;
             pObj.RutaImagenQR = this.txtRutaQR.Text;
+            pObj.CtaBcoNacion = this.txtCtaBcoNacion.Text;
         }
         public void VentanaModificar(GestionClubParametroDto pObj)
         {
