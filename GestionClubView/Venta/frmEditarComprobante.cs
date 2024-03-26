@@ -480,14 +480,23 @@ namespace GestionClubView.Venta
             pObj.impEfeComprobante = Convert.ToDecimal(this.txtEfectivo.Text);
             pObj.impDepComprobante = Convert.ToDecimal(this.txtDeposito.Text);
             pObj.impTarComprobante = Convert.ToDecimal(this.txtTransferencia.Text);
+
             decimal precioReal = (Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
-            pObj.impBruComprobante = this.ValidarComprobanteTicket() ? Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
+
+            pObj.impBruComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ? 
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
                 precioReal;
-            pObj.impIgvComprobante = this.ValidarComprobanteTicket() ? 0 :
+
+            pObj.impIgvComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ? 
+                0 :
                precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impDtrComprobante = aplicaDetra ? Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (this.porcentajeDtra / 100))
+
+            pObj.impDtrComprobante = aplicaDetra ?
+                Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (this.porcentajeDtra / 100))
                 : 0;
+
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
+
             pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
@@ -1046,7 +1055,7 @@ namespace GestionClubView.Venta
             saltoLinea = saltoLinea + 15;
 
             g.DrawString(cantidad.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea)); //precio            
-            g.DrawString("Por consumo", fBodyNoBold, sb, 50, SPACE + (saltoLinea));//descripcion
+            g.DrawString("Por consumo", fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));//descripcion
             g.DrawString(precio.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));//cantidad
             e.Graphics.DrawString(precioPorCantidad.ToString(), fBodyNoBold, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);//precio por cantidad
 
@@ -1208,7 +1217,7 @@ namespace GestionClubView.Venta
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));
-                g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBold, sb, 50, SPACE + (saltoLinea));
+                g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
                 g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
 
 

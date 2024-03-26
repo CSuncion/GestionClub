@@ -875,7 +875,7 @@ namespace GestionClubView.Pedidos
             saltoLinea = saltoLinea + 15;
 
             g.DrawString(cantidad.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea)); //precio            
-            g.DrawString("Por consumo", fBodyNoBold, sb, 50, SPACE + (saltoLinea));//descripcion
+            g.DrawString("Por consumo", fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));//descripcion
             g.DrawString(precio.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));//cantidad
             e.Graphics.DrawString(precioPorCantidad.ToString(), fBodyNoBold, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);//precio por cantidad
 
@@ -1056,7 +1056,7 @@ namespace GestionClubView.Pedidos
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.SubItems[2].Text, fBodyNoBold, sb, 180, SPACE + (saltoLinea));
-                g.DrawString(item.SubItems[0].Text.Substring(0, item.SubItems[0].Text.Length > 20 ? 20 : item.SubItems[0].Text.Length), fBodyNoBold, sb, 50, SPACE + (saltoLinea));//descripcion
+                g.DrawString(item.SubItems[0].Text.Substring(0, item.SubItems[0].Text.Length > 20 ? 20 : item.SubItems[0].Text.Length), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));//descripcion
                 g.DrawString(item.SubItems[1].Text, fBodyNoBold, sb, 10, SPACE + (saltoLinea));
 
 
