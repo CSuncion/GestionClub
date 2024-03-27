@@ -40,6 +40,7 @@ namespace GestionClubView.Venta
         public string eClaveDgvComDet = string.Empty;
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty, RutaLogo = string.Empty;
+        public decimal porcentajeDtra = 0;
         public frmEditarRegularizacionAnticipo()
         {
             InitializeComponent();
@@ -267,7 +268,8 @@ namespace GestionClubView.Venta
             this.txtDesProd.Text = iProEN.desProducto;
             this.txtPrecio.Text = iProEN.preCosProducto.ToString();
             this.txtIdProd.Text = iProEN.idProducto.ToString();
-
+            this.nudCantidadProducto.Value = 1;
+            this.porcentajeDtra = iProEN.porDtraProducto;
             //devolver
             return iProEN.Adicionales.EsVerdad;
         }
@@ -311,37 +313,37 @@ namespace GestionClubView.Venta
             obj.preTotal = Convert.ToDecimal(this.txtPrecio.Text) * Convert.ToInt32(this.nudCantidadProducto.Value);
 
 
-            if (this.lObjDetalle.Count > 0)
-            {
-                for (int i = 0; i < this.lObjDetalle.Count; i++)
-                {
-                    if (this.lObjDetalle[i].idProducto.ToString() == this.txtIdProd.Text)
-                    {
-                        if (this.lObjDetalle[i].cantidad.ToString() == this.nudCantidadProducto.Value.ToString())
-                        {
-                            var itemToRemove = lObjDetalle.Single(r => r.idProducto.ToString() == this.txtIdProd.Text);
-                            this.lObjDetalle.Remove(itemToRemove);
-                        }
-                        else
-                        {
-                            Mensaje.OperacionDenegada("La cantidad que esta agregando no es el correcto.", this.wFrm.eTitulo);
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
-                        return;
-                    }
-                }
-            }
-            if (this.lObjDetalleParcial.Exists(x => x.idProducto.ToString() == this.txtIdProd.Text))
-                this.lObjDetalle.Add(obj);
-            else
-            {
-                Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
-                return;
-            }
+            //if (this.lObjDetalle.Count > 0)
+            //{
+            //    for (int i = 0; i < this.lObjDetalle.Count; i++)
+            //    {
+            //        if (this.lObjDetalle[i].idProducto.ToString() == this.txtIdProd.Text)
+            //        {
+            //            if (this.lObjDetalle[i].cantidad.ToString() == this.nudCantidadProducto.Value.ToString())
+            //            {
+            //                var itemToRemove = lObjDetalle.Single(r => r.idProducto.ToString() == this.txtIdProd.Text);
+            //                this.lObjDetalle.Remove(itemToRemove);
+            //            }
+            //            else
+            //            {
+            //                Mensaje.OperacionDenegada("La cantidad que esta agregando no es el correcto.", this.wFrm.eTitulo);
+            //                return;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
+            //            return;
+            //        }
+            //    }
+            //}
+            //if (this.lObjDetalleParcial.Exists(x => x.idProducto.ToString() == this.txtIdProd.Text))
+            this.lObjDetalle.Add(obj);
+            //else
+            //{
+            //    Mensaje.OperacionDenegada("El producto que esta agregando no es el correcto.", this.wFrm.eTitulo);
+            //    return;
+            //}
 
             this.MostrarComprobanteDeta();
             this.LimpiarCamposDetalleComprobante();
@@ -376,21 +378,27 @@ namespace GestionClubView.Venta
             GestionClubComprobanteDto iComEN = new GestionClubComprobanteDto();
             this.AsignarComprobante(iComEN);
 
-            GenerarArchivoComprobante.NotaCreditoElectronico(iComEN, iParEN);
-            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
-
-            this.AdicionarErrors(json, iComEN);
-
-            this.AdicionarResultado(json);
-
             this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
 
             GestionClubDetalleComprobanteDto iDetObjEN = new GestionClubDetalleComprobanteDto();
             this.AsignarDetalleComprobante(iDetObjEN, identity);
 
-            iComEN.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
-            GestionClubComprobanteController.ModificarComprobanteAnulado(iComEN);
+            //iComEN.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
+            //GestionClubComprobanteController.ModificarComprobanteAnulado(iComEN);
+
+            GestionClubClienteDto cliente = new GestionClubClienteDto();
+            cliente.nroIdentificacionCliente = iComEN.nroIdentificacionCliente;
+            cliente = GestionClubClienteController.BuscarClienteXNroDocumento(cliente);
+
+            GenerarArchivoComprobante.ComprobanteElectronicoRegularizacionAnticipo(iComEN, this.lObjDetalle, iParEN, cliente);
+            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+
+            if (!this.AdicionarErrors(json, iComEN))
+            {
+                this.AdicionarResultado(json);
+            }
+
             return false;
         }
         public bool AdicionarErrors(string json, GestionClubComprobanteDto iComEN)
@@ -451,19 +459,43 @@ namespace GestionClubView.Venta
             pObj.idMozo = 0;
             pObj.turnoCaja = "01";
             pObj.modPagoComprobante = "01";
-            pObj.tipMovComprobante = "10";
+            pObj.tipMovComprobante = "20";
             pObj.impEfeComprobante = 0;
             pObj.impDepComprobante = 0;
             pObj.impTarComprobante = 0;
-            pObj.impBruComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impIgvComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
-            pObj.impDtrComprobante = 0;
+
+
+            decimal precioReal = (Convert.ToDecimal(this.lObjDetalle
+                                    .Where(x => x.desProducto.ToLower().Contains("cancela"))
+                                    .Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
+
+
+            decimal precioAnticipo = (Convert.ToDecimal(this.lObjDetalle
+                                    .Where(x => x.desProducto.ToLower().Contains("adelanto"))
+                                    .Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
+
+            decimal precioVenta = precioReal - precioAnticipo;
+
+
+            pObj.impBruComprobante = precioVenta;
+
+            pObj.impIgvComprobante = precioVenta * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+
+            pObj.impNetComprobante = precioVenta + pObj.impIgvComprobante;
+
+            pObj.impDtrComprobante = precioReal >= 700 ?
+                                    pObj.impNetComprobante * (this.porcentajeDtra / 100)
+                                    : 0;
+
+            pObj.impAnticipoComprobante = precioAnticipo;
+
+            pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
+            pObj.flagCancelado = false;
             pObj.idComprobante = Convert.ToInt32(this.txtIdNC.Text);
         }
 
@@ -477,6 +509,7 @@ namespace GestionClubView.Venta
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;
                 pObj.idProducto = obj.idProducto;
                 pObj.codProducto = obj.codProducto;
+                pObj.desProducto = obj.desProducto;
                 pObj.preVenta = obj.preVenta;
                 pObj.cantidad = obj.cantidad;
                 pObj.preTotal = obj.preTotal;
@@ -563,7 +596,7 @@ namespace GestionClubView.Venta
             this.txtCodProd.Text = string.Empty;
             this.txtDesProd.Text = string.Empty;
             this.txtPrecio.Text = string.Empty;
-            this.nudCantidadProducto.Value = 0;
+            this.nudCantidadProducto.Value = 1;
             this.txtIdProd.Text = "0";
         }
 
@@ -609,7 +642,7 @@ namespace GestionClubView.Venta
 
             if (this.AdicionarComprobante()) { return; }
 
-            this.ActualizarStockProducto();
+            //this.ActualizarStockProducto();
 
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
@@ -917,7 +950,7 @@ namespace GestionClubView.Venta
             this.GenerarCorrelativo();
             GestionClubCorrelativoComprobanteDto obj = new GestionClubCorrelativoComprobanteDto();
             obj.tipoDocumento = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
-            obj.serCorrelativo = this.txtSerDoc.Text.Substring(2);
+            obj.serCorrelativo = this.txtSerDoc.Text.Substring(1);
             obj.nroCorrelativo = this.txtNroDoc.Text;
             GestionClubCorrelativoComprobanteController.ActualizarCorrelativo(obj);
         }

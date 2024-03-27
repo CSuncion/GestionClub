@@ -51,6 +51,7 @@ namespace GestionClubModel.ModelDto
         public const string _usuarioModifica = "usuarioModifica";
         public const string _fechaModifica = "fechaModifica";
         public const string _caja = "caja";
+        public const string _flagCancelado = "flagCancelado";
 
         public string claveObjeto { get; set; }
         public int idComprobante { get; set; }
@@ -81,7 +82,8 @@ namespace GestionClubModel.ModelDto
         public decimal impBruComprobante { get; set; } = 0;
         public decimal impIgvComprobante { get; set; } = 0;
         public decimal impNetComprobante { get; set; } = 0;
-        public decimal impDtrComprobante { get; set; }
+        public decimal impDtrComprobante { get; set; } = 0;
+        public decimal impAnticipoComprobante { get; set; } = 0;
         public int idCliente { get; set; }
         public string nroIdentificacionCliente { get; set; }
         public string nombreRazSocialCliente { get; set; }
@@ -95,6 +97,7 @@ namespace GestionClubModel.ModelDto
         public int usuarioModifica { get; set; }
         public DateTime fechaModifica { get; set; }
         public string caja { get; set; }
+        public bool flagCancelado { get; set; }
 
         private Adicional _Adicionales = new Adicional();
         public Adicional Adicionales

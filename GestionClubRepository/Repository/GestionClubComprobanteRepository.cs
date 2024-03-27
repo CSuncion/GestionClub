@@ -62,6 +62,7 @@ namespace GestionClubRepository.Repository
             xObjEnc.usuarioModifica = Convert.ToInt32(iDr[GestionClubComprobanteDto._usuarioModifica]);
             xObjEnc.fechaModifica = Convert.ToDateTime(iDr[GestionClubComprobanteDto._fechaModifica]);
             xObjEnc.caja = Convert.ToString(iDr[GestionClubComprobanteDto._caja]);
+            xObjEnc.flagCancelado = Convert.ToBoolean(iDr[GestionClubComprobanteDto._flagCancelado]);
             xObjEnc.claveObjeto = xObjEnc.idComprobante.ToString();
             return xObjEnc;
         }
@@ -241,6 +242,7 @@ namespace GestionClubRepository.Repository
                     new SqlParameter("@usuarioAgrega", Universal.gIdAcceso),
                     new SqlParameter("@usuarioModifica", Universal.gIdAcceso),
                     new SqlParameter("@caja", Universal.caja),
+                    new SqlParameter("@flagCancelado", pObj.flagCancelado),
                 };
             xObjCn.AssignParameters(lParameter);
             xObjCn.CommandStoreProcedure("isp_AgregarComprobante");

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarComprobante));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarAnticipo));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
             this.tsbGrabar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
@@ -84,6 +84,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.chkCancelado = new System.Windows.Forms.CheckBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -252,6 +253,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkCancelado);
             this.groupBox4.Controls.Add(this.txtGlosa);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtTipoCambio);
@@ -278,7 +280,7 @@
             this.txtGlosa.Location = new System.Drawing.Point(68, 71);
             this.txtGlosa.MaxLength = 8;
             this.txtGlosa.Name = "txtGlosa";
-            this.txtGlosa.Size = new System.Drawing.Size(545, 21);
+            this.txtGlosa.Size = new System.Drawing.Size(529, 21);
             this.txtGlosa.TabIndex = 463;
             // 
             // label17
@@ -296,7 +298,7 @@
             this.txtTipoCambio.Location = new System.Drawing.Point(478, 44);
             this.txtTipoCambio.MaxLength = 8;
             this.txtTipoCambio.Name = "txtTipoCambio";
-            this.txtTipoCambio.Size = new System.Drawing.Size(135, 21);
+            this.txtTipoCambio.Size = new System.Drawing.Size(119, 21);
             this.txtTipoCambio.TabIndex = 461;
             // 
             // label16
@@ -314,7 +316,7 @@
             this.cboMoneda.FormattingEnabled = true;
             this.cboMoneda.Location = new System.Drawing.Point(478, 20);
             this.cboMoneda.Name = "cboMoneda";
-            this.cboMoneda.Size = new System.Drawing.Size(135, 21);
+            this.cboMoneda.Size = new System.Drawing.Size(119, 21);
             this.cboMoneda.TabIndex = 457;
             this.cboMoneda.SelectionChangeCommitted += new System.EventHandler(this.cboMoneda_SelectionChangeCommitted);
             // 
@@ -693,7 +695,18 @@
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
             // 
-            // frmEditarComprobante
+            // chkCancelado
+            // 
+            this.chkCancelado.AutoSize = true;
+            this.chkCancelado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCancelado.Location = new System.Drawing.Point(603, 72);
+            this.chkCancelado.Name = "chkCancelado";
+            this.chkCancelado.Size = new System.Drawing.Size(83, 18);
+            this.chkCancelado.TabIndex = 464;
+            this.chkCancelado.Text = "Cancelado";
+            this.chkCancelado.UseVisualStyleBackColor = true;
+            // 
+            // frmEditarAnticipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -713,8 +726,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
-            this.Name = "frmEditarComprobante";
-            this.Text = "Comprobante";
+            this.Name = "frmEditarAnticipo";
+            this.Text = "Anticipo / Detracción";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComprobante_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
@@ -797,5 +810,6 @@
         private System.Windows.Forms.Label label16;
         internal System.Windows.Forms.TextBox txtGlosa;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.CheckBox chkCancelado;
     }
 }

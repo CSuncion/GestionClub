@@ -81,7 +81,7 @@ namespace GestionClubView.Listas
             if (txtBus.Text.Trim() != string.Empty) { return; }
 
             //ejecutar segun condicion
-           switch (eCondicionLista)
+            switch (eCondicionLista)
             {
                 case Condicion.Productos: { this.eLisCli = GestionClubProductoController.ListarProductos(); break; }
                 case Condicion.ProductosComprobante:
@@ -101,8 +101,9 @@ namespace GestionClubView.Listas
                     }
                 case Condicion.ProductoAnticipo:
                     {
-                        this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => x.idCategoria == "0303"
-                        || x.idCategoria == "0601").
+                        this.eLisCli = GestionClubProductoController.ListarProductos().Where(x => (x.idCategoria == "0303"
+                        || x.idCategoria == "0601")
+                        && x.afeDtraProducto == 1).
                         ToList(); break;
                     }
                 case Condicion.ProductoSinAnticipo:

@@ -375,9 +375,10 @@ namespace GestionClubView.Venta
             GenerarArchivoComprobante.NotaCreditoElectronico(iComEN, iParEN);
             string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
 
-            this.AdicionarErrors(json, iComEN);
-
-            this.AdicionarResultado(json);
+            if (!this.AdicionarErrors(json, iComEN))
+            {
+                this.AdicionarResultado(json);
+            }
 
             this.ActualizarCorrelativoComprobante();
             int identity = GestionClubComprobanteController.AgregarComprobante(iComEN);
@@ -473,6 +474,7 @@ namespace GestionClubView.Venta
                 pObj.idDetalleComprobante = obj.idDetalleComprobante;
                 pObj.idProducto = obj.idProducto;
                 pObj.codProducto = obj.codProducto;
+                pObj.desProducto = obj.desProducto;
                 pObj.preVenta = obj.preVenta;
                 pObj.cantidad = obj.cantidad;
                 pObj.preTotal = obj.preTotal;

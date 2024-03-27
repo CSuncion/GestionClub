@@ -457,12 +457,12 @@
             // 
             this.txtPrecio.Location = new System.Drawing.Point(396, 16);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(62, 21);
             this.txtPrecio.TabIndex = 452;
             // 
             // nudCantidadProducto
             // 
+            this.nudCantidadProducto.Enabled = false;
             this.nudCantidadProducto.Location = new System.Drawing.Point(464, 16);
             this.nudCantidadProducto.Maximum = new decimal(new int[] {
             200,
@@ -470,6 +470,7 @@
             0,
             0});
             this.nudCantidadProducto.Name = "nudCantidadProducto";
+            this.nudCantidadProducto.ReadOnly = true;
             this.nudCantidadProducto.Size = new System.Drawing.Size(41, 21);
             this.nudCantidadProducto.TabIndex = 451;
             // 
@@ -707,7 +708,7 @@
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE ANTICIPO";
             // 
-            // frmEditarAnticipo
+            // frmEditarRegularizacionAnticipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -728,7 +729,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
-            this.Name = "frmEditarAnticipo";
+            this.Name = "frmEditarRegularizacionAnticipo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Regularización Anticipo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmComprobante_FormClosing);

@@ -31,7 +31,7 @@ namespace GestionClubView.Venta
         public Universal.Opera eOperacion;
         public GestionClubComprobanteController oOpe = new GestionClubComprobanteController();
         public GestionClubGeneralController oOpeGral = new GestionClubGeneralController();
-        public string eTitulo = "Anticipación";
+        public string eTitulo = "Anticipo / Detracción";
         public List<GestionClubDetalleComprobanteDto> lObjDetalle = new List<GestionClubDetalleComprobanteDto>();
         Dgv.Franja eFranjaDgvComDet = Dgv.Franja.PorIndice;
         public string eClaveDgvComDet = string.Empty;
@@ -399,7 +399,7 @@ namespace GestionClubView.Venta
 
             if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "03")
             {
-                GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
+                GenerarArchivoComprobante.ComprobanteElectronicoAnticipoDetracción(iComEN, this.lObjDetalle, iParEN, cliente);
                 string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
                 if (!this.AdicionarErrors(json, iComEN))
                 {
@@ -495,11 +495,11 @@ namespace GestionClubView.Venta
                 0 :
                precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
 
-            pObj.impDtrComprobante = aplicaDetra ?
-                Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (this.porcentajeDtra / 100))
-                : 0;
-
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
+
+            pObj.impDtrComprobante = pObj.impNetComprobante >= 700 ?
+                                    Convert.ToDecimal(Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (this.porcentajeDtra / 100))
+                                    : 0;
 
             pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
@@ -508,12 +508,13 @@ namespace GestionClubView.Venta
             pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
             pObj.idComprobante = Convert.ToInt32(this.txtIdComprobante.Text);
+            pObj.flagCancelado = chkCancelado.Checked;
         }
         public bool ValidarItemParaFacturar()
         {
             bool result = false;
             if (this.lObjDetalle.Count > 0)
-                if (this.lObjDetalle.Exists(x => x.codProducto.Substring(0, 2).Contains("06")))
+                if (this.lObjDetalle.Exists(x => x.codProducto.StartsWith("0601") || x.codProducto.StartsWith("0303")))
                 {
                     result = true;
                 }
@@ -725,11 +726,8 @@ namespace GestionClubView.Venta
 
             if (this.ValidarItemParaFacturar()) { return; }
 
-            if (this.ValidarTotalSiEsDetraccion()) { return; }
+            //if (this.ValidarTotalSiEsDetraccion()) { return; }
 
-            if (this.ValidarItemParaTicket()) { return; }
-
-            if (this.ValidarComprobanteTicket()) { return; }
 
             //desea realizar la operacion?
             if (Mensaje.DeseasRealizarOperacion(this.eTitulo) == false) { return; }
