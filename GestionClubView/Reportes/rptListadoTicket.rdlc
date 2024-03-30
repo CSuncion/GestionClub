@@ -1590,7 +1590,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>REGISTRO DE TICKET</Value>
+                      <Value>RELACIÓN DE TICKETS EMITIDOS</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>

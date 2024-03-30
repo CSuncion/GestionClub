@@ -50,7 +50,7 @@ namespace GestionClubView.Maestros
 
             //ir a la bd
             GestionClubTipoCambioDto iOpEN = new GestionClubTipoCambioDto();
-            this.eLisTipoCambio = oOpe.ListarTipoCambio();
+            this.eLisTipoCambio = oOpe.ListarTipoCambio().OrderByDescending(x => x.FechaTipoCambio).ToList();
         }
         public void ActualizarDgvTipoCambio()
         {

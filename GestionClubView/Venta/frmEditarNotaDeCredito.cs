@@ -461,6 +461,7 @@ namespace GestionClubView.Venta
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
             pObj.obsComprobante = this.txtGlosa.Text;
             pObj.estadoComprobante = "05";
+            pObj.flagCancelado = false;
             pObj.idComprobante = Convert.ToInt32(this.txtIdNC.Text);
         }
 

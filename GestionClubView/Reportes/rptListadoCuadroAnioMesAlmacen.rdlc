@@ -1400,7 +1400,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.30733cm</Top>
-              <Left>15.1505cm</Left>
+              <Left>16.103cm</Left>
               <Height>0.46087cm</Height>
               <Width>0.74446cm</Width>
               <Style>
@@ -1431,7 +1431,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
               <Top>0.30732cm</Top>
-              <Left>15.93023cm</Left>
+              <Left>16.88273cm</Left>
               <Height>0.46087cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>1</ZIndex>
@@ -1463,7 +1463,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
               <Top>0.30391cm</Top>
-              <Left>17.69272cm</Left>
+              <Left>18.64522cm</Left>
               <Height>0.46428cm</Height>
               <Width>1.09771cm</Width>
               <ZIndex>2</ZIndex>
@@ -1495,7 +1495,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
               <Top>0.30392cm</Top>
-              <Left>17.10222cm</Left>
+              <Left>18.05472cm</Left>
               <Height>0.46427cm</Height>
               <Width>0.55522cm</Width>
               <ZIndex>3</ZIndex>
@@ -1527,7 +1527,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox45</rd:DefaultName>
               <Top>0.82253cm</Top>
-              <Left>15.93023cm</Left>
+              <Left>16.88273cm</Left>
               <Height>0.43101cm</Height>
               <Width>2.8602cm</Width>
               <ZIndex>4</ZIndex>
@@ -1559,7 +1559,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox13</rd:DefaultName>
               <Top>0.82253cm</Top>
-              <Left>14.75362cm</Left>
+              <Left>15.70612cm</Left>
               <Height>0.43912cm</Height>
               <Width>1.14134cm</Width>
               <ZIndex>5</ZIndex>
@@ -1646,7 +1646,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ALMACEN INGRESO Y SALIDA</Value>
+                      <Value>MOVIMIENTO ANUAL INGRESOS Y SALIDAS POR PRODUCTO</Value>
                       <Style>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1660,9 +1660,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox76</rd:DefaultName>
               <Top>0.29111cm</Top>
-              <Left>5.72406cm</Left>
-              <Height>0.62646cm</Height>
-              <Width>8.55081cm</Width>
+              <Left>5.29729cm</Left>
+              <Height>1.1cm</Height>
+              <Width>10.23245cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
                 <Border>
@@ -2247,6 +2247,70 @@
                 </RightBorder>
               </Style>
             </Rectangle>
+            <Textbox Name="Textbox39">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Año:</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox34</rd:DefaultName>
+              <Top>1.46167cm</Top>
+              <Left>8.44401cm</Left>
+              <Height>0.43365cm</Height>
+              <Width>0.98306cm</Width>
+              <ZIndex>9</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="anio">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Parameters!anio.Value</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>anio</rd:DefaultName>
+              <Top>1.43174cm</Top>
+              <Left>9.46235cm</Left>
+              <Height>0.46357cm</Height>
+              <Width>2.5cm</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -2345,6 +2409,10 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="anio">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -2355,6 +2423,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>userConsulta</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>anio</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

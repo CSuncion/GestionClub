@@ -78,8 +78,8 @@
             this.tsbAdicionar.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdicionar.Image")));
             this.tsbAdicionar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAdicionar.Name = "tsbAdicionar";
-            this.tsbAdicionar.Size = new System.Drawing.Size(88, 43);
-            this.tsbAdicionar.Text = "Ad. (FA, BV, TK)";
+            this.tsbAdicionar.Size = new System.Drawing.Size(104, 43);
+            this.tsbAdicionar.Text = "Ad. Comprobante";
             this.tsbAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAdicionar.Click += new System.EventHandler(this.tsbAdicionar_Click);
             // 
@@ -88,8 +88,8 @@
             this.tsbAnticipo.Image = ((System.Drawing.Image)(resources.GetObject("tsbAnticipo.Image")));
             this.tsbAnticipo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAnticipo.Name = "tsbAnticipo";
-            this.tsbAnticipo.Size = new System.Drawing.Size(81, 43);
-            this.tsbAnticipo.Text = "Ad. Ant. Dtra.";
+            this.tsbAnticipo.Size = new System.Drawing.Size(138, 43);
+            this.tsbAnticipo.Text = "Ad. Anticipo/Detracción";
             this.tsbAnticipo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAnticipo.Click += new System.EventHandler(this.tsbAnticipo_Click);
             // 
@@ -98,8 +98,8 @@
             this.tsbAdRegAnt.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdRegAnt.Image")));
             this.tsbAdRegAnt.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAdRegAnt.Name = "tsbAdRegAnt";
-            this.tsbAdRegAnt.Size = new System.Drawing.Size(78, 43);
-            this.tsbAdRegAnt.Text = "Ad. Reg. Ant.";
+            this.tsbAdRegAnt.Size = new System.Drawing.Size(112, 43);
+            this.tsbAdRegAnt.Text = "Ad. Regularización";
             this.tsbAdRegAnt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbAdRegAnt.Click += new System.EventHandler(this.tsbAdRegAnt_Click);
             // 
@@ -300,7 +300,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
         private System.Windows.Forms.DataGridView DgvComprobantes;
         private System.Windows.Forms.ToolStripButton tsbImprimir;
-        private System.Windows.Forms.ToolStripButton tsbAdRegAnt;
-        private System.Windows.Forms.ToolStripButton tsbAnticipo;
+        internal System.Windows.Forms.ToolStripButton tsbAdRegAnt;
+        internal System.Windows.Forms.ToolStripButton tsbAnticipo;
     }
 }

@@ -1,0 +1,51 @@
+operacion|generar_comprobante|
+tipo_de_comprobante|1|
+serie|FFF1|
+numero|0000155|
+sunat_transaction|4|
+cliente_tipo_de_documento|6|
+cliente_numero_de_documento|20609603331|
+cliente_denominacion|DAREL TRAVEL E.I.R.L|
+cliente_direccion|JESUS MARIA|
+cliente_email||
+cliente_email1||
+cliente_email2||
+fecha_de_emision|29-03-2024|
+fecha_de_vencimiento||
+moneda|1|
+tipo_de_cambio|3.700|
+porcentaje_de_igv|18.00|
+descuento_global||
+total_descuento||
+total_anticipo||
+total_gravada|1148.3050847457627118644067797|
+total_inafecta||
+total_exonerada||
+total_igv|206.69491525423728813559322035|
+total_gratuita||
+total_otros_cargos||
+total|1355.00|
+percepcion_tipo||
+percepcion_base_imponible||
+total_percepcion||
+total_incluido_percepcion||
+detraccion|true|
+observaciones|anticipo de alquiler de salon|
+documento_que_se_modifica_tipo||
+documento_que_se_modifica_serie||
+documento_que_se_modifica_numero||
+tipo_de_nota_de_credito||
+tipo_de_nota_de_debito||
+enviar_automaticamente_a_la_sunat|true|
+enviar_automaticamente_al_cliente|false|
+codigo_unico||
+condiciones_de_pago||
+medio_de_pago||
+placa_vehiculo||
+orden_compra_servicio||
+detraccion_tipo|17|
+detraccion_total|135.5000|
+medio_de_pago_detraccion|1|
+tabla_personalizada_codigo||
+formato_de_pdf||
+item|NIU|03030101|ALQUILER SALON BELTRAN -  ADELANTO|1|1148.3050847458|1355.0000000000||1148.3050847458|1|206.6949152542|1355.0000000000|false|||10000000|

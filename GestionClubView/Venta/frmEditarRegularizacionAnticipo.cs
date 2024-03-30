@@ -41,6 +41,7 @@ namespace GestionClubView.Venta
         public string NombreEmpresa = string.Empty, NroRuc = string.Empty, DireccionEmpresa = string.Empty, Ubigeo = string.Empty, Tlf = string.Empty, Email = string.Empty;
         public string rutaMesa = string.Empty, rutaCategoria = string.Empty, rutaProducto = string.Empty, RutaQR = string.Empty, RutaLogo = string.Empty;
         public decimal porcentajeDtra = 0;
+        public string enlacePdf = string.Empty;
         public frmEditarRegularizacionAnticipo()
         {
             InitializeComponent();
@@ -391,12 +392,14 @@ namespace GestionClubView.Venta
             cliente.nroIdentificacionCliente = iComEN.nroIdentificacionCliente;
             cliente = GestionClubClienteController.BuscarClienteXNroDocumento(cliente);
 
-            GenerarArchivoComprobante.ComprobanteElectronicoRegularizacionAnticipo(iComEN, this.lObjDetalle, iParEN, cliente);
-            string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
-
-            if (!this.AdicionarErrors(json, iComEN))
+            if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "03")
             {
-                this.AdicionarResultado(json);
+                GenerarArchivoComprobante.ComprobanteElectronicoRegularizacionAnticipo(iComEN, this.lObjDetalle, iParEN, cliente);
+                string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+                if (!this.AdicionarErrors(json, iComEN))
+                {
+                    this.AdicionarResultado(json);
+                }
             }
 
             return false;
@@ -423,21 +426,27 @@ namespace GestionClubView.Venta
         {
             string[] jsonArray = json.Split('|');
             GestionClubResultadoNubeFactDto resultado = new GestionClubResultadoNubeFactDto();
-            resultado.numero = jsonArray[1].ToString();
-            resultado.enlace = jsonArray[3].ToString();
-            resultado.sunat_ticket_numero = jsonArray[5].ToString();
-            resultado.aceptada_por_sunat = jsonArray[7].ToString();
-            resultado.sunat_description = jsonArray[9].ToString();
-            resultado.sunat_note = jsonArray[11].ToString();
-            resultado.sunat_responsecode = jsonArray[13].ToString();
-            resultado.sunat_soap_error = jsonArray[15].ToString();
-            resultado.pdf_zip_base64 = jsonArray[17].ToString();
-            resultado.xml_zip_base64 = jsonArray[19].ToString();
-            resultado.cdr_zip_base64 = jsonArray[21].ToString();
-            resultado.key = jsonArray[23].ToString();
-            resultado.enlace_del_pdf = jsonArray[25].ToString();
-            resultado.enlace_del_xml = jsonArray[27].ToString();
-            resultado.enlace_del_cdr = jsonArray[29].ToString();
+            resultado.tipo_de_comprobante = jsonArray[1].ToString();
+            resultado.serie = jsonArray[3].ToString();
+            resultado.numero = jsonArray[5].ToString();
+            resultado.enlace = jsonArray[7].ToString();
+            resultado.sunat_ticket_numero = string.Empty;
+            resultado.aceptada_por_sunat = jsonArray[9].ToString();
+            resultado.sunat_description = jsonArray[11].ToString();
+            resultado.sunat_note = jsonArray[13].ToString();
+            resultado.sunat_responsecode = jsonArray[15].ToString();
+            resultado.sunat_soap_error = jsonArray[17].ToString();
+            resultado.anulado = jsonArray[19].ToString();
+            resultado.pdf_zip_base64 = jsonArray[21].ToString();
+            resultado.xml_zip_base64 = jsonArray[23].ToString();
+            resultado.cdr_zip_base64 = jsonArray[25].ToString();
+            resultado.cadena_para_codigo_qr = jsonArray[27].ToString() + "|" + jsonArray[28].ToString() + "|" + jsonArray[29].ToString() + "|" + jsonArray[30].ToString() + "|" + jsonArray[31].ToString() + "|" + jsonArray[32].ToString() + "|" + jsonArray[33].ToString() + "|" + jsonArray[34].ToString() + "|" + jsonArray[35].ToString() + "|" + jsonArray[36].ToString() + "|" + jsonArray[37].ToString();
+            resultado.codigo_hash = jsonArray[39].ToString();
+            resultado.key = string.Empty;
+            this.enlacePdf = jsonArray[41].ToString();
+            resultado.enlace_del_pdf = jsonArray[41].ToString();
+            resultado.enlace_del_xml = jsonArray[43].ToString();
+            resultado.enlace_del_cdr = jsonArray[45].ToString();
             GestionClubResultadoNubeFactController.AdicionarResultadoNubeFact(resultado);
         }
         public void AsignarComprobante(GestionClubComprobanteDto pObj)
@@ -648,6 +657,8 @@ namespace GestionClubView.Venta
             Mensaje.OperacionSatisfactoria("El comprobante se adiciono correctamente", this.eTitulo);
 
             this.ImprimirComprobante();
+            if (this.enlacePdf != string.Empty)
+                System.Diagnostics.Process.Start(this.enlacePdf);
 
             this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();

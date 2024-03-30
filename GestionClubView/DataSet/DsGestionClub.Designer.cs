@@ -8540,6 +8540,8 @@ namespace GestionClubView.DataSet {
             
             private global::System.Data.DataColumn columndesCategoria;
             
+            private global::System.Data.DataColumn columnidCategoria;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public isp_ResumenAnioMesAlmacenDataTable() {
@@ -8703,6 +8705,14 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn idCategoriaColumn {
+                get {
+                    return this.columnidCategoria;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -8738,7 +8748,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public isp_ResumenAnioMesAlmacenRow Addisp_ResumenAnioMesAlmacenRow(string AnoProceso, string MesProceso, string CodigoProducto, decimal SaldoAnterior, decimal PrecioCostoAnterior, decimal AcumulngresosMes, decimal AcumulSalidasMes, decimal SaldoNuevo, decimal PrecioCostoNuevo, string Mes, string desProducto, int idEmpresa, string IdCodAlmacen, bool FlagProcesado, string desCategoria) {
+            public isp_ResumenAnioMesAlmacenRow Addisp_ResumenAnioMesAlmacenRow(
+                        string AnoProceso, 
+                        string MesProceso, 
+                        string CodigoProducto, 
+                        decimal SaldoAnterior, 
+                        decimal PrecioCostoAnterior, 
+                        decimal AcumulngresosMes, 
+                        decimal AcumulSalidasMes, 
+                        decimal SaldoNuevo, 
+                        decimal PrecioCostoNuevo, 
+                        string Mes, 
+                        string desProducto, 
+                        int idEmpresa, 
+                        string IdCodAlmacen, 
+                        bool FlagProcesado, 
+                        string desCategoria, 
+                        string idCategoria) {
                 isp_ResumenAnioMesAlmacenRow rowisp_ResumenAnioMesAlmacenRow = ((isp_ResumenAnioMesAlmacenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         AnoProceso,
@@ -8756,7 +8782,8 @@ namespace GestionClubView.DataSet {
                         idEmpresa,
                         IdCodAlmacen,
                         FlagProcesado,
-                        desCategoria};
+                        desCategoria,
+                        idCategoria};
                 rowisp_ResumenAnioMesAlmacenRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowisp_ResumenAnioMesAlmacenRow);
                 return rowisp_ResumenAnioMesAlmacenRow;
@@ -8802,6 +8829,7 @@ namespace GestionClubView.DataSet {
                 this.columnIdCodAlmacen = base.Columns["IdCodAlmacen"];
                 this.columnFlagProcesado = base.Columns["FlagProcesado"];
                 this.columndesCategoria = base.Columns["desCategoria"];
+                this.columnidCategoria = base.Columns["idCategoria"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8839,6 +8867,8 @@ namespace GestionClubView.DataSet {
                 base.Columns.Add(this.columnFlagProcesado);
                 this.columndesCategoria = new global::System.Data.DataColumn("desCategoria", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndesCategoria);
+                this.columnidCategoria = new global::System.Data.DataColumn("idCategoria", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidCategoria);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdResumenAlmacen}, true));
                 this.columnAnoProceso.MaxLength = 5;
@@ -8855,6 +8885,7 @@ namespace GestionClubView.DataSet {
                 this.columnidEmpresa.AllowDBNull = false;
                 this.columnIdCodAlmacen.MaxLength = 4;
                 this.columndesCategoria.MaxLength = 50;
+                this.columnidCategoria.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -20670,6 +20701,23 @@ namespace GestionClubView.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string idCategoria {
+                get {
+                    try {
+                        return ((string)(this[this.tableisp_ResumenAnioMesAlmacen.idCategoriaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'idCategoria\' de la tabla \'isp_ResumenAnioMesAlmacen\' es D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableisp_ResumenAnioMesAlmacen.idCategoriaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAnoProcesoNull() {
                 return this.IsNull(this.tableisp_ResumenAnioMesAlmacen.AnoProcesoColumn);
             }
@@ -20834,6 +20882,18 @@ namespace GestionClubView.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetdesCategoriaNull() {
                 this[this.tableisp_ResumenAnioMesAlmacen.desCategoriaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsidCategoriaNull() {
+                return this.IsNull(this.tableisp_ResumenAnioMesAlmacen.idCategoriaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetidCategoriaNull() {
+                this[this.tableisp_ResumenAnioMesAlmacen.idCategoriaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -27619,6 +27679,7 @@ namespace GestionClubView.DataSet.DsGestionClubTableAdapters {
             tableMapping.ColumnMappings.Add("IdCodAlmacen", "IdCodAlmacen");
             tableMapping.ColumnMappings.Add("FlagProcesado", "FlagProcesado");
             tableMapping.ColumnMappings.Add("desCategoria", "desCategoria");
+            tableMapping.ColumnMappings.Add("idCategoria", "idCategoria");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

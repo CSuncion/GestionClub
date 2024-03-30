@@ -2,6 +2,7 @@
 using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
+using GestionClubView.Informatica;
 using GestionClubView.MdiPrincipal;
 using QRCoder;
 using System;
@@ -25,6 +26,7 @@ namespace GestionClubView.Venta
 {
     public partial class frmComprobantes : Form
     {
+        public frmPrincipal wFrm;
         public string eTitulo = "Comprobante";
         int eVaBD = 1;//0 : no , 1 : si
         public List<GestionClubComprobanteDto> eLisComp = new List<GestionClubComprobanteDto>();
@@ -709,6 +711,23 @@ namespace GestionClubView.Venta
             TabCtrl.InsertarVentana(this, win);
             win.VentanaAdicionar();
         }
+        public void InstanciarAnticipoAprobacionClave()
+        {
+            frmAprobacionClave win = new frmAprobacionClave();
+            win.wCom = this;
+            win.Accion = "Anticipo";
+            TabCtrl.InsertarVentana(this, win);
+            win.NewWindow();
+        }
+
+        public void InstanciarRegularizacionAprobacionClave()
+        {
+            frmAprobacionClave win = new frmAprobacionClave();
+            win.wCom = this;
+            win.Accion = "Regularizacion";
+            TabCtrl.InsertarVentana(this, win);
+            win.NewWindow();
+        }
 
         public void AccionAdicionarRegularizarAnticipo()
         {
@@ -766,12 +785,12 @@ namespace GestionClubView.Venta
 
         private void tsbAnticipo_Click(object sender, EventArgs e)
         {
-            this.AccionAdicionarAnticipo();
+            this.InstanciarAnticipoAprobacionClave();
         }
 
         private void tsbAdRegAnt_Click(object sender, EventArgs e)
         {
-            this.AccionAdicionarRegularizarAnticipo();
+            this.InstanciarRegularizacionAprobacionClave();
         }
 
         private void tsbAnterior_Click(object sender, EventArgs e)

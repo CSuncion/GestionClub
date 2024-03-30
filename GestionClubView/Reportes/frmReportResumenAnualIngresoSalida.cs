@@ -46,9 +46,10 @@ namespace GestionClubView.Reportes
                 rds.Name = "dsCuadroAnoMesAlmacen";
                 rds.Value = GestionClubResumenAlmacenController.CuadroAnualIngresoYSalida(this.wFrm.txtAnio.Text);
 
-                ReportParameter[] rp = new ReportParameter[1];
+                ReportParameter[] rp = new ReportParameter[2];
 
                 rp[0] = new ReportParameter("userConsulta", Universal.gNombreUsuario);
+                rp[1] = new ReportParameter("anio", this.wFrm.txtAnio.Text);
 
                 this.rpvResumenAnualProducto.Reset();
                 this.rpvResumenAnualProducto.LocalReport.ReportEmbeddedResource = nombreReporte;

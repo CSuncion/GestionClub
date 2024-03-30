@@ -3,6 +3,7 @@ using GestionClubController.Controller;
 using GestionClubModel.ModelDto;
 using GestionClubUtil.Util;
 using GestionClubView.MdiPrincipal;
+using GestionClubView.Venta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace GestionClubView.Informatica
         GestionClubAccessController oAccess = new GestionClubAccessController();
         UtilGestionClub utilGestionClub = new UtilGestionClub();
         public frmPrincipal wfrm;
+        public frmComprobantes wCom;
+        public string Accion = string.Empty;
         public frmAprobacionClave()
         {
             InitializeComponent();
@@ -28,6 +31,14 @@ namespace GestionClubView.Informatica
         public void NewWindow()
         {
             this.Show();
+            if (this.Accion == "Anticipo")
+            {
+                this.wCom.Enabled = false;
+            }
+            else if (this.Accion == "Regularizacion")
+            {
+                this.wCom.Enabled = false;
+            }
         }
         public void AceptarAprobacion()
         {
@@ -44,9 +55,24 @@ namespace GestionClubView.Informatica
             {
                 if (item.ClaveAprobador.Trim() == UtilGestionClub.Encripta(this.txtClave.Text.Trim()))
                 {
-                    this.wfrm.InstanciarNotaDeCredito();
-                    this.Close();
-                    return;
+                    if (this.Accion == "NotaCredito")
+                    {
+                        this.wfrm.InstanciarNotaDeCredito();
+                        this.Close();
+                        return;
+                    }
+                    else if (this.Accion == "Anticipo")
+                    {
+                        this.wCom.AccionAdicionarAnticipo();
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                        this.wCom.AccionAdicionarRegularizarAnticipo();
+                        this.Close();
+                        return;
+                    }
                 }
             }
             Mensaje.OperacionDenegada("No ha ingresado correctamente la clave.", "Aprobar Proceso");
@@ -64,12 +90,28 @@ namespace GestionClubView.Informatica
 
         private void tsbSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.Accion == "NotaCredito")
+            {
+                this.Close();
+            }
+            else if (this.Accion == "Anticipo")
+            {
+                this.Close();
+                this.wCom.Enabled = true;
+            }
+            else
+            {
+                this.Close();
+                this.wCom.Enabled = true;
+            }
         }
 
         private void frmAprobacionClave_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Cerrar();
+            if (this.Accion == "NotaCredito")
+            {
+                this.Cerrar();
+            }
         }
     }
 }

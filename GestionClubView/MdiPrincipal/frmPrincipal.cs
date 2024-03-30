@@ -383,6 +383,7 @@ namespace GestionClubView.MdiPrincipal
             frmAprobacionClave win = new frmAprobacionClave();
             this.FormatoVentanaHijoPrincipal(win, this.tsmNotaCredito, null, 0, 0);
             win.wfrm = this;
+            win.Accion = "NotaCredito";
             win.NewWindow();
         }
         public void InstanciarAjusteIngresos()

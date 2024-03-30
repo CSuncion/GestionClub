@@ -41,6 +41,7 @@ namespace GestionClubView.Venta
         public bool aplicaDetra = false;
         public decimal porcentajeDtra = 0;
         Dgv.Franja eFranjaDgvCliente = Dgv.Franja.PorIndice;
+        public string enlacePdf = string.Empty;
         public frmEditarAnticipo()
         {
             InitializeComponent();
@@ -456,6 +457,7 @@ namespace GestionClubView.Venta
             resultado.cadena_para_codigo_qr = jsonArray[27].ToString() + "|" + jsonArray[28].ToString() + "|" + jsonArray[29].ToString() + "|" + jsonArray[30].ToString() + "|" + jsonArray[31].ToString() + "|" + jsonArray[32].ToString() + "|" + jsonArray[33].ToString() + "|" + jsonArray[34].ToString() + "|" + jsonArray[35].ToString() + "|" + jsonArray[36].ToString() + "|" + jsonArray[37].ToString();
             resultado.codigo_hash = jsonArray[39].ToString();
             resultado.key = string.Empty;
+            this.enlacePdf = jsonArray[41].ToString();
             resultado.enlace_del_pdf = jsonArray[41].ToString();
             resultado.enlace_del_xml = jsonArray[43].ToString();
             resultado.enlace_del_cdr = jsonArray[45].ToString();
@@ -747,6 +749,8 @@ namespace GestionClubView.Venta
 
 
             this.ImprimirComprobante(detallado, 1);
+            if (this.enlacePdf != string.Empty)
+                System.Diagnostics.Process.Start(this.enlacePdf);
 
             this.wFrm.eClaveDgvComprobante = this.ObtenerIdComprobante();
             this.wFrm.ActualizarVentana();

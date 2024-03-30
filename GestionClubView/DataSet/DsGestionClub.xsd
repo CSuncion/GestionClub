@@ -555,6 +555,7 @@
               <Mapping SourceColumn="IdCodAlmacen" DataSetColumn="IdCodAlmacen" />
               <Mapping SourceColumn="FlagProcesado" DataSetColumn="FlagProcesado" />
               <Mapping SourceColumn="desCategoria" DataSetColumn="desCategoria" />
+              <Mapping SourceColumn="idCategoria" DataSetColumn="idCategoria" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1455,15 +1456,15 @@
             <xs:sequence>
               <xs:element name="ANIO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="ANIOColumn" msprop:Generator_ColumnPropNameInRow="ANIO" msprop:Generator_UserColumnName="ANIO" msprop:Generator_ColumnVarNameInTable="columnANIO" type="xs:int" minOccurs="0" />
               <xs:element name="CANTIDAD" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" type="xs:int" minOccurs="0" />
-              <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MONTO" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_ColumnVarNameInTable="columnMONTO" type="xs:decimal" minOccurs="0" />
-              <xs:element name="MES" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MES" msprop:Generator_ColumnPropNameInTable="MESColumn" msprop:Generator_ColumnPropNameInRow="MES" msprop:Generator_ColumnVarNameInTable="columnMES" minOccurs="0">
+              <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_UserColumnName="MONTO" msprop:Generator_ColumnVarNameInTable="columnMONTO" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MES" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MESColumn" msprop:Generator_ColumnPropNameInRow="MES" msprop:Generator_UserColumnName="MES" msprop:Generator_ColumnVarNameInTable="columnMES" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="desMes" msprop:Generator_UserColumnName="desMes" msprop:Generator_ColumnPropNameInTable="desMesColumn" msprop:Generator_ColumnPropNameInRow="desMes" msprop:Generator_ColumnVarNameInTable="columndesMes" minOccurs="0">
+              <xs:element name="desMes" msprop:Generator_ColumnPropNameInTable="desMesColumn" msprop:Generator_ColumnPropNameInRow="desMes" msprop:Generator_UserColumnName="desMes" msprop:Generator_ColumnVarNameInTable="columndesMes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
@@ -1486,14 +1487,14 @@
               <xs:element name="ANIO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="ANIOColumn" msprop:Generator_ColumnPropNameInRow="ANIO" msprop:Generator_UserColumnName="ANIO" msprop:Generator_ColumnVarNameInTable="columnANIO" type="xs:int" minOccurs="0" />
               <xs:element name="CANTIDAD" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="CANTIDADColumn" msprop:Generator_ColumnPropNameInRow="CANTIDAD" msprop:Generator_UserColumnName="CANTIDAD" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD" type="xs:int" minOccurs="0" />
               <xs:element name="MONTO" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MONTOColumn" msprop:Generator_ColumnPropNameInRow="MONTO" msprop:Generator_UserColumnName="MONTO" msprop:Generator_ColumnVarNameInTable="columnMONTO" type="xs:decimal" minOccurs="0" />
-              <xs:element name="MES" msdata:ReadOnly="true" msprop:Generator_UserColumnName="MES" msprop:Generator_ColumnPropNameInTable="MESColumn" msprop:Generator_ColumnPropNameInRow="MES" msprop:Generator_ColumnVarNameInTable="columnMES" minOccurs="0">
+              <xs:element name="MES" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="MESColumn" msprop:Generator_ColumnPropNameInRow="MES" msprop:Generator_UserColumnName="MES" msprop:Generator_ColumnVarNameInTable="columnMES" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="desMes" msprop:Generator_UserColumnName="desMes" msprop:Generator_ColumnPropNameInTable="desMesColumn" msprop:Generator_ColumnPropNameInRow="desMes" msprop:Generator_ColumnVarNameInTable="columndesMes" minOccurs="0">
+              <xs:element name="desMes" msprop:Generator_ColumnPropNameInTable="desMesColumn" msprop:Generator_ColumnPropNameInRow="desMes" msprop:Generator_UserColumnName="desMes" msprop:Generator_ColumnVarNameInTable="columndesMes" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
@@ -2019,6 +2020,13 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idCategoria" msprop:Generator_ColumnPropNameInRow="idCategoria" msprop:Generator_ColumnPropNameInTable="idCategoriaColumn" msprop:Generator_ColumnVarNameInTable="columnidCategoria" msprop:Generator_UserColumnName="idCategoria" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -973,7 +973,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>VENTA ANUAL - MENSUALES</Value>
+                      <Value>CUADRO ESTADISTICO POR TIPO DE DOCUMENTO</Value>
                       <Style>
                         <FontFamily>calibri</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -1020,7 +1020,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox34</rd:DefaultName>
               <Top>1.15563cm</Top>
-              <Left>9.55393cm</Left>
+              <Left>10.18893cm</Left>
               <Height>0.49885cm</Height>
               <Width>0.98306cm</Width>
               <ZIndex>8</ZIndex>
@@ -1052,9 +1052,9 @@
               </Paragraphs>
               <rd:DefaultName>anio</rd:DefaultName>
               <Top>1.15563cm</Top>
-              <Left>10.57227cm</Left>
+              <Left>11.20727cm</Left>
               <Height>0.49885cm</Height>
-              <Width>2.5cm</Width>
+              <Width>1.91792cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
                 <Border>
