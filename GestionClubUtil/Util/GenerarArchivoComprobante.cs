@@ -79,14 +79,14 @@ namespace GestionClubUtil.Util
                 outputFile.WriteLine("total_percepcion||");
                 outputFile.WriteLine("total_incluido_percepcion||");
                 outputFile.WriteLine("detraccion|" + (objCabecera.impDtrComprobante > 0 ? "true" : "false") + "|");
-                outputFile.WriteLine("observaciones||");
+                outputFile.WriteLine("observaciones|" + objCabecera.obsComprobante + "|");
                 outputFile.WriteLine("documento_que_se_modifica_tipo||");
                 outputFile.WriteLine("documento_que_se_modifica_serie||");
                 outputFile.WriteLine("documento_que_se_modifica_numero||");
                 outputFile.WriteLine("tipo_de_nota_de_credito||");
                 outputFile.WriteLine("tipo_de_nota_de_debito||");
                 outputFile.WriteLine("enviar_automaticamente_a_la_sunat|true|");
-                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "true") + "|");
+                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "false") + "|");
                 outputFile.WriteLine("codigo_unico||");
                 outputFile.WriteLine("condiciones_de_pago||");
                 outputFile.WriteLine("medio_de_pago||");
@@ -224,7 +224,7 @@ namespace GestionClubUtil.Util
                 outputFile.WriteLine("tipo_de_nota_de_credito||");
                 outputFile.WriteLine("tipo_de_nota_de_debito||");
                 outputFile.WriteLine("enviar_automaticamente_a_la_sunat|true|");
-                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "true") + "|");
+                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "false") + "|");
                 outputFile.WriteLine("codigo_unico||");
                 outputFile.WriteLine("condiciones_de_pago||");
                 outputFile.WriteLine("medio_de_pago||");
@@ -339,7 +339,7 @@ GestionClubClienteDto cliente)
                 outputFile.WriteLine("tipo_de_nota_de_credito||");
                 outputFile.WriteLine("tipo_de_nota_de_debito||");
                 outputFile.WriteLine("enviar_automaticamente_a_la_sunat|true|");
-                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "true") + "|");
+                outputFile.WriteLine("enviar_automaticamente_al_cliente|" + (cliente.emailCliente == string.Empty ? "false" : "false") + "|");
                 outputFile.WriteLine("codigo_unico||");
                 outputFile.WriteLine("condiciones_de_pago||");
                 outputFile.WriteLine("medio_de_pago||");

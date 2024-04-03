@@ -933,7 +933,7 @@ namespace GestionClubView.Venta
             int cantidadCheck = 0;
 
             if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
+            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "TARJETA"; }
             if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
             if (cantidadCheck > 1) modoPago = "MIXTO";
 

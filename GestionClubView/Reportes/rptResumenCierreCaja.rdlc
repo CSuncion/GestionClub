@@ -372,7 +372,6 @@
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
-                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
@@ -1459,7 +1458,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>DEPOSITO</Value>
+                          <Value>TARJETA</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -1517,7 +1516,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>TARJETA</Value>
+                          <Value>TRANSFERENCIA</Value>
                           <Style>
                             <FontFamily>calibri</FontFamily>
                             <FontSize>8pt</FontSize>

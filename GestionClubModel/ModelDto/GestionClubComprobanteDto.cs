@@ -65,7 +65,7 @@ namespace GestionClubModel.ModelDto
         public string codMoneda { get; set; } = "01";
         public string desMoneda { get; set; }
         public decimal impCambio { get; set; }
-        public string serGuiaComprobante { get; set; }
+        public string serGuiaComprobante { get; set; } = string.Empty;
         public string nroGuiaComprobante { get; set; }
         public DateTime fecGuiaComprobante { get; set; } = DateTime.Now;
         public int idNroComanda { get; set; }

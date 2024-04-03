@@ -54,7 +54,7 @@ namespace GestionClubView.Reportes
         public void Cerrar()
         {
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
-            wMen.CerrarVentanaHijo(this, wMen.tsmRegistroVentas, null);
+            wMen.CerrarVentanaHijo(this, wMen.tsmRegistroTicket, null);
         }
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {

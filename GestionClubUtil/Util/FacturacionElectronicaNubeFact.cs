@@ -67,6 +67,7 @@ namespace GestionClubUtil.Util
             /// # - Adjuntar en el CUERPO o BODY el archivo JSON o TXT
             /// +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+            //string json_de_respuesta = "||";
             string json_de_respuesta = SendJson(ruta, txt_en_utf_8, token);
 
             ///#########################################################

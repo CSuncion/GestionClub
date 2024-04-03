@@ -2597,7 +2597,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>0.29148cm</Left>
               <Height>0.6cm</Height>
               <Width>4.06104cm</Width>
@@ -2628,7 +2627,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>userConsulta</rd:DefaultName>
-              <Top>0cm</Top>
               <Left>4.52891cm</Left>
               <Height>0.6cm</Height>
               <Width>9.69667cm</Width>

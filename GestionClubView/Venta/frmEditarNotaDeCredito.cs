@@ -69,6 +69,8 @@ namespace GestionClubView.Venta
             this.MostrarComprobanteDeta();
             this.MostrarTipoCambio();
             eMas.AccionHabilitarControles(3);
+            this.tsbGrabar.Enabled = false;
+            this.btnQuitar.Enabled = false;
         }
         public void InicializaVentana()
         {
@@ -452,10 +454,19 @@ namespace GestionClubView.Venta
             pObj.impEfeComprobante = 0;
             pObj.impDepComprobante = 0;
             pObj.impTarComprobante = 0;
-            pObj.impBruComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
-            pObj.impIgvComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+
+            decimal precioReal = this.lObjDetalle.Exists(x => x.desProducto.ToLower().Contains("cancela")) ?
+                (Convert.ToDecimal(this.lObjDetalle.Where(x => x.desProducto.ToLower().Contains("cancela")).Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)))
+                : (Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
+
+            pObj.impBruComprobante = precioReal;
+
+            pObj.impIgvComprobante = precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
+
             pObj.impNetComprobante = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal));
+
             pObj.impDtrComprobante = 0;
+
             pObj.idCliente = Convert.ToInt32(this.txtIdCliente.Text);
             pObj.nombreRazSocialCliente = this.txtApeNom.Text;
             pObj.nroIdentificacionCliente = this.txtDocId.Text;
@@ -532,7 +543,7 @@ namespace GestionClubView.Venta
             this.txtSerDoc.Text = pObj.serComprobante;
             this.txtNroDoc.Text = pObj.nroComprobante;
             this.cboTipDoc.SelectedValue = "04";
-            this.cboTipoDocCmp.SelectedValue = pObj.tipMovComprobante;
+            this.cboTipoDocCmp.SelectedValue = pObj.serGuiaComprobante == string.Empty ? "01" : pObj.serGuiaComprobante.Substring(0, 1) == "F" ? "01" : "02";
             this.txtSerComprobante.Text = pObj.serGuiaComprobante;
             this.txtNroComprobante.Text = pObj.nroGuiaComprobante;
             this.dtpFecCmp.Value = pObj.fecGuiaComprobante;
@@ -783,12 +794,15 @@ namespace GestionClubView.Venta
             g.DrawString("Cajero:", fBody, sb, 10, SPACE + 60);
             g.DrawString(Universal.gNombreUsuario, fBodyNoBold, sb, 90, SPACE + 60);
 
+            g.DrawString("Referencia:", fBody, sb, 10, SPACE + 75);
+            g.DrawString(iComEN.serGuiaComprobante + " - " + iComEN.nroGuiaComprobante, fBodyNoBold, sb, 90, SPACE + 75);
+
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
             g.DrawString("", fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
-            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
-            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("Cant.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
@@ -805,7 +819,7 @@ namespace GestionClubView.Venta
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));
-                g.DrawString(item.desProducto, fBodyNoBold, sb, 50, SPACE + (saltoLinea));
+                g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
                 g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
 
 

@@ -444,11 +444,11 @@
             // 
             this.chDeposito.AutoSize = true;
             this.chDeposito.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chDeposito.Location = new System.Drawing.Point(56, 89);
+            this.chDeposito.Location = new System.Drawing.Point(43, 89);
             this.chDeposito.Name = "chDeposito";
-            this.chDeposito.Size = new System.Drawing.Size(53, 18);
+            this.chDeposito.Size = new System.Drawing.Size(66, 18);
             this.chDeposito.TabIndex = 455;
-            this.chDeposito.Text = "Visa:";
+            this.chDeposito.Text = "Tarjeta:";
             this.chDeposito.UseVisualStyleBackColor = true;
             this.chDeposito.CheckedChanged += new System.EventHandler(this.chDeposito_CheckedChanged);
             // 

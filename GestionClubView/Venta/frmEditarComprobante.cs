@@ -337,16 +337,16 @@ namespace GestionClubView.Venta
             }
 
             this.aplicaDetra = false;
-            if (obj.codProducto.StartsWith("06"))
-            {
-                if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "01")
-                {
-                    this.cboTipDoc.SelectedValue = "01";
-                    this.aplicaDetra = true;
-                    this.LimpiarCliente();
-                    this.GenerarCorrelativo();
-                }
-            }
+            //if (obj.codProducto.StartsWith("06"))
+            //{
+            //    if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "01")
+            //    {
+            //        this.cboTipDoc.SelectedValue = "01";
+            //        this.aplicaDetra = true;
+            //        this.LimpiarCliente();
+            //        this.GenerarCorrelativo();
+            //    }
+            //}
             GestionClubProductoDto objProd = new GestionClubProductoDto();
             objProd.idProducto = obj.idProducto;
             objProd = GestionClubProductoController.BuscarProductoXId(objProd);
@@ -720,9 +720,9 @@ namespace GestionClubView.Venta
 
             if (this.ValidaPagoPendiente() == false) { return; };
 
-            if (this.ValidarItemParaFacturar()) { return; }
+            //if (this.ValidarItemParaFacturar()) { return; }
 
-            if (this.ValidarTotalSiEsDetraccion()) { return; }
+            //if (this.ValidarTotalSiEsDetraccion()) { return; }
 
             if (this.ValidarItemParaTicket()) { return; }
 
@@ -928,7 +928,7 @@ namespace GestionClubView.Venta
             int cantidadCheck = 0;
 
             if (this.chEfectivo.Checked) { cantidadCheck++; modoPago = "EFECTIVO"; }
-            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "DEPOSITO"; }
+            if (this.chDeposito.Checked) { cantidadCheck++; modoPago = "TARJETA"; }
             if (this.chTransferencia.Checked) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
             if (cantidadCheck > 1) modoPago = "MIXTO";
 
@@ -1026,9 +1026,9 @@ namespace GestionClubView.Venta
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
             g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
-            g.DrawString("P. Unit.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
-            g.DrawString("Cant.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
@@ -1199,9 +1199,9 @@ namespace GestionClubView.Venta
             g.DrawString("Forma de Pago:", fBody, sb, 10, SPACE + 95);
             g.DrawString(this.modoDescriPago(), fBodyNoBold, sb, 90, SPACE + 95); ;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 100);
-            g.DrawString("P. Unit.", fBody, sb, 10, SPACE + 115);
+            g.DrawString("Cant.", fBody, sb, 10, SPACE + 115);
             g.DrawString("Descripción", fBody, sb, 80, SPACE + 115);
-            g.DrawString("Cant.", fBody, sb, 180, SPACE + 115);
+            g.DrawString("P. Unit.", fBody, sb, 180, SPACE + 115);
             g.DrawString("Total", fBody, sb, 230, SPACE + 115);
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + 120);
 
@@ -1217,9 +1217,9 @@ namespace GestionClubView.Venta
             foreach (GestionClubDetalleComprobanteDto item in this.lObjDetalle)
             {
                 saltoLinea = saltoLinea + 15;
-                g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));
+                g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
                 g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
-                g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
+                g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 180, SPACE + (saltoLinea));
 
 
                 string precioPorCantidad = ((Convert.ToDecimal(item.preVenta) * Convert.ToInt32(item.cantidad))).ToString();
