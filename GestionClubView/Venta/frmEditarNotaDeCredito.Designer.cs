@@ -45,6 +45,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtTipoCambio = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtGlosa = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtNroDoc = new System.Windows.Forms.TextBox();
@@ -84,8 +86,6 @@
             this.cboTipoDocCmp = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtTipoCambio = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -285,6 +285,24 @@
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
             // 
+            // txtTipoCambio
+            // 
+            this.txtTipoCambio.Location = new System.Drawing.Point(494, 57);
+            this.txtTipoCambio.MaxLength = 8;
+            this.txtTipoCambio.Name = "txtTipoCambio";
+            this.txtTipoCambio.Size = new System.Drawing.Size(70, 21);
+            this.txtTipoCambio.TabIndex = 465;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(426, 59);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 14);
+            this.label16.TabIndex = 464;
+            this.label16.Text = "T. Cambio:";
+            // 
             // txtGlosa
             // 
             this.txtGlosa.Location = new System.Drawing.Point(51, 57);
@@ -447,7 +465,7 @@
             // 
             this.nudCantidadProducto.Location = new System.Drawing.Point(464, 16);
             this.nudCantidadProducto.Maximum = new decimal(new int[] {
-            200,
+            999,
             0,
             0,
             0});
@@ -688,24 +706,6 @@
             this.label20.Size = new System.Drawing.Size(189, 19);
             this.label20.TabIndex = 449;
             this.label20.Text = "DATOS DE COMPROBANTE";
-            // 
-            // txtTipoCambio
-            // 
-            this.txtTipoCambio.Location = new System.Drawing.Point(494, 57);
-            this.txtTipoCambio.MaxLength = 8;
-            this.txtTipoCambio.Name = "txtTipoCambio";
-            this.txtTipoCambio.Size = new System.Drawing.Size(70, 21);
-            this.txtTipoCambio.TabIndex = 465;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(426, 59);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 14);
-            this.label16.TabIndex = 464;
-            this.label16.Text = "T. Cambio:";
             // 
             // frmEditarNotaDeCredito
             // 

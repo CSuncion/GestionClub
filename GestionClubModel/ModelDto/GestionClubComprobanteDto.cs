@@ -84,6 +84,7 @@ namespace GestionClubModel.ModelDto
         public decimal impNetComprobante { get; set; } = 0;
         public decimal impDtrComprobante { get; set; } = 0;
         public decimal impAnticipoComprobante { get; set; } = 0;
+        public decimal impRealComprobante { get; set; } = 0;
         public int idCliente { get; set; }
         public string nroIdentificacionCliente { get; set; }
         public string nombreRazSocialCliente { get; set; }

@@ -80,6 +80,17 @@ namespace GestionClubView.Stock_Restaurante
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
         }
+        public void VentanaVisualizar(GestionClubComprobanteAlmacenDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            //this.MostrarTipoCambio();
+            eMas.AccionHabilitarControles(3);
+            this.tsbGrabar.Enabled = false;
+            this.btnQuitar.Enabled = false;
+        }
         public void InicializaVentana()
         {
             //titulo ventana
@@ -339,6 +350,7 @@ namespace GestionClubView.Stock_Restaurante
         }
         public void AsignarComprobanteAlmacen(GestionClubComprobanteAlmacenDto pObj)
         {
+            List<GestionClubParametroDto> iParEN = GestionClubParametroController.ListarParametro();
             pObj.idEmpresa = Convert.ToInt32(Universal.gIdEmpresa);
             pObj.tipFactura = Cmb.ObtenerValor(this.cboTipDoc, string.Empty);
             pObj.serFactura = this.txtSerDoc.Text.Trim();
@@ -353,9 +365,14 @@ namespace GestionClubView.Stock_Restaurante
             pObj.fecGui = DateTime.Now;
             //pObj.modPagoComprobante = this.modoPago();
             pObj.tipoMovimiento = "10";
-            pObj.totVta = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) - Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
-            pObj.totIgv = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) * Convert.ToDecimal(0.18);
-            pObj.totBru = Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto));
+
+            decimal precioReal = (Convert.ToDecimal(this.lObjDetalle.Sum(x => x.totCosto)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
+
+            pObj.totVta = precioReal;
+            pObj.totIgv = precioReal * Convert.ToDecimal(iParEN.FirstOrDefault().PorcentajeIgv / 100);
+            pObj.totBru = precioReal + pObj.totIgv;
+
+
             //pObj.impD trComprobante = 0;
             pObj.tipCliente = this.txtTipoDoc.Text;
             pObj.nroRuc = Convert.ToString(this.txtDocId.Text);
@@ -610,7 +627,7 @@ namespace GestionClubView.Stock_Restaurante
             //mensaje satisfactorio
             Mensaje.OperacionSatisfactoria("El Comprobante se modifico correctamente", this.wFrm.eTitulo);
 
-            this.ImprimirComprobante();
+            //this.ImprimirComprobante();
 
             //actualizar al wUsu
             this.wFrm.eClaveDgvComprobanteAlmacen = this.ObtenerIdComprobante();
@@ -859,7 +876,7 @@ namespace GestionClubView.Stock_Restaurante
 
         public void ImprimirPreTicket()
         {
-            this.ImprimirComprobante();
+            //this.ImprimirComprobante();
         }
         public void EliminarComprobanteAlmacen()
         {

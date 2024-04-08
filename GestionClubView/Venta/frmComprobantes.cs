@@ -311,7 +311,7 @@ namespace GestionClubView.Venta
             int cantidadCheck = 0;
 
             if (pObj.impEfeComprobante > 0) { cantidadCheck++; modoPago = "EFECTIVO"; }
-            if (pObj.impDepComprobante > 0) { cantidadCheck++; modoPago = "DEPOSITO"; }
+            if (pObj.impDepComprobante > 0) { cantidadCheck++; modoPago = "TARJETA"; }
             if (pObj.impTarComprobante > 0) { cantidadCheck++; modoPago = "TRANSFERENCIA"; }
             if (cantidadCheck > 1) modoPago = "MIXTO";
 

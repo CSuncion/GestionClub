@@ -396,10 +396,16 @@ namespace GestionClubView.Venta
             if (Cmb.ObtenerValor(this.cboTipDoc, string.Empty) != "03")
             {
                 GenerarArchivoComprobante.ComprobanteElectronico(iComEN, this.lObjDetalle, iParEN, cliente);
-                string json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
-                if (!this.AdicionarErrors(json, iComEN))
+                string json = string.Empty;
+
+                //1 = envia a nubefact; 0 = no envia a nubefact
+                if (ConfigurationManager.AppSettings["flagEnvioNubeFact"].ToString() == "1")
                 {
-                    this.AdicionarResultado(json);
+                    json = FacturacionElectronicaNubeFact.Main(iComEN.serComprobante + "-" + iComEN.nroComprobante, iParEN);
+                    if (!this.AdicionarErrors(json, iComEN))
+                    {
+                        this.AdicionarResultado(json);
+                    }
                 }
             }
 
@@ -483,11 +489,11 @@ namespace GestionClubView.Venta
 
             decimal precioReal = (Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100)));
 
-            pObj.impBruComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ? 
+            pObj.impBruComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ?
                 Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
                 precioReal;
 
-            pObj.impIgvComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ? 
+            pObj.impIgvComprobante = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ?
                 0 :
                precioReal * (iParEN.FirstOrDefault().PorcentajeIgv / 100);
 
@@ -1063,12 +1069,19 @@ namespace GestionClubView.Venta
             saltoLinea = saltoLinea + 5;
             g.DrawString("______________________________________________", fBody, sb, 10, SPACE + saltoLinea);
 
+            decimal precioReal = (Convert.ToDecimal(total / (1 + (iParEN.FirstOrDefault().PorcentajeIgv / 100))));
+
+            decimal gravado = Cmb.ObtenerValor(this.cboTipDoc, string.Empty) == "03" ?
+                Convert.ToDecimal(this.lObjDetalle.Sum(x => x.preTotal)) :
+                precioReal;
+
+
             saltoLinea = saltoLinea + 15;
             g.DrawString("Total Gravado:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
             subtotal = Formato.NumeroDecimal(Convert.ToDecimal(total) - (Convert.ToDecimal(total) * Convert.ToDecimal(0.18)), 2);
 
-            e.Graphics.DrawString(subtotal.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            e.Graphics.DrawString(Formato.NumeroDecimal(iComEN.impBruComprobante.ToString(), 2), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(subtotal.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
@@ -1082,7 +1095,9 @@ namespace GestionClubView.Venta
             saltoLinea = saltoLinea + 15;
             g.DrawString("IGV " + Convert.ToInt32(iParEN.FirstOrDefault().PorcentajeIgv).ToString() + "%", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * (iParEN.FirstOrDefault().PorcentajeIgv / 100), 2);
+
+            igv = Formato.NumeroDecimal(iComEN.impIgvComprobante.ToString(), 2);
+
             e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
@@ -1235,9 +1250,8 @@ namespace GestionClubView.Venta
             saltoLinea = saltoLinea + 15;
             g.DrawString("Total Gravado:", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            subtotal = Formato.NumeroDecimal(Convert.ToDecimal(total) - (Convert.ToDecimal(total) * Convert.ToDecimal(0.18)), 2);
 
-            e.Graphics.DrawString(subtotal.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
+            e.Graphics.DrawString(Formato.NumeroDecimal(iComEN.impBruComprobante.ToString(),2), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(subtotal.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 
             saltoLinea = saltoLinea + 15;
@@ -1251,7 +1265,9 @@ namespace GestionClubView.Venta
             saltoLinea = saltoLinea + 15;
             g.DrawString("IGV " + Convert.ToInt32(iParEN.FirstOrDefault().PorcentajeIgv).ToString() + "%", fBody, sb, 90, SPACE + saltoLinea);
             g.DrawString("S/", fBody, sb, 180, SPACE + saltoLinea);
-            igv = Formato.NumeroDecimal(Convert.ToDecimal(total) * (iParEN.FirstOrDefault().PorcentajeIgv / 100), 2);
+
+            igv = Formato.NumeroDecimal(iComEN.impIgvComprobante.ToString(), 2);
+
             e.Graphics.DrawString(igv.ToString(), fBody, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
             //g.DrawString(igv.ToString(), fBody, sb, 230, SPACE + saltoLinea);
 

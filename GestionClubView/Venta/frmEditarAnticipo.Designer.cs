@@ -44,6 +44,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkCancelado = new System.Windows.Forms.CheckBox();
             this.txtGlosa = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtTipoCambio = new System.Windows.Forms.TextBox();
@@ -84,7 +85,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.chkCancelado = new System.Windows.Forms.CheckBox();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -274,6 +274,17 @@
             this.groupBox4.Size = new System.Drawing.Size(706, 98);
             this.groupBox4.TabIndex = 458;
             this.groupBox4.TabStop = false;
+            // 
+            // chkCancelado
+            // 
+            this.chkCancelado.AutoSize = true;
+            this.chkCancelado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCancelado.Location = new System.Drawing.Point(603, 72);
+            this.chkCancelado.Name = "chkCancelado";
+            this.chkCancelado.Size = new System.Drawing.Size(83, 18);
+            this.chkCancelado.TabIndex = 464;
+            this.chkCancelado.Text = "Cancelado";
+            this.chkCancelado.UseVisualStyleBackColor = true;
             // 
             // txtGlosa
             // 
@@ -474,7 +485,7 @@
             // 
             this.nudCantidadProducto.Location = new System.Drawing.Point(516, 20);
             this.nudCantidadProducto.Maximum = new decimal(new int[] {
-            200,
+            999,
             0,
             0,
             0});
@@ -694,17 +705,6 @@
             this.lblTotal.Size = new System.Drawing.Size(13, 14);
             this.lblTotal.TabIndex = 465;
             this.lblTotal.Text = "0";
-            // 
-            // chkCancelado
-            // 
-            this.chkCancelado.AutoSize = true;
-            this.chkCancelado.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCancelado.Location = new System.Drawing.Point(603, 72);
-            this.chkCancelado.Name = "chkCancelado";
-            this.chkCancelado.Size = new System.Drawing.Size(83, 18);
-            this.chkCancelado.TabIndex = 464;
-            this.chkCancelado.Text = "Cancelado";
-            this.chkCancelado.UseVisualStyleBackColor = true;
             // 
             // frmEditarAnticipo
             // 

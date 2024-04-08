@@ -133,7 +133,7 @@ namespace GestionClubModel.ModelDto
         public int idComprobanteAlmacen { get; set; }
         public int idEmpresa { get; set; }
         public string codAlmacen { get; set; }
-        public string desAlmacen { get; set; }
+        public string desAlmacen { get; set; } = string.Empty;
         public string anoProceso { get; set; }
         public string mesProceso { get; set; }
         public string desMes { get; set; }

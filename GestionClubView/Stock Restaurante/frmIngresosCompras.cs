@@ -66,7 +66,7 @@ namespace GestionClubView.Stock_Restaurante
             //Lista ComprobanteAlmacens que no han sido creado por comandas
             GestionClubComprobanteAlmacenDto iOpEN = new GestionClubComprobanteAlmacenDto();
             this.eLisComp = GestionClubComprobanteAlmacenController.ListarComprobantes(iOpEN)
-                .Where(x=>x.tipFactura == "01" || x.tipFactura == "02").ToList();
+                .Where(x => x.tipFactura == "01" || x.tipFactura == "02").ToList();
         }
         public void ActualizarDgvComprobanteAlmacen()
         {
@@ -167,20 +167,7 @@ namespace GestionClubView.Stock_Restaurante
                 this.AccionModificar();
             }
         }
-        public void AccionModificar()
-        {
-            //preguntar si el registro seleccionado existe
-            GestionClubComprobanteAlmacenDto iObjEN = this.EsActoModificarComprobanteAlmacen();
-            if (iObjEN.Adicionales.EsVerdad == false) { return; }
 
-            //si existe
-            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
-            win.wFrm = this;
-            win.eOperacion = Universal.Opera.Modificar;
-            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorValor;
-            TabCtrl.InsertarVentana(this, win);
-            win.VentanaModificar(iObjEN);
-        }
         public GestionClubComprobanteAlmacenDto EsActoModificarComprobanteAlmacen()
         {
             GestionClubComprobanteAlmacenDto iObjEN = new GestionClubComprobanteAlmacenDto();
@@ -233,10 +220,24 @@ namespace GestionClubView.Stock_Restaurante
             }
             return iObjEN;
         }
+        public void AccionModificar()
+        {
+            //preguntar si el registro seleccionado existe
+            GestionClubComprobanteAlmacenDto iObjEN = this.EsActoModificarComprobanteAlmacen();
+            if (iObjEN.Adicionales.EsVerdad == false) { return; }
+
+            //si existe
+            frmEditarIngresosCompras win = new frmEditarIngresosCompras();
+            win.wFrm = this;
+            win.eOperacion = Universal.Opera.Modificar;
+            this.eFranjaDgvComprobanteAlmacen = Dgv.Franja.PorValor;
+            TabCtrl.InsertarVentana(this, win);
+            win.VentanaModificar(iObjEN);
+        }
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteAlmacenDto iComEN = this.EsProductoExistente();
+            GestionClubComprobanteAlmacenDto iComEN = this.EsActoModificarComprobanteAlmacen();
             if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
@@ -244,7 +245,7 @@ namespace GestionClubView.Stock_Restaurante
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);
-            //win.VentanaVisualizar(iPerEN);
+            win.VentanaVisualizar(iComEN);
         }
         public GestionClubComprobanteAlmacenDto EsProductoExistente()
         {

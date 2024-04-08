@@ -80,6 +80,17 @@ namespace GestionClubView.Stock_Restaurante
             eMas.AccionPasarTextoPrincipal();
             this.txtDocId.Focus();
         }
+        public void VentanaVisualizar(GestionClubComprobanteAlmacenDto pObj)
+        {
+            this.InicializaVentana();
+            this.MostrarComprobante(pObj);
+            this.LLenarComprobanteDetaDeBaseDatos(pObj);
+            this.MostrarComprobanteDeta();
+            //this.MostrarTipoCambio();
+            eMas.AccionHabilitarControles(3);
+            this.tsbGrabar.Enabled = false;
+            this.btnQuitar.Enabled = false;
+        }
         public void InicializaVentana()
         {
             //titulo ventana

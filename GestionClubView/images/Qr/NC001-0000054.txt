@@ -1,0 +1,6 @@
+operacion|generar_anulacion|
+tipo_de_comprobante|1|
+serie|FFF1|
+numero|0000105|
+motivo|ANULACION DE OPERACION|
+codigo_unico||

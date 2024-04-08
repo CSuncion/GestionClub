@@ -465,7 +465,7 @@
             this.nudCantidadProducto.Enabled = false;
             this.nudCantidadProducto.Location = new System.Drawing.Point(464, 16);
             this.nudCantidadProducto.Maximum = new decimal(new int[] {
-            200,
+            999,
             0,
             0,
             0});

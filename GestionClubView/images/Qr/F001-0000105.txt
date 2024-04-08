@@ -2,15 +2,15 @@ operacion|generar_comprobante|
 tipo_de_comprobante|1|
 serie|FFF1|
 numero|0000105|
-sunat_transaction|30|
+sunat_transaction|4|
 cliente_tipo_de_documento|6|
-cliente_numero_de_documento|20523879490|
-cliente_denominacion|HUAYNA SAC|
-cliente_direccion|CALLE SANTA CRUZ 331|
+cliente_numero_de_documento|20605825061|
+cliente_denominacion|UROGARDI S.A.C.|
+cliente_direccion|JR FEDERICO VILLARREAL 371 BREÑA LIMA|
 cliente_email||
 cliente_email1||
 cliente_email2||
-fecha_de_emision|18-03-2024|
+fecha_de_emision|04-04-2024|
 fecha_de_vencimiento||
 moneda|1|
 tipo_de_cambio|3.700|
@@ -18,13 +18,13 @@ porcentaje_de_igv|18.00|
 descuento_global||
 total_descuento||
 total_anticipo||
-total_gravada|677.96610169491525423728813559|
+total_gravada|1148.3050847457627118644067797|
 total_inafecta||
 total_exonerada||
-total_igv|122.03389830508474576271186441|
+total_igv|206.69491525423728813559322035|
 total_gratuita||
 total_otros_cargos||
-total|800.00|
+total|1355.00|
 percepcion_tipo||
 percepcion_base_imponible||
 total_percepcion||
@@ -44,7 +44,8 @@ medio_de_pago||
 placa_vehiculo||
 orden_compra_servicio||
 detraccion_tipo|17|
-detraccion_total|96.0000|
+detraccion_total|162.6000|
 medio_de_pago_detraccion|1|
+tabla_personalizada_codigo||
 formato_de_pdf||
-item|NIU|06010101|SERVICIO POR REALIZACION DE EVENTOS - ADELANTO|1|677.9661016949|800.0000000000||677.9661016949|1|122.0338983051|800.0000000000|false|||10000000|
+item|NIU|06010101|SERVICIO POR REALIZACION DE EVENTOS - ADELANTO|1|1148.3050847458|1355.0000000000||1148.3050847458|1|206.6949152542|1355.0000000000|false|||10000000|

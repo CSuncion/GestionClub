@@ -235,7 +235,7 @@ namespace GestionClubView.Stock_Restaurante
         public void AccionVisualizar()
         {
             //preguntar si el registro seleccionado existe
-            GestionClubComprobanteAlmacenDto iComEN = this.EsProductoExistente();
+            GestionClubComprobanteAlmacenDto iComEN = this.EsActoModificarComprobanteAlmacen();
             if (iComEN.Adicionales.EsVerdad == false) { return; }
 
             //si existe
@@ -243,7 +243,7 @@ namespace GestionClubView.Stock_Restaurante
             win.wFrm = this;
             win.eOperacion = Universal.Opera.Visualizar;
             TabCtrl.InsertarVentana(this, win);
-            //win.VentanaVisualizar(iPerEN);
+            win.VentanaVisualizar(iComEN);
         }
         public GestionClubComprobanteAlmacenDto EsProductoExistente()
         {

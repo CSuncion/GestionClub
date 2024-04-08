@@ -2,34 +2,34 @@ operacion|generar_comprobante|
 tipo_de_comprobante|1|
 serie|FFF1|
 numero|0000107|
-sunat_transaction|1|
+sunat_transaction|4|
 cliente_tipo_de_documento|6|
-cliente_numero_de_documento|20537407744|
-cliente_denominacion|PREVENTO E.I.R.L|
-cliente_direccion|AV PARQUE SUR 416 SAN ISIDRO|
+cliente_numero_de_documento|20605825061|
+cliente_denominacion|UROGARDI S.A.C.|
+cliente_direccion|JR FEDERICO VILLARREAL 371 BREÑA LIMA|
 cliente_email||
 cliente_email1||
 cliente_email2||
-fecha_de_emision|12-03-2024|
+fecha_de_emision|04-04-2024|
 fecha_de_vencimiento||
 moneda|1|
 tipo_de_cambio|3.700|
 porcentaje_de_igv|18.00|
 descuento_global||
 total_descuento||
-total_anticipo||
-total_gravada|29.661016949152542372881355932|
+total_anticipo|1148.31|
+total_gravada|851.69|
 total_inafecta||
 total_exonerada||
-total_igv|5.3389830508474576271186440678|
+total_igv|153.31|
 total_gratuita||
 total_otros_cargos||
-total|35.00|
+total|1005.00|
 percepcion_tipo||
 percepcion_base_imponible||
 total_percepcion||
 total_incluido_percepcion||
-detraccion|false|
+detraccion|true|
 observaciones||
 documento_que_se_modifica_tipo||
 documento_que_se_modifica_serie||
@@ -43,6 +43,10 @@ condiciones_de_pago||
 medio_de_pago||
 placa_vehiculo||
 orden_compra_servicio||
+detraccion_tipo|17|
+detraccion_total|120.6000000000|
+medio_de_pago_detraccion|1|
 tabla_personalizada_codigo||
 formato_de_pdf||
-item|NIU|03030114|ALQUILER SALON PARA ESGRIMA|1|29.6610169492|35.0000000000||29.6610169492|1|5.3389830508|35.0000000000|false|||10000000|
+item|NIU|06010101|SERVICIO POR REALIZACION DE EVENTOS - ADELANTO|1|1148.3050847458|1355.0000000000||1148.3050847458|1|206.6949152542|1355.0000000000|true|FFF1|0000106|20000000|
+item|NIU|06010102|SERVICIO POR REALIZACION DE EVENTOS - CANCELACION|1|2000.0000000000|2360.0000000000||2000.0000000000|1|360.0000000000|2360.0000000000|false|||10000000|
