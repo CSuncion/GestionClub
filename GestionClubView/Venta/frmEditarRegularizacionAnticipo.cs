@@ -859,15 +859,26 @@ namespace GestionClubView.Venta
             {
                 saltoLinea = saltoLinea + 15;
                 g.DrawString(item.cantidad.ToString(), fBodyNoBold, sb, 10, SPACE + (saltoLinea));
-                g.DrawString(item.desProducto.Substring(0, item.desProducto.Length > 20 ? 20 : item.desProducto.Length), fBodyNoBold, sb, 50, SPACE + (saltoLinea));
-                g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 170, SPACE + (saltoLinea));
-
+                                g.DrawString(item.preVenta.ToString(), fBodyNoBold, sb, 170, SPACE + (saltoLinea));
 
                 string precioPorCantidad = ((Convert.ToDecimal(item.preVenta) * Convert.ToInt32(item.cantidad))).ToString();
 
                 e.Graphics.DrawString(precioPorCantidad, fBodyNoBold, sb, new RectangleF(180, SPACE + (saltoLinea), 80, fBodyNoBold.Height), formato);
 
                 total += Convert.ToDecimal(item.preVenta) * Convert.ToInt32(item.cantidad);
+
+                if (item.desProducto.Length > 20)
+                {
+                    g.DrawString(item.desProducto.Substring(0, 20), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
+
+                    saltoLinea = saltoLinea + 15;
+
+                    g.DrawString(item.desProducto.Substring(20, item.desProducto.Length - 20), fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
+                }
+                else
+                {
+                    g.DrawString(item.desProducto, fBodyNoBoldFood, sb, 50, SPACE + (saltoLinea));
+                }
             }
 
             saltoLinea = saltoLinea + 5;

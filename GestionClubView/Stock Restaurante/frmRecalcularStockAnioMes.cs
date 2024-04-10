@@ -57,9 +57,19 @@ namespace GestionClubView.Stock_Restaurante
             frmPrincipal wMen = (frmPrincipal)this.ParentForm;
             wMen.CerrarVentanaHijo(this, wMen.tsmRecalcularStock, null);
         }
+        public bool ValidaFechaProceso()
+        {
+            if (Convert.ToInt32(this.txtAnio.Text + "" + Cmb.ObtenerValor(this.cboMes, string.Empty)) <= 202403)
+            {
+                Mensaje.OperacionDenegada("El periodo de proceso debe ser mayor o igual a Abril 2024", this.eTitulo);
+                return true;
+            }
+            return false;
+        }
         private void tsBtnSeleccionar_Click(object sender, EventArgs e)
         {
-            this.SeleccionarFecha();
+            if (!this.ValidaFechaProceso())
+                this.SeleccionarFecha();
         }
 
         private void tsbSalir_Click(object sender, EventArgs e)

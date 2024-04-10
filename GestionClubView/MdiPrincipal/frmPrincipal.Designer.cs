@@ -93,6 +93,7 @@
             this.tsmResumenAlmacen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmCuadroSalidaIngreso = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMovMensualStock = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmRegistroTicket = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmInformatica = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmRespaldoBackup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmMozosUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,7 +105,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.tsbComprobante = new System.Windows.Forms.ToolStripButton();
-            this.tsmRegistroTicket = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmMiscelaneos = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.ssStatusBar.SuspendLayout();
@@ -493,7 +494,8 @@
             this.tsmResumenAlmacen,
             this.tsmCuadroSalidaIngreso,
             this.tsmMovMensualStock,
-            this.tsmRegistroTicket});
+            this.tsmRegistroTicket,
+            this.tsmMiscelaneos});
             resources.ApplyResources(this.tsmReportes, "tsmReportes");
             this.tsmReportes.Name = "tsmReportes";
             // 
@@ -578,6 +580,12 @@
             this.tsmMovMensualStock.Name = "tsmMovMensualStock";
             this.tsmMovMensualStock.Click += new System.EventHandler(this.tsmMovMensualStock_Click);
             // 
+            // tsmRegistroTicket
+            // 
+            resources.ApplyResources(this.tsmRegistroTicket, "tsmRegistroTicket");
+            this.tsmRegistroTicket.Name = "tsmRegistroTicket";
+            this.tsmRegistroTicket.Click += new System.EventHandler(this.tsmRegistroTicket_Click);
+            // 
             // tsmInformatica
             // 
             this.tsmInformatica.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -653,11 +661,11 @@
             this.tsbComprobante.Name = "tsbComprobante";
             this.tsbComprobante.Click += new System.EventHandler(this.tsbComprobante_Click);
             // 
-            // tsmRegistroTicket
+            // tsmMiscelaneos
             // 
-            resources.ApplyResources(this.tsmRegistroTicket, "tsmRegistroTicket");
-            this.tsmRegistroTicket.Name = "tsmRegistroTicket";
-            this.tsmRegistroTicket.Click += new System.EventHandler(this.tsmRegistroTicket_Click);
+            resources.ApplyResources(this.tsmMiscelaneos, "tsmMiscelaneos");
+            this.tsmMiscelaneos.Name = "tsmMiscelaneos";
+            this.tsmMiscelaneos.Click += new System.EventHandler(this.tsmMiscelaneos_Click);
             // 
             // frmPrincipal
             // 
@@ -769,5 +777,6 @@
         internal System.Windows.Forms.ToolStripMenuItem tsmCambiarClave;
         internal System.Windows.Forms.ToolStripMenuItem tsmMovMensualStock;
         internal System.Windows.Forms.ToolStripMenuItem tsmRegistroTicket;
+        internal System.Windows.Forms.ToolStripMenuItem tsmMiscelaneos;
     }
 }

@@ -70,5 +70,15 @@ namespace GestionClubView.Reportes
         {
             this.Cerrar();
         }
+
+        private void rbDctosCliente_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbDctosProducto_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

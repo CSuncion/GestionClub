@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesAlmacen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIngresarAnioMesAlmacenCrystal));
             this.tsPrincipal = new System.Windows.Forms.ToolStrip();
-            this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
-            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,6 +37,10 @@
             this.cboMes = new System.Windows.Forms.ComboBox();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.tsBtnSeleccionar = new System.Windows.Forms.ToolStripButton();
+            this.tsbSalir = new System.Windows.Forms.ToolStripButton();
+            this.rbDctosCliente = new System.Windows.Forms.RadioButton();
+            this.rbDctosProducto = new System.Windows.Forms.RadioButton();
             this.tsPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -56,9 +58,80 @@
             this.tsPrincipal.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tsPrincipal.Name = "tsPrincipal";
-            this.tsPrincipal.Size = new System.Drawing.Size(357, 45);
+            this.tsPrincipal.Size = new System.Drawing.Size(393, 45);
             this.tsPrincipal.Stretch = true;
             this.tsPrincipal.TabIndex = 451;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 48);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(393, 30);
+            this.panel1.TabIndex = 453;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Khaki;
+            this.label3.Location = new System.Drawing.Point(12, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 23);
+            this.label3.TabIndex = 449;
+            this.label3.Text = "FILTRO";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbDctosProducto);
+            this.groupBox1.Controls.Add(this.rbDctosCliente);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cboMes);
+            this.groupBox1.Controls.Add(this.txtAnio);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 78);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(369, 96);
+            this.groupBox1.TabIndex = 454;
+            this.groupBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(189, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 14);
+            this.label9.TabIndex = 453;
+            this.label9.Text = "Mes:";
+            // 
+            // cboMes
+            // 
+            this.cboMes.FormattingEnabled = true;
+            this.cboMes.Location = new System.Drawing.Point(228, 13);
+            this.cboMes.Name = "cboMes";
+            this.cboMes.Size = new System.Drawing.Size(135, 21);
+            this.cboMes.TabIndex = 452;
+            // 
+            // txtAnio
+            // 
+            this.txtAnio.Location = new System.Drawing.Point(43, 13);
+            this.txtAnio.MaxLength = 4;
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(135, 20);
+            this.txtAnio.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 14);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Año:";
             // 
             // tsBtnSeleccionar
             // 
@@ -82,86 +155,41 @@
             this.tsbSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.tsbSalir.Click += new System.EventHandler(this.tsbSalir_Click);
             // 
-            // panel1
+            // rbDctosCliente
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(140)))), ((int)(((byte)(175)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 30);
-            this.panel1.TabIndex = 453;
+            this.rbDctosCliente.AutoSize = true;
+            this.rbDctosCliente.Location = new System.Drawing.Point(43, 40);
+            this.rbDctosCliente.Name = "rbDctosCliente";
+            this.rbDctosCliente.Size = new System.Drawing.Size(109, 17);
+            this.rbDctosCliente.TabIndex = 454;
+            this.rbDctosCliente.TabStop = true;
+            this.rbDctosCliente.Text = "Dctos. por Cliente";
+            this.rbDctosCliente.UseVisualStyleBackColor = true;
+            this.rbDctosCliente.CheckedChanged += new System.EventHandler(this.rbDctosCliente_CheckedChanged);
             // 
-            // label3
+            // rbDctosProducto
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Khaki;
-            this.label3.Location = new System.Drawing.Point(12, 4);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 23);
-            this.label3.TabIndex = 449;
-            this.label3.Text = "FILTRO";
+            this.rbDctosProducto.AutoSize = true;
+            this.rbDctosProducto.Location = new System.Drawing.Point(43, 63);
+            this.rbDctosProducto.Name = "rbDctosProducto";
+            this.rbDctosProducto.Size = new System.Drawing.Size(120, 17);
+            this.rbDctosProducto.TabIndex = 455;
+            this.rbDctosProducto.TabStop = true;
+            this.rbDctosProducto.Text = "Dctos. por Producto";
+            this.rbDctosProducto.UseVisualStyleBackColor = true;
+            this.rbDctosProducto.CheckedChanged += new System.EventHandler(this.rbDctosProducto_CheckedChanged);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.cboMes);
-            this.groupBox1.Controls.Add(this.txtAnio);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 78);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(333, 85);
-            this.groupBox1.TabIndex = 454;
-            this.groupBox1.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(76, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(33, 14);
-            this.label9.TabIndex = 453;
-            this.label9.Text = "Mes:";
-            // 
-            // cboMes
-            // 
-            this.cboMes.FormattingEnabled = true;
-            this.cboMes.Location = new System.Drawing.Point(115, 45);
-            this.cboMes.Name = "cboMes";
-            this.cboMes.Size = new System.Drawing.Size(135, 21);
-            this.cboMes.TabIndex = 452;
-            // 
-            // txtAnio
-            // 
-            this.txtAnio.Location = new System.Drawing.Point(115, 19);
-            this.txtAnio.MaxLength = 4;
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.Size = new System.Drawing.Size(135, 20);
-            this.txtAnio.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(78, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 14);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Año:";
-            // 
-            // frmIngresarAnioMesAlmacen
+            // frmIngresarAnioMesAlmacenCrystal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 179);
+            this.ClientSize = new System.Drawing.Size(393, 182);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tsPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmIngresarAnioMesAlmacen";
-            this.Text = "Resumen Almacen";
+            this.Name = "frmIngresarAnioMesAlmacenCrystal";
+            this.Text = "Reporte Miscelaneo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscogerListaVentasPorFechas_FormClosing);
             this.tsPrincipal.ResumeLayout(false);
             this.tsPrincipal.PerformLayout();
@@ -185,5 +213,7 @@
         internal System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.Label label9;
         internal System.Windows.Forms.ComboBox cboMes;
+        private System.Windows.Forms.RadioButton rbDctosProducto;
+        private System.Windows.Forms.RadioButton rbDctosCliente;
     }
 }
